@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asesmen Tengah Semester (ATS) Bahasa Inggris 2026 — SMAN 1 Bae Kudus</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header>
+    <div class="header-container">
+      <div class="school-brand">
+        <div class="school-logo-badge">S1B</div>
+        <div class="brand-text">
+          <h1>SMA NEGERI 1 BAE KUDUS (SABAKU)</h1>
+          <p>Asesmen Tengah Semester (ATS) &amp; Latihan Mandiri Bahasa Inggris — Semester Gasal 2026</p>
+        </div>
+      </div>
+      <div class="header-actions" id="header-actions" style="display: none;">
+        <span class="badge-mode" id="nav-mode-badge">Mode Latihan</span>
+        <div class="timer-box" id="timer-box">
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <span id="timer-display">90:00</span>
+        </div>
+        <button class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.4);" onclick="openSettingsModal()">⚙️ Database</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main>
+
+    <!-- Screen 1: Student Identity & Mode Selection -->
+    <section id="identity-screen">
+      <div class="card">
+        <div class="identity-header">
+          <h2>Formulir Peserta Asesmen</h2>
+          <p>Silakan lengkapi identitas siswa dan pilih mode pengerjaan di bawah ini:</p>
+        </div>
+
+        <form id="student-form" onsubmit="startTest(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="input-tingkat">Tingkat Kelas <span style="color:red;">*</span></label>
+              <select id="input-tingkat" class="form-control" required onchange="handleTingkatChange()">
+                <option value="">-- Pilih Tingkat --</option>
+                <option value="X-E">Kelas X-E (Fase E)</option>
+                <option value="XI-F">Kelas XI-F (Fase F Wajib)</option>
+                <option value="XII-F">Kelas XII-F (Fase F Wajib)</option>
+              </select>
+              <div class="hint">Materi disesuaikan dengan kurikulum semester gasal tingkat Anda.</div>
+            </div>
+
+            <div class="form-group">
+              <label for="input-rombel">Rombel (Kelas) <span style="color:red;">*</span></label>
+              <select id="input-rombel" class="form-control" required>
+                <option value="">-- Pilih Rombel (1-12) --</option>
+                <option value="1">Rombel 1</option>
+                <option value="2">Rombel 2</option>
+                <option value="3">Rombel 3</option>
+                <option value="4">Rombel 4</option>
+                <option value="5">Rombel 5</option>
+                <option value="6">Rombel 6</option>
+                <option value="7">Rombel 7</option>
+                <option value="8">Rombel 8</option>
+                <option value="9">Rombel 9</option>
+                <option value="10">Rombel 10</option>
+                <option value="11">Rombel 11</option>
+                <option value="12">Rombel 12</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="input-presensi">Nomor Presensi <span style="color:red;">*</span></label>
+              <input type="text" id="input-presensi" class="form-control" placeholder="Contoh: 7 (Bukan 07)" maxlength="2" required oninput="validatePresensi(this)">
+              <div class="hint">Isi angka 1 s.d. 36 tanpa awalan angka nol (0).</div>
+            </div>
+
+            <div class="form-group">
+              <label for="input-nama">Nama Lengkap Siswa <span style="color:red;">*</span></label>
+              <input type="text" id="input-nama" class="form-control" placeholder="Nama lengkap sesuai presensi" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Pilih Mode Ujian <span style="color:red;">*</span></label>
+            <div class="mode-selector">
+              <div class="mode-card selected" id="mode-card-practice" onclick="selectMode('practice')">
+                <h4>🎯 Mode Latihan Mandiri</h4>
+                <p>Skor langsung muncul dan <strong>dilengkapi pembahasan mendalam</strong> pada setiap butir soal setelah selesai.</p>
+              </div>
+              <div class="mode-card" id="mode-card-exam" onclick="selectMode('exam')">
+                <h4>📝 Mode Asesmen Resmi (ATS)</h4>
+                <p>Simulasi ujian resmi dengan batas waktu. Skor langsung terekap dan <strong>dikirim ke Google Sheets</strong>.</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 24px;">
+            <button type="submit" class="btn btn-primary btn-block" style="padding: 14px; font-size: 1.05rem;">
+              Mulai Mengerjakan Tes (40 Soal) 🚀
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Screen 2: Test Interface -->
+    <section id="test-screen" style="display: none;">
+      <div class="exam-layout">
+        
+        <!-- Left: Question & Options -->
+        <div class="question-container">
+          <div class="card" id="question-card">
+            
+            <div class="question-header">
+              <div class="q-badge" id="q-number-badge">Soal No. 1 dari 40</div>
+              <div class="q-type-tag" id="q-type-badge">Listening: Pictures</div>
+            </div>
+
+            <!-- Listening Audio Section -->
+            <div id="listening-container" style="display: none;">
+              <div class="listening-audio-box">
+                <div class="audio-info">
+                  <div class="audio-icon-pulse">🎧</div>
+                  <div>
+                    <strong style="color: var(--primary-navy); font-size: 0.95rem;">Sesi Listening Comprehension</strong>
+                    <div class="audio-playback-count" id="audio-status-text">Klik tombol putar untuk menyimak audio penutur asli.</div>
+                  </div>
+                </div>
+                <div class="audio-controls-group">
+                  <button type="button" class="btn-audio" id="btn-play-audio" onclick="playQuestionAudio()">
+                    <span id="play-icon">▶</span> <span id="play-text">Putar Audio</span>
+                  </button>
+                  <button type="button" class="btn btn-outline" style="padding: 6px 12px; font-size: 0.78rem;" onclick="toggleAudioSpeed()">
+                    Kecepatan: <span id="speed-text">1.0x</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stimulus Text Box (For Reading / Dialogues / Talks) -->
+            <div class="stimulus-box" id="stimulus-container" style="display: none;">
+              <div class="stimulus-title" id="stimulus-title">Teks Stimulus</div>
+              <div id="stimulus-body"></div>
+            </div>
+
+            <!-- Question Prompt -->
+            <div class="question-prompt" id="question-prompt-text">
+              Loading question...
+            </div>
+
+            <!-- Options Area (Dynamically injected: Pictures / Single Choice / MCMA / Matrix Table) -->
+            <div id="options-container"></div>
+
+            <!-- Explanation Card (Shown in Practice Mode after submit or review) -->
+            <div class="explanation-card" id="question-explanation-box" style="display: none;">
+              <div class="explanation-title">
+                <span>💡</span> <span>Pembahasan &amp; Kunci Jawaban Butir Soal</span>
+              </div>
+              <div class="explanation-content" id="explanation-text"></div>
+              <div class="explanation-meta" id="explanation-meta-text"></div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="question-nav-actions">
+              <button type="button" class="btn btn-outline" id="btn-prev-q" onclick="navigateQuestion(-1)">
+                ⬅️ Sebelumnya
+              </button>
+              
+              <div style="display: flex; gap: 8px;">
+                <button type="button" class="btn btn-warning" id="btn-flag-q" onclick="toggleFlagQuestion()">
+                  🏳️ Ragu-ragu
+                </button>
+                <button type="button" class="btn btn-success" id="btn-submit-test" style="display: none;" onclick="confirmSubmitTest()">
+                  🏁 Selesaikan Tes
+                </button>
+              </div>
+
+              <button type="button" class="btn btn-primary" id="btn-next-q" onclick="navigateQuestion(1)">
+                Berikutnya ➡️
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right: Navigator & Student Summary -->
+        <aside class="sidebar-panel">
+          <div class="card" style="padding: 18px;">
+            <div style="border-bottom: 1px solid var(--border-light); padding-bottom: 12px; margin-bottom: 12px;">
+              <div style="font-weight: 700; color: var(--primary-navy);" id="side-student-name">Nama Siswa</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);" id="side-student-meta">Kelas X-E | Rombel 1 | Presensi 1</div>
+            </div>
+
+            <div class="nav-grid-title">Navigasi Nomor Soal (40 Butir)</div>
+            <div class="q-grid" id="question-navigator-grid"></div>
+
+            <div class="legend-box">
+              <div class="legend-item">
+                <div class="legend-color" style="background-color: var(--royal-blue);"></div>
+                <span>Sudah Dijawab</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-color" style="background-color: #fef08a; border: 1px solid #eab308;"></div>
+                <span>Ragu-ragu</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-color" style="background-color: #ffffff; border: 1.5px solid var(--border-light);"></div>
+                <span>Belum Dijawab</span>
+              </div>
+            </div>
+
+            <button type="button" class="btn btn-success btn-block" style="margin-top: 16px;" onclick="confirmSubmitTest()">
+              Kirim Semua Jawaban
+            </button>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- Modal: Results & Score Summary -->
+    <div class="modal-overlay" id="result-modal" style="display: none;">
+      <div class="modal-content">
+        <h2 style="color: var(--primary-navy); margin-bottom: 4px;">Hasil Asesmen Tengah Semester</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem;" id="result-subtitle">Bahasa Inggris Semester Gasal 2026 — SMAN 1 Bae Kudus</p>
+        
+        <div class="score-circle" id="result-score-circle">
+          <div class="score-number" id="result-score-val">0</div>
+          <div class="score-label">NILAI AKHIR (0-100)</div>
+        </div>
+
+        <div style="font-size: 1.15rem; font-weight: 700; margin-bottom: 12px;" id="result-status-text">
+          Status: TUNTAS KKTP
+        </div>
+
+        <div class="result-stats">
+          <div class="stat-item">
+            <div class="val" id="stat-correct">0</div>
+            <div class="lbl">Jawaban Benar</div>
+          </div>
+          <div class="stat-item">
+            <div class="val" id="stat-wrong">0</div>
+            <div class="lbl">Jawaban Salah</div>
+          </div>
+          <div class="stat-item">
+            <div class="val" id="stat-accuracy">0%</div>
+            <div class="lbl">Akurasi</div>
+          </div>
+        </div>
+
+        <div class="cloud-status synced" id="cloud-sync-status">
+          <span>☁️</span> <span id="cloud-status-text">Nilai berhasil disimpan secara lokal dan cloud.</span>
+        </div>
+
+        <div style="display: flex; gap: 12px; margin-top: 24px; justify-content: center;">
+          <button type="button" class="btn btn-primary" onclick="reviewAllAnswers()">
+            🔍 Lihat Pembahasan Tiap Butir Soal
+          </button>
+          <button type="button" class="btn btn-outline" onclick="restartTest()">
+            🔄 Ulangi Tes
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal: Database & Google Sheets Configuration -->
+    <div class="modal-overlay" id="settings-modal" style="display: none;">
+      <div class="modal-content" style="max-width: 520px; text-align: left;">
+        <h3 style="color: var(--primary-navy); margin-bottom: 12px;">Pengaturan Integrasi Database</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 14px;">
+          Seluruh nilai siswa terhubung ke Google Spreadsheet:<br>
+          <a href="https://docs.google.com/spreadsheets/d/1-PVYGcdgjIfEe4zc2P1kYF5PIXXoZAGNRHd3e02Why4/edit?usp=sharing" target="_blank" style="color: var(--royal-blue); font-weight: 600; word-break: break-all;">
+            Buka Google Sheets Nilai ATS 2026 ↗️
+          </a>
+        </p>
+
+        <div class="form-group">
+          <label for="input-gs-url">Google Apps Script Web App URL (/exec):</label>
+          <input type="url" id="input-gs-url" class="form-control" placeholder="https://script.google.com/macros/s/.../exec">
+          <div class="hint">Petunjuk deploy lengkap tersedia di file <code>google_apps_script.js</code>.</div>
+        </div>
+
+        <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px;">
+          <button type="button" class="btn btn-outline" onclick="closeSettingsModal()">Tutup</button>
+          <button type="button" class="btn btn-primary" onclick="saveSettings()">Simpan Pengaturan</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    SMA Negeri 1 Bae Kudus (Sabaku) &bull; Sistem Asesmen Terpadu &bull; Tahun Ajaran 2025/2026
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
