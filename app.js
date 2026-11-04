@@ -869,7 +869,7 @@ function selectMode(mode) {
   document.getElementById("mode-card-practice").classList.toggle("selected", mode === "practice");
   document.getElementById("mode-card-exam").classList.toggle("selected", mode === "exam");
   
-  // Toggle token input visibility for Official ATS Mode
+  // Toggle token input visibility for Official ASTS Mode
   const tokenGroup = document.getElementById("token-group");
   if (tokenGroup) {
     tokenGroup.style.display = (mode === "exam") ? "block" : "none";
@@ -919,12 +919,12 @@ function startTest(e) {
     return;
   }
 
-  // Token Verification for Official Exam (ATS)
+  // Token Verification for Official Exam (ASTS)
   if (currentMode === "exam") {
     const tokenInput = document.getElementById("input-token");
     const tokenVal = tokenInput ? tokenInput.value.trim() : "";
     if (tokenVal !== "JujurItuMujur") {
-      alert("⚠️ Token Asesmen Resmi (ATS) tidak valid!\nHarap masukkan token resmi dari pengawas: JujurItuMujur");
+      alert("⚠️ Token Asesmen Resmi (ASTS) tidak valid!\nHarap masukkan token resmi dari pengawas: JujurItuMujur");
       if (tokenInput) tokenInput.focus();
       return;
     }
@@ -942,7 +942,7 @@ function startTest(e) {
 
   // Update Header Badges
   const modeBadge = document.getElementById("nav-mode-badge");
-  modeBadge.textContent = (currentMode === "practice") ? "🎯 Mode Latihan" : "📝 Asesmen Resmi (ATS)";
+  modeBadge.textContent = (currentMode === "practice") ? "🎯 Mode Latihan" : "📝 Asesmen Resmi (ASTS)";
   modeBadge.className = "badge-mode " + (currentMode === "practice" ? "practice" : "exam");
 
   // Update Sidebar Student Meta
@@ -1388,7 +1388,7 @@ function submitTest() {
     rombel: studentIdentity.rombel,
     presensi: studentIdentity.presensi,
     nama: studentIdentity.nama,
-    mode: (currentMode === "practice") ? "Latihan Mandiri" : "Asesmen Resmi (ATS)",
+    mode: (currentMode === "practice") ? "Latihan Mandiri" : "Asesmen Resmi (ASTS)",
     score: correctCount,
     total: totalQuestions,
     grade: finalScore,

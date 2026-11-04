@@ -49,7 +49,7 @@
             <div class="form-group">
               <label for="input-jenis-asesmen">Pilih Jenis Asesmen <span style="color:red;">*</span></label>
               <select id="input-jenis-asesmen" class="form-control" required>
-                <option value="ATS">📘 Asesmen Sumatif Tengah Semester Gasal (ASTS) — Separuh Materi Gasal</option>
+                <option value="ASTS">📘 Asesmen Sumatif Tengah Semester Gasal (ASTS) — Separuh Materi Gasal</option>
                 <option value="ASAS">📕 Asesmen Akhir Semester (ASAS) — Satu Semester Penuh Gasal</option>
               </select>
               <div class="hint">Pilih Asesmen Sumatif Tengah Semester Gasal (ASTS) atau Asesmen Sumatif Akhir Semester Gasal (ASAS).</div>
@@ -98,16 +98,16 @@
                 <p>Skor langsung tampil dan <strong>dilengkapi pembahasan mendalam</strong> pada setiap butir soal setelah selesai.</p>
               </div>
               <div class="mode-card" id="mode-card-exam" onclick="selectPortalMode('exam')">
-                <h4>📝 Mode Asesmen Resmi (ATS)</h4>
+                <h4>📝 Mode Asesmen Resmi (ASTS)</h4>
                 <p>Simulasi ujian resmi dengan batas waktu 90 menit. Skor terekap dan <strong>tersinkronisasi ke Google Sheets</strong>.</p>
               </div>
             </div>
           </div>
 
-          <!-- Token input for Official Exam (ATS) -->
+          <!-- Token input for Official Exam (ASTS) -->
           <div class="form-group" id="token-group" style="display: none; margin-top: 16px; background: #fffbeb; border: 1.5px solid #f59e0b; border-radius: 10px; padding: 14px;">
             <label for="input-token" style="color: #92400e; font-weight: 700; margin-bottom: 6px; display: block;">
-              🔑 Token Asesmen Resmi (ATS) <span style="color:red;">*</span>
+              🔑 Token Asesmen Resmi (ASTS) <span style="color:red;">*</span>
             </label>
             <input type="text" id="input-token" class="form-control" placeholder="Masukkan token resmi pengawas: JujurItuMujur" autocomplete="off" style="font-weight: 700; letter-spacing: 1px; border-color: #f59e0b; background: #ffffff;">
             <div class="hint" style="color: #b45309; font-size: 0.85rem; margin-top: 6px;">
@@ -132,9 +132,9 @@
           </p>
 
           <div class="portal-level-cards">
-            <!-- Card Kelas X ATS -->
-            <div class="portal-card" id="preview-card-X-E-ATS">
-              <span class="portal-badge badge-x">Kelas X — ATS Gasal</span>
+            <!-- Card Kelas X ASTS -->
+            <div class="portal-card" id="preview-card-X-E-ASTS">
+              <span class="portal-badge badge-x">Kelas X — ASTS Gasal</span>
               <h4 style="color: var(--primary-navy); margin-bottom: 8px;">Latihan Asesmen Sumatif Tengah Semester Gasal (ASTS)</h4>
               <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px;">
                 <strong>Separuh Materi Gasal (TP 10.1 &amp; Intro TP 10.2):</strong><br>
@@ -145,7 +145,7 @@
                 • Kosakata: Oxford 3000 Level A2
               </p>
               <a href="kelas-x.html" style="font-size: 0.85rem; font-weight: 700; color: var(--royal-blue); text-decoration: none;">
-                Mulai Latihan ATS Kelas X ➔
+                Mulai Latihan ASTS Kelas X ➔
               </a>
             </div>
 
@@ -273,7 +273,7 @@
         const tokenInput = document.getElementById('input-token');
         const tokenVal = tokenInput ? tokenInput.value.trim() : '';
         if (tokenVal !== 'JujurItuMujur') {
-          alert('⚠️ Token Asesmen Resmi (ATS) tidak valid!\nSilakan masukkan token resmi pengawas: JujurItuMujur');
+          alert('⚠️ Token Asesmen Resmi (ASTS) tidak valid!\nSilakan masukkan token resmi pengawas: JujurItuMujur');
           if (tokenInput) tokenInput.focus();
           return;
         }

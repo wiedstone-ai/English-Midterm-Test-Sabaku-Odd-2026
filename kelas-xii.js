@@ -952,7 +952,7 @@ function handleDirectIdentitySubmit(e) {
   if (mode === "exam") {
     const token = document.getElementById("direct-token").value.trim();
     if (token !== "JujurItuMujur") {
-      alert("⚠️ Token Asesmen Resmi (ATS) tidak valid! Masukkan: JujurItuMujur");
+      alert("⚠️ Token Asesmen Resmi (ASTS) tidak valid! Masukkan: JujurItuMujur");
       return;
     }
   }
@@ -1002,7 +1002,7 @@ function startFreshTest() {
 function applyStudentMetadata() {
   // Update Header Badges
   const modeBadge = document.getElementById("nav-mode-badge");
-  modeBadge.textContent = (currentMode === "practice") ? "🎯 Mode Latihan" : "📝 Asesmen Resmi (ATS)";
+  modeBadge.textContent = (currentMode === "practice") ? "🎯 Mode Latihan" : "📝 Asesmen Resmi (ASTS)";
   modeBadge.className = "badge-mode " + (currentMode === "practice" ? "practice" : "exam");
 
   // Update Sidebar Student Meta
@@ -1472,7 +1472,7 @@ function submitTest() {
     rombel: studentIdentity.rombel,
     presensi: studentIdentity.presensi,
     nama: studentIdentity.nama,
-    mode: (currentMode === "practice") ? "Latihan Mandiri" : "Asesmen Resmi (ATS)",
+    mode: (currentMode === "practice") ? "Latihan Mandiri" : "Asesmen Resmi (ASTS)",
     score: correctCount,
     total: totalQuestions,
     grade: finalScore,

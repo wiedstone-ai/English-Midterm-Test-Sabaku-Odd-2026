@@ -12,7 +12,7 @@
  * 4. Klik ikon Save (Disket / Ctrl+S).
  * 5. Klik tombol biru 'Deploy' (Terapkan) -> 'New deployment' (Penerapan baru).
  *    - Pilih jenis: 'Web app' (Aplikasi web)
- *    - Description: 'ATS Sabaku 2026'
+ *    - Description: 'ASTS Sabaku 2026'
  *    - Execute as: 'Me' (Saya)
  *    - Who has access: 'Anyone' (Siapa saja)
  *    - Klik 'Deploy'. Berikan izin otorisasi Google jika diminta.
