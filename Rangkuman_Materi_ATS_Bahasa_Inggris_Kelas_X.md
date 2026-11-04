@@ -213,3 +213,4 @@ Dalam Asesmen Tengah Semester, terdapat 3 variasi model soal:
 > 1. Bacalah pertanyaan terlebih dahulu sebelum membaca teks bacaan panjang (*skimming & scanning*).
 > 2. Manfaatkan fitur penanda **Ragu-Ragu (🟡)** jika belum yakin, dan kembali ke soal tersebut sebelum mengumpulkan.
 > 3. Seluruh pilihan jawaban pada aplikasi diacak secara dinamis, sehingga pahami substansi kalimatnya, bukan sekadar menghafal huruf pilihannya.
+
