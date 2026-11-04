@@ -1,5 +1,5 @@
 /**
- * GOOGLE APPS SCRIPT - REKAP NILAI ASESMEN TENGAH SEMESTER (ATS) 2026
+ * GOOGLE APPS SCRIPT - REKAP NILAI ASESMEN SUMATIF TENGAH SEMESTER GASAL (ASTS) 2026
  * SMA NEGERI 1 BAE KUDUS (SABAKU)
  * 
  * Spreadsheet ID: 1-PVYGcdgjIfEe4zc2P1kYF5PIXXoZAGNRHd3e02Why4
@@ -112,7 +112,7 @@ function doGet(e) {
   return ContentService.createTextOutput(JSON.stringify({
     status: "active",
     school: "SMA Negeri 1 Bae Kudus (Sabaku)",
-    system: "Rekapitulasi Nilai Asesmen Tengah Semester 2026",
+    system: "Rekapitulasi Nilai Asesmen Sumatif Tengah Semester Gasal 2026",
     sheetId: SPREADSHEET_ID
   })).setMimeType(ContentService.MimeType.JSON);
 }

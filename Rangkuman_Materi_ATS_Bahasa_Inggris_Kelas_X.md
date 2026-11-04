@@ -1,10 +1,10 @@
-# 📖 RANGKUMAN MATERI BELAJAR ASESMEN TENGAH SEMESTER (ATS)
+# 📖 RANGKUMAN MATERI BELAJAR ASESMEN SUMATIF TENGAH SEMESTER GASAL (ASTS)
 ## BAHASA INGGRIS — TINGKAT X (FASE E) SEMESTER GASAL
 ### SMA NEGERI 1 BAE KUDUS (SABAKU) — KURIKULUM MERDEKA
 
 ---
 
-Panduan belajar ini disusun khusus untuk membantu siswa Kelas X mempersiapkan Asesmen Tengah Semester (ATS) maupun Latihan Mandiri dengan pendekatan **Tes Kemampuan Akademik (TKA)**. Materi mencakup 4 pilar utama: *Listening Comprehension*, *Reading Genres*, *Grammar in Context*, dan *Vocabulary Mastery (Oxford 3000 A2)*.
+Panduan belajar ini disusun khusus untuk membantu siswa Kelas X mempersiapkan Asesmen Sumatif Tengah Semester Gasal (ASTS) maupun Latihan Mandiri dengan pendekatan **Tes Kemampuan Akademik (TKA)**. Materi mencakup 4 pilar utama: *Listening Comprehension*, *Reading Genres*, *Grammar in Context*, dan *Vocabulary Mastery (Oxford 3000 A2)*.
 
 ---
 
@@ -187,7 +187,7 @@ Gunakan kosakata yang komunikatif, umum, dan aplikatif. Hindari kebingungan deng
 
 ## 💡 BAGIAN 5: STRATEGI MENGERJAKAN 3 TIPE SOAL TKA
 
-Dalam Asesmen Tengah Semester, terdapat 3 variasi model soal:
+Dalam Asesmen Sumatif Tengah Semester Gasal, terdapat 3 variasi model soal:
 
 ### 1. Pilihan Ganda Tunggal (Single Choice)
 * Hanya terdapat **satu (1) pilihan jawaban yang benar** di antara opsi A, B, C, atau D.

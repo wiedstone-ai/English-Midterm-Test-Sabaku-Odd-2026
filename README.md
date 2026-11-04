@@ -1,10 +1,10 @@
 # 📚 English Midterm Test Sabaku Odd 2026
-## Portal Asesmen Tengah Semester (ATS) & Latihan Mandiri Bahasa Inggris — Semester Gasal 2026/2027
+## Portal Asesmen Sumatif Tengah Semester Gasal (ASTS) & Latihan Mandiri Bahasa Inggris — Semester Gasal 2026/2027
 **SMA Negeri 1 Bae Kudus (Sabaku) — Kurikulum Merdeka**
 
 🌐 **Live GitHub Pages URL:** [https://wiedstone-ai.github.io/English-Midterm-Test-Sabaku-Odd-2026/](https://wiedstone-ai.github.io/English-Midterm-Test-Sabaku-Odd-2026/)
 
-Aplikasi web interaktif terpadu berbasis HTML5, CSS3, dan Vanilla JavaScript modern untuk Asesmen Tengah Semester (ATS) dan Latihan Mandiri berbasis **Tes Kemampuan Akademik (TKA / AKM / UTBK)** dengan arsitektur multi-halaman untuk tiap jenjang kelas.
+Aplikasi web interaktif terpadu berbasis HTML5, CSS3, dan Vanilla JavaScript modern untuk Asesmen Sumatif Tengah Semester Gasal (ASTS) dan Latihan Mandiri berbasis **Tes Kemampuan Akademik (TKA / AKM / UTBK)** dengan arsitektur multi-halaman untuk tiap jenjang kelas.
 
 ---
 
