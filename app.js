@@ -802,10 +802,83 @@ let questions = [];
 // CONTROLLER & UI FUNCTIONS
 // =============================================================================
 
+// Fisher-Yates array shuffle utility
+function shuffleArray(arr) {
+  const array = [...arr];
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+// Randomize question options and matrix statements while dynamically mapping correct answers and explanations
+function randomizeQuestionOptions(questionBank) {
+  const LETTERS = ["A", "B", "C", "D", "E"];
+
+  return questionBank.map(origQ => {
+    // Deep clone question to avoid mutating bank
+    const q = JSON.parse(JSON.stringify(origQ));
+
+    // Shuffle statements in complex matrix questions
+    if (q.type === "complex_matrix" && Array.isArray(q.matrixStatements)) {
+      q.matrixStatements = shuffleArray(q.matrixStatements);
+    } 
+    // Shuffle options in single choice, listening pictures, and MCMA
+    else if (Array.isArray(q.options) && q.options.length > 0) {
+      // Tag original option key
+      q.options.forEach(opt => {
+        opt._origKey = opt.key;
+      });
+
+      // Shuffle options list
+      const shuffled = shuffleArray(q.options);
+
+      // Re-assign sequential letters A, B, C, D and build key mapping
+      const keyMap = {};
+      shuffled.forEach((opt, idx) => {
+        const newKey = LETTERS[idx] || String.fromCharCode(65 + idx);
+        keyMap[opt._origKey] = newKey;
+        opt.key = newKey;
+        delete opt._origKey;
+      });
+
+      q.options = shuffled;
+
+      // Update correct answer pointer(s)
+      if (q.type === "mcma" && Array.isArray(q.correctAnswer)) {
+        q.correctAnswer = q.correctAnswer.map(k => keyMap[k] || k).sort();
+      } else if (typeof q.correctAnswer === "string") {
+        q.correctAnswer = keyMap[q.correctAnswer] || q.correctAnswer;
+      }
+
+      // Synchronize explanation references to newly mapped keys
+      if (q.explanation) {
+        q.explanation = q.explanation.replace(/(Opsi|Gambar|Pilihan|Jawaban)\s+([A-D])\b/gi, (match, prefix, oldLetter) => {
+          const up = oldLetter.toUpperCase();
+          return keyMap[up] ? `${prefix} ${keyMap[up]}` : match;
+        });
+      }
+    }
+
+    return q;
+  });
+}
+
 function selectMode(mode) {
   currentMode = mode;
   document.getElementById("mode-card-practice").classList.toggle("selected", mode === "practice");
   document.getElementById("mode-card-exam").classList.toggle("selected", mode === "exam");
+  
+  // Toggle token input visibility for Official ATS Mode
+  const tokenGroup = document.getElementById("token-group");
+  if (tokenGroup) {
+    tokenGroup.style.display = (mode === "exam") ? "block" : "none";
+    if (mode === "exam") {
+      const tokenInput = document.getElementById("input-token");
+      if (tokenInput) tokenInput.focus();
+    }
+  }
 }
 
 function handleTingkatChange() {
@@ -847,9 +920,21 @@ function startTest(e) {
     return;
   }
 
+  // Token Verification for Official Exam (ATS)
+  if (currentMode === "exam") {
+    const tokenInput = document.getElementById("input-token");
+    const tokenVal = tokenInput ? tokenInput.value.trim() : "";
+    if (tokenVal !== "JujurItuMujur") {
+      alert("⚠️ Token Asesmen Resmi (ATS) tidak valid!\nHarap masukkan token resmi dari pengawas: JujurItuMujur");
+      if (tokenInput) tokenInput.focus();
+      return;
+    }
+  }
+
   studentIdentity = { tingkat, rombel, presensi, nama };
   currentTingkat = tingkat;
-  questions = getQuestionBank(tingkat);
+  // Randomize all answer options and matrix statements for every test attempt
+  questions = randomizeQuestionOptions(getQuestionBank(tingkat));
 
   // Switch UI Screens
   document.getElementById("identity-screen").style.display = "none";
@@ -971,7 +1056,21 @@ function renderQuestion(index) {
   const expBox = document.getElementById("question-explanation-box");
   if (isExamSubmitted || (currentMode === "practice" && isQuestionAnswered(q.id))) {
     expBox.style.display = "block";
-    document.getElementById("explanation-text").innerHTML = q.explanation;
+    let keyBadge = "";
+    if (q.type === "complex_matrix") {
+      keyBadge = q.matrixStatements.map((s, i) => `Pernyataan ${i+1}: <strong>${s.isCorrect ? 'BENAR' : 'SALAH'}</strong>`).join(" | ");
+    } else if (Array.isArray(q.correctAnswer)) {
+      keyBadge = q.correctAnswer.join(", ");
+    } else {
+      keyBadge = q.correctAnswer;
+    }
+
+    document.getElementById("explanation-text").innerHTML = `
+      <div style="margin-bottom: 10px; padding: 6px 12px; background: #ecfdf5; border: 1.5px solid #a7f3d0; border-radius: 8px; color: #065f46; font-size: 0.95rem; display: inline-block;">
+        🔑 <strong>Kunci Jawaban:</strong> <span style="font-weight: 800; color: #047857; margin-left: 4px;">${keyBadge}</span>
+      </div>
+      <div>${q.explanation}</div>
+    `;
     document.getElementById("explanation-meta-text").innerHTML = `<strong>Kaidah &amp; Kosakata:</strong> ${q.grammarNote || "-"}`;
   } else {
     expBox.style.display = "none";
@@ -1355,6 +1454,8 @@ function restartTest() {
     document.getElementById("test-screen").style.display = "none";
     document.getElementById("identity-screen").style.display = "block";
     document.getElementById("header-actions").style.display = "none";
+    const tokenInput = document.getElementById("input-token");
+    if (tokenInput) tokenInput.value = "";
     userAnswers = {};
     flaggedQuestions.clear();
     isExamSubmitted = false;

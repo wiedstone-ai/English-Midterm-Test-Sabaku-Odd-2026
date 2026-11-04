@@ -2,7 +2,9 @@
 ## Asesmen Tengah Semester (ATS) & Latihan Mandiri Bahasa Inggris — Semester Gasal 2026
 **SMA Negeri 1 Bae Kudus (Sabaku) — Kurikulum Merdeka**
 
-Aplikasi web interaktif berbasis HTML, CSS, dan JavaScript murni untuk Asesmen Tengah Semester (ATS) dan Latihan Mandiri Terpadu dengan pendekatan **Tes Kemampuan Akademik (TKA / AKM / UTBK)**.
+🌐 **Live GitHub Pages URL:** [https://wiedstone-ai.github.io/English-Midterm-Test-Sabaku-Odd-2026/](https://wiedstone-ai.github.io/English-Midterm-Test-Sabaku-Odd-2026/)
+
+Aplikasi web interaktif modern berbasis HTML5, CSS3, dan JavaScript murni untuk Asesmen Tengah Semester (ATS) resmi dan Latihan Mandiri Terpadu dengan pendekatan **Tes Kemampuan Akademik (TKA / AKM / UTBK)**.
 
 ---
 
@@ -16,26 +18,33 @@ Aplikasi web interaktif berbasis HTML, CSS, dan JavaScript murni untuk Asesmen T
    * **30 Soal Reading, Grammar, Vocabulary, & TKA:**
      * Teks otentik: *Descriptive Text*, *Report Text*, *Narrative*, *Analytical Exposition*, & *Discussion*.
      * **Variasi Tipe Soal:**
-       * Pilihan Ganda Tunggal (Single Choice)
+       * Pilihan Ganda Tunggal (*Single Choice*)
        * Pilihan Ganda Kompleks (*Matrix Table True/False*)
        * Multiple Choice Multiple Answer (*MCMA Checkboxes - Pilih 2 Opsi Benar*)
      * Tata bahasa terintegrasi: *Simple Present*, *OSASCOMP Adjective Order*, *Passive Voice*, *Past Continuous*, *Conditionals Type 1 & 2*, dan *Internal Conjunctions*.
      * Kosakata terkurasi dari **Oxford 3000 (CEFR Level A2, B1, dan B2)**.
 
-2. **Dua Mode Pengerjaan:**
-   * **🎯 Mode Latihan Mandiri:** Skor langsung muncul setelah selesai dan siswa dapat melihat **pembahasan mendalam serta kunci jawaban** pada setiap butir soal.
-   * **📝 Mode Asesmen Resmi (ATS):** Simulasi ujian dengan hitung mundur waktu (90 menit), anti-kecurangan, dan skor otomatis tersinkronisasi ke basis data cloud.
+2. **Pengacakan Pilihan Jawaban (Randomized Options):**
+   * Semua pilihan jawaban (A, B, C, D) diacak secara dinamis menggunakan algoritma *Fisher-Yates Shuffle* pada setiap pengerjaan tes.
+   * Pernyataan evaluasi pada soal Pilihan Ganda Kompleks (*Matrix Table*) juga diacak.
+   * Kunci jawaban dan rujukan pembahasan (*explanation*) tersinkronisasi otomatis dengan posisi opsi yang baru.
 
-3. **Formulir Identitas Siswa Lengkap:**
+3. **Dua Mode Pengerjaan dengan Proteksi Token Ujian:**
+   * **🎯 Mode Latihan Mandiri:** Skor langsung muncul setelah selesai dan siswa dapat melihat **kunci jawaban serta pembahasan mendalam** pada setiap butir soal.
+   * **📝 Mode Asesmen Resmi (ATS):** Simulasi ujian dengan hitung mundur waktu (90 menit). Dilengkapi proteksi token pengawas ujian:
+     * **Token Resmi ATS:** `JujurItuMujur`
+     * Skor langsung terekap dan otomatis tersinkronisasi ke basis data Google Sheets.
+
+4. **Formulir Identitas Siswa Lengkap:**
    * **Tingkat:** Dropdown pilihan (`X-E`, `XI-F`, atau `XII-F`).
    * **Rombel:** Pilihan 1 s.d. 12.
    * **Nomor Presensi:** Isian angka 1 s.d. 36 (validasi otomatis tanpa angka nol di depan).
-   * **Nama Lengkap:** Isian nama lengkap siswa.
+   * **Nama Lengkap:** Isian nama lengkap siswa sesuai daftar presensi.
 
-4. **Integrasi Rekapitulasi Nilai Google Sheets:**
+5. **Integrasi Rekapitulasi Nilai Google Sheets:**
    * Terhubung langsung dengan Google Spreadsheet:
      [Spreadsheet Rekap Nilai ATS 2026](https://docs.google.com/spreadsheets/d/1-PVYGcdgjIfEe4zc2P1kYF5PIXXoZAGNRHd3e02Why4/edit?usp=sharing)
-   * Menyimpan: Timestamp, Tingkat, Rombel, No. Presensi, Nama Lengkap, Mode, Skor Benar, Total Soal, Nilai (0-100), Status KKTP (Tuntas/Belum), dan Durasi Pengerjaan.
+   * Kolom data: *Timestamp, Tingkat, Rombel, Presensi, Nama Lengkap, Mode, Skor Benar, Total Soal, Nilai (0-100), Status KKTP (≥ 75), dan Durasi Pengerjaan*.
 
 ---
 
@@ -43,16 +52,16 @@ Aplikasi web interaktif berbasis HTML, CSS, dan JavaScript murni untuk Asesmen T
 
 ```text
 English-Midterm-Test-Sabaku-Odd-2026/
-├── index.html               # Halaman utama aplikasi asesmen
+├── index.html               # Halaman utama aplikasi asesmen & formulir peserta
 ├── style.css                # Desain antarmuka modern, responsif & accessible
-├── app.js                   # Mesin soal, audio player, validasi, penilaian & cloud sync
-├── google_apps_script.js    # Backend Google Apps Script untuk Google Sheets
+├── app.js                   # Mesin soal, audio player, pengacakan opsi, token, & scoring
+├── google_apps_script.js    # Backend Google Apps Script untuk Google Sheets sync
 └── README.md                # Dokumentasi & panduan teknis
 ```
 
 ---
 
 ### 🚀 Cara Menjalankan Aplikasi:
-1. Buka file `index.html` langsung di browser modern manapun (Google Chrome, Microsoft Edge, Safari, Mozilla Firefox).
-2. Tidak memerlukan server atau dependensi node.js eksternal.
+1. Akses secara daring melalui **GitHub Pages**: [https://wiedstone-ai.github.io/English-Midterm-Test-Sabaku-Odd-2026/](https://wiedstone-ai.github.io/English-Midterm-Test-Sabaku-Odd-2026/)
+2. Atau jalankan secara luring dengan membuka file `index.html` pada peramban web modern manapun.
 3. Audio listening didukung secara native melalui *Web Speech API Voice Synthesis* dan audio player terintegrasi.
