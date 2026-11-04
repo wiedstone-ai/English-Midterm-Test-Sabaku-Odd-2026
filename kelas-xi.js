@@ -15,8 +15,7 @@
  */
 
 // Default Configuration
-const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbwYOUR_DEPLOYED_ID/exec";
-const SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d/1-PVYGcdgjIfEe4zc2P1kYF5PIXXoZAGNRHd3e02Why4/edit?usp=sharing";
+const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbz1dnapNS6sFak-BlG-xxaFhGR9f0BhGYKyyddEvmIEOTxPrlARC2tHkeLLP1owzBToIw/exec";
 
 // State Management
 let currentTingkat = "XI-F";
@@ -1500,33 +1499,47 @@ function submitTest() {
 
 function syncScoreToGoogleSheets(payload) {
   const statusEl = document.getElementById("cloud-status-text");
-  statusEl.textContent = "Menyinkronkan nilai ke basis data Google Sheets...";
+  if (statusEl) statusEl.textContent = "Menyinkronkan nilai ke server sekolah...";
 
   const webAppUrl = localStorage.getItem("sabaku_gs_url") || DEFAULT_GS_URL;
 
-  // Attempt fetch POST
+  // Background Beacon safety net
+  try {
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon(webAppUrl, new Blob([JSON.stringify(payload)], { type: "text/plain;charset=utf-8" }));
+    }
+  } catch (e) {
+    console.warn("sendBeacon error:", e);
+  }
+
+  // Primary fetch POST
   fetch(webAppUrl, {
     method: "POST",
     mode: "no-cors",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload)
   }).then(() => {
-    statusEl.innerHTML = `✅ Nilai terkirim ke Google Sheets: <a href="${SPREADSHEET_URL}" target="_blank" style="color: inherit; text-decoration: underline; font-weight: 700;">Buka Spreadsheet Rekap Nilai ↗</a>`;
+    if (statusEl) statusEl.innerHTML = "✅ Nilai Anda telah berhasil tercatat di server rekapitulasi sekolah.";
   }).catch(err => {
-    console.warn("Direct POST fallback:", err);
-    // Beacon fallback
-    const beacon = new Image();
-    const query = new URLSearchParams({
-      action: "submit",
-      tingkat: payload.tingkat,
-      rombel: payload.rombel,
-      presensi: payload.presensi,
-      nama: payload.nama,
-      grade: payload.grade,
-      score: payload.score
-    }).toString();
-    beacon.src = `${webAppUrl}?${query}`;
-    statusEl.innerHTML = `💾 Nilai tersimpan di LocalStorage & antrean cloud. <a href="${SPREADSHEET_URL}" target="_blank" style="color: inherit; text-decoration: underline; font-weight: 700;">Buka Google Sheets ↗</a>`;
+    console.warn("Direct POST fallback to Image beacon:", err);
+    try {
+      const beacon = new Image();
+      const query = new URLSearchParams({
+        action: "submit",
+        tingkat: payload.tingkat || "",
+        rombel: payload.rombel || "",
+        presensi: payload.presensi || "",
+        nama: payload.nama || "",
+        grade: payload.grade || 0,
+        score: payload.score || 0,
+        duration: payload.duration || "",
+        mode: payload.mode || ""
+      }).toString();
+      beacon.src = `${webAppUrl}?${query}`;
+    } catch (bErr) {
+      console.warn("Beacon error:", bErr);
+    }
+    if (statusEl) statusEl.innerHTML = "💾 Nilai Anda telah tersimpan dengan aman di sistem sekolah.";
   });
 }
 

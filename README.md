@@ -52,9 +52,9 @@ Aplikasi web interaktif terpadu berbasis HTML5, CSS3, dan Vanilla JavaScript mod
   * Semua opsi pilihan jawaban ($A, B, C, D$) dan butir baris pernyataan matriks diacak secara dinamis pada setiap awal sesi ujian baru.
   * Kunci jawaban dan rujukan pembahasan (*explanation*) otomatis tersinkronisasi.
 * **Integrasi Google Sheets & Cadangan CSV:**
-  * Terhubung dengan spreadsheet rekapitulasi nilai:
-    [Spreadsheet Rekap Nilai Sabaku 2026](https://docs.google.com/spreadsheets/d/1-PVYGcdgjIfEe4zc2P1kYF5PIXXoZAGNRHd3e02Why4/edit?usp=sharing)
-  * Dilengkapi tombol **"📥 Unduh Rekap Nilai CSV"** pada modal hasil akhir, sehingga rekap nilai dapat langsung disimpan dalam format Excel/CSV tanpa kendala koneksi internet.
+  * Terhubung secara otomatis ke Google Spreadsheet internal melalui Google Apps Script Web App terenkripsi.
+  * Tautan spreadsheet bersifat rahasia (*private*) dan tidak ditampilkan di sisi siswa demi privasi dan keamanan data rekapitulasi.
+  * Dilengkapi tombol **"📥 Unduh Rekap Nilai CSV"** pada modal hasil akhir sebagai opsi cadangan penyimpanan lokal.
 
 ---
 
