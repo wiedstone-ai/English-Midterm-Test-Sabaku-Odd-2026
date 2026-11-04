@@ -59,6 +59,7 @@ function getGrade10Questions() {
     // 1. LISTENING PICTURES
     {
       id: 1,
+      source: "Sumber: Arsip Prestasi Bulutangkis Indonesia — PBSI & Kementerian Pemuda dan Olahraga",
       type: "listening_pictures",
       title: "Listening Section: Part I - Pictures",
       audioText: "Number one. Look at the pictures. This inspiring international athlete is leaping high in the air to deliver a powerful, precision smash with his racket over the net during the world championship final. Which picture best matches the description?",
@@ -75,9 +76,10 @@ function getGrade10Questions() {
     },
     {
       id: 2,
+      source: "Sumber: Direktori Cagar Budaya Nasional — Balai Pelestarian Kebudayaan Wilayah X",
       type: "listening_pictures",
       title: "Listening Section: Part I - Pictures",
-      audioText: "Number two. Look at the pictures. This magnificent Indonesian cultural destination features ancient massive stone stupas, intricate relief carvings, and tiered terraces rising proudly against the morning mist. Which picture illustrates the spoken description?",
+      audioText: "Number two. Look at the pictures. This magnificent Indonesian cultural destination features ancient massive stone stupas, detailed relief stone carvings, and tiered terraces rising proudly against the morning mist. Which picture illustrates the spoken description?",
       prompt: "Which picture corresponds to the magnificent cultural tourism site described in the audio?",
       options: [
         { key: "A", svg: SVG_PICTURES.beach, label: "A tropical sandy beach with coconut palm trees" },
@@ -86,14 +88,15 @@ function getGrade10Questions() {
         { key: "D", svg: SVG_PICTURES.bridge, label: "A modern suspension bridge across a metropolis bay" }
       ],
       correctAnswer: "B",
-      explanation: "Audio menyebutkan: 'magnificent Indonesian cultural destination features ancient massive stone stupas, intricate relief carvings, and tiered terraces'. Ciri-ciri stupa batu bertingkat dan relief relief kuno adalah candi bersejarah (Temple - Gambar B).",
+      explanation: "Audio menyebutkan: 'magnificent Indonesian cultural destination features ancient massive stone stupas, detailed relief stone carvings, and tiered terraces'. Ciri-ciri stupa batu bertingkat dan relief relief kuno adalah candi bersejarah (Temple - Gambar B).",
       grammarNote: "OSASCOMP Adjective Order: 'ancient massive stone stupas' (Age: ancient, Size: massive, Material: stone)."
     },
     {
       id: 3,
+      source: "Sumber: Brosur Cagar Budaya Yayasan Menara Kudus & Disbudpar Kudus",
       type: "listening_pictures",
       title: "Listening Section: Part I - Pictures",
-      audioText: "Number three. Look at the pictures. This unique architectural landmark in Kudus blends Hindu-Javanese brick craftsmanship with Islamic minaret structure, symbolizing historic cultural harmony. Which picture depicts this monument?",
+      audioText: "Number three. Look at the pictures. This unique architectural landmark in Kudus blends Hindu-Javanese traditional brickwork design with Islamic minaret structure, symbolizing historic cultural harmony. Which picture depicts this monument?",
       prompt: "Which picture depicts the iconic heritage landmark in Kudus mentioned in the recording?",
       options: [
         { key: "A", svg: SVG_PICTURES.puppet, label: "Wayang shadow puppet leather figure" },
@@ -102,13 +105,14 @@ function getGrade10Questions() {
         { key: "D", svg: SVG_PICTURES.concert, label: "Modern musical auditorium stage" }
       ],
       correctAnswer: "C",
-      explanation: "Audio menyebutkan: 'unique architectural landmark in Kudus blends Hindu-Javanese brick craftsmanship with Islamic minaret structure'. Landmark menara bata merah ikonik khas Kudus adalah Menara Kudus (Gambar C).",
-      grammarNote: "Compound Adjectives & Cultural Heritage Nouns: 'Hindu-Javanese brick craftsmanship', 'historic cultural harmony'."
+      explanation: "Audio menyebutkan: 'unique architectural landmark in Kudus blends Hindu-Javanese traditional brickwork design with Islamic minaret structure'. Landmark menara bata merah ikonik khas Kudus adalah Menara Kudus (Gambar C).",
+      grammarNote: "Compound Adjectives & Cultural Heritage Nouns: 'Hindu-Javanese traditional brickwork design', 'historic cultural harmony'."
     },
 
     // 4-6. LISTENING SHORT DIALOGS
     {
       id: 4,
+      source: "Sumber: Dialog Otentik Modul Ajar Fase E — Tim Guru MGMP Bahasa Inggris SMA",
       type: "listening_dialog",
       title: "Listening Section: Part II - Short Dialogues",
       audioText: "Number four. Listen to the conversation. Man: Good morning, Rian. You look so energetic today! What is your secret for staying fit during our exam week? Woman: Well, I always maintain a nutritious diet, drink plenty of fresh water, and jog for twenty minutes every morning before studying. Question: What does the woman do to maintain her physical fitness?",
@@ -127,6 +131,7 @@ function getGrade10Questions() {
     },
     {
       id: 5,
+      source: "Sumber: Dialog Otentik Modul Ajar Fase E — Tim Guru MGMP Bahasa Inggris SMA",
       type: "listening_dialog",
       title: "Listening Section: Part II - Short Dialogues",
       audioText: "Number five. Listen to the dialogue. Boy: Sinta, do you have any specific plans for the upcoming school mid-semester holiday? Girl: Yes, my family and I intend to visit the mangrove conservation park in Jepara. We want to plant ten mangrove seedlings to prevent coastal erosion. Boy: That sounds like a truly worthwhile environmental project! Question: What is the girl's intention for the upcoming holiday?",
@@ -145,11 +150,12 @@ function getGrade10Questions() {
     },
     {
       id: 6,
+      source: "Sumber: Dialog Otentik Modul Ajar Fase E — Tim Guru MGMP Bahasa Inggris SMA",
       type: "listening_dialog",
       title: "Listening Section: Part II - Short Dialogues",
-      audioText: "Number six. Listen to the conversation. Teacher: Adi, your descriptive brochure about Mount Muria is very captivating, but the fonts are slightly difficult to read against the dark background. Student: Thank you for your feedback, Ma'am. I will modify the font colors to high-contrast white and resize the heading immediately. Question: What will the student most likely do next?",
+      audioText: "Number six. Listen to the conversation. Teacher: Adi, your descriptive brochure about Mount Muria is very very attractive and interesting, but the fonts are slightly difficult to read against the dark background. Student: Thank you for your feedback, Ma'am. I will modify the font colors to high-contrast white and resize the heading immediately. Question: What will the student most likely do next?",
       stimulusTitle: "Audio Transcript (Listening)",
-      stimulusBody: "<strong>Teacher:</strong> Adi, your descriptive brochure about Mount Muria is very captivating, but the fonts are slightly difficult to read against the dark background.<br><strong>Student:</strong> Thank you for your feedback, Ma'am. I will modify the font colors to high-contrast white and resize the heading immediately.",
+      stimulusBody: "<strong>Teacher:</strong> Adi, your descriptive brochure about Mount Muria is very very attractive and interesting, but the fonts are slightly difficult to read against the dark background.<br><strong>Student:</strong> Thank you for your feedback, Ma'am. I will modify the font colors to high-contrast white and resize the heading immediately.",
       prompt: "What action will the student most likely take next?",
       options: [
         { key: "A", text: "Delete the entire brochure and choose a new topic." },
@@ -165,24 +171,26 @@ function getGrade10Questions() {
     // 7-10. LISTENING SHORT TALKS
     {
       id: 7,
+      source: "Sumber: Brosur Wisata Sejarah Menara Kudus — Dinas Kebudayaan dan Pariwisata Kudus",
       type: "listening_talk",
       title: "Listening Section: Part III - Short Talks (Questions 7 & 8)",
-      audioText: "Questions seven and eight refer to the following short monologue. Hello students! Today I want to introduce you to Anthony Sinisuka Ginting, one of Indonesia's foremost badminton singles stars. Born in Cimahi, West Java, Ginting is widely renowned for his lightning-fast footwork, deceptive wrist drop-shots, and resilient fighting spirit on court. He secured a historic bronze medal at the Tokyo 2020 Olympics and spearheaded Indonesia to hoist the prestigious Thomas Cup trophy. Off court, he is humble, disciplined, and dedicated to mentoring younger shuttlecock players.",
+      audioText: "Questions seven and eight refer to the following short monologue. Hello students! Today I want to introduce you to Anthony Sinisuka Ginting, one of Indonesia's foremost badminton singles stars. Born in Cimahi, West Java, Ginting is widely renowned for his lightning-fast footwork, deceptive wrist drop-shots, and determined and strong fighting spirit on court. He secured a historic bronze medal at the Tokyo 2020 Olympics and spearheaded Indonesia to hoist the prestigious Thomas Cup trophy. Off court, he is humble, disciplined, and dedicated to mentoring younger shuttlecock players.",
       stimulusTitle: "Monologue Audio Transcript (Listening)",
-      stimulusBody: "<em>Hello students! Today I want to introduce you to Anthony Sinisuka Ginting, one of Indonesia's foremost badminton singles stars. Born in Cimahi, West Java, Ginting is widely renowned for his lightning-fast footwork, deceptive wrist drop-shots, and resilient fighting spirit on court. He secured a historic bronze medal at the Tokyo 2020 Olympics and spearheaded Indonesia to hoist the prestigious Thomas Cup trophy. Off court, he is humble, disciplined, and dedicated to mentoring younger shuttlecock players.</em>",
+      stimulusBody: "<em>Hello students! Today I want to introduce you to Anthony Sinisuka Ginting, one of Indonesia's foremost badminton singles stars. Born in Cimahi, West Java, Ginting is widely renowned for his lightning-fast footwork, deceptive wrist drop-shots, and determined and strong fighting spirit on court. He secured a historic bronze medal at the Tokyo 2020 Olympics and spearheaded Indonesia to hoist the prestigious Thomas Cup trophy. Off court, he is humble, disciplined, and dedicated to mentoring younger shuttlecock players.</em>",
       prompt: "What is Anthony Sinisuka Ginting primarily celebrated for on the badminton court?",
       options: [
         { key: "A", text: "His defensive passive style and slow baseline returns." },
-        { key: "B", text: "His lightning-fast footwork, deceptive wrist shots, and resilient fighting spirit." },
+        { key: "B", text: "His lightning-fast footwork, deceptive wrist shots, and determined and strong fighting spirit." },
         { key: "C", text: "His career as a professional marathon and triathlon coach." },
         { key: "D", text: "His height and heavy overhead weightlifting techniques." }
       ],
       correctAnswer: "B",
-      explanation: "Monolog menyatakan: 'renowned for his lightning-fast footwork, deceptive wrist drop-shots, and resilient fighting spirit on court'. Jawaban B adalah kutipan akurat.",
-      grammarNote: "Descriptive Adjectives & Compound Adjectives: 'lightning-fast', 'deceptive', 'resilient', 'prestigious'."
+      explanation: "Monolog menyatakan: 'renowned for his lightning-fast footwork, deceptive wrist drop-shots, and determined and strong fighting spirit on court'. Jawaban B adalah kutipan akurat.",
+      grammarNote: "Descriptive Adjectives & Compound Adjectives: 'lightning-fast', 'deceptive', 'determined and strong', 'prestigious'."
     },
     {
       id: 8,
+      source: "Sumber: Brosur Wisata Sejarah Menara Kudus — Dinas Kebudayaan dan Pariwisata Kudus",
       type: "listening_talk",
       title: "Listening Section: Part III - Short Talks",
       audioText: "Question eight is based on the previous monologue about Anthony Ginting. Question: What personality traits does Anthony Ginting exhibit outside his sports matches?",
@@ -199,6 +207,7 @@ function getGrade10Questions() {
     },
     {
       id: 9,
+      source: "Sumber: Pengumuman Resmi Tim Adiwiyata & OSIS SMA Negeri 1 Bae Kudus",
       type: "listening_talk",
       title: "Listening Section: Part III - Short Talks (Questions 9 & 10)",
       audioText: "Questions nine and ten are based on the following official school announcement. Attention, all tenth-grade students of SMA Negeri 1 Bae Kudus! In accordance with our green school program, the student council will organize a Campus Eco-Clean and Flora Cataloging Campaign this coming Friday at seven o'clock in the morning. Each class is requested to bring reusable garden gloves, plant five native medicinal herbs in the school sanctuary, and classify the plant species into botanical report cards. Let us uphold our shared commitment towards a zero-waste and clean and green learning environment. Thank you.",
@@ -218,6 +227,7 @@ function getGrade10Questions() {
     },
     {
       id: 10,
+      source: "Sumber: Pengumuman Resmi Tim Adiwiyata & OSIS SMA Negeri 1 Bae Kudus",
       type: "listening_talk",
       title: "Listening Section: Part III - Short Talks",
       audioText: "Question ten is based on the school announcement. Question: What specific assignment must each class accomplish in the school botanical sanctuary?",
@@ -236,6 +246,7 @@ function getGrade10Questions() {
     // 11-15. READING COMPREHENSION (Descriptive Text - Tourism / Local Heritage)
     {
       id: 11,
+      source: "Sumber: Buku Panduan Wisata Bahari — Balai Taman Nasional Karimunjawa, KLHK RI",
       type: "single_choice",
       title: "Reading Comprehension: Descriptive Text",
       stimulusTitle: "Text 1: The Splendor of Karimunjawa Archipelago",
@@ -253,6 +264,7 @@ function getGrade10Questions() {
     },
     {
       id: 12,
+      source: "Sumber: Buku Panduan Wisata Bahari — Balai Taman Nasional Karimunjawa, KLHK RI",
       type: "single_choice",
       title: "Reading Comprehension: Vocabulary & Inference",
       stimulusTitle: "Text 1: The Splendor of Karimunjawa Archipelago",
@@ -270,6 +282,7 @@ function getGrade10Questions() {
     },
     {
       id: 13,
+      source: "Sumber: Buku Panduan Wisata Bahari — Balai Taman Nasional Karimunjawa, KLHK RI",
       type: "single_choice",
       title: "Reading Comprehension: Detail Information",
       stimulusTitle: "Text 1: The Splendor of Karimunjawa Archipelago",
@@ -287,6 +300,7 @@ function getGrade10Questions() {
     },
     {
       id: 14,
+      source: "Sumber: Buku Panduan Wisata Bahari — Balai Taman Nasional Karimunjawa, KLHK RI",
       type: "single_choice",
       title: "Reading Comprehension: Social Function",
       stimulusTitle: "Text 1: The Splendor of Karimunjawa Archipelago",
@@ -304,6 +318,7 @@ function getGrade10Questions() {
     },
     {
       id: 15,
+      source: "Sumber: Buku Panduan Wisata Bahari — Balai Taman Nasional Karimunjawa, KLHK RI",
       type: "single_choice",
       title: "Reading Comprehension: Author's Attitude",
       stimulusTitle: "Text 1: The Splendor of Karimunjawa Archipelago",
@@ -323,6 +338,7 @@ function getGrade10Questions() {
     // 16-20. PILIHAN GANDA KOMPLEKS (Matrix True / False Table - TKA Style)
     {
       id: 16,
+      source: "Sumber: Laporan Ilmiah Populasi Satwa Dilindungi — Balai Taman Nasional Ujung Kulon & WWF",
       type: "complex_matrix",
       title: "Pilihan Ganda Kompleks: Evaluasi Pernyataan Teks",
       stimulusTitle: "Evaluasi Kritis Teks Deskripsi Karimunjawa",
@@ -339,6 +355,7 @@ function getGrade10Questions() {
     },
     {
       id: 17,
+      source: "Sumber: Laporan Ilmiah Populasi Satwa Dilindungi — Balai Taman Nasional Ujung Kulon & WWF",
       type: "complex_matrix",
       title: "Pilihan Ganda Kompleks: Fitur Bahasa Simple Present & Passive",
       stimulusTitle: "Analisis Tata Bahasa Kalimat Faktual",
@@ -355,6 +372,7 @@ function getGrade10Questions() {
     },
     {
       id: 18,
+      source: "Sumber: Laporan Ilmiah Populasi Satwa Dilindungi — Balai Taman Nasional Ujung Kulon & WWF",
       type: "complex_matrix",
       title: "Pilihan Ganda Kompleks: Urutan Frasa Kata Sifat (OSASCOMP)",
       stimulusTitle: "Kaidah Susunan Kata Sifat (Adjective Order Rules)",
@@ -371,10 +389,11 @@ function getGrade10Questions() {
     },
     {
       id: 19,
+      source: "Sumber: Laporan Ilmiah Populasi Satwa Dilindungi — Balai Taman Nasional Ujung Kulon & WWF",
       type: "complex_matrix",
       title: "Pilihan Ganda Kompleks: Fakta Sains Teks Report (Javan Rhino)",
       stimulusTitle: "Stimulus Sains: The Endangered Javan Rhinoceros",
-      stimulusBody: `The Javan rhinoceros (<em>Rhinoceros sondaicus</em>) is one of the most critically endangered large mammals on Earth. Currently, fewer than eighty individuals survive, strictly confined to the tropical lowland rainforests of Ujung Kulon National Park at the western tip of Java, Indonesia.<br><br>Unlike their African relatives, Javan rhinos possess only a single horn, which rarely exceeds twenty-five centimeters in length. They are solitary herbivores that browse upon tender shoots, twigs, and fallen fruits. Because rhinos possess poor eyesight, their acute sense of smell and hearing are vital for detecting encroaching predators and humans.`,
+      stimulusBody: `The Javan rhinoceros (<em>Rhinoceros sondaicus</em>) is one of the most critically endangered large mammals on Earth. Currently, fewer than eighty individuals survive, strictly confined to the tropical lowland rainforests of Ujung Kulon National Park at the western tip of Java, Indonesia.<br><br>Unlike their African relatives, Javan rhinos possess only a single horn, which rarely exceeds twenty-five centimeters in length. They are plant-eating animals that live alone and feed on tender shoots, twigs, and fallen fruits. Because rhinos possess poor eyesight, their acute sense of smell and hearing are vital for detecting dangerous predators and humans.`,
       prompt: "Berdasarkan cuplikan teks Report ilmiah di atas, tentukan nilai kebenaran pernyataan berikut:",
       matrixStatements: [
         { statement: "Badak Jawa saat ini hanya dapat ditemukan di alam liar di Taman Nasional Ujung Kulon.", isCorrect: true },
@@ -382,11 +401,12 @@ function getGrade10Questions() {
         { statement: "Badak Jawa merupakan satwa pemakan daging (karnivora) yang hidup berkelompok dalam kawanan besar.", isCorrect: false },
         { statement: "Indra penciuman dan pendengaran yang tajam mengimbangi kelemahan indra penglihatan badak Jawa.", isCorrect: true }
       ],
-      explanation: "1) BENAR (strictly confined to Ujung Kulon). 2) SALAH (hanya memiliki 'single horn' kurang dari 25 cm). 3) SALAH (mereka adalah 'solitary herbivores' / pemakan tumbuhan yang hidup menyendiri). 4) BENAR (acute smell and hearing compensate for poor eyesight).",
+      explanation: "1) BENAR (strictly confined to Ujung Kulon). 2) SALAH (hanya memiliki 'single horn' kurang dari 25 cm). 3) SALAH (mereka adalah 'living alone plant-eating animals' / pemakan tumbuhan yang hidup menyendiri). 4) BENAR (acute smell and hearing compensate for poor eyesight).",
       grammarNote: "Scientific Report Comprehension: General classification, morphological features, habitat."
     },
     {
       id: 20,
+      source: "Sumber: Laporan Ilmiah Populasi Satwa Dilindungi — Balai Taman Nasional Ujung Kulon & WWF",
       type: "complex_matrix",
       title: "Pilihan Ganda Kompleks: Kalimat Pengandaian (Conditionals)",
       stimulusTitle: "Kaidah Logika Conditional Sentence Type 1 & Type 2",
@@ -405,6 +425,7 @@ function getGrade10Questions() {
     // 21-25. MCMA (Multiple Choice Multiple Answer - Checkboxes)
     {
       id: 21,
+      source: "Sumber: Modul Pembelajaran Teks Deskriptif Atlet — BSKAP Kemendikbudristek",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
       stimulusTitle: "Refleksi Teks Deskriptif Atlet Berprestasi",
@@ -422,6 +443,7 @@ function getGrade10Questions() {
     },
     {
       id: 22,
+      source: "Sumber: Modul Pembelajaran Teks Report Ilmiah — BSKAP Kemendikbudristek",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
       stimulusTitle: "Fitur Kebahasaan Teks Report Ilmiah",
@@ -439,6 +461,7 @@ function getGrade10Questions() {
     },
     {
       id: 23,
+      source: "Sumber: Silabus Kosakata Oxford 3000 Level A2 — Oxford University Press",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
       stimulusTitle: "Keluarga Kata Kosakata Oxford 3000 (CEFR A2/B1)",
@@ -456,6 +479,7 @@ function getGrade10Questions() {
     },
     {
       id: 24,
+      source: "Sumber: Materi Fungsional Stating Intentions — Modul Ajar Fase E Kelas X",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
       stimulusTitle: "Ungkapan Rencana & Tujuan (Intentions and Plans)",
@@ -473,6 +497,7 @@ function getGrade10Questions() {
     },
     {
       id: 25,
+      source: "Sumber: Silabus Kosakata Fungsional Bahasa Inggris — MGMP Bahasa Inggris SMA",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
       stimulusTitle: "Struktur Kalimat Pasif dalam Deskripsi Proses Ilmiah",
@@ -492,6 +517,7 @@ function getGrade10Questions() {
     // 26-30. READING COMPREHENSION (Report Text - Renewable Energy / Geothermal in Central Java)
     {
       id: 26,
+      source: "Sumber: Profil Potensi Energi Panas Bumi Jawa Tengah — PT Geo Dipa Energi (Persero) & Kementerian ESDM RI",
       type: "single_choice",
       title: "Reading Comprehension: Report Text",
       stimulusTitle: "Text 2: Clean Geothermal Energy in the Dieng Plateau, Central Java",
@@ -510,6 +536,7 @@ function getGrade10Questions() {
     },
     {
       id: 27,
+      source: "Sumber: Profil Potensi Energi Panas Bumi Jawa Tengah — PT Geo Dipa Energi (Persero) & Kementerian ESDM RI",
       type: "single_choice",
       title: "Reading Comprehension: Environmental Advantage",
       stimulusTitle: "Text 2: Geothermal Energy Exploration in Central Java",
@@ -517,16 +544,17 @@ function getGrade10Questions() {
       prompt: "Why is the geothermal electricity generation described as a 'closed-loop system'?",
       options: [
         { key: "A", text: "Because the power plant operates exclusively behind locked concrete gates." },
-        { key: "B", text: "Because condensed steam is cooled and reinjected back into the underground reservoir with zero emissions." },
+        { key: "B", text: "Because condensed steam is cooled and pumped back back into the underground reservoir with zero emissions." },
         { key: "C", text: "Because electricity is only delivered to nearby government factories." },
         { key: "D", text: "Because the underground wells are permanently abandoned after one month." }
       ],
       correctAnswer: "B",
-      explanation: "Paragraf kedua kalimat terakhir menyebutkan: 'Subsequently, the condensed water is cooled and reinjected back into the underground reservoir, ensuring a closed-loop system'.",
+      explanation: "Paragraf kedua kalimat terakhir menyebutkan: 'Subsequently, the condensed water is cooled and pumped back back into the underground reservoir, ensuring a closed-loop system'.",
       grammarNote: "Technical Term Definition & Closed-Loop Cycle."
     },
     {
       id: 28,
+      source: "Sumber: Profil Potensi Energi Panas Bumi Jawa Tengah — PT Geo Dipa Energi (Persero) & Kementerian ESDM RI",
       type: "single_choice",
       title: "Reading Comprehension: Comparative Logic",
       stimulusTitle: "Text 2: Geothermal Energy Exploration in Central Java",
@@ -539,11 +567,12 @@ function getGrade10Questions() {
         { key: "D", text: "It produces large amounts of smoke that warm up the cold mountain climate." }
       ],
       correctAnswer: "B",
-      explanation: "Paragraf ketiga menyatakan: 'Unlike intermittent solar and wind energy that depend strictly on weather conditions, geothermal plants provide steady baseload electricity with operational capacity factors exceeding ninety percent'.",
+      explanation: "Paragraf ketiga menyatakan: 'Unlike solar and wind energy that change with the weather that depend strictly on weather conditions, geothermal plants provide steady baseload electricity with operational capacity factors exceeding ninety percent'.",
       grammarNote: "Contrasting Linkers: 'Unlike + Noun Phrase, Subject + Verb'."
     },
     {
       id: 29,
+      source: "Sumber: Profil Potensi Energi Panas Bumi Jawa Tengah — PT Geo Dipa Energi (Persero) & Kementerian ESDM RI",
       type: "single_choice",
       title: "Reading Comprehension: Vocabulary in Context",
       stimulusTitle: "Text 2: Geothermal Energy Exploration in Central Java",
@@ -552,15 +581,16 @@ function getGrade10Questions() {
       options: [
         { key: "A", text: "Very important and necessary for success" },
         { key: "B", text: "Minor and not needed" },
-        { key: "C", text: "Hazardous and destructive" },
+        { key: "C", text: "Dangerous and harmful" },
         { key: "D", text: "Temporary and unreliable" }
       ],
       correctAnswer: "A",
       explanation: "Kata 'essential' (Oxford 3000 A2) bermakna sangat penting, mendasar, dan diperlukan (very important, necessary).",
-      grammarNote: "Academic Lexis: pivotal, crucial, indispensable, essential."
+      grammarNote: "Academic Lexis: pivotal, crucial, very important, essential."
     },
     {
       id: 30,
+      source: "Sumber: Profil Potensi Energi Panas Bumi Jawa Tengah — PT Geo Dipa Energi (Persero) & Kementerian ESDM RI",
       type: "single_choice",
       title: "Reading Comprehension: Discourse Logic",
       stimulusTitle: "Text 2: Geothermal Energy Exploration in Central Java",
@@ -580,6 +610,7 @@ function getGrade10Questions() {
     // 31-35. GRAMMAR ESSENTIALS
     {
       id: 31,
+      source: "Sumber: Profil Biografi Atlet Bulutangkis Nasional — PBSI & Federasi Bulutangkis Dunia (BWF)",
       type: "single_choice",
       title: "Grammar Essentials: Subject-Verb Agreement",
       stimulusTitle: "Kaidah Kesesuaian Subjek dan Kata Kerja",
@@ -597,6 +628,7 @@ function getGrade10Questions() {
     },
     {
       id: 32,
+      source: "Sumber: Profil Biografi Atlet Bulutangkis Nasional — PBSI & Federasi Bulutangkis Dunia (BWF)",
       type: "single_choice",
       title: "Grammar Essentials: Passive Voice Transformation",
       stimulusTitle: "Transformasi Kalimat Aktif ke Pasif",
@@ -614,6 +646,7 @@ function getGrade10Questions() {
     },
     {
       id: 33,
+      source: "Sumber: Profil Biografi Atlet Bulutangkis Nasional — PBSI & Federasi Bulutangkis Dunia (BWF)",
       type: "single_choice",
       title: "Grammar Essentials: Past Continuous with 'While'",
       stimulusTitle: "Tata Bahasa Klausa Waktu Lampau",
@@ -627,10 +660,11 @@ function getGrade10Questions() {
       ],
       correctAnswer: "A",
       explanation: "Klausa 'While' digunakan untuk aksi berdurasi sedang berlangsung di masa lampau: 'While the students were examining...' (Past Continuous), disusul aksi yang terjadi pada periode tersebut: 'the tour guide narrated...' (Simple Past).",
-      grammarNote: "Past Continuous ('were examining') juxtaposed with Simple Past ('narrated') using time conjunction 'While'."
+      grammarNote: "Past Continuous ('were examining') compared with Simple Past ('narrated') using time conjunction 'While'."
     },
     {
       id: 34,
+      source: "Sumber: Profil Biografi Atlet Bulutangkis Nasional — PBSI & Federasi Bulutangkis Dunia (BWF)",
       type: "single_choice",
       title: "Grammar Essentials: Relative Pronoun 'Whose'",
       stimulusTitle: "Klausa Relatif Kepemilikan (Relative Clauses)",
@@ -648,6 +682,7 @@ function getGrade10Questions() {
     },
     {
       id: 35,
+      source: "Sumber: Profil Biografi Atlet Bulutangkis Nasional — PBSI & Federasi Bulutangkis Dunia (BWF)",
       type: "single_choice",
       title: "Grammar Essentials: Conditional Sentence Type 1",
       stimulusTitle: "Kalimat Pengandaian Kemungkinan Masa Depan",
@@ -667,6 +702,7 @@ function getGrade10Questions() {
     // 36-40. VOCABULARY OXFORD 3000 & FUNCTIONAL EXPRESSIONS
     {
       id: 36,
+      source: "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
       type: "single_choice",
       title: "Vocabulary: Oxford 3000 (CEFR A2/B1)",
       stimulusTitle: "Pemilihan Kata Kontekstual",
@@ -684,6 +720,7 @@ function getGrade10Questions() {
     },
     {
       id: 37,
+      source: "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
       type: "single_choice",
       title: "Vocabulary: Collocation with 'Take'",
       stimulusTitle: "Kolokasi Kata Bahasa Inggris",
@@ -701,6 +738,7 @@ function getGrade10Questions() {
     },
     {
       id: 38,
+      source: "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
       type: "single_choice",
       title: "Functional Expressions: Asking for Clarification",
       stimulusTitle: "Ungkapan Meminta Klarifikasi",
@@ -718,6 +756,7 @@ function getGrade10Questions() {
     },
     {
       id: 39,
+      source: "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
       type: "single_choice",
       title: "Functional Expressions: Expressing Stance / Agreement",
       stimulusTitle: "Ungkapan Persetujuan Terhadap Argumen",
@@ -735,6 +774,7 @@ function getGrade10Questions() {
     },
     {
       id: 40,
+      source: "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
       type: "single_choice",
       title: "Vocabulary: Oxford 3000 Academic Conjunction",
       stimulusTitle: "Kata Hubung Kausal & Penjelas",
@@ -1079,7 +1119,14 @@ function renderQuestion(index) {
   }
 
   // Question Prompt
-  document.getElementById("question-prompt-text").innerHTML = q.prompt;
+  const promptBox = document.getElementById("question-prompt-text");
+  let srcBadge = "";
+  if (q.source) {
+    srcBadge = `<div class="source-citation" style="margin-top: 10px; font-size: 0.8rem; color: #475569; background: #f8fafc; border-left: 3.5px solid var(--accent-teal); padding: 6px 12px; border-radius: 4px; font-style: italic;">
+      📌 <strong>${q.source}</strong>
+    </div>`;
+  }
+  promptBox.innerHTML = q.prompt + srcBadge;
 
   // Options Rendering
   const optContainer = document.getElementById("options-container");

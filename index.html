@@ -47,6 +47,17 @@
             </div>
 
             <div class="form-group">
+              <label for="input-jenis-asesmen">Pilih Jenis Asesmen <span style="color:red;">*</span></label>
+              <select id="input-jenis-asesmen" class="form-control" required>
+                <option value="ATS">📘 Asesmen Tengah Semester (ATS) — Separuh Materi Gasal</option>
+                <option value="ASAS">📕 Asesmen Akhir Semester (ASAS) — Satu Semester Penuh Gasal</option>
+              </select>
+              <div class="hint">Pilih ATS (Tengah Semester) atau ASAS (Akhir Semester Penuh).</div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
               <label for="input-rombel">Rombel (Rombongan Belajar) <span style="color:red;">*</span></label>
               <select id="input-rombel" class="form-control" required>
                 <option value="">-- Pilih Rombel (1 s.d. 12) --</option>
@@ -121,20 +132,37 @@
           </p>
 
           <div class="portal-level-cards">
-            <!-- Card Kelas X -->
-            <div class="portal-card" id="preview-card-X-E">
-              <span class="portal-badge badge-x">Tingkat X — Fase E</span>
-              <h4 style="color: var(--primary-navy); margin-bottom: 8px;">Ruang Ujian Kelas X</h4>
+            <!-- Card Kelas X ATS -->
+            <div class="portal-card" id="preview-card-X-E-ATS">
+              <span class="portal-badge badge-x">Kelas X — ATS Gasal</span>
+              <h4 style="color: var(--primary-navy); margin-bottom: 8px;">Latihan ATS (Tengah Semester)</h4>
               <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px;">
-                <strong>Cakupan Materi:</strong><br>
+                <strong>Separuh Materi Gasal (TP 10.1 &amp; Intro TP 10.2):</strong><br>
                 • 10 Soal Listening (Pictures, Dialogues, Talks)<br>
-                • Descriptive Text (Great Athletes &amp; Cultural Heritage Kudus/Jateng)<br>
-                • Report Text (Satwa Endemik &amp; Energi Panas Bumi Dataran Tinggi Dieng)<br>
+                • Descriptive Text (Great Athletes &amp; Menara Kudus)<br>
+                • Report Text (Badak Jawa &amp; Panas Bumi Dieng)<br>
                 • Grammar: Simple Present, OSASCOMP, Passive dasar<br>
                 • Kosakata: Oxford 3000 Level A2
               </p>
               <a href="kelas-x.html" style="font-size: 0.85rem; font-weight: 700; color: var(--royal-blue); text-decoration: none;">
-                Buka Langsung Halaman Kelas X ➔
+                Mulai Latihan ATS Kelas X ➔
+              </a>
+            </div>
+
+            <!-- Card Kelas X ASAS -->
+            <div class="portal-card" id="preview-card-X-E-ASAS" style="border-color: #818cf8; background: #faf5ff;">
+              <span class="portal-badge" style="background: #ede9fe; color: #5b21b6;">Kelas X — ASAS Gasal Penuh</span>
+              <h4 style="color: #4c1d95; margin-bottom: 8px;">Latihan ASAS (Akhir Semester)</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px;">
+                <strong>Satu Semester Penuh (TP 10.1 &amp; TP 10.2 Lengkap):</strong><br>
+                • 10 Soal Listening Komprehensif (Pictures, Talks, Fauna)<br>
+                • TP 10.1: Descriptive Text (Athletes &amp; Tourism Multimodal)<br>
+                • TP 10.2: Scientific Report (Orangutan &amp; Energi Dieng)<br>
+                • Grammar: Passive Voice Ilmiah, OSASCOMP, Conditionals<br>
+                • Kosakata: Oxford 3000 Level A2/B1
+              </p>
+              <a href="kelas-x-asas.html" style="font-size: 0.85rem; font-weight: 700; color: #6d28d9; text-decoration: none;">
+                Mulai Latihan ASAS Kelas X ➔
               </a>
             </div>
 
@@ -263,13 +291,22 @@
       };
       localStorage.setItem('sabaku_current_student', JSON.stringify(studentData));
 
-      // Redirect to specific Grade HTML Page
+      const jenisAsesmen = document.getElementById('input-jenis-asesmen').value;
+      studentData.jenisAsesmen = jenisAsesmen;
+      localStorage.setItem('sabaku_current_student', JSON.stringify(studentData));
+
+      // Redirect to specific Grade & Exam Type HTML Page
       if (tingkat === 'XI-F') {
         window.location.href = 'kelas-xi.html';
       } else if (tingkat === 'XII-F') {
         window.location.href = 'kelas-xii.html';
       } else {
-        window.location.href = 'kelas-x.html';
+        // Kelas X
+        if (jenisAsesmen === 'ASAS') {
+          window.location.href = 'kelas-x-asas.html';
+        } else {
+          window.location.href = 'kelas-x.html';
+        }
       }
     }
 
