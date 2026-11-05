@@ -968,6 +968,10 @@ function applyStudentMetadata() {
   }
   const nameEl = document.getElementById("side-student-name");
   if (nameEl) nameEl.textContent = studentIdentity.nama;
+  const metaEl = document.getElementById("side-student-meta");
+  if (metaEl) {
+    metaEl.textContent = `${studentIdentity.tingkat || "XII-TL"} | Rombel ${studentIdentity.rombel} | Presensi ${studentIdentity.presensi}`;
+  }
   const rombelEl = document.getElementById("side-student-rombel");
   if (rombelEl) rombelEl.textContent = studentIdentity.rombel;
   const presensiEl = document.getElementById("side-student-presensi");
@@ -990,12 +994,13 @@ function toggleKisiKisiModal() {
 }
 
 function buildNavigatorGrid() {
-  const grid = document.getElementById("navigator-grid");
+  const grid = document.getElementById("question-navigator-grid") || document.getElementById("navigator-grid");
   if (!grid) return;
   grid.innerHTML = "";
   questions.forEach((q, idx) => {
     const btn = document.createElement("button");
-    btn.className = "nav-btn";
+    btn.type = "button";
+    btn.className = "q-num-btn nav-btn";
     btn.id = `nav-btn-${idx}`;
     btn.textContent = idx + 1;
     btn.onclick = () => renderQuestion(idx);
