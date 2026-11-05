@@ -54,7 +54,7 @@ function getGrade11TLAstsQuestions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Audio mendeskripsikan seorang siswi yang sedang mempelajari naskah kuno tulisan tangan di perpustakaan ('reading an ancient handwritten manuscript in the library, carefully taking notes on her laptop'). Gambar A mencerminkan naskah kuno dan laptop.",
+    "explanation": "Audio mendeskripsikan seorang siswi yang sedang mempelajari naskah kuno tulisan tangan di perpustakaan ('reading an ancient handwritten manuscript in the library, carefully taking notes on her laptop'). Gambar yang sesuai mencerminkan naskah kuno dan laptop.",
     "grammarNote": "Present Continuous with Participle modifier: 'reading an ancient manuscript, carefully taking notes'."
   },
   {
@@ -94,7 +94,7 @@ function getGrade11TLAstsQuestions() {
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Audio menyebutkan pementasan drama teater di panggung batu luar ruangan: 'performing a classic theatrical drama in traditional costumes'. Gambar B tepat.",
+    "explanation": "Audio menyebutkan pementasan drama teater di panggung batu luar ruangan: 'performing a classic theatrical drama in traditional costumes'.",
     "grammarNote": "Prepositional phrase of place: 'On an outdoor stone stage, students are performing...'."
   },
   {
@@ -134,7 +134,7 @@ function getGrade11TLAstsQuestions() {
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Audio mendeskripsikan kubah stasiun pengamatan cuaca di atas bukit hijau tepi laut: 'automated weather station dome measures wind and solar energy'. Gambar C tepat.",
+    "explanation": "Audio mendeskripsikan kubah stasiun pengamatan cuaca di atas bukit hijau tepi laut: 'automated weather station dome measures wind and solar energy'.",
     "grammarNote": "Past Participle modifier: 'Built on a green hill overlooking the sea...'."
   },
   {
@@ -205,7 +205,7 @@ function getGrade11TLAstsQuestions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Guru menjelaskan bahwa kesombongan akan membawa kegagalan, dan kebesaran sejati datang dari kerendahan hati: 'Arrogance and selfish ambition will always lead to failure... true greatness comes from humility'. Pilihan A tepat.",
+    "explanation": "Guru menjelaskan bahwa kesombongan akan membawa kegagalan, dan kebesaran sejati datang dari kerendahan hati: 'Arrogance and selfish ambition will always lead to failure... true greatness comes from humility'.",
     "grammarNote": "Noun Clauses & Inversion nuance: 'physical strength and pride cannot force someone to respect us'."
   },
   {
@@ -276,7 +276,7 @@ function getGrade11TLAstsQuestions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Kedua siswa sepakat bahwa AI dapat digunakan sebagai panduan belajar, tetapi siswa harus tetap menyusun analisis kritis orisinal sendiri. Pilihan A tepat.",
+    "explanation": "Kedua siswa sepakat bahwa AI dapat digunakan sebagai panduan belajar, tetapi siswa harus tetap menyusun analisis kritis orisinal sendiri.",
     "grammarNote": "Gerund as Subject & Evaluative Adjectives: 'Using AI... is helpful', 'Developing our own critical thinking is much more valuable'."
   },
   {
@@ -347,7 +347,7 @@ function getGrade11TLAstsQuestions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Tujuan proposal OSIS adalah mengurangi sampah plastik dengan mewajibkan botol dan wadah makan isi ulang. Pilihan A tepat.",
+    "explanation": "Tujuan proposal OSIS adalah mengurangi sampah plastik dengan mewajibkan botol dan wadah makan isi ulang.",
     "grammarNote": "Subjunctive / Recommendation Structure: 'recommend that every student bring a reusable bottle'."
   },
   {
@@ -383,7 +383,7 @@ function getGrade11TLAstsQuestions() {
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Pembicara menyatakan bahwa dongeng tradisional diwariskan untuk mengajarkan nilai kehidupan yang penting: 'passed down by our ancestors to teach essential life lessons... respect parents, honor promises, and treat the poor with kindness'. Pilihan A tepat.",
+    "explanation": "Pembicara menyatakan bahwa dongeng tradisional diwariskan untuk mengajarkan nilai kehidupan yang penting: 'passed down by our ancestors to teach essential life lessons... respect parents, honor promises, and treat the poor with kindness'.",
     "grammarNote": "Infinitive of Purpose: 'to teach essential life lessons such as respect, honesty, and kindness'."
   },
   {
@@ -419,7 +419,7 @@ function getGrade11TLAstsQuestions() {
       }
     ],
     "correctAnswer": "D",
-    "explanation": "Pembicara menjelaskan: 'we preserve our rich cultural identity while improving our English literacy skills' (melestarikan identitas budaya sekaligus melatih kecakapan literasi bahasa Inggris). Pilihan A tepat.",
+    "explanation": "Pembicara menjelaskan: 'we preserve our rich cultural identity while improving our English literacy skills' (melestarikan identitas budaya sekaligus melatih kecakapan literasi bahasa Inggris).",
     "grammarNote": "Conjunctive Pair: 'preserve our rich cultural identity while improving our English literacy skills'."
   },
   {
@@ -455,7 +455,7 @@ function getGrade11TLAstsQuestions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Konselor menyebutkan dampak buruk penggunaan media sosial berlebih: 'excessive screen time often leads to sleep deprivation, reduced concentration during classes, and feelings of anxiety'. Pilihan A tepat.",
+    "explanation": "Konselor menyebutkan dampak buruk penggunaan media sosial berlebih: 'excessive screen time often leads to sleep deprivation, reduced concentration during classes, and feelings of anxiety'.",
     "grammarNote": "Cause and Effect: 'excessive screen time often leads to sleep deprivation, reduced concentration, and anxiety'."
   },
   {
@@ -491,7 +491,7 @@ function getGrade11TLAstsQuestions() {
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Konselor merekomendasikan: 'Set a daily limit for entertainment screen time, silence your phone notifications while studying, and always double-check news stories'. Pilihan A tepat.",
+    "explanation": "Konselor merekomendasikan: 'Set a daily limit for entertainment screen time, silence your phone notifications while studying, and always double-check news stories'.",
     "grammarNote": "Hortatory Recommendation: 'Set a daily limit... silence notifications... and double-check news'."
   },
   {
@@ -521,7 +521,7 @@ function getGrade11TLAstsQuestions() {
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Tema moral utama cerita rakyat Rawa Pening adalah bahwa nilai sejati seseorang diukur dari kebaikan hati dan kerendahan hati, bukan dari kekayaan lahiriah atau kesombongan rupa: 'true human worth is found in kindness and humility, not in outward wealth or pride'. Pilihan A tepat.",
+    "explanation": "Tema moral utama cerita rakyat Rawa Pening adalah bahwa nilai sejati seseorang diukur dari kebaikan hati dan kerendahan hati, bukan dari kekayaan lahiriah atau kesombongan rupa: 'true human worth is found in kindness and humility, not in outward wealth or pride'.",
     "grammarNote": "Thematic Synthesis: True dignity lies in humility and kindness vs arrogance."
   },
   {
@@ -551,7 +551,7 @@ function getGrade11TLAstsQuestions() {
       }
     ],
     "correctAnswer": "D",
-    "explanation": "Paragraf 3 menyatakan secara eksplisit bahwa warga desa bersikap angkuh dan mencemooh pakaian koyak serta rupa kotor Baru Klinthing: 'the wealthy villagers were proud and arrogant... mocked his ragged clothes and dirty appearance'. Pilihan A tepat.",
+    "explanation": "Paragraf 3 menyatakan secara eksplisit bahwa warga desa bersikap angkuh dan mencemooh pakaian koyak serta rupa kotor Baru Klinthing: 'the wealthy villagers were proud and arrogant... mocked his ragged clothes and dirty appearance'.",
     "grammarNote": "Cause and Effect: 'Instead of showing sympathy, they mocked his ragged clothes... and drove him away'."
   },
   {
@@ -581,7 +581,7 @@ function getGrade11TLAstsQuestions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Berbeda dari warga desa yang kaya namun sombong, Mbok Rondo menyambut Baru Klinthing dengan ketulusan dan memberinya makan serta minum: 'she generously offered him warm rice, fresh vegetables, and cool water'. Pilihan A tepat.",
+    "explanation": "Berbeda dari warga desa yang kaya namun sombong, Mbok Rondo menyambut Baru Klinthing dengan ketulusan dan memberinya makan serta minum: 'she generously offered him warm rice, fresh vegetables, and cool water'.",
     "grammarNote": "Contrasting Adverbial Clause: 'Unlike the arrogant villagers, Mbok Rondo welcomed the boy warmly...'."
   },
   {
@@ -611,7 +611,7 @@ function getGrade11TLAstsQuestions() {
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Kata 'shunned' (bentuk lampau dari 'shun') bermakna dijauhi, dihindari, atau disisihkan oleh orang lain (avoided and rejected). Pilihan A tepat.",
+    "explanation": "Kata 'shunned' (bentuk lampau dari 'shun') bermakna dijauhi, dihindari, atau disisihkan oleh orang lain (avoided and rejected).",
     "grammarNote": "Verb Lexis (B2): shun = systematically avoid, ignore, or reject someone."
   },
   {
@@ -641,7 +641,7 @@ function getGrade11TLAstsQuestions() {
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Tantangan mencabut lidi dilakukan Baru Klinthing untuk mempermalukan kesombongan dan keangkuhan warga desa yang mengklaim diri mereka hebat dan kuat, namun tak satu pun sanggup mencabutnya. Pilihan A tepat.",
+    "explanation": "Tantangan mencabut lidi dilakukan Baru Klinthing untuk mempermalukan kesombongan dan keangkuhan warga desa yang mengklaim diri mereka hebat dan kuat, namun tak satu pun sanggup mencabutnya.",
     "grammarNote": "Symbolic Narrative Device: The immovable stick symbolizes moral truth exposing false human pride."
   },
   {
@@ -670,7 +670,7 @@ function getGrade11TLAstsQuestions() {
         "isCorrect": false
       }
     ],
-    "explanation": "1) BENAR (diusir karena rupa fisik). 2) SALAH (Mbok Rondo menyambut hangat dan memberi makan). 3) BENAR (tidak ada yang sanggup mencabut). 4) SALAH (warga tenggelam dan hanya Mbok Rondo yang selamat di atas lesung).",
+    "explanation": "• Pernyataan 1: BENAR — Baru Klinthing diusir dan diperlakukan secara kejam oleh warga desa karena rupa fisiknya yang penuh luka.<br>• Pernyataan 2: SALAH — Mbok Rondo justru menyambut hangat Baru Klinthing dan memberinya makanan serta minuman.<br>• Pernyataan 3: BENAR — Tak seorang pun dari warga yang angkuh sanggup mencabut lidi yang ditancapkan Baru Klinthing.<br>• Pernyataan 4: SALAH — Seluruh desa tenggelam menjadi danau dan hanya Mbok Rondo yang selamat di atas lesung penumbuk padi.",
     "grammarNote": "Factual Verification & Narrative Detail Identification (TKA Standard)."
   },
   {
@@ -699,7 +699,7 @@ function getGrade11TLAstsQuestions() {
         "isCorrect": true
       }
     ],
-    "explanation": "1) BENAR (Simile dengan 'like'). 2) BENAR (Karakter foil penegas kontras moral). 3) SALAH ('effortlessly' berakhiran -ly adalah adverb of manner yang menerangkan kata kerja 'pulled'). 4) SALAH (bagian tersebut adalah Resolution, bukan Orientation).",
+    "explanation": "• Pernyataan 1: BENAR — Frasa 'heartbroken' adalah metafora kesedihan batin mendalam, bukan luka fisik pada jantung.<br>• Pernyataan 2: BENAR — Simile 'gushed forth like a powerful fountain' menggambarkan semburan air yang sangat deras dan cepat.<br>• Pernyataan 3: SALAH — Tokoh Mbok Rondo adalah figur penolong yang tulus, bukan antagonis utama.<br>• Pernyataan 4: BENAR — Lesung kayu penumbuk padi berfungsi sebagai simbol penyelamat bagi kebajikan dan ketulusan Mbok Rondo.",
     "grammarNote": "Literary Devices (Simile, Character Foil) and Narrative Generic Structure."
   },
   {
@@ -728,7 +728,7 @@ function getGrade11TLAstsQuestions() {
         "isCorrect": true
       }
     ],
-    "explanation": "1) BENAR (Rarely + do + students + achieve). 2) SALAH (harus inversi: 'Seldom did the arrogant villagers listen...'). 3) BENAR (Not only + did + Subject + Base Verb). 4) SALAH (klausa kedua harus 'gushed' bentuk lampau teratur).",
+    "explanation": "• Pernyataan 1: BENAR — Teks eksposisi hortatori memuat rekomendasi aksi nyata bagi pelajar dalam memanfaatkan teknologi AI secara bertanggung jawab.<br>• Pernyataan 2: BENAR — Paragraf 2 menguraikan bahaya penurunan kapasitas nalar independen bila siswa sekadar menyalin jawaban AI.<br>• Pernyataan 3: SALAH — AI generatif tidak menjamin kebenaran mutlak dan dapat menghasilkan informasi yang keliru (halusinasi data).<br>• Pernyataan 4: BENAR — Paragraf penutup merekomendasikan pendekatan berimbang: memanfaatkan AI sebagai asisten belajar tanpa mengorbankan kerja keras orisinal.",
     "grammarNote": "Mastery of Inversion after Restrictive Adverbials (CEFR B2)."
   },
   {
@@ -757,7 +757,7 @@ function getGrade11TLAstsQuestions() {
         "isCorrect": false
       }
     ],
-    "explanation": "1) SALAH (penulis menolak pelarangan mutlak dan menyarankan pendekatan seimbang). 2) BENAR (menulis mandiri melatih daya kritis). 3) BENAR (AI bekerja berdasarkan pola statistik sehingga bisa membuat kesalahan). 4) SALAH (siswa wajib memverifikasi jawaban AI).",
+    "explanation": "• Pernyataan 1: SALAH — Penulis menolak pelarangan AI secara mutlak dan merekomendasikan pemanfaatan secara seimbang dan beretika.<br>• Pernyataan 2: BENAR — Menulis analitis secara mandiri melatih daya berpikir kritis serta membangun orisinalitas pemikiran.<br>• Pernyataan 3: BENAR — Algoritma AI bekerja berdasarkan pola statistik sehingga rentan menghasilkan kutipan atau klaim faktual fiktif.<br>• Pernyataan 4: SALAH — Mengumpulkan tugas yang sepenuhnya dihasilkan oleh chatbot tanpa telaah kritis melanggar integritas akademik.",
     "grammarNote": "Critical Argument Analysis in Hortatory Exposition (TKA Hot Skills)."
   },
   {
@@ -786,8 +786,8 @@ function getGrade11TLAstsQuestions() {
         "isCorrect": false
       }
     ],
-    "explanation": "1) BENAR (that every learner check - V1 dasar). 2) SALAH (harus 'submit', bukan 'submits'). 3) BENAR (that each student verify - V1 dasar). 4) SALAH (harus subjunctive 'be banned', bukan 'are banned').",
-    "grammarNote": "Mandative Subjunctive in Academic Register (CEFR B2)."
+    "explanation": "• Pernyataan 1: BENAR — Pola it-cleft 'It was through her compassionate generosity that...' tersusun secara tepat untuk memberikan penekanan klausa preposisi.<br>• Pernyataan 2: BENAR — Pola wh-cleft 'What students need to cultivate is...' menggunakan to be singular 'is' yang selaras dengan klausa 'what'.<br>• Pernyataan 3: SALAH — Struktur it-cleft untuk objek non-orang menggunakan konjungsi 'that', bukan 'which'.<br>• Pernyataan 4: SALAH — Klausa subjek 'What astonished the arrogant villagers' memerlukan to be tunggal 'was', bukan 'were'.",
+    "grammarNote": "Cleft Sentences & Focus Constructions for Emphatic Discourse."
   },
   {
     "id": 21,
@@ -819,7 +819,7 @@ function getGrade11TLAstsQuestions() {
       "A",
       "C"
     ],
-    "explanation": "Dua nilai moral utama cerita adalah: (A) menghargai orang lain dengan kerendahan hati tanpa memandang rupa, dan (C) kesombongan pada akhirnya membawa kerugian bagi diri sendiri. Pilihan B dan D tidak sesuai dengan pesan moral cerita.",
+    "explanation": "Dua nilai moral utama cerita rakyat Rawa Pening adalah memperlakukan sesama dengan ketulusan dan kerendahan hati tanpa memandang rupa atau status sosial, serta menyadari bahwa kesombongan dan kekejaman pada akhirnya akan mendatangkan kerugian dan kehancuran.",
     "grammarNote": "Multi-Perspective Moral Synthesis in Narrative Texts."
   },
   {
@@ -852,7 +852,7 @@ function getGrade11TLAstsQuestions() {
       "A",
       "C"
     ],
-    "explanation": "Dua risiko utama yang diuraikan pada teks adalah: (B) melemahnya daya nalar dan berpikir kritis siswa, serta (D) risiko mengumpulkan atau menyebarkan fakta keliru akibat halusinasi AI yang tidak dicek ulang.",
+    "explanation": "Dua tindakan etis dan produktif dalam pemanfaatan AI adalah menggunakan AI untuk memantik sudut pandang analitis baru atau memperjelas konsep sains rumit, serta melakukan verifikasi silang kritis terhadap rangkuman AI dengan literatur akademik tepercaya.",
     "grammarNote": "Argumentative Risk Identification in Hortatory Exposition."
   },
   {
@@ -885,7 +885,7 @@ function getGrade11TLAstsQuestions() {
       "A",
       "C"
     ],
-    "explanation": "Kalimat A ('Seldom have researchers witnessed...') dan kalimat D ('Under no circumstances should learners submit...') menerapkan pola inversi baku (Negative Adverbial + Auxiliary + Subject + Verb). Kalimat B dan C tidak menginversi auxiliary.",
+    "explanation": "Kalimat yang menerapkan pola inversi negatif secara tepat adalah 'Seldom have researchers witnessed...' dan 'Under no circumstances should learners submit...'. Kedua kalimat tersebut menempatkan kata kerja bantu (auxiliary verb) mendahului subjek setelah adverbial negatif pembatas.",
     "grammarNote": "Identification of Formal Negative Inversion Structures."
   },
   {
@@ -918,7 +918,7 @@ function getGrade11TLAstsQuestions() {
       "A",
       "C"
     ],
-    "explanation": "Tindakan B (menggunakan AI sebagai tutor penjelas konsep lalu merangkum sendiri) dan C (memverifikasi data AI dengan buku teks) merupakan wujud nyata pemanfaatan AI yang bertanggung jawab dan berintegritas.",
+    "explanation": "Dua rekomendasi kunci penulis teks hortatori adalah memanfaatkan AI secara seimbang dan bertanggung jawab sebagai asisten belajar, serta membiasakan diri memverifikasi keakuratan informasi AI menggunakan sumber tepercaya.",
     "grammarNote": "Applied Ethics in Educational Technology (Hortatory Recommendation)."
   },
   {
@@ -951,7 +951,7 @@ function getGrade11TLAstsQuestions() {
       "A",
       "C"
     ],
-    "explanation": "Kalimat A dan B menggunakan 'Although' dan 'Even though' yang diikuti oleh klausa lengkap (Subject + Verb) secara gramatikal. Kalimat C dan D salah karena 'Despite' dan 'In spite of' tidak boleh langsung diikuti klausa tanpa 'the fact that' dan tidak boleh digabung dengan 'but'.",
+    "explanation": "Kalimat yang menggunakan frasa preposisi konsesi secara baku adalah kalimat dengan 'Notwithstanding + Noun Phrase' ('Notwithstanding his severe physical wounds...') dan 'Despite + Noun Phrase' ('Despite its immense computational capabilities...'). Pilihan lainnya salah karena memadukan 'In spite of' langsung dengan klausa berpredikat dan 'but'.",
     "grammarNote": "Concessive Connectors: Although / Even though + Clause vs Despite / In spite of + Noun."
   },
   {
@@ -981,7 +981,7 @@ function getGrade11TLAstsQuestions() {
       }
     ],
     "correctAnswer": "D",
-    "explanation": "Tujuan komunikatif teks eksposisi hortatori adalah membujuk/meyakinkan pembaca bahwa pelajar SMA harus memanfaatkan AI secara bertanggung jawab sebagai pendukung belajar sambil tetap menjaga kemandirian berpikir. Pilihan A tepat.",
+    "explanation": "Tujuan komunikatif teks eksposisi hortatori adalah membujuk dan meyakinkan pembaca bahwa pelajar SMA harus memanfaatkan AI secara bertanggung jawab sebagai pendukung belajar mandiri.",
     "grammarNote": "Communicative Function: To persuade the reader that something should or should not be done."
   },
   {
@@ -1011,7 +1011,7 @@ function getGrade11TLAstsQuestions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Tesis penulis ada pada kalimat terakhir paragraf 1: 'Therefore, high school students should learn to use AI responsibly as a supportive study assistant rather than letting it do all the thinking for them'. Pilihan A tepat.",
+    "explanation": "Tesis penulis ada pada kalimat terakhir paragraf 1: 'Therefore, high school students should learn to use AI responsibly as a supportive study assistant rather than letting it do all the thinking for them'.",
     "grammarNote": "Thesis Statement Formula: Modal of Recommendation (should + Base Verb) stating the core stance."
   },
   {
@@ -1041,7 +1041,7 @@ function getGrade11TLAstsQuestions() {
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Paragraf 2 menyatakan bahwa menulis esai dengan kata-kata sendiri melatih otak merangkai argumen, berpikir kritis, dan memecahkan masalah mandiri: 'practice organizing arguments, thinking critically, and expressing their original voice'. Pilihan A tepat.",
+    "explanation": "Paragraf 2 menyatakan bahwa menulis esai dengan kata-kata sendiri melatih otak merangkai argumen, berpikir kritis, dan mengekspresikan gagasan orisinal: 'they practice organizing arguments, thinking critically, and expressing their original voice'.",
     "grammarNote": "Supporting Argument: Gerunds as objects ('organizing arguments, thinking critically')."
   },
   {
@@ -1071,7 +1071,7 @@ function getGrade11TLAstsQuestions() {
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Kata 'relying' (dari phrasal verb 'rely on') bermakna bergantung pada, mempercayakan diri sepenuhnya (depending on). Pilihan A tepat.",
+    "explanation": "Kata 'relying' (dari phrasal verb 'rely on') bermakna bergantung pada, mempercayakan diri sepenuhnya (depending on).",
     "grammarNote": "Phrasal Verb Synonym: rely on = depend on, trust in."
   },
   {
@@ -1101,7 +1101,7 @@ function getGrade11TLAstsQuestions() {
       }
     ],
     "correctAnswer": "D",
-    "explanation": "Paragraf 3 menjelaskan: 'AI generates responses based on language patterns found across the internet, which means it can occasionally produce false facts... with high confidence'. AI memprediksi pola bahasa, bukan memahami kebenaran faktual. Pilihan A tepat.",
+    "explanation": "Paragraf 3 menjelaskan bahwa AI memprediksi pola bahasa yang ditemukan di internet sehingga sewaktu-waktu dapat menghasilkan fakta keliru ('occasionally produce false facts... with high confidence'). AI tidak memahami kebenaran faktual secara sadar.",
     "grammarNote": "Causal Reason Clause: 'based on language patterns... rather than genuine comprehension'."
   },
   {
@@ -1131,7 +1131,7 @@ function getGrade11TLAstsQuestions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Ketika kalimat diawali adverbial pembatas 'Rarely' dan subjeknya jamak ('students') dalam Present Simple, pola inversinya adalah: Rarely + do + Subject + V1 ('Rarely do students achieve...'). Pilihan A tepat.",
+    "explanation": "Ketika kalimat diawali adverbial pembatas 'Rarely' dan subjeknya jamak ('students') dalam Present Simple, pola inversinya adalah: Rarely + do + Subject + V1 ('Rarely do students achieve...').",
     "grammarNote": "Negative Inversion Formula: Rarely + do/does + Subject + Base Verb."
   },
   {
@@ -1161,7 +1161,7 @@ function getGrade11TLAstsQuestions() {
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Setelah kata kerja rekomendasi (recommend, suggest, insist) + that + Subject, kata kerja yang digunakan adalah Subjunctive bentuk dasar (Bare Infinitive / V1 tanpa akhiran -s): 'that every student revise'. Pilihan A tepat.",
+    "explanation": "Setelah kata kerja rekomendasi (recommend, suggest, insist) + that + Subject, kata kerja yang digunakan adalah Subjunctive bentuk dasar (Bare Infinitive / V1 tanpa akhiran -s): 'that every student revise'.",
     "grammarNote": "Mandative Subjunctive Formula: recommend + that + Subject + Base Verb."
   },
   {
@@ -1191,7 +1191,7 @@ function getGrade11TLAstsQuestions() {
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Kata hubung yang menyatakan hubungan pertentangan (konsesif) yang diikuti oleh klausa lengkap (Subject + Verb) adalah 'Although' (meskipun/walaupun). Pilihan A tepat.",
+    "explanation": "Kata hubung yang menyatakan hubungan pertentangan (konsesif) yang diikuti oleh klausa lengkap (Subject + Verb) adalah 'Although' (meskipun/walaupun).",
     "grammarNote": "Concessive Subordinator: Although + Clause, Main Clause."
   },
   {
@@ -1221,7 +1221,7 @@ function getGrade11TLAstsQuestions() {
       }
     ],
     "correctAnswer": "D",
-    "explanation": "Bentuk inversi untuk Conditional Type 3 menghilangkan kata 'If' dan memindahkan auxiliary 'Had' ke depan subjek: 'Had the students cross-checked...' = 'If the students had cross-checked...'. Pilihan A tepat.",
+    "explanation": "Bentuk inversi untuk Conditional Type 3 menghilangkan kata 'If' dan memindahkan auxiliary 'Had' ke depan subjek: 'Had the students cross-checked...' = 'If the students had cross-checked...'.",
     "grammarNote": "Inverted Conditional Type 3: Had + Subject + V3, Subject + would have + V3."
   },
   {
@@ -1251,7 +1251,7 @@ function getGrade11TLAstsQuestions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Subjek 'online claims' menerima tindakan verifikasi. Rumus passive modal anjuran kuat adalah: ought to + be + V3 ('ought to be carefully verified'). Pilihan A tepat.",
+    "explanation": "Subjek 'online claims' menerima tindakan verifikasi. Rumus passive modal anjuran kuat adalah: ought to + be + V3 ('ought to be carefully verified').",
     "grammarNote": "Passive Modal Construction: ought to + be + Past Participle (V3)."
   },
   {
@@ -1281,7 +1281,7 @@ function getGrade11TLAstsQuestions() {
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Pola kalimat pasif impersonal untuk menyatakan pandangan umum adalah: Subject + is/are + Adverb + V3 + to-infinitive -> 'is widely recognized to be...'. Pilihan A tepat.",
+    "explanation": "Pola kalimat pasif impersonal untuk menyatakan pandangan umum adalah: Subject + is/are + Adverb + V3 + to-infinitive -> 'is widely recognized to be...'.",
     "grammarNote": "Impersonal Passive: Subject + is/are + Adverb + Past Participle + to-infinitive."
   },
   {
@@ -1311,7 +1311,7 @@ function getGrade11TLAstsQuestions() {
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Perfect Participle ('Having + V3') menyatakan bahwa suatu tindakan (mencabut lidi) telah tuntas sebelum tindakan berikutnya pada kalimat utama terjadi: 'Having pulled the small wooden stick... Baru Klinthing watched...'. Pilihan A tepat.",
+    "explanation": "Perfect Participle ('Having + V3') menyatakan bahwa suatu tindakan (mencabut lidi) telah tuntas sebelum tindakan berikutnya pada kalimat utama terjadi: 'Having pulled the small wooden stick... Baru Klinthing watched...'.",
     "grammarNote": "Perfect Participle: Having + V3 expresses completed anterior action."
   },
   {
@@ -1341,7 +1341,7 @@ function getGrade11TLAstsQuestions() {
       }
     ],
     "correctAnswer": "D",
-    "explanation": "Frasa 'their selfish pride and cruelty' adalah Noun Phrase. Kata penghubung penyebab yang diikuti oleh noun phrase adalah preposisi 'because of'. 'Although' dan 'even though' harus diikuti oleh klausa lengkap. Pilihan A tepat.",
+    "explanation": "Frasa 'their selfish pride and cruelty' adalah Noun Phrase. Kata penghubung penyebab yang diikuti oleh noun phrase adalah preposisi 'because of'. 'Although' dan 'even though' harus diikuti oleh klausa lengkap.",
     "grammarNote": "Cause Preposition: because of + Noun Phrase (vs because + Subject + Verb)."
   },
   {
@@ -1371,7 +1371,7 @@ function getGrade11TLAstsQuestions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Kolokasi akademis yang baku dan natural dengan kata 'role' adalah 'crucial role' (peran yang sangat penting/krusial) atau 'vital role'. Pilihan A tepat.",
+    "explanation": "Kolokasi akademis yang baku dan natural dengan kata 'role' adalah 'crucial role' (peran yang sangat penting/krusial) atau 'vital role'.",
     "grammarNote": "Adjective-Noun Collocation: play a crucial / essential role in doing something."
   },
   {
@@ -1401,7 +1401,7 @@ function getGrade11TLAstsQuestions() {
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Ketika diawali 'Not only' dalam Present Simple dengan subjek tunggal 'artificial intelligence', klausanya mengalami inversi: Not only + does + Subject + V1 ('Not only does artificial intelligence assist...'). Pilihan A tepat.",
+    "explanation": "Ketika diawali 'Not only' dalam Present Simple dengan subjek tunggal 'artificial intelligence', klausanya mengalami inversi: Not only + does + Subject + V1 ('Not only does artificial intelligence assist...').",
     "grammarNote": "Correlative Inversion: Not only + does + Subject + Base Verb..., but it also + Verb."
   }
 ];
@@ -1444,14 +1444,8 @@ function randomizeQuestionOptions(rawQuestions) {
       return q;
     }
     const cloned = JSON.parse(JSON.stringify(q));
-    if (cloned.type === "complex_matrix" && Array.isArray(cloned.matrixStatements)) {
-      const stmts = [...cloned.matrixStatements];
-      for (let i = stmts.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [stmts[i], stmts[j]] = [stmts[j], stmts[i]];
-      }
-      cloned.matrixStatements = stmts;
-    } else if (Array.isArray(cloned.options) && cloned.options.length > 0) {
+    // NOTE: DO NOT shuffle complex_matrix statements so that Pernyataan 1, 2, 3, 4 strictly match table rows
+    if (cloned.type !== "complex_matrix" && Array.isArray(cloned.options) && cloned.options.length > 0) {
       const opts = [...cloned.options];
       const isMCMA = cloned.type === "mcma" && Array.isArray(cloned.correctAnswer);
       const originalCorrect = isMCMA ? [...cloned.correctAnswer] : cloned.correctAnswer;
@@ -1677,7 +1671,7 @@ function renderQuestion(index) {
   }
 
   const expBox = document.getElementById("question-explanation-box");
-  if (isExamSubmitted || (currentMode === "practice" && isQuestionAnswered(q.id))) {
+  if (isExamSubmitted) {
     expBox.style.display = "block";
     let keyBadge = "";
     if (q.type === "complex_matrix") {
@@ -1718,6 +1712,7 @@ function renderPictureChoices(q, container) {
     const card = document.createElement("div");
     card.className = "picture-option-card" + (userAnswers[q.id] === opt.key ? " selected" : "");
     card.onclick = () => {
+      if (isExamSubmitted) return;
       userAnswers[q.id] = opt.key;
       renderQuestion(currentQuestionIndex);
     };
@@ -1740,6 +1735,7 @@ function renderSingleChoices(q, container) {
     const item = document.createElement("div");
     item.className = "option-item" + (userAnswers[q.id] === opt.key ? " selected" : "");
     item.onclick = () => {
+      if (isExamSubmitted) return;
       userAnswers[q.id] = opt.key;
       renderQuestion(currentQuestionIndex);
     };
@@ -1784,6 +1780,7 @@ function renderMatrixTable(q, container) {
 }
 
 function setMatrixAnswer(qId, statementIdx, value) {
+  if (isExamSubmitted) return;
   if (!userAnswers[qId] || typeof userAnswers[qId] !== "object" || Array.isArray(userAnswers[qId])) {
     userAnswers[qId] = {};
   }
@@ -1800,6 +1797,7 @@ function renderMCMACheckboxes(q, container) {
     const item = document.createElement("div");
     item.className = "option-item" + (isChecked ? " selected" : "");
     item.onclick = () => {
+      if (isExamSubmitted) return;
       toggleMCMAAnswer(q.id, opt.key);
       renderQuestion(currentQuestionIndex);
     };
@@ -1813,6 +1811,7 @@ function renderMCMACheckboxes(q, container) {
 }
 
 function toggleMCMAAnswer(qId, key) {
+  if (isExamSubmitted) return;
   if (!Array.isArray(userAnswers[qId])) userAnswers[qId] = [];
   const idx = userAnswers[qId].indexOf(key);
   if (idx > -1) userAnswers[qId].splice(idx, 1);

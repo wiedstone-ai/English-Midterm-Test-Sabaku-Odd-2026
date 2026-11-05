@@ -57,7 +57,7 @@ function getGrade11AstsQuestions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Audio mendeskripsikan: 'student is sitting at his study desk with a modern open laptop, carefully cross-checking references and taking notes to verify the accuracy of online news'. Gambar A memperlihatkan aktivitas riset dan verifikasi informasi di depan laptop.",
+    "explanation": "Audio mendeskripsikan seorang siswa yang duduk di meja belajarnya dengan laptop terbuka modern, sedang tekun menyusun artikel esai analitis di kamarnya yang tertata rapi.",
     "grammarNote": "Present Continuous Tense ('is sitting', 'cross-checking') & Digital Literacy Lexis (verify, accuracy, references)."
   },
   {
@@ -90,7 +90,7 @@ function getGrade11AstsQuestions() {
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Audio menyebutkan: 'magnificent Indonesian cultural destination displays monumental stone temples built with detailed tiers and ornamental gates, celebrated in ancient Central Javanese legends'. Candi batu bersejarah adalah Gambar A (Candi Prambanan/Sewu).",
+    "explanation": "Audio menyebutkan destinasi budaya Indonesia yang menampilkan candi-candi batu megah berlatar perbukitan berkabut dengan relief berukir rumit.",
     "grammarNote": "Adjective clauses & Passive participle: 'monumental stone temples built with detailed tiers'."
   },
   {
@@ -123,7 +123,7 @@ function getGrade11AstsQuestions() {
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Audio mendeskripsikan pemasangan panel surya: 'installed wide solar photovoltaic panels across the facility rooftop to absorb sunlight and produce clean, renewable electric energy'. Gambar A menampilkan panel fotovoltaik surya.",
+    "explanation": "Audio mendeskripsikan instalasi panel surya fotovoltaik yang terpasang membentang di atap gedung sekolah modern untuk memasok energi bersih terbarukan.",
     "grammarNote": "Infinitive of Purpose: 'to absorb sunlight and produce clean, renewable electric energy'."
   },
   {
@@ -194,7 +194,7 @@ function getGrade11AstsQuestions() {
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Siswa laki-laki menyarankan untuk memverifikasi berita: 'We should check trusted national news outlets before forwarding it'. Pilihan B tepat.",
+    "explanation": "Siswa laki-laki menyarankan untuk memverifikasi berita: 'We should check trusted national news outlets and official government portals before sharing'.",
     "grammarNote": "Modals of Recommendation: 'should check trusted outlets before forwarding'."
   },
   {
@@ -265,7 +265,7 @@ function getGrade11AstsQuestions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Siswi perempuan menegaskan pesan moral pementasan: 'deceitful shortcuts always bring regret in the end'. Pilihan A paling tepat.",
+    "explanation": "Siswi perempuan menegaskan pesan moral pementasan: 'deceitful shortcuts always bring regret in the end... true success demands honesty and patience'.",
     "grammarNote": "Noun Clauses & Moral Lexis: 'that deceitful shortcuts always bring regret'."
   },
   {
@@ -329,7 +329,7 @@ function getGrade11AstsQuestions() {
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Inisiatif ramah lingkungan yang diusulkan adalah membawa botol dan wadah makan reusable: 'If every student brought a reusable water bottle and lunch box, our school waste would drop dramatically'. Pilihan B tepat.",
+    "explanation": "Inisiatif ramah lingkungan yang diusulkan adalah membawa botol dan wadah makan reusable: 'If every student carries a reusable tumbler and food container, our school plastic waste will drop by half'.",
     "grammarNote": "Second Conditional (Hypothetical): 'If every student brought..., our school waste would drop'."
   },
   {
@@ -358,7 +358,7 @@ function getGrade11AstsQuestions() {
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Monolog menjelaskan: 'Reluctant to accept the proposal from her father's slayer, the clever princess agreed under one impossible condition...'. Ia enggan menikah dengan pembunuh ayahnya.",
+    "explanation": "Monolog menguraikan bahwa literasi digital kritis bukan sekadar keterampilan mengoperasikan gadget, melainkan kemampuan mengevaluasi kebenaran informasi dan melindungi data pribadi.",
     "grammarNote": "Participial Adjective phrase: 'Reluctant to accept the proposal from her father's slayer'."
   },
   {
@@ -387,7 +387,7 @@ function getGrade11AstsQuestions() {
       }
     ],
     "correctAnswer": "D",
-    "explanation": "Monolog menyatakan: 'Bandung summoned an army of unseen earth spirits who worked at extraordinary speed throughout the dark night'. Ia mengerahkan pasukan makhluk halus/roh halus.",
+    "explanation": "Pembicara menyarankan agar siswa meluangkan waktu sejenak untuk memverifikasi sumber berita sebelum membagikannya (pause and verify).",
     "grammarNote": "Relative Clause: '...earth spirits who worked at extraordinary speed'."
   },
   {
@@ -416,7 +416,7 @@ function getGrade11AstsQuestions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Pembicara menjelaskan: 'digital traces can be copied, screenshotted, and archived indefinitely... Future scholarship committees and university recruiters routinely review online profiles'. Jejak digital dapat disimpan dan ditinjau di masa depan.",
+    "explanation": "Dokter menjelaskan bahwa tidur berkualitas 7-8 jam per malam esensial untuk konsolidasi memori dan menjaga fokus belajar jangka panjang.",
     "grammarNote": "Passive Voice in Academic Advice: 'can be copied, screenshotted, and archived indefinitely'."
   },
   {
@@ -445,7 +445,7 @@ function getGrade11AstsQuestions() {
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Pembicara menyarankan: 'Therefore, always pause and reflect before hitting the publish button' (berhenti sejenak dan berpikir matang sebelum menekan tombol unggah).",
+    "explanation": "Rekomendasi gaya hidup sehat mencakup asupan gizi seimbang, pembatasan konsumsi gula berlebih, dan olahraga teratur.",
     "grammarNote": "Imperative sentence: 'always pause and reflect before hitting the publish button'."
   },
   {
@@ -475,7 +475,7 @@ function getGrade11AstsQuestions() {
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Konflik utama dalam teks naratif ini adalah keengganan dan dilema batin Putri Roro Jonggrang yang menolak dinikahi oleh pangeran yang telah membunuh ayahnya: 'she could never bring herself to willingly marry the conqueror who had ended her beloved father's life'.",
+    "explanation": "Teks analitis eksposisi bertujuan meyakinkan pembaca bahwa literasi digital kritis mutlak diperlukan oleh generasi muda di era limpahan informasi digital.",
     "grammarNote": "Narrative Conflict Analysis (Complication): Reluctance to marry the slayer of her father."
   },
   {
@@ -505,7 +505,7 @@ function getGrade11AstsQuestions() {
       }
     ],
     "correctAnswer": "D",
-    "explanation": "Paragraf 2 menyatakan: 'Knowing that a direct refusal would provoke dangerous anger, she devised a clever plan' (mengetahui penolakan langsung akan memicu amarah berbahaya). Pilihan B tepat.",
+    "explanation": "Paragraf 2 menyatakan bahwa Roro Jonggrang menyusun siasat cerdik karena penolakan langsung akan memicu kemarahan berbahaya: 'Knowing that a direct refusal would provoke dangerous anger, she devised a clever plan'.",
     "grammarNote": "Cause and effect / Gerund phrase: 'Knowing that a direct refusal would provoke dangerous anger'."
   },
   {
@@ -535,7 +535,7 @@ function getGrade11AstsQuestions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Paragraf 4 menjelaskan: 'She instructed them to burn piles of dry straw to the east to illuminate the sky with an orange glow, while others pounded rice mortars with heavy wooden pestles to simulate the lively sounds of a busy morning'. Pilihan B akurat.",
+    "explanation": "Paragraf 4 menjelaskan bahwa Roro Jonggrang memerintahkan dayang-dayang membakar jerami kering di ufuk timur untuk menciptakan ilusi fajar: 'She instructed them to burn piles of dry straw to the east to illuminate the sky with an orange glow'.",
     "grammarNote": "Parallel action clauses with 'while': 'burn piles of dry straw... while others pounded rice mortars'."
   },
   {
@@ -565,7 +565,7 @@ function getGrade11AstsQuestions() {
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Kata 'valiant' bermakna berani, gagah perkasa, atau ksatria (courageous and brave).",
+    "explanation": "Kata 'deceptive' bersinonim dengan 'misleading' (menyesatkan atau memperdaya).",
     "grammarNote": "Descriptive adjective of heroic character: valiant = brave, courageous, bold."
   },
   {
@@ -595,7 +595,7 @@ function getGrade11AstsQuestions() {
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Kalimat sebelumnya menyatakan: 'Roro Jonggrang swiftly gathered her palace maidens. She instructed them...'. Kata ganti 'them' merujuk kepada dayang-dayang istana (the palace maidens).",
+    "explanation": "Pesan moral dari kisah Roro Jonggrang dan Bandung Bondowoso adalah bahwa pemaksaan kehendak dan tipu muslihat pada akhirnya akan membuahkan penyesalan.",
     "grammarNote": "Pronoun reference tracking: 'palace maidens' (plural noun) -> 'them' (object pronoun)."
   },
   {
@@ -624,7 +624,7 @@ function getGrade11AstsQuestions() {
         "isCorrect": true
       }
     ],
-    "explanation": "1) SALAH (literasi digital bukan sekadar kemampuan teknis, melainkan kecakapan mengevaluasi kebenaran informasi). 2) BENAR (clickbait memancing reaksi emosional). 3) SALAH (jejak digital meninggalkan rekam elektronik yang sulit dihapus tuntas). 4) BENAR (kesadaran algoritma membantu pengaturan waktu layar mandiri).",
+    "explanation": "• Pernyataan 1: SALAH — Literasi digital kritis bukan sekadar kecakapan teknis mengoperasikan gawai, melainkan kemampuan mengevaluasi kebenaran informasi.<br>• Pernyataan 2: BENAR — Judul bernada sensasional (clickbait) sengaja dirancang untuk memancing respons emosional pengguna internet.<br>• Pernyataan 3: SALAH — Jejak digital meninggalkan rekam elektronik yang tersimpan di server dan sangat sulit dihapus secara permanen.<br>• Pernyataan 4: BENAR — Kesadaran akan cara kerja algoritma membantu pengguna dalam mengatur alokasi waktu layar secara mandiri.",
     "grammarNote": "Critical Reading Analysis: Evaluating Thesis, Claims, and Supporting Arguments (TKA)."
   },
   {
@@ -653,7 +653,7 @@ function getGrade11AstsQuestions() {
         "isCorrect": true
       }
     ],
-    "explanation": "1) SALAH ('because of' tidak boleh diikuti klausa lengkap 'they spend'). 2) BENAR ('Due to' diikuti Noun Phrase). 3) BENAR ('because' diikuti klausa lengkap). 4) SALAH ('Owing to' adalah preposisi yang tidak boleh langsung diikuti klausa 'the internet was down').",
+    "explanation": "• Pernyataan 1: SALAH — Preposisi 'because of' tidak boleh langsung diikuti oleh anak kalimat lengkap berpredikat ('they spend').<br>• Pernyataan 2: BENAR — Preposisi 'Due to' diikuti oleh frasa nomina ('excessive screen time') secara gramatikal.<br>• Pernyataan 3: BENAR — Konjungsi subordinatif 'because' diikuti oleh klausa lengkap (Subject + Verb) secara tepat.<br>• Pernyataan 4: SALAH — 'Owing to' adalah preposisi kausal yang tidak boleh langsung diikuti klausa berpredikat.",
     "grammarNote": "Mastery of Cause and Effect: Prepositional vs Clausal Connectors."
   },
   {
@@ -682,7 +682,7 @@ function getGrade11AstsQuestions() {
         "isCorrect": false
       }
     ],
-    "explanation": "1) BENAR (Modal passive: should not be + shared). 2) SALAH (Continuous passive harus 'is being IMPLEMENTED'). 3) BENAR (Past passive plural: 'data were collected'). 4) SALAH (Bentuk V3 dari spread adalah 'spread', bukan 'spreaded').",
+    "explanation": "• Pernyataan 1: BENAR — Pola modal pasif 'should not be + V3' ('should not be shared') tersusun secara tepat.<br>• Pernyataan 2: SALAH — Bentuk present continuous passive membutuhkan 'is being + V3' ('is being implemented'), bukan 'implementing'.<br>• Pernyataan 3: BENAR — Subjek jamak 'data' dalam past passive menggunakan to be jamak ('data were collected').<br>• Pernyataan 4: SALAH — Bentuk past participle (V3) dari kata kerja 'spread' adalah 'spread', bukan 'spreaded'.",
     "grammarNote": "Passive Voice Accuracy across Present, Past, and Modal Auxiliaries."
   },
   {
@@ -711,7 +711,7 @@ function getGrade11AstsQuestions() {
         "isCorrect": true
       }
     ],
-    "explanation": "1) BENAR (olahraga meningkatkan oksigen ke otak dan memori). 2) SALAH (kurang tidur justru menurunkan daya konsentrasi). 3) BENAR (endorfin meredakan stres dan memperbaiki mood). 4) SALAH (makanan manis berlebih menyebabkan lonjakan gula darah dan kantuk).",
+    "explanation": "• Pernyataan 1: BENAR — Aktivitas fisik aerobik teratur meningkatkan sirkulasi oksigen ke otak dan mendukung daya ingat.<br>• Pernyataan 2: SALAH — Kurang tidur kronis justru menurunkan daya konsentrasi belajar dan kestabilan emosi.<br>• Pernyataan 3: BENAR — Pelepasan hormon endorfin saat berolahraga terbukti meredakan stres mental dan memperbaiki suasana hati.<br>• Pernyataan 4: SALAH — Asupan makanan berkadar gula tinggi berlebih memicu lonjakan gula darah mendadak yang diikuti rasa kantuk.",
     "grammarNote": "Health and Expository Text Factual Verification (AKM Standar)."
   },
   {
@@ -740,7 +740,7 @@ function getGrade11AstsQuestions() {
         "isCorrect": false
       }
     ],
-    "explanation": "1) BENAR (If + balanced, would feel). 2) SALAH (harus 'If I WERE... I WOULD...'). 3) BENAR (If + verified, would decrease). 4) SALAH (mencampur 'study' masa lalu dengan 'would have passed'; harusnya Type 3: 'If they had studied...').",
+    "explanation": "• Pernyataan 1: BENAR — Kalimat pengandaian tipe 2 menggunakan pola baku: 'If + past simple, would + bare infinitive'.<br>• Pernyataan 2: SALAH — Bentuk subjunctive pengandaian resmi untuk orang pertama tunggal adalah 'If I WERE you', bukan 'If I was you'.<br>• Pernyataan 3: BENAR — Pola second conditional hipotesis 'If + V2, would + V1' tersusun secara gramatikal.<br>• Pernyataan 4: SALAH — Tidak boleh memadukan present simple 'study' dengan bentuk modal past perfect 'would have passed'.",
     "grammarNote": "Conditional Type 2: Hypothetical Present Condition and Consequence."
   },
   {
@@ -773,7 +773,7 @@ function getGrade11AstsQuestions() {
       "A",
       "C"
     ],
-    "explanation": "Argumen utama penulis dalam teks adalah (A) menyaring kebenaran dan melindungi dari manipulasi hoaks, serta (C) melindungi reputasi jejak digital dan menjaga kesehatan mental. Opsi B dan D tidak relevan dengan esensi teks.",
+    "explanation": "Argumen utama penulis dalam teks adalah menyaring kebenaran dan melindungi dari manipulasi hoaks, serta melindungi reputasi jejak digital dan menjaga kesehatan mental.",
     "grammarNote": "Identifying Main Supporting Arguments in Analytical Exposition."
   },
   {
@@ -806,7 +806,7 @@ function getGrade11AstsQuestions() {
       "A",
       "C"
     ],
-    "explanation": "Kalimat B ('Owing to + Noun Phrase') dan kalimat D ('because + Clause') menggunakan konjungsi kausalitas secara tepat. Kalimat A salah (karena 'because' harus diikuti klausa, bukan 'heavy storm'), dan kalimat C salah penempatan 'consequently' sebagai konjungsi antarklausa.",
+    "explanation": "Kalimat yang menggunakan konjungsi kausalitas secara tepat adalah yang berpola 'Owing to + Noun Phrase' ('Owing to the severe typhoon...') dan 'because + Clause' ('...because the regional weather was severe'). Kalimat lainnya salah penempatan konjungsi atau tidak diikuti klausa.",
     "grammarNote": "Grammatical Accuracy of Cause and Effect Linkers."
   },
   {
@@ -839,7 +839,7 @@ function getGrade11AstsQuestions() {
       "A",
       "C"
     ],
-    "explanation": "Kalimat A ('however') dan kalimat D ('nevertheless') menggunakan konjungsi transisi pertentangan dengan tanda baca dan makna yang tepat. Kalimat B salah (tidak boleh menggabungkan 'Although' dengan 'but'), dan kalimat C salah ('in spite of' tidak boleh langsung diikuti klausa 'she was').",
+    "explanation": "Kalimat yang menggunakan konjungsi transisi pertentangan dengan tanda baca dan makna yang tepat adalah yang menggunakan 'however' dan 'nevertheless'. Kalimat lainnya salah karena menggabungkan 'Although' dengan 'but', atau 'in spite of' yang langsung diikuti klausa.",
     "grammarNote": "Transitions of Contrast: however, nevertheless, on the contrary."
   },
   {
@@ -872,7 +872,7 @@ function getGrade11AstsQuestions() {
       "A",
       "C"
     ],
-    "explanation": "Rekomendasi gaya hidup sehat yang efektif dan ilmiah adalah (B) menjaga waktu tidur berkualitas 7-8 jam per malam, serta (C) melakukan aktivitas fisik/olahraga teratur minimal 30 menit sehari.",
+    "explanation": "Rekomendasi gaya hidup sehat yang efektif dan ilmiah menurut teks adalah menjaga waktu tidur berkualitas 7-8 jam per malam, serta melakukan aktivitas fisik/olahraga teratur minimal 30 menit sehari.",
     "grammarNote": "Practical Life Skills & Analytical Text Conclusion Application."
   },
   {
@@ -905,7 +905,7 @@ function getGrade11AstsQuestions() {
       "A",
       "C"
     ],
-    "explanation": "Kalimat A ('have been introduced' - Present Perfect Passive) dan B ('were announced' - Past Simple Passive) tersusun sempurna. Kalimat C salah ('was did' harusnya 'was DONE'), dan kalimat D salah ('articles is' harusnya 'articles ARE published').",
+    "explanation": "Kalimat pasif baku adalah yang menggunakan bentuk 'have been introduced' (Present Perfect Passive) dan 'were announced' (Past Simple Passive). Kalimat lainnya salah pola kata kerja ('was did') atau tidak selaras subjek-predikat ('articles is').",
     "grammarNote": "Passive Voice Subject-Verb Agreement and Irregular Past Participle Mastery."
   },
   {
@@ -935,7 +935,7 @@ function getGrade11AstsQuestions() {
       }
     ],
     "correctAnswer": "D",
-    "explanation": "Paragraf 4 secara spesifik menyebutkan: 'sleep disruption caused by late-night screen exposure'. Paparan layar gadget dan media sosial hingga larut malam memicu gangguan tidur.",
+    "explanation": "Teks analitis eksposisi berfokus membuktikan suatu tesis dengan argumen-argumen logis pendukung.",
     "grammarNote": "Reduced Relative Clause: 'sleep disruption [which is] caused by late-night screen exposure'."
   },
   {
@@ -965,7 +965,7 @@ function getGrade11AstsQuestions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Nada (tone) penulis bersifat mengajak secara meyakinkan (persuasive), didukung penalaran logis berbasis fakta (rational), dan memberikan solusi positif yang membangun bagi remaja (constructive).",
+    "explanation": "Tesis utama artikel menekankan urgensi evaluasi kritis terhadap informasi digital.",
     "grammarNote": "Author's Tone & Attitude Analysis: Persuasive, informative, and constructive."
   },
   {
@@ -995,7 +995,7 @@ function getGrade11AstsQuestions() {
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Paragraf 5 ('In conclusion, equipping young learners with comprehensive digital literacy is imperative...') berfungsi sebagai Reiteration (Penegasan Ulang) yang merangkum kembali tesis dan mengajak pendidik serta orang tua bertindak.",
+    "explanation": "Paragraf 3 menyoroti dampak psikologis paparan konten negatif berkelanjutan.",
     "grammarNote": "Structure of Analytical Exposition: Reiteration / Conclusion restates thesis and key arguments."
   },
   {
@@ -1025,7 +1025,7 @@ function getGrade11AstsQuestions() {
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Pernyataan B adalah parafrase yang paling akurat dari tesis: Memiliki pemilahan digital yang kritis sangat penting bagi remaja untuk menjelajahi informasi secara aman dan menjaga kesejahteraan diri.",
+    "explanation": "Kata 'verifying' bermakna mengonfirmasi atau membuktikan kebenaran suatu klaim fakta (confirming).",
     "grammarNote": "Academic Paraphrasing: maintaining core semantic meaning with varied vocabulary and syntax."
   },
   {
@@ -1055,7 +1055,7 @@ function getGrade11AstsQuestions() {
       }
     ],
     "correctAnswer": "D",
-    "explanation": "Paragraf 4 merekomendasikan: 'setting intentional screen time boundaries and curating supportive online communities'. Menetapkan batas waktu layar secara sadar dan aktif di komunitas positif adalah kebiasaan bijak bermedia digital. Pilihan A tepat.",
+    "explanation": "Paragraf 4 merekomendasikan penetapan batas waktu penggunaan gawai secara sadar ('setting intentional screen time boundaries') serta aktif dalam komunitas digital yang suportif.",
     "grammarNote": "Action Verb Collocations: 'setting intentional limits', 'curating supportive communities'."
   },
   {
@@ -1085,7 +1085,7 @@ function getGrade11AstsQuestions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Klausa 'By the time + Simple Past (realized)' menunjukkan bahwa suatu aksi lain telah selesai lebih dahulu di masa lampau sebelum peristiwa tersebut terjadi. Maka digunakan Past Perfect Tense: 'had already retreated'.",
+    "explanation": "Kaidah modal verb 'should' diikuti bentuk kata kerja dasar (bare infinitive): 'should verify'.",
     "grammarNote": "Past Perfect Tense (had + V3) denotes an action completed prior to another past event."
   },
   {
@@ -1115,7 +1115,7 @@ function getGrade11AstsQuestions() {
       }
     ],
     "correctAnswer": "B",
-    "explanation": "'Although' diikuti oleh klausa lengkap (Subject + Verb: 'social media algorithms are engineered...'), untuk menyatakan pertentangan logis (konseptual konsesi). 'In spite of' salah karena harus diikuti noun phrase/gerund.",
+    "explanation": "Frasa 'Due to' berfungsi sebagai preposisi yang harus diikuti oleh frasa nomina (noun phrase).",
     "grammarNote": "Subordinating Conjunction of Concession: Although + Subject + Verb, Main Clause."
   },
   {
@@ -1145,7 +1145,7 @@ function getGrade11AstsQuestions() {
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Frasa 'their careless habit of oversharing...' adalah frasa kata benda (Noun Phrase). Penghubung kausal yang diikuti Noun Phrase adalah 'due to' atau 'because of'. 'Because' salah karena membutuhkan klausa (Subject + Verb).",
+    "explanation": "Bentuk pasif Simple Present Tense untuk subjek jamak adalah: are + Verb 3 ('are examined').",
     "grammarNote": "Prepositional Cause Marker: 'due to' / 'because of' + Noun Phrase."
   },
   {
@@ -1175,7 +1175,7 @@ function getGrade11AstsQuestions() {
       }
     ],
     "correctAnswer": "D",
-    "explanation": "Subjek kalimat adalah 'online claims' (klaim daring) yang menerima aksi (pasif) dengan modal keharusan: Modal + be + V3 (Past Participle) -> 'must be verified'.",
+    "explanation": "Subjek kalimat adalah 'online claims' yang menerima aksi pasif dengan modal keharusan: Modal + be + V3 -> 'must be verified'.",
     "grammarNote": "Modal Passive Structure: Modal auxiliary (must/should) + be + Past Participle (V3)."
   },
   {
@@ -1205,7 +1205,7 @@ function getGrade11AstsQuestions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Pada Reported Speech dengan reporting verb lampau ('told'), Present Continuous Tense ('am analyzing') bergeser waktu (backshift) menjadi Past Continuous Tense ('was analyzing').",
+    "explanation": "Konjungsi konsesif 'Although' digunakan untuk menghubungkan dua klausa yang saling bertolak belakang.",
     "grammarNote": "Reported Speech Backshift Rule: Present Continuous (am/is + V-ing) -> Past Continuous (was/were + V-ing)."
   },
   {
@@ -1235,7 +1235,7 @@ function getGrade11AstsQuestions() {
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Pola Conditional Sentence Type 2 untuk situasi pengandaian yang berlawanan dengan kenyataan masa kini adalah: If + Subject + Simple Past (V2), Subject + would + V1. Maka bentuk kata kerja yang tepat adalah 'practiced'.",
+    "explanation": "Pola second conditional baku dibentuk dengan 'If + past simple, would + bare infinitive'.",
     "grammarNote": "Conditional Type 2 Formula: If + S + V2 (Simple Past), S + would + Base Verb (V1)."
   },
   {
@@ -1265,7 +1265,7 @@ function getGrade11AstsQuestions() {
       }
     ],
     "correctAnswer": "C",
-    "explanation": "'Ought to' memiliki makna setara dengan 'should', digunakan untuk menyatakan anjuran moral yang kuat atau kewajiban etis (strong recommendation/moral duty). Pilihan A tepat.",
+    "explanation": "'Ought to' memiliki makna setara dengan 'should', digunakan untuk menyatakan anjuran moral yang kuat atau kewajiban etis (strong recommendation/moral duty).",
     "grammarNote": "Modal of Moral Recommendation: 'ought to' + base verb = 'should' + base verb."
   },
   {
@@ -1295,7 +1295,7 @@ function getGrade11AstsQuestions() {
       }
     ],
     "correctAnswer": "D",
-    "explanation": "Kolokasi akademis baku dalam bahasa Inggris untuk 'membangkitkan/meningkatkan kesadaran' adalah 'raise awareness'. Frasa 'make awareness' atau 'do awareness' tidak baku.",
+    "explanation": "Konjungsi koordinatif 'so' digunakan untuk menyatakan hubungan sebab-akibat langsung.",
     "grammarNote": "Fixed Academic Collocation: 'raise awareness' (meningkatkan kepedulian/kesadaran)."
   },
   {
@@ -1325,7 +1325,7 @@ function getGrade11AstsQuestions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Ungkapan 'I couldn't agree more with your point' adalah idiom formal untuk menyatakan persetujuan mutlak/sangat setuju (strong agreement). Pilihan B, C, dan D menyatakan keraguan atau penolakan kasar.",
+    "explanation": "Ungkapan 'I couldn't agree more with your point' adalah idiom formal untuk menyatakan persetujuan mutlak (strong agreement). Pilihan lainnya menyatakan keraguan atau penolakan.",
     "grammarNote": "Expressing Agreement in Analytical Discussions: 'I couldn't agree more' = I strongly agree."
   },
   {
@@ -1355,7 +1355,7 @@ function getGrade11AstsQuestions() {
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Kata 'vital' bermakna sangat penting, krusial, dan mutlak diperlukan (absolutely necessary / crucial), sesuai dengan konteks keterampilan bernalar kritis bagi siswa SMA.",
+    "explanation": "Konektor transisi antarkalimat 'Furthermore' digunakan untuk menambahkan argumen pendukung yang sejalan.",
     "grammarNote": "Academic Evaluative Adjective (Oxford 3000 B2): vital = crucial, indispensable, essential."
   }
 ];
@@ -1398,14 +1398,8 @@ function randomizeQuestionOptions(rawQuestions) {
       return q;
     }
     const cloned = JSON.parse(JSON.stringify(q));
-    if (cloned.type === "complex_matrix" && Array.isArray(cloned.matrixStatements)) {
-      const stmts = [...cloned.matrixStatements];
-      for (let i = stmts.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [stmts[i], stmts[j]] = [stmts[j], stmts[i]];
-      }
-      cloned.matrixStatements = stmts;
-    } else if (Array.isArray(cloned.options) && cloned.options.length > 0) {
+    // NOTE: DO NOT shuffle complex_matrix statements so that Pernyataan 1, 2, 3, 4 strictly match table rows
+    if (cloned.type !== "complex_matrix" && Array.isArray(cloned.options) && cloned.options.length > 0) {
       const opts = [...cloned.options];
       const isMCMA = cloned.type === "mcma" && Array.isArray(cloned.correctAnswer);
       const originalCorrect = isMCMA ? [...cloned.correctAnswer] : cloned.correctAnswer;
@@ -1631,7 +1625,7 @@ function renderQuestion(index) {
   }
 
   const expBox = document.getElementById("question-explanation-box");
-  if (isExamSubmitted || (currentMode === "practice" && isQuestionAnswered(q.id))) {
+  if (isExamSubmitted) {
     expBox.style.display = "block";
     let keyBadge = "";
     if (q.type === "complex_matrix") {
@@ -1672,6 +1666,7 @@ function renderPictureChoices(q, container) {
     const card = document.createElement("div");
     card.className = "picture-option-card" + (userAnswers[q.id] === opt.key ? " selected" : "");
     card.onclick = () => {
+      if (isExamSubmitted) return;
       userAnswers[q.id] = opt.key;
       renderQuestion(currentQuestionIndex);
     };
@@ -1694,6 +1689,7 @@ function renderSingleChoices(q, container) {
     const item = document.createElement("div");
     item.className = "option-item" + (userAnswers[q.id] === opt.key ? " selected" : "");
     item.onclick = () => {
+      if (isExamSubmitted) return;
       userAnswers[q.id] = opt.key;
       renderQuestion(currentQuestionIndex);
     };
@@ -1738,6 +1734,7 @@ function renderMatrixTable(q, container) {
 }
 
 function setMatrixAnswer(qId, statementIdx, value) {
+  if (isExamSubmitted) return;
   if (!userAnswers[qId] || typeof userAnswers[qId] !== "object" || Array.isArray(userAnswers[qId])) {
     userAnswers[qId] = {};
   }
@@ -1754,6 +1751,7 @@ function renderMCMACheckboxes(q, container) {
     const item = document.createElement("div");
     item.className = "option-item" + (isChecked ? " selected" : "");
     item.onclick = () => {
+      if (isExamSubmitted) return;
       toggleMCMAAnswer(q.id, opt.key);
       renderQuestion(currentQuestionIndex);
     };
@@ -1767,6 +1765,7 @@ function renderMCMACheckboxes(q, container) {
 }
 
 function toggleMCMAAnswer(qId, key) {
+  if (isExamSubmitted) return;
   if (!Array.isArray(userAnswers[qId])) userAnswers[qId] = [];
   const idx = userAnswers[qId].indexOf(key);
   if (idx > -1) userAnswers[qId].splice(idx, 1);

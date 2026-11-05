@@ -119,7 +119,7 @@ function getGrade12AstsQuestions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Audio mendeskripsikan: 'two formal student speakers are standing at separate wooden podiums, presenting opposing perspectives... before a moderator and an engaged audience'. Gambar A menampilkan format debat akademis dua podium dengan pembicara dan penonton.",
+    "explanation": "Audio mendeskripsikan dua pembicara siswa formal yang berdiri di podium terpisah dan menyampaikan sudut pandang berlawanan di hadapan moderator dan audiens.",
     "grammarNote": "Present Continuous Tense ('are standing', 'presenting') & Academic Discussion Terminology ('opposing perspectives', 'moderator', 'engaged audience')."
   },
   {
@@ -152,7 +152,7 @@ function getGrade12AstsQuestions() {
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Audio secara spesifik menyebutkan: 'integrates an extensive array of blue photovoltaic solar panels... alongside towering modern wind turbines rotating in the sea breeze'. Gambar A merepresentasikan kombinasi panel surya dan kincir turbin angin.",
+    "explanation": "Audio menyebutkan instalasi pembangkit listrik ramah lingkungan terdesentralisasi yang memadukan panel surya fotovoltaik biru dan kincir turbin angin modern.",
     "grammarNote": "Descriptive Compound Nouns & Adjectives: 'photovoltaic solar panels', 'towering modern wind turbines', 'sustainable energy facility'."
   },
   {
@@ -185,7 +185,7 @@ function getGrade12AstsQuestions() {
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Audio menerangkan: 'controlled smart glass greenhouse equipped with automated micro-irrigation nozzles and aerial telemetry monitoring sensors'. Gambar A memperlihatkan rumah kaca modern (*smart greenhouse*) berteknologi sensor otomatis.",
+    "explanation": "Audio menerangkan fasilitas rumah kaca pintar modern (*smart glass greenhouse*) yang dilengkapi dengan nosel mikro-irigasi otomatis dan sensor telemetri udara.",
     "grammarNote": "Passive Participle Modifier: 'controlled smart glass greenhouse equipped with automated nozzles'."
   },
   {
@@ -256,7 +256,7 @@ function getGrade12AstsQuestions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Kekhawatiran utama yang dibahas adalah bahwa ketergantungan berlebihan pada AI melemahkan pemikiran kritis dan suara pribadi siswa ('deprives students of personal voice... wrestling with complex ideas yourself'). Pilihan A tepat.",
+    "explanation": "Kekhawatiran utama yang dibahas adalah ketergantungan berlebihan pada AI dapat melemahkan daya pikir kritis serta orisinalitas ide siswa.",
     "grammarNote": "Complex Gerund & Concession Clauses: 'over-relying on them deprives...', 'While generative algorithms can assist...'."
   },
   {
@@ -327,7 +327,7 @@ function getGrade12AstsQuestions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Pembicara perempuan menjelaskan bahwa energi terbarukan terdesentralisasi lebih unggul karena investasi modal lebih terjangkau, pembangunan jauh lebih cepat, dan cocok untuk negara kepulauan tanpa risiko limbah radioaktif. Pilihan A tepat.",
+    "explanation": "Pembicara menjelaskan bahwa energi terbarukan terdesentralisasi lebih unggul karena investasi modal lebih terjangkau, pembangunan jauh lebih cepat, dan cocok untuk negara kepulauan tanpa risiko limbah radioaktif.",
     "grammarNote": "Comparative discourse markers & contrastive lexis: 'However, the capital investment is immense... can be deployed much faster'."
   },
   {
@@ -398,7 +398,7 @@ function getGrade12AstsQuestions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Kedua pembicara sepakat bahwa pesan inti novel adalah pendidikan berkualitas digerakkan oleh kegigihan dan dedikasi guru, bukan sekadar fasilitas mewah ('quality education is fundamentally driven by human spirit... not just lavish facilities'). Pilihan A tepat.",
+    "explanation": "Kedua pembicara sepakat bahwa pendidikan berkualitas digerakkan oleh semangat juang dan dedikasi guru, bukan semata kelengkapan fasilitas materi.",
     "grammarNote": "Passive voice & Emphatic adverbials: 'fundamentally driven by human spirit and empathy'."
   },
   {
@@ -693,7 +693,7 @@ function getGrade12AstsQuestions() {
         "isCorrect": false
       }
     ],
-    "explanation": "1) BENAR (AI diakui mampu membantu brainstorming dan kerangka). 2) SALAH (penulis merekomendasikan regulasi etis, bukan larangan mutlak). 3) BENAR (ketergantungan pasif memicu atrofi kognitif). 4) SALAH (AI masih rentan halusinasi data dan bias algoritma).",
+    "explanation": "• Pernyataan 1: BENAR — Teks menyatakan bahwa AI generatif mampu menghasilkan draf tulisan dan ringkasan dalam hitungan detik.<br>• Pernyataan 2: SALAH — Penulis tidak menganjurkan pelarangan AI secara mutlak, melainkan pemanfaatan secara etis dan bertanggung jawab.<br>• Pernyataan 3: BENAR — Ketergantungan berlebih berisiko melemahkan kemampuan penalaran mandiri dan pemecahan masalah kompleks.<br>• Pernyataan 4: SALAH — Penggunaan AI tanpa sitasi dan verifikasi justru berisiko menimbulkan plagiarisme dan kesalahan informasi.",
     "grammarNote": "Discussion Text Argument Evaluation: Identifying Supporting vs Contrasting Stances."
   },
   {
@@ -722,7 +722,7 @@ function getGrade12AstsQuestions() {
         "isCorrect": false
       }
     ],
-    "explanation": "1) BENAR (If + had organized, would have understood). 2) SALAH (mencampur Simple Past dengan present; Type 3 harus 'had studied... would have passed'). 3) BENAR (Passive Type 3: had been maintained, would have been avoided). 4) SALAH (main clause harus 'would have met', bukan 'would meet').",
+    "explanation": "• Pernyataan 1: BENAR — Keuntungan energi surya dan angin terdesentralisasi adalah fleksibilitas instalasi di pulau-pulau terpencil.<br>• Pernyataan 2: SALAH — Pembangkit nuklir konvensional membutuhkan modal investasi awal yang sangat besar serta waktu konstruksi panjang.<br>• Pernyataan 3: SALAH — Teks menyoroti bahwa isu limbah radioaktif tetap menjadi tantangan keselamatan jangka panjang.<br>• Pernyataan 4: BENAR — Pendekatan bauran energi hijau bertahap merupakan solusi realistis untuk stabilitas pasokan listrik nasional.",
     "grammarNote": "Conditional Type 3: Form and Function for Past Unreal Situations."
   },
   {
@@ -751,7 +751,7 @@ function getGrade12AstsQuestions() {
         "isCorrect": false
       }
     ],
-    "explanation": "1) BENAR (Despite + Noun Phrase 'facing severe economic limitations'). 2) SALAH (tidak boleh menggabungkan 'Although' dan 'but' dalam satu kalimat). 3) BENAR (However digunakan sebagai adverbia transisi antarinduk kalimat). 4) SALAH ('In spite of' tidak boleh diikuti klausa berpredikat 'she was exhausted'; harusnya 'Although she was...' atau 'In spite of being exhausted...').",
+    "explanation": "• Pernyataan 1: BENAR — Latar novel Laskar Pelangi menggambarkan keterbatasan fasilitas sekolah di pedalaman Belitung.<br>• Pernyataan 2: BENAR — Figur Bu Muslimah dan Pak Harfan menjadi teladan dedikasi pendidik sejati yang menginspirasi murid-muridnya.<br>• Pernyataan 3: SALAH — Resensi menekankan bahwa kemiskinan bukanlah penghalang untuk meraih cita-cita luhur melalui pendidikan.<br>• Pernyataan 4: SALAH — Resensi menyimpulkan bahwa novel Laskar Pelangi sarat dengan pesan moral dan nilai kemanusiaan yang mendalam.",
     "grammarNote": "Mastery of Contrastive Connectors and Concessive Adverbials (B2 Level)."
   },
   {
@@ -780,7 +780,7 @@ function getGrade12AstsQuestions() {
         "isCorrect": false
       }
     ],
-    "explanation": "1) BENAR (Laskar Pelangi mengisahkan sepuluh murid SD Muhammadiyah Gantong). 2) SALAH (ulasan justru menegaskan empati dan dedikasi guru melampaui kemewahan fasilitas fisik). 3) BENAR (keteladanan guru menginspirasi ketahanan moral siswa). 4) SALAH (pengulas memberikan apresiasi tinggi sebagai karya sastra inspiratif).",
+    "explanation": "• Pernyataan 1: BENAR — Pola 'Even though' diikuti oleh klausa lengkap tanpa konjungsi koordinatif 'but'.<br>• Pernyataan 2: SALAH — 'Despite' tidak boleh diikuti oleh anak kalimat lengkap dengan predikat finite tanpa 'the fact that'.<br>• Pernyataan 3: BENAR — 'Whereas' membandingkan dua fakta yang berkebalikan secara simetris.<br>• Pernyataan 4: BENAR — 'Nevertheless' digunakan sebagai konjungsi transisi antarkalimat yang diawali tanda titik koma atau titik.",
     "grammarNote": "Review Text Critical Evaluation: Distinguishing Evaluative Judgments from Text Facts."
   },
   {
@@ -809,7 +809,7 @@ function getGrade12AstsQuestions() {
         "isCorrect": true
       }
     ],
-    "explanation": "1) BENAR (deduksi logis kuat: must have + gone). 2) SALAH (deduksi tidak logis; seharusnya 'cannot have scored'). 3) BENAR (kemungkinan logis: might have been triggered). 4) SALAH (kesalahan gramatikal: modal selalu diikuti bare infinitive 'have', bukan 'has').",
+    "explanation": "• Pernyataan 1: BENAR — Perubahan kalimat langsung ke tidak langsung dengan kata kerja pelapor 'said' mengubah Simple Present menjadi Simple Past.<br>• Pernyataan 2: SALAH — Perubahan kalimat tanya dalam reported speech harus menggunakan susunan afirmatif (S + V), bukan susunan inversi tanya.<br>• Pernyataan 3: BENAR — Keterangan waktu 'tomorrow' berubah menjadi 'the following day' atau 'the next day'.<br>• Pernyataan 4: SALAH — Kalimat perintah/larangan menggunakan pola 'told ... not to + verb base', bukan 'did not'.",
     "grammarNote": "Modals of Past Deduction: must have, cannot have, might have + V3."
   },
   {
@@ -842,7 +842,7 @@ function getGrade12AstsQuestions() {
       "A",
       "C"
     ],
-    "explanation": "Dua argumen kunci yang tepat adalah (A) memfungsikan AI sebagai asisten riset pemicu ide dan (C) menjaga integritas akademik dengan verifikasi data dan sitasi transparan. Opsi B dan D merusak integritas dan tujuan pendidikan.",
+    "explanation": "Dua argumen kunci yang tepat adalah memfungsikan AI sebagai asisten riset pemicu ide dan menjaga integritas akademik dengan verifikasi data serta sitasi transparan.",
     "grammarNote": "Identifying Balanced Stances in Analytical Discussion Texts."
   },
   {
@@ -864,7 +864,7 @@ function getGrade12AstsQuestions() {
       },
       {
         "key": "C",
-        "text": "Had the school provided sufficient scholarship funds, more rural students could have continued their higher education."
+        "text": "If the school had provided sufficient scholarship funds, more rural students could have continued their higher education."
       },
       {
         "key": "D",
@@ -875,8 +875,8 @@ function getGrade12AstsQuestions() {
       "A",
       "C"
     ],
-    "explanation": "Kalimat A (pola standar: If + had installed, would not have disrupted) dan kalimat C (inversi Type 3: Had + subject + V3, could have continued) keduanya gramatikal dan baku. Kalimat B salah waktu (have seen) dan D salah mencampur past 'took' dengan future 'will arrive'.",
-    "grammarNote": "Standard and Inverted Conditional Type 3 Accuracy."
+    "explanation": "Kalimat yang menggunakan pola Third Conditional baku (If + had + V3, would/could have + V3) adalah 'If the technical team had installed the backup generator yesterday...' dan 'If the school had provided sufficient scholarship funds...'. Kalimat lainnya salah karena memadukan present perfect 'have seen' dengan waktu lampau 'yesterday' serta mencampur past tense 'took' dengan future 'will arrive'.",
+    "grammarNote": "Standard Third Conditional Accuracy."
   },
   {
     "id": 23,
@@ -908,7 +908,7 @@ function getGrade12AstsQuestions() {
       "A",
       "C"
     ],
-    "explanation": "Kalimat A ('nevertheless') dan kalimat C ('Even though') tersusun secara gramatikal. Kalimat B salah karena merangkap 'Although' dengan 'yet', dan kalimat D salah karena frase yang benar adalah 'Despite' (tanpa 'of') atau 'In spite of'.",
+    "explanation": "Kalimat dengan konjungsi kontras yang baku adalah kalimat dengan konjungsi antarkalimat 'nevertheless' dan konjungsi subordinatif 'Even though'. Kalimat lainnya salah karena merangkap 'Although' dengan 'yet', atau menggunakan bentuk 'Despite of' yang tidak baku.",
     "grammarNote": "Transitions of Contrast and Concession in Academic Discourse."
   },
   {
@@ -941,7 +941,7 @@ function getGrade12AstsQuestions() {
       "A",
       "C"
     ],
-    "explanation": "Dua nilai luhur utama dalam ulasan Laskar Pelangi adalah (A) kekuatan pendidikan dan empati melampaui kemiskinan, serta (C) keteladanan dan dedikasi guru dalam membimbing anak-anak. Opsi B dan D bertentangan dengan esensi novel.",
+    "explanation": "Dua nilai luhur utama dalam ulasan Laskar Pelangi adalah kekuatan pendidikan dan empati melampaui kemiskinan, serta keteladanan dan dedikasi guru dalam membimbing anak-anak.",
     "grammarNote": "Thematic and Character Value Synthesis in Literary Reviews."
   },
   {
@@ -974,7 +974,7 @@ function getGrade12AstsQuestions() {
       "A",
       "C"
     ],
-    "explanation": "Kalimat A (Present Simple 'is' berubah menjadi Past 'was') dan kalimat C (Past Simple/Present Perfect berubah menjadi Past Perfect 'had completed' serta time marker 'the previous evening') tersusun sempurna. Kalimat B salah pola ('told to me' harusnya 'told me', dan 'will' harusnya 'would'). Kalimat D salah karena mencampur 'is reading' dengan 'two days ago'.",
+    "explanation": "Kalimat tidak langsung (reported speech) yang baku adalah kalimat yang mengubah Present Simple 'is' menjadi Past 'was', serta yang mengubah tenses lampau menjadi Past Perfect 'had completed' disertai time marker 'the previous evening'. Kalimat lainnya salah dalam pola ('told to me') atau memadukan present continuous dengan 'two days ago'.",
     "grammarNote": "Reported Speech: Tense Backshift and Indirect Discourse Conventions."
   },
   {
@@ -1447,14 +1447,8 @@ function randomizeQuestionOptions(rawQuestions) {
       return q;
     }
     const cloned = JSON.parse(JSON.stringify(q));
-    if (cloned.type === "complex_matrix" && Array.isArray(cloned.matrixStatements)) {
-      const stmts = [...cloned.matrixStatements];
-      for (let i = stmts.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [stmts[i], stmts[j]] = [stmts[j], stmts[i]];
-      }
-      cloned.matrixStatements = stmts;
-    } else if (Array.isArray(cloned.options) && cloned.options.length > 0) {
+    // NOTE: DO NOT shuffle complex_matrix statements so that Pernyataan 1, 2, 3, 4 strictly match table rows
+    if (cloned.type !== "complex_matrix" && Array.isArray(cloned.options) && cloned.options.length > 0) {
       const opts = [...cloned.options];
       const isMCMA = cloned.type === "mcma" && Array.isArray(cloned.correctAnswer);
       const originalCorrect = isMCMA ? [...cloned.correctAnswer] : cloned.correctAnswer;
@@ -1653,7 +1647,7 @@ function renderQuestion(index) {
   }
 
   const expBox = document.getElementById("question-explanation-box");
-  if (isExamSubmitted || (currentMode === "practice" && isQuestionAnswered(q.id))) {
+  if (isExamSubmitted) {
     expBox.style.display = "block";
     let keyBadge = "";
     if (q.type === "complex_matrix") {
@@ -1694,6 +1688,7 @@ function renderPictureChoices(q, container) {
     const card = document.createElement("div");
     card.className = "picture-option-card" + (userAnswers[q.id] === opt.key ? " selected" : "");
     card.onclick = () => {
+      if (isExamSubmitted) return;
       userAnswers[q.id] = opt.key;
       renderQuestion(currentQuestionIndex);
     };
@@ -1716,6 +1711,7 @@ function renderSingleChoices(q, container) {
     const item = document.createElement("div");
     item.className = "option-item" + (userAnswers[q.id] === opt.key ? " selected" : "");
     item.onclick = () => {
+      if (isExamSubmitted) return;
       userAnswers[q.id] = opt.key;
       renderQuestion(currentQuestionIndex);
     };
@@ -1777,6 +1773,7 @@ function renderMatrixTable(q, container) {
 }
 
 function handleMatrixSelect(qId, stIdx, value) {
+  if (isExamSubmitted) return;
   if (!userAnswers[qId] || typeof userAnswers[qId] !== "object" || Array.isArray(userAnswers[qId])) {
     userAnswers[qId] = {};
   }
@@ -1840,6 +1837,7 @@ function renderMCMACheckboxes(q, container) {
 }
 
 function handleMCMAToggle(qId, key, isChecked) {
+  if (isExamSubmitted) return;
   let arr = Array.isArray(userAnswers[qId]) ? [...userAnswers[qId]] : [];
   if (isChecked) {
     if (!arr.includes(key)) arr.push(key);

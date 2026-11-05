@@ -1114,7 +1114,7 @@ function renderQuestion(idx) {
   const expText = document.getElementById("explanation-text");
   const expMeta = document.getElementById("explanation-meta-text");
 
-  if (isExamSubmitted || (currentMode === "practice" && isQuestionAnswered(q.id))) {
+  if (isExamSubmitted) {
     expBox.style.display = "block";
     expText.innerHTML = `<strong>Kunci Jawaban: ${q.correctAnswer}</strong><br>${q.explanation || ""}`;
     expMeta.innerHTML = `<em>Kaidah Bahasa &amp; Materi:</em> ${q.grammarNote || ""}<br><span style="font-size:0.8rem; color:#64748b;">${q.source || ""}</span>`;
@@ -1150,7 +1150,7 @@ function renderPictureChoices(q, container) {
       card.classList.add("selected");
     }
 
-    if (isExamSubmitted || (currentMode === "practice" && isQuestionAnswered(q.id))) {
+    if (isExamSubmitted) {
       if (opt.key === q.correctAnswer) card.classList.add("correct-highlight");
       if (userAnswers[q.id] === opt.key && opt.key !== q.correctAnswer) card.classList.add("wrong-highlight");
     }
@@ -1182,7 +1182,7 @@ function renderSingleChoices(q, container) {
       item.classList.add("selected");
     }
 
-    if (isExamSubmitted || (currentMode === "practice" && isQuestionAnswered(q.id))) {
+    if (isExamSubmitted) {
       if (opt.key === q.correctAnswer) item.classList.add("correct-highlight");
       if (userAnswers[q.id] === opt.key && opt.key !== q.correctAnswer) item.classList.add("wrong-highlight");
     }

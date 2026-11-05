@@ -1050,7 +1050,7 @@ function renderQuestion(index) {
 
   // Explanation Box
   const expBox = document.getElementById("question-explanation-box");
-  if (isExamSubmitted || (currentMode === "practice" && isQuestionAnswered(q.id))) {
+  if (isExamSubmitted) {
     expBox.style.display = "block";
     let keyBadge = q.correctAnswer;
 
@@ -1090,6 +1090,7 @@ function renderPictureChoices(q, container) {
     const card = document.createElement("div");
     card.className = "picture-option-card" + (userAnswers[q.id] === opt.key ? " selected" : "");
     card.onclick = () => {
+      if (isExamSubmitted) return;
       userAnswers[q.id] = opt.key;
       renderQuestion(currentQuestionIndex);
     };
@@ -1112,6 +1113,7 @@ function renderSingleChoices(q, container) {
     const item = document.createElement("div");
     item.className = "option-item" + (userAnswers[q.id] === opt.key ? " selected" : "");
     item.onclick = () => {
+      if (isExamSubmitted) return;
       userAnswers[q.id] = opt.key;
       renderQuestion(currentQuestionIndex);
     };

@@ -57,7 +57,7 @@ function getGrade10Questions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Audio mendeskripsikan: 'athlete is leaping high in the air to deliver a powerful, precision smash with his racket over the net'. Gambar A menampilkan atlet bulu tangkis yang melompat melakukan pukulan smash dengan raket.",
+    "explanation": "Audio mendeskripsikan: 'athlete is leaping high in the air to deliver a powerful, precision smash with his racket over the net'. Gambar yang sesuai menampilkan atlet bulu tangkis yang melompat melakukan pukulan smash dengan raket.",
     "grammarNote": "Present Continuous Tense ('is leaping', 'executing') & Sports Vocabulary (athlete, racket, smash, championship)."
   },
   {
@@ -90,7 +90,7 @@ function getGrade10Questions() {
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Audio menyebutkan: 'magnificent Indonesian cultural destination features ancient massive stone stupas, detailed relief stone carvings, and tiered terraces'. Ciri-ciri stupa batu bertingkat dan relief relief kuno adalah candi bersejarah (Temple - Gambar B).",
+    "explanation": "Audio menyebutkan: 'magnificent Indonesian cultural destination features ancient massive stone stupas, detailed relief stone carvings, and tiered terraces'. Ciri-ciri stupa batu bertingkat dan relief kuno adalah candi bersejarah (Temple).",
     "grammarNote": "OSASCOMP Adjective Order: 'ancient massive stone stupas' (Age: ancient, Size: massive, Material: stone)."
   },
   {
@@ -123,7 +123,7 @@ function getGrade10Questions() {
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Audio menyebutkan: 'unique architectural landmark in Kudus blends Hindu-Javanese traditional brickwork design with Islamic minaret structure'. Landmark menara bata merah ikonik khas Kudus adalah Menara Kudus (Gambar C).",
+    "explanation": "Audio menyebutkan: 'unique architectural landmark in Kudus blends Hindu-Javanese traditional brickwork design with Islamic minaret structure'. Landmark menara bata merah ikonik khas Kudus adalah Menara Kudus.",
     "grammarNote": "Compound Adjectives & Cultural Heritage Nouns: 'Hindu-Javanese traditional brickwork design', 'historic cultural harmony'."
   },
   {
@@ -187,7 +187,7 @@ function getGrade10Questions() {
       }
     ],
     "correctAnswer": "D",
-    "explanation": "Pada rekaman, pembicara perempuan menyatakan kebiasaannya menjaga kebugaran: 'I always maintain a nutritious diet, drink plenty of fresh water, and jog for twenty minutes every morning before studying'. Pilihan D tepat.",
+    "explanation": "Pada rekaman, pembicara perempuan menyatakan kebiasaannya menjaga kebugaran: 'I always maintain a nutritious diet, drink plenty of fresh water, and jog for twenty minutes every morning before studying'.",
     "grammarNote": "Adverb of Frequency & Habitual Present Simple: 'always maintain', 'drink plenty of fresh water'."
   },
   {
@@ -251,7 +251,7 @@ function getGrade10Questions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Siswi perempuan menyampaikan niatnya: 'intend to visit the mangrove conservation park in Jepara. We want to plant ten mangrove seedlings to prevent coastal erosion'. Pilihan A paling tepat.",
+    "explanation": "Siswi perempuan menyampaikan niatnya: 'intend to visit the mangrove conservation park in Jepara. We want to plant ten mangrove seedlings to prevent coastal erosion'.",
     "grammarNote": "Expressing Intention: 'intend to visit...', 'want to plant...'."
   },
   {
@@ -315,7 +315,7 @@ function getGrade10Questions() {
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Siswa laki-laki merespons masukan guru: 'I will modify the font colors to high-contrast white and resize the heading immediately'. Pilihan B tepat.",
+    "explanation": "Siswa laki-laki merespons masukan guru: 'I will modify the font colors to high-contrast white and resize the heading immediately'.",
     "grammarNote": "Future intention / immediate response: 'will modify', 'resize the heading'."
   },
   {
@@ -346,7 +346,7 @@ function getGrade10Questions() {
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Monolog menyatakan: 'renowned for his lightning-fast footwork, deceptive wrist drop-shots, and determined and strong fighting spirit on court'. Jawaban B adalah kutipan akurat.",
+    "explanation": "Monolog menyatakan: 'renowned for his lightning-fast footwork, deceptive wrist drop-shots, and determined and strong fighting spirit on court'. Kutipan ini mendeskripsikan gaya permainan atlet secara akurat.",
     "grammarNote": "Descriptive Adjectives & Compound Adjectives: 'lightning-fast', 'deceptive', 'determined and strong', 'prestigious'."
   },
   {
@@ -375,7 +375,7 @@ function getGrade10Questions() {
       }
     ],
     "correctAnswer": "D",
-    "explanation": "Pada bagian akhir monolog disebutkan: 'Off court, he is humble, disciplined, and dedicated to mentoring younger shuttlecock players'. Jawaban B tepat.",
+    "explanation": "Pada bagian akhir monolog disebutkan: 'Off court, he is humble, disciplined, and dedicated to mentoring younger shuttlecock players'.",
     "grammarNote": "Predicate Adjectives describing Personality: 'humble', 'disciplined', 'dedicated'."
   },
   {
@@ -406,7 +406,7 @@ function getGrade10Questions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Pengumuman mengundang siswa kelas X untuk mengikuti 'Campus Eco-Clean and Flora Cataloging Campaign this coming Friday at seven o'clock in the morning'.",
+    "explanation": "Tujuan komunikatif teks deskriptif adalah menggambarkan ciri khusus, kepribadian, dan prestasi atlet secara rinci.",
     "grammarNote": "Announcement Functional Text Conventions: 'Attention, all...', 'is requested to bring...', 'Let us uphold...'."
   },
   {
@@ -435,7 +435,7 @@ function getGrade10Questions() {
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Pengumuman menyebutkan instruksi: 'plant five native medicinal herbs in the school sanctuary, and classify the plant species into botanical report cards'.",
+    "explanation": "Paragraf kedua berfokus menguraikan rutinitas latihan fisik intensif sang atlet.",
     "grammarNote": "Imperative Infinitive Clauses: 'plant native medicinal herbs', 'classify the plant species'."
   },
   {
@@ -465,7 +465,7 @@ function getGrade10Questions() {
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Paragraf kedua berfokus penuh pada dunia bawah air: terumbu karang, ikan pelagis, penyu sisik, dan jarak pandang air yang jernih (underwater marine ecosystem).",
+    "explanation": "Kepulauan Karimunjawa terkenal dengan keanekaragaman hayati terumbu karang dan kejernihan air lautnya.",
     "grammarNote": "Paragraph Topic Identification & Lexical Density: 'underwater realm', 'coral reefs', 'water visibility'."
   },
   {
@@ -495,7 +495,7 @@ function getGrade10Questions() {
       }
     ],
     "correctAnswer": "D",
-    "explanation": "Kata 'crystalline' (berakar dari crystal) berarti sangat bening, jernih berkilau seperti kristal (transparent and sparklingly clear). Lawan katanya adalah turbid (keruh).",
+    "explanation": "Informasi spesifik tentang luas kawasan konservasi laut dipaparkan pada paragraf pertama.",
     "grammarNote": "Oxford 3000 Level B1/B2 Adjectives of Clarity: crystalline, transparent, vivid, immaculate."
   },
   {
@@ -525,7 +525,7 @@ function getGrade10Questions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Paragraf ketiga baris 3-4 menyatakan: 'dense mangrove forests and lush hilltops provide sanctuary for endemic fruit bats and the white-bellied sea eagle'.",
+    "explanation": "Kata 'pristine' bersinonim dengan 'pure and unpolluted' (murni, bersih, dan belum terjamah polusi).",
     "grammarNote": "Scanning Specific Details: 'dense mangrove forests', 'fruit bats', 'white-bellied sea eagle'."
   },
   {
@@ -555,7 +555,7 @@ function getGrade10Questions() {
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Teks ini adalah Descriptive Text dengan struktur Identification (Paragraf 1) dan Description (Paragraf 2 & 3). Tujuannya adalah mendeskripsikan keindahan alam dan ekologi Karimunjawa untuk menginformasikan pembaca.",
+    "explanation": "Daya tarik utama Karimunjawa bagi wisatawan bahari adalah panorama bawah laut yang spektakuler.",
     "grammarNote": "Social Function of Descriptive Genre: 'To describe a particular person, place, or thing in detail'."
   },
   {
@@ -585,7 +585,7 @@ function getGrade10Questions() {
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Penulis menggunakan diksi apresiatif seperti 'pristine', 'extraordinarily breathtaking', 'magnificent', 'crystalline clarity', dan 'harmonious lifestyle'. Hal ini menunjukkan nada yang penuh kekaguman dan informatif (appreciative and informative).",
+    "explanation": "Penulis merekomendasikan perlunya menjaga kelestarian terumbu karang dari dampak negatif pariwisata massal.",
     "grammarNote": "Author's Tone and Perspective Analysis in TKA: appreciative, objective, subjective, critical."
   },
   {
@@ -614,7 +614,7 @@ function getGrade10Questions() {
         "isCorrect": false
       }
     ],
-    "explanation": "Pernyataan 1 SALAH (hanya 5 dari 27 pulau yang berpenghuni). Pernyataan 2 BENAR (diresmikan tahun 2001). Pernyataan 3 BENAR (visibility exceeds 20 meters). Pernyataan 4 SALAH (penduduk bekerja sebagai nelayan tradisional dan pemandu wisata ramah lingkungan).",
+    "explanation": "• Pernyataan 1: SALAH — Hanya 5 dari 27 pulau di Kepulauan Karimunjawa yang berpenghuni.<br>• Pernyataan 2: BENAR — Taman Nasional Karimunjawa resmi dideklarasikan pada tahun 2001.<br>• Pernyataan 3: BENAR — Kejernihan air laut Karimunjawa memungkinkan jarak pandang selam melebihi 20 meter.<br>• Pernyataan 4: SALAH — Sebagian besar warga setempat bekerja sebagai nelayan tradisional dan pemandu ekowisata.",
     "grammarNote": "Factual Verification & Text Analysis in High-Order Thinking Skills (HOTS)."
   },
   {
@@ -643,7 +643,7 @@ function getGrade10Questions() {
         "isCorrect": false
       }
     ],
-    "explanation": "Pernyataan 1 BENAR (Simple Present untuk fakta umum). Pernyataan 2 SALAH (karena reefs jamak, harusnya 'The coral reefs ARE observed'). Pernyataan 3 BENAR (Subject-Verb Agreement subjek jamak). Pernyataan 4 SALAH ('extraordinarily' berakhiran -ly adalah adverb of degree yang menerangkan adjective 'breathtaking').",
+    "explanation": "• Pernyataan 1: BENAR — Kalimat menggunakan Simple Present Tense untuk menyatakan fakta ilmiah umum.<br>• Pernyataan 2: SALAH — Subjek 'The coral reefs' berbentuk jamak sehingga membutuhkan to be 'are' ('are observed'), bukan 'is'.<br>• Pernyataan 3: BENAR — Kesesuaian subjek jamak dan kata kerja Simple Present terpasang secara tepat.<br>• Pernyataan 4: SALAH — Kata 'extraordinarily' berakhiran -ly adalah adverb of degree yang menerangkan kata sifat 'breathtaking'.",
     "grammarNote": "Subject-Verb Agreement, Passive Voice Plural ('are + V3'), and Adverb vs Adjective functions."
   },
   {
@@ -672,7 +672,7 @@ function getGrade10Questions() {
         "isCorrect": false
       }
     ],
-    "explanation": "1) BENAR: Opinion (charming) -> Size (small) -> Age (old) -> Material (wooden). 2) SALAH: Harusnya 'A magnificent ancient stone statue' (Opinion -> Age -> Material). 3) BENAR: Opinion (energetic) -> Age (young) -> Origin (Indonesian) -> Purpose (badminton). 4) SALAH: Size harus mendahului Shape ('A large circular brown dining table').",
+    "explanation": "• Pernyataan 1: BENAR — Urutan kata sifat mengikuti kaidah OSASCOMP: Opinion (charming) -> Size (small) -> Age (old) -> Material (wooden).<br>• Pernyataan 2: SALAH — Susunan yang benar adalah 'A magnificent ancient stone statue' (Opinion -> Age -> Material).<br>• Pernyataan 3: BENAR — Urutan tepat: Opinion (energetic) -> Age (young) -> Origin (Indonesian) -> Purpose (badminton).<br>• Pernyataan 4: SALAH — Dimensi ukuran (Size) harus mendahului bentuk (Shape): 'A large circular brown dining table'.",
     "grammarNote": "Mastery of OSASCOMP: Opinion, Size, Age, Shape, Color, Origin, Material, Purpose."
   },
   {
@@ -701,7 +701,7 @@ function getGrade10Questions() {
         "isCorrect": true
       }
     ],
-    "explanation": "1) BENAR (strictly confined to Ujung Kulon). 2) SALAH (hanya memiliki 'single horn' kurang dari 25 cm). 3) SALAH (mereka adalah 'living alone plant-eating animals' / pemakan tumbuhan yang hidup menyendiri). 4) BENAR (acute smell and hearing compensate for poor eyesight).",
+    "explanation": "• Pernyataan 1: BENAR — Badak Jawa saat ini hanya bertahan hidup di habitat terbatas Taman Nasional Ujung Kulon.<br>• Pernyataan 2: SALAH — Badak Jawa bercula satu ('single horn') dengan panjang cula kurang dari 25 cm.<br>• Pernyataan 3: SALAH — Badak Jawa adalah satwa herbivora yang hidup menyendiri (soliter), bukan pemangsa kelompok.<br>• Pernyataan 4: BENAR — Indra pendengaran dan penciuman tajam mengompensasi daya penglihatan badak yang terbatas.",
     "grammarNote": "Scientific Report Comprehension: General classification, morphological features, habitat."
   },
   {
@@ -730,7 +730,7 @@ function getGrade10Questions() {
         "isCorrect": false
       }
     ],
-    "explanation": "1) BENAR (Type 1: If + protect, will flourish). 2) SALAH (harus subjunctive 'If I WERE you, I WOULD...'). 3) BENAR (Type 2: If + had, would monitor). 4) SALAH (mencampur if present dengan would have V3; harusnya 'If the weather is sunny, we WILL visit').",
+    "explanation": "• Pernyataan 1: BENAR — Conditional Type 1 menggunakan pola: 'If + Simple Present, will + Verb base'.<br>• Pernyataan 2: SALAH — Subjunctive pengandaian hipotesis baku menggunakan 'If I WERE you, I WOULD...'.<br>• Pernyataan 3: BENAR — Conditional Type 2 menggunakan pola: 'If + Simple Past, would + Verb base'.<br>• Pernyataan 4: SALAH — Pengandaian realistis masa depan harus menggunakan 'If the weather is sunny, we WILL visit'.",
     "grammarNote": "Conditional Sentences Type 1 & Type 2 Standard Formulations."
   },
   {
@@ -763,7 +763,7 @@ function getGrade10Questions() {
       "A",
       "C"
     ],
-    "explanation": "Kalimat A dan C menggunakan Simple Present Tense yang benar ('demonstrates', 'remains') dan kata sifat deskriptif bermakna tinggi ('extraordinary focus', 'razor-sharp accuracy', 'athletic posture', 'intense competitive pressure'). Kalimat B gramatikal rusak ('will bought'), dan kalimat D menggunakan past continuous yang tidak koheren.",
+    "explanation": "Kalimat yang menggunakan Simple Present Tense secara benar ('demonstrates', 'remains') dan kata sifat deskriptif bermakna tinggi ('extraordinary focus', 'athletic posture') merupakan pilihan yang tepat. Kalimat lainnya salah tata bahasa ('will bought') atau tidak koheren.",
     "grammarNote": "Selection of grammatically sound descriptive sentences with Present Tense and Adjectives."
   },
   {
@@ -796,7 +796,7 @@ function getGrade10Questions() {
       "B",
       "D"
     ],
-    "explanation": "Teks Report ilmiah menekankan objektivitas melalui: 1) Istilah teknis ilmiah & general nouns (Opsi A), dan 2) Kalimat pasif untuk memfokuskan proses/fenomena ilmiah tanpa bias personal (Opsi C). Opsi B adalah ciri personal recount, dan Opsi D adalah ciri narrative.",
+    "explanation": "Teks Report ilmiah menekankan objektivitas melalui penggunaan istilah teknis ilmiah, general nouns, serta kalimat pasif untuk memfokuskan proses atau fenomena ilmiah tanpa bias personal.",
     "grammarNote": "Generic Language Features of Scientific Report Text."
   },
   {
@@ -829,7 +829,7 @@ function getGrade10Questions() {
       "A",
       "C"
     ],
-    "explanation": "Opsi A benar: 'conservation' adalah nomina pelestarian lingkungan. Opsi B benar: 'endangered' adalah adjektiva terancam punah (e.g. endangered species). Opsi C salah (artinya secara konservatif/hati-hati), Opsi D salah (dangerously adalah adverb).",
+    "explanation": "'conservation' adalah nomina pelestarian lingkungan, sedangkan 'endangered' adalah adjektiva terancam punah (misalnya: endangered species). Bentuk 'conservatively' dan 'dangerously' tidak sesuai konteks kelas kata.",
     "grammarNote": "Word Formations: Noun, Adjective, Adverb derivation from Oxford 3000 core lexis."
   },
   {
@@ -862,7 +862,7 @@ function getGrade10Questions() {
       "A",
       "C"
     ],
-    "explanation": "Opsi A ('I am planning to...') dan Opsi C ('We intend to...') adalah formula baku untuk menyatakan rencana/intensi (stating intentions). Opsi B menyatakan penyesalan masa lalu, Opsi D menyatakan penolakan ketidakpedulian.",
+    "explanation": "'I am planning to...' dan 'We intend to...' adalah formula baku untuk menyatakan rencana atau intensi (stating intentions). Pilihan lainnya menyatakan penyesalan masa lalu atau ketidakpedulian.",
     "grammarNote": "Functional Expressions: 'planning to + V1', 'intend to + V1', 'would like to + V1'."
   },
   {
@@ -895,7 +895,7 @@ function getGrade10Questions() {
       "A",
       "C"
     ],
-    "explanation": "Kalimat A ('wastes are collected') dan Kalimat C ('herbs are carefully preserved') memiliki pola pasif 'are + Verb 3' yang sempurna. Kalimat B adalah Present Continuous aktif ('is running'). Kalimat D memiliki kesalahan gramatikal 'will delivers'.",
+    "explanation": "Kalimat dengan pola pasif 'are + Verb 3' yang sempurna adalah 'wastes are collected' dan 'herbs are carefully preserved'. Kalimat lainnya merupakan kalimat aktif atau memiliki kesalahan gramatikal seperti 'will delivers'.",
     "grammarNote": "Present Simple Passive Voice: S + is/am/are + V3 (+ by Agent)."
   },
   {
@@ -925,7 +925,7 @@ function getGrade10Questions() {
       }
     ],
     "correctAnswer": "D",
-    "explanation": "Paragraf kedua menjelaskan: 'This high-pressure thermal steam is channeled upwards through specialized pipeline networks to drive turbine generators, which convert kinetic energy into electrical power'. Jawaban B tepat.",
+    "explanation": "Paragraf kedua menjelaskan: 'This high-pressure thermal steam is channeled upwards through specialized pipeline networks to drive turbine generators, which convert kinetic energy into electrical power'.",
     "grammarNote": "Cause-Effect & Mechanical Sequence Analysis in Scientific Texts."
   },
   {
@@ -955,7 +955,7 @@ function getGrade10Questions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Paragraf kedua kalimat terakhir menyebutkan: 'Subsequently, the condensed water is cooled and pumped back back into the underground reservoir, ensuring a closed-loop system'.",
+    "explanation": "Teks Report ilmiah memaparkan fenomena panas bumi (geothermal energy) secara objektif dan sistematis.",
     "grammarNote": "Technical Term Definition & Closed-Loop Cycle."
   },
   {
@@ -985,7 +985,7 @@ function getGrade10Questions() {
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Paragraf ketiga menyatakan: 'Unlike solar and wind energy that change with the weather that depend strictly on weather conditions, geothermal plants provide steady baseload electricity with operational capacity factors exceeding ninety percent'.",
+    "explanation": "Prinsip kerja pembangkit geotermal memanfaatkan uap panas alami bumi untuk memutar generator turbin listrik.",
     "grammarNote": "Contrasting Linkers: 'Unlike + Noun Phrase, Subject + Verb'."
   },
   {
@@ -1015,7 +1015,7 @@ function getGrade10Questions() {
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Kata 'essential' (Oxford 3000 A2) bermakna sangat penting, mendasar, dan diperlukan (very important, necessary).",
+    "explanation": "Kata 'sustainable' bersinonim dengan 'renewable and ecologically sound' (terbarukan dan berkelanjutan).",
     "grammarNote": "Academic Lexis: pivotal, crucial, very important, essential."
   },
   {
@@ -1045,7 +1045,7 @@ function getGrade10Questions() {
       }
     ],
     "correctAnswer": "D",
-    "explanation": "Karena panas bumi adalah energi bersih terbarukan dengan sistem tertutup 'virtually zero greenhouse gas emissions', pemanfaatannya akan menurunkan emisi gas rumah kaca secara signifikan dan membantu target Net Zero 2060.",
+    "explanation": "Keunggulan utama energi geotermal dibanding bahan bakar fosil adalah tingkat emisi karbon yang sangat rendah.",
     "grammarNote": "Cause-and-Effect Inference in Academic Texts."
   },
   {
@@ -1135,7 +1135,7 @@ function getGrade10Questions() {
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Klausa 'While' digunakan untuk aksi berdurasi sedang berlangsung di masa lampau: 'While the students were examining...' (Past Continuous), disusul aksi yang terjadi pada periode tersebut: 'the tour guide narrated...' (Simple Past).",
+    "explanation": "Urutan kata sifat OSASCOMP yang benar untuk mendeskripsikan batik adalah: Opinion (exquisite) -> Origin (Javanese) -> Material (silk).",
     "grammarNote": "Past Continuous ('were examining') compared with Simple Past ('narrated') using time conjunction 'While'."
   },
   {
@@ -1165,7 +1165,7 @@ function getGrade10Questions() {
       }
     ],
     "correctAnswer": "D",
-    "explanation": "'Whose' digunakan untuk menyatakan hubungan kepemilikan (possesive relative pronoun). Pada kalimat ini, 'automated solar water pump' adalah milik dari 'the young inventor'.",
+    "explanation": "Bentuk Simple Present Tense orang ketiga tunggal (She/He/It) membutuhkan akhiran -s/-es pada kata kerja: 'preserves'.",
     "grammarNote": "Possessive Relative Clause: Person + whose + Noun Phrase."
   },
   {
@@ -1195,7 +1195,7 @@ function getGrade10Questions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Rumus baku Conditional Type 1: If + Simple Present (S + V1/-s/-es: 'enforces'), Subject + will + V1 ('will achieve').",
+    "explanation": "Ungkapan 'I am planning to conduct' adalah pola menyatakan niat (stating intention) yang gramatikal.",
     "grammarNote": "Conditional Type 1: Real and possible conditions in the present/future."
   },
   {
@@ -1225,7 +1225,7 @@ function getGrade10Questions() {
       }
     ],
     "correctAnswer": "B",
-    "explanation": "'Resilience' (Oxford 3000 B1/B2) bermakna daya tahan mental, ketangguhan untuk bangkit dari kesulitan. Pilihan lain tidak sesuai: hesitation (keragu-raguan), ignorance (ketidaktahuan), pollution (polusi).",
+    "explanation": "Kata depan (preposition) yang tepat untuk menerangkan posisi di bawah permukaan air adalah 'beneath' atau 'under'.",
     "grammarNote": "Abstract Nouns in Sports Psychology: resilience, tenacity, discipline."
   },
   {
@@ -1255,7 +1255,7 @@ function getGrade10Questions() {
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Kolokasi tetap dalam bahasa Inggris adalah 'take precautions' (mengambil tindakan pencegahan), bukan make precautions atau do precautions.",
+    "explanation": "Konektor penambahan informasi 'In addition' digunakan untuk memperkuat paparan ciri fisik flora/fauna.",
     "grammarNote": "English Collocations: take precautions, take measures, take action."
   },
   {
@@ -1285,7 +1285,7 @@ function getGrade10Questions() {
       }
     ],
     "correctAnswer": "D",
-    "explanation": "Ungkapan santun dan formal (polite register): 'Pardon me, Sir. Could you please clarify...?'",
+    "explanation": "Bentuk pasif Simple Present Tense untuk subjek tunggal 'The historical artifact' adalah: is + Verb 3 ('is displayed').",
     "grammarNote": "Polite Request & Clarification: Modal 'could', 'pardon me', polite inquiry."
   },
   {
@@ -1315,7 +1315,7 @@ function getGrade10Questions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "'I couldn't agree more' adalah ungkapan idiomatik baku untuk menyatakan persetujuan 100% (sangat setuju sekali).",
+    "explanation": "Kata sifat deskriptif 'breathtaking' mengekspresikan kekaguman mendalam terhadap pemandangan alam Karimunjawa.",
     "grammarNote": "Expressing Full Agreement: 'I couldn't agree more', 'You have a very valid point'."
   },
   {
@@ -1345,7 +1345,7 @@ function getGrade10Questions() {
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Kedua klausa menyajikan gagasan positif yang saling menambah/menguatkan (clean energy + affordable costs). Maka kata hubung penambahan yang tepat adalah 'furthermore' (lagi pula / selain itu).",
+    "explanation": "Kalimat penutup teks deskriptif merangkum keistimewaan tempat dan kesan mendalam bagi para pengunjung.",
     "grammarNote": "Transitions of Addition: furthermore, moreover, in addition, additionally."
   }
 ];
@@ -1388,14 +1388,8 @@ function randomizeQuestionOptions(rawQuestions) {
       return q;
     }
     const cloned = JSON.parse(JSON.stringify(q));
-    if (cloned.type === "complex_matrix" && Array.isArray(cloned.matrixStatements)) {
-      const stmts = [...cloned.matrixStatements];
-      for (let i = stmts.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [stmts[i], stmts[j]] = [stmts[j], stmts[i]];
-      }
-      cloned.matrixStatements = stmts;
-    } else if (Array.isArray(cloned.options) && cloned.options.length > 0) {
+    // NOTE: DO NOT shuffle complex_matrix statements so that Pernyataan 1, 2, 3, 4 strictly match table rows
+    if (cloned.type !== "complex_matrix" && Array.isArray(cloned.options) && cloned.options.length > 0) {
       const opts = [...cloned.options];
       const isMCMA = cloned.type === "mcma" && Array.isArray(cloned.correctAnswer);
       const originalCorrect = isMCMA ? [...cloned.correctAnswer] : cloned.correctAnswer;
@@ -1628,7 +1622,7 @@ function renderQuestion(index) {
   }
 
   const expBox = document.getElementById("question-explanation-box");
-  if (isExamSubmitted || (currentMode === "practice" && isQuestionAnswered(q.id))) {
+  if (isExamSubmitted) {
     expBox.style.display = "block";
     let keyBadge = "";
     if (q.type === "complex_matrix") {
@@ -1669,6 +1663,7 @@ function renderPictureChoices(q, container) {
     const card = document.createElement("div");
     card.className = "picture-option-card" + (userAnswers[q.id] === opt.key ? " selected" : "");
     card.onclick = () => {
+      if (isExamSubmitted) return;
       userAnswers[q.id] = opt.key;
       renderQuestion(currentQuestionIndex);
     };
@@ -1691,6 +1686,7 @@ function renderSingleChoices(q, container) {
     const item = document.createElement("div");
     item.className = "option-item" + (userAnswers[q.id] === opt.key ? " selected" : "");
     item.onclick = () => {
+      if (isExamSubmitted) return;
       userAnswers[q.id] = opt.key;
       renderQuestion(currentQuestionIndex);
     };
@@ -1735,6 +1731,7 @@ function renderMatrixTable(q, container) {
 }
 
 function setMatrixAnswer(qId, statementIdx, value) {
+  if (isExamSubmitted) return;
   if (!userAnswers[qId] || typeof userAnswers[qId] !== "object" || Array.isArray(userAnswers[qId])) {
     userAnswers[qId] = {};
   }
@@ -1751,6 +1748,7 @@ function renderMCMACheckboxes(q, container) {
     const item = document.createElement("div");
     item.className = "option-item" + (isChecked ? " selected" : "");
     item.onclick = () => {
+      if (isExamSubmitted) return;
       toggleMCMAAnswer(q.id, opt.key);
       renderQuestion(currentQuestionIndex);
     };
@@ -1764,6 +1762,7 @@ function renderMCMACheckboxes(q, container) {
 }
 
 function toggleMCMAAnswer(qId, key) {
+  if (isExamSubmitted) return;
   if (!Array.isArray(userAnswers[qId])) userAnswers[qId] = [];
   const idx = userAnswers[qId].indexOf(key);
   if (idx > -1) userAnswers[qId].splice(idx, 1);

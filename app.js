@@ -1036,7 +1036,7 @@ function renderQuestion(index) {
 
   // Explanation Box (In practice mode or review)
   const expBox = document.getElementById("question-explanation-box");
-  if (isExamSubmitted || (currentMode === "practice" && isQuestionAnswered(q.id))) {
+  if (isExamSubmitted) {
     expBox.style.display = "block";
     let keyBadge = "";
     if (q.type === "complex_matrix") {
@@ -1083,6 +1083,7 @@ function renderPictureChoices(q, container) {
     const card = document.createElement("div");
     card.className = "picture-option-card" + (userAnswers[q.id] === opt.key ? " selected" : "");
     card.onclick = () => {
+      if (isExamSubmitted) return;
       userAnswers[q.id] = opt.key;
       renderQuestion(currentQuestionIndex);
     };
@@ -1106,6 +1107,7 @@ function renderSingleChoices(q, container) {
     const item = document.createElement("div");
     item.className = "option-item" + (userAnswers[q.id] === opt.key ? " selected" : "");
     item.onclick = () => {
+      if (isExamSubmitted) return;
       userAnswers[q.id] = opt.key;
       renderQuestion(currentQuestionIndex);
     };
@@ -1153,6 +1155,7 @@ function renderMatrixTable(q, container) {
 }
 
 function setMatrixAnswer(qId, statementIdx, value) {
+  if (isExamSubmitted) return;
   if (!userAnswers[qId]) {
     userAnswers[qId] = {};
   }
@@ -1171,6 +1174,7 @@ function renderMCMACheckboxes(q, container) {
     const item = document.createElement("div");
     item.className = "option-item" + (isChecked ? " selected" : "");
     item.onclick = () => {
+      if (isExamSubmitted) return;
       toggleMCMAAnswer(q.id, opt.key);
       renderQuestion(currentQuestionIndex);
     };
@@ -1185,6 +1189,7 @@ function renderMCMACheckboxes(q, container) {
 }
 
 function toggleMCMAAnswer(qId, key) {
+  if (isExamSubmitted) return;
   if (!Array.isArray(userAnswers[qId])) {
     userAnswers[qId] = [];
   }

@@ -73,7 +73,7 @@ function getGrade12TLAsasQuestions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Audio menggambarkan peneliti sains di laboratorium modern yang menganalisis untaian DNA digital pada layar komputer (Gambar A).",
+    "explanation": "Audio mendeskripsikan peneliti sains di laboratorium modern yang menganalisis untaian DNA digital pada layar komputer.",
     "grammarNote": "Present Continuous for Workplace Research Actions."
   },
   {
@@ -106,7 +106,7 @@ function getGrade12TLAsasQuestions() {
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Audio menggambarkan ruang sidang majelis internasional di mana delegasi muda duduk melingkar mendiskusikan tujuan pembangunan (Gambar B).",
+    "explanation": "Audio mendeskripsikan ruang sidang majelis internasional di mana delegasi muda duduk melingkar mendiskusikan tujuan pembangunan berkelanjutan.",
     "grammarNote": "Spatial and Descriptive Prepositional Phrases."
   },
   {
@@ -139,7 +139,7 @@ function getGrade12TLAsasQuestions() {
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Audio menggambarkan instalasi reaktor riset energi bersih terbarukan berbentuk sirkular (Gambar C).",
+    "explanation": "Audio mendeskripsikan instalasi fasilitas riset fusi energi bersih terbarukan dengan ruang reaktor sentral sirkular.",
     "grammarNote": "Scientific Facilities Identification."
   },
   {
@@ -201,7 +201,7 @@ function getGrade12TLAsasQuestions() {
       }
     ],
     "correctAnswer": "D",
-    "explanation": "Pembicara wanita menekankan bahwa pedagang kecil pedesaan masih bergantung pada uang tunai fisik, serta risiko kegagalan server dan penipuan digital (Opsi D).",
+    "explanation": "Pembicara wanita menekankan bahwa pedagang kecil pedesaan masih bergantung pada uang tunai fisik, serta terdapat risiko gangguan server dan ancaman penipuan digital.",
     "grammarNote": "Stating Reservations and Expressing Contrasting Opinions."
   },
   {
@@ -263,7 +263,7 @@ function getGrade12TLAsasQuestions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Kedua pembicara mengagumi ketangguhan Nyai Ontosoroh yang mengelola perkebunan melalui kerja keras dan membela martabat keluarga di tengah diskriminasi kolonial (Opsi A).",
+    "explanation": "Kedua pembicara mengagumi ketangguhan Nyai Ontosoroh yang mengelola perkebunan melalui kerja keras dan membela martabat keluarga di tengah diskriminasi kolonial.",
     "grammarNote": "Literary Character Analysis & Evaluative Adjectives."
   },
   {
@@ -325,7 +325,7 @@ function getGrade12TLAsasQuestions() {
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Kedua tokoh pemuda bersepakat bahwa aksi nyata bersih pantai oleh pelajar harus diperkuat dengan regulasi pembatasan plastik dan fasilitas daur ulang dari pemerintah (Opsi B).",
+    "explanation": "Kedua tokoh pemuda bersepakat bahwa aksi nyata bersih pantai oleh pelajar harus diperkuat dengan regulasi pembatasan plastik dan fasilitas daur ulang dari pemerintah.",
     "grammarNote": "Agreement and Synthesizing Solutions in Environmental Discussions."
   },
   {
@@ -354,7 +354,7 @@ function getGrade12TLAsasQuestions() {
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Topik utama kuliah adalah bagaimana sastra modern Indonesia membangun kesadaran kebangsaan dan memperjuangkan keadilan sosial (Opsi C).",
+    "explanation": "Topik utama kuliah adalah bagaimana sastra modern Indonesia membangun kesadaran kebangsaan dan memperjuangkan keadilan sosial.",
     "grammarNote": "Identifying Main Idea in Academic Lectures."
   },
   {
@@ -383,7 +383,7 @@ function getGrade12TLAsasQuestions() {
       }
     ],
     "correctAnswer": "D",
-    "explanation": "Dosen menyatakan bahwa para penulis perintis memandang sastra sebagai instrumen kuat untuk refleksi sosial, empati kolektif, dan tanggung jawab sipil (Opsi D).",
+    "explanation": "Dosen menyatakan bahwa para penulis perintis memandang sastra sebagai instrumen berdaya kuat untuk refleksi sosial, empati kolektif, dan tanggung jawab sipil.",
     "grammarNote": "Detail Comprehension in Academic Monologues."
   },
   {
@@ -412,7 +412,7 @@ function getGrade12TLAsasQuestions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Pembicara menjelaskan bahwa algoritma dirancang untuk memaksimalkan atensi dan keterlibatan pengguna dengan memicu emosi (Opsi A).",
+    "explanation": "Pembicara menjelaskan bahwa algoritma media sosial dirancang untuk memaksimalkan atensi dan keterlibatan pengguna dengan memicu respons emosional.",
     "grammarNote": "Cause and Effect Reasoning in Spoken Texts."
   },
   {
@@ -441,7 +441,7 @@ function getGrade12TLAsasQuestions() {
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Sekolah harus membekali siswa dengan kemampuan meneliti sumber, memverifikasi bukti, dan menjadi warga digital yang kritis (Opsi B).",
+    "explanation": "Sekolah harus membekali siswa dengan kemampuan meneliti sumber, memverifikasi bukti, dan menjadi warga digital yang kritis.",
     "grammarNote": "Action Recommendations & Modals of Suggestion."
   },
   {
@@ -471,7 +471,7 @@ function getGrade12TLAsasQuestions() {
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Tujuan komunikatif teks diskusi adalah menyajikan dua sudut pandang yang berimbang (keuntungan efisiensi vs tantangan inklusi dan privasi) mengenai masyarakat nontunai (Opsi C).",
+    "explanation": "Tujuan komunikatif teks diskusi adalah menyajikan dua sudut pandang yang berimbang (keuntungan efisiensi vs tantangan inklusi dan privasi) mengenai masyarakat nontunai.",
     "grammarNote": "Discussion Text Communicative Purpose."
   },
   {
@@ -501,7 +501,7 @@ function getGrade12TLAsasQuestions() {
       }
     ],
     "correctAnswer": "D",
-    "explanation": "Paragraf 1 menyatakan manfaat transaksi digital bagi UMKM: 'streamline accounting records, accelerate payments, and expand access to formal microfinance loans' (Opsi D).",
+    "explanation": "Paragraf 1 menyatakan manfaat transaksi digital bagi UMKM, yaitu merampingkan pencatatan pembukuan, mempercepat proses pembayaran, dan memperluas akses ke pinjaman mikro resmi.",
     "grammarNote": "Scanning for Specific Factual Evidence in Expository Texts."
   },
   {
@@ -531,7 +531,7 @@ function getGrade12TLAsasQuestions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Paragraf 2 menyoroti risiko eksklusi keuangan bagi warga desa, pedagang pasar tradisional, dan lansia yang belum memiliki akses internet atau rekening bank (Opsi A).",
+    "explanation": "Paragraf 2 menyoroti risiko eksklusi keuangan bagi warga pedesaan, pedagang pasar tradisional, dan lansia yang belum memiliki akses internet atau rekening bank formal.",
     "grammarNote": "Identifying Arguments Against (Negative Stance)."
   },
   {
@@ -561,7 +561,7 @@ function getGrade12TLAsasQuestions() {
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Kata 'streamline' berarti mengefisienkan atau menyederhanakan suatu alur proses agar berjalan lebih lancar dan hemat waktu (Opsi B).",
+    "explanation": "Kata 'streamline' berarti mengefisienkan atau menyederhanakan suatu alur proses agar berjalan lebih lancar, teratur, dan hemat waktu.",
     "grammarNote": "Contextual Vocabulary Mastery (CEFR B2 Academic Words)."
   },
   {
@@ -591,7 +591,7 @@ function getGrade12TLAsasQuestions() {
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Penulis merekomendasikan ekosistem hibrida: merangkul efisiensi digital sambil tetap menjamin akses uang tunai bagi masyarakat rentan (Opsi C).",
+    "explanation": "Penulis merekomendasikan ekosistem keuangan hibrida, yaitu merangkul efisiensi teknologi digital sambil tetap menjamin akses uang tunai fisik bagi masyarakat rentan.",
     "grammarNote": "Authorial Recommendation & Synthesis in Discussion Texts."
   },
   {
@@ -620,37 +620,37 @@ function getGrade12TLAsasQuestions() {
         "isCorrect": false
       }
     ],
-    "explanation": "1) BENAR (keuntungan QRIS bagi pembukuan dan keamanan). 2) SALAH (penulis justru menyarankan ekosistem hibrida dan mempertahankan uang tunai). 3) BENAR (lansia dan warga terpencil rentan terasing). 4) SALAH (server downtime dan phishing tetap menjadi ancaman nyata).",
+    "explanation": "• Pernyataan 1: BENAR — Keuntungan QRIS bagi pembukuan dan efisiensi serta keamanan transaksi dinyatakan jelas pada paragraf 1.<br>• Pernyataan 2: SALAH — Penulis tidak menyarankan pelarangan uang tunai, melainkan merekomendasikan ekosistem keuangan hibrida.<br>• Pernyataan 3: BENAR — Lansia dan masyarakat di daerah terpencil memang rentan mengalami eksklusi keuangan digital.<br>• Pernyataan 4: SALAH — Sistem pembayaran digital tetap memiliki risiko gangguan server, pemadaman listrik, dan penipuan siber.",
     "grammarNote": "Complex Factual Synthesis in Advanced Discussion Texts."
   },
   {
     "id": 17,
     "source": "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
     "type": "complex_matrix",
-    "title": "Complex Multiple Choice: Inverted Conditionals",
-    "stimulusTitle": "Grammar Focus: Inverted Conditionals (Had / Should / Were)",
-    "stimulusBody": "<p style=\"margin-bottom:0;\">Inverted conditional structures omit <em>if</em> and begin with auxiliary verbs: <code>Had + Subject + V3</code>, <code>Should + Subject + base verb</code>, <code>Were + Subject + to + verb</code>.</p>",
-    "prompt": "Determine whether each inverted conditional sentence below is grammatically **TRUE** (correct) or **FALSE** (incorrect):",
+    "title": "Complex Multiple Choice: Conditional Sentences (If, Unless, Provided That)",
+    "stimulusTitle": "Grammar Focus: Real and Hypothetical Conditionals (If / Unless / Provided That)",
+    "stimulusBody": "<p style=\"margin-bottom:0;\">Evaluate conditional sentence structures with conditional conjunctions (<em>If, Unless, Provided that</em>).</p>",
+    "prompt": "Determine whether each conditional sentence below is grammatically **TRUE** (correct) or **FALSE** (incorrect):",
     "matrixStatements": [
       {
-        "statement": "Had the school provided comprehensive cybersecurity training, students would have recognized the phishing link immediately.",
+        "statement": "If the school had provided comprehensive cybersecurity training, students would have recognized the phishing link immediately.",
         "isCorrect": true
       },
       {
-        "statement": "Should you require additional resources for your literary review, please consult the senior librarian.",
+        "statement": "Unless students exercise caution when opening email attachments, their personal accounts are at risk of cyber fraud.",
         "isCorrect": true
       },
       {
-        "statement": "Were the regional government to invest heavily in rural broadband, digital financial inclusion would expand significantly.",
+        "statement": "Provided that the regional government invests in rural broadband, digital financial inclusion will expand significantly.",
         "isCorrect": true
       },
       {
-        "statement": "Had they studied the vocabulary list last night, they will achieve a perfect score on the grammar test today.",
+        "statement": "If they studied the vocabulary list last night, they will achieve a perfect score on the grammar test today.",
         "isCorrect": false
       }
     ],
-    "explanation": "1) BENAR (Inversi Type 3: Had + S + V3, would have + V3). 2) BENAR (Inversi Type 1: Should + S + V1, imperative). 3) BENAR (Inversi Type 2: Were + S + to V1, would + V1). 4) SALAH (mencampur Past Perfect 'Had they studied' dengan future 'will achieve'; harusnya 'would have achieved').",
-    "grammarNote": "Inverted Conditionals (Had, Were, Should) at CEFR B2 Level."
+    "explanation": "• Pernyataan 1: BENAR — Kalimat pengandaian tipe 3 (Third Conditional) menggunakan pola baku 'If + had + V3, would have + V3'.<br>• Pernyataan 2: BENAR — Konjungsi 'Unless' (jika tidak) digunakan secara tepat bersama Simple Present Tense untuk menyatakan kondisi realistis.<br>• Pernyataan 3: BENAR — Frasa 'Provided that' (dengan syarat) berfungsi setara dengan 'If' dalam kalimat pengandaian tipe 1.<br>• Pernyataan 4: SALAH — Terjadi kerancuan tenses; pengandaian tentang peristiwa tadi malam ('last night') yang tidak terwujud seharusnya menggunakan past perfect ('had studied') berpasangan dengan modal past ('would have achieved').",
+    "grammarNote": "Mastery of Conditional Clauses (If, Unless, Provided That) in Advanced English."
   },
   {
     "id": 18,
@@ -678,7 +678,7 @@ function getGrade12TLAsasQuestions() {
         "isCorrect": false
       }
     ],
-    "explanation": "1) BENAR (It was... that...). 2) BENAR (What students need... is...). 3) SALAH (pola cleft penekanan menggunakan 'that', bukan 'which'). 4) SALAH (subjek klausa wh bernilai tunggal sehingga to be yang tepat adalah 'was', bukan 'were').",
+    "explanation": "• Pernyataan 1: BENAR — Pola it-cleft 'It was ... that ...' tersusun secara tepat untuk memberikan penekanan pada subjek.<br>• Pernyataan 2: BENAR — Pola wh-cleft 'What students need most ... is ...' menggunakan to be tunggal 'is' yang selaras dengan klausa 'what'.<br>• Pernyataan 3: SALAH — Struktur cleft penekanan menggunakan kata hubung 'that' ('It is through social media that...'), bukan 'which'.<br>• Pernyataan 4: SALAH — Klausa subjek 'What surprised the literary critics' memerlukan to be tunggal 'was', bukan 'were'.",
     "grammarNote": "Cleft Sentences for Thematic Prominence and Information Packaging."
   },
   {
@@ -707,7 +707,7 @@ function getGrade12TLAsasQuestions() {
         "isCorrect": false
       }
     ],
-    "explanation": "1) BENAR (latar akhir abad ke-19 di Hindia Belanda). 2) SALAH (Minke adalah siswa cerdas HBS yang fasih berbahasa Belanda). 3) BENAR (Nyai Ontosoroh sosok mandiri dan tangguh). 4) SALAH (pengulas menilai novel sebagai karya klasik tak lekang waktu yang sangat direkomendasikan).",
+    "explanation": "• Pernyataan 1: BENAR — Latar novel berlangsung pada akhir abad ke-19 di Hindia Belanda (Surabaya).<br>• Pernyataan 2: SALAH — Minke adalah siswa pribumi cerdas di H.B.S. yang fasih berbahasa Belanda dan berpikir maju.<br>• Pernyataan 3: BENAR — Nyai Ontosoroh digambarkan sebagai figur teladan berkarakter tangguh yang mandiri dan menguasai hukum perniagaan.<br>• Pernyataan 4: SALAH — Resensi menyimpulkan bahwa novel Bumi Manusia adalah karya sastra klasik penting yang abadi dan sangat bernilai bagi siswa.",
     "grammarNote": "Literary Review Factual Verification."
   },
   {
@@ -736,7 +736,7 @@ function getGrade12TLAsasQuestions() {
         "isCorrect": true
       }
     ],
-    "explanation": "1) BENAR ('Much as' berarti 'Although very much'). 2) BENAR ('Whereas' membandingkan dua fakta kontras). 3) SALAH (tidak boleh memasang 'but' setelah klausa 'Even though'). 4) BENAR ('In contrast to + Noun Phrase' membandingkan dua wilayah secara kontras).",
+    "explanation": "• Pernyataan 1: BENAR — Klausa konsesif 'Much as' bermakna 'Meskipun sangat...' dan tersusun dengan tata bahasa yang tepat.<br>• Pernyataan 2: BENAR — Konjungsi 'Whereas' digunakan secara tepat untuk membandingkan dua fakta yang berkebalikan secara langsung.<br>• Pernyataan 3: SALAH — Tidak boleh menggunakan konjungsi koordinatif 'but' setelah anak kalimat yang diawali 'Even though'.<br>• Pernyataan 4: BENAR — Frasa preposisi 'In contrast to' diikuti oleh frasa nomina ('urban centers with fast 5G coverage') untuk menunjukkan perbedaan kontras.",
     "grammarNote": "Advanced Concessive and Contrastive Clauses."
   },
   {
@@ -769,7 +769,7 @@ function getGrade12TLAsasQuestions() {
       "A",
       "C"
     ],
-    "explanation": "Dua keunggulan utama menurut teks adalah (A) kecepatan transaksi tanpa repot membawa uang tunai, dan (C) pencatatan pembukuan transparan yang memudahkan pinjaman mikro. Opsi B dan D keliru.",
+    "explanation": "Dua keunggulan utama sistem pembayaran digital menurut teks adalah kecepatan transaksi tanpa repot membawa uang tunai fisik, serta pencatatan pembukuan transparan yang mempermudah akses kredit bagi usaha kecil.",
     "grammarNote": "Synthesizing Core Arguments in Expository Texts."
   },
   {
@@ -777,33 +777,33 @@ function getGrade12TLAsasQuestions() {
     "source": "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
     "type": "mcma",
     "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
-    "stimulusTitle": "Grammar Focus: Inverted Conditionals",
-    "stimulusBody": "<p style=\"margin-bottom:0;\">Select sentences that correctly utilize inverted conditional patterns.</p>",
-    "prompt": "Which **TWO (2)** sentences correctly demonstrate inverted conditional structures?",
+    "stimulusTitle": "Grammar Focus: Standard Conditional Sentences (Types 2 & 3)",
+    "stimulusBody": "<p style=\"margin-bottom:0;\">Select sentences that correctly adhere to standard conditional frameworks.</p>",
+    "prompt": "Which **TWO (2)** sentences correctly demonstrate standard conditional sentence structures?",
     "options": [
       {
         "key": "A",
-        "text": "If I have seen the competition announcement yesterday morning, I would submit the application promptly."
+        "text": "If the agricultural cooperative had adopted smart irrigation earlier, crop yields would have doubled during the drought."
       },
       {
         "key": "B",
-        "text": "Had the agricultural cooperative adopted smart irrigation earlier, crop yields would have doubled during the drought."
+        "text": "If the school organized an international literature workshop, many aspiring writers would participate enthusiastically."
       },
       {
         "key": "C",
-        "text": "Were the school to organize an international literature workshop, many aspiring writers would participate enthusiastically."
+        "text": "If I have seen the competition announcement yesterday morning, I would submit the application promptly."
       },
       {
         "key": "D",
-        "text": "Had she arrived earlier yesterday, she will meet the visiting novelist in the auditorium."
+        "text": "If she arrived earlier yesterday, she will meet the visiting novelist in the auditorium."
       }
     ],
     "correctAnswer": [
-      "B",
-      "C"
+      "A",
+      "B"
     ],
-    "explanation": "Kalimat B (Had + S + V3, would have + V3) dan kalimat C (Were + S + to V1, would + V1) merupakan inversi kondisional yang baku. Kalimat A salah tenses dan kalimat D mencampur 'Had arrived' dengan 'will meet'.",
-    "grammarNote": "Inversion Syntax across Conditional Structures."
+    "explanation": "Kalimat pengandaian tipe 3 baku dibentuk dengan 'If + had + V3, would have + V3' ('If the agricultural cooperative had adopted smart irrigation earlier...'). Kalimat pengandaian tipe 2 baku dibentuk dengan 'If + past simple, would + bare infinitive' ('If the school organized an international literature workshop...'). Dua kalimat lainnya tidak tepat karena memadukan present perfect 'have seen' dengan keterangan waktu lampau 'yesterday' serta mencampur past simple 'arrived' dengan future 'will meet'.",
+    "grammarNote": "Conditional Sentence Syntax across Hypothetical Structures."
   },
   {
     "id": 23,
@@ -835,7 +835,7 @@ function getGrade12TLAsasQuestions() {
       "A",
       "D"
     ],
-    "explanation": "Kalimat A ('It was... that...') dan kalimat D ('It is through... that...') tersusun sempurna. Kalimat B dan C salah dalam kesesuaian subjek-kata kerja (subject-verb agreement), di mana klausa 'what' sebagai subjek memerlukan to be singular 'was/is'.",
+    "explanation": "Kalimat yang menggunakan pola cleft secara baku adalah 'It was Minke's eloquent journalistic writing that exposed colonial injustice...' dan 'It is through empathy and mutual respect that diverse communities can live together...'. Sementara itu, kalimat dengan klausa 'what' sebagai subjek memerlukan kata kerja tunggal ('was' / 'is'), bukan jamak ('were' / 'are').",
     "grammarNote": "It-Cleft and Wh-Cleft Agreement Rules."
   },
   {
@@ -868,7 +868,7 @@ function getGrade12TLAsasQuestions() {
       "A",
       "B"
     ],
-    "explanation": "Dua nilai luhur yang ditonjolkan adalah (A) kecerdasan dan keteguhan harga diri Nyai Ontosoroh, serta (B) komitmen Minke pada literasi dan keadilan bagi kaum tertindas. Opsi C dan D bertolak belakang dengan alur cerita.",
+    "explanation": "Dua nilai luhur yang ditonjolkan adalah kecerdasan luar biasa, ketangguhan berwirausaha, dan keteguhan harga diri Nyai Ontosoroh, serta komitmen Minke pada literasi, kesadaran sosial, dan keberanian moral menyuarakan hak kaum tertindas.",
     "grammarNote": "Literary Character Virtues Synthesis."
   },
   {
@@ -901,7 +901,7 @@ function getGrade12TLAsasQuestions() {
       "B",
       "D"
     ],
-    "explanation": "Kalimat B ('on the other hand') dan kalimat D ('While') menghubungkan dua gagasan kontras secara gramatikal. Kalimat A menggabungkan 'Although' dengan 'because' tanpa klausa utama mandiri, dan kalimat C salah memadukan 'In spite of' dengan klausa subjek-predikat serta 'but'.",
+    "explanation": "Kalimat yang menggunakan penanda transisi kontras secara tepat adalah kalimat dengan konjungsi antarkalimat 'on the other hand' dan konjungsi subordinatif 'While'. Kalimat lainnya salah karena menggabungkan 'Although' dengan 'because', atau salah memadukan preposisi 'In spite of' dengan klausa berpredikat dan 'but'.",
     "grammarNote": "Cohesive Contrast Markers in Advanced Essays."
   },
   {
@@ -931,7 +931,7 @@ function getGrade12TLAsasQuestions() {
       }
     ],
     "correctAnswer": "D",
-    "explanation": "Tujuan teks resensi adalah mengevaluasi karya sastra (novel Bumi Manusia) secara mendalam serta merekomendasikannya kepada pembaca (Opsi D).",
+    "explanation": "Tujuan utama teks resensi sastra adalah mengevaluasi karya sastra (novel Bumi Manusia) secara mendalam serta merekomendasikannya kepada para pembaca dan pelajar.",
     "grammarNote": "Communicative Purpose of Literary Reviews."
   },
   {
@@ -961,7 +961,7 @@ function getGrade12TLAsasQuestions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Paragraf 1 menyatakan: 'Set in the late nineteenth-century Dutch East Indies (colonial Indonesia)' (Opsi A).",
+    "explanation": "Paragraf 1 menyatakan secara spesifik bahwa novel berlatar di Surabaya, Hindia Belanda (kolonial Indonesia) pada akhir abad ke-19.",
     "grammarNote": "Historical Narrative Setting."
   },
   {
@@ -991,7 +991,7 @@ function getGrade12TLAsasQuestions() {
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Nyai Ontosoroh mendidik dirinya sendiri dalam hukum dan perdagangan Belanda hingga menjadi pengelola sukses perusahaan pertanian besar (Opsi B).",
+    "explanation": "Nyai Ontosoroh mendidik dirinya sendiri dalam bidang hukum dan perdagangan Belanda hingga berhasil menjadi pengelola sukses perusahaan perkebunan besar.",
     "grammarNote": "Character Agency and Motivation Comprehension."
   },
   {
@@ -1021,7 +1021,7 @@ function getGrade12TLAsasQuestions() {
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Paragraf 3 mencatat kritik minor bahwa sebagian pembaca modern mungkin merasa ritme bab-bab awal agak lambat/terencana ('somewhat deliberate in pacing') sebelum tensinya meningkat (Opsi C).",
+    "explanation": "Paragraf 3 mencatat kritik minor bahwa sebagian pembaca modern mungkin merasa tempo pembuka novel agak lambat/terencana ('somewhat deliberate in pacing') sebelum ketegangan dramatisnya memuncak.",
     "grammarNote": "Identifying Evaluative Critique in Reviews."
   },
   {
@@ -1051,64 +1051,64 @@ function getGrade12TLAsasQuestions() {
       }
     ],
     "correctAnswer": "D",
-    "explanation": "Kata 'transcends' berarti melampaui batasan ruang dan waktu, menunjukkan relevansi novel yang abadi melintasi zaman (Opsi D).",
+    "explanation": "Kata 'transcends' bermakna melampaui batasan ruang dan waktu, menunjukkan relevansi novel yang abadi melintasi generasi zaman.",
     "grammarNote": "Academic Vocabulary in Review Conclusion."
   },
   {
     "id": 31,
     "source": "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
     "type": "grammar_structure",
-    "title": "Grammar & Structure: Inverted Conditional Type 3",
-    "prompt": "________ the technical team investigated the electrical system earlier, the laboratory blackout would have been averted.",
+    "title": "Grammar & Structure: Third Conditional with If",
+    "prompt": "If the technical team ________ the electrical system earlier, the laboratory blackout would have been averted.",
     "options": [
       {
         "key": "A",
-        "text": "Had"
+        "text": "had investigated"
       },
       {
         "key": "B",
-        "text": "Were"
+        "text": "investigates"
       },
       {
         "key": "C",
-        "text": "Should"
+        "text": "has investigated"
       },
       {
         "key": "D",
-        "text": "Unless"
+        "text": "would investigate"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Inversi Conditional Type 3 menggunakan kata kerja bantu 'Had' + Subject + V3 (Had the technical team investigated = If the technical team had investigated).",
-    "grammarNote": "Inversion in Unreal Past Conditionals."
+    "explanation": "Klausul syarat 'if' pada kalimat pengandaian tipe 3 (Third Conditional) membutuhkan bentuk Past Perfect Tense ('had investigated') untuk berpasangan dengan klausa utama hipotesis masa lampau 'would have been averted'.",
+    "grammarNote": "Third Conditional Structure in Technical Contexts."
   },
   {
     "id": 32,
     "source": "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
     "type": "grammar_structure",
-    "title": "Grammar & Structure: Inverted Conditional Type 1",
-    "prompt": "________ any candidate require special accommodations during the examination, they should notify the committee promptly.",
+    "title": "Grammar & Structure: Conditional Conjunction (Provided that)",
+    "prompt": "Candidates will be granted special accommodations during the examination ________ they submit an official medical certificate in advance.",
     "options": [
       {
         "key": "A",
-        "text": "Had"
+        "text": "provided that"
       },
       {
         "key": "B",
-        "text": "Should"
+        "text": "in spite of"
       },
       {
         "key": "C",
-        "text": "Were"
+        "text": "although"
       },
       {
         "key": "D",
-        "text": "Would"
+        "text": "unless"
       }
     ],
-    "correctAnswer": "B",
-    "explanation": "Inversi Conditional Type 1 formal diawali dengan 'Should' + Subject + Bare Infinitive (Should any candidate require = If any candidate requires).",
-    "grammarNote": "Formal Conditional Inversion with Should."
+    "correctAnswer": "A",
+    "explanation": "Frasa konjungsi 'provided that' bermakna 'dengan syarat' atau 'asalkan', berfungsi menghubungkan klausa utama dengan klausa kondisi atau prasyarat yang harus dipenuhi.",
+    "grammarNote": "Conditional Conjunctions ('Provided that' / 'As long as') in Formal Contexts."
   },
   {
     "id": 33,
@@ -1135,7 +1135,7 @@ function getGrade12TLAsasQuestions() {
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Rumus kalimat It-cleft baku menggunakan kata penghubung 'that' untuk memfokuskan elemen subjek/objek yang ditegaskan.",
+    "explanation": "Rumus kalimat It-cleft baku menggunakan kata penghubung 'that' ('It was his perseverance that...') untuk memfokuskan elemen subjek yang ditegaskan.",
     "grammarNote": "It-Cleft Sentences for Emphasis."
   },
   {
@@ -1163,7 +1163,7 @@ function getGrade12TLAsasQuestions() {
       }
     ],
     "correctAnswer": "D",
-    "explanation": "Wh-cleft diawali dengan 'What' (bermakna 'hal yang...'): 'What secondary students need most... is sharp critical thinking'.",
+    "explanation": "Rumus Wh-cleft baku menempatkan klausa 'what' di awal kalimat dengan kata kerja to be berbentuk tunggal ('was') yang selaras dengan pelengkap kalimat.",
     "grammarNote": "Wh-Cleft Clauses."
   },
   {
@@ -1191,7 +1191,7 @@ function getGrade12TLAsasQuestions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Frasa 'Much as' berfungsi sebagai konjungsi konsesi bermakna 'Meskipun sangat': 'Much as he appreciated...' = 'Although he greatly appreciated...'.",
+    "explanation": "Kaidah subjunctive mood formal setelah kata kerja seperti 'recommend', 'demand', atau 'insist' mewajibkan kata kerja dasar (bare infinitive / base form): 'recommend that the system be updated'.",
     "grammarNote": "Concessive Connectors: Much as + Clause."
   },
   {
@@ -1219,7 +1219,7 @@ function getGrade12TLAsasQuestions() {
       }
     ],
     "correctAnswer": "B",
-    "explanation": "'On the other hand' digunakan untuk menyajikan sudut pandang lain yang berlawanan/kontras dengan pernyataan sebelumnya.",
+    "explanation": "Konjungsi subordinatif 'Whereas' digunakan secara tepat untuk menghubungkan dua klausa yang membandingkan fakta berkebalikan secara langsung.",
     "grammarNote": "Transitions of Contrast: On the other hand."
   },
   {
@@ -1247,7 +1247,7 @@ function getGrade12TLAsasQuestions() {
       }
     ],
     "correctAnswer": "C",
-    "explanation": "Setelah kata kerja rekomendasi (recommend that...), pola mandative subjunctive mewajibkan kata kerja bentuk dasar (bare infinitive) 'adopt' tanpa akhiran -s.",
+    "explanation": "Kata 'meticulously' bersinonim dengan 'carefully and thoroughly' (secara teliti, cermat, dan mendalam).",
     "grammarNote": "Subjunctive Mood in Formal Academic Prose."
   },
   {
@@ -1275,7 +1275,7 @@ function getGrade12TLAsasQuestions() {
       }
     ],
     "correctAnswer": "D",
-    "explanation": "'In spite of' diikuti gerund/noun phrase ('facing severe financial limitations'). Opsi Although, Even though, Whereas harus diikuti klausa dengan subjek dan finite verb.",
+    "explanation": "Frasa preposisi 'In spite of' diikuti oleh gerund atau frasa nomina ('facing severe financial limitations'). Konjungsi seperti Although, Even though, dan Whereas harus diikuti oleh klausa lengkap berpredikat.",
     "grammarNote": "Prepositional Concessive Phrases: In spite of + Gerund."
   },
   {
@@ -1303,7 +1303,7 @@ function getGrade12TLAsasQuestions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Pola pasif impersonal akademis: 'It is + adverb + Past Participle (V3) + that-clause' -> 'It is widely acknowledged that...'.",
+    "explanation": "Konteks kalimat menunjukkan target cita-cita yang tinggi namun dibatasi oleh sumber daya, sehingga kata sifat yang paling berterima adalah 'ambitious'.",
     "grammarNote": "Impersonal Passive Stance in Academic Writing."
   },
   {
@@ -1331,7 +1331,7 @@ function getGrade12TLAsasQuestions() {
       }
     ],
     "correctAnswer": "B",
-    "explanation": "'In conclusion' digunakan untuk menarik sintesis atau kesimpulan akhir dari argumen yang telah dipaparkan.",
+    "explanation": "Konektor diskursus penutup 'In conclusion' digunakan secara tepat untuk merangkum dan menutup argumen esai secara komprehensif.",
     "grammarNote": "Discourse Synthesis & Concluding Connectors."
   }
 ];
@@ -1363,14 +1363,9 @@ function randomizeQuestionOptions(rawQuestions) {
       return q;
     }
     const cloned = JSON.parse(JSON.stringify(q));
-    if (cloned.type === "complex_matrix" && Array.isArray(cloned.matrixStatements)) {
-      const stmts = [...cloned.matrixStatements];
-      for (let i = stmts.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [stmts[i], stmts[j]] = [stmts[j], stmts[i]];
-      }
-      cloned.matrixStatements = stmts;
-    } else if (Array.isArray(cloned.options) && cloned.options.length > 0) {
+    // NOTE: DO NOT shuffle complex_matrix statements so that Pernyataan 1, 2, 3, 4
+    // always correspond strictly with the explanation and table rows.
+    if (cloned.type !== "complex_matrix" && Array.isArray(cloned.options) && cloned.options.length > 0) {
       const opts = [...cloned.options];
       const isMCMA = cloned.type === "mcma" && Array.isArray(cloned.correctAnswer);
       const originalCorrect = isMCMA ? [...cloned.correctAnswer] : cloned.correctAnswer;
@@ -1569,7 +1564,7 @@ function renderQuestion(index) {
   }
 
   const expBox = document.getElementById("question-explanation-box");
-  if (isExamSubmitted || (currentMode === "practice" && isQuestionAnswered(q.id))) {
+  if (isExamSubmitted) {
     expBox.style.display = "block";
     let keyBadge = "";
     if (q.type === "complex_matrix") {
@@ -1610,6 +1605,7 @@ function renderPictureChoices(q, container) {
     const card = document.createElement("div");
     card.className = "picture-option-card" + (userAnswers[q.id] === opt.key ? " selected" : "");
     card.onclick = () => {
+      if (isExamSubmitted) return;
       userAnswers[q.id] = opt.key;
       renderQuestion(currentQuestionIndex);
     };
@@ -1632,6 +1628,7 @@ function renderSingleChoices(q, container) {
     const item = document.createElement("div");
     item.className = "option-item" + (userAnswers[q.id] === opt.key ? " selected" : "");
     item.onclick = () => {
+      if (isExamSubmitted) return;
       userAnswers[q.id] = opt.key;
       renderQuestion(currentQuestionIndex);
     };
@@ -1693,6 +1690,7 @@ function renderMatrixTable(q, container) {
 }
 
 function handleMatrixSelect(qId, stIdx, value) {
+  if (isExamSubmitted) return;
   if (!userAnswers[qId] || typeof userAnswers[qId] !== "object" || Array.isArray(userAnswers[qId])) {
     userAnswers[qId] = {};
   }
@@ -1756,6 +1754,7 @@ function renderMCMACheckboxes(q, container) {
 }
 
 function handleMCMAToggle(qId, key, isChecked) {
+  if (isExamSubmitted) return;
   let arr = Array.isArray(userAnswers[qId]) ? [...userAnswers[qId]] : [];
   if (isChecked) {
     if (!arr.includes(key)) arr.push(key);
