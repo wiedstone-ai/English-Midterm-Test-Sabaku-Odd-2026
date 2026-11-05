@@ -167,23 +167,25 @@ function verifyPassword(tingkat, inputPassword) {
 function resolveSheetName(data) {
   if (data.sheetName) return String(data.sheetName).trim();
   
-  const jenis = String(data.jenisAsesmen || data.assessmentType || "ASTS").trim().toUpperCase();
+  const jenis = String(data.jenisAsesmen || data.assessmentType || "").trim().toUpperCase();
   const tingkat = String(data.tingkat || "").trim().toUpperCase();
+  const modeStr = String(data.mode || "").toUpperCase();
   
   let tingkatLabel = "Lainnya";
-  if (tingkat === "X-E" || tingkat.includes("X") && !tingkat.includes("XI") && !tingkat.includes("XII")) {
+  if (tingkat === "X-E" || (tingkat.includes("X") && !tingkat.includes("XI") && !tingkat.includes("XII"))) {
     tingkatLabel = "Kelas_X";
-  } else if (tingkat === "XI-F" || tingkat === "XI") {
+  } else if (tingkat === "XI-F" || (tingkat === "XI" && !tingkat.includes("TL"))) {
     tingkatLabel = "Kelas_XI_Wajib";
-  } else if (tingkat === "XI-TL") {
+  } else if (tingkat === "XI-TL" || (tingkat.includes("XI") && tingkat.includes("TL"))) {
     tingkatLabel = "Kelas_XI_TL";
-  } else if (tingkat === "XII-F" || tingkat === "XII") {
+  } else if (tingkat === "XII-F" || (tingkat === "XII" && !tingkat.includes("TL"))) {
     tingkatLabel = "Kelas_XII_Wajib";
-  } else if (tingkat === "XII-TL") {
+  } else if (tingkat === "XII-TL" || (tingkat.includes("XII") && tingkat.includes("TL"))) {
     tingkatLabel = "Kelas_XII_TL";
   }
   
-  const prefix = jenis.includes("ASAS") ? "ASAS" : "ASTS";
+  const isAsas = jenis.includes("ASAS") || modeStr.includes("ASAS") || String(data.testType || "").toUpperCase().includes("ASAS");
+  const prefix = isAsas ? "ASAS" : "ASTS";
   return prefix + "_" + tingkatLabel;
 }
 
@@ -229,7 +231,7 @@ function getTargetScoreSheet(ss, sheetName, jenis) {
  */
 function recordStudentScore(data) {
   const ss = getSpreadsheet();
-  const jenis = String(data.jenisAsesmen || data.assessmentType || "ASTS").toUpperCase();
+  const jenis = String(data.jenisAsesmen || data.assessmentType || (String(data.mode || "").toUpperCase().includes("ASAS") ? "ASAS" : "ASTS")).toUpperCase();
   const targetSheetName = resolveSheetName(data);
   const targetSheet = getTargetScoreSheet(ss, targetSheetName, jenis);
   
