@@ -129,46 +129,29 @@
             📋 Panduan Ruang Ujian &amp; Kisi-Kisi Tiap Tingkat
           </h3>
           <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px;">
-            Setiap tingkat kelas memiliki paket soal 40 butir berstandar TKA dengan materi separuh semester gasal yang spesifik:
+            Setiap tingkat kelas memiliki paket soal 40 butir berstandar TKA dengan materi asesmen semester gasal yang terstandarisasi:
           </p>
 
           <div class="portal-level-cards">
-            <!-- Card Kelas X ASTS -->
-            <div class="portal-card" id="preview-card-X-E-ASTS">
-              <span class="portal-badge badge-x">Kelas X — ASTS Gasal</span>
-              <h4 style="color: var(--primary-navy); margin-bottom: 8px;">Latihan Asesmen Sumatif Tengah Semester Gasal (ASTS)</h4>
+            <!-- Card Kelas X ASAS (Pengganti ASTS) -->
+            <div class="portal-card" id="preview-card-X-E" style="border-color: #818cf8; background: #faf5ff;">
+              <span class="portal-badge" style="background: #ede9fe; color: #5b21b6;">Kelas X — ASAS Gasal Penuh (Fase E)</span>
+              <h4 style="color: #4c1d95; margin-bottom: 8px;">Latihan Asesmen Sumatif Akhir Semester (ASAS) Gasal</h4>
               <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px;">
-                <strong>Separuh Materi Gasal (TP 10.1 &amp; Intro TP 10.2):</strong><br>
-                • 10 Soal Listening (Pictures, Dialogues, Talks)<br>
-                • Descriptive Text (Great Athletes &amp; Menara Kudus)<br>
-                • Report Text (Badak Jawa &amp; Panas Bumi Dieng)<br>
-                • Grammar: Simple Present, OSASCOMP, Passive dasar<br>
-                • Kosakata: Oxford 3000 Level A2
-              </p>
-              <a href="kelas-x.html" style="font-size: 0.85rem; font-weight: 700; color: var(--royal-blue); text-decoration: none;">
-                Mulai Latihan ASTS Kelas X ➔
-              </a>
-            </div>
-
-            <!-- Card Kelas X ASAS -->
-            <div class="portal-card" id="preview-card-X-E-ASAS" style="border-color: #818cf8; background: #faf5ff;">
-              <span class="portal-badge" style="background: #ede9fe; color: #5b21b6;">Kelas X — ASAS Gasal Penuh</span>
-              <h4 style="color: #4c1d95; margin-bottom: 8px;">Latihan ASAS (Akhir Semester)</h4>
-              <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px;">
-                <strong>Satu Semester Penuh (TP 10.1 &amp; TP 10.2 Lengkap):</strong><br>
+                <strong>Satu Semester Penuh Gasal (18 Minggu — 40 Soal):</strong><br>
                 • 10 Soal Listening Komprehensif (Pictures, Talks, Fauna)<br>
-                • TP 10.1: Descriptive Text (Athletes &amp; Tourism Multimodal)<br>
-                • TP 10.2: Scientific Report (Orangutan &amp; Energi Dieng)<br>
-                • Grammar: Passive Voice Ilmiah, OSASCOMP, Conditionals<br>
-                • Kosakata: Oxford 3000 Level A2/B1
+                • TP 10.1: Descriptive Text (Karimunjawa &amp; Anthony Sinisuka Ginting)<br>
+                • TP 10.2: Scientific Report (Orangutan &amp; Panas Bumi Dieng)<br>
+                • Grammar &amp; Kosakata: Passive Voice Ilmiah, OSASCOMP, Conditionals, Relative Pronoun (whose), Oxford 3000 Level A2/B1<br>
+                • <em>Komposisi: 60% (24 Soal) Bank Soal ASAS Gasal + 40% (16 Soal) Komplementer Penuh</em>
               </p>
-              <a href="kelas-x-asas.html" style="font-size: 0.85rem; font-weight: 700; color: #6d28d9; text-decoration: none;">
+              <a href="kelas-x.html" style="font-size: 0.85rem; font-weight: 700; color: #6d28d9; text-decoration: none;">
                 Mulai Latihan ASAS Kelas X ➔
               </a>
             </div>
 
             <!-- Card Kelas XI ASTS -->
-            <div class="portal-card" id="preview-card-XI-F-ATS">
+            <div class="portal-card" id="preview-card-XI-F-ASTS">
               <span class="portal-badge badge-xi">Kelas XI — ASTS Gasal</span>
               <h4 style="color: var(--primary-navy); margin-bottom: 8px;">Latihan ASTS (Tengah Semester)</h4>
               <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px;">
@@ -280,10 +263,11 @@
       const allCards = document.querySelectorAll('.portal-card');
       allCards.forEach(c => c.classList.remove('active'));
       if (val === 'X-E') {
-        document.getElementById('preview-card-X-E-ATS')?.classList.add('active');
-        document.getElementById('preview-card-X-E-ASAS')?.classList.add('active');
+        document.getElementById('preview-card-X-E')?.classList.add('active');
+        const jenisSelect = document.getElementById('input-jenis-asesmen');
+        if (jenisSelect) jenisSelect.value = 'ASAS';
       } else if (val === 'XI-F') {
-        document.getElementById('preview-card-XI-F-ATS')?.classList.add('active');
+        document.getElementById('preview-card-XI-F-ASTS')?.classList.add('active');
         document.getElementById('preview-card-XI-F-ASAS')?.classList.add('active');
       } else if (val === 'XI-TL') {
         document.getElementById('preview-card-XI-TL-ASAS')?.classList.add('active');
@@ -349,12 +333,8 @@
       } else if (tingkat === 'XII-F') {
         window.location.href = 'kelas-xii.html';
       } else {
-        // Kelas X
-        if (jenisAsesmen === 'ASAS') {
-          window.location.href = 'kelas-x-asas.html';
-        } else {
-          window.location.href = 'kelas-x.html';
-        }
+        // Kelas X: Seluruh asesmen dialihkan ke ASAS Gasal (kelas-x.html)
+        window.location.href = 'kelas-x.html';
       }
     }
 

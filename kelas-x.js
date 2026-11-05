@@ -1,48 +1,30 @@
 /**
- * ASESMEN SUMATIF TENGAH SEMESTER GASAL (ASTS) & LATIHAN MANDIRI 2026
+ * ASESMEN SUMATIF AKHIR SEMESTER (ASAS) GASAL & LATIHAN KOMPREHENSIF 2026
  * SMA NEGERI 1 BAE KUDUS (SABAKU)
- * TINGKAT X (FASE E) — SEMESTER GASAL 2026/2027
+ * TINGKAT X (FASE E) — SATU SEMESTER PENUH GASAL (18 MINGGU) TP 2026/2027
  * 
- * Features:
- * - 40 Questions specifically designed for Grade X Fase E
- * - Authentic Sources cited on every reading text
- * - Accurate Geographical Fact: Dieng Plateau Geothermal Energy (Banjarnegara/Wonosobo)
- * - Level A2 Vocabulary (Oxford 3000)
- * - Realtime Autosave with LocalStorage (Session persistent across refresh)
- * - Fisher-Yates Dynamic Option Shuffling
- * - Instant Grading & KKTP 75 Evaluation
- * - Google Sheets Sync & 1-Click CSV Export
+ * Komposisi Soal:
+ * - 60% (24 Butir Soal) Diambil Langsung dari Bank Soal ASAS Gasal
+ * - 40% (16 Butir Soal) Melengkapi Seluruh Materi Semester Gasal (TP 10.1 & TP 10.2)
+ * 
+ * Standar: Tes Kemampuan Akademik (TKA / AKM / UTBK)
+ * Cakupan Materi Lengkap:
+ * 1. Listening Section: Multimodal Pictures, Short Dialogues, Short Talks.
+ * 2. TP 10.1 Descriptive Text: Karimunjawa Marine Tourism & Anthony Sinisuka Ginting.
+ * 3. TP 10.2 Scientific Report Text: Orangutans (Fauna) & Dieng Geothermal Energy (Renewable Energy).
+ * 4. Grammar in Context: Simple Present, Passive Voice Ilmiah, OSASCOMP, Conditionals Type 1 & 0,
+ *    Relative Pronouns, Oxford 3000 Level A2/B1 Vocabulary, dan Functional Expressions.
  */
 
-// Default Configuration
 const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbz1dnapNS6sFak-BlG-xxaFhGR9f0BhGYKyyddEvmIEOTxPrlARC2tHkeLLP1owzBToIw/exec";
 
-// State Management
-let currentTingkat = "X-E";
-let currentMode = "practice"; // 'practice' or 'exam'
-let currentQuestionIndex = 0;
-let userAnswers = {}; // { qId: answer }
-let flaggedQuestions = new Set();
-let timerInterval = null;
-let remainingSeconds = 90 * 60; // 90 minutes
-let isExamSubmitted = false;
-let audioSpeechRate = 1.0;
-let currentUtterance = null;
-let questions = [];
-
-let studentIdentity = {
-  tingkat: "X-E",
-  rombel: "1",
-  presensi: "1",
-  nama: "Siswa Kelas X"
-};
-
+// SVG Pictures for Listening Part I Multimodal
 const SVG_PICTURES = {
   badminton: `<svg viewBox="0 0 100 100" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="22" r="10"/><path d="M50 32v28M30 42l20-8 20 12M50 60l-16 26M50 60l18 26"/><path d="M70 46l14-14M84 32a7 7 0 10-10-10 7 7 0 0010 10zM77 25l7 7"/></svg>`,
   runner: `<svg viewBox="0 0 100 100" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="65" cy="22" r="9"/><path d="M60 31l-14 16 10 12-14 26M46 47l-18-6M56 59l18 6 12 18"/><path d="M15 88h70" stroke="#94a3b8" stroke-dasharray="4 4"/></svg>`,
   swimmer: `<svg viewBox="0 0 100 100" fill="none" stroke="#0d9488" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="38" r="9"/><path d="M41 38l24 4 15-18M25 50l30 4 18 10"/><path d="M10 65c10-5 20 5 30 0s20 5 30 0 20 5 20 0M10 78c10-5 20 5 30 0s20 5 30 0 20 5 20 0" stroke="#0284c7"/></svg>`,
   weightlifter: `<svg viewBox="0 0 100 100" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="38" r="8"/><path d="M50 46v24M38 56l12-8 12 8M42 70l-8 20M58 70l8 20"/><path d="M15 26h70" stroke="#475569" stroke-width="4"/><circle cx="15" cy="26" r="12" fill="#94a3b8"/><circle cx="85" cy="26" r="12" fill="#94a3b8"/></svg>`,
-  
+
   temple: `<svg viewBox="0 0 100 100" fill="none" stroke="#d97706" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 85h80M20 70h60M30 55h40M40 40h20M50 20v20"/><path d="M35 85v-15M65 85v-15M42 70v-15M58 70v-15"/><circle cx="50" cy="18" r="3" fill="#d97706"/></svg>`,
   beach: `<svg viewBox="0 0 100 100" fill="none" stroke="#0284c7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="25" cy="25" r="10" fill="#fef08a" stroke="#eab308"/><path d="M60 85c-5-25 15-45 25-50M85 35c-15 0-25-10-30-5M85 35c5-10 15-12 20-10M85 35c-5 12-12 18-18 20"/><path d="M10 85c15-4 35 2 50-2s25-6 30-2" stroke="#16a34a" stroke-width="3"/></svg>`,
   mountain: `<svg viewBox="0 0 100 100" fill="none" stroke="#475569" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 85l35-50 15 20 15-15 20 45H10z"/><path d="M38 45l7 8 10-5" stroke="#cbd5e1" fill="#f8fafc"/></svg>`,
@@ -54,9 +36,13 @@ const SVG_PICTURES = {
   concert: `<svg viewBox="0 0 100 100" fill="none" stroke="#e11d48" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="25" y="45" width="50" height="40" rx="4"/><path d="M35 45V25l30-8v28M35 35l30-8"/><circle cx="38" cy="72" r="6" fill="#f43f5e"/><circle cx="62" cy="65" r="6" fill="#f43f5e"/></svg>`
 };
 
-function getGrade10Questions() {
+function getGrade10AsasCompleteQuestions() {
   return [
-    // 1. LISTENING PICTURES
+    // =========================================================================
+    // SECTION 1: LISTENING SECTION (QUESTIONS 1 - 10)
+    // =========================================================================
+
+    // Part I: Pictures (1-3) - Taken from ASAS Bank (3 questions)
     {
       id: 1,
       source: "Sumber: Arsip Prestasi Bulutangkis Indonesia — PBSI & Kementerian Pemuda dan Olahraga",
@@ -83,12 +69,12 @@ function getGrade10Questions() {
       prompt: "Which picture corresponds to the magnificent cultural tourism site described in the audio?",
       options: [
         { key: "A", svg: SVG_PICTURES.beach, label: "A tropical sandy beach with coconut palm trees" },
-        { key: "B", svg: SVG_PICTURES.temple, label: "An ancient monumental stone temple with terraces and stupas" },
-        { key: "C", svg: SVG_PICTURES.mountain, label: "A towering volcanic peak covered in alpine snow" },
+        { key: "B", svg: SVG_PICTURES.temple, label: "An ancient tiered stone stupa temple landmark" },
+        { key: "C", svg: SVG_PICTURES.mountain, label: "A rocky volcanic mountain summit" },
         { key: "D", svg: SVG_PICTURES.bridge, label: "A modern suspension bridge across a metropolis bay" }
       ],
       correctAnswer: "B",
-      explanation: "Audio menyebutkan: 'magnificent Indonesian cultural destination features ancient massive stone stupas, detailed relief stone carvings, and tiered terraces'. Ciri-ciri stupa batu bertingkat dan relief relief kuno adalah candi bersejarah (Temple - Gambar B).",
+      explanation: "Audio menyebutkan: 'magnificent Indonesian cultural destination features ancient massive stone stupas, detailed relief stone carvings, and tiered terraces'. Ciri-ciri stupa batu bertingkat dan relief kuno adalah candi bersejarah (Temple - Gambar B).",
       grammarNote: "OSASCOMP Adjective Order: 'ancient massive stone stupas' (Age: ancient, Size: massive, Material: stone)."
     },
     {
@@ -100,841 +86,761 @@ function getGrade10Questions() {
       prompt: "Which picture depicts the iconic heritage landmark in Kudus mentioned in the recording?",
       options: [
         { key: "A", svg: SVG_PICTURES.puppet, label: "Wayang shadow puppet leather figure" },
-        { key: "B", svg: SVG_PICTURES.batik, label: "Traditional geometric batik textile pattern" },
-        { key: "C", svg: SVG_PICTURES.minaret, label: "Historic red-brick heritage tower minaret of Kudus" },
+        { key: "B", svg: SVG_PICTURES.batik, label: "Traditional Javanese batik textile pattern" },
+        { key: "C", svg: SVG_PICTURES.minaret, label: "Historic red-brick Menara Kudus monument" },
         { key: "D", svg: SVG_PICTURES.concert, label: "Modern musical auditorium stage" }
       ],
       correctAnswer: "C",
-      explanation: "Audio menyebutkan: 'unique architectural landmark in Kudus blends Hindu-Javanese traditional brickwork design with Islamic minaret structure'. Landmark menara bata merah ikonik khas Kudus adalah Menara Kudus (Gambar C).",
+      explanation: "Audio menyebutkan: 'unique architectural landmark in Kudus blends Hindu-Javanese traditional brickwork design with Islamic minaret structure'. Landmark menara bata merah khas Kudus adalah Menara Kudus (Gambar C).",
       grammarNote: "Compound Adjectives & Cultural Heritage Nouns: 'Hindu-Javanese traditional brickwork design', 'historic cultural harmony'."
     },
 
-    // 4-6. LISTENING SHORT DIALOGS
+    // Part II: Short Dialogues (4-6) - Taken from ASAS Bank (3 questions)
     {
       id: 4,
       source: "Sumber: Dialog Otentik Modul Ajar Fase E — Tim Guru MGMP Bahasa Inggris SMA",
       type: "listening_dialog",
       title: "Listening Section: Part II - Short Dialogues",
-      audioText: "Number four. Listen to the conversation. Man: Good morning, Rian. You look so energetic today! What is your secret for staying fit during our exam week? Woman: Well, I always maintain a nutritious diet, drink plenty of fresh water, and jog for twenty minutes every morning before studying. Question: What does the woman do to maintain her physical fitness?",
-      stimulusTitle: "Audio Transcript (Listening)",
-      stimulusBody: "<strong>Man:</strong> Good morning, Rian. You look so energetic today! What is your secret for staying fit during our exam week?<br><strong>Woman:</strong> Well, I always maintain a nutritious diet, drink plenty of fresh water, and jog for twenty minutes every morning before studying.",
-      prompt: "What does the woman do to keep herself fit during examination week?",
+      audioText: "Number four. Listen to the conversation between Siti and Budi. Siti: Budi, have you read the latest interview with Anthony Sinisuka Ginting? Budi: Yes! His daily training routine is intensely demanding. He practices footwork for four hours every morning before starting tactical sparring. Siti: That dedication explains his extraordinary speed and agility on the court. Question: What are the speakers discussing?",
+      prompt: "What is the primary topic of the dialogue between Siti and Budi?",
       options: [
-        { key: "A", text: "She studies until late at night and sleeps in the morning." },
-        { key: "B", text: "She eats nutritious food, hydrates well, and jogs for 20 minutes daily." },
-        { key: "C", text: "She skips breakfast and drinks energy coffee before testing." },
-        { key: "D", text: "She exercises at the professional fitness gym twice a day." }
+        { key: "A", text: "The prize money awarded at the recent Olympic games" },
+        { key: "B", text: "The rigorous training routine and athletic discipline of Anthony Ginting" },
+        { key: "C", text: "How to purchase professional badminton rackets online" },
+        { key: "D", text: "Rules and scoring systems of international badminton matches" }
       ],
       correctAnswer: "B",
-      explanation: "Wanita tersebut secara eksplisit menyatakan: 'I always maintain a nutritious diet, drink plenty of fresh water, and jog for twenty minutes every morning' (makanan bernutrisi, banyak minum air, dan lari pagi 20 menit).",
-      grammarNote: "Simple Present Tense of Habitual Action with Adverbs of Frequency: 'I always maintain...', 'drink', 'jog'."
+      explanation: "Dialog mendiskusikan rutinitas latihan harian Anthony Ginting yang sangat disiplin ('daily training routine is intensely demanding... footwork for four hours') yang membentuk kelincahan dan kecepatannya di lapangan. Pilihan B tepat.",
+      grammarNote: "Subject-Verb Agreement & Habitual Actions: 'He practices footwork...', 'His dedication explains...'."
     },
     {
       id: 5,
       source: "Sumber: Dialog Otentik Modul Ajar Fase E — Tim Guru MGMP Bahasa Inggris SMA",
       type: "listening_dialog",
       title: "Listening Section: Part II - Short Dialogues",
-      audioText: "Number five. Listen to the dialogue. Boy: Sinta, do you have any specific plans for the upcoming school mid-semester holiday? Girl: Yes, my family and I intend to visit the mangrove conservation park in Jepara. We want to plant ten mangrove seedlings to prevent coastal erosion. Boy: That sounds like a truly worthwhile environmental project! Question: What is the girl's intention for the upcoming holiday?",
-      stimulusTitle: "Audio Transcript (Listening)",
-      stimulusBody: "<strong>Boy:</strong> Sinta, do you have any specific plans for the upcoming school mid-semester holiday?<br><strong>Girl:</strong> Yes, my family and I intend to visit the mangrove conservation park in Jepara. We want to plant ten mangrove seedlings to prevent coastal erosion.<br><strong>Boy:</strong> That sounds like a truly worthwhile environmental project!",
-      prompt: "What is the girl intending to do during the mid-semester break?",
+      audioText: "Number five. Listen to the conversation between a travel agent and a tourist. Tourist: Excuse me, I want to explore Karimunjawa National Park next weekend. What marine activities do you highly recommend? Agent: You definitely should go snorkeling at Menjangan Kecil island. The water visibility is crystalline, and you can swim alongside wild sea turtles among vibrant coral reefs. Question: What activity does the travel agent recommend to the tourist?",
+      prompt: "Which activity does the travel agent strongly recommend in Karimunjawa?",
       options: [
-        { key: "A", text: "She plans to plant mangrove seedlings in a coastal conservation park." },
-        { key: "B", text: "She intends to stay home and prepare for the national science olympiad." },
-        { key: "C", text: "She wants to buy ornamental trees for her school garden." },
-        { key: "D", text: "She is going to build a wooden cottage near the seashore." }
+        { key: "A", text: "Hiking through dense upland pine forests" },
+        { key: "B", text: "Snorkeling among vibrant coral reefs and swimming near sea turtles" },
+        { key: "C", text: "Renting a jet ski to race in the deep ocean" },
+        { key: "D", text: "Visiting commercial shopping malls in downtown Jepara" }
       ],
-      correctAnswer: "A",
-      explanation: "Gadis tersebut menyatakan niatnya: 'my family and I intend to visit the mangrove conservation park... We want to plant ten mangrove seedlings'. Jawaban yang tepat adalah A.",
-      grammarNote: "Expressing Intentions & Plans: 'intend to visit...', 'want to plant...'. Vocabulary: conservation, seedlings, erosion."
+      correctAnswer: "B",
+      explanation: "Petugas agen perjalanan menyarankan: 'You definitely should go snorkeling at Menjangan Kecil island... swim alongside wild sea turtles among vibrant coral reefs'. Pilihan B benar.",
+      grammarNote: "Modal Auxiliary for Recommendation: 'should go snorkeling', 'can swim alongside wild sea turtles'."
     },
     {
       id: 6,
-      source: "Sumber: Dialog Otentik Modul Ajar Fase E — Tim Guru MGMP Bahasa Inggris SMA",
+      source: "Sumber: Wawancara Edukasi Sains Populer — Balai Konservasi Sumber Daya Alam (BKSDA)",
       type: "listening_dialog",
       title: "Listening Section: Part II - Short Dialogues",
-      audioText: "Number six. Listen to the conversation. Teacher: Adi, your descriptive brochure about Mount Muria is very very attractive and interesting, but the fonts are slightly difficult to read against the dark background. Student: Thank you for your feedback, Ma'am. I will modify the font colors to high-contrast white and resize the heading immediately. Question: What will the student most likely do next?",
-      stimulusTitle: "Audio Transcript (Listening)",
-      stimulusBody: "<strong>Teacher:</strong> Adi, your descriptive brochure about Mount Muria is very very attractive and interesting, but the fonts are slightly difficult to read against the dark background.<br><strong>Student:</strong> Thank you for your feedback, Ma'am. I will modify the font colors to high-contrast white and resize the heading immediately.",
-      prompt: "What action will the student most likely take next?",
+      audioText: "Number six. Listen to the dialogue between a biology teacher and a student. Student: Ma'am, why are orangutans called the gardeners of the forest? Teacher: Because wild orangutans consume hundreds of fruit species and travel across vast canopy territories. When they drop seeds across the jungle floor, they naturally regenerate the rainforest ecosystem. Question: Why do orangutans earn the nickname 'gardeners of the forest'?",
+      prompt: "Why are orangutans regarded as the 'gardeners of the forest' according to the teacher?",
       options: [
-        { key: "A", text: "Delete the entire brochure and choose a new topic." },
-        { key: "B", text: "Revise the typography by changing the font color to white and adjusting heading sizes." },
-        { key: "C", text: "Submit the dark brochure directly to the school principal." },
-        { key: "D", text: "Complain to his classmates about the teacher's grading system." }
+        { key: "A", text: "They actively plant fruit trees using agricultural tools" },
+        { key: "B", text: "They eat diverse fruits and disperse seeds across the rainforest floor" },
+        { key: "C", text: "They protect small forest animals from predatory leopards" },
+        { key: "D", text: "They build wooden fences around their nesting territories" }
       ],
       correctAnswer: "B",
-      explanation: "Siswa menjawab saran gurunya dengan: 'I will modify the font colors to high-contrast white and resize the heading immediately'. Jawaban B mendeskripsikan tindakan perbaikan tipografi tersebut.",
-      grammarNote: "Simple Future with 'will' for Immediate Decisions: 'I will modify...', 'resize'."
+      explanation: "Guru menjelaskan bahwa orangutan memakan ratusan jenis buah dan menyebarkan biji-bijian di lantai hutan saat menjelajah ('drop seeds across the jungle floor, they naturally regenerate the rainforest'). Pilihan B tepat.",
+      grammarNote: "Cause and Effect / Present Simple: 'Because wild orangutans consume... when they drop seeds, they naturally regenerate...'."
     },
 
-    // 7-10. LISTENING SHORT TALKS
+    // Part III: Short Talks / Monologues (7-10) - 3 from ASAS + 1 complementary (4 questions)
     {
       id: 7,
-      source: "Sumber: Brosur Wisata Sejarah Menara Kudus — Dinas Kebudayaan dan Pariwisata Kudus",
+      source: "Sumber: WWF Indonesia & Balai Taman Nasional Tanjung Puting — Seri Konservasi Satwa Tropis",
       type: "listening_talk",
       title: "Listening Section: Part III - Short Talks (Questions 7 & 8)",
-      audioText: "Questions seven and eight refer to the following short monologue. Hello students! Today I want to introduce you to Anthony Sinisuka Ginting, one of Indonesia's foremost badminton singles stars. Born in Cimahi, West Java, Ginting is widely renowned for his lightning-fast footwork, deceptive wrist drop-shots, and determined and strong fighting spirit on court. He secured a historic bronze medal at the Tokyo 2020 Olympics and spearheaded Indonesia to hoist the prestigious Thomas Cup trophy. Off court, he is humble, disciplined, and dedicated to mentoring younger shuttlecock players.",
-      stimulusTitle: "Monologue Audio Transcript (Listening)",
-      stimulusBody: "<em>Hello students! Today I want to introduce you to Anthony Sinisuka Ginting, one of Indonesia's foremost badminton singles stars. Born in Cimahi, West Java, Ginting is widely renowned for his lightning-fast footwork, deceptive wrist drop-shots, and determined and strong fighting spirit on court. He secured a historic bronze medal at the Tokyo 2020 Olympics and spearheaded Indonesia to hoist the prestigious Thomas Cup trophy. Off court, he is humble, disciplined, and dedicated to mentoring younger shuttlecock players.</em>",
-      prompt: "What is Anthony Sinisuka Ginting primarily celebrated for on the badminton court?",
+      audioText: "Questions seven and eight are based on the following short talk about fauna conservation. Good morning, visitors of the Tanjung Puting National Park conservation center. Today, we observe the Bornean orangutan, one of our planet's largest arboreal mammals. Adult female orangutans exhibit remarkable maternal care, nurturing their single infant for over seven years. During this period, the mother teaches her offspring how to identify edible forest fruits, avoid toxic vines, and weave sturdy sleeping nests from leafy tree branches high up in the canopy every single evening. Now answer question number seven: What is the main focus of the speaker's presentation?",
+      prompt: "What is the main topic of the presentation about orangutans?",
       options: [
-        { key: "A", text: "His defensive passive style and slow baseline returns." },
-        { key: "B", text: "His lightning-fast footwork, deceptive wrist shots, and determined and strong fighting spirit." },
-        { key: "C", text: "His career as a professional marathon and triathlon coach." },
-        { key: "D", text: "His height and heavy overhead weightlifting techniques." }
+        { key: "A", text: "The construction of steel cages in urban zoos" },
+        { key: "B", text: "The devoted maternal care and vital survival skills taught by mother orangutans" },
+        { key: "C", text: "The commercial export of tropical fruits to foreign countries" },
+        { key: "D", text: "Hunting techniques of carnivorous predators in Borneo" }
       ],
       correctAnswer: "B",
-      explanation: "Monolog menyatakan: 'renowned for his lightning-fast footwork, deceptive wrist drop-shots, and determined and strong fighting spirit on court'. Jawaban B adalah kutipan akurat.",
-      grammarNote: "Descriptive Adjectives & Compound Adjectives: 'lightning-fast', 'deceptive', 'determined and strong', 'prestigious'."
+      explanation: "Monolog berfokus pada pengasuhan induk orangutan yang luar biasa: 'Adult female orangutans exhibit remarkable maternal care, nurturing their single infant for over seven years... teaches her offspring how to identify edible forest fruits... and weave sturdy sleeping nests'. Pilihan B tepat.",
+      grammarNote: "Gerunds as Objects & Adverb of Frequency: 'weaving sturdy sleeping nests... every single evening'."
     },
     {
       id: 8,
-      source: "Sumber: Brosur Wisata Sejarah Menara Kudus — Dinas Kebudayaan dan Pariwisata Kudus",
+      source: "Sumber: WWF Indonesia & Balai Taman Nasional Tanjung Puting — Seri Konservasi Satwa Tropis",
       type: "listening_talk",
       title: "Listening Section: Part III - Short Talks",
-      audioText: "Question eight is based on the previous monologue about Anthony Ginting. Question: What personality traits does Anthony Ginting exhibit outside his sports matches?",
-      prompt: "According to the speaker, what are Ginting's character traits outside the badminton court?",
+      audioText: "Now answer question number eight based on the same talk: What architectural skill does a young orangutan learn to build high in the canopy every evening?",
+      prompt: "What survival skill does an orangutan learn to construct every single night?",
       options: [
-        { key: "A", text: "Arrogant, distant, and reluctant to communicate with fans." },
-        { key: "B", text: "Humble, disciplined, and dedicated to guiding younger athletes." },
-        { key: "C", text: "Impatient, unpredictable, and strict towards school teachers." },
-        { key: "D", text: "Reserved and uninterested in national sports development." }
+        { key: "A", text: "Digging underground burrows near riverbanks" },
+        { key: "B", text: "Weaving sturdy, comfortable sleeping nests from leafy branches high in trees" },
+        { key: "C", text: "Carving hollow tree trunks to store collected rainwater" },
+        { key: "D", text: "Assembling stone shelters to avoid strong monsoon winds" }
       ],
       correctAnswer: "B",
-      explanation: "Pada bagian akhir monolog disebutkan: 'Off court, he is humble, disciplined, and dedicated to mentoring younger shuttlecock players'. Jawaban B tepat.",
-      grammarNote: "Predicate Adjectives describing Personality: 'humble', 'disciplined', 'dedicated'."
+      explanation: "Audio menyebutkan: 'weave sturdy sleeping nests from leafy tree branches high up in the canopy every single evening' (merajut sarang tidur yang kokoh dari dahan berdaun di kanopi pohon).",
+      grammarNote: "Infinitive Construction: 'teaches her offspring how to identify... and weave sturdy sleeping nests'."
     },
     {
       id: 9,
-      source: "Sumber: Pengumuman Resmi Tim Adiwiyata & OSIS SMA Negeri 1 Bae Kudus",
+      source: "Sumber: Pengumuman Edukasi Sains & Energi Bersih — PT Geo Dipa Energi Dieng & Dinas ESDM Jateng",
       type: "listening_talk",
       title: "Listening Section: Part III - Short Talks (Questions 9 & 10)",
-      audioText: "Questions nine and ten are based on the following official school announcement. Attention, all tenth-grade students of SMA Negeri 1 Bae Kudus! In accordance with our green school program, the student council will organize a Campus Eco-Clean and Flora Cataloging Campaign this coming Friday at seven o'clock in the morning. Each class is requested to bring reusable garden gloves, plant five native medicinal herbs in the school sanctuary, and classify the plant species into botanical report cards. Let us uphold our shared commitment towards a zero-waste and clean and green learning environment. Thank you.",
-      stimulusTitle: "School Announcement Audio Transcript",
-      source: "Sumber Otentik: Pengumuman Resmi OSIS & Tim Sekolah Adiwiyata — SMA Negeri 1 Bae Kudus",
-      stimulusBody: "<em>Attention, all tenth-grade students of SMA Negeri 1 Bae Kudus! In accordance with our green school program, the student council will organize a Campus Eco-Clean and Flora Cataloging Campaign this coming Friday at seven o'clock in the morning. Each class is requested to bring reusable garden gloves, plant five native medicinal herbs in the school sanctuary, and classify the plant species into botanical report cards. Let us uphold our shared commitment towards a zero-waste and clean and green learning environment. Thank you.</em>",
-      prompt: "What is the primary purpose of the official school announcement?",
+      audioText: "Questions nine and ten are based on the following educational briefing. Welcome to the Dieng Geothermal Information Center in Banjarnegara and Wonosobo, Central Java. Geothermal energy harnesses the natural heat stored beneath the Earth's crust. Deep production wells tap high-pressure underground steam reservoirs to spin electrical turbine generators. Unlike coal-fired power plants, geothermal systems emit negligible greenhouse gases and provide steady, uninterrupted electricity twenty-four hours a day, regardless of weather conditions or seasonal rain. Now answer question number nine: Where is this geothermal power plant facility located?",
+      prompt: "According to the briefing, where is this Indonesian geothermal energy facility situated?",
       options: [
-        { key: "A", text: "To invite 10th graders to participate in an eco-clean and flora cataloging campaign on Friday." },
-        { key: "B", text: "To announce the winners of the national English debating championship." },
-        { key: "C", text: "To cancel all classes on Friday due to heavy monsoon rain." },
-        { key: "D", text: "To inform teachers about an emergency staff meeting in the auditorium." }
+        { key: "A", text: "On the slopes of Mount Muria in northern Kudus" },
+        { key: "B", text: "In the Dieng Plateau across Banjarnegara and Wonosobo, Central Java" },
+        { key: "C", text: "Along the coastal fishing beaches of Jepara" },
+        { key: "D", text: "In the urban industrial center of Semarang" }
       ],
-      correctAnswer: "A",
-      explanation: "Pengumuman mengundang siswa kelas X untuk mengikuti 'Campus Eco-Clean and Flora Cataloging Campaign this coming Friday at seven o'clock in the morning'.",
-      grammarNote: "Announcement Functional Text Conventions: 'Attention, all...', 'is requested to bring...', 'Let us uphold...'."
+      correctAnswer: "B",
+      explanation: "Audio menegaskan lokasi fasilitas: 'Welcome to the Dieng Geothermal Information Center in Banjarnegara and Wonosobo, Central Java'. Pilihan B akurat.",
+      grammarNote: "Geographical Prepositional Phrases: 'in Banjarnegara and Wonosobo, Central Java'."
     },
     {
       id: 10,
-      source: "Sumber: Pengumuman Resmi Tim Adiwiyata & OSIS SMA Negeri 1 Bae Kudus",
+      source: "Sumber: Pengumuman Edukasi Sains & Energi Bersih — PT Geo Dipa Energi Dieng & Dinas ESDM Jateng",
       type: "listening_talk",
       title: "Listening Section: Part III - Short Talks",
-      audioText: "Question ten is based on the school announcement. Question: What specific assignment must each class accomplish in the school botanical sanctuary?",
-      prompt: "What specific task must each class perform during the school campaign?",
+      audioText: "Now answer question number ten based on the same briefing: What key operational advantage does geothermal energy offer compared to conventional fossil fuels?",
+      prompt: "What is a major environmental and operational advantage of Dieng geothermal energy mentioned in the talk?",
       options: [
-        { key: "A", text: "Paint the school fence with green and yellow colors." },
-        { key: "B", text: "Plant five native medicinal herbs and classify them on botanical report cards." },
-        { key: "C", text: "Collect single-use plastic bottles from the local market." },
-        { key: "D", text: "Build a glass greenhouse near the principal's office." }
+        { key: "A", text: "It consumes millions of barrels of imported petroleum" },
+        { key: "B", text: "It releases zero carbon smoke and generates steady electricity 24 hours a day" },
+        { key: "C", text: "It only operates when bright sunny weather occurs" },
+        { key: "D", text: "It requires cutting down entire highland conservation forests" }
       ],
       correctAnswer: "B",
-      explanation: "Pengumuman menyebutkan instruksi: 'plant five native medicinal herbs in the school sanctuary, and classify the plant species into botanical report cards'.",
-      grammarNote: "Imperative Infinitive Clauses: 'plant native medicinal herbs', 'classify the plant species'."
+      explanation: "Audio menyatakan: 'Unlike coal-fired power plants, geothermal systems emit negligible greenhouse gases and provide steady, uninterrupted electricity twenty-four hours a day'. Pilihan B tepat.",
+      grammarNote: "Contrastive Prepositional Phrase: 'Unlike coal-fired power plants, geothermal systems emit negligible greenhouse gases...'."
     },
 
-    // 11-15. READING COMPREHENSION (Descriptive Text - Tourism / Local Heritage)
+    // =========================================================================
+    // SECTION 2: READING GENRE 1 - DESCRIPTIVE TEXT (QUESTIONS 11 - 20)
+    // =========================================================================
+
+    // Text 1: Karimunjawa (Questions 11 - 15) - Taken from ASAS Bank (5 questions)
     {
       id: 11,
-      source: "Sumber: Buku Panduan Wisata Bahari — Balai Taman Nasional Karimunjawa, KLHK RI",
+      source: "Sumber: Balai Taman Nasional Karimunjawa & Dinas Kepemudaan, Olahraga dan Pariwisata Jawa Tengah",
       type: "single_choice",
       title: "Reading Comprehension: Descriptive Text",
       stimulusTitle: "Text 1: The Splendor of Karimunjawa Archipelago",
       stimulusBody: `Karimunjawa is a pristine tropical archipelago situated in the Java Sea, approximately eighty kilometers northwest of Jepara, Central Java. Designated as a National Marine Park in 2001, the cluster comprises twenty-seven paradise islands, of which only five are inhabited.<br><br>The underwater realm of Karimunjawa is extraordinarily breathtaking. Vast expanses of thriving coral reefs, characterized by magnificent branching acropora and vibrant brain corals, shelter hundreds of pelagic fish species, including clownfish, blue damselfish, and gentle hawksbill sea turtles. The water visibility frequently exceeds twenty meters, allowing snorkelers and divers to gaze upon the aquatic kaleidoscope with crystalline clarity.<br><br>On land, Karimunjawa boasts expansive coastal stretches lined with powdery white sands and whispering casuarina trees. In the interior of the main island, dense mangrove forests and lush hilltops provide sanctuary for endemic fruit bats and the white-bellied sea eagle. Local inhabitants, who predominantly earn their living as traditional artisanal fishermen and eco-tourism guides, preserve a harmonious lifestyle deeply rooted in maritime conservation.`,
-      prompt: "What is the main topic discussed in the second paragraph of the text?",
+      prompt: "What is the primary topic of the descriptive text above?",
       options: [
-        { key: "A", text: "The historical administrative status of Karimunjawa as a regency." },
-        { key: "B", text: "The magnificent biodiversity and remarkable visibility of Karimunjawa's marine underwater ecosystem." },
-        { key: "C", text: "The agricultural techniques employed by the islanders to grow fruit trees." },
-        { key: "D", text: "The commercial fishing methods used by deep-sea industrial trawlers." }
+        { key: "A", text: "The industrial fishing factory developments in northern Central Java" },
+        { key: "B", text: "The natural splendor, marine biodiversity, and eco-tourism of Karimunjawa Archipelago" },
+        { key: "C", text: "The history of ancient stone temple constructions in Java" },
+        { key: "D", text: "A technical report on ship manufacturing in Jepara harbor" }
       ],
       correctAnswer: "B",
-      explanation: "Paragraf kedua berfokus penuh pada dunia bawah air: terumbu karang, ikan pelagis, penyu sisik, dan jarak pandang air yang jernih (underwater marine ecosystem).",
-      grammarNote: "Paragraph Topic Identification & Lexical Density: 'underwater realm', 'coral reefs', 'water visibility'."
+      explanation: "Teks mendeskripsikan keindahan alam tropis, keanekaragaman hayati bawah laut, serta kehidupan ramah lingkungan di Kepulauan Karimunjawa secara komprehensif. Pilihan B paling tepat.",
+      grammarNote: "Main Idea of Descriptive Text: Identification and physical/environmental descriptions of a specific tourist destination."
     },
     {
       id: 12,
-      source: "Sumber: Buku Panduan Wisata Bahari — Balai Taman Nasional Karimunjawa, KLHK RI",
+      source: "Sumber: Balai Taman Nasional Karimunjawa & Dinas Kepemudaan, Olahraga dan Pariwisata Jawa Tengah",
       type: "single_choice",
       title: "Reading Comprehension: Vocabulary & Inference",
       stimulusTitle: "Text 1: The Splendor of Karimunjawa Archipelago",
-      stimulusBody: "<em>Refer to the second paragraph: 'The underwater realm of Karimunjawa is extraordinarily breathtaking... snorkelers and divers gaze upon the aquatic kaleidoscope with <u>crystalline</u> clarity.'</em>",
-      prompt: "The underlined word 'crystalline' in the passage is closest in meaning to...",
+      stimulusBody: `(Silakan merujuk pada teks 'The Splendor of Karimunjawa Archipelago' di atas)`,
+      prompt: "The word 'pristine' in paragraph 1 is closest in meaning to...",
       options: [
-        { key: "A", text: "Turbid and dark" },
-        { key: "B", text: "Transparent and sparklingly clear" },
-        { key: "C", text: "Artificial and synthesized" },
-        { key: "D", text: "Dangerous and toxic" }
+        { key: "A", text: "heavily polluted and crowded" },
+        { key: "B", text: "pure, untouched, and unspoiled" },
+        { key: "C", text: "dry, barren, and rocky" },
+        { key: "D", text: "recently abandoned by people" }
       ],
       correctAnswer: "B",
-      explanation: "Kata 'crystalline' (berakar dari crystal) berarti sangat bening, jernih berkilau seperti kristal (transparent and sparklingly clear). Lawan katanya adalah turbid (keruh).",
-      grammarNote: "Oxford 3000 Level B1/B2 Adjectives of Clarity: crystalline, transparent, vivid, immaculate."
+      explanation: "Kata 'pristine' bermakna murni, alami, belum terjamah polusi/kerusakan (pure, untouched, and unspoiled).",
+      grammarNote: "Descriptive Adjectives: pristine = unspoiled, immaculate, unpolluted."
     },
     {
       id: 13,
-      source: "Sumber: Buku Panduan Wisata Bahari — Balai Taman Nasional Karimunjawa, KLHK RI",
+      source: "Sumber: Balai Taman Nasional Karimunjawa & Dinas Kepemudaan, Olahraga dan Pariwisata Jawa Tengah",
       type: "single_choice",
       title: "Reading Comprehension: Detail Information",
       stimulusTitle: "Text 1: The Splendor of Karimunjawa Archipelago",
-      stimulusBody: "<em>Refer to Text 1 above.</em>",
-      prompt: "According to the third paragraph, what terrestrial flora and fauna inhabit the interior of the island?",
+      stimulusBody: `(Silakan merujuk pada teks 'The Splendor of Karimunjawa Archipelago' di atas)`,
+      prompt: "According to paragraph 2, what factors allow divers to experience the underwater world with exceptional clarity?",
       options: [
-        { key: "A", text: "Extensive cactus shrubs, desert camels, and rattlesnakes." },
-        { key: "B", text: "Dense mangrove forests sheltering endemic fruit bats and white-bellied sea eagles." },
-        { key: "C", text: "Pine plantations occupied by Siberian tigers and grizzly bears." },
-        { key: "D", text: "Industrial oil palm plantations with imported macaque monkeys." }
+        { key: "A", text: "The use of artificial ultraviolet floodlights" },
+        { key: "B", text: "Water visibility that frequently exceeds twenty meters" },
+        { key: "C", text: "Submarine glass viewing tunnels installed on the ocean floor" },
+        { key: "D", text: "The shallow depth of the entire Java Sea basin" }
       ],
       correctAnswer: "B",
-      explanation: "Paragraf ketiga baris 3-4 menyatakan: 'dense mangrove forests and lush hilltops provide sanctuary for endemic fruit bats and the white-bellied sea eagle'.",
-      grammarNote: "Scanning Specific Details: 'dense mangrove forests', 'fruit bats', 'white-bellied sea eagle'."
+      explanation: "Paragraf 2 menyatakan: 'The water visibility frequently exceeds twenty meters, allowing snorkelers and divers to gaze upon the aquatic kaleidoscope with crystalline clarity'. Pilihan B tepat.",
+      grammarNote: "Participial Phrase of Result: 'frequently exceeds twenty meters, allowing snorkelers and divers to gaze...'."
     },
     {
       id: 14,
-      source: "Sumber: Buku Panduan Wisata Bahari — Balai Taman Nasional Karimunjawa, KLHK RI",
+      source: "Sumber: Balai Taman Nasional Karimunjawa & Dinas Kepemudaan, Olahraga dan Pariwisata Jawa Tengah",
       type: "single_choice",
       title: "Reading Comprehension: Social Function",
       stimulusTitle: "Text 1: The Splendor of Karimunjawa Archipelago",
-      stimulusBody: "<em>Refer to Text 1 above.</em>",
-      prompt: "What is the primary communicative purpose of the writer in publishing this text?",
+      stimulusBody: `(Silakan merujuk pada teks 'The Splendor of Karimunjawa Archipelago' di atas)`,
+      prompt: "What is the primary communicative purpose of the text?",
       options: [
-        { key: "A", text: "To describe the unique natural wonders and ecological beauty of Karimunjawa to inform and attract visitors." },
-        { key: "B", text: "To argue that tourism should be permanently forbidden in Central Java." },
-        { key: "C", text: "To explain the step-by-step procedure of diving with scuba gear." },
-        { key: "D", text: "To narrate a mythical folktale about ancient sea monsters in Java Sea." }
+        { key: "A", text: "To persuade readers to boycott maritime tourism destinations" },
+        { key: "B", text: "To describe the unique features, natural charm, and wildlife of Karimunjawa" },
+        { key: "C", text: "To explain the meteorological process of tropical monsoon rains" },
+        { key: "D", text: "To narrate a fictional myth about ocean mermaids" }
       ],
-      correctAnswer: "A",
-      explanation: "Teks ini adalah Descriptive Text dengan struktur Identification (Paragraf 1) dan Description (Paragraf 2 & 3). Tujuannya adalah mendeskripsikan keindahan alam dan ekologi Karimunjawa untuk menginformasikan pembaca.",
-      grammarNote: "Social Function of Descriptive Genre: 'To describe a particular person, place, or thing in detail'."
+      correctAnswer: "B",
+      explanation: "Tujuan komunikatif teks deskriptif adalah mendeskripsikan ciri-ciri khusus, keindahan alam, dan ekosistem suatu objek/tempat wisata tertentu (Karimunjawa). Pilihan B benar.",
+      grammarNote: "Communicative Purpose of Descriptive Text: To describe a particular person, place, or thing."
     },
     {
       id: 15,
-      source: "Sumber: Buku Panduan Wisata Bahari — Balai Taman Nasional Karimunjawa, KLHK RI",
+      source: "Sumber: Balai Taman Nasional Karimunjawa & Dinas Kepemudaan, Olahraga dan Pariwisata Jawa Tengah",
       type: "single_choice",
-      title: "Reading Comprehension: Author's Attitude",
+      title: "Reading Comprehension: Author's Stance",
       stimulusTitle: "Text 1: The Splendor of Karimunjawa Archipelago",
-      stimulusBody: "<em>Refer to Text 1 above.</em>",
-      prompt: "The author's tone throughout the entire text can best be described as...",
+      stimulusBody: `(Silakan merujuk pada teks 'The Splendor of Karimunjawa Archipelago' di atas)`,
+      prompt: "How does the author view the lifestyle of local residents in the concluding sentence?",
       options: [
-        { key: "A", text: "Cynical and detached" },
-        { key: "B", text: "Appreciative, admire-filled, and informative" },
-        { key: "C", text: "Hostile and dissatisfied" },
-        { key: "D", text: "Satirical and mocking" }
+        { key: "A", text: "Neglectful of environmental sustainability rules" },
+        { key: "B", text: "Harmonious and deeply committed to maritime preservation" },
+        { key: "C", text: "Uninterested in welcoming foreign visitors" },
+        { key: "D", text: "Entirely dependent on industrial factory labor" }
       ],
       correctAnswer: "B",
-      explanation: "Penulis menggunakan diksi apresiatif seperti 'pristine', 'extraordinarily breathtaking', 'magnificent', 'crystalline clarity', dan 'harmonious lifestyle'. Hal ini menunjukkan nada yang penuh kekaguman dan informatif (appreciative and informative).",
-      grammarNote: "Author's Tone and Perspective Analysis in TKA: appreciative, objective, subjective, critical."
+      explanation: "Kalimat penutup menyatakan bahwa penduduk setempat menjaga gaya hidup harmonis yang berakar kuat pada pelestarian laut ('preserve a harmonious lifestyle deeply rooted in maritime conservation'). Pilihan B tepat.",
+      grammarNote: "Participial Adjective Phrase: 'deeply rooted in maritime conservation'."
     },
 
-    // 16-20. PILIHAN GANDA KOMPLEKS (Matrix True / False Table - TKA Style)
+    // Text 2: Anthony Sinisuka Ginting (Questions 16 - 20) - Complementary TP 10.1 (5 questions)
     {
       id: 16,
-      source: "Sumber: Laporan Ilmiah Populasi Satwa Dilindungi — Balai Taman Nasional Ujung Kulon & WWF",
-      type: "complex_matrix",
-      title: "Pilihan Ganda Kompleks: Evaluasi Pernyataan Teks",
-      stimulusTitle: "Evaluasi Kritis Teks Deskripsi Karimunjawa",
-      stimulusBody: "Tentukan apakah setiap pernyataan berikut <strong>BENAR (TRUE)</strong> atau <strong>SALAH (FALSE)</strong> berdasarkan informasi faktual pada Teks 1:",
-      prompt: "Berdasarkan Teks 1, tentukan kebenaran dari masing-masing pernyataan berikut:",
-      matrixStatements: [
-        { statement: "Seluruh pulau di gugusan kepulauan Karimunjawa dihuni secara padat oleh penduduk lokal.", isCorrect: false },
-        { statement: "Karimunjawa secara resmi ditetapkan sebagai Taman Nasional Laut sejak tahun 2001.", isCorrect: true },
-        { statement: "Jarak pandang di dalam air Karimunjawa sering kali mencapai lebih dari dua puluh meter.", isCorrect: true },
-        { statement: "Mayoritas mata pencaharian penduduk setempat adalah penambang minyak lepas pantai.", isCorrect: false }
+      source: "Sumber: Profil Biografi Atlet Bulutangkis Nasional — PBSI & Federasi Bulutangkis Dunia (BWF)",
+      type: "single_choice",
+      title: "Reading Comprehension: Descriptive Text (Great Athlete)",
+      stimulusTitle: "Text 2: Anthony Sinisuka Ginting: Speed, Agility, and Tenacity",
+      stimulusBody: `Anthony Sinisuka Ginting is one of Indonesia's most celebrated badminton singles champions, renowned internationally for his electric footwork, tactical intellect, and fierce determination. Born in Cimahi, West Java, Ginting developed his passion for badminton at an early age, displaying an innate talent for rapid court coverage and deception at the net.<br><br>Physically, Ginting possesses a lean, compact athletic build standing at approximately 171 centimeters. While he is not the tallest shuttler on the international tour, he compensates with blistering acceleration, dynamic leaping ability, and razor-sharp reflexes. His signature weapon is a lightning-fast wrist snap that can abruptly disguise a delicate net drop-shot into a lethal cross-court smash, leaving opponents completely flat-footed.<br><br>Beyond his technical mastery, Ginting's psychological resilience distinguishes him on the world stage. Even when trailing by several points against top-ranked global competitors, he remains composed and tenacious, persistently chasing every shuttlecock until the final whistle. Off the court, he is known for his humility, warm demeanor, and quiet sportsmanship, serving as an outstanding role model for aspiring young Indonesian athletes.`,
+      prompt: "What is the primary focus of the descriptive passage about Anthony Sinisuka Ginting?",
+      options: [
+        { key: "A", text: "The historical evolution of badminton racket string manufacturing" },
+        { key: "B", text: "The physical attributes, athletic strengths, and inspiring character of Anthony Ginting" },
+        { key: "C", text: "A detailed comparison of ticket prices at badminton arenas" },
+        { key: "D", text: "The official referee scoring rules of international tournaments" }
       ],
-      explanation: "Pernyataan 1 SALAH (hanya 5 dari 27 pulau yang berpenghuni). Pernyataan 2 BENAR (diresmikan tahun 2001). Pernyataan 3 BENAR (visibility exceeds 20 meters). Pernyataan 4 SALAH (penduduk bekerja sebagai nelayan tradisional dan pemandu wisata ramah lingkungan).",
-      grammarNote: "Factual Verification & Text Analysis in High-Order Thinking Skills (HOTS)."
+      correctAnswer: "B",
+      explanation: "Teks ini mendeskripsikan profil atlet bulutangkis kebanggaan Indonesia, Anthony Sinisuka Ginting: ciri fisik, kelincahan teknik, pukulan khas, serta ketangguhan mental dan kerendahan hatinya. Pilihan B paling tepat.",
+      grammarNote: "Generic Structure of Descriptive Text (Person): Identification (P1) followed by Description of physical features, skills, and personality (P2 & P3)."
     },
     {
       id: 17,
-      source: "Sumber: Laporan Ilmiah Populasi Satwa Dilindungi — Balai Taman Nasional Ujung Kulon & WWF",
-      type: "complex_matrix",
-      title: "Pilihan Ganda Kompleks: Fitur Bahasa Simple Present & Passive",
-      stimulusTitle: "Analisis Tata Bahasa Kalimat Faktual",
-      stimulusBody: "Tentukan apakah analisis gramatikal pada kalimat-kalimat berikut <strong>BENAR (TRUE)</strong> atau <strong>SALAH (FALSE)</strong>:",
-      prompt: "Analisis kebenaran kaidah tata bahasa pada butir-butir pernyataan berikut:",
-      matrixStatements: [
-        { statement: "Kalimat 'Karimunjawa comprises twenty-seven islands' menggunakan Simple Present Tense untuk menyatakan fakta geografis tetap.", isCorrect: true },
-        { statement: "Bentuk pasif dari 'Snorkelers observe the coral reefs' adalah 'The coral reefs is observed by snorkelers'.", isCorrect: false },
-        { statement: "Frasa 'Vast expanses of thriving coral reefs shelter hundreds of fish' memiliki subjek jamak sehingga kata kerjanya adalah 'shelter' (tanpa akhiran -s).", isCorrect: true },
-        { statement: "Kata 'extraordinarily' dalam teks berfungsi sebagai kata sifat (adjective) yang menerangkan kata benda.", isCorrect: false }
+      source: "Sumber: Profil Biografi Atlet Bulutangkis Nasional — PBSI & Federasi Bulutangkis Dunia (BWF)",
+      type: "single_choice",
+      title: "Reading Comprehension: Athletic Attributes",
+      stimulusTitle: "Text 2: Anthony Sinisuka Ginting: Speed, Agility, and Tenacity",
+      stimulusBody: `(Silakan merujuk pada teks 'Anthony Sinisuka Ginting: Speed, Agility, and Tenacity' di atas)`,
+      prompt: "According to paragraph 2, how does Anthony Ginting compensate for not having the tallest height on the tour?",
+      options: [
+        { key: "A", text: "By using an unusually heavy racket" },
+        { key: "B", text: "With blistering acceleration, leaping ability, and razor-sharp reflexes" },
+        { key: "C", text: "By arguing frequently with match umpires" },
+        { key: "D", text: "By delaying tournament games whenever he feels tired" }
       ],
-      explanation: "Pernyataan 1 BENAR (Simple Present untuk fakta umum). Pernyataan 2 SALAH (karena reefs jamak, harusnya 'The coral reefs ARE observed'). Pernyataan 3 BENAR (Subject-Verb Agreement subjek jamak). Pernyataan 4 SALAH ('extraordinarily' berakhiran -ly adalah adverb of degree yang menerangkan adjective 'breathtaking').",
-      grammarNote: "Subject-Verb Agreement, Passive Voice Plural ('are + V3'), and Adverb vs Adjective functions."
+      correctAnswer: "B",
+      explanation: "Paragraf 2 menyatakan secara jelas: 'he compensates with blistering acceleration, dynamic leaping ability, and razor-sharp reflexes'. Pilihan B benar.",
+      grammarNote: "Adjective-Noun Collocations: 'blistering acceleration', 'dynamic leaping ability', 'razor-sharp reflexes'."
     },
     {
       id: 18,
-      source: "Sumber: Laporan Ilmiah Populasi Satwa Dilindungi — Balai Taman Nasional Ujung Kulon & WWF",
-      type: "complex_matrix",
-      title: "Pilihan Ganda Kompleks: Urutan Frasa Kata Sifat (OSASCOMP)",
-      stimulusTitle: "Kaidah Susunan Kata Sifat (Adjective Order Rules)",
-      stimulusBody: "Dalam bahasa Inggris, susunan kata sifat mengikuti aturan OSASCOMP: Opinion -> Size -> Age -> Shape -> Color -> Origin -> Material -> Purpose.",
-      prompt: "Tentukan apakah susunan frasa kata sifat berikut <strong>BENAR (TRUE)</strong> atau <strong>SALAH (FALSE)</strong> menurut kaidah OSASCOMP:",
-      matrixStatements: [
-        { statement: "'A charming small old wooden cottage' (Opinion: charming, Size: small, Age: old, Material: wooden).", isCorrect: true },
-        { statement: "'A stone ancient magnificent statue' (Material ditempatkan sebelum Opinion dan Age).", isCorrect: false },
-        { statement: "'An energetic young Indonesian badminton athlete' (Opinion: energetic, Age: young, Origin: Indonesian, Purpose: badminton).", isCorrect: true },
-        { statement: "'A circular large brown dining table' (Shape ditempatkan mendahului Size).", isCorrect: false }
+      source: "Sumber: Profil Biografi Atlet Bulutangkis Nasional — PBSI & Federasi Bulutangkis Dunia (BWF)",
+      type: "single_choice",
+      title: "Reading Comprehension: Vocabulary in Context",
+      stimulusTitle: "Text 2: Anthony Sinisuka Ginting: Speed, Agility, and Tenacity",
+      stimulusBody: `(Silakan merujuk pada teks 'Anthony Sinisuka Ginting: Speed, Agility, and Tenacity' di atas)`,
+      prompt: "The word 'tenacious' in paragraph 3 ('he remains composed and tenacious...') is closest in meaning to...",
+      options: [
+        { key: "A", text: "hesitant and timid" },
+        { key: "B", text: "persistent, determined, and unyielding" },
+        { key: "C", text: "fragile and easily discouraged" },
+        { key: "D", text: "careless and unfocused" }
       ],
-      explanation: "1) BENAR: Opinion (charming) -> Size (small) -> Age (old) -> Material (wooden). 2) SALAH: Harusnya 'A magnificent ancient stone statue' (Opinion -> Age -> Material). 3) BENAR: Opinion (energetic) -> Age (young) -> Origin (Indonesian) -> Purpose (badminton). 4) SALAH: Size harus mendahului Shape ('A large circular brown dining table').",
-      grammarNote: "Mastery of OSASCOMP: Opinion, Size, Age, Shape, Color, Origin, Material, Purpose."
+      correctAnswer: "B",
+      explanation: "Kata 'tenacious' bermakna ulet, gigih pantang menyerah, dan tekun (persistent, determined, and unyielding).",
+      grammarNote: "Personality Adjective: tenacious = persistent, resolute, steadfast."
     },
     {
       id: 19,
-      source: "Sumber: Laporan Ilmiah Populasi Satwa Dilindungi — Balai Taman Nasional Ujung Kulon & WWF",
-      type: "complex_matrix",
-      title: "Pilihan Ganda Kompleks: Fakta Sains Teks Report (Javan Rhino)",
-      stimulusTitle: "Stimulus Sains: The Endangered Javan Rhinoceros",
-      stimulusBody: `The Javan rhinoceros (<em>Rhinoceros sondaicus</em>) is one of the most critically endangered large mammals on Earth. Currently, fewer than eighty individuals survive, strictly confined to the tropical lowland rainforests of Ujung Kulon National Park at the western tip of Java, Indonesia.<br><br>Unlike their African relatives, Javan rhinos possess only a single horn, which rarely exceeds twenty-five centimeters in length. They are plant-eating animals that live alone and feed on tender shoots, twigs, and fallen fruits. Because rhinos possess poor eyesight, their acute sense of smell and hearing are vital for detecting dangerous predators and humans.`,
-      prompt: "Berdasarkan cuplikan teks Report ilmiah di atas, tentukan nilai kebenaran pernyataan berikut:",
-      matrixStatements: [
-        { statement: "Badak Jawa saat ini hanya dapat ditemukan di alam liar di Taman Nasional Ujung Kulon.", isCorrect: true },
-        { statement: "Badak Jawa jantan dan betina memiliki dua cula besar berukuran lebih dari satu meter.", isCorrect: false },
-        { statement: "Badak Jawa merupakan satwa pemakan daging (karnivora) yang hidup berkelompok dalam kawanan besar.", isCorrect: false },
-        { statement: "Indra penciuman dan pendengaran yang tajam mengimbangi kelemahan indra penglihatan badak Jawa.", isCorrect: true }
+      source: "Sumber: Profil Biografi Atlet Bulutangkis Nasional — PBSI & Federasi Bulutangkis Dunia (BWF)",
+      type: "single_choice",
+      title: "Reading Comprehension: Psychological Character",
+      stimulusTitle: "Text 2: Anthony Sinisuka Ginting: Speed, Agility, and Tenacity",
+      stimulusBody: `(Silakan merujuk pada teks 'Anthony Sinisuka Ginting: Speed, Agility, and Tenacity' di atas)`,
+      prompt: "What can be inferred about Anthony Ginting's attitude when he is trailing behind on points?",
+      options: [
+        { key: "A", text: "He readily gives up and stops running" },
+        { key: "B", text: "He maintains composure and fights relentlessly for every single shuttlecock" },
+        { key: "C", text: "He blames his racket equipment for errors" },
+        { key: "D", text: "He leaves the court before the referee calls time" }
       ],
-      explanation: "1) BENAR (strictly confined to Ujung Kulon). 2) SALAH (hanya memiliki 'single horn' kurang dari 25 cm). 3) SALAH (mereka adalah 'living alone plant-eating animals' / pemakan tumbuhan yang hidup menyendiri). 4) BENAR (acute smell and hearing compensate for poor eyesight).",
-      grammarNote: "Scientific Report Comprehension: General classification, morphological features, habitat."
+      correctAnswer: "B",
+      explanation: "Paragraf 3 menguraikan ketangguhan mentalnya: 'Even when trailing by several points... he remains composed and tenacious, persistently chasing every shuttlecock until the final whistle'. Pilihan B tepat.",
+      grammarNote: "Participial Phrase: 'persistently chasing every shuttlecock until the final whistle'."
     },
     {
       id: 20,
-      source: "Sumber: Laporan Ilmiah Populasi Satwa Dilindungi — Balai Taman Nasional Ujung Kulon & WWF",
-      type: "complex_matrix",
-      title: "Pilihan Ganda Kompleks: Kalimat Pengandaian (Conditionals)",
-      stimulusTitle: "Kaidah Logika Conditional Sentence Type 1 & Type 2",
-      stimulusBody: "Perhatikan kaidah pengandaian: Type 1 (Realistis/Masa Depan: If + Present, Will + V1) dan Type 2 (Hipotetis/Sekarang: If + Past/were, Would + V1).",
-      prompt: "Tentukan apakah formulasi kalimat pengandaian berikut <strong>BENAR (TRUE)</strong> atau <strong>SALAH (FALSE)</strong>:",
-      matrixStatements: [
-        { statement: "If students protect the coral reefs diligently, marine biodiversity will flourish.", isCorrect: true },
-        { statement: "If I was you, I will definitely attend the Kudus cultural heritage workshop tomorrow.", isCorrect: false },
-        { statement: "If the national park rangers had more patrol boats, they would monitor the coast more effectively.", isCorrect: true },
-        { statement: "If the weather is sunny on Friday, we would have visited the botanical sanctuary.", isCorrect: false }
+      source: "Sumber: Profil Biografi Atlet Bulutangkis Nasional — PBSI & Federasi Bulutangkis Dunia (BWF)",
+      type: "single_choice",
+      title: "Reading Comprehension: Communicative Function",
+      stimulusTitle: "Text 2: Anthony Sinisuka Ginting: Speed, Agility, and Tenacity",
+      stimulusBody: `(Silakan merujuk pada teks 'Anthony Sinisuka Ginting: Speed, Agility, and Tenacity' di atas)`,
+      prompt: "Why does the author describe Ginting's off-court demeanor in the concluding paragraph?",
+      options: [
+        { key: "A", text: "To show that a great athlete inspires not only through athletic prowess but also through humility and sportsmanship" },
+        { key: "B", text: "To prove that athletes should avoid participating in public charities" },
+        { key: "C", text: "To demonstrate how expensive badminton equipment has become" },
+        { key: "D", text: "To advise students to quit school and play sports exclusively" }
       ],
-      explanation: "1) BENAR (Type 1: If + protect, will flourish). 2) SALAH (harus subjunctive 'If I WERE you, I WOULD...'). 3) BENAR (Type 2: If + had, would monitor). 4) SALAH (mencampur if present dengan would have V3; harusnya 'If the weather is sunny, we WILL visit').",
-      grammarNote: "Conditional Sentences Type 1 & Type 2 Standard Formulations."
+      correctAnswer: "A",
+      explanation: "Penulis menampilkan sikap Ginting di luar lapangan ('humility, warm demeanor, and quiet sportsmanship') untuk menegaskan bahwa atlet teladan menginspirasi lewat kepribadian luhur dan sportivitas, bukan semata prestasi fisik. Pilihan A tepat.",
+      grammarNote: "Descriptive Synthesis & Value Evaluation: Sportsmanship and humility as role model virtues."
     },
 
-    // 21-25. MCMA (Multiple Choice Multiple Answer - Checkboxes)
+    // =========================================================================
+    // SECTION 3: READING GENRE 2 - SCIENTIFIC REPORT TEXT (QUESTIONS 21 - 30)
+    // =========================================================================
+
+    // Text 3: Orangutans (Questions 21 - 25) - Taken from ASAS Bank (5 questions)
     {
       id: 21,
-      source: "Sumber: Modul Pembelajaran Teks Deskriptif Atlet — BSKAP Kemendikbudristek",
-      type: "mcma",
-      title: "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-      stimulusTitle: "Refleksi Teks Deskriptif Atlet Berprestasi",
-      stimulusBody: "Seorang penulis ingin mendeskripsikan seorang atlet panahan nasional dalam teks deskriptif yang otentik dan inspiratif.",
-      prompt: "Manakah <strong>DUA (2)</strong> kalimat di bawah ini yang menggunakan kata sifat deskriptif (descriptive adjectives) dan Simple Present Tense secara tepat?",
+      source: "Sumber: Dikutip dan diadaptasi dari TP_10.2_Materi_Otentik_Report_Text_Science_and_Fauna.docx — WWF & Yayasan Penyelamatan Orangutan Borneo (BOSF)",
+      type: "single_choice",
+      title: "Reading Comprehension: Scientific Report Text",
+      stimulusTitle: "Text 3: Orangutans: The Gardeners of Asia's Rainforests",
+      stimulusBody: `Orangutans are great apes native to the tropical rainforests of Indonesia and Malaysia, currently surviving only on the islands of Borneo and Sumatra. Classified under the genus Pongo, they represent the only surviving genus of great apes native to Asia.<br><br>Physically, orangutans are uniquely adapted for an arboreal lifestyle, spending over ninety percent of their lives high above the ground in forest canopies. They possess distinct reddish-brown hair, long and powerful arms reaching up to two meters in span, and highly flexible feet with opposable big toes that function like hands. Adult males often develop prominent fibrous cheek pads, known as flanges, and large throat sacs that amplify loud, resonant vocalizations called 'long calls' across several kilometers of dense jungle.<br><br>Orangutans are predominantly frugivorous, consuming over three hundred varieties of wild forest fruits, complemented by young leaves, bark, flowers, and insects. Because they travel across extensive home ranges and defecate seeds intact, orangutans play an indispensable ecological role as primary seed dispersers, earning their well-deserved moniker as the 'gardeners of the forest.' Without their foraging habits, numerous hardwood canopy tree species would fail to disperse and naturally regenerate.`,
+      prompt: "What is the primary topic of the scientific report text above?",
       options: [
-        { key: "A", text: "She consistently demonstrates extraordinary focus and razor-sharp accuracy during international tournaments." },
-        { key: "B", text: "She will bought an expensive carbon arrow tomorrow morning at the supermarket." },
-        { key: "C", text: "Her athletic posture remains remarkably calm under intense competitive pressure." },
-        { key: "D", text: "She was winning the match because the referee has slept during the game." }
+        { key: "A", text: "The commercial farming of tropical fruits in Sumatra" },
+        { key: "B", text: "The biological characteristics, arboreal adaptations, and ecological significance of orangutans" },
+        { key: "C", text: "The migration habits of predatory leopards in Southeast Asia" },
+        { key: "D", text: "The production of synthetic rubber in Malaysian plantations" }
       ],
-      correctAnswer: ["A", "C"],
-      explanation: "Kalimat A dan C menggunakan Simple Present Tense yang benar ('demonstrates', 'remains') dan kata sifat deskriptif bermakna tinggi ('extraordinary focus', 'razor-sharp accuracy', 'athletic posture', 'intense competitive pressure'). Kalimat B gramatikal rusak ('will bought'), dan kalimat D menggunakan past continuous yang tidak koheren.",
-      grammarNote: "Selection of grammatically sound descriptive sentences with Present Tense and Adjectives."
+      correctAnswer: "B",
+      explanation: "Teks laporan ilmiah ini menyajikan klasifikasi umum, adaptasi fisik untuk hidup di kanopi pohon (arboreal), serta peran ekologis penting orangutan sebagai penyebar biji hutan tropis. Pilihan B paling komprehensif.",
+      grammarNote: "Generic Structure of Scientific Report Text: General Classification (P1) followed by Description of physical features and ecological roles (P2 & P3)."
     },
     {
       id: 22,
-      source: "Sumber: Modul Pembelajaran Teks Report Ilmiah — BSKAP Kemendikbudristek",
-      type: "mcma",
-      title: "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-      stimulusTitle: "Fitur Kebahasaan Teks Report Ilmiah",
-      stimulusBody: "Teks Report Ilmiah (Scientific Report) memiliki karakteristik kebahasaan tersendiri yang membedakannya dari teks naratif personal.",
-      prompt: "Manakah <strong>DUA (2)</strong> fitur kebahasaan utama yang menjadi ciri khas teks Report ilmiah?",
+      source: "Sumber: Dikutip dan diadaptasi dari TP_10.2_Materi_Otentik_Report_Text_Science_and_Fauna.docx — WWF & Yayasan Penyelamatan Orangutan Borneo (BOSF)",
+      type: "single_choice",
+      title: "Reading Comprehension: Detail Identification",
+      stimulusTitle: "Text 3: Orangutans: The Gardeners of Asia's Rainforests",
+      stimulusBody: `(Silakan merujuk pada teks 'Orangutans: The Gardeners of Asia's Rainforests' di atas)`,
+      prompt: "According to paragraph 2, what physical adaptation enables male orangutans to project their voices across kilometers of dense forest?",
       options: [
-        { key: "A", text: "Penggunaan istilah teknis ilmiah (technical scientific vocabulary) dan kata benda umum (general nouns)." },
-        { key: "B", text: "Penggunaan sudut pandang orang pertama 'I' dan 'My family' untuk menceritakan emosi pribadi." },
-        { key: "C", text: "Dominasi kalimat pasif (Passive Voice) untuk menonjolkan proses atau objek yang diobservasi." },
-        { key: "D", text: "Penyajian dialog langsung dramatis antara tokoh antagonis dan protagonis dalam dongeng." }
+        { key: "A", text: "Sharp claws on their front limbs" },
+        { key: "B", text: "Large throat sacs that amplify loud resonant vocalizations" },
+        { key: "C", text: "Extraordinarily long tails that rattle against trees" },
+        { key: "D", text: "Specialized ears sensitive to ultrasonic sounds" }
       ],
-      correctAnswer: ["A", "C"],
-      explanation: "Teks Report ilmiah menekankan objektivitas melalui: 1) Istilah teknis ilmiah & general nouns (Opsi A), dan 2) Kalimat pasif untuk memfokuskan proses/fenomena ilmiah tanpa bias personal (Opsi C). Opsi B adalah ciri personal recount, dan Opsi D adalah ciri narrative.",
-      grammarNote: "Generic Language Features of Scientific Report Text."
+      correctAnswer: "B",
+      explanation: "Paragraf 2 menyatakan: 'Adult males often develop prominent fibrous cheek pads... and large throat sacs that amplify loud, resonant vocalizations called 'long calls' across several kilometers of dense jungle'. Pilihan B akurat.",
+      grammarNote: "Defining Relative Clause: 'large throat sacs that amplify loud, resonant vocalizations'."
     },
     {
       id: 23,
-      source: "Sumber: Silabus Kosakata Oxford 3000 Level A2 — Oxford University Press",
-      type: "mcma",
-      title: "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-      stimulusTitle: "Keluarga Kata Kosakata Oxford 3000 (CEFR A2/B1)",
-      stimulusBody: "Perhatikan kata kunci dalam tema lingkungan dan keanekaragaman hayati: <em>'conserve'</em> dan <em>'endanger'</em>.",
-      prompt: "Manakah <strong>DUA (2)</strong> pasangan kata turunan dan arti yang tepat berdasarkan kamus Oxford 3000?",
+      source: "Sumber: Dikutip dan diadaptasi dari TP_10.2_Materi_Otentik_Report_Text_Science_and_Fauna.docx — WWF & Yayasan Penyelamatan Orangutan Borneo (BOSF)",
+      type: "single_choice",
+      title: "Reading Comprehension: Vocabulary in Context",
+      stimulusTitle: "Text 3: Orangutans: The Gardeners of Asia's Rainforests",
+      stimulusBody: `(Silakan merujuk pada teks 'Orangutans: The Gardeners of Asia's Rainforests' di atas)`,
+      prompt: "The word 'indispensable' in paragraph 3 ('play an indispensable ecological role...') is closest in meaning to...",
       options: [
-        { key: "A", text: "'Conservation' (noun) bermakna upaya perlindungan dan pelestarian alam dari kerusakan." },
-        { key: "B", text: "'Endangered' (adjective) bermakna spesies makhluk hidup yang berada dalam bahaya kepunahan." },
-        { key: "C", text: "'Conservatively' (adverb) bermakna secara berbahaya dan merusak ekosistem." },
-        { key: "D", text: "'Dangerously' (noun) bermakna tempat suaka perlindungan satwa liar." }
+        { key: "A", text: "completely unnecessary and optional" },
+        { key: "B", text: "essential, vital, and absolutely necessary" },
+        { key: "C", text: "harmful to the balance of nature" },
+        { key: "D", text: "temporary and easily replaced" }
       ],
-      correctAnswer: ["A", "B"],
-      explanation: "Opsi A benar: 'conservation' adalah nomina pelestarian lingkungan. Opsi B benar: 'endangered' adalah adjektiva terancam punah (e.g. endangered species). Opsi C salah (artinya secara konservatif/hati-hati), Opsi D salah (dangerously adalah adverb).",
-      grammarNote: "Word Formations: Noun, Adjective, Adverb derivation from Oxford 3000 core lexis."
+      correctAnswer: "B",
+      explanation: "Kata 'indispensable' bermakna sangat penting, vital, dan tidak dapat digantikan (essential, vital, and absolutely necessary).",
+      grammarNote: "Academic Evaluative Adjective: indispensable = essential, imperative, vital."
     },
     {
       id: 24,
-      source: "Sumber: Materi Fungsional Stating Intentions — Modul Ajar Fase E Kelas X",
-      type: "mcma",
-      title: "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-      stimulusTitle: "Ungkapan Rencana & Tujuan (Intentions and Plans)",
-      stimulusBody: "Dalam percakapan sehari-hari, siswa sering mengungkapkan rencana dan intensi untuk melakukan sesuatu di masa mendatang.",
-      prompt: "Manakah <strong>DUA (2)</strong> ungkapan yang secara formal dan santun digunakan untuk menyatakan niat atau rencana (intentions/plans)?",
+      source: "Sumber: Dikutip dan diadaptasi dari TP_10.2_Materi_Otentik_Report_Text_Science_and_Fauna.docx — WWF & Yayasan Penyelamatan Orangutan Borneo (BOSF)",
+      type: "single_choice",
+      title: "Reading Comprehension: Reference Word",
+      stimulusTitle: "Text 3: Orangutans: The Gardeners of Asia's Rainforests",
+      stimulusBody: `(Silakan merujuk pada teks 'Orangutans: The Gardeners of Asia's Rainforests' di atas)`,
+      prompt: "In paragraph 3, what does the pronoun 'their' refer to in the phrase 'their well-deserved moniker'?",
       options: [
-        { key: "A", text: "'I am planning to conduct an interview with our local batik artisan this weekend.'" },
-        { key: "B", text: "'I was regretting that you didn't call me yesterday afternoon.'" },
-        { key: "C", text: "'We intend to submit our environmental science project to the national committee.'" },
-        { key: "D", text: "'I have no interest in doing any homework forever.'" }
+        { key: "A", text: "Rainforest trees" },
+        { key: "B", text: "Wild orangutans" },
+        { key: "C", text: "Fruit seeds" },
+        { key: "D", text: "Borneo islands" }
       ],
-      correctAnswer: ["A", "C"],
-      explanation: "Opsi A ('I am planning to...') dan Opsi C ('We intend to...') adalah formula baku untuk menyatakan rencana/intensi (stating intentions). Opsi B menyatakan penyesalan masa lalu, Opsi D menyatakan penolakan ketidakpedulian.",
-      grammarNote: "Functional Expressions: 'planning to + V1', 'intend to + V1', 'would like to + V1'."
+      correctAnswer: "B",
+      explanation: "Frasa 'their well-deserved moniker as the gardeners of the forest' merujuk kepada sebutan bagi orangutan (wild orangutans). Pilihan B benar.",
+      grammarNote: "Pronoun-Antecedent Agreement: Plural antecedent 'orangutans' -> possessive pronoun 'their'."
     },
     {
       id: 25,
-      source: "Sumber: Silabus Kosakata Fungsional Bahasa Inggris — MGMP Bahasa Inggris SMA",
-      type: "mcma",
-      title: "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-      stimulusTitle: "Struktur Kalimat Pasif dalam Deskripsi Proses Ilmiah",
-      stimulusBody: "Kalimat pasif dalam Simple Present Tense dibentuk dengan rumus: Subjek + is/am/are + Verb 3 (Past Participle).",
-      prompt: "Manakah <strong>DUA (2)</strong> kalimat di bawah ini yang merupakan kalimat pasif (Passive Voice) yang gramatikal dan tepat?",
-      options: [
-        { key: "A", text: "Organic wastes are collected by student volunteers every Tuesday morning." },
-        { key: "B", text: "The young athlete is running around the track with his new shoes." },
-        { key: "C", text: "Rare medicinal herbs are carefully preserved in the school botanical sanctuary." },
-        { key: "D", text: "The headmaster will delivers an inspiring speech at the assembly." }
-      ],
-      correctAnswer: ["A", "C"],
-      explanation: "Kalimat A ('wastes are collected') dan Kalimat C ('herbs are carefully preserved') memiliki pola pasif 'are + Verb 3' yang sempurna. Kalimat B adalah Present Continuous aktif ('is running'). Kalimat D memiliki kesalahan gramatikal 'will delivers'.",
-      grammarNote: "Present Simple Passive Voice: S + is/am/are + V3 (+ by Agent)."
-    },
-
-    // 26-30. READING COMPREHENSION (Report Text - Renewable Energy / Geothermal in Central Java)
-    {
-      id: 26,
-      source: "Sumber: Profil Potensi Energi Panas Bumi Jawa Tengah — PT Geo Dipa Energi (Persero) & Kementerian ESDM RI",
+      source: "Sumber: Dikutip dan diadaptasi dari TP_10.2_Materi_Otentik_Report_Text_Science_and_Fauna.docx — WWF & Yayasan Penyelamatan Orangutan Borneo (BOSF)",
       type: "single_choice",
-      title: "Reading Comprehension: Report Text",
-      stimulusTitle: "Text 2: Clean Geothermal Energy in the Dieng Plateau, Central Java",
-      stimulusBody: `Geothermal energy is a clean, renewable energy resource that comes from natural heat stored deep inside the Earth. In Central Java, the volcanic highland of the Dieng Plateau (located across Banjarnegara and Wonosobo regencies) is one of Indonesia's most important locations for geothermal power plants (PLTP Dieng).<br><br>Electricity production from geothermal energy works in a simple, sustainable way. Deep wells are drilled into underground reservoirs of hot water and natural steam. This high-pressure steam rises through strong pipes to turn large turbine generators, which convert the steam's energy into clean electricity. Afterward, the condensed water is cooled and pumped back underground into the reservoir, keeping the system environmentally friendly and producing almost zero smoke or carbon emissions.<br><br>Unlike solar panels and wind turbines that depend on sunny or windy weather, geothermal power plants can generate electricity steadily twenty-four hours a day without stopping. Therefore, developing geothermal clean energy in Central Java is an <u>essential</u> milestone to supply reliable electricity while protecting the natural environment.`,
-      source: "Sumber Otentik: Profil Potensi Energi Panas Bumi Jawa Tengah — PT Geo Dipa Energi (Persero) & Kementerian ESDM Republik Indonesia",
-      prompt: "According to the second paragraph, how is kinetic energy transformed into electricity in a geothermal power plant?",
+      title: "Reading Comprehension: Ecological Consequence",
+      stimulusTitle: "Text 3: Orangutans: The Gardeners of Asia's Rainforests",
+      stimulusBody: `(Silakan merujuk pada teks 'Orangutans: The Gardeners of Asia's Rainforests' di atas)`,
+      prompt: "What ecological catastrophe would occur in the rainforest if orangutans were to become extinct?",
       options: [
-        { key: "A", text: "By burning fossil fuel coals to boil surface river water." },
-        { key: "B", text: "By channeling high-pressure underground steam to drive turbine generators." },
-        { key: "C", text: "By exposing photovoltaic panels directly to midday tropical sunlight." },
-        { key: "D", text: "By splitting radioactive atoms inside a heavy chemical reactor." }
+        { key: "A", text: "Forest fruits would grow twice as fast" },
+        { key: "B", text: "Numerous hardwood canopy tree species would fail to disperse seeds and regenerate naturally" },
+        { key: "C", text: "Rainforest soil would turn into volcanic lava" },
+        { key: "D", text: "All insects and birds would immediately abandon the jungle" }
       ],
       correctAnswer: "B",
-      explanation: "Paragraf kedua menjelaskan: 'This high-pressure thermal steam is channeled upwards through specialized pipeline networks to drive turbine generators, which convert kinetic energy into electrical power'. Jawaban B tepat.",
-      grammarNote: "Cause-Effect & Mechanical Sequence Analysis in Scientific Texts."
+      explanation: "Kalimat terakhir menyatakan: 'Without their foraging habits, numerous hardwood canopy tree species would fail to disperse and naturally regenerate'. Pilihan B tepat.",
+      grammarNote: "Hypothetical Conditional without 'if': 'Without their foraging habits, numerous tree species would fail to disperse...'."
+    },
+
+    // Text 4: Dieng Geothermal (Questions 26 - 30) - Taken from ASAS Bank (5 questions)
+    {
+      id: 26,
+      source: "Sumber: Publikasi Resmi Kementerian Energi dan Sumber Daya Mineral (ESDM) & PT Geo Dipa Energi Dieng",
+      type: "single_choice",
+      title: "Reading Comprehension: Report Text (Renewable Energy)",
+      stimulusTitle: "Text 4: Clean Geothermal Energy in the Dieng Plateau, Central Java",
+      stimulusBody: `Geothermal energy is a clean, renewable energy source derived from the intense natural thermal heat stored deep within the Earth's sub-surface crust. In Central Java, one of the most prominent geothermal exploration sites is located in the Dieng Plateau, spanning the regencies of Banjarnegara and Wonosobo.<br><br>The mechanics of geothermal energy conversion rely on tapping hydrothermal fluid reservoirs located several thousand meters beneath volcanic rock formations. Deep production wells extract superheated water and dry steam under intense geological pressure. Once brought to the surface, the high-pressure steam is directed into powerful turbine generators to produce clean electricity. Crucially, the remaining condensed thermal water is not discharged into local rivers; rather, it is continuously reinjected into the deep underground reservoir through injection wells, sustaining the pressure and preventing surface water contamination.<br><br>Unlike fossil-fueled thermal power plants, the Dieng Geothermal Power Plant generates steady electricity without burning coal or emitting harmful carbon smoke. Furthermore, unlike solar or wind power which fluctuate with weather, geothermal energy provides continuous baseload power twenty-four hours a day, making it an indispensable cornerstone of Indonesia's renewable green energy transition.`,
+      prompt: "What is the primary communicative purpose of the scientific report text on Dieng Geothermal Energy?",
+      options: [
+        { key: "A", text: "To persuade readers to stop using electrical home appliances" },
+        { key: "B", text: "To explain the technical process and environmental benefits of geothermal energy in Dieng Plateau" },
+        { key: "C", text: "To narrate an ancient legend about mountain spirits in Wonosobo" },
+        { key: "D", text: "To advertise holiday resort villas in Banjarnegara" }
+      ],
+      correctAnswer: "B",
+      explanation: "Teks ini menyajikan fakta ilmiah obyektif mengenai definisi, mekanisme kerja konversi uap panas bumi menjadi listrik, serta keunggulan ekologis PLTP Dieng di Jawa Tengah. Pilihan B paling akurat.",
+      grammarNote: "Communicative Purpose of Scientific Report Text: To present information about a technical/natural phenomenon through objective scientific classification and descriptions."
     },
     {
       id: 27,
-      source: "Sumber: Profil Potensi Energi Panas Bumi Jawa Tengah — PT Geo Dipa Energi (Persero) & Kementerian ESDM RI",
+      source: "Sumber: Publikasi Resmi Kementerian Energi dan Sumber Daya Mineral (ESDM) & PT Geo Dipa Energi Dieng",
       type: "single_choice",
       title: "Reading Comprehension: Environmental Advantage",
-      stimulusTitle: "Text 2: Geothermal Energy Exploration in Central Java",
-      stimulusBody: "<em>Refer to Text 2 above.</em>",
-      prompt: "Why is the geothermal electricity generation described as a 'closed-loop system'?",
+      stimulusTitle: "Text 4: Clean Geothermal Energy in the Dieng Plateau, Central Java",
+      stimulusBody: `(Silakan merujuk pada teks 'Clean Geothermal Energy in the Dieng Plateau, Central Java' di atas)`,
+      prompt: "Why is the condensed thermal water reinjected back into deep underground reservoirs?",
       options: [
-        { key: "A", text: "Because the power plant operates exclusively behind locked concrete gates." },
-        { key: "B", text: "Because condensed steam is cooled and pumped back back into the underground reservoir with zero emissions." },
-        { key: "C", text: "Because electricity is only delivered to nearby government factories." },
-        { key: "D", text: "Because the underground wells are permanently abandoned after one month." }
+        { key: "A", text: "To extinguish active volcanic magma chambers permanently" },
+        { key: "B", text: "To sustain reservoir pressure and prevent local surface water contamination" },
+        { key: "C", text: "To freeze subterranean soil rocks into ice" },
+        { key: "D", text: "To wash minerals directly into agricultural rice paddies" }
       ],
       correctAnswer: "B",
-      explanation: "Paragraf kedua kalimat terakhir menyebutkan: 'Subsequently, the condensed water is cooled and pumped back back into the underground reservoir, ensuring a closed-loop system'.",
-      grammarNote: "Technical Term Definition & Closed-Loop Cycle."
+      explanation: "Paragraf 2 menyatakan: 'it is continuously reinjected into the deep underground reservoir through injection wells, sustaining the pressure and preventing surface water contamination'. Pilihan B benar.",
+      grammarNote: "Participle Clauses of Purpose: 'sustaining the pressure and preventing surface water contamination'."
     },
     {
       id: 28,
-      source: "Sumber: Profil Potensi Energi Panas Bumi Jawa Tengah — PT Geo Dipa Energi (Persero) & Kementerian ESDM RI",
+      source: "Sumber: Publikasi Resmi Kementerian Energi dan Sumber Daya Mineral (ESDM) & PT Geo Dipa Energi Dieng",
       type: "single_choice",
       title: "Reading Comprehension: Comparative Logic",
-      stimulusTitle: "Text 2: Geothermal Energy Exploration in Central Java",
-      stimulusBody: "<em>Refer to Text 2, third paragraph.</em>",
-      prompt: "What major advantage does geothermal power have compared to solar and wind energy?",
+      stimulusTitle: "Text 4: Clean Geothermal Energy in the Dieng Plateau, Central Java",
+      stimulusBody: `(Silakan merujuk pada teks 'Clean Geothermal Energy in the Dieng Plateau, Central Java' di atas)`,
+      prompt: "What operational advantage does geothermal energy have over solar and wind power according to paragraph 3?",
       options: [
-        { key: "A", text: "It requires no initial capital investment and no engineering equipment." },
-        { key: "B", text: "It provides reliable baseload power that does not depend on fluctuating weather conditions." },
-        { key: "C", text: "It can be easily transported in plastic barrels to remote villages." },
-        { key: "D", text: "It produces large amounts of smoke that warm up the cold mountain climate." }
+        { key: "A", text: "It requires clear cloudless skies every single day" },
+        { key: "B", text: "It supplies steady baseload electricity 24 hours a day without weather fluctuation" },
+        { key: "C", text: "It produces large clouds of smoke that protect trees from sunlight" },
+        { key: "D", text: "It can be transported inside plastic barrels" }
       ],
       correctAnswer: "B",
-      explanation: "Paragraf ketiga menyatakan: 'Unlike solar and wind energy that change with the weather that depend strictly on weather conditions, geothermal plants provide steady baseload electricity with operational capacity factors exceeding ninety percent'.",
-      grammarNote: "Contrasting Linkers: 'Unlike + Noun Phrase, Subject + Verb'."
+      explanation: "Paragraf 3 menguraikan: 'unlike solar or wind power which fluctuate with weather, geothermal energy provides continuous baseload power twenty-four hours a day'. Pilihan B tepat.",
+      grammarNote: "Contrastive Complex Clause: 'unlike solar or wind power which fluctuate... geothermal energy provides continuous baseload power...'."
     },
     {
       id: 29,
-      source: "Sumber: Profil Potensi Energi Panas Bumi Jawa Tengah — PT Geo Dipa Energi (Persero) & Kementerian ESDM RI",
+      source: "Sumber: Publikasi Resmi Kementerian Energi dan Sumber Daya Mineral (ESDM) & PT Geo Dipa Energi Dieng",
       type: "single_choice",
       title: "Reading Comprehension: Vocabulary in Context",
-      stimulusTitle: "Text 2: Geothermal Energy Exploration in Central Java",
-      stimulusBody: "<em>Refer to the final sentence: '...developing geothermal clean energy in Central Java is an <u>essential</u> milestone to supply reliable electricity while protecting the natural environment.'</em>",
-      prompt: "The word 'essential' in the sentence is closest in meaning to...",
+      stimulusTitle: "Text 4: Clean Geothermal Energy in the Dieng Plateau, Central Java",
+      stimulusBody: `(Silakan merujuk pada teks 'Clean Geothermal Energy in the Dieng Plateau, Central Java' di atas)`,
+      prompt: "The phrase 'baseload power' in paragraph 3 refers to electrical power that is...",
       options: [
-        { key: "A", text: "Very important and necessary for success" },
-        { key: "B", text: "Minor and not needed" },
-        { key: "C", text: "Dangerous and harmful" },
-        { key: "D", text: "Temporary and unreliable" }
+        { key: "A", text: "supplied only during midnight hours" },
+        { key: "B", text: "continuous, reliable, and available around the clock" },
+        { key: "C", text: "expensive and reserved only for factory machines" },
+        { key: "D", text: "generated exclusively by burning diesel fuel" }
       ],
-      correctAnswer: "A",
-      explanation: "Kata 'essential' (Oxford 3000 A2) bermakna sangat penting, mendasar, dan diperlukan (very important, necessary).",
-      grammarNote: "Academic Lexis: pivotal, crucial, very important, essential."
+      correctAnswer: "B",
+      explanation: "Istilah 'baseload power' dalam teknik energi listrik merujuk pada daya beban dasar yang beroperasi stabil, andal, dan terus-menerus 24 jam sehari (continuous, reliable, and available around the clock). Pilihan B benar.",
+      grammarNote: "Technical Energy Vocabulary: baseload power = minimum continuous electrical supply needed by a power grid."
     },
     {
       id: 30,
-      source: "Sumber: Profil Potensi Energi Panas Bumi Jawa Tengah — PT Geo Dipa Energi (Persero) & Kementerian ESDM RI",
+      source: "Sumber: Publikasi Resmi Kementerian Energi dan Sumber Daya Mineral (ESDM) & PT Geo Dipa Energi Dieng",
       type: "single_choice",
       title: "Reading Comprehension: Discourse Logic",
-      stimulusTitle: "Text 2: Geothermal Energy Exploration in Central Java",
-      stimulusBody: "<em>Refer to Text 2 above.</em>",
-      prompt: "What would most likely happen if Central Java maximizes its geothermal potential?",
+      stimulusTitle: "Text 4: Clean Geothermal Energy in the Dieng Plateau, Central Java",
+      stimulusBody: `(Silakan merujuk pada teks 'Clean Geothermal Energy in the Dieng Plateau, Central Java' di atas)`,
+      prompt: "Why is geothermal energy considered a 'closed-loop' eco-friendly system?",
       options: [
-        { key: "A", text: "Greenhouse gas emissions from electricity generation will significantly decrease." },
-        { key: "B", text: "Electricity supply in Central Java will become more stable and produce less pollution." },
-        { key: "C", text: "The region will face severe electricity blackouts during summer months." },
-        { key: "D", text: "Indonesia will completely abandon its 2060 climate commitments." }
+        { key: "A", text: "Because thermal fluids are extracted, used to spin turbines, and reinjected underground without open environmental waste" },
+        { key: "B", text: "Because production buildings are completely locked without human operators" },
+        { key: "C", text: "Because the power plant operates for only one month each calendar year" },
+        { key: "D", text: "Because electricity cables are buried under concrete roads" }
       ],
       correctAnswer: "A",
-      explanation: "Karena panas bumi adalah energi bersih terbarukan dengan sistem tertutup 'virtually zero greenhouse gas emissions', pemanfaatannya akan menurunkan emisi gas rumah kaca secara signifikan dan membantu target Net Zero 2060.",
-      grammarNote: "Cause-and-Effect Inference in Academic Texts."
+      explanation: "Sistem tertutup (closed-loop) pada PLTP terjadi karena fluida termal diekstraksi dari bawah tanah, uapnya memutar turbin generator, dan sisa airnya diinjeksikan kembali ke dalam reservoir tanah tanpa membuang limbah ke lingkungan permukaan. Pilihan A tepat.",
+      grammarNote: "Scientific Process Reasoning: Closed-loop cycle in geothermal energy production."
     },
 
-    // 31-35. GRAMMAR ESSENTIALS
+    // =========================================================================
+    // SECTION 4: GRAMMAR & VOCABULARY MASTERY (QUESTIONS 31 - 40)
+    // =========================================================================
+
+    // Complementary Full Semester Questions (10 questions)
     {
       id: 31,
-      source: "Sumber: Profil Biografi Atlet Bulutangkis Nasional — PBSI & Federasi Bulutangkis Dunia (BWF)",
+      source: "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
       type: "single_choice",
-      title: "Grammar Essentials: Subject-Verb Agreement",
-      stimulusTitle: "Kaidah Kesesuaian Subjek dan Kata Kerja",
-      stimulusBody: "Pilihlah bentuk kata kerja yang tepat untuk melengkapi kalimat berikut:",
-      prompt: "The dedicated biology teacher, accompanied by twenty enthusiastic students, [...] currently observing the rare orchid species in the school conservatory.",
+      title: "Grammar Essentials: Subject-Verb Agreement in Scientific Fact",
+      stimulusTitle: "Kaidah Kesesuaian Subjek dan Kata Kerja (Simple Present)",
+      stimulusBody: "The tropical rainforest of Tanjung Puting _______ sanctuary and abundant nourishment for hundreds of endangered wildlife species.",
+      prompt: "Choose the grammatically correct verb form to complete the factual statement:",
       options: [
-        { key: "A", text: "is" },
-        { key: "B", text: "are" },
-        { key: "C", text: "were" },
-        { key: "D", text: "have been" }
+        { key: "A", text: "provides" },
+        { key: "B", text: "provide" },
+        { key: "C", text: "is provide" },
+        { key: "D", text: "providing" }
       ],
       correctAnswer: "A",
-      explanation: "Subjek utama kalimat adalah 'The dedicated biology teacher' (tunggal/singular). Frasa penjelas 'accompanied by twenty enthusiastic students' tidak mengubah jumlah subjek utama. Keterangan waktu 'currently' menunjukkan waktu sekarang, sehingga kata kerja yang benar adalah 'is'.",
-      grammarNote: "Subject-Verb Agreement with Intervening Prepositional Phrases (accompanied by, together with, as well as)."
+      explanation: "Subjek kalimat adalah 'The tropical rainforest' (kata benda tunggal / singular noun, third-person singular). Dalam Simple Present Tense untuk menyatakan fakta ilmiah, kata kerja berakhiran -s/-es: 'provides'.",
+      grammarNote: "Subject-Verb Agreement Rule: Singular Subject (Third Person) + Verb-s/es in Simple Present."
     },
     {
       id: 32,
-      source: "Sumber: Profil Biografi Atlet Bulutangkis Nasional — PBSI & Federasi Bulutangkis Dunia (BWF)",
+      source: "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
       type: "single_choice",
-      title: "Grammar Essentials: Passive Voice Transformation",
-      stimulusTitle: "Transformasi Kalimat Aktif ke Pasif",
-      stimulusBody: "Perhatikan kalimat aktif berikut:<br><em>'Our school committee annually awards full scholarships to exceptional athletes.'</em>",
-      prompt: "Manakah bentuk kalimat pasif (Passive Voice) yang paling tepat?",
+      title: "Grammar Essentials: Passive Voice in Technical Descriptions",
+      stimulusTitle: "Transformasi Kalimat Pasif dalam Laporan Ilmiah",
+      stimulusBody: "At the Dieng power plant, superheated geothermal steam _______ directly into electrical turbine generators to produce clean power.",
+      prompt: "Select the correct passive verb construction:",
       options: [
-        { key: "A", text: "Full scholarships is annually awarded to exceptional athletes by our school committee." },
-        { key: "B", text: "Full scholarships are annually awarded to exceptional athletes by our school committee." },
-        { key: "C", text: "Full scholarships were annually awarded to exceptional athletes by our school committee." },
-        { key: "D", text: "Full scholarships have been awarding exceptional athletes by our school committee." }
+        { key: "A", text: "is directed" },
+        { key: "B", text: "directs" },
+        { key: "C", text: "is directing" },
+        { key: "D", text: "has directed" }
       ],
-      correctAnswer: "B",
-      explanation: "Objek 'Full scholarships' adalah jamak (plural). Tense kalimat aktif adalah Simple Present Tense ('awards'). Maka rumus pasifnya: Object (plural) + ARE + Verb 3 (awarded) + by Agent.",
-      grammarNote: "Passive Voice in Present Tense for Plural Objects."
+      correctAnswer: "A",
+      explanation: "Subjek 'superheated geothermal steam' menerima tindakan (pasif): be (is) + V3 (directed). Maka bentuk pasif Simple Present yang tepat adalah 'is directed'.",
+      grammarNote: "Simple Present Passive: Subject + is/are + Past Participle (V3)."
     },
     {
       id: 33,
-      source: "Sumber: Profil Biografi Atlet Bulutangkis Nasional — PBSI & Federasi Bulutangkis Dunia (BWF)",
+      source: "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
       type: "single_choice",
-      title: "Grammar Essentials: Past Continuous with 'While'",
-      stimulusTitle: "Tata Bahasa Klausa Waktu Lampau",
-      stimulusBody: "Lengkapilah kalimat berikut dengan kombinasi bentuk kata kerja yang benar:",
-      prompt: "While the students [...] the museum artifacts, the tour guide [...] an inspiring story about Sunan Kudus.",
+      title: "Grammar Essentials: Adjective Order (OSASCOMP)",
+      stimulusTitle: "Kaidah Urutan Kata Sifat Deskriptif (OSASCOMP)",
+      stimulusBody: "Karimunjawa National Park is celebrated for its _______ reefs that shelter diverse marine life.",
+      prompt: "Which phrase follows the correct English adjective order (Opinion - Size - Age - Color)?",
       options: [
-        { key: "A", text: "were examining / narrated" },
-        { key: "B", text: "are examining / narrates" },
-        { key: "C", text: "examined / was narrating" },
-        { key: "D", text: "had examined / narrating" }
+        { key: "A", text: "magnificent expansive vibrant" },
+        { key: "B", text: "vibrant magnificent expansive" },
+        { key: "C", text: "expansive vibrant magnificent" },
+        { key: "D", text: "magnificent vibrant expansive" }
       ],
       correctAnswer: "A",
-      explanation: "Klausa 'While' digunakan untuk aksi berdurasi sedang berlangsung di masa lampau: 'While the students were examining...' (Past Continuous), disusul aksi yang terjadi pada periode tersebut: 'the tour guide narrated...' (Simple Past).",
-      grammarNote: "Past Continuous ('were examining') compared with Simple Past ('narrated') using time conjunction 'While'."
+      explanation: "Berdasarkan kaidah OSASCOMP: Opinion ('magnificent' - luar biasa) mendahului Size ('expansive' - luas membentang), disusul Color/Quality ('vibrant' - beraneka ragam cerah). Urutan yang benar adalah 'magnificent expansive vibrant'.",
+      grammarNote: "OSASCOMP Rule: Opinion (magnificent) -> Size (expansive) -> Quality/Color (vibrant)."
     },
     {
       id: 34,
-      source: "Sumber: Profil Biografi Atlet Bulutangkis Nasional — PBSI & Federasi Bulutangkis Dunia (BWF)",
+      source: "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
       type: "single_choice",
-      title: "Grammar Essentials: Relative Pronoun 'Whose'",
-      stimulusTitle: "Klausa Relatif Kepemilikan (Relative Clauses)",
-      stimulusBody: "Lengkapilah kalimat berikut dengan kata ganti penghubung (relative pronoun) yang tepat:",
-      prompt: "We recently interviewed the young inventor [...] automated solar water pump won the provincial innovation championship.",
+      title: "Grammar Essentials: Conditional Sentence Type 1",
+      stimulusTitle: "Kalimat Pengandaian Kemungkinan Masa Depan (Type 1)",
+      stimulusBody: "If the government and local communities _______ national park boundaries diligently, endangered orangutans will thrive in their natural habitat.",
+      prompt: "Select the correct verb form for the 'if-clause' in Conditional Type 1:",
       options: [
-        { key: "A", text: "who" },
-        { key: "B", text: "whom" },
-        { key: "C", text: "whose" },
-        { key: "D", text: "which" }
+        { key: "A", text: "protect" },
+        { key: "B", text: "protected" },
+        { key: "C", text: "will protect" },
+        { key: "D", text: "had protected" }
       ],
-      correctAnswer: "C",
-      explanation: "'Whose' digunakan untuk menyatakan hubungan kepemilikan (possesive relative pronoun). Pada kalimat ini, 'automated solar water pump' adalah milik dari 'the young inventor'.",
-      grammarNote: "Possessive Relative Clause: Person + whose + Noun Phrase."
+      correctAnswer: "A",
+      explanation: "Pola Conditional Sentence Type 1 (kemungkinan nyata di masa depan) adalah: If + Subject + Simple Present (V1), Subject + will + V1. Subjek jamak 'government and local communities' menggunakan 'protect'.",
+      grammarNote: "Conditional Type 1 Formula: If + S + V1 (Simple Present), S + will + Base Verb (V1)."
     },
     {
       id: 35,
-      source: "Sumber: Profil Biografi Atlet Bulutangkis Nasional — PBSI & Federasi Bulutangkis Dunia (BWF)",
+      source: "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
       type: "single_choice",
-      title: "Grammar Essentials: Conditional Sentence Type 1",
-      stimulusTitle: "Kalimat Pengandaian Kemungkinan Masa Depan",
-      stimulusBody: "Lengkapilah kalimat pengandaian Type 1 berikut dengan bentuk kata kerja yang tepat:",
-      prompt: "If our school [...] the zero-plastic policy consistently, we [...] a significant reduction in campus waste by December.",
+      title: "Grammar Essentials: Conditional Sentence Type 0 (Scientific Fact)",
+      stimulusTitle: "Kalimat Pengandaian Kebenaran Ilmiah Mutlak (Type 0)",
+      stimulusBody: "When underground hydrothermal water _______ intense volcanic heat beneath the earth's crust, it naturally turns into high-pressure steam.",
+      prompt: "Which verb form completes the Zero Conditional scientific statement?",
       options: [
-        { key: "A", text: "enforces / will achieve" },
-        { key: "B", text: "enforced / will achieved" },
-        { key: "C", text: "will enforce / achieve" },
-        { key: "D", text: "enforcing / would achieve" }
+        { key: "A", text: "absorbs" },
+        { key: "B", text: "absorbed" },
+        { key: "C", text: "would absorb" },
+        { key: "D", text: "will absorb" }
       ],
       correctAnswer: "A",
-      explanation: "Rumus baku Conditional Type 1: If + Simple Present (S + V1/-s/-es: 'enforces'), Subject + will + V1 ('will achieve').",
-      grammarNote: "Conditional Type 1: Real and possible conditions in the present/future."
+      explanation: "Zero Conditional digunakan untuk menyatakan fakta ilmiah yang selalu benar: When/If + Simple Present (absorbs), Simple Present (turns into). Subjek 'hydrothermal water' tunggal sehingga menggunakan 'absorbs'.",
+      grammarNote: "Zero Conditional Formula: When/If + S + V1(s/es), S + V1(s/es) for universal scientific truths."
     },
-
-    // 36-40. VOCABULARY OXFORD 3000 & FUNCTIONAL EXPRESSIONS
     {
       id: 36,
       source: "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
       type: "single_choice",
-      title: "Vocabulary: Oxford 3000 (CEFR A2/B1)",
-      stimulusTitle: "Pemilihan Kata Kontekstual",
-      stimulusBody: "Pilihlah kosakata yang paling tepat untuk melengkapi kalimat rumpang di bawah ini:",
-      prompt: "Athletes must possess extraordinary mental [...] to overcome intense pressure and achieve victory in international tournaments.",
+      title: "Grammar Essentials: Relative Pronoun 'Whose'",
+      stimulusTitle: "Klausa Relatif Kepemilikan (Relative Clauses)",
+      stimulusBody: "Anthony Sinisuka Ginting is a world-class badminton athlete _______ electric court footwork inspires millions of young sports fans.",
+      prompt: "Which relative pronoun correctly shows possession?",
       options: [
-        { key: "A", text: "resilience" },
-        { key: "B", text: "hesitation" },
-        { key: "C", text: "ignorance" },
-        { key: "D", text: "pollution" }
+        { key: "A", text: "whose" },
+        { key: "B", text: "whom" },
+        { key: "C", text: "which" },
+        { key: "D", text: "where" }
       ],
       correctAnswer: "A",
-      explanation: "'Resilience' (Oxford 3000 B1/B2) bermakna daya tahan mental, ketangguhan untuk bangkit dari kesulitan. Pilihan lain tidak sesuai: hesitation (keragu-raguan), ignorance (ketidaktahuan), pollution (polusi).",
-      grammarNote: "Abstract Nouns in Sports Psychology: resilience, tenacity, discipline."
+      explanation: "'Whose' digunakan untuk menunjukkan kepemilikan (possession): atlet yang kelincahan kakinya (whose footwork) menginspirasi jutaan penggemar. 'Whom' untuk objek manusia, 'which' untuk benda.",
+      grammarNote: "Relative Pronoun: 'whose' indicates possession for people or entities."
     },
     {
       id: 37,
       source: "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
       type: "single_choice",
-      title: "Vocabulary: Collocation with 'Take'",
-      stimulusTitle: "Kolokasi Kata Bahasa Inggris",
-      stimulusBody: "Pilihlah kolokasi yang tepat dalam konteks tindakan pencegahan lingkungan:",
-      prompt: "Local environmentalists urge the municipal government to [...] immediate precautions against river pollution.",
+      title: "Vocabulary Mastery: Oxford 3000 Level A2/B1 Contextual Lexis",
+      stimulusTitle: "Pemilihan Kata Kontekstual Berdasarkan Makna",
+      stimulusBody: "Establishing strict conservation rules is _______ to guarantee that future generations can witness wild fauna in their natural habitat.",
+      prompt: "Which adjective best completes the sentence with the meaning of 'crucial and absolutely necessary'?",
       options: [
-        { key: "A", text: "take" },
-        { key: "B", text: "make" },
-        { key: "C", text: "do" },
-        { key: "D", text: "hold" }
+        { key: "A", text: "vital" },
+        { key: "B", text: "artificial" },
+        { key: "C", text: "hesitant" },
+        { key: "D", text: "fragile" }
       ],
       correctAnswer: "A",
-      explanation: "Kolokasi tetap dalam bahasa Inggris adalah 'take precautions' (mengambil tindakan pencegahan), bukan make precautions atau do precautions.",
-      grammarNote: "English Collocations: take precautions, take measures, take action."
+      explanation: "Kata 'vital' bermakna sangat penting, esensial, dan mutlak diperlukan (crucial and absolutely necessary). Pilihan A tepat.",
+      grammarNote: "Evaluative Adjective (Oxford 3000 A2/B1): vital = essential, crucial, necessary."
     },
     {
       id: 38,
       source: "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
       type: "single_choice",
-      title: "Functional Expressions: Asking for Clarification",
-      stimulusTitle: "Ungkapan Meminta Klarifikasi",
-      stimulusBody: "Seorang siswa tidak mendengar penjelasan instruksi guru secara jelas di laboratorium bahasa.",
-      prompt: "Manakah ungkapan yang paling santun dan baku (polite register) untuk meminta klarifikasi penjelasan?",
+      title: "Vocabulary Mastery: Academic Collocation with 'Role'",
+      stimulusTitle: "Kaidah Kolokasi Baku Bahasa Inggris",
+      stimulusBody: "Environmental scientists agree that tropical rainforests _______ a critical role in regulating global climate patterns.",
+      prompt: "Which verb collocates naturally with 'a critical role'?",
       options: [
-        { key: "A", text: "What? Say that again louder!" },
-        { key: "B", text: "Pardon me, Sir. Could you please clarify the second step of the procedure?" },
-        { key: "C", text: "I don't care what you just said." },
-        { key: "D", text: "Stop talking and let me sleep." }
+        { key: "A", text: "play" },
+        { key: "B", text: "make" },
+        { key: "C", text: "do" },
+        { key: "D", text: "put" }
       ],
-      correctAnswer: "B",
-      explanation: "Ungkapan santun dan formal (polite register): 'Pardon me, Sir. Could you please clarify...?'",
-      grammarNote: "Polite Request & Clarification: Modal 'could', 'pardon me', polite inquiry."
+      correctAnswer: "A",
+      explanation: "Kolokasi baku dalam bahasa Inggris untuk 'memegang/memainkan peranan penting' adalah 'play a critical role' (bukan make a role atau do a role). Pilihan A tepat.",
+      grammarNote: "Fixed Collocation: 'play a vital/critical/key role in doing something'."
     },
     {
       id: 39,
       source: "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
       type: "single_choice",
-      title: "Functional Expressions: Expressing Stance / Agreement",
-      stimulusTitle: "Ungkapan Persetujuan Terhadap Argumen",
-      stimulusBody: "Dalam diskusi kelas mengenai pelestarian cagar budaya lokal:<br>Budi: 'I firmly believe that schools in Kudus should organize regular heritage tours to instill pride in our local traditions.'",
-      prompt: "Manakah respons yang menunjukkan persetujuan penuh secara formal (full agreement)?",
+      title: "Functional Expressions: Asking for Clarification",
+      stimulusTitle: "Ungkapan Meminta Klarifikasi dalam Diskusi Kelas",
+      stimulusBody: "Teacher: 'Geothermal energy provides baseload power because its production wells are closed-loop.'<br>Student: '_______ Could you please explain what you mean by closed-loop system?'",
+      prompt: "Which phrase politely asks for clarification from the instructor?",
       options: [
-        { key: "A", text: "I couldn't agree more; connecting students with historical roots is essential." },
-        { key: "B", text: "I strongly oppose your idea because heritage has no value." },
-        { key: "C", text: "That is totally irrelevant to our education." },
-        { key: "D", text: "I agree with you, but I don't care at all." }
+        { key: "A", text: "I'm not quite sure I follow, Sir." },
+        { key: "B", text: "I strongly disagree with your statement." },
+        { key: "C", text: "That is completely obvious to everyone." },
+        { key: "D", text: "I already know everything about this topic." }
       ],
       correctAnswer: "A",
-      explanation: "'I couldn't agree more' adalah ungkapan idiomatik baku untuk menyatakan persetujuan 100% (sangat setuju sekali).",
-      grammarNote: "Expressing Full Agreement: 'I couldn't agree more', 'You have a very valid point'."
+      explanation: "Ungkapan 'I'm not quite sure I follow, Sir' adalah bentuk santun formal untuk menyatakan belum sepenuhnya paham dan meminta penjelasan lebih lanjut (asking for clarification). Pilihan A tepat.",
+      grammarNote: "Functional English: Polite clarification request ('I'm not quite sure I follow... Could you explain...?')."
     },
     {
       id: 40,
       source: "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
       type: "single_choice",
-      title: "Vocabulary: Oxford 3000 Academic Conjunction",
-      stimulusTitle: "Kata Hubung Kausal & Penjelas",
-      stimulusBody: "Lengkapilah kalimat berikut dengan konjungsi internal yang tepat:",
-      prompt: "Solar panels produce clean energy without greenhouse gases; [...], their initial installation costs have become increasingly affordable.",
+      title: "Functional Expressions: Expressing Agreement & Conjunction",
+      stimulusTitle: "Ungkapan Persetujuan Terhadap Solusi Energi Bersih",
+      stimulusBody: "Speaker A: 'Investing in renewable geothermal energy will significantly reduce our carbon footprint in Central Java.'<br>Speaker B: '_______ It is clean, reliable, and sustainable for future generations.'",
+      prompt: "Which expression best demonstrates complete agreement with Speaker A?",
       options: [
-        { key: "A", text: "furthermore" },
-        { key: "B", text: "otherwise" },
-        { key: "C", text: "instead" },
-        { key: "D", text: "despite" }
+        { key: "A", text: "I couldn't agree more." },
+        { key: "B", text: "I doubt that very much." },
+        { key: "C", text: "I am totally against that idea." },
+        { key: "D", text: "That sounds completely unrealistic." }
       ],
       correctAnswer: "A",
-      explanation: "Kedua klausa menyajikan gagasan positif yang saling menambah/menguatkan (clean energy + affordable costs). Maka kata hubung penambahan yang tepat adalah 'furthermore' (lagi pula / selain itu).",
-      grammarNote: "Transitions of Addition: furthermore, moreover, in addition, additionally."
+      explanation: "Ungkapan 'I couldn't agree more' menyatakan persetujuan mutlak / sangat setuju (complete agreement). Pilihan B, C, dan D menyatakan keraguan atau penolakan.",
+      grammarNote: "Functional English: Expressing strong agreement ('I couldn't agree more' = I totally agree)."
     }
   ];
 }
 
-// Fisher-Yates array shuffle utility
-function shuffleArray(arr) {
-  const array = [...arr];
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
+// Global State Management
+let studentIdentity = {
+  tingkat: "X-E",
+  rombel: "1",
+  presensi: "1",
+  nama: "Siswa Kelas X"
+};
 
-// Randomize question options and matrix statements while dynamically mapping correct answers and explanations
-function randomizeQuestionOptions(questionBank) {
-  const LETTERS = ["A", "B", "C", "D", "E"];
+let currentMode = "practice"; // 'practice' or 'exam'
+let currentQuestionIndex = 0;
+let userAnswers = {}; // { questionId: answerKey }
+let flaggedQuestions = new Set();
+let timerInterval = null;
+let remainingSeconds = 90 * 60; // 90 minutes
+let isExamSubmitted = false;
+let audioSpeechRate = 1.0;
+let currentUtterance = null;
+let questions = [];
 
-  return questionBank.map(origQ => {
-    // Deep clone question to avoid mutating bank
-    const q = JSON.parse(JSON.stringify(origQ));
-
-    // Shuffle statements in complex matrix questions
-    if (q.type === "complex_matrix" && Array.isArray(q.matrixStatements)) {
-      q.matrixStatements = shuffleArray(q.matrixStatements);
-    } 
-    // Shuffle options in single choice, listening pictures, and MCMA
-    else if (Array.isArray(q.options) && q.options.length > 0) {
-      // Tag original option key
-      q.options.forEach(opt => {
-        opt._origKey = opt.key;
-      });
-
-      // Shuffle options list
-      const shuffled = shuffleArray(q.options);
-
-      // Re-assign sequential letters A, B, C, D and build key mapping
-      const keyMap = {};
-      shuffled.forEach((opt, idx) => {
-        const newKey = LETTERS[idx] || String.fromCharCode(65 + idx);
-        keyMap[opt._origKey] = newKey;
-        opt.key = newKey;
-        delete opt._origKey;
-      });
-
-      q.options = shuffled;
-
-      // Update correct answer pointer(s)
-      if (q.type === "mcma" && Array.isArray(q.correctAnswer)) {
-        q.correctAnswer = q.correctAnswer.map(k => keyMap[k] || k).sort();
-      } else if (typeof q.correctAnswer === "string") {
-        q.correctAnswer = keyMap[q.correctAnswer] || q.correctAnswer;
+// Fisher-Yates Shuffle for Options (Single choice questions only, without SVGs)
+function randomizeQuestionOptions(rawQuestions) {
+  return rawQuestions.map(q => {
+    const cloned = JSON.parse(JSON.stringify(q));
+    if (cloned.type === "single_choice" && Array.isArray(cloned.options) && cloned.options.length > 0 && !cloned.options[0].svg) {
+      const correctText = cloned.options.find(o => o.key === cloned.correctAnswer)?.text;
+      const opts = [...cloned.options];
+      for (let i = opts.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [opts[i], opts[j]] = [opts[j], opts[i]];
       }
-
-      // Synchronize explanation references to newly mapped keys
-      if (q.explanation) {
-        q.explanation = q.explanation.replace(/(Opsi|Gambar|Pilihan|Jawaban)\s+([A-D])\b/gi, (match, prefix, oldLetter) => {
-          const up = oldLetter.toUpperCase();
-          return keyMap[up] ? `${prefix} ${keyMap[up]}` : match;
-        });
+      const alphabet = ["A", "B", "C", "D", "E"];
+      cloned.options = opts.map((opt, idx) => ({
+        key: alphabet[idx],
+        text: opt.text
+      }));
+      if (correctText) {
+        const newCorrectOpt = cloned.options.find(o => o.text === correctText);
+        if (newCorrectOpt) cloned.correctAnswer = newCorrectOpt.key;
       }
     }
-
-    return q;
+    return cloned;
   });
 }
 
-// =============================================================================
-// LOCALSTORAGE AUTOSAVE & STATE RECOVERY
-// =============================================================================
-
-function saveProgressToLocalStorage() {
-  try {
-    const state = {
-      studentIdentity,
-      userAnswers,
-      flaggedQuestions: Array.from(flaggedQuestions),
-      remainingSeconds,
-      currentQuestionIndex,
-      questions,
-      currentMode,
-      isExamSubmitted,
-      savedAt: new Date().toLocaleTimeString("id-ID")
-    };
-    localStorage.setItem("sabaku_ats_progress_X", JSON.stringify(state));
-    
-    const autoEl = document.getElementById("autosave-indicator");
-    if (autoEl) autoEl.textContent = `💾 Tersimpan (${state.savedAt})`;
-    const sideSaved = document.getElementById("side-last-saved");
-    if (sideSaved) sideSaved.textContent = `Tersimpan: ${state.savedAt}`;
-  } catch (e) {
-    console.warn("LocalStorage save error:", e);
-  }
-}
-
-function loadProgressFromLocalStorage() {
-  try {
-    const savedStr = localStorage.getItem("sabaku_ats_progress_X");
-    if (savedStr) {
-      const state = JSON.parse(savedStr);
-      if (state.questions && state.questions.length === 40 && !state.isExamSubmitted) {
-        studentIdentity = state.studentIdentity || studentIdentity;
-        userAnswers = state.userAnswers || {};
-        flaggedQuestions = new Set(state.flaggedQuestions || []);
-        remainingSeconds = (state.remainingSeconds && state.remainingSeconds > 0) ? state.remainingSeconds : (90 * 60);
-        currentQuestionIndex = state.currentQuestionIndex || 0;
-        questions = state.questions;
-        currentMode = state.currentMode || "practice";
-        return true;
-      }
-    }
-  } catch (e) {
-    console.warn("LocalStorage load error:", e);
-  }
-  return false;
-}
-
-// =============================================================================
-// INITIALIZATION & UI CONTROLLER
-// =============================================================================
-
+// Lifecycle Initialization
 window.addEventListener("DOMContentLoaded", () => {
-  initGradeXTest();
+  initStudentData();
 });
 
-function initGradeXTest() {
-  // Try to restore saved in-progress exam
-  const hasRestored = loadProgressFromLocalStorage();
-
-  if (hasRestored) {
-    applyStudentMetadata();
-    buildNavigatorGrid();
-    startTimer();
-    renderQuestion(currentQuestionIndex);
-    return;
-  }
-
-  // Read student identity passed from index.html portal
+function initStudentData() {
   try {
-    const portalData = JSON.parse(localStorage.getItem("sabaku_current_student") || "{}");
-    if (portalData.nama && portalData.tingkat) {
+    const rawPortal = localStorage.getItem("sabaku_current_student");
+    if (rawPortal) {
+      const portalData = JSON.parse(rawPortal);
       studentIdentity = {
         tingkat: "X-E",
         rombel: portalData.rombel || "1",
         presensi: portalData.presensi || "1",
-        nama: portalData.nama
+        nama: portalData.nama || "Siswa Kelas X"
       };
       currentMode = portalData.mode || "practice";
       startFreshTest();
@@ -958,7 +864,7 @@ function handleDirectIdentitySubmit(e) {
   if (mode === "exam") {
     const token = document.getElementById("direct-token").value.trim();
     if (token !== "JujurItuMujur") {
-      alert("⚠️ Token Asesmen Resmi (ASTS) tidak valid! Masukkan: JujurItuMujur");
+      alert("⚠️ Token Asesmen Resmi (ASAS) tidak valid! Masukkan: JujurItuMujur");
       return;
     }
   }
@@ -994,26 +900,38 @@ function startFreshTest() {
   remainingSeconds = 90 * 60;
   currentQuestionIndex = 0;
 
-  // Initialize and randomize Grade 10 question bank
-  const rawBank = getGrade10Questions();
+  // Initialize and randomize Grade 10 ASAS complete question bank
+  const rawBank = getGrade10AsasCompleteQuestions();
   questions = randomizeQuestionOptions(rawBank);
+
+  // Restore session from LocalStorage if available
+  try {
+    const saved = localStorage.getItem("sabaku_asas_progress_X");
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (parsed.userAnswers) userAnswers = parsed.userAnswers;
+      if (parsed.flaggedQuestions) flaggedQuestions = new Set(parsed.flaggedQuestions);
+      if (parsed.remainingSeconds) remainingSeconds = parsed.remainingSeconds;
+      if (parsed.currentIndex !== undefined) currentQuestionIndex = parsed.currentIndex;
+    }
+  } catch (err) {
+    console.warn("Progress restore warning:", err);
+  }
 
   applyStudentMetadata();
   buildNavigatorGrid();
   startTimer();
-  renderQuestion(0);
+  renderQuestion(currentQuestionIndex);
   saveProgressToLocalStorage();
 }
 
 function applyStudentMetadata() {
-  // Update Header Badges
   const modeBadge = document.getElementById("nav-mode-badge");
-  modeBadge.textContent = (currentMode === "practice") ? "🎯 Mode Latihan" : "📝 Asesmen Resmi (ASTS)";
+  modeBadge.textContent = (currentMode === "practice") ? "🎯 Mode Latihan" : "📝 Asesmen Resmi (ASAS)";
   modeBadge.className = "badge-mode " + (currentMode === "practice" ? "practice" : "exam");
 
-  // Update Sidebar Student Meta
   document.getElementById("side-student-name").textContent = studentIdentity.nama;
-  document.getElementById("side-student-meta").textContent = `Kelas ${studentIdentity.tingkat} | Rombel ${studentIdentity.rombel} | Presensi ${studentIdentity.presensi}`;
+  document.getElementById("side-student-meta").textContent = `Kelas X — Rombel ${studentIdentity.rombel} | Presensi ${studentIdentity.presensi}`;
 }
 
 function toggleKisiKisiContent() {
@@ -1021,17 +939,17 @@ function toggleKisiKisiContent() {
   const icon = document.getElementById("kisi-toggle-icon");
   if (body.style.display === "none") {
     body.style.display = "block";
-    icon.textContent = "▼ Sembunyikan Kisi-Kisi";
+    icon.textContent = "▲ Sembunyikan Kisi-Kisi";
   } else {
     body.style.display = "none";
-    icon.textContent = "▶ Tampilkan Kisi-Kisi";
+    icon.textContent = "▼ Buka Kisi-Kisi Lengkap";
   }
 }
 
 function toggleKisiKisiModal() {
   const body = document.getElementById("kisi-kisi-body");
   body.style.display = "block";
-  document.getElementById("kisi-toggle-icon").textContent = "▼ Sembunyikan Kisi-Kisi";
+  document.getElementById("kisi-toggle-icon").textContent = "▲ Sembunyikan Kisi-Kisi";
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -1073,8 +991,6 @@ function updateNavigatorStatus() {
 function isQuestionAnswered(qId) {
   const ans = userAnswers[qId];
   if (ans === undefined || ans === null) return false;
-  if (Array.isArray(ans)) return ans.length > 0;
-  if (typeof ans === "object") return Object.keys(ans).length > 0;
   return ans !== "";
 }
 
@@ -1083,7 +999,6 @@ function renderQuestion(index) {
   currentQuestionIndex = index;
   const q = questions[index];
 
-  // Stop active audio
   stopAudio();
 
   // Header badges
@@ -1134,26 +1049,15 @@ function renderQuestion(index) {
 
   if (q.type === "listening_pictures") {
     renderPictureChoices(q, optContainer);
-  } else if (q.type === "complex_matrix") {
-    renderMatrixTable(q, optContainer);
-  } else if (q.type === "mcma") {
-    renderMCMACheckboxes(q, optContainer);
   } else {
     renderSingleChoices(q, optContainer);
   }
 
-  // Explanation Box (In practice mode or review)
+  // Explanation Box
   const expBox = document.getElementById("question-explanation-box");
   if (isExamSubmitted || (currentMode === "practice" && isQuestionAnswered(q.id))) {
     expBox.style.display = "block";
-    let keyBadge = "";
-    if (q.type === "complex_matrix") {
-      keyBadge = q.matrixStatements.map((s, i) => `Pernyataan ${i+1}: <strong>${s.isCorrect ? 'BENAR' : 'SALAH'}</strong>`).join(" | ");
-    } else if (Array.isArray(q.correctAnswer)) {
-      keyBadge = q.correctAnswer.join(", ");
-    } else {
-      keyBadge = q.correctAnswer;
-    }
+    let keyBadge = q.correctAnswer;
 
     document.getElementById("explanation-text").innerHTML = `
       <div style="margin-bottom: 10px; padding: 6px 12px; background: #ecfdf5; border: 1.5px solid #a7f3d0; border-radius: 8px; color: #065f46; font-size: 0.95rem; display: inline-block;">
@@ -1169,9 +1073,9 @@ function renderQuestion(index) {
   // Flag Button status
   const flagBtn = document.getElementById("btn-flag-q");
   if (flaggedQuestions.has(index)) {
-    flagBtn.textContent = "🚩 Hapus Ragu";
+    flagBtn.textContent = "🔄 Hapus Ragu";
   } else {
-    flagBtn.textContent = "🏳️ Ragu-ragu";
+    flagBtn.textContent = "🟡 Ragu-ragu";
   }
 
   // Nav buttons
@@ -1183,7 +1087,6 @@ function renderQuestion(index) {
   saveProgressToLocalStorage();
 }
 
-// 1. Picture Choices Renderer (For Q1, Q2, Q3)
 function renderPictureChoices(q, container) {
   const grid = document.createElement("div");
   grid.className = "picture-choices-grid";
@@ -1206,7 +1109,6 @@ function renderPictureChoices(q, container) {
   container.appendChild(grid);
 }
 
-// 2. Single Choice Options Renderer
 function renderSingleChoices(q, container) {
   const list = document.createElement("div");
   list.className = "options-list";
@@ -1228,83 +1130,6 @@ function renderSingleChoices(q, container) {
   container.appendChild(list);
 }
 
-// 3. Complex Multiple Choice (Matrix Table) Renderer
-function renderMatrixTable(q, container) {
-  const table = document.createElement("table");
-  table.className = "matrix-table";
-
-  table.innerHTML = `
-    <thead>
-      <tr>
-        <th style="width: 70%;">Pernyataan / Analisis Teks</th>
-        <th style="width: 15%;">BENAR (TRUE)</th>
-        <th style="width: 15%;">SALAH (FALSE)</th>
-      </tr>
-    </thead>
-    <tbody>
-      ${q.matrixStatements.map((stmt, sIdx) => {
-        const curVal = (userAnswers[q.id] && userAnswers[q.id][sIdx] !== undefined) ? userAnswers[q.id][sIdx] : null;
-        return `
-          <tr>
-            <td>${stmt.statement}</td>
-            <td onclick="setMatrixAnswer(${q.id}, ${sIdx}, true)">
-              <input type="radio" class="matrix-radio" name="matrix_${q.id}_${sIdx}" ${curVal === true ? "checked" : ""}>
-            </td>
-            <td onclick="setMatrixAnswer(${q.id}, ${sIdx}, false)">
-              <input type="radio" class="matrix-radio" name="matrix_${q.id}_${sIdx}" ${curVal === false ? "checked" : ""}>
-            </td>
-          </tr>
-        `;
-      }).join("")}
-    </tbody>
-  `;
-  container.appendChild(table);
-}
-
-function setMatrixAnswer(qId, statementIdx, value) {
-  if (!userAnswers[qId]) {
-    userAnswers[qId] = {};
-  }
-  userAnswers[qId][statementIdx] = value;
-  renderQuestion(currentQuestionIndex);
-}
-
-// 4. Multiple Choice Multiple Answer (MCMA Checkboxes) Renderer
-function renderMCMACheckboxes(q, container) {
-  const list = document.createElement("div");
-  list.className = "options-list";
-  const curAns = userAnswers[q.id] || [];
-
-  q.options.forEach(opt => {
-    const isChecked = curAns.includes(opt.key);
-    const item = document.createElement("div");
-    item.className = "option-item" + (isChecked ? " selected" : "");
-    item.onclick = () => {
-      toggleMCMAAnswer(q.id, opt.key);
-      renderQuestion(currentQuestionIndex);
-    };
-
-    item.innerHTML = `
-      <div class="option-checkbox">${isChecked ? "✓" : ""}</div>
-      <div class="option-text"><strong>[${opt.key}]</strong> ${opt.text}</div>
-    `;
-    list.appendChild(item);
-  });
-  container.appendChild(list);
-}
-
-function toggleMCMAAnswer(qId, key) {
-  if (!Array.isArray(userAnswers[qId])) {
-    userAnswers[qId] = [];
-  }
-  const idx = userAnswers[qId].indexOf(key);
-  if (idx > -1) {
-    userAnswers[qId].splice(idx, 1);
-  } else {
-    userAnswers[qId].push(key);
-  }
-}
-
 function navigateQuestion(delta) {
   renderQuestion(currentQuestionIndex + delta);
 }
@@ -1318,7 +1143,7 @@ function toggleFlagQuestion() {
   renderQuestion(currentQuestionIndex);
 }
 
-// Audio Engine: Native Web Speech API Voice Synthesis
+// Audio Engine via Web Speech API
 function playQuestionAudio() {
   const q = questions[currentQuestionIndex];
   if (!q || !q.audioText) return;
@@ -1360,7 +1185,7 @@ function playQuestionAudio() {
 
     window.speechSynthesis.speak(currentUtterance);
   } else {
-    alert("Peramban Anda belum mendukung Web Speech API. Silakan gunakan Google Chrome, Microsoft Edge, atau Safari.");
+    alert("Peramban Anda belum mendukung Web Speech API.");
   }
 }
 
@@ -1403,7 +1228,6 @@ function startTimer() {
       document.getElementById("timer-box").style.backgroundColor = "#dc2626";
     }
 
-    // Autosave progress every 15 seconds
     if (remainingSeconds % 15 === 0) {
       saveProgressToLocalStorage();
     }
@@ -1430,33 +1254,12 @@ function submitTest() {
   isExamSubmitted = true;
   stopAudio();
 
-  // Clear in-progress session state so next attempt is fresh
-  localStorage.removeItem("sabaku_ats_progress_X");
+  localStorage.removeItem("sabaku_asas_progress_X");
 
-  // Calculate Scores
   let correctCount = 0;
   questions.forEach(q => {
-    const ans = userAnswers[q.id];
-    if (q.type === "complex_matrix") {
-      if (ans && typeof ans === "object") {
-        let allCorrect = true;
-        q.matrixStatements.forEach((stmt, sIdx) => {
-          if (ans[sIdx] !== stmt.isCorrect) allCorrect = false;
-        });
-        if (allCorrect) correctCount++;
-      }
-    } else if (q.type === "mcma") {
-      if (Array.isArray(ans)) {
-        const sortedUser = [...ans].sort();
-        const sortedTarget = [...q.correctAnswer].sort();
-        if (JSON.stringify(sortedUser) === JSON.stringify(sortedTarget)) {
-          correctCount++;
-        }
-      }
-    } else {
-      if (ans === q.correctAnswer) {
-        correctCount++;
-      }
+    if (userAnswers[q.id] === q.correctAnswer) {
+      correctCount++;
     }
   });
 
@@ -1464,7 +1267,6 @@ function submitTest() {
   const finalScore = Math.round((correctCount / totalQuestions) * 100);
   const isTuntas = finalScore >= 75;
 
-  // Show Modal Results
   document.getElementById("result-modal").style.display = "flex";
   document.getElementById("result-score-val").textContent = finalScore;
   
@@ -1479,13 +1281,12 @@ function submitTest() {
   document.getElementById("stat-wrong").textContent = totalQuestions - correctCount;
   document.getElementById("stat-accuracy").textContent = `${Math.round((correctCount / totalQuestions) * 100)}%`;
 
-  // Prepare submission record
   const record = {
     tingkat: studentIdentity.tingkat,
     rombel: studentIdentity.rombel,
     presensi: studentIdentity.presensi,
     nama: studentIdentity.nama,
-    mode: (currentMode === "practice") ? "Latihan Mandiri" : "Asesmen Resmi (ASTS)",
+    mode: (currentMode === "practice") ? "Latihan ASAS Gasal Kelas X" : "Asesmen Resmi ASAS Gasal Kelas X",
     score: correctCount,
     total: totalQuestions,
     grade: finalScore,
@@ -1494,7 +1295,6 @@ function submitTest() {
     answers: userAnswers
   };
 
-  // Save to LocalStorage History
   try {
     const history = JSON.parse(localStorage.getItem("sabaku_ats_history") || "[]");
     history.push(record);
@@ -1503,10 +1303,7 @@ function submitTest() {
     console.warn("History save error:", e);
   }
 
-  // Send to Google Sheets
   syncScoreToGoogleSheets(record);
-
-  // Re-render current question so explanation shows
   renderQuestion(currentQuestionIndex);
 }
 
@@ -1516,7 +1313,6 @@ function syncScoreToGoogleSheets(payload) {
 
   const webAppUrl = localStorage.getItem("sabaku_gs_url") || DEFAULT_GS_URL;
 
-  // Background Beacon safety net
   try {
     if (navigator.sendBeacon) {
       navigator.sendBeacon(webAppUrl, new Blob([JSON.stringify(payload)], { type: "text/plain;charset=utf-8" }));
@@ -1525,7 +1321,6 @@ function syncScoreToGoogleSheets(payload) {
     console.warn("sendBeacon error:", e);
   }
 
-  // Primary fetch POST
   fetch(webAppUrl, {
     method: "POST",
     mode: "no-cors",
@@ -1556,7 +1351,6 @@ function syncScoreToGoogleSheets(payload) {
   });
 }
 
-// 1-Click CSV Export for Teachers/Students
 function downloadResultCSV() {
   try {
     const history = JSON.parse(localStorage.getItem("sabaku_ats_history") || "[]");
@@ -1577,7 +1371,7 @@ function downloadResultCSV() {
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", `Rekap_Nilai_Bahasa_Inggris_Sabaku_${studentIdentity.tingkat}_${studentIdentity.nama.replace(/\s+/g, "_")}.csv`);
+    link.setAttribute("download", `Rekap_Nilai_ASAS_X_${studentIdentity.nama.replace(/\s+/g, "_")}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -1593,13 +1387,12 @@ function reviewAllAnswers() {
 
 function restartTest() {
   if (confirm("Apakah Anda ingin mengulangi pengerjaan dari awal?\nSemua jawaban saat ini akan direset.")) {
-    localStorage.removeItem("sabaku_ats_progress_X");
+    localStorage.removeItem("sabaku_asas_progress_X");
     document.getElementById("result-modal").style.display = "none";
     startFreshTest();
   }
 }
 
-// Database Settings Modal
 function openSettingsModal() {
   const url = localStorage.getItem("sabaku_gs_url") || DEFAULT_GS_URL;
   document.getElementById("input-gs-url").value = url;
@@ -1614,10 +1407,21 @@ function saveSettings() {
   const val = document.getElementById("input-gs-url").value.trim();
   if (val) {
     localStorage.setItem("sabaku_gs_url", val);
-    alert("URL Google Apps Script berhasil disimpan di peramban ini!");
-  } else {
-    localStorage.removeItem("sabaku_gs_url");
-    alert("Pengaturan dikembalikan ke URL default.");
+    alert("Pengaturan tautan basis data berhasil disimpan!");
+    closeSettingsModal();
   }
-  closeSettingsModal();
+}
+
+function saveProgressToLocalStorage() {
+  try {
+    const data = {
+      userAnswers,
+      flaggedQuestions: Array.from(flaggedQuestions),
+      remainingSeconds,
+      currentIndex: currentQuestionIndex
+    };
+    localStorage.setItem("sabaku_asas_progress_X", JSON.stringify(data));
+  } catch (e) {
+    console.warn("Autosave error:", e);
+  }
 }
