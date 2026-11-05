@@ -4,18 +4,16 @@
  * BAHASA INGGRIS TINGKAT LANJUT — TINGKAT XI (FASE F - TL)
  * SEMESTER GASAL (18 MINGGU PENUH) TP 2026/2027
  * 
- * Standar: Tes Kemampuan Akademik (TKA / AKM Literasi Tingkat Lanjut / UTBK)
+ * Standar: Kurikulum Merdeka Fase F Tingkat Lanjut (Maksimal CEFR B2)
  * Cakupan Materi Lengkap:
- * 1. Listening Section: Multimodal Audio-Visual, Academic Dialogues, Literary & Expository Talks.
- * 2. Reading Genre 1: Advanced Narrative (Legends, Folklore Tropes, Literary Devices, Moral Philosophy).
- * 3. Reading Genre 2: Hortatory Exposition (Ethical AI in Education, Social Advocacy, Strong Recommendation).
- * 4. Advanced Grammar: Inversion after Restrictive Adverbials, Subjunctive Mood, Concessive Connectors,
- *    Inverted Conditionals, Impersonal Passive, Evaluative Collocations & Oxford 5000 B2 Lexis.
+ * 1. Listening Section: Multi-Speaker Audio Synthesis (Indonesian name pronunciation, gender-pitch modulation, no dialogue names spoken).
+ * 2. Reading Genre 1: Authentic Indonesian Folklore (The Legend of Rawa Pening / Baru Klinthing, Jawa Tengah).
+ * 3. Reading Genre 2: Practical Hortatory Exposition (Using AI Responsibly for High School Learning).
+ * 4. Grammar & Mechanics: Negative Inversion, Present Subjunctive, Concession, Conditional Type 3, Impersonal Passive, Collocations.
  * 
  * Fitur:
  * - 40 Butir Soal Komprehensif Berbasis Stimulus Otentik
- * - 100% Sumber Tercantum pada Setiap Soal
- * - Audio Sintesis Suara Native (Web Speech API)
+ * - Audio Sintesis Multi-Speaker (Web Speech API)
  * - Shuffling Fisher-Yates Opsi Jawaban
  * - Autosave Real-Time ke LocalStorage (sabaku_asas_progress_XI_TL)
  * - Skoring Otomatis & Evaluasi KKTP 75
@@ -25,7 +23,7 @@
 
 const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbz1dnapNS6sFak-BlG-xxaFhGR9f0BhGYKyyddEvmIEOTxPrlARC2tHkeLLP1owzBToIw/exec";
 
-// SVG Pictures for Listening Part I Multimodal
+// SVG Pictures for Listening Part I
 const SVG_PICTURES = {
   digitalManuscript: `<svg viewBox="0 0 100 100" fill="none" stroke="#2563eb" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
     <rect x="18" y="22" width="64" height="46" rx="4" fill="#eff6ff" stroke="#2563eb"/>
@@ -67,741 +65,1443 @@ const SVG_PICTURES = {
 
 function getGrade11TLAsasQuestions() {
   return [
-    // =========================================================================
-    // SECTION 1: LISTENING SECTION (QUESTIONS 1 - 10)
-    // =========================================================================
-
-    // Part I: Pictures (1-3)
-    {
-      id: 1,
-      source: "Sumber: Advanced English Academic Listening Series — Cambridge Assessment English & Kemendikbudristek",
-      type: "listening_pictures",
-      title: "Listening Section: Part I - Pictures",
-      audioText: "Number one. Look at the pictures. A university student of digital humanities is using high-resolution magnifying apparatus to examine an ancient illuminated manuscript, transcribing fragile ancient calligraphy onto her laptop screen. Which picture best illustrates the spoken statement?",
-      prompt: "Which picture corresponds to the digital manuscript examination described in the recording?",
-      options: [
-        { key: "A", svg: SVG_PICTURES.digitalManuscript, label: "Scholarly digital analysis of an illuminated manuscript" },
-        { key: "B", svg: SVG_PICTURES.amphitheaterDrama, label: "Dramatic theatrical performance in an open amphitheater" },
-        { key: "C", svg: SVG_PICTURES.climateObservatory, label: "Coastal meteorological climate observatory" },
-        { key: "D", svg: SVG_PICTURES.oilRefinery, label: "Fossil fuel industrial refining facility" }
-      ],
-      correctAnswer: "A",
-      explanation: "Audio mendeskripsikan aktivitas akademis filologi digital: 'student of digital humanities is using high-resolution magnifying apparatus to examine an ancient illuminated manuscript'. Gambar A mencerminkan analisis naskah kuno beriluminasi.",
-      grammarNote: "Participle Clauses & Academic Register: 'using high-resolution apparatus', 'transcribing fragile calligraphy'."
-    },
-    {
-      id: 2,
-      source: "Sumber: International Arts & Theatre Education Council — Journal of Literary Performance",
-      type: "listening_pictures",
-      title: "Listening Section: Part I - Pictures",
-      audioText: "Number two. Look at the pictures. In an open-air stone amphitheater surrounded by tiered seating, senior high school performers are staging a dramatic literary tragedy under focused spotlight illumination. Which picture matches the description?",
-      prompt: "Which picture depicts the classical theatrical drama in the stone amphitheater described in the audio?",
-      options: [
-        { key: "A", svg: SVG_PICTURES.digitalManuscript, label: "Scholarly digital analysis of an illuminated manuscript" },
-        { key: "B", svg: SVG_PICTURES.amphitheaterDrama, label: "Dramatic theatrical performance in an open amphitheater" },
-        { key: "C", svg: SVG_PICTURES.climateObservatory, label: "Coastal meteorological climate observatory" },
-        { key: "D", svg: SVG_PICTURES.oilRefinery, label: "Fossil fuel industrial refining facility" }
-      ],
-      correctAnswer: "B",
-      explanation: "Audio menyebutkan pementasan drama sastra klasik: 'In an open-air stone amphitheater surrounded by tiered seating, senior high school performers are staging a dramatic literary tragedy'. Gambar B tepat.",
-      grammarNote: "Prepositional Phrase of Place: 'In an open-air stone amphitheater surrounded by tiered seating'."
-    },
-    {
-      id: 3,
-      source: "Sumber: Global Renewable Science & Meteorological Bulletin — World Meteorological Organization",
-      type: "listening_pictures",
-      title: "Listening Section: Part I - Pictures",
-      audioText: "Number three. Look at the pictures. Perched high upon an elevated green hill above the ocean, this automated meteorological dome monitors solar radiation and atmospheric airflow to assess clean energy potential. Which picture illustrates this description?",
-      prompt: "Which picture shows the elevated climate observation dome described in the audio?",
-      options: [
-        { key: "A", svg: SVG_PICTURES.digitalManuscript, label: "Scholarly digital analysis of an illuminated manuscript" },
-        { key: "B", svg: SVG_PICTURES.amphitheaterDrama, label: "Dramatic theatrical performance in an open amphitheater" },
-        { key: "C", svg: SVG_PICTURES.climateObservatory, label: "Coastal meteorological climate observatory" },
-        { key: "D", svg: SVG_PICTURES.oilRefinery, label: "Fossil fuel industrial refining facility" }
-      ],
-      correctAnswer: "C",
-      explanation: "Audio mendeskripsikan stasiun pengamatan iklim di atas bukit hijau: 'Perched high upon an elevated green hill above the ocean, this automated meteorological dome monitors solar radiation'. Gambar C adalah kubah observatorium.",
-      grammarNote: "Past Participle modifier: 'Perched high upon an elevated green hill... this dome monitors...'."
-    },
-
-    // Part II: Short Dialogues (4-6)
-    {
-      id: 4,
-      source: "Sumber: Modul Pembelajaran Bahasa Inggris Tingkat Lanjut Fase F — Kemendikbudristek",
-      type: "listening_dialog",
-      title: "Listening Section: Part II - Short Dialogues",
-      audioText: "Number four. Listen to the academic dialogue between Tari and her literature instructor, Mr. Wicaksono. Tari: Mr. Wicaksono, in our analysis of the Prambanan legend, why does Bandung Bondowoso's hubris ultimately cause his downfall despite his immense supernatural prowess? Mr. Wicaksono: That is a keen literary observation, Tari. Ancient narratives frequently caution that raw power without ethical restraint and humility inevitably breeds self-destruction. Question: What central literary theme does Mr. Wicaksono highlight regarding the protagonist?",
-      prompt: "What central literary insight does Mr. Wicaksono emphasize regarding the protagonist's downfall?",
-      options: [
-        { key: "A", text: "Physical strength alone is always sufficient to win genuine loyalty" },
-        { key: "B", text: "Raw power devoid of ethical restraint and humility inevitably leads to self-ruin" },
-        { key: "C", text: "Supernatural abilities should be concealed from royal advisers" },
-        { key: "D", text: "Traditional legends avoid addressing moral complexities" }
-      ],
-      correctAnswer: "B",
-      explanation: "Mr. Wicaksono menyatakan secara gamblang: 'raw power without ethical restraint and humility inevitably breeds self-destruction' (kekuatan tanpa kendali etika dan kerendahan hati pasti melahirkan kehancuran diri). Pilihan B tepat.",
-      grammarNote: "Advanced Noun Phrase & Theme Synthesis: 'raw power devoid of ethical restraint and humility'."
-    },
-    {
-      id: 5,
-      source: "Sumber: Seminar Prosiding Literasi Digital & Etika AI — Dewan Pendidikan Nasional",
-      type: "listening_dialog",
-      title: "Listening Section: Part II - Short Dialogues",
-      audioText: "Number five. Listen to the conversation between Kevin and Amanda. Kevin: Amanda, our debate team is arguing against a complete ban on Generative AI tools in high schools. Amanda: Exactly. Banning modern technology is counterproductive. Instead, schools ought to teach prompt critical evaluation and mandate transparent source disclosure. Kevin: I agree entirely; developing critical discernment is far superior to blind prohibition. Question: What policy recommendation do the speakers advocate?",
-      prompt: "What progressive educational approach do Kevin and Amanda recommend regarding Generative AI?",
-      options: [
-        { key: "A", text: "Banning all digital devices and returning to handwritten paper exams" },
-        { key: "B", text: "Teaching critical evaluation and mandating transparent disclosure rather than imposing bans" },
-        { key: "C", text: "Allowing students to submit automated essays without any teacher supervision" },
-        { key: "D", text: "Eliminating essay writing entirely from high school curricula" }
-      ],
-      correctAnswer: "B",
-      explanation: "Kedua siswa sepakat: 'schools ought to teach prompt critical evaluation and mandate transparent source disclosure... discernment is far superior to blind prohibition'. Pilihan B akurat.",
-      grammarNote: "Modal of Hortatory Recommendation: 'schools ought to teach prompt critical evaluation and mandate transparent disclosure'."
-    },
-    {
-      id: 6,
-      source: "Sumber: Forum Remaja Peduli Lingkungan & Kebijakan Hijau — KLHK RI",
-      type: "listening_dialog",
-      title: "Listening Section: Part II - Short Dialogues",
-      audioText: "Number six. Listen to the dialogue between Bima and Maya. Bima: Maya, our environmental club has drafted a proposal for our school festival. Maya: Did you include the mandatory deposit-return system for reusable glass tumblers? Bima: Yes. Furthermore, we recommended that food vendors be prohibited from distributing single-use plastic cutlery. Maya: That recommendation is vital; without binding regulations, voluntary pledges rarely succeed. Question: What does Maya assert about environmental initiatives?",
-      prompt: "What does Maya assert regarding environmental pledges during school events?",
-      options: [
-        { key: "A", text: "Voluntary pledges rarely achieve meaningful change without binding regulations" },
-        { key: "B", text: "Plastic cutlery is more environmentally sustainable than glass tumblers" },
-        { key: "C", text: "School festivals should be cancelled to preserve campus cleanliness" },
-        { key: "D", text: "Food vendors should determine environmental policies independently" }
-      ],
-      correctAnswer: "A",
-      explanation: "Maya menegaskan: 'That recommendation is vital; without binding regulations, voluntary pledges rarely succeed' (komitmen sukarela jarang berhasil tanpa regulasi yang mengikat). Pilihan A tepat.",
-      grammarNote: "Prepositional condition: 'without binding regulations, voluntary pledges rarely succeed'."
-    },
-
-    // Part III: Short Talks / Monologues (7-10)
-    {
-      id: 7,
-      source: "Sumber: Oxford University Literary Studies — Contemporary Narrative Theory Lecture Series",
-      type: "listening_talk",
-      title: "Listening Section: Part III - Short Talks",
-      audioText: "Questions seven and eight are based on the following academic talk. Good morning, students of Advanced English. In traditional European folklore, antagonists are commonly depicted as irredeemably wicked, while protagonists embody immaculate virtue. However, modern contemporary authors frequently deconstruct these simplistic binaries through what literary theorists call fractured fairy tales. By reimagining stories from the marginalized antagonist's psychological viewpoint, authors expose social prejudices, challenge rigid gender stereotypes, and foster deeper emotional empathy. In doing so, contemporary literature encourages young readers to interrogate the narrator's reliability rather than passively absorbing inherited folklore dogmas. Now answer question number seven: What is a primary objective of fractured fairy tales according to the speaker?",
-      prompt: "According to the literary lecture, what is a primary objective of contemporary fractured fairy tales?",
-      options: [
-        { key: "A", text: "To reinforce traditional archetypes of flawless heroes and pure evil villains" },
-        { key: "B", text: "To deconstruct simplistic binaries and cultivate critical empathy by examining alternative perspectives" },
-        { key: "C", text: "To prove that antique folklore has zero cultural value in modern societies" },
-        { key: "D", text: "To shorten lengthy stories into five-minute children's cartoons" }
-      ],
-      correctAnswer: "B",
-      explanation: "Pembicara menjelaskan bahwa tujuan dongeng kontemporer (fractured fairy tales) adalah mendekonstruksi biner yang terlalu sederhana dan menumbuhkan empati kritis: 'deconstruct these simplistic binaries... expose social prejudices, and foster deeper emotional empathy'.",
-      grammarNote: "Academic Exposition Register: 'deconstruct simplistic binaries and cultivate critical empathy'."
-    },
-    {
-      id: 8,
-      source: "Sumber: Oxford University Literary Studies — Contemporary Narrative Theory Lecture Series",
-      type: "listening_talk",
-      title: "Listening Section: Part III - Short Talks",
-      audioText: "Now answer question number eight based on the same talk: What intellectual habit does modern narrative revision encourage among high school readers?",
-      prompt: "What intellectual habit does reading revised narratives encourage students to develop?",
-      options: [
-        { key: "A", text: "Blindly accepting every narrator's claims as absolute truth" },
-        { key: "B", text: "Interrogating narrative reliability rather than passively absorbing inherited assumptions" },
-        { key: "C", text: "Refusing to read any literature published before the twenty-first century" },
-        { key: "D", text: "Memorizing character names without analyzing thematic significance" }
-      ],
-      correctAnswer: "B",
-      explanation: "Kuliah menegaskan: 'contemporary literature encourages young readers to interrogate the narrator's reliability rather than passively absorbing inherited folklore dogmas' (mempertanyakan keandalan narator daripada menelan asumsi begitu saja).",
-      grammarNote: "Infinitive of Purpose: 'to interrogate the narrator's reliability rather than passively absorbing...'."
-    },
-    {
-      id: 9,
-      source: "Sumber: Global Media Literacy & Cyber Ethics Summit — UNESCO Policy Directorate",
-      type: "listening_talk",
-      title: "Listening Section: Part III - Short Talks",
-      audioText: "Questions nine and ten are based on the following hortatory address. Esteemed educators and senior students: We are witnessing an unprecedented algorithmic phenomenon in modern digital culture. Commercial social platforms systematically curate newsfeeds to confirm existing ideological predispositions, thereby trapping adolescents inside invisible echo chambers. When algorithmic echo chambers remain unchecked, nuance disappears, polarization intensifies, and democratic discourse fractures. Therefore, we urgently recommend that educational institutions integrate algorithmic audit exercises into the core curriculum. High school learners must be trained to actively cross-examine algorithmic recommendations, diversify their information diets, and recognize cognitive confirmation bias before formulating opinions. Now answer question number nine: What societal hazard arises when algorithmic echo chambers remain unchecked?",
-      prompt: "According to the hortatory address, what hazard is caused by unchecked algorithmic echo chambers?",
-      options: [
-        { key: "A", text: "A dramatic reduction in the speed of home internet connections" },
-        { key: "B", text: "Loss of nuanced thinking, intensified social polarization, and fractured civil discourse" },
-        { key: "C", text: "The disappearance of all commercial online shopping platforms" },
-        { key: "D", text: "An immediate collapse of global telecommunication satellites" }
-      ],
-      correctAnswer: "B",
-      explanation: "Pembicara menyatakan: 'When algorithmic echo chambers remain unchecked, nuance disappears, polarization intensifies, and democratic discourse fractures'. Hilangnya nuansa berpikir kritis dan meningkatnya polarisasi sosial.",
-      grammarNote: "Cause and Effect / Predictive Result: 'nuance disappears, polarization intensifies, and democratic discourse fractures'."
-    },
-    {
-      id: 10,
-      source: "Sumber: Global Media Literacy & Cyber Ethics Summit — UNESCO Policy Directorate",
-      type: "listening_talk",
-      title: "Listening Section: Part III - Short Talks",
-      audioText: "Now answer question number ten based on the same talk: What specific recommendation does the speaker propose for educational institutions?",
-      prompt: "What concrete recommendation is proposed by the speaker to mitigate algorithmic echo chambers?",
-      options: [
-        { key: "A", text: "Banning students from enrolling in university humanities programs" },
-        { key: "B", text: "Integrating algorithmic audit exercises and critical verification into the school curriculum" },
-        { key: "C", text: "Confiscating all computer equipment from school media laboratories" },
-        { key: "D", text: "Relying exclusively on voluntary digital hygiene without institutional guidance" }
-      ],
-      correctAnswer: "B",
-      explanation: "Pidato hortatori mengusulkan rekomendasi eksplisit: 'Therefore, we urgently recommend that educational institutions integrate algorithmic audit exercises into the core curriculum'.",
-      grammarNote: "Subjunctive Hortatory Structure: 'recommend that educational institutions integrate algorithmic audit exercises into the core curriculum'."
-    },
-
-    // =========================================================================
-    // SECTION 2: READING GENRE 1 - ADVANCED NARRATIVE TEXT (QUESTIONS 11 - 20)
-    // =========================================================================
-    {
-      id: 11,
-      source: "Sumber: Dikutip dan diadaptasi dari Kajian Sastra Lisan Jawa Tengah — Balai Bahasa Provinsi Jawa Tengah & Kemendikbudristek",
-      type: "single_choice",
-      title: "Advanced Narrative: Central Theme & Conflict",
-      stimulusTitle: "Text 1: The Gilded Weaver of Mount Merapi: An Ancient Legend of Sacred Craftsmanship",
-      stimulusBody: `High upon the misty volcanic slopes of Mount Merapi in ancient Central Java, there dwelled a solitary artisan named Nyi Sekar. While village elders revered her for weaving traditional ceremonial textiles endowed with celestial protection, neighboring feudal warlords coveted her fabled golden cloth for imperial conquest. Nyi Sekar lived under a solemn sacred vow: her gilded threads could only be harvested from the rare golden cocoon moths that nested beside the active volcanic vents, and they could only be woven with selfless devotion for communal healing, never for vanity or royal bloodshed.<br><br>One monsoon evening, a ruthless warlord named Senopati Kresna arrived at her sanctuary with an armed brigade. Brandishing his jewel-encrusted blade, he demanded that Nyi Sekar weave an impenetrable war tunic within three days, threatening to raze the valley villages below if she refused. Torn between preserving the sacred sanctity of her craft and shielding innocent villagers from catastrophic slaughter, Nyi Sekar ostensibly bowed in quiet compliance. 'Power often blinds men to the mountain's sacred laws,' she whispered inwardly, embarking upon the most perilous artistic trial of her existence.<br><br>Working ceaselessly under the brooding crater, Nyi Sekar gathered the volcanic golden silk. However, into the magnificent tunic's intricate geometric patterns, she deliberately entwined fibers from the sacred banyan root—fibers known in regional lore to dissolve binding enchantments whenever exposed to true prideful malice. When dawn broke on the third day, the golden tunic shimmered with astonishing splendor. Arrogantly declaring himself immortal, Senopati Kresna seized the garment, donned it over his heavy iron armor, and ordered his soldiers to march on the defenseless settlements.<br><br>Yet, the instant the warlord drew his sword to inaugurate the conquest, the dormant volcano unleashed a deafening rumble. Awakened by his unbridled hubris, the sacred threads tightened, constricting like living vines around his chest. The harder the warlord struggled to exert his violent will, the heavier the tunic became, until he collapsed under the unbearable weight of his own imperial greed. Stripped of his weapons, the humbled commander fled the highlands in utter disarray. To this day, Javanese weavers maintain that authentic art serves to cultivate peace, reminding mortals that nature and craft ultimately resist tyranny.`,
-      prompt: "What is the primary thematic conflict explored throughout the narrative text above?",
-      options: [
-        { key: "A", text: "A territorial dispute over boundary lines between two neighboring mountain farmers" },
-        { key: "B", text: "The ethical confrontation between sacred, selfless craftsmanship and tyrannical military conquest" },
-        { key: "C", text: "The difficulty of domesticating wild silk cocoon moths in volcanic climates" },
-        { key: "D", text: "A competition between two royal tailors to produce the most expensive bridal gown" }
-      ],
-      correctAnswer: "B",
-      explanation: "Tema sentral cerita naratif tingkat lanjut ini adalah pergulatan etis antara seni kriya yang sakral dan suci untuk kedamaian melawan arogansi tirani militer yang serakah: 'ethical confrontation between sacred, selfless craftsmanship and tyrannical military conquest'.",
-      grammarNote: "Advanced Thematic Synthesis: Craftsmanship as ethical resistance against tyranny."
-    },
-    {
-      id: 12,
-      source: "Sumber: Dikutip dan diadaptasi dari Kajian Sastra Lisan Jawa Tengah — Balai Bahasa Provinsi Jawa Tengah & Kemendikbudristek",
-      type: "single_choice",
-      title: "Advanced Narrative: Explicit Moral Dilemma",
-      stimulusTitle: "Text 1: The Gilded Weaver of Mount Merapi: An Ancient Legend of Sacred Craftsmanship",
-      stimulusBody: `(Silakan merujuk pada teks 'The Gilded Weaver of Mount Merapi' di atas)`,
-      prompt: "According to paragraph 2, what acute moral dilemma did Nyi Sekar confront when Senopati Kresna issued his ultimatum?",
-      options: [
-        { key: "A", text: "She lacked sufficient food supplies to feed the armed soldiers" },
-        { key: "B", text: "She was torn between preserving the sacred vow of her craft and shielding innocent villagers from massacre" },
-        { key: "C", text: "She forgot the traditional weaving patterns passed down by her ancestors" },
-        { key: "D", text: "She desired to accept the warlord's offer of royal gold and palace titles" }
-      ],
-      correctAnswer: "B",
-      explanation: "Paragraf 2 menyatakan secara eksplisit: 'Torn between preserving the sacred sanctity of her craft and shielding innocent villagers from catastrophic slaughter...'. Pilihan B tepat.",
-      grammarNote: "Participial Adjective Phrase of Dilemma: 'Torn between preserving... and shielding...'."
-    },
-    {
-      id: 13,
-      source: "Sumber: Dikutip dan diadaptasi dari Kajian Sastra Lisan Jawa Tengah — Balai Bahasa Provinsi Jawa Tengah & Kemendikbudristek",
-      type: "single_choice",
-      title: "Advanced Narrative: Literary Symbolism",
-      stimulusTitle: "Text 1: The Gilded Weaver of Mount Merapi: An Ancient Legend of Sacred Craftsmanship",
-      stimulusBody: `(Silakan merujuk pada teks 'The Gilded Weaver of Mount Merapi' di atas)`,
-      prompt: "What does the sacred banyan root fiber woven into the tunic symbolize within the story's deeper discourse?",
-      options: [
-        { key: "A", text: "The superiority of expensive royal fabrics over ordinary village cotton" },
-        { key: "B", text: "Nature's moral counterweight that turns tyrannical malice against the perpetrator" },
-        { key: "C", text: "A hidden treasure map leading to the mountain's gold mine" },
-        { key: "D", text: "A physical poison intended to kill the warlord instantly" }
-      ],
-      correctAnswer: "B",
-      explanation: "Serat akar beringin sakral yang mengikat dan memberat saat terkena niat jahat melambangkan kekuatan penyeimbang moral alam (moral counterweight) yang membalikkan kesombongan tirani kepada pelakunya sendiri. Pilihan B benar.",
-      grammarNote: "Symbolism in Literature: The woven plant fibers symbolize natural cosmic justice."
-    },
-    {
-      id: 14,
-      source: "Sumber: Dikutip dan diadaptasi dari Kajian Sastra Lisan Jawa Tengah — Balai Bahasa Provinsi Jawa Tengah & Kemendikbudristek",
-      type: "single_choice",
-      title: "Advanced Narrative: Contextual Lexis (CEFR B2)",
-      stimulusTitle: "Text 1: The Gilded Weaver of Mount Merapi: An Ancient Legend of Sacred Craftsmanship",
-      stimulusBody: `(Silakan merujuk pada teks 'The Gilded Weaver of Mount Merapi' di atas)`,
-      prompt: "The word 'coveted' in paragraph 1 ('feudal warlords coveted her fabled golden cloth for imperial conquest') is closest in meaning to...",
-      options: [
-        { key: "A", text: "intensely desired and craved" },
-        { key: "B", text: "openly rejected" },
-        { key: "C", text: "carefully protected" },
-        { key: "D", text: "thoroughly forgotten" }
-      ],
-      correctAnswer: "A",
-      explanation: "Kata 'coveted' bermakna sangat mendambakan, menginginkan dengan penuh ketamakan (intensely desired and craved).",
-      grammarNote: "Literary Verb Lexis: covet = yearn for, crave greedily, desire intensely."
-    },
-    {
-      id: 15,
-      source: "Sumber: Dikutip dan diadaptasi dari Kajian Sastra Lisan Jawa Tengah — Balai Bahasa Provinsi Jawa Tengah & Kemendikbudristek",
-      type: "single_choice",
-      title: "Advanced Narrative: Figurative Language Analysis",
-      stimulusTitle: "Text 1: The Gilded Weaver of Mount Merapi: An Ancient Legend of Sacred Craftsmanship",
-      stimulusBody: `(Silakan merujuk pada teks 'The Gilded Weaver of Mount Merapi' di atas)`,
-      prompt: "Which literary device is employed in the phrase: 'the sacred threads tightened, constricting like living vines around his chest' (paragraph 4)?",
-      options: [
-        { key: "A", text: "Simile (using 'like' to compare the threads to living vines)" },
-        { key: "B", text: "Oxymoron (combining two contradictory terms)" },
-        { key: "C", text: "Euphemism (softening an unpleasant reality)" },
-        { key: "D", text: "Hyperbolic understatement" }
-      ],
-      correctAnswer: "A",
-      explanation: "Penggunaan kata 'like' dalam 'constricting like living vines' secara eksplisit merupakan majas perumpamaan (Simile) yang membandingkan benang tenun dengan tanaman merambat yang hidup.",
-      grammarNote: "Figurative Device Identification: Simile (comparison using 'like' or 'as')."
-    },
-    {
-      id: 16,
-      source: "Sumber: Dikutip dan diadaptasi dari Kajian Sastra Lisan Jawa Tengah — Balai Bahasa Provinsi Jawa Tengah & Kemendikbudristek",
-      type: "single_choice",
-      title: "Advanced Narrative: Psychological Character Motivation",
-      stimulusTitle: "Text 1: The Gilded Weaver of Mount Merapi: An Ancient Legend of Sacred Craftsmanship",
-      stimulusBody: `(Silakan merujuk pada teks 'The Gilded Weaver of Mount Merapi' di atas)`,
-      prompt: "Why did Nyi Sekar choose quiet, strategic compliance rather than open physical defiance against Senopati Kresna?",
-      options: [
-        { key: "A", text: "She secretly supported the warlord's violent ambitions" },
-        { key: "B", text: "She recognized that open resistance would bring immediate death to unarmed villagers, whereas strategic craft could outwit him" },
-        { key: "C", text: "She expected the warlord to pay her enormous sums of silver" },
-        { key: "D", text: "She was intimidated into losing her moral convictions" }
-      ],
-      correctAnswer: "B",
-      explanation: "Nyi Sekar menyadari perlawanan terbuka akan membuat desa dibantai seketika, sedangkan dengan kepatuhan semu dan kepiawaian tenunnya yang sakral, ia dapat memperdaya dan mengalahkan sang tiran. Pilihan B tepat.",
-      grammarNote: "Character Motivation & Indirect Strategy: Strategic patience vs impetuous violence."
-    },
-    {
-      id: 17,
-      source: "Sumber: Dikutip dan diadaptasi dari Kajian Sastra Lisan Jawa Tengah — Balai Bahasa Provinsi Jawa Tengah & Kemendikbudristek",
-      type: "single_choice",
-      title: "Advanced Narrative: Pronoun Tracking in Periodic Sentences",
-      stimulusTitle: "Text 1: The Gilded Weaver of Mount Merapi: An Ancient Legend of Sacred Craftsmanship",
-      stimulusBody: `(Silakan merujuk pada teks 'The Gilded Weaver of Mount Merapi' di atas)`,
-      prompt: "In paragraph 1, what does the pronoun 'they' refer to in the clause: 'and they could only be woven with selfless devotion'?",
-      options: [
-        { key: "A", text: "The village elders" },
-        { key: "B", text: "The feudal warlords" },
-        { key: "C", text: "The gilded threads" },
-        { key: "D", text: "The volcanic vents" }
-      ],
-      correctAnswer: "C",
-      explanation: "Kalimat lengkap menyatakan: 'her gilded threads could only be harvested from the rare golden cocoon moths... and they could only be woven...'. Kata 'they' merujuk kepada benang-benang emas tersebut (the gilded threads).",
-      grammarNote: "Pronoun-Antecedent Agreement: Plural antecedent 'gilded threads' -> subject pronoun 'they'."
-    },
-    {
-      id: 18,
-      source: "Sumber: Dikutip dan diadaptasi dari Kajian Sastra Lisan Jawa Tengah — Balai Bahasa Provinsi Jawa Tengah & Kemendikbudristek",
-      type: "single_choice",
-      title: "Advanced Narrative: Turning Point (Peripeteia)",
-      stimulusTitle: "Text 1: The Gilded Weaver of Mount Merapi: An Ancient Legend of Sacred Craftsmanship",
-      stimulusBody: `(Silakan merujuk pada teks 'The Gilded Weaver of Mount Merapi' di atas)`,
-      prompt: "What exact incident marks the peripeteia (dramatic reversal of fortune) in the narrative?",
-      options: [
-        { key: "A", text: "When Senopati Kresna first rode his horse into the mountain village" },
-        { key: "B", text: "When the warlord drew his blade to inaugurate the conquest, causing the tunic to tighten under the weight of his hubris" },
-        { key: "C", text: "When Nyi Sekar gathered golden cocoons beside the crater" },
-        { key: "D", text: "When the village elders celebrated their annual harvest" }
-      ],
-      correctAnswer: "B",
-      explanation: "Titik balik dramatis (peripeteia) terjadi pada paragraf 4 ketika sang panglima menghunus pedang untuk memulai invasi, namun seketika jubah emasnya memberat dan melilit dadanya akibat arogansi dan niat jahatnya sendiri. Pilihan B tepat.",
-      grammarNote: "Literary Theory Term: Peripeteia (sudden reversal of fortune or circumstances)."
-    },
-    {
-      id: 19,
-      source: "Sumber: Dikutip dan diadaptasi dari Kajian Sastra Lisan Jawa Tengah — Balai Bahasa Provinsi Jawa Tengah & Kemendikbudristek",
-      type: "single_choice",
-      title: "Advanced Narrative: Philosophical Coda",
-      stimulusTitle: "Text 1: The Gilded Weaver of Mount Merapi: An Ancient Legend of Sacred Craftsmanship",
-      stimulusBody: `(Silakan merujuk pada teks 'The Gilded Weaver of Mount Merapi' di atas)`,
-      prompt: "What philosophical worldview is conveyed in the final sentence of the narrative?",
-      options: [
-        { key: "A", text: "True artistic mastery is inherently ethical, cultivating peace and ultimately triumphing over tyranny" },
-        { key: "B", text: "Weapons made of volcanic silk are more durable than iron armor" },
-        { key: "C", text: "Humanity should abandon living near mountains due to volcanic danger" },
-        { key: "D", text: "Artisans must charge high prices to royal warlords to ensure economic prosperity" }
-      ],
-      correctAnswer: "A",
-      explanation: "Kalimat penutup menegaskan: 'authentic art serves to cultivate peace, reminding mortals that nature and craft ultimately resist tyranny' (karya seni sejati menumbuhkan perdamaian dan pada akhirnya menolak tirani). Pilihan A tepat.",
-      grammarNote: "Philosophical Coda: Affirmation of ethical art as resistance to tyranny."
-    },
-    {
-      id: 20,
-      source: "Sumber: Dikutip dan diadaptasi dari Kajian Sastra Lisan Jawa Tengah — Balai Bahasa Provinsi Jawa Tengah & Kemendikbudristek",
-      type: "single_choice",
-      title: "Advanced Narrative: Literary Comparison",
-      stimulusTitle: "Text 1: The Gilded Weaver of Mount Merapi: An Ancient Legend of Sacred Craftsmanship",
-      stimulusBody: `(Silakan merujuk pada teks 'The Gilded Weaver of Mount Merapi' di atas)`,
-      prompt: "How does Nyi Sekar's resolution differ from typical militaristic folk heroes?",
-      options: [
-        { key: "A", text: "She used brute physical force and cavalry troops to overpower the enemy" },
-        { key: "B", text: "She employed intellectual patience and sacred natural wisdom to disarm violence without shedding innocent blood" },
-        { key: "C", text: "She fled to a distant island and abandoned her community" },
-        { key: "D", text: "She formed a military alliance with neighboring foreign empires" }
-      ],
-      correctAnswer: "B",
-      explanation: "Berbeda dari pahlawan militeristik yang mengandalkan senjata dan kekerasan fisik, Nyi Sekar menggunakan kesabaran intelektual dan kearifan sakral alam untuk melucuti tirani tanpa menumpahkan darah orang tak berdosa. Pilihan B benar.",
-      grammarNote: "Character Archetype Analysis: The wise creator hero vs the militaristic warrior."
-    },
-
-    // =========================================================================
-    // SECTION 3: READING GENRE 2 - HORTATORY EXPOSITION (QUESTIONS 21 - 30)
-    // =========================================================================
-    {
-      id: 21,
-      source: "Sumber: Diadaptasi dari Policy Recommendations on Ethics of Artificial Intelligence — UNESCO & Balai Pengembangan Talenta Indonesia",
-      type: "single_choice",
-      title: "Hortatory Exposition: Communicative Purpose",
-      stimulusTitle: "Text 2: Why High Schools Must Establish Ethical Artificial Intelligence Guidelines",
-      stimulusBody: `The meteoric emergence of generative artificial intelligence has undeniably revolutionized the global academic landscape. With simple prompts, advanced large language models can instantaneously generate persuasive essays, synthesize scientific research, and debug complex software code. While some conservative educators reflexively advocate for a blanket ban on AI tools in secondary education, such prohibitionist stances are fundamentally unfeasible and myopic. In an increasingly automated society, artificial intelligence will inevitably underpin professional workflows. Therefore, senior high schools must proactively establish comprehensive ethical AI frameworks that train students to harness these technologies responsibly rather than attempting to enforce futile prohibitions.<br><br>First and foremost, unchecked reliance on automated text generation poses a genuine threat to the development of autonomous cognitive synthesis. Writing is not merely the production of polished syntax; it is the cognitive crucible through which young thinkers clarify abstract concepts, construct logical arguments, and discover their distinctive voices. If students habitually outsource their essay drafting to algorithmic algorithms without rigorous intellectual engagement, their critical thinking and deep analytical stamina will gradually atrophy. Educators must design assessment tasks that evaluate the human analytical process—such as oral defense, in-class brainstorming logs, and reflective annotations—rather than solely grading final written products.<br><br>Furthermore, algorithmic generation is plagued by pervasive hallucinations, unverified citations, and implicit algorithmic biases. Generative systems do not possess genuine comprehension; they merely compute probabilistic sequences of words based on vast training datasets. Consequently, students who accept AI outputs without skepticism risk disseminating convincing misinformation and perpetuating societal prejudices. High schools bear an indispensable institutional obligation to cultivate sophisticated prompt engineering and forensic source-verification competencies, ensuring learners treat machine output as an initial rough hypothesis rather than authoritative gospel.<br><br>In conclusion, secondary education stands at a historic pedagogical crossroads. Banning generative technology merely drives its usage underground, leaving adolescents vulnerable to intellectual dependency and academic dishonesty. Instead, school administrations should mandate transparent AI disclosure policies, integrate algorithmic literacy modules across all disciplines, and reorient assessments toward original critical inquiry. By establishing principled ethical guardrails today, we empower the next generation to master artificial intelligence as a catalyst for human ingenuity, rather than becoming passive passengers in an algorithm-dominated world.`,
-      prompt: "What is the defining communicative purpose of the hortatory exposition text above?",
-      options: [
-        { key: "A", text: "To entertain readers with a futuristic science fiction story about self-aware robots" },
-        { key: "B", text: "To persuade educational stakeholders that high schools must establish ethical AI frameworks and recommendations" },
-        { key: "C", text: "To describe the physical hardware specifications of modern computer graphics cards" },
-        { key: "D", text: "To provide a step-by-step programming tutorial on building a neural network from scratch" }
-      ],
-      correctAnswer: "B",
-      explanation: "Tujuan komunikatif teks eksposisi hortatori adalah meyakinkan pemangku kepentingan pendidikan bahwa sekolah harus menetapkan kerangka kerja dan rekomendasi etis dalam pemanfaatan AI (to persuade that high schools must establish ethical AI frameworks).",
-      grammarNote: "Generic Purpose of Hortatory Exposition: To persuade that something should or should not be done."
-    },
-    {
-      id: 22,
-      source: "Sumber: Diadaptasi dari Policy Recommendations on Ethics of Artificial Intelligence — UNESCO & Balai Pengembangan Talenta Indonesia",
-      type: "single_choice",
-      title: "Hortatory Exposition: Thesis Statement Identification",
-      stimulusTitle: "Text 2: Why High Schools Must Establish Ethical Artificial Intelligence Guidelines",
-      stimulusBody: `(Silakan merujuk pada teks 'Why High Schools Must Establish Ethical Artificial Intelligence Guidelines' di atas)`,
-      prompt: "Which sentence from paragraph 1 directly expresses the author's central thesis statement?",
-      options: [
-        { key: "A", text: "The meteoric emergence of generative artificial intelligence has revolutionized academic landscapes" },
-        { key: "B", text: "With simple prompts, language models can instantaneously generate persuasive essays" },
-        { key: "C", text: "Senior high schools must proactively establish comprehensive ethical AI frameworks that train students to harness technologies responsibly" },
-        { key: "D", text: "Some conservative educators reflexively advocate for a blanket ban on AI tools" }
-      ],
-      correctAnswer: "C",
-      explanation: "Tesis penulis tercantum jelas di akhir paragraf 1: 'Therefore, senior high schools must proactively establish comprehensive ethical AI frameworks that train students to harness these technologies responsibly...'. Pilihan C tepat.",
-      grammarNote: "Thesis Statement Identification: Modal of strong necessity ('must proactively establish')."
-    },
-    {
-      id: 23,
-      source: "Sumber: Diadaptasi dari Policy Recommendations on Ethics of Artificial Intelligence — UNESCO & Balai Pengembangan Talenta Indonesia",
-      type: "single_choice",
-      title: "Hortatory Exposition: Structural Distinction",
-      stimulusTitle: "Text 2: Why High Schools Must Establish Ethical Artificial Intelligence Guidelines",
-      stimulusBody: `(Silakan merujuk pada teks 'Why High Schools Must Establish Ethical Artificial Intelligence Guidelines' di atas)`,
-      prompt: "How does the conclusion of this Hortatory Exposition differ structurally from an Analytical Exposition text?",
-      options: [
-        { key: "A", text: "It concludes with actionable recommendations ('should mandate... integrate... reorient') rather than merely reiterating the thesis" },
-        { key: "B", text: "It ends with a poetic rhyming verse about computer screens" },
-        { key: "C", text: "It introduces a brand-new fictional conflict between dragons and machines" },
-        { key: "D", text: "It refuses to summarize any of the previous arguments" }
-      ],
-      correctAnswer: "A",
-      explanation: "Perbedaan struktural utama teks Eksposisi Hortatori dibandingkan Eksposisi Analitis adalah bahwa paragraf penutupnya memuat Rekomendasi tindakan ('should mandate... integrate... reorient') bukan hanya sekadar Reiteration (penegasan ulang). Pilihan A tepat.",
-      grammarNote: "Text Genre Theory: Hortatory Exposition ends with Recommendation, whereas Analytical Exposition ends with Reiteration."
-    },
-    {
-      id: 24,
-      source: "Sumber: Diadaptasi dari Policy Recommendations on Ethics of Artificial Intelligence — UNESCO & Balai Pengembangan Talenta Indonesia",
-      type: "single_choice",
-      title: "Hortatory Exposition: Cognitive Consequence",
-      stimulusTitle: "Text 2: Why High Schools Must Establish Ethical Artificial Intelligence Guidelines",
-      stimulusBody: `(Silakan merujuk pada teks 'Why High Schools Must Establish Ethical Artificial Intelligence Guidelines' di atas)`,
-      prompt: "According to paragraph 2, what intellectual danger arises if students habitually outsource writing to AI algorithms?",
-      options: [
-        { key: "A", text: "Their computer monitors will overheat and cause hardware malfunctions" },
-        { key: "B", text: "Their critical thinking capacity and deep analytical stamina will gradually atrophy" },
-        { key: "C", text: "They will be barred from using library reference textbooks" },
-        { key: "D", text: "They will automatically graduate from high school two years earlier" }
-      ],
-      correctAnswer: "B",
-      explanation: "Paragraf 2 menyatakan: 'their critical thinking and deep analytical stamina will gradually atrophy' (daya nalar kritis dan ketahanan analitis mendalam mereka akan berangsur-angsur melemah/mengalami atrofi). Pilihan B benar.",
-      grammarNote: "Metaphorical Lexis: atrophy = weaken, decline from lack of use or exercise."
-    },
-    {
-      id: 25,
-      source: "Sumber: Diadaptasi dari Policy Recommendations on Ethics of Artificial Intelligence — UNESCO & Balai Pengembangan Talenta Indonesia",
-      type: "single_choice",
-      title: "Hortatory Exposition: Academic Lexis in Context",
-      stimulusTitle: "Text 2: Why High Schools Must Establish Ethical Artificial Intelligence Guidelines",
-      stimulusBody: `(Silakan merujuk pada teks 'Why High Schools Must Establish Ethical Artificial Intelligence Guidelines' di atas)`,
-      prompt: "The word 'myopic' in paragraph 1 ('such prohibitionist stances are fundamentally unfeasible and myopic') is closest in meaning to...",
-      options: [
-        { key: "A", text: "short-sighted and lacking foresight" },
-        { key: "B", text: "broad-minded and progressive" },
-        { key: "C", text: "extremely economical" },
-        { key: "D", text: "scientifically proven" }
-      ],
-      correctAnswer: "A",
-      explanation: "Kata 'myopic' secara kiasan dalam wacana akademis bermakna berpikiran sempit, tidak berpandangan jauh ke depan (short-sighted and lacking foresight).",
-      grammarNote: "Advanced Evaluative Adjective: myopic = short-sighted, narrow-minded, improvident."
-    },
-    {
-      id: 26,
-      source: "Sumber: Diadaptasi dari Policy Recommendations on Ethics of Artificial Intelligence — UNESCO & Balai Pengembangan Talenta Indonesia",
-      type: "single_choice",
-      title: "Hortatory Exposition: Cause and Effect Logic",
-      stimulusTitle: "Text 2: Why High Schools Must Establish Ethical Artificial Intelligence Guidelines",
-      stimulusBody: `(Silakan merujuk pada teks 'Why High Schools Must Establish Ethical Artificial Intelligence Guidelines' di atas)`,
-      prompt: "Based on paragraph 3, why can generative AI systems produce convincing yet entirely fabricated misinformation (hallucinations)?",
-      options: [
-        { key: "A", text: "Because they operate on statistical probabilities of word sequences rather than genuine human comprehension" },
-        { key: "B", text: "Because their computer servers are purposely hacked by international cyber criminals" },
-        { key: "C", text: "Because software engineers program them to tell deliberate lies" },
-        { key: "D", text: "Because high school electricity grids provide unstable voltage" }
-      ],
-      correctAnswer: "A",
-      explanation: "Paragraf 3 menjelaskan: 'Generative systems do not possess genuine comprehension; they merely compute probabilistic sequences of words based on vast training datasets'. Sistem AI tidak memiliki pemahaman sejati melainkan urutan probabilitas kata. Pilihan A benar.",
-      grammarNote: "Causal Explanation Clause: 'operate on statistical probabilities... rather than genuine comprehension'."
-    },
-    {
-      id: 27,
-      source: "Sumber: Diadaptasi dari Policy Recommendations on Ethics of Artificial Intelligence — UNESCO & Balai Pengembangan Talenta Indonesia",
-      type: "single_choice",
-      title: "Hortatory Exposition: Author's Stance and Tone",
-      stimulusTitle: "Text 2: Why High Schools Must Establish Ethical Artificial Intelligence Guidelines",
-      stimulusBody: `(Silakan merujuk pada teks 'Why High Schools Must Establish Ethical Artificial Intelligence Guidelines' di atas)`,
-      prompt: "Which pair of adjectives accurately characterizes the author's tone throughout the essay?",
-      options: [
-        { key: "A", text: "Persuasive and forward-looking" },
-        { key: "B", text: "Sarcastic and indifferent" },
-        { key: "C", text: "Panicked and fatalistic" },
-        { key: "D", text: "Mocking and celebratory" }
-      ],
-      correctAnswer: "A",
-      explanation: "Nada penulis adalah mengajak/meyakinkan dengan argumentasi rasional (persuasive) serta berorientasi ke depan dalam mempersiapkan siswa menghadapi masa depan (forward-looking). Pilihan A tepat.",
-      grammarNote: "Author's Stance & Tone: Persuasive, principled, and forward-looking."
-    },
-    {
-      id: 28,
-      source: "Sumber: Diadaptasi dari Policy Recommendations on Ethics of Artificial Intelligence — UNESCO & Balai Pengembangan Talenta Indonesia",
-      type: "single_choice",
-      title: "Hortatory Exposition: Assessment Reform",
-      stimulusTitle: "Text 2: Why High Schools Must Establish Ethical Artificial Intelligence Guidelines",
-      stimulusBody: `(Silakan merujuk pada teks 'Why High Schools Must Establish Ethical Artificial Intelligence Guidelines' di atas)`,
-      prompt: "According to paragraph 2, what assessment reform should teachers adopt to evaluate true cognitive engagement?",
-      options: [
-        { key: "A", text: "Grading only multiple-choice tests generated by automated robots" },
-        { key: "B", text: "Evaluating the human analytical process through oral defenses, brainstorming logs, and reflective annotations" },
-        { key: "C", text: "Assigning forty-page homework essays every weekend" },
-        { key: "D", text: "Eliminating all homework and research projects permanently" }
-      ],
-      correctAnswer: "B",
-      explanation: "Paragraf 2 menyarankan: 'design assessment tasks that evaluate the human analytical process—such as oral defense, in-class brainstorming logs, and reflective annotations'. Pilihan B benar.",
-      grammarNote: "Expository Elaboration of Alternatives: 'evaluate the human analytical process—such as oral defense...'."
-    },
-    {
-      id: 29,
-      source: "Sumber: Diadaptasi dari Policy Recommendations on Ethics of Artificial Intelligence — UNESCO & Balai Pengembangan Talenta Indonesia",
-      type: "single_choice",
-      title: "Hortatory Exposition: Paraphrasing the Recommendation",
-      stimulusTitle: "Text 2: Why High Schools Must Establish Ethical Artificial Intelligence Guidelines",
-      stimulusBody: `(Silakan merujuk pada teks 'Why High Schools Must Establish Ethical Artificial Intelligence Guidelines' di atas)`,
-      prompt: "Which statement best restates the recommendation in paragraph 4?",
-      options: [
-        { key: "A", text: "Schools should completely shut down their computer labs to eliminate digital cheating" },
-        { key: "B", text: "Institutions should implement transparent disclosure rules and equip students with critical literacy rather than futile bans" },
-        { key: "C", text: "All students must purchase the most expensive proprietary AI software available" },
-        { key: "D", text: "Teachers should let students use AI without any verification or ethical boundaries" }
-      ],
-      correctAnswer: "B",
-      explanation: "Parafrase rekomendasi paragraf 4 yang paling tepat: Sekolah harus menerapkan aturan transparansi dan membekali siswa dengan literasi kritis alih-alih larangan yang sia-sia. Pilihan B tepat.",
-      grammarNote: "Paraphrasing Hortatory Recommendation: Transparent rules + critical literacy over futile bans."
-    },
-    {
-      id: 30,
-      source: "Sumber: Diadaptasi dari Policy Recommendations on Ethics of Artificial Intelligence — UNESCO & Balai Pengembangan Talenta Indonesia",
-      type: "single_choice",
-      title: "Hortatory Exposition: Metaphorical Synthesis",
-      stimulusTitle: "Text 2: Why High Schools Must Establish Ethical Artificial Intelligence Guidelines",
-      stimulusBody: `(Silakan merujuk pada teks 'Why High Schools Must Establish Ethical Artificial Intelligence Guidelines' di atas)`,
-      prompt: "What is meant by the concluding metaphor: 'empower the next generation to master AI as a catalyst for human ingenuity, rather than becoming passive passengers'?",
-      options: [
-        { key: "A", text: "Students must learn how to drive high-speed autonomous public buses" },
-        { key: "B", text: "Students should actively direct technological tools to amplify human creativity, rather than submitting passively to algorithmic control" },
-        { key: "C", text: "High school graduates must pursue careers exclusively in airline transportation" },
-        { key: "D", text: "Technology will inevitably replace all human teachers within two decades" }
-      ],
-      correctAnswer: "B",
-      explanation: "Metafora tersebut bermakna bahwa generasi muda harus mampu mengarahkan teknologi secara aktif guna melipatgandakan daya cipta manusia, bukan tunduk secara pasif di bawah kendali algoritma. Pilihan B tepat.",
-      grammarNote: "Metaphorical Interpretation: 'catalyst for ingenuity' vs 'passive passengers'."
-    },
-
-    // =========================================================================
-    // SECTION 4: ADVANCED GRAMMAR & SENTENCE MECHANICS (QUESTIONS 31 - 40)
-    // =========================================================================
-    {
-      id: 31,
-      source: "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
-      type: "single_choice",
-      title: "Advanced Grammar: Inversion after Restrictive Adverbial",
-      stimulusTitle: "Kaidah Inversi Bahasa Inggris Formal (Negative Inversion)",
-      stimulusBody: "Seldom _______ such rapid transformation in academic research methodology as we have witnessed during the emergence of artificial intelligence.",
-      prompt: "Choose the correct inverted verb structure to complete the formal academic sentence:",
-      options: [
-        { key: "A", text: "have educators observed" },
-        { key: "B", text: "educators have observed" },
-        { key: "C", text: "educators observed" },
-        { key: "D", text: "educators are observing" }
-      ],
-      correctAnswer: "A",
-      explanation: "Ketika kalimat formal diawali oleh adverbial negatif/pembatas seperti 'Seldom', 'Rarely', atau 'Hardly', klausa mengalami inversi (Auxiliary + Subject + Verb): 'Seldom have educators observed...'.",
-      grammarNote: "Formal Negative Inversion: Negative/Restrictive Adverb + Auxiliary + Subject + Main Verb."
-    },
-    {
-      id: 32,
-      source: "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
-      type: "single_choice",
-      title: "Advanced Grammar: Present Subjunctive in Formal Recommendation",
-      stimulusTitle: "Kaidah Modus Subjungtif Formal (Present Subjunctive Mood)",
-      stimulusBody: "The academic ethics board strongly recommended that every senior high school student _______ the explicit use of generative tools in their research portfolios.",
-      prompt: "Select the correct subjunctive verb form for the 'that-clause':",
-      options: [
-        { key: "A", text: "disclose" },
-        { key: "B", text: "discloses" },
-        { key: "C", text: "disclosed" },
-        { key: "D", text: "is disclosing" }
-      ],
-      correctAnswer: "A",
-      explanation: "Setelah kata kerja rekomendasi formal (recommend, mandate, demand, insist) + that + Subject, kata kerja yang digunakan adalah Subjunctive bentuk dasar (Base Form / Bare Infinitive): 'that every student disclose' (tanpa akhiran -s meskipun subjeknya tunggal).",
-      grammarNote: "Mandative Subjunctive Formula: Verb of Recommendation + that + Subject + Base Verb (V1)."
-    },
-    {
-      id: 33,
-      source: "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
-      type: "single_choice",
-      title: "Advanced Grammar: Concessive Conjunction of Contrast",
-      stimulusTitle: "Kaidah Kata Hubung Konsesif Formal (Formal Concession)",
-      stimulusBody: "_______ the warlord assembled a formidable brigade of armed soldiers, he was ultimately powerless against the mountain's sacred cosmic laws.",
-      prompt: "Which conjunction of concession correctly establishes the formal contrast?",
-      options: [
-        { key: "A", text: "Notwithstanding that" },
-        { key: "B", text: "Because" },
-        { key: "C", text: "Inasmuch as" },
-        { key: "D", text: "Provided that" }
-      ],
-      correctAnswer: "A",
-      explanation: "'Notwithstanding that' adalah konjungsi konsesif formal bertaraf B2/C1 yang bermakna 'meskipun / walaupun' (synonymous with although / even though) dan diikuti oleh klausa lengkap. 'Inasmuch as' bermakna karena/mengingat bahwa.",
-      grammarNote: "Formal Concessive Subordinator: 'Notwithstanding that' + Subject + Verb = Although + Subject + Verb."
-    },
-    {
-      id: 34,
-      source: "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
-      type: "single_choice",
-      title: "Advanced Grammar: Inverted Conditional Type 3",
-      stimulusTitle: "Kaidah Pengandaian Lampau Tanpa 'If' (Inverted Conditional)",
-      stimulusBody: "_______ the school administration implemented clear ethical AI guidelines earlier, the recent academic integrity controversies would never have occurred.",
-      prompt: "Choose the correct inverted conditional structure to replace 'If the school administration had implemented':",
-      options: [
-        { key: "A", text: "Had the school administration implemented" },
-        { key: "B", text: "Were the school administration to implement" },
-        { key: "C", text: "Did the school administration implement" },
-        { key: "D", text: "Should the school administration implement" }
-      ],
-      correctAnswer: "A",
-      explanation: "Bentuk inversi untuk Conditional Type 3 (pengandaian lampau) menghilangkan kata 'If' dan memindahkan auxiliary 'Had' ke depan subjek: 'Had the school administration implemented...' = 'If the school administration had implemented...'.",
-      grammarNote: "Inverted Conditional Type 3: Had + Subject + Past Participle (V3), Subject + would have + V3."
-    },
-    {
-      id: 35,
-      source: "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
-      type: "single_choice",
-      title: "Advanced Grammar: Modal of Stance in Hortatory Discourse",
-      stimulusTitle: "Kaidah Modalitas Rekomendasi Formal Pasif",
-      stimulusBody: "Rather than implementing outright bans, algorithmically generated claims _______ as unverified working hypotheses before being integrated into essays.",
-      prompt: "Which passive modal construction best expresses strong principled advice?",
-      options: [
-        { key: "A", text: "ought to be treated" },
-        { key: "B", text: "ought to treat" },
-        { key: "C", text: "might have treated" },
-        { key: "D", text: "was being treated" }
-      ],
-      correctAnswer: "A",
-      explanation: "Subjek kalimat adalah 'algorithmically generated claims' yang menerima perlakuan secara pasif dengan modal anjuran kuat: ought to + be + V3 -> 'ought to be treated'.",
-      grammarNote: "Modal Passive in Hortatory Discourse: ought to + be + Past Participle (V3)."
-    },
-    {
-      id: 36,
-      source: "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
-      type: "single_choice",
-      title: "Advanced Grammar: Complex Impersonal Passive",
-      stimulusTitle: "Kaidah Kalimat Pasif Impersonal Akademis",
-      stimulusBody: "Critical digital discernment _______ to be one of the most indispensable competencies for twenty-first-century global citizenship.",
-      prompt: "Choose the correct impersonal passive verb phrase to complete the statement:",
-      options: [
-        { key: "A", text: "is widely considered" },
-        { key: "B", text: "widely considers" },
-        { key: "C", text: "is widely considering" },
-        { key: "D", text: "has widely considered" }
-      ],
-      correctAnswer: "A",
-      explanation: "Struktur pasif impersonal dengan kata kerja pelaporan (reporting verbs) untuk menyatakan konsensus akademis umum adalah: Subject + is/are + widely + V3 (considered/acknowledged/recognized) + to be. Pilihan A tepat.",
-      grammarNote: "Academic Impersonal Passive: Subject + is/are + Adverb + Past Participle + to-infinitive."
-    },
-    {
-      id: 37,
-      source: "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
-      type: "single_choice",
-      title: "Advanced Grammar: Perfect Participial Clause",
-      stimulusTitle: "Kaidah Klausa Partisipial Sempurna (Perfect Participle)",
-      stimulusBody: "_______ the intricate volcanic patterns for three continuous days and nights, Nyi Sekar presented the magnificent gilded tunic to the expectant warlord.",
-      prompt: "Select the correct participial phrase indicating an action completed prior to the main clause:",
-      options: [
-        { key: "A", text: "Having woven" },
-        { key: "B", text: "Weaving" },
-        { key: "C", text: "Being woven" },
-        { key: "D", text: "To weave" }
-      ],
-      correctAnswer: "A",
-      explanation: "Perfect Participle ('Having + V3') digunakan untuk menekankan bahwa suatu aksi telah selesai sempurna sebelum aksi pada induk kalimat dimulai: 'Having woven the intricate patterns... Nyi Sekar presented...'. Pilihan A tepat.",
-      grammarNote: "Perfect Participle Clause: Having + V3 expresses anteriority (action finished prior to main verb)."
-    },
-    {
-      id: 38,
-      source: "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
-      type: "single_choice",
-      title: "Advanced Vocabulary: Formal Academic Collocation",
-      stimulusTitle: "Kaidah Kolokasi Akademis Baku (Academic Collocation)",
-      stimulusBody: "The discovery of systematic hallucinations in the automated report _______ serious doubt on the reliability of the research dataset.",
-      prompt: "Which verb collocates correctly with 'doubt' in formal academic writing to mean 'caused people to question'?",
-      options: [
-        { key: "A", text: "cast" },
-        { key: "B", text: "made" },
-        { key: "C", text: "pushed" },
-        { key: "D", text: "dropped" }
-      ],
-      correctAnswer: "A",
-      explanation: "Kolokasi akademis baku bahasa Inggris untuk 'menimbulkan keraguan / meragukan keandalan' adalah 'cast doubt on' (bukan made doubt atau pushed doubt). Pilihan A tepat.",
-      grammarNote: "Fixed Academic Collocation: 'cast doubt on something' (to make something seem uncertain)."
-    },
-    {
-      id: 39,
-      source: "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
-      type: "single_choice",
-      title: "Functional Expressions: Conceding and Counter-Arguing",
-      stimulusTitle: "Ungkapan Berdebat Formal (Conceding and Rebutting)",
-      stimulusBody: "Debater 1: 'Generative AI accelerates data analysis exponentially.'<br>Debater 2: '_______, one cannot overlook the reality that uncritical reliance erodes foundational analytical thinking.'",
-      prompt: "Which formal rhetorical expression best concedes the opposing premise while introducing a strong counter-argument?",
-      options: [
-        { key: "A", text: "While I concede that computational speed is beneficial" },
-        { key: "B", text: "I have no opinion on the matter" },
-        { key: "C", text: "Your premise is completely ridiculous" },
-        { key: "D", text: "I refuse to participate in this discussion" }
-      ],
-      correctAnswer: "A",
-      explanation: "Ungkapan 'While I concede that computational speed is beneficial' adalah formula diplomatis dan akademis untuk mengakui kebenaran argumen lawan (concession) sebelum melancarkan bantahan kritis (counter-argument).",
-      grammarNote: "Academic Debate Formula: Subordinate Concession ('While I concede that...') + Main Rebuttal."
-    },
-    {
-      id: 40,
-      source: "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
-      type: "single_choice",
-      title: "Advanced Vocabulary: Oxford 5000 Evaluative Lexis (Level B2)",
-      stimulusTitle: "Pemilihan Kata Evaluatif Akademis Tingkat Lanjut",
-      stimulusBody: "In an era of rapid technological disruption, cultivating intellectual discernment is an _______ obligation for modern secondary educators.",
-      prompt: "Which formal adjective best fits the academic statement with the meaning of 'urgent, authoritative, and strictly required'?",
-      options: [
-        { key: "A", text: "imperative" },
-        { key: "B", text: "hesitant" },
-        { key: "C", text: "tentative" },
-        { key: "D", text: "superficial" }
-      ],
-      correctAnswer: "A",
-      explanation: "Kata 'imperative' bermakna suatu keharusan yang mendesak, penting, dan mutlak diperlukan (urgent, vital, authoritative obligation). Pilihan A tepat.",
-      grammarNote: "Academic Evaluative Adjective (Oxford 5000 / CEFR B2): imperative = urgent, essential, obligatory."
-    }
-  ];
+  {
+    "id": 1,
+    "source": "Sumber: Cambridge Assessment English — B2 First for Schools & Kemendikbudristek",
+    "type": "listening_pictures",
+    "title": "Listening Section: Part I - Pictures",
+    "audioText": "Number one. Look at the pictures. A high school student is reading an ancient handwritten manuscript in the library, carefully taking notes on her laptop screen. Which picture matches the spoken statement?",
+    "audioSegments": [
+      {
+        "text": "Number one. Look at the pictures in your test booklet. A high school student is reading an ancient handwritten manuscript in the library, carefully taking notes on her laptop screen. Which picture matches the spoken statement?",
+        "lang": "en-US",
+        "role": "narrator"
+      }
+    ],
+    "prompt": "Which picture corresponds to the manuscript study described in the recording?",
+    "options": [
+      {
+        "key": "A",
+        "svg": SVG_PICTURES.digitalManuscript,
+        "label": "A student reading an ancient manuscript in a library"
+      },
+      {
+        "key": "B",
+        "svg": SVG_PICTURES.amphitheaterDrama,
+        "label": "Students performing a classic play in an outdoor theater"
+      },
+      {
+        "key": "C",
+        "svg": SVG_PICTURES.climateObservatory,
+        "label": "A weather observation dome on a coastal hill"
+      },
+      {
+        "key": "D",
+        "svg": SVG_PICTURES.oilRefinery,
+        "label": "An industrial fuel refining plant"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Audio mendeskripsikan seorang siswi yang sedang mempelajari naskah kuno tulisan tangan di perpustakaan ('reading an ancient handwritten manuscript in the library, carefully taking notes on her laptop'). Gambar A mencerminkan naskah kuno dan laptop.",
+    "grammarNote": "Present Continuous with Participle modifier: 'reading an ancient manuscript, carefully taking notes'."
+  },
+  {
+    "id": 2,
+    "source": "Sumber: Cambridge Assessment English — B2 First for Schools & Kemendikbudristek",
+    "type": "listening_pictures",
+    "title": "Listening Section: Part I - Pictures",
+    "audioText": "Number two. Look at the pictures. On an outdoor stone stage, senior high school students are performing a classic theatrical drama in traditional costumes. Which picture depicts this scene?",
+    "audioSegments": [
+      {
+        "text": "Number two. Look at the pictures. On an outdoor stone stage, senior high school students are performing a classic theatrical drama in traditional costumes. Which picture depicts this scene?",
+        "lang": "en-US",
+        "role": "narrator"
+      }
+    ],
+    "prompt": "Which picture depicts the theatrical drama on the open stage?",
+    "options": [
+      {
+        "key": "A",
+        "svg": SVG_PICTURES.digitalManuscript,
+        "label": "A student reading an ancient manuscript in a library"
+      },
+      {
+        "key": "B",
+        "svg": SVG_PICTURES.amphitheaterDrama,
+        "label": "Students performing a classic play in an outdoor theater"
+      },
+      {
+        "key": "C",
+        "svg": SVG_PICTURES.climateObservatory,
+        "label": "A weather observation dome on a coastal hill"
+      },
+      {
+        "key": "D",
+        "svg": SVG_PICTURES.oilRefinery,
+        "label": "An industrial fuel refining plant"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Audio menyebutkan pementasan drama teater di panggung batu luar ruangan: 'performing a classic theatrical drama in traditional costumes'. Gambar B tepat.",
+    "grammarNote": "Prepositional phrase of place: 'On an outdoor stone stage, students are performing...'."
+  },
+  {
+    "id": 3,
+    "source": "Sumber: Cambridge Assessment English — B2 First for Schools & Kemendikbudristek",
+    "type": "listening_pictures",
+    "title": "Listening Section: Part I - Pictures",
+    "audioText": "Number three. Look at the pictures. Built on a green hill overlooking the sea, this automated weather station dome measures wind and solar energy to support renewable power. Which picture matches the description?",
+    "audioSegments": [
+      {
+        "text": "Number three. Look at the pictures. Built on a green hill overlooking the sea, this automated weather station dome measures wind and solar energy to support renewable power. Which picture matches the description?",
+        "lang": "en-US",
+        "role": "narrator"
+      }
+    ],
+    "prompt": "Which picture shows the coastal weather observation dome described in the audio?",
+    "options": [
+      {
+        "key": "A",
+        "svg": SVG_PICTURES.digitalManuscript,
+        "label": "A student reading an ancient manuscript in a library"
+      },
+      {
+        "key": "B",
+        "svg": SVG_PICTURES.amphitheaterDrama,
+        "label": "Students performing a classic play in an outdoor theater"
+      },
+      {
+        "key": "C",
+        "svg": SVG_PICTURES.climateObservatory,
+        "label": "A weather observation dome on a coastal hill"
+      },
+      {
+        "key": "D",
+        "svg": SVG_PICTURES.oilRefinery,
+        "label": "An industrial fuel refining plant"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Audio mendeskripsikan kubah stasiun pengamatan cuaca di atas bukit hijau tepi laut: 'automated weather station dome measures wind and solar energy'. Gambar C tepat.",
+    "grammarNote": "Past Participle modifier: 'Built on a green hill overlooking the sea...'."
+  },
+  {
+    "id": 4,
+    "source": "Sumber: Modul Pembelajaran Bahasa Inggris Tingkat Lanjut Kelas XI — Kemendikbudristek",
+    "type": "listening_dialog",
+    "title": "Listening Section: Part II - Short Dialogues",
+    "audioText": "Number four. Listen to a conversation between Tari and her English teacher, Pak Wicaksono. Girl: Excuse me, Sir. In the legend we studied yesterday, why did the arrogant prince fail in the end? Teacher: Traditional legends teach us that physical strength and pride cannot force someone to respect us. Girl: So true greatness comes from humility and kindness toward others? Teacher: Exactly. Arrogance and selfish ambition will always lead to failure in the end. Question: What main lesson does the teacher explain?",
+    "audioSegments": [
+      {
+        "text": "Number four. Listen to a conversation between ",
+        "lang": "en-US",
+        "role": "narrator"
+      },
+      {
+        "text": "Tari",
+        "lang": "id-ID",
+        "role": "indonesian_name"
+      },
+      {
+        "text": " and her English teacher, ",
+        "lang": "en-US",
+        "role": "narrator"
+      },
+      {
+        "text": "Pak Wicaksono",
+        "lang": "id-ID",
+        "role": "indonesian_name"
+      },
+      {
+        "text": ".",
+        "lang": "en-US",
+        "role": "narrator",
+        "pauseAfter": 450
+      },
+      {
+        "text": "Excuse me, Sir. In the legend we studied yesterday, why did the arrogant prince fail in the end?",
+        "lang": "en-US",
+        "gender": "female",
+        "pitch": 1.25,
+        "pauseAfter": 350
+      },
+      {
+        "text": "Traditional legends teach us that physical strength and pride cannot force someone to respect us.",
+        "lang": "en-US",
+        "gender": "male",
+        "pitch": 0.85,
+        "pauseAfter": 350
+      },
+      {
+        "text": "So true greatness comes from humility and kindness toward others?",
+        "lang": "en-US",
+        "gender": "female",
+        "pitch": 1.25,
+        "pauseAfter": 350
+      },
+      {
+        "text": "Exactly. Arrogance and selfish ambition will always lead to failure in the end.",
+        "lang": "en-US",
+        "gender": "male",
+        "pitch": 0.85,
+        "pauseAfter": 450
+      },
+      {
+        "text": "Question: What main lesson does the teacher explain?",
+        "lang": "en-US",
+        "role": "narrator"
+      }
+    ],
+    "prompt": "What main moral lesson does the teacher emphasize in the conversation?",
+    "options": [
+      {
+        "key": "A",
+        "text": "True respect and greatness cannot be achieved through arrogance or force"
+      },
+      {
+        "key": "B",
+        "text": "Physical power is the most valuable trait in human relationships"
+      },
+      {
+        "key": "C",
+        "text": "Students should avoid reading ancient folk legends"
+      },
+      {
+        "key": "D",
+        "text": "Building temples is the only way to gain royal respect"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Pak Wicaksono menegaskan bahwa kekuatan dan kesombongan tidak dapat memaksakan rasa hormat, melainkan kebesaran sejati lahir dari kerendahan hati: 'strength and pride cannot force someone to respect us... Arrogance and selfish ambition will always lead to failure'. Pilihan A tepat.",
+    "grammarNote": "Moral theme synthesis: 'True respect and greatness cannot be achieved through arrogance or force'."
+  },
+  {
+    "id": 5,
+    "source": "Sumber: Panduan Pemanfaatan Teknologi untuk Pelajar — Dewan Pendidikan Nasional",
+    "type": "listening_dialog",
+    "title": "Listening Section: Part II - Short Dialogues",
+    "audioText": "Number five. Listen to a conversation between Kevin and Amanda. Boy: Amanda, what do you think about students using AI tools for homework? Girl: Using AI to understand difficult topics is helpful, but copying answers directly without thinking is a bad habit. Boy: I agree. We should treat it as a study guide, but the final writing must be our own work. Girl: Exactly. Developing our own critical thinking is much more valuable for our future. Question: What do Kevin and Amanda agree on regarding digital study tools?",
+    "audioSegments": [
+      {
+        "text": "Number five. Listen to a conversation between ",
+        "lang": "en-US",
+        "role": "narrator"
+      },
+      {
+        "text": "Kevin",
+        "lang": "id-ID",
+        "role": "indonesian_name"
+      },
+      {
+        "text": " and ",
+        "lang": "en-US",
+        "role": "narrator"
+      },
+      {
+        "text": "Amanda",
+        "lang": "id-ID",
+        "role": "indonesian_name"
+      },
+      {
+        "text": ".",
+        "lang": "en-US",
+        "role": "narrator",
+        "pauseAfter": 450
+      },
+      {
+        "text": "Amanda, what do you think about students using AI tools for homework?",
+        "lang": "en-US",
+        "gender": "male",
+        "pitch": 0.85,
+        "pauseAfter": 350
+      },
+      {
+        "text": "Using AI to understand difficult topics is helpful, but copying answers directly without thinking is a bad habit.",
+        "lang": "en-US",
+        "gender": "female",
+        "pitch": 1.25,
+        "pauseAfter": 350
+      },
+      {
+        "text": "I agree. We should treat it as a study guide, but the final writing must be our own work.",
+        "lang": "en-US",
+        "gender": "male",
+        "pitch": 0.85,
+        "pauseAfter": 350
+      },
+      {
+        "text": "Exactly. Developing our own critical thinking is much more valuable for our future.",
+        "lang": "en-US",
+        "gender": "female",
+        "pitch": 1.25,
+        "pauseAfter": 450
+      },
+      {
+        "text": "Question: What do Kevin and Amanda agree on regarding digital study tools?",
+        "lang": "en-US",
+        "role": "narrator"
+      }
+    ],
+    "prompt": "What do Kevin and Amanda agree on regarding the use of AI study tools?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Students should use AI responsibly as a study guide while completing assignments with their own original work"
+      },
+      {
+        "key": "B",
+        "text": "All electronic devices should be completely banned from secondary schools"
+      },
+      {
+        "key": "C",
+        "text": "Copying AI-generated essays directly saves time and should be encouraged"
+      },
+      {
+        "key": "D",
+        "text": "Writing by hand is no longer necessary in modern education"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Kevin dan Amanda sepakat bahwa AI bermanfaat sebagai alat bantu belajar (study guide), namun tugas akhir harus merupakan karya orisinal siswa sendiri guna melatih daya nalar kritis. Pilihan A tepat.",
+    "grammarNote": "Hortatory stance: 'should treat it as a study guide, but the final writing must be our own work'."
+  },
+  {
+    "id": 6,
+    "source": "Sumber: Forum Gerakan Sekolah Adiwiyata & Peduli Sampah Plastik — KLHK RI",
+    "type": "listening_dialog",
+    "title": "Listening Section: Part II - Short Dialogues",
+    "audioText": "Number six. Listen to a conversation between Bima and Maya. Boy: Maya, our student council proposal for the school canteen is ready. Girl: Did you include the rule about single-use plastic cups? Boy: Yes. We recommend that every student bring a reusable water bottle, and the canteen replace plastic cups with washable glasses. Girl: That is a great step. Clear school rules will help everyone build sustainable habits. Question: What is the main objective of the student council proposal?",
+    "audioSegments": [
+      {
+        "text": "Number six. Listen to a conversation between ",
+        "lang": "en-US",
+        "role": "narrator"
+      },
+      {
+        "text": "Bima",
+        "lang": "id-ID",
+        "role": "indonesian_name"
+      },
+      {
+        "text": " and ",
+        "lang": "en-US",
+        "role": "narrator"
+      },
+      {
+        "text": "Maya",
+        "lang": "id-ID",
+        "role": "indonesian_name"
+      },
+      {
+        "text": ".",
+        "lang": "en-US",
+        "role": "narrator",
+        "pauseAfter": 450
+      },
+      {
+        "text": "Maya, our student council proposal for the school canteen is ready.",
+        "lang": "en-US",
+        "gender": "male",
+        "pitch": 0.85,
+        "pauseAfter": 350
+      },
+      {
+        "text": "Did you include the rule about single-use plastic cups?",
+        "lang": "en-US",
+        "gender": "female",
+        "pitch": 1.25,
+        "pauseAfter": 350
+      },
+      {
+        "text": "Yes. We recommend that every student bring a reusable water bottle, and the canteen replace plastic cups with washable glasses.",
+        "lang": "en-US",
+        "gender": "male",
+        "pitch": 0.85,
+        "pauseAfter": 350
+      },
+      {
+        "text": "That is a great step. Clear school rules will help everyone build sustainable habits.",
+        "lang": "en-US",
+        "gender": "female",
+        "pitch": 1.25,
+        "pauseAfter": 450
+      },
+      {
+        "text": "Question: What is the main objective of the student council proposal?",
+        "lang": "en-US",
+        "role": "narrator"
+      }
+    ],
+    "prompt": "What is the main objective of the student council proposal?",
+    "options": [
+      {
+        "key": "A",
+        "text": "To reduce plastic waste by encouraging reusable bottles and washable glasses in the school canteen"
+      },
+      {
+        "key": "B",
+        "text": "To close the school canteen during lunchtime"
+      },
+      {
+        "key": "C",
+        "text": "To increase the prices of snacks sold at school"
+      },
+      {
+        "key": "D",
+        "text": "To forbid students from eating meals during school breaks"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Tujuan utama proposal OSIS adalah mengurangi sampah plastik dengan botol minum ulang dan gelas yang dapat dicuci di kantin: 'reduce plastic waste by encouraging reusable bottles'. Pilihan A tepat.",
+    "grammarNote": "Purpose clause with infinitive: 'To reduce plastic waste by encouraging reusable bottles...'."
+  },
+  {
+    "id": 7,
+    "source": "Sumber: Seri Apresiasi Cerita Rakyat Nusantara — Balai Bahasa & Kemendikbudristek",
+    "type": "listening_talk",
+    "title": "Listening Section: Part III - Short Talks",
+    "audioText": "Questions seven and eight are based on the following short talk about Indonesian folktales. Good morning, students. Today we are exploring why traditional Indonesian folktales and legends are still very meaningful for us today. Famous stories like Malin Kundang from West Sumatra, Lake Toba from North Sumatra, and Rawa Pening from Central Java are not merely entertaining tales. They were passed down by our ancestors to teach essential life lessons. For example, they remind young people to respect their parents, honor their promises, and treat the poor and needy with genuine kindness. When we analyze these stories in our English class, we learn to identify character traits, conflict resolutions, and the moral message behind every action. By studying our folklore, we preserve our rich cultural identity while improving our English literacy skills. Now answer question number seven: According to the speaker, what is the primary purpose of traditional Indonesian folktales?",
+    "audioSegments": [
+      {
+        "text": "Questions seven and eight are based on the following short talk about Indonesian folktales. Good morning, students. Today we are exploring why traditional Indonesian folktales and legends are still very meaningful for us today. Famous stories like Malin Kundang from West Sumatra, Lake Toba from North Sumatra, and Rawa Pening from Central Java are not merely entertaining tales. They were passed down by our ancestors to teach essential life lessons. For example, they remind young people to respect their parents, honor their promises, and treat the poor and needy with genuine kindness. When we analyze these stories in our English class, we learn to identify character traits, conflict resolutions, and the moral message behind every action. By studying our folklore, we preserve our rich cultural identity while improving our English literacy skills. Now answer question number seven: According to the speaker, what is the primary purpose of traditional Indonesian folktales?",
+        "lang": "en-US",
+        "role": "narrator"
+      }
+    ],
+    "prompt": "According to the speaker, what is the primary purpose of traditional Indonesian folktales?",
+    "options": [
+      {
+        "key": "A",
+        "text": "To teach essential life lessons such as respect, honesty, and kindness to others"
+      },
+      {
+        "key": "B",
+        "text": "To teach students how to build ancient stone monuments"
+      },
+      {
+        "key": "C",
+        "text": "To discourage young people from reading modern literature"
+      },
+      {
+        "key": "D",
+        "text": "To explain modern scientific discoveries about oceans"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Pembicara menyatakan bahwa dongeng tradisional diwariskan untuk mengajarkan nilai kehidupan yang penting: 'passed down by our ancestors to teach essential life lessons... respect parents, honor promises, and treat the poor with kindness'. Pilihan A tepat.",
+    "grammarNote": "Infinitive of Purpose: 'to teach essential life lessons such as respect, honesty, and kindness'."
+  },
+  {
+    "id": 8,
+    "source": "Sumber: Seri Apresiasi Cerita Rakyat Nusantara — Balai Bahasa & Kemendikbudristek",
+    "type": "listening_talk",
+    "title": "Listening Section: Part III - Short Talks",
+    "audioText": "Now answer question number eight based on the same talk: How does analyzing traditional stories benefit high school students according to the speaker?",
+    "audioSegments": [
+      {
+        "text": "Now answer question number eight based on the same talk: How does analyzing traditional stories benefit high school students according to the speaker?",
+        "lang": "en-US",
+        "role": "narrator"
+      }
+    ],
+    "prompt": "How does analyzing traditional stories benefit high school students according to the speaker?",
+    "options": [
+      {
+        "key": "A",
+        "text": "It helps preserve cultural identity while improving critical reading and English literacy skills"
+      },
+      {
+        "key": "B",
+        "text": "It guarantees that all students will become professional fiction writers"
+      },
+      {
+        "key": "C",
+        "text": "It replaces the need to study modern science and technology"
+      },
+      {
+        "key": "D",
+        "text": "It teaches students how to sail across deep lakes"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Pembicara menjelaskan: 'we preserve our rich cultural identity while improving our English literacy skills' (melestarikan identitas budaya sekaligus melatih kecakapan literasi bahasa Inggris). Pilihan A tepat.",
+    "grammarNote": "Conjunctive Pair: 'preserve our rich cultural identity while improving our English literacy skills'."
+  },
+  {
+    "id": 9,
+    "source": "Sumber: Panduan Kesehatan Mental Remaja & Etika Media Digital — Kementerian Kesehatan RI",
+    "type": "listening_talk",
+    "title": "Listening Section: Part III - Short Talks",
+    "audioText": "Questions nine and ten are based on the following talk by a school counselor. Good afternoon, everyone. Social media has become an important part of our daily communication. It allows us to keep in touch with friends, explore creative hobbies, and find educational information quickly. However, spending too many hours scrolling through social media feeds can cause serious problems for high school students. Research shows that excessive screen time often leads to sleep deprivation, reduced concentration during classes, and feelings of anxiety. Furthermore, false news and unverified rumors can spread very fast across online networks. Therefore, we strongly advise students to practice healthy digital habits. Set a daily limit for entertainment screen time, silence your phone notifications while studying, and always double-check news stories from reliable sources before sharing them. Now answer question number nine: According to the counselor, what negative consequences can arise from excessive social media use?",
+    "audioSegments": [
+      {
+        "text": "Questions nine and ten are based on the following talk by a school counselor. Good afternoon, everyone. Social media has become an important part of our daily communication. It allows us to keep in touch with friends, explore creative hobbies, and find educational information quickly. However, spending too many hours scrolling through social media feeds can cause serious problems for high school students. Research shows that excessive screen time often leads to sleep deprivation, reduced concentration during classes, and feelings of anxiety. Furthermore, false news and unverified rumors can spread very fast across online networks. Therefore, we strongly advise students to practice healthy digital habits. Set a daily limit for entertainment screen time, silence your phone notifications while studying, and always double-check news stories from reliable sources before sharing them. Now answer question number nine: According to the counselor, what negative consequences can arise from excessive social media use?",
+        "lang": "en-US",
+        "role": "narrator"
+      }
+    ],
+    "prompt": "According to the counselor, what negative consequences can arise from excessive social media use?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Sleep deprivation, reduced concentration in class, and feelings of anxiety"
+      },
+      {
+        "key": "B",
+        "text": "An immediate loss of all cell phone signal coverage"
+      },
+      {
+        "key": "C",
+        "text": "Inability to save documents on school desktop computers"
+      },
+      {
+        "key": "D",
+        "text": "A decrease in the monthly cost of internet services"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Konselor menyebutkan dampak buruk penggunaan media sosial berlebih: 'excessive screen time often leads to sleep deprivation, reduced concentration during classes, and feelings of anxiety'. Pilihan A tepat.",
+    "grammarNote": "Cause and Effect: 'excessive screen time often leads to sleep deprivation, reduced concentration, and anxiety'."
+  },
+  {
+    "id": 10,
+    "source": "Sumber: Panduan Kesehatan Mental Remaja & Etika Media Digital — Kementerian Kesehatan RI",
+    "type": "listening_talk",
+    "title": "Listening Section: Part III - Short Talks",
+    "audioText": "Now answer question number ten based on the same talk: What practical advice does the counselor recommend for students?",
+    "audioSegments": [
+      {
+        "text": "Now answer question number ten based on the same talk: What practical advice does the counselor recommend for students?",
+        "lang": "en-US",
+        "role": "narrator"
+      }
+    ],
+    "prompt": "What practical recommendations does the speaker propose for maintaining healthy digital habits?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Setting daily screen time limits, silencing notifications while studying, and verifying news before sharing"
+      },
+      {
+        "key": "B",
+        "text": "Deleting all electronic accounts and never using computers again"
+      },
+      {
+        "key": "C",
+        "text": "Sharing every breaking headline immediately without reading the full article"
+      },
+      {
+        "key": "D",
+        "text": "Using social media throughout the night instead of resting"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Konselor merekomendasikan: 'Set a daily limit for entertainment screen time, silence your phone notifications while studying, and always double-check news stories'. Pilihan A tepat.",
+    "grammarNote": "Hortatory Recommendation: 'Set a daily limit... silence notifications... and double-check news'."
+  },
+  {
+    "id": 11,
+    "source": "Sumber: Dikutip dan disesuaikan dari Cerita Rakyat Jawa Tengah — Balai Bahasa Provinsi Jawa Tengah & Kemendikbudristek",
+    "type": "single_choice",
+    "title": "Advanced Narrative: Central Theme & Conflict",
+    "stimulusTitle": "Text 1: The Legend of Rawa Pening: A Tale of Kindness and Humility",
+    "stimulusBody": "Once upon a time in a peaceful village called Ngasem in Central Java, there lived a humble woman named Endang Sawitri. She gave birth to an extraordinary boy named Baru Klinthing. Due to an unusual condition at birth, Baru Klinthing was shunned by many villagers, and his body was covered with painful wounds that emitted an unpleasant smell. As he grew older, Baru Klinthing decided to search for his father, Ki Hajar Salokantara, who was meditating on the sacred slopes of Mount Telomoyo.<br><br>During his long journey through the valley, Baru Klinthing arrived at a prosperous village called Pathok. The villagers were celebrating a grand harvest festival. Delicious roasted meats and traditional dishes were served in abundance, and the village square was filled with joyful laughter and music. Exhausted, hungry, and thirsty, the poor boy approached the gathering and politely asked for a small portion of leftover food.<br><br>However, the wealthy villagers were proud and arrogant. Instead of showing sympathy, they mocked his ragged clothes and dirty appearance. They drove him away cruelly, shouting insulting words and throwing stones. Heartbroken, Baru Klinthing walked toward the quiet outskirts of the village. There, in a small wooden cottage, lived an elderly widow named Mbok Rondo.<br><br>Unlike the arrogant villagers, Mbok Rondo welcomed the boy warmly into her home. Seeing his condition, she generously offered him warm rice, fresh vegetables, and cool water. Baru Klinthing was deeply moved by her sincerity. Before departing, he whispered an important warning: 'Mbok, if you hear a loud rumbling sound from the village center, please prepare your wooden mortar (lesung) and use it as a boat.'<br><br>Baru Klinthing then returned to the busy festival square. Standing before the crowd, he drove a single wooden stick deep into the ground. He challenged the proud crowd: 'If you are truly strong and mighty, try to pull this simple stick out of the earth!'<br><br>The villagers laughed scornfully. One by one, the strongest men stepped forward and pulled with all their strength, but the stick did not move at all. Even when several warriors pulled together, it remained firmly anchored. Finally, Baru Klinthing walked forward and pulled the stick out effortlessly with one hand.<br><br>Instantly, clear water gushed forth from the hole like a powerful fountain. The water rose rapidly, submerging the homes, streets, and festival grounds. The panic-stricken villagers tried to run, but the rushing flood swallowed the entire village, transforming the area into a vast lake known today as Rawa Pening. Only kind Mbok Rondo survived safely, floating on her wooden mortar. The legend remains an enduring reminder that true human worth is found in kindness and humility, not in outward wealth or pride.",
+    "prompt": "What is the primary moral theme conveyed throughout the story of Baru Klinthing?",
+    "options": [
+      {
+        "key": "A",
+        "text": "True human worth lies in kindness and humility rather than outward wealth or social status"
+      },
+      {
+        "key": "B",
+        "text": "Harvest festivals must always be conducted during dry weather"
+      },
+      {
+        "key": "C",
+        "text": "Traveling alone through mountain forests is unsafe for young boys"
+      },
+      {
+        "key": "D",
+        "text": "Wealthy villagers are always superior to poor artisans"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Tema moral utama cerita rakyat Rawa Pening adalah bahwa nilai sejati seseorang diukur dari kebaikan hati dan kerendahan hati, bukan dari kekayaan lahiriah atau kesombongan rupa: 'true human worth is found in kindness and humility, not in outward wealth or pride'. Pilihan A tepat.",
+    "grammarNote": "Thematic Synthesis: True dignity lies in humility and kindness vs arrogance."
+  },
+  {
+    "id": 12,
+    "source": "Sumber: Dikutip dan disesuaikan dari Cerita Rakyat Jawa Tengah — Balai Bahasa Provinsi Jawa Tengah & Kemendikbudristek",
+    "type": "single_choice",
+    "title": "Advanced Narrative: Explicit Character Conflict",
+    "stimulusTitle": "Text 1: The Legend of Rawa Pening: A Tale of Kindness and Humility",
+    "stimulusBody": "(Silakan merujuk pada Teks 1: 'The Legend of Rawa Pening' di atas)",
+    "prompt": "According to paragraph 3, why did the villagers of Pathok cruelly reject and drive Baru Klinthing away?",
+    "options": [
+      {
+        "key": "A",
+        "text": "They were arrogant and judged him solely by his ragged clothes and wounded appearance"
+      },
+      {
+        "key": "B",
+        "text": "They were terrified because he carried dangerous metal weapons"
+      },
+      {
+        "key": "C",
+        "text": "All the food prepared for the harvest festival had already run out"
+      },
+      {
+        "key": "D",
+        "text": "He refused to join their traditional dances in the village square"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Paragraf 3 menyatakan secara eksplisit bahwa warga desa bersikap angkuh dan mencemooh pakaian koyak serta rupa kotor Baru Klinthing: 'the wealthy villagers were proud and arrogant... mocked his ragged clothes and dirty appearance'. Pilihan A tepat.",
+    "grammarNote": "Cause and Effect: 'Instead of showing sympathy, they mocked his ragged clothes... and drove him away'."
+  },
+  {
+    "id": 13,
+    "source": "Sumber: Dikutip dan disesuaikan dari Cerita Rakyat Jawa Tengah — Balai Bahasa Provinsi Jawa Tengah & Kemendikbudristek",
+    "type": "single_choice",
+    "title": "Advanced Narrative: Character Traits & Motivation",
+    "stimulusTitle": "Text 1: The Legend of Rawa Pening: A Tale of Kindness and Humility",
+    "stimulusBody": "(Silakan merujuk pada Teks 1: 'The Legend of Rawa Pening' di atas)",
+    "prompt": "How did Mbok Rondo treat Baru Klinthing when he arrived at her humble cottage?",
+    "options": [
+      {
+        "key": "A",
+        "text": "She showed sincere compassion by offering him warm food and shelter despite her modest life"
+      },
+      {
+        "key": "B",
+        "text": "She demanded gold coins before allowing him to sit on her porch"
+      },
+      {
+        "key": "C",
+        "text": "She ordered her neighbors to chase him into the forest"
+      },
+      {
+        "key": "D",
+        "text": "She ignored him because she was busy weaving textiles"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Berbeda dari warga desa yang kaya namun sombong, Mbok Rondo menyambut Baru Klinthing dengan ketulusan dan memberinya makan serta minum: 'she generously offered him warm rice, fresh vegetables, and cool water'. Pilihan A tepat.",
+    "grammarNote": "Contrasting Adverbial Clause: 'Unlike the arrogant villagers, Mbok Rondo welcomed the boy warmly...'."
+  },
+  {
+    "id": 14,
+    "source": "Sumber: Dikutip dan disesuaikan dari Cerita Rakyat Jawa Tengah — Balai Bahasa Provinsi Jawa Tengah & Kemendikbudristek",
+    "type": "single_choice",
+    "title": "Advanced Narrative: Contextual Lexis (CEFR B2)",
+    "stimulusTitle": "Text 1: The Legend of Rawa Pening: A Tale of Kindness and Humility",
+    "stimulusBody": "(Silakan merujuk pada Teks 1: 'The Legend of Rawa Pening' di atas)",
+    "prompt": "The word 'shunned' in paragraph 1 ('Baru Klinthing was shunned by many villagers') is closest in meaning to...",
+    "options": [
+      {
+        "key": "A",
+        "text": "avoided and rejected"
+      },
+      {
+        "key": "B",
+        "text": "warmly invited"
+      },
+      {
+        "key": "C",
+        "text": "publicly praised"
+      },
+      {
+        "key": "D",
+        "text": "financially supported"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Kata 'shunned' (bentuk lampau dari 'shun') bermakna dijauhi, dihindari, atau disisihkan oleh orang lain (avoided and rejected). Pilihan A tepat.",
+    "grammarNote": "Verb Lexis (B2): shun = systematically avoid, ignore, or reject someone."
+  },
+  {
+    "id": 15,
+    "source": "Sumber: Dikutip dan disesuaikan dari Cerita Rakyat Jawa Tengah — Balai Bahasa Provinsi Jawa Tengah & Kemendikbudristek",
+    "type": "single_choice",
+    "title": "Advanced Narrative: Symbolic Action Analysis",
+    "stimulusTitle": "Text 1: The Legend of Rawa Pening: A Tale of Kindness and Humility",
+    "stimulusBody": "(Silakan merujuk pada Teks 1: 'The Legend of Rawa Pening' di atas)",
+    "prompt": "What was the significance of the stick-pulling challenge organized by Baru Klinthing?",
+    "options": [
+      {
+        "key": "A",
+        "text": "It exposed the false pride of the boastful villagers who could not pull it out despite their arrogance"
+      },
+      {
+        "key": "B",
+        "text": "It was a sporting game designed to select the next village chief"
+      },
+      {
+        "key": "C",
+        "text": "It was intended to find the best farmer for the upcoming planting season"
+      },
+      {
+        "key": "D",
+        "text": "It was meant to build a wooden fence around the village square"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Tantangan mencabut lidi dilakukan Baru Klinthing untuk mempermalukan kesombongan dan keangkuhan warga desa yang mengklaim diri mereka hebat dan kuat, namun tak satu pun sanggup mencabutnya. Pilihan A tepat.",
+    "grammarNote": "Symbolic Narrative Device: The immovable stick symbolizes moral truth exposing false human pride."
+  },
+  {
+    "id": 16,
+    "source": "Sumber: Dikutip dan disesuaikan dari Cerita Rakyat Jawa Tengah — Balai Bahasa Provinsi Jawa Tengah & Kemendikbudristek",
+    "type": "single_choice",
+    "title": "Advanced Narrative: Contextual Lexis (CEFR B2)",
+    "stimulusTitle": "Text 1: The Legend of Rawa Pening: A Tale of Kindness and Humility",
+    "stimulusBody": "(Silakan merujuk pada Teks 1: 'The Legend of Rawa Pening' di atas)",
+    "prompt": "The word 'effortlessly' in paragraph 6 ('pulled the stick out effortlessly with one hand') is closest in meaning to...",
+    "options": [
+      {
+        "key": "A",
+        "text": "easily and without struggle"
+      },
+      {
+        "key": "B",
+        "text": "with extreme difficulty"
+      },
+      {
+        "key": "C",
+        "text": "using heavy iron tools"
+      },
+      {
+        "key": "D",
+        "text": "with loud shouts of pain"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Adverbia 'effortlessly' berasal dari 'effort' + suffix '-less' + '-ly', yang bermakna tanpa bersusah payah, secara mudah sekali (easily and without struggle).",
+    "grammarNote": "Morphological Adverb Formation: effortless + -ly = without exerting physical strain."
+  },
+  {
+    "id": 17,
+    "source": "Sumber: Dikutip dan disesuaikan dari Cerita Rakyat Jawa Tengah — Balai Bahasa Provinsi Jawa Tengah & Kemendikbudristek",
+    "type": "single_choice",
+    "title": "Advanced Narrative: Plot Turning Point & Consequence",
+    "stimulusTitle": "Text 1: The Legend of Rawa Pening: A Tale of Kindness and Humility",
+    "stimulusBody": "(Silakan merujuk pada Teks 1: 'The Legend of Rawa Pening' di atas)",
+    "prompt": "What catastrophic event occurred immediately after Baru Klinthing pulled the wooden stick out of the earth?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Clear water gushed forth violently from the ground, flooding the village and creating Lake Rawa Pening"
+      },
+      {
+        "key": "B",
+        "text": "A massive earthquake split Mount Telomoyo into two parts"
+      },
+      {
+        "key": "C",
+        "text": "The harvest crops caught fire and destroyed the wooden cottages"
+      },
+      {
+        "key": "D",
+        "text": "Heavy rain caused the mountain river bridge to collapse"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Seketika setelah lidi dicabut, air jernih memancar deras dari lubang tanah bagai air mancur raksasa, menenggelamkan desa dan membentuk Danau Rawa Pening. Pilihan A tepat.",
+    "grammarNote": "Immediate Temporal Sequence: 'Instantly, clear water gushed forth... transforming the area into a vast lake'."
+  },
+  {
+    "id": 18,
+    "source": "Sumber: Dikutip dan disesuaikan dari Cerita Rakyat Jawa Tengah — Balai Bahasa Provinsi Jawa Tengah & Kemendikbudristek",
+    "type": "single_choice",
+    "title": "Advanced Narrative: Pronoun Reference Tracking",
+    "stimulusTitle": "Text 1: The Legend of Rawa Pening: A Tale of Kindness and Humility",
+    "stimulusBody": "(Silakan merujuk pada Teks 1: 'The Legend of Rawa Pening' di atas)",
+    "prompt": "In paragraph 4, what does the pronoun 'it' refer to in the clause: 'please prepare your wooden mortar (lesung) and use it as a boat'?",
+    "options": [
+      {
+        "key": "A",
+        "text": "The wooden mortar (lesung)"
+      },
+      {
+        "key": "B",
+        "text": "The loud rumbling sound"
+      },
+      {
+        "key": "C",
+        "text": "The village center"
+      },
+      {
+        "key": "D",
+        "text": "The warm rice"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Frasa 'prepare your wooden mortar (lesung) and use it as a boat' menunjukkan bahwa kata ganti objek 'it' merujuk secara langsung pada lesung kayu (the wooden mortar). Pilihan A tepat.",
+    "grammarNote": "Direct Object Pronoun Reference: Antecedent 'wooden mortar' -> singular neuter pronoun 'it'."
+  },
+  {
+    "id": 19,
+    "source": "Sumber: Dikutip dan disesuaikan dari Cerita Rakyat Jawa Tengah — Balai Bahasa Provinsi Jawa Tengah & Kemendikbudristek",
+    "type": "single_choice",
+    "title": "Advanced Narrative: Generic Structure Analysis",
+    "stimulusTitle": "Text 1: The Legend of Rawa Pening: A Tale of Kindness and Humility",
+    "stimulusBody": "(Silakan merujuk pada Teks 1: 'The Legend of Rawa Pening' di atas)",
+    "prompt": "The part of the narrative where water submerges the village and only kind Mbok Rondo survives represents which generic structure element?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Resolution (the outcome and conclusion of the central conflict)"
+      },
+      {
+        "key": "B",
+        "text": "Orientation (introducing characters and opening setting)"
+      },
+      {
+        "key": "C",
+        "text": "Complication (the initial emergence of the problem)"
+      },
+      {
+        "key": "D",
+        "text": "Abstract (a brief summary preceding the tale)"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Bagian akhir cerita di mana banjir menenggelamkan desa dan Mbok Rondo selamat mengapung di atas lesung merupakan tahap Resolusi (Resolution), yaitu penyelesaian akhir dari rangkaian konflik cerita.",
+    "grammarNote": "Narrative Generic Structure: Orientation -> Complication -> Resolution -> Coda."
+  },
+  {
+    "id": 20,
+    "source": "Sumber: Dikutip dan disesuaikan dari Cerita Rakyat Jawa Tengah — Balai Bahasa Provinsi Jawa Tengah & Kemendikbudristek",
+    "type": "single_choice",
+    "title": "Advanced Narrative: Educational & Moral Value",
+    "stimulusTitle": "Text 1: The Legend of Rawa Pening: A Tale of Kindness and Humility",
+    "stimulusBody": "(Silakan merujuk pada Teks 1: 'The Legend of Rawa Pening' di atas)",
+    "prompt": "What important ethical lesson can high school students learn from the legend of Rawa Pening?",
+    "options": [
+      {
+        "key": "A",
+        "text": "To treat underprivileged people with empathy and never look down on others based on their physical appearance"
+      },
+      {
+        "key": "B",
+        "text": "To store wooden mortars only inside stone houses"
+      },
+      {
+        "key": "C",
+        "text": "To build high dams whenever celebrating harvest festivals"
+      },
+      {
+        "key": "D",
+        "text": "To avoid eating roasted meats during public celebrations"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Pesan moral bagi pelajar adalah memperlakukan kaum yang kurang beruntung dengan penuh empati, serta tidak merendahkan sesama hanya berdasarkan penampilan fisik atau status materi. Pilihan A tepat.",
+    "grammarNote": "Moral Application: 'treat underprivileged people with empathy and never look down on others'."
+  },
+  {
+    "id": 21,
+    "source": "Sumber: Adaptasi Kebijakan Etika AI dalam Pendidikan Menengah — UNESCO & Kemendikbudristek",
+    "type": "single_choice",
+    "title": "Hortatory Exposition: Communicative Purpose",
+    "stimulusTitle": "Text 2: Using Artificial Intelligence Responsibly in High School Learning",
+    "stimulusBody": "In recent years, artificial intelligence (AI) has rapidly transformed the educational landscape. With just a few simple prompts, students can use AI applications to explain complicated science concepts, suggest essay outlines, or solve complex mathematical formulas. While these digital tools provide tremendous convenience, relying too heavily on them without careful thinking can harm our learning process. Therefore, high school students should learn to use AI responsibly as a supportive study assistant rather than letting it do all the thinking for them.<br><br>First of all, writing and problem-solving are fundamental exercises for developing our intellect. When students compose an essay in their own words, they practice organizing arguments, thinking critically, and expressing their original voice. If learners simply copy and paste AI-generated answers into their school assignments, their ability to think independently and analyze problems will gradually weaken over time. Completing assignments through our own effort builds the genuine intellectual competence and self-confidence needed for university and future careers.<br><br>Secondly, generative AI tools are not always completely accurate. AI generates responses based on language patterns found across the internet, which means it can occasionally produce false facts, misleading statements, or fake reference sources with high confidence. If students accept these answers blindly without checking reliable sources, they risk submitting incorrect information in their homework. Students must develop the habit of cross-checking AI responses with school textbooks, trusted educational websites, or their teachers' guidance.<br><br>In conclusion, artificial intelligence is a powerful modern innovation that cannot be ignored. Instead of completely banning AI or misusing it to cheat on assignments, schools and students should adopt a balanced and principled approach. Students should view AI as a helpful tutor to clarify difficult concepts and inspire creative ideas, while ensuring that the final work is always created through their own hard work and critical thought. By building responsible digital habits today, students can master technology as an empowering learning partner rather than becoming passive consumers.",
+    "prompt": "What is the primary communicative purpose of the hortatory exposition text above?",
+    "options": [
+      {
+        "key": "A",
+        "text": "To persuade readers that high school students should use AI responsibly as a study aid while maintaining independent thought"
+      },
+      {
+        "key": "B",
+        "text": "To entertain readers with a science fiction story about self-aware computers"
+      },
+      {
+        "key": "C",
+        "text": "To provide a step-by-step programming tutorial on building an AI algorithm"
+      },
+      {
+        "key": "D",
+        "text": "To explain the physical components of modern computer hardware"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Tujuan komunikatif teks eksposisi hortatori adalah membujuk/meyakinkan pembaca bahwa pelajar SMA harus memanfaatkan AI secara bertanggung jawab sebagai pendukung belajar sambil tetap menjaga kemandirian berpikir. Pilihan A tepat.",
+    "grammarNote": "Communicative Function: To persuade the reader that something should or should not be done."
+  },
+  {
+    "id": 22,
+    "source": "Sumber: Adaptasi Kebijakan Etika AI dalam Pendidikan Menengah — UNESCO & Kemendikbudristek",
+    "type": "single_choice",
+    "title": "Hortatory Exposition: Thesis Statement Identification",
+    "stimulusTitle": "Text 2: Using Artificial Intelligence Responsibly in High School Learning",
+    "stimulusBody": "(Silakan merujuk pada Teks 2: 'Using Artificial Intelligence Responsibly in High School Learning' di atas)",
+    "prompt": "Which sentence from paragraph 1 directly presents the author's main thesis statement?",
+    "options": [
+      {
+        "key": "A",
+        "text": "High school students should learn to use AI responsibly as a supportive study assistant rather than letting it do all the thinking"
+      },
+      {
+        "key": "B",
+        "text": "Artificial intelligence has rapidly transformed the educational landscape"
+      },
+      {
+        "key": "C",
+        "text": "With just a few simple prompts, students can explain complicated concepts"
+      },
+      {
+        "key": "D",
+        "text": "Digital tools provide tremendous convenience for modern learners"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Tesis penulis ada pada kalimat terakhir paragraf 1: 'Therefore, high school students should learn to use AI responsibly as a supportive study assistant rather than letting it do all the thinking for them'. Pilihan A tepat.",
+    "grammarNote": "Thesis Statement Formula: Modal of Recommendation (should + Base Verb) stating the core stance."
+  },
+  {
+    "id": 23,
+    "source": "Sumber: Adaptasi Kebijakan Etika AI dalam Pendidikan Menengah — UNESCO & Kemendikbudristek",
+    "type": "single_choice",
+    "title": "Hortatory Exposition: Detail Argument on Cognitive Skills",
+    "stimulusTitle": "Text 2: Using Artificial Intelligence Responsibly in High School Learning",
+    "stimulusBody": "(Silakan merujuk pada Teks 2: 'Using Artificial Intelligence Responsibly in High School Learning' di atas)",
+    "prompt": "According to paragraph 2, why is composing essays in our own words essential for high school students?",
+    "options": [
+      {
+        "key": "A",
+        "text": "It trains the mind to organize arguments, cultivate critical thinking, and build independent problem-solving skills"
+      },
+      {
+        "key": "B",
+        "text": "It allows students to complete their homework in less than five minutes"
+      },
+      {
+        "key": "C",
+        "text": "It eliminates the need for teachers to review student portfolios"
+      },
+      {
+        "key": "D",
+        "text": "It guarantees automatic acceptance into international universities"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Paragraf 2 menyatakan bahwa menulis esai dengan kata-kata sendiri melatih otak merangkai argumen, berpikir kritis, dan memecahkan masalah mandiri: 'practice organizing arguments, thinking critically, and expressing their original voice'. Pilihan A tepat.",
+    "grammarNote": "Supporting Argument: Gerunds as objects ('organizing arguments, thinking critically')."
+  },
+  {
+    "id": 24,
+    "source": "Sumber: Adaptasi Kebijakan Etika AI dalam Pendidikan Menengah — UNESCO & Kemendikbudristek",
+    "type": "single_choice",
+    "title": "Hortatory Exposition: Contextual Lexis (CEFR B2)",
+    "stimulusTitle": "Text 2: Using Artificial Intelligence Responsibly in High School Learning",
+    "stimulusBody": "(Silakan merujuk pada Teks 2: 'Using Artificial Intelligence Responsibly in High School Learning' di atas)",
+    "prompt": "The word 'relying' in paragraph 1 ('relying too heavily on them without careful thinking') is closest in meaning to...",
+    "options": [
+      {
+        "key": "A",
+        "text": "depending"
+      },
+      {
+        "key": "B",
+        "text": "ignoring"
+      },
+      {
+        "key": "C",
+        "text": "criticizing"
+      },
+      {
+        "key": "D",
+        "text": "repairing"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Kata 'relying' (dari phrasal verb 'rely on') bermakna bergantung pada, mempercayakan diri sepenuhnya (depending on). Pilihan A tepat.",
+    "grammarNote": "Phrasal Verb Synonym: rely on = depend on, trust in."
+  },
+  {
+    "id": 25,
+    "source": "Sumber: Adaptasi Kebijakan Etika AI dalam Pendidikan Menengah — UNESCO & Kemendikbudristek",
+    "type": "single_choice",
+    "title": "Hortatory Exposition: Cause & Effect of AI Hallucinations",
+    "stimulusTitle": "Text 2: Using Artificial Intelligence Responsibly in High School Learning",
+    "stimulusBody": "(Silakan merujuk pada Teks 2: 'Using Artificial Intelligence Responsibly in High School Learning' di atas)",
+    "prompt": "Based on paragraph 3, why can generative AI systems sometimes present misleading or incorrect information?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Because they generate text based on statistical internet patterns rather than genuine comprehension of factual truth"
+      },
+      {
+        "key": "B",
+        "text": "Because school internet routers are deliberately programmed to produce errors"
+      },
+      {
+        "key": "C",
+        "text": "Because textbook publishers frequently alter online articles"
+      },
+      {
+        "key": "D",
+        "text": "Because computers cannot operate during cloudy weather"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Paragraf 3 menjelaskan: 'AI generates responses based on language patterns found across the internet, which means it can occasionally produce false facts... with high confidence'. AI memprediksi pola bahasa, bukan memahami kebenaran faktual. Pilihan A tepat.",
+    "grammarNote": "Causal Reason Clause: 'based on language patterns... rather than genuine comprehension'."
+  },
+  {
+    "id": 26,
+    "source": "Sumber: Adaptasi Kebijakan Etika AI dalam Pendidikan Menengah — UNESCO & Kemendikbudristek",
+    "type": "single_choice",
+    "title": "Hortatory Exposition: Contextual Lexis (CEFR B2)",
+    "stimulusTitle": "Text 2: Using Artificial Intelligence Responsibly in High School Learning",
+    "stimulusBody": "(Silakan merujuk pada Teks 2: 'Using Artificial Intelligence Responsibly in High School Learning' di atas)",
+    "prompt": "The word 'blindly' in paragraph 3 ('if students accept these answers blindly without checking') means...",
+    "options": [
+      {
+        "key": "A",
+        "text": "without question or verification"
+      },
+      {
+        "key": "B",
+        "text": "using dark eyeglasses"
+      },
+      {
+        "key": "C",
+        "text": "after checking three reference books"
+      },
+      {
+        "key": "D",
+        "text": "with enthusiastic celebration"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Adverbia 'blindly' secara kiasan bermakna menelan/menerima sesuatu begitu saja tanpa mempertanyakan atau mengecek kebenarannya (without question or verification). Pilihan A tepat.",
+    "grammarNote": "Idiomatic Adverbial Register: accept blindly = accept uncritically without proof."
+  },
+  {
+    "id": 27,
+    "source": "Sumber: Adaptasi Kebijakan Etika AI dalam Pendidikan Menengah — UNESCO & Kemendikbudristek",
+    "type": "single_choice",
+    "title": "Hortatory Exposition: Author's Stance and Tone",
+    "stimulusTitle": "Text 2: Using Artificial Intelligence Responsibly in High School Learning",
+    "stimulusBody": "(Silakan merujuk pada Teks 2: 'Using Artificial Intelligence Responsibly in High School Learning' di atas)",
+    "prompt": "Which pair of words best describes the author's tone throughout the article?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Persuasive and constructive"
+      },
+      {
+        "key": "B",
+        "text": "Sarcastic and angry"
+      },
+      {
+        "key": "C",
+        "text": "Panicked and hopeless"
+      },
+      {
+        "key": "D",
+        "text": "Mocking and indifferent"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Penulis menggunakan nada yang mengajak/meyakinkan (persuasive) dengan solusi membangun dan positif (constructive) bagi siswa, bukan melarang atau panik. Pilihan A tepat.",
+    "grammarNote": "Author's Tone: Persuasive, rational, and constructive."
+  },
+  {
+    "id": 28,
+    "source": "Sumber: Adaptasi Kebijakan Etika AI dalam Pendidikan Menengah — UNESCO & Kemendikbudristek",
+    "type": "single_choice",
+    "title": "Hortatory Exposition: Pronoun Reference",
+    "stimulusTitle": "Text 2: Using Artificial Intelligence Responsibly in High School Learning",
+    "stimulusBody": "(Silakan merujuk pada Teks 2: 'Using Artificial Intelligence Responsibly in High School Learning' di atas)",
+    "prompt": "In paragraph 1, what does the pronoun 'them' refer to in the clause: 'relying too heavily on them without careful thinking'?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Digital AI tools"
+      },
+      {
+        "key": "B",
+        "text": "Difficult science concepts"
+      },
+      {
+        "key": "C",
+        "text": "High school teachers"
+      },
+      {
+        "key": "D",
+        "text": "Mathematical formulas"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Kalimat tersebut berbunyi: 'While these digital tools provide tremendous convenience, relying too heavily on them...'. Kata ganti 'them' merujuk pada alat-alat digital AI (digital AI tools). Pilihan A tepat.",
+    "grammarNote": "Plural Object Pronoun Reference: Antecedent 'digital tools' -> pronoun 'them'."
+  },
+  {
+    "id": 29,
+    "source": "Sumber: Adaptasi Kebijakan Etika AI dalam Pendidikan Menengah — UNESCO & Kemendikbudristek",
+    "type": "single_choice",
+    "title": "Hortatory Exposition: Characteristic Recommendation",
+    "stimulusTitle": "Text 2: Using Artificial Intelligence Responsibly in High School Learning",
+    "stimulusBody": "(Silakan merujuk pada Teks 2: 'Using Artificial Intelligence Responsibly in High School Learning' di atas)",
+    "prompt": "How does the final paragraph reflect the distinctive generic structure of a Hortatory Exposition?",
+    "options": [
+      {
+        "key": "A",
+        "text": "It delivers practical recommendations ('students should view AI as a helpful tutor... ensure final work is their own')"
+      },
+      {
+        "key": "B",
+        "text": "It introduces a brand-new setting in a futuristic classroom"
+      },
+      {
+        "key": "C",
+        "text": "It lists the prices of commercial software subscriptions"
+      },
+      {
+        "key": "D",
+        "text": "It avoids summarizing any of the previous arguments"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Ciri khas penutup teks Hortatory Exposition adalah menyajikan Rekomendasi tindakan ('should view AI as a helpful tutor... ensure final work is their own'). Pilihan A tepat.",
+    "grammarNote": "Generic Structure: Hortatory ends with Recommendation (advocating should/should not)."
+  },
+  {
+    "id": 30,
+    "source": "Sumber: Adaptasi Kebijakan Etika AI dalam Pendidikan Menengah — UNESCO & Kemendikbudristek",
+    "type": "single_choice",
+    "title": "Hortatory Exposition: Practical Application & Integrity",
+    "stimulusTitle": "Text 2: Using Artificial Intelligence Responsibly in High School Learning",
+    "stimulusBody": "(Silakan merujuk pada Teks 2: 'Using Artificial Intelligence Responsibly in High School Learning' di atas)",
+    "prompt": "What is the most appropriate example of responsible AI usage by a student?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Asking AI to explain a confusing concept, then summarizing the understanding in their own words"
+      },
+      {
+        "key": "B",
+        "text": "Copying an AI essay directly and submitting it as original homework"
+      },
+      {
+        "key": "C",
+        "text": "Letting AI generate answers during a closed-book examination"
+      },
+      {
+        "key": "D",
+        "text": "Refusing to use computers or digital dictionaries for any school project"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Contoh penggunaan AI yang beretika dan bertanggung jawab adalah meminta penjelasan konsep yang sulit, lalu menulis rangkumannya dengan kata-kata sendiri. Pilihan A tepat.",
+    "grammarNote": "Applied Digital Ethics: AI as conceptual assistant + student original synthesis."
+  },
+  {
+    "id": 31,
+    "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat Lanjut — SMAN 1 Bae Kudus",
+    "type": "single_choice",
+    "title": "Grammar: Negative Inversion (CEFR B2)",
+    "stimulusTitle": "Kaidah Inversi dengan Adverbial Negatif (Negative Inversion)",
+    "stimulusBody": "Rarely _______ students achieve lasting academic success without consistent self-discipline and daily practice.",
+    "prompt": "Choose the correct auxiliary verb to complete the inverted sentence:",
+    "options": [
+      {
+        "key": "A",
+        "text": "do"
+      },
+      {
+        "key": "B",
+        "text": "does"
+      },
+      {
+        "key": "C",
+        "text": "have"
+      },
+      {
+        "key": "D",
+        "text": "are"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Ketika kalimat diawali adverbial pembatas 'Rarely' dan subjeknya jamak ('students') dalam Present Simple, pola inversinya adalah: Rarely + do + Subject + V1 ('Rarely do students achieve...'). Pilihan A tepat.",
+    "grammarNote": "Negative Inversion Formula: Rarely + do/does + Subject + Base Verb."
+  },
+  {
+    "id": 32,
+    "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat Lanjut — SMAN 1 Bae Kudus",
+    "type": "single_choice",
+    "title": "Grammar: Present Subjunctive in Recommendation (CEFR B2)",
+    "stimulusTitle": "Kaidah Modus Subjungtif Formal (Present Subjunctive)",
+    "stimulusBody": "The English teacher recommended that every student _______ the draft of their essay before submitting it.",
+    "prompt": "Select the correct subjunctive verb form for the that-clause:",
+    "options": [
+      {
+        "key": "A",
+        "text": "revise"
+      },
+      {
+        "key": "B",
+        "text": "revises"
+      },
+      {
+        "key": "C",
+        "text": "revised"
+      },
+      {
+        "key": "D",
+        "text": "is revising"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Setelah kata kerja rekomendasi (recommend, suggest, insist) + that + Subject, kata kerja yang digunakan adalah Subjunctive bentuk dasar (Bare Infinitive / V1 tanpa akhiran -s): 'that every student revise'. Pilihan A tepat.",
+    "grammarNote": "Mandative Subjunctive Formula: recommend + that + Subject + Base Verb."
+  },
+  {
+    "id": 33,
+    "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat Lanjut — SMAN 1 Bae Kudus",
+    "type": "single_choice",
+    "title": "Grammar: Concessive Connector of Contrast (CEFR B2)",
+    "stimulusTitle": "Kaidah Kata Hubung Pertentangan / Konsesif (Concession)",
+    "stimulusBody": "_______ the research assignment appeared difficult at first, the students completed it successfully through active collaboration.",
+    "prompt": "Which conjunction of concession correctly establishes the contrast?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Although"
+      },
+      {
+        "key": "B",
+        "text": "Because"
+      },
+      {
+        "key": "C",
+        "text": "Since"
+      },
+      {
+        "key": "D",
+        "text": "In order that"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Kata hubung yang menyatakan hubungan pertentangan (konsesif) yang diikuti oleh klausa lengkap (Subject + Verb) adalah 'Although' (meskipun/walaupun). Pilihan A tepat.",
+    "grammarNote": "Concessive Subordinator: Although + Clause, Main Clause."
+  },
+  {
+    "id": 34,
+    "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat Lanjut — SMAN 1 Bae Kudus",
+    "type": "single_choice",
+    "title": "Grammar: Inverted Conditional Type 3 (CEFR B2)",
+    "stimulusTitle": "Kaidah Pengandaian Lampau Inversi (Inverted Conditional Type 3)",
+    "stimulusBody": "_______ the students cross-checked the online information with their textbook, they would not have submitted the incorrect historical date.",
+    "prompt": "Choose the correct inverted conditional structure to replace 'If the students had cross-checked':",
+    "options": [
+      {
+        "key": "A",
+        "text": "Had the students cross-checked"
+      },
+      {
+        "key": "B",
+        "text": "Were the students to cross-check"
+      },
+      {
+        "key": "C",
+        "text": "Did the students cross-check"
+      },
+      {
+        "key": "D",
+        "text": "Should the students cross-check"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Bentuk inversi untuk Conditional Type 3 menghilangkan kata 'If' dan memindahkan auxiliary 'Had' ke depan subjek: 'Had the students cross-checked...' = 'If the students had cross-checked...'. Pilihan A tepat.",
+    "grammarNote": "Inverted Conditional Type 3: Had + Subject + V3, Subject + would have + V3."
+  },
+  {
+    "id": 35,
+    "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat Lanjut — SMAN 1 Bae Kudus",
+    "type": "single_choice",
+    "title": "Grammar: Modal of Strong Recommendation in Passive (CEFR B2)",
+    "stimulusTitle": "Kaidah Modalitas Anjuran Pasif (Passive Modal)",
+    "stimulusBody": "Before being included in a school presentation, online claims _______ carefully verified by checking credible sources.",
+    "prompt": "Which passive modal construction best expresses strong principled advice?",
+    "options": [
+      {
+        "key": "A",
+        "text": "ought to be"
+      },
+      {
+        "key": "B",
+        "text": "ought to"
+      },
+      {
+        "key": "C",
+        "text": "might have"
+      },
+      {
+        "key": "D",
+        "text": "was being"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Subjek 'online claims' menerima tindakan verifikasi. Rumus passive modal anjuran kuat adalah: ought to + be + V3 ('ought to be carefully verified'). Pilihan A tepat.",
+    "grammarNote": "Passive Modal Construction: ought to + be + Past Participle (V3)."
+  },
+  {
+    "id": 36,
+    "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat Lanjut — SMAN 1 Bae Kudus",
+    "type": "single_choice",
+    "title": "Grammar: Impersonal Passive Reporting (CEFR B2)",
+    "stimulusTitle": "Kaidah Pasif Impersonal (Impersonal Passive)",
+    "stimulusBody": "Digital literacy _______ to be one of the most vital competencies for twenty-first-century learners.",
+    "prompt": "Choose the correct impersonal passive verb phrase to complete the statement:",
+    "options": [
+      {
+        "key": "A",
+        "text": "is widely recognized"
+      },
+      {
+        "key": "B",
+        "text": "widely recognizes"
+      },
+      {
+        "key": "C",
+        "text": "is widely recognizing"
+      },
+      {
+        "key": "D",
+        "text": "has widely recognized"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Pola kalimat pasif impersonal untuk menyatakan pandangan umum adalah: Subject + is/are + Adverb + V3 + to-infinitive -> 'is widely recognized to be...'. Pilihan A tepat.",
+    "grammarNote": "Impersonal Passive: Subject + is/are + Adverb + Past Participle + to-infinitive."
+  },
+  {
+    "id": 37,
+    "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat Lanjut — SMAN 1 Bae Kudus",
+    "type": "single_choice",
+    "title": "Grammar: Perfect Participial Clause (CEFR B2)",
+    "stimulusTitle": "Kaidah Klausa Partisipial Sempurna (Perfect Participle)",
+    "stimulusBody": "_______ the small wooden stick out of the ground, Baru Klinthing watched the clear water rise and flood the village.",
+    "prompt": "Select the correct participial phrase indicating an action completed prior to the main clause:",
+    "options": [
+      {
+        "key": "A",
+        "text": "Having pulled"
+      },
+      {
+        "key": "B",
+        "text": "Pulling"
+      },
+      {
+        "key": "C",
+        "text": "Being pulled"
+      },
+      {
+        "key": "D",
+        "text": "To pull"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Perfect Participle ('Having + V3') menyatakan bahwa suatu tindakan (mencabut lidi) telah tuntas sebelum tindakan berikutnya pada kalimat utama terjadi: 'Having pulled the small wooden stick... Baru Klinthing watched...'. Pilihan A tepat.",
+    "grammarNote": "Perfect Participle: Having + V3 expresses completed anterior action."
+  },
+  {
+    "id": 38,
+    "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat Lanjut — SMAN 1 Bae Kudus",
+    "type": "single_choice",
+    "title": "Grammar: Preposition of Cause (CEFR B2)",
+    "stimulusTitle": "Kaidah Preposisi Penyebab (Preposition of Cause)",
+    "stimulusBody": "The arrogant villagers faced unexpected disaster _______ their selfish pride and cruelty toward the poor boy.",
+    "prompt": "Which cause connector correctly completes the blank before a noun phrase?",
+    "options": [
+      {
+        "key": "A",
+        "text": "because of"
+      },
+      {
+        "key": "B",
+        "text": "although"
+      },
+      {
+        "key": "C",
+        "text": "even though"
+      },
+      {
+        "key": "D",
+        "text": "so that"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Frasa 'their selfish pride and cruelty' adalah Noun Phrase. Kata penghubung penyebab yang diikuti oleh noun phrase adalah preposisi 'because of'. 'Although' dan 'even though' harus diikuti oleh klausa lengkap. Pilihan A tepat.",
+    "grammarNote": "Cause Preposition: because of + Noun Phrase (vs because + Subject + Verb)."
+  },
+  {
+    "id": 39,
+    "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat Lanjut — SMAN 1 Bae Kudus",
+    "type": "single_choice",
+    "title": "Grammar: Academic Collocation (CEFR B2)",
+    "stimulusTitle": "Kaidah Kolokasi Akademis (Academic Collocation)",
+    "stimulusBody": "Developing original writing skills plays a _______ role in building students' critical thinking capacity.",
+    "prompt": "Which adjective forms the most natural academic collocation with 'role'?",
+    "options": [
+      {
+        "key": "A",
+        "text": "crucial"
+      },
+      {
+        "key": "B",
+        "text": "noisy"
+      },
+      {
+        "key": "C",
+        "text": "sharp"
+      },
+      {
+        "key": "D",
+        "text": "careless"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Kolokasi akademis yang baku dan natural dengan kata 'role' adalah 'crucial role' (peran yang sangat penting/krusial) atau 'vital role'. Pilihan A tepat.",
+    "grammarNote": "Adjective-Noun Collocation: play a crucial / essential role in doing something."
+  },
+  {
+    "id": 40,
+    "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat Lanjut — SMAN 1 Bae Kudus",
+    "type": "single_choice",
+    "title": "Grammar: Correlative Conjunction with Inversion (CEFR B2)",
+    "stimulusTitle": "Kaidah Inversi 'Not only... but also' (Correlative Inversion)",
+    "stimulusBody": "Not only _______ artificial intelligence assist students with brainstorming ideas, but it also provides quick grammatical feedback.",
+    "prompt": "Choose the correct auxiliary verb to complete the inverted clause:",
+    "options": [
+      {
+        "key": "A",
+        "text": "does"
+      },
+      {
+        "key": "B",
+        "text": "do"
+      },
+      {
+        "key": "C",
+        "text": "is"
+      },
+      {
+        "key": "D",
+        "text": "has"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Ketika diawali 'Not only' dalam Present Simple dengan subjek tunggal 'artificial intelligence', klausanya mengalami inversi: Not only + does + Subject + V1 ('Not only does artificial intelligence assist...'). Pilihan A tepat.",
+    "grammarNote": "Correlative Inversion: Not only + does + Subject + Base Verb..., but it also + Verb."
+  }
+];
 }
 
-// Global State Management
 let studentIdentity = {
   tingkat: "XI-TL",
   rombel: "1",
@@ -817,7 +1517,6 @@ let timerInterval = null;
 let remainingSeconds = 90 * 60; // 90 minutes
 let isExamSubmitted = false;
 let audioSpeechRate = 1.0;
-let currentUtterance = null;
 let questions = [];
 
 // Fisher-Yates Shuffle for Options (Single choice questions only, without SVGs)
@@ -879,8 +1578,6 @@ function handleDirectIdentitySubmit(e) {
   const rombel = document.getElementById("direct-rombel").value;
   const presensi = document.getElementById("direct-presensi").value.trim();
   const mode = document.getElementById("direct-mode").value;
-
-  // Tidak perlu token atau password untuk latihan / ujian
 
   studentIdentity = {
     tingkat: "XI-TL",
@@ -1018,7 +1715,7 @@ function renderQuestion(index) {
 
   // Listening Audio Box
   const listeningBox = document.getElementById("listening-container");
-  if (q.audioText) {
+  if (q.audioText || (q.audioSegments && q.audioSegments.length > 0)) {
     listeningBox.style.display = "block";
     document.getElementById("audio-status-text").textContent = "Klik 'Putar Audio' untuk menyimak wacana otentik.";
   } else {
@@ -1154,58 +1851,170 @@ function toggleFlagQuestion() {
   renderQuestion(currentQuestionIndex);
 }
 
-// Audio Engine via Web Speech API
-function playQuestionAudio() {
-  const q = questions[currentQuestionIndex];
-  if (!q || !q.audioText) return;
+// =========================================================================
+// MULTI-SPEAKER & INDONESIAN PRONUNCIATION AUDIO ENGINE (WEB SPEECH API)
+// =========================================================================
+let isAudioPlaying = false;
+let audioQueue = [];
+let audioQueueIdx = 0;
+let cachedVoices = [];
 
-  if (window.speechSynthesis) {
-    window.speechSynthesis.cancel();
-    
-    const playBtn = document.getElementById("btn-play-audio");
-    const playText = document.getElementById("play-text");
-    const statusText = document.getElementById("audio-status-text");
+if (typeof window !== "undefined" && window.speechSynthesis) {
+  cachedVoices = window.speechSynthesis.getVoices();
+  window.speechSynthesis.onvoiceschanged = () => {
+    cachedVoices = window.speechSynthesis.getVoices();
+  };
+}
 
-    currentUtterance = new SpeechSynthesisUtterance(q.audioText);
-    currentUtterance.lang = "en-US";
-    currentUtterance.rate = audioSpeechRate;
-
-    const voices = window.speechSynthesis.getVoices();
-    const enVoice = voices.find(v => v.lang.startsWith("en") && (v.name.includes("Natural") || v.name.includes("Google") || v.name.includes("David") || v.name.includes("Zira")));
-    if (enVoice) {
-      currentUtterance.voice = enVoice;
-    }
-
-    currentUtterance.onstart = () => {
-      playText.textContent = "Sedang Memutar...";
-      statusText.textContent = "🔊 Audio sedang diputar. Simak dengan seksama.";
-      playBtn.style.backgroundColor = "#047857";
-    };
-
-    currentUtterance.onend = () => {
-      playText.textContent = "Putar Ulang";
-      statusText.textContent = "✅ Pemutaran audio selesai. Silakan pilih jawaban Anda.";
-      playBtn.style.backgroundColor = "var(--accent-teal)";
-    };
-
-    currentUtterance.onerror = () => {
-      playText.textContent = "Putar Audio";
-      statusText.textContent = "⚠️ Pemutaran audio selesai atau dihentikan.";
-      playBtn.style.backgroundColor = "var(--accent-teal)";
-    };
-
-    window.speechSynthesis.speak(currentUtterance);
-  } else {
-    alert("Peramban Anda belum mendukung Web Speech API.");
+function getAvailableVoices() {
+  if (!window.speechSynthesis) return [];
+  if (!cachedVoices || cachedVoices.length === 0) {
+    cachedVoices = window.speechSynthesis.getVoices();
   }
+  return cachedVoices;
+}
+
+function selectAudioVoice(role, gender, lang) {
+  const voices = getAvailableVoices();
+  if (!voices || voices.length === 0) return null;
+
+  if (lang && lang.startsWith("id")) {
+    const idVoice = voices.find(v => v.lang.startsWith("id") || v.name.toLowerCase().includes("indonesia") || v.name.includes("Gadis") || v.name.includes("Ardi"));
+    if (idVoice) return idVoice;
+  }
+
+  const enVoices = voices.filter(v => v.lang.startsWith("en"));
+  if (gender === "female") {
+    const fVoice = enVoices.find(v => 
+      v.name.includes("Zira") || v.name.includes("Jenny") || v.name.includes("Aria") || 
+      v.name.toLowerCase().includes("female") || v.name.toLowerCase().includes("woman") ||
+      (v.name.includes("Google") && !v.name.toLowerCase().includes("male"))
+    );
+    if (fVoice) return fVoice;
+  } else if (gender === "male") {
+    const mVoice = enVoices.find(v => 
+      v.name.includes("David") || v.name.includes("Guy") || v.name.includes("Ryan") || 
+      v.name.includes("Mark") || v.name.toLowerCase().includes("male")
+    );
+    if (mVoice) return mVoice;
+  }
+
+  const narratorVoice = enVoices.find(v => v.name.includes("Natural") || v.name.includes("Google") || v.name.includes("David") || v.name.includes("Zira")) || enVoices[0];
+  return narratorVoice || voices[0];
 }
 
 function stopAudio() {
   if (window.speechSynthesis) {
     window.speechSynthesis.cancel();
   }
+  isAudioPlaying = false;
+  audioQueue = [];
+  audioQueueIdx = 0;
   const playText = document.getElementById("play-text");
+  const playBtn = document.getElementById("btn-play-audio");
+  const statusText = document.getElementById("audio-status-text");
   if (playText) playText.textContent = "Putar Audio";
+  if (playBtn) playBtn.style.backgroundColor = "var(--accent-teal)";
+  if (statusText) statusText.textContent = "Klik 'Putar Audio' untuk menyimak wacana otentik.";
+}
+
+function playQuestionAudio() {
+  const q = questions[currentQuestionIndex];
+  if (!q) return;
+
+  if (!window.speechSynthesis) {
+    alert("Peramban Anda belum mendukung Web Speech API.");
+    return;
+  }
+
+  // Toggle stop if already playing
+  if (isAudioPlaying) {
+    stopAudio();
+    return;
+  }
+
+  window.speechSynthesis.cancel();
+
+  // Build audio queue
+  let segments = [];
+  if (q.audioSegments && q.audioSegments.length > 0) {
+    segments = q.audioSegments;
+  } else if (q.audioText) {
+    segments = [{ text: q.audioText, lang: "en-US", role: "narrator" }];
+  } else {
+    return;
+  }
+
+  audioQueue = segments;
+  audioQueueIdx = 0;
+  isAudioPlaying = true;
+
+  const playBtn = document.getElementById("btn-play-audio");
+  const playText = document.getElementById("play-text");
+  const statusText = document.getElementById("audio-status-text");
+
+  if (playText) playText.textContent = "Hentikan";
+  if (playBtn) playBtn.style.backgroundColor = "#dc2626";
+  if (statusText) statusText.textContent = "🔊 Audio sedang diputar. Simak dengan seksama...";
+
+  playNextAudioSegment();
+}
+
+function playNextAudioSegment() {
+  if (!isAudioPlaying) return;
+
+  if (audioQueueIdx >= audioQueue.length) {
+    // Finished all segments
+    isAudioPlaying = false;
+    audioQueue = [];
+    audioQueueIdx = 0;
+    const playBtn = document.getElementById("btn-play-audio");
+    const playText = document.getElementById("play-text");
+    const statusText = document.getElementById("audio-status-text");
+    if (playText) playText.textContent = "Putar Ulang";
+    if (playBtn) playBtn.style.backgroundColor = "var(--accent-teal)";
+    if (statusText) statusText.textContent = "✅ Pemutaran audio selesai. Silakan pilih jawaban Anda.";
+    return;
+  }
+
+  const seg = audioQueue[audioQueueIdx];
+  audioQueueIdx++;
+
+  const utt = new SpeechSynthesisUtterance(seg.text);
+  utt.lang = seg.lang || "en-US";
+  utt.rate = audioSpeechRate * (seg.rateMultiplier || 1.0);
+
+  const matchedVoice = selectAudioVoice(seg.role, seg.gender, seg.lang);
+  if (matchedVoice) {
+    utt.voice = matchedVoice;
+  }
+
+  if (seg.pitch !== undefined) {
+    utt.pitch = seg.pitch;
+  } else if (seg.gender === "female") {
+    utt.pitch = 1.25;
+  } else if (seg.gender === "male") {
+    utt.pitch = 0.85;
+  } else {
+    utt.pitch = 1.0;
+  }
+
+  utt.onend = () => {
+    if (isAudioPlaying) {
+      setTimeout(() => {
+        playNextAudioSegment();
+      }, seg.pauseAfter || 320);
+    }
+  };
+
+  utt.onerror = (e) => {
+    console.warn("Audio segment error:", e);
+    if (isAudioPlaying) {
+      playNextAudioSegment();
+    }
+  };
+
+  window.speechSynthesis.speak(utt);
 }
 
 function toggleAudioSpeed() {
