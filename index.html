@@ -166,20 +166,37 @@
               </a>
             </div>
 
-            <!-- Card Kelas XI -->
-            <div class="portal-card" id="preview-card-XI-F">
-              <span class="portal-badge badge-xi">Tingkat XI — Fase F</span>
-              <h4 style="color: var(--primary-navy); margin-bottom: 8px;">Ruang Ujian Kelas XI</h4>
+            <!-- Card Kelas XI ASTS -->
+            <div class="portal-card" id="preview-card-XI-F-ATS">
+              <span class="portal-badge badge-xi">Kelas XI — ASTS Gasal</span>
+              <h4 style="color: var(--primary-navy); margin-bottom: 8px;">Latihan ASTS (Tengah Semester)</h4>
               <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px;">
-                <strong>Cakupan Materi:</strong><br>
+                <strong>Separuh Materi Gasal (Fase F):</strong><br>
                 • 10 Soal Listening (Narrative Dialogues &amp; Talks)<br>
-                • Contemporary Narrative (Legends &amp; Urban Stories)<br>
-                • Analytical Exposition (Digital Literacy &amp; Health)<br>
+                • Contemporary Narrative (Indonesian Folklore &amp; Legends)<br>
+                • Analytical Exposition Dasar (Digital Literacy &amp; Society)<br>
                 • Grammar: Past Tenses, Causal Conjunctions, Passive<br>
                 • Kosakata: Oxford 3000 Level B1
               </p>
               <a href="kelas-xi.html" style="font-size: 0.85rem; font-weight: 700; color: var(--royal-blue); text-decoration: none;">
-                Buka Langsung Halaman Kelas XI ➔
+                Mulai Latihan ASTS Kelas XI ➔
+              </a>
+            </div>
+
+            <!-- Card Kelas XI ASAS -->
+            <div class="portal-card" id="preview-card-XI-F-ASAS" style="border-color: #818cf8; background: #faf5ff;">
+              <span class="portal-badge" style="background: #ede9fe; color: #5b21b6;">Kelas XI — ASAS Gasal Penuh</span>
+              <h4 style="color: #4c1d95; margin-bottom: 8px;">Latihan ASAS (Akhir Semester)</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px;">
+                <strong>Satu Semester Penuh (18 Minggu Lengkap):</strong><br>
+                • 10 Soal Listening (Multimodal Pictures, Dialogues, Talks)<br>
+                • Reading Genre 1: Narrative (The Legend of Roro Jonggrang)<br>
+                • Reading Genre 2: Analytical Exposition (Critical Digital Literacy)<br>
+                • Grammar: Past Perfect, Reported Speech, Conditionals Type 2<br>
+                • Kosakata: Oxford 3000 Level B1/B2
+              </p>
+              <a href="kelas-xi-asas.html" style="font-size: 0.85rem; font-weight: 700; color: #6d28d9; text-decoration: none;">
+                Mulai Latihan ASAS Kelas XI ➔
               </a>
             </div>
 
@@ -242,12 +259,17 @@
 
     function handleTingkatPreview() {
       const val = document.getElementById('input-tingkat').value;
-      ['X-E', 'XI-F', 'XII-F'].forEach(id => {
-        const card = document.getElementById('preview-card-' + id);
-        if (card) {
-          card.classList.toggle('active', id === val);
-        }
-      });
+      const allCards = document.querySelectorAll('.portal-card');
+      allCards.forEach(c => c.classList.remove('active'));
+      if (val === 'X-E') {
+        document.getElementById('preview-card-X-E-ATS')?.classList.add('active');
+        document.getElementById('preview-card-X-E-ASAS')?.classList.add('active');
+      } else if (val === 'XI-F') {
+        document.getElementById('preview-card-XI-F-ATS')?.classList.add('active');
+        document.getElementById('preview-card-XI-F-ASAS')?.classList.add('active');
+      } else if (val === 'XII-F') {
+        document.getElementById('preview-card-XII-F')?.classList.add('active');
+      }
     }
 
     function handlePortalSubmit(e) {
@@ -297,7 +319,11 @@
 
       // Redirect to specific Grade & Exam Type HTML Page
       if (tingkat === 'XI-F') {
-        window.location.href = 'kelas-xi.html';
+        if (jenisAsesmen === 'ASAS') {
+          window.location.href = 'kelas-xi-asas.html';
+        } else {
+          window.location.href = 'kelas-xi.html';
+        }
       } else if (tingkat === 'XII-F') {
         window.location.href = 'kelas-xii.html';
       } else {
