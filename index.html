@@ -41,6 +41,7 @@
                 <option value="">-- Pilih Tingkat Kelas --</option>
                 <option value="X-E">Kelas X (Fase E) — Descriptive &amp; Scientific Report</option>
                 <option value="XI-F">Kelas XI (Fase F) — Narrative &amp; Analytical Exposition</option>
+                <option value="XI-TL">Kelas XI (Fase F — Tingkat Lanjut) — Advanced Legend &amp; Hortatory Exposition</option>
                 <option value="XII-F">Kelas XII (Fase F / TL) — Discussion &amp; Critical Review</option>
               </select>
               <div class="hint">Tiap jenjang memiliki ruang ujian dan kisi-kisi materi terpisah.</div>
@@ -200,6 +201,23 @@
               </a>
             </div>
 
+            <!-- Card Kelas XI Tingkat Lanjut ASAS -->
+            <div class="portal-card" id="preview-card-XI-TL-ASAS" style="border-color: #8b5cf6; background: #faf5ff;">
+              <span class="portal-badge" style="background: #ede9fe; color: #5b21b6;">Kelas XI — Tingkat Lanjut (TL)</span>
+              <h4 style="color: #4c1d95; margin-bottom: 8px;">Latihan ASAS B. Inggris Tingkat Lanjut</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px;">
+                <strong>Satu Semester Penuh (Fase F — TL):</strong><br>
+                • 10 Soal Listening (Digital Humanities, Classic Theatre, Climate Observatory)<br>
+                • Genre 1: Advanced Narrative (The Gilded Weaver of Mount Merapi)<br>
+                • Genre 2: Hortatory Exposition (Ethical AI in High Schools)<br>
+                • Grammar: Negative Inversion, Subjunctive Mood, Concession<br>
+                • Kosakata: Oxford 5000 Level B2
+              </p>
+              <a href="kelas-xi-tl-asas.html" style="font-size: 0.85rem; font-weight: 700; color: #6d28d9; text-decoration: none;">
+                Mulai Latihan ASAS Tingkat Lanjut XI ➔
+              </a>
+            </div>
+
             <!-- Card Kelas XII -->
             <div class="portal-card" id="preview-card-XII-F">
               <span class="portal-badge badge-xii">Tingkat XII — Fase F TL</span>
@@ -267,6 +285,8 @@
       } else if (val === 'XI-F') {
         document.getElementById('preview-card-XI-F-ATS')?.classList.add('active');
         document.getElementById('preview-card-XI-F-ASAS')?.classList.add('active');
+      } else if (val === 'XI-TL') {
+        document.getElementById('preview-card-XI-TL-ASAS')?.classList.add('active');
       } else if (val === 'XII-F') {
         document.getElementById('preview-card-XII-F')?.classList.add('active');
       }
@@ -318,7 +338,9 @@
       localStorage.setItem('sabaku_current_student', JSON.stringify(studentData));
 
       // Redirect to specific Grade & Exam Type HTML Page
-      if (tingkat === 'XI-F') {
+      if (tingkat === 'XI-TL') {
+        window.location.href = 'kelas-xi-tl-asas.html';
+      } else if (tingkat === 'XI-F') {
         if (jenisAsesmen === 'ASAS') {
           window.location.href = 'kelas-xi-asas.html';
         } else {
