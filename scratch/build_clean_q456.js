@@ -1046,3 +1046,4 @@ function processFile(filePath, newBlock) {
 });
 
 console.log('Finished all file processing!');
+

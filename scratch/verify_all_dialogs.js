@@ -98,3 +98,4 @@ if (allPassed) {
   console.error('\n>>> SOME CHECKS FAILED! <<<');
   process.exit(1);
 }
+

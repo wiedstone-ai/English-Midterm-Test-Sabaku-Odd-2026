@@ -14,3 +14,4 @@ files.forEach(f => {
   const end = content.indexOf('function toggleAudioSpeed');
   console.log(`${f}: start=${start}, end=${end}, diff=${end - start}`);
 });
+

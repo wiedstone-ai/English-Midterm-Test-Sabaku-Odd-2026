@@ -10,3 +10,4 @@ const content = fs.readFileSync('kelas-xi-tl-asas.js', 'utf8');
     console.log(JSON.stringify(segs.map(s => ({ role: s.role, gender: s.gender, text: s.text.slice(0, 50) })), null, 2));
   }
 });
+

@@ -1008,3 +1008,17 @@ footer {
 .badge-x { background: #dbeafe; color: #1e40af; }
 .badge-xi { background: #e0e7ff; color: #3730a3; }
 .badge-xii { background: #fce7f3; color: #9d174d; }
+
+
+#stimulus-source {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-top: 10px;
+  border-top: 1px dashed var(--border-light);
+  padding-top: 6px;
+  font-style: italic;
+}
+
+.source-badge {
+  display: none !important;
+}

@@ -54,22 +54,22 @@ function getGrade12TLAstsQuestions() {
     "options": [
       {
         "key": "A",
-        "svg": SVG_PICTURES.biotech_lab,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <rect x=\"15\" y=\"20\" width=\"70\" height=\"55\" rx=\"5\" fill=\"#eff6ff\" stroke=\"#2563eb\"/>\n    <path d=\"M30 45c5-10 15-10 20 0s15 10 20 0\" stroke=\"#3b82f6\" stroke-width=\"2.5\"/>\n    <path d=\"M30 55c5 10 15 10 20 0s15-10 20 0\" stroke=\"#1d4ed8\" stroke-width=\"2.5\"/>\n    <line x1=\"35\" y1=\"42\" x2=\"35\" y2=\"58\" stroke=\"#93c5fd\" stroke-width=\"2\"/>\n    <line x1=\"50\" y1=\"45\" x2=\"50\" y2=\"55\" stroke=\"#93c5fd\" stroke-width=\"2\"/>\n    <line x1=\"65\" y1=\"42\" x2=\"65\" y2=\"58\" stroke=\"#93c5fd\" stroke-width=\"2\"/>\n    <circle cx=\"50\" cy=\"82\" r=\"3\" fill=\"#2563eb\"/>\n  </svg>",
         "label": "Modern science laboratory with digital DNA sequencing display"
       },
       {
         "key": "B",
-        "svg": SVG_PICTURES.un_assembly,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <ellipse cx=\"50\" cy=\"40\" rx=\"35\" ry=\"18\" fill=\"#f0fdf4\" stroke=\"#059669\"/>\n    <ellipse cx=\"50\" cy=\"52\" rx=\"42\" ry=\"20\" stroke=\"#10b981\" stroke-dasharray=\"3 3\"/>\n    <path d=\"M25 75h50M35 85h30\" stroke=\"#047857\" stroke-width=\"2.5\"/>\n    <rect x=\"42\" y=\"28\" width=\"16\" height=\"12\" rx=\"2\" fill=\"#bae6fd\" stroke=\"#0284c7\"/>\n    <circle cx=\"50\" cy=\"22\" r=\"4\" fill=\"#0284c7\"/>\n  </svg>",
         "label": "International assembly hall for youth diplomacy and conferences"
       },
       {
         "key": "C",
-        "svg": SVG_PICTURES.tokamak_fusion,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#d97706\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <circle cx=\"50\" cy=\"50\" r=\"35\" stroke=\"#d97706\" stroke-width=\"3\"/>\n    <circle cx=\"50\" cy=\"50\" r=\"18\" fill=\"#fef3c7\" stroke=\"#b45309\" stroke-width=\"2\"/>\n    <circle cx=\"50\" cy=\"50\" r=\"8\" fill=\"#ea580c\"/>\n    <path d=\"M50 15v17M50 68v17M15 50h17M68 50h17\" stroke=\"#f59e0b\" stroke-width=\"2.5\"/>\n    <path d=\"M25 25l12 12M63 63l12 12M75 25l-12 12M37 63l-12 12\" stroke=\"#d97706\" stroke-dasharray=\"2 2\"/>\n  </svg>",
         "label": "Advanced clean energy research reactor for renewable power"
       },
       {
         "key": "D",
-        "svg": SVG_PICTURES.printing_press,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <rect x=\"20\" y=\"35\" width=\"60\" height=\"45\" rx=\"3\" fill=\"#f8fafc\" stroke=\"#475569\"/>\n    <circle cx=\"50\" cy=\"50\" r=\"12\" stroke=\"#334155\" stroke-width=\"2\"/>\n    <path d=\"M30 20h40v15H30z\" fill=\"#e2e8f0\" stroke=\"#475569\"/>\n    <path d=\"M15 80h70\" stroke=\"#0f172a\" stroke-width=\"3\"/>\n    <line x1=\"50\" y1=\"20\" x2=\"50\" y2=\"10\" stroke=\"#334155\" stroke-width=\"3\"/>\n    <circle cx=\"50\" cy=\"8\" r=\"3\" fill=\"#0f172a\"/>\n  </svg>",
         "label": "Historical mechanical printing press workshop for early newspapers"
       }
     ],
@@ -87,22 +87,22 @@ function getGrade12TLAstsQuestions() {
     "options": [
       {
         "key": "A",
-        "svg": SVG_PICTURES.biotech_lab,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <rect x=\"15\" y=\"20\" width=\"70\" height=\"55\" rx=\"5\" fill=\"#eff6ff\" stroke=\"#2563eb\"/>\n    <path d=\"M30 45c5-10 15-10 20 0s15 10 20 0\" stroke=\"#3b82f6\" stroke-width=\"2.5\"/>\n    <path d=\"M30 55c5 10 15 10 20 0s15-10 20 0\" stroke=\"#1d4ed8\" stroke-width=\"2.5\"/>\n    <line x1=\"35\" y1=\"42\" x2=\"35\" y2=\"58\" stroke=\"#93c5fd\" stroke-width=\"2\"/>\n    <line x1=\"50\" y1=\"45\" x2=\"50\" y2=\"55\" stroke=\"#93c5fd\" stroke-width=\"2\"/>\n    <line x1=\"65\" y1=\"42\" x2=\"65\" y2=\"58\" stroke=\"#93c5fd\" stroke-width=\"2\"/>\n    <circle cx=\"50\" cy=\"82\" r=\"3\" fill=\"#2563eb\"/>\n  </svg>",
         "label": "Modern science laboratory with digital DNA sequencing display"
       },
       {
         "key": "B",
-        "svg": SVG_PICTURES.un_assembly,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <ellipse cx=\"50\" cy=\"40\" rx=\"35\" ry=\"18\" fill=\"#f0fdf4\" stroke=\"#059669\"/>\n    <ellipse cx=\"50\" cy=\"52\" rx=\"42\" ry=\"20\" stroke=\"#10b981\" stroke-dasharray=\"3 3\"/>\n    <path d=\"M25 75h50M35 85h30\" stroke=\"#047857\" stroke-width=\"2.5\"/>\n    <rect x=\"42\" y=\"28\" width=\"16\" height=\"12\" rx=\"2\" fill=\"#bae6fd\" stroke=\"#0284c7\"/>\n    <circle cx=\"50\" cy=\"22\" r=\"4\" fill=\"#0284c7\"/>\n  </svg>",
         "label": "International assembly hall for youth diplomacy and conferences"
       },
       {
         "key": "C",
-        "svg": SVG_PICTURES.tokamak_fusion,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#d97706\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <circle cx=\"50\" cy=\"50\" r=\"35\" stroke=\"#d97706\" stroke-width=\"3\"/>\n    <circle cx=\"50\" cy=\"50\" r=\"18\" fill=\"#fef3c7\" stroke=\"#b45309\" stroke-width=\"2\"/>\n    <circle cx=\"50\" cy=\"50\" r=\"8\" fill=\"#ea580c\"/>\n    <path d=\"M50 15v17M50 68v17M15 50h17M68 50h17\" stroke=\"#f59e0b\" stroke-width=\"2.5\"/>\n    <path d=\"M25 25l12 12M63 63l12 12M75 25l-12 12M37 63l-12 12\" stroke=\"#d97706\" stroke-dasharray=\"2 2\"/>\n  </svg>",
         "label": "Advanced clean energy research reactor for renewable power"
       },
       {
         "key": "D",
-        "svg": SVG_PICTURES.printing_press,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <rect x=\"20\" y=\"35\" width=\"60\" height=\"45\" rx=\"3\" fill=\"#f8fafc\" stroke=\"#475569\"/>\n    <circle cx=\"50\" cy=\"50\" r=\"12\" stroke=\"#334155\" stroke-width=\"2\"/>\n    <path d=\"M30 20h40v15H30z\" fill=\"#e2e8f0\" stroke=\"#475569\"/>\n    <path d=\"M15 80h70\" stroke=\"#0f172a\" stroke-width=\"3\"/>\n    <line x1=\"50\" y1=\"20\" x2=\"50\" y2=\"10\" stroke=\"#334155\" stroke-width=\"3\"/>\n    <circle cx=\"50\" cy=\"8\" r=\"3\" fill=\"#0f172a\"/>\n  </svg>",
         "label": "Historical mechanical printing press workshop for early newspapers"
       }
     ],
@@ -120,22 +120,22 @@ function getGrade12TLAstsQuestions() {
     "options": [
       {
         "key": "A",
-        "svg": SVG_PICTURES.biotech_lab,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <rect x=\"15\" y=\"20\" width=\"70\" height=\"55\" rx=\"5\" fill=\"#eff6ff\" stroke=\"#2563eb\"/>\n    <path d=\"M30 45c5-10 15-10 20 0s15 10 20 0\" stroke=\"#3b82f6\" stroke-width=\"2.5\"/>\n    <path d=\"M30 55c5 10 15 10 20 0s15-10 20 0\" stroke=\"#1d4ed8\" stroke-width=\"2.5\"/>\n    <line x1=\"35\" y1=\"42\" x2=\"35\" y2=\"58\" stroke=\"#93c5fd\" stroke-width=\"2\"/>\n    <line x1=\"50\" y1=\"45\" x2=\"50\" y2=\"55\" stroke=\"#93c5fd\" stroke-width=\"2\"/>\n    <line x1=\"65\" y1=\"42\" x2=\"65\" y2=\"58\" stroke=\"#93c5fd\" stroke-width=\"2\"/>\n    <circle cx=\"50\" cy=\"82\" r=\"3\" fill=\"#2563eb\"/>\n  </svg>",
         "label": "Modern science laboratory with digital DNA sequencing display"
       },
       {
         "key": "B",
-        "svg": SVG_PICTURES.printing_press,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <rect x=\"20\" y=\"35\" width=\"60\" height=\"45\" rx=\"3\" fill=\"#f8fafc\" stroke=\"#475569\"/>\n    <circle cx=\"50\" cy=\"50\" r=\"12\" stroke=\"#334155\" stroke-width=\"2\"/>\n    <path d=\"M30 20h40v15H30z\" fill=\"#e2e8f0\" stroke=\"#475569\"/>\n    <path d=\"M15 80h70\" stroke=\"#0f172a\" stroke-width=\"3\"/>\n    <line x1=\"50\" y1=\"20\" x2=\"50\" y2=\"10\" stroke=\"#334155\" stroke-width=\"3\"/>\n    <circle cx=\"50\" cy=\"8\" r=\"3\" fill=\"#0f172a\"/>\n  </svg>",
         "label": "Historical mechanical printing press workshop for early newspapers"
       },
       {
         "key": "C",
-        "svg": SVG_PICTURES.tokamak_fusion,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#d97706\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <circle cx=\"50\" cy=\"50\" r=\"35\" stroke=\"#d97706\" stroke-width=\"3\"/>\n    <circle cx=\"50\" cy=\"50\" r=\"18\" fill=\"#fef3c7\" stroke=\"#b45309\" stroke-width=\"2\"/>\n    <circle cx=\"50\" cy=\"50\" r=\"8\" fill=\"#ea580c\"/>\n    <path d=\"M50 15v17M50 68v17M15 50h17M68 50h17\" stroke=\"#f59e0b\" stroke-width=\"2.5\"/>\n    <path d=\"M25 25l12 12M63 63l12 12M75 25l-12 12M37 63l-12 12\" stroke=\"#d97706\" stroke-dasharray=\"2 2\"/>\n  </svg>",
         "label": "Advanced clean energy research reactor for renewable power"
       },
       {
         "key": "D",
-        "svg": SVG_PICTURES.un_assembly,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <ellipse cx=\"50\" cy=\"40\" rx=\"35\" ry=\"18\" fill=\"#f0fdf4\" stroke=\"#059669\"/>\n    <ellipse cx=\"50\" cy=\"52\" rx=\"42\" ry=\"20\" stroke=\"#10b981\" stroke-dasharray=\"3 3\"/>\n    <path d=\"M25 75h50M35 85h30\" stroke=\"#047857\" stroke-width=\"2.5\"/>\n    <rect x=\"42\" y=\"28\" width=\"16\" height=\"12\" rx=\"2\" fill=\"#bae6fd\" stroke=\"#0284c7\"/>\n    <circle cx=\"50\" cy=\"22\" r=\"4\" fill=\"#0284c7\"/>\n  </svg>",
         "label": "International assembly hall for youth diplomacy and conferences"
       }
     ],
@@ -450,7 +450,7 @@ function getGrade12TLAstsQuestions() {
     "source": "Sumber: Kajian Literasi Keuangan Digital — BSKAP Kemendikbudristek",
     "type": "reading_discussion",
     "title": "Reading Section: Discussion Text Analysis",
-    "stimulusTitle": "Text 1: The Transition to a Cashless Society: Modern Convenience vs. Financial Inclusion and Security",
+    "stimulusTitle": "Text 1: Navigating the Transition Towards a Cashless Society",
     "stimulusBody": "<p>In recent years, the rapid advancement of financial technology has propelled the global shift toward a cashless society. Across Indonesia, electronic wallets, mobile banking applications, and standardized QR codes (QRIS) have become omnipresent in modern commerce. Proponents argue that digital payment systems offer unmatched speed and financial efficiency. For consumers, carrying a smartphone eliminates the physical burden of paper currency and reduces the risk of street robbery. For small businesses, digital transactions streamline accounting records, accelerate payments, and expand access to formal microfinance loans. Moreover, governments benefit from enhanced fiscal transparency, as electronic records make tax evasion and illegal transactions significantly harder to conceal.</p>\n      <p>Conversely, critical economists and consumer advocates urge caution regarding a completely cashless economy. Their primary concern revolves around financial exclusion. Millions of rural citizens, small traditional market vendors, and elderly individuals still lack reliable smartphone connectivity, digital literacy, or access to formal bank accounts. Forcing an abrupt transition to cashless systems threatens to marginalize these vulnerable groups from everyday economic life. Furthermore, overreliance on digital networks introduces grave cybersecurity vulnerabilities. Server outages, cyberattacks, and sophisticated phishing scams can suddenly freeze access to funds. In addition, storing every financial transaction on private servers creates serious privacy concerns, enabling corporate tracking of personal consumer habits.</p>\n      <p>In conclusion, while the transition toward digital payments brings undeniable economic benefits, policymakers must balance technological innovation with social inclusion. Rather than completely outlawing physical banknotes, nations should adopt a hybrid financial ecosystem. By simultaneously strengthening cybersecurity regulations, expanding affordable internet access, and safeguarding the legal status of cash, society can harness the efficiency of digital finance without leaving marginalized citizens behind.</p>",
     "prompt": "What is the primary communicative purpose of the text above?",
     "options": [
@@ -480,8 +480,8 @@ function getGrade12TLAstsQuestions() {
     "source": "Sumber: Kajian Literasi Keuangan Digital — BSKAP Kemendikbudristek",
     "type": "reading_discussion",
     "title": "Reading Section: Discussion Text Analysis",
-    "stimulusTitle": "Text 1: The Transition to a Cashless Society: Modern Convenience vs. Financial Inclusion and Security",
-    "stimulusBody": "Lihat wacana Text 1 pada soal sebelumnya.",
+    "stimulusTitle": "Text 1: Navigating the Transition Towards a Cashless Society",
+    "stimulusBody": "<p>In recent years, the rapid advancement of financial technology has propelled the global shift toward a cashless society. Across Indonesia, electronic wallets, mobile banking applications, and standardized QR codes (QRIS) have become omnipresent in modern commerce. Proponents argue that digital payment systems offer unmatched speed and financial efficiency. For consumers, carrying a smartphone eliminates the physical burden of paper currency and reduces the risk of street robbery. For small businesses, digital transactions streamline accounting records, accelerate payments, and expand access to formal microfinance loans. Moreover, governments benefit from enhanced fiscal transparency, as electronic records make tax evasion and illegal transactions significantly harder to conceal.</p>\n      <p>Conversely, critical economists and consumer advocates urge caution regarding a completely cashless economy. Their primary concern revolves around financial exclusion. Millions of rural citizens, small traditional market vendors, and elderly individuals still lack reliable smartphone connectivity, digital literacy, or access to formal bank accounts. Forcing an abrupt transition to cashless systems threatens to marginalize these vulnerable groups from everyday economic life. Furthermore, overreliance on digital networks introduces grave cybersecurity vulnerabilities. Server outages, cyberattacks, and sophisticated phishing scams can suddenly freeze access to funds. In addition, storing every financial transaction on private servers creates serious privacy concerns, enabling corporate tracking of personal consumer habits.</p>\n      <p>In conclusion, while the transition toward digital payments brings undeniable economic benefits, policymakers must balance technological innovation with social inclusion. Rather than completely outlawing physical banknotes, nations should adopt a hybrid financial ecosystem. By simultaneously strengthening cybersecurity regulations, expanding affordable internet access, and safeguarding the legal status of cash, society can harness the efficiency of digital finance without leaving marginalized citizens behind.</p>",
     "prompt": "According to proponents in paragraph 1, how do digital payment systems benefit small enterprises?",
     "options": [
       {
@@ -510,8 +510,8 @@ function getGrade12TLAstsQuestions() {
     "source": "Sumber: Kajian Literasi Keuangan Digital — BSKAP Kemendikbudristek",
     "type": "reading_discussion",
     "title": "Reading Section: Discussion Text Analysis",
-    "stimulusTitle": "Text 1: The Transition to a Cashless Society: Modern Convenience vs. Financial Inclusion and Security",
-    "stimulusBody": "Lihat wacana Text 1 pada soal sebelumnya.",
+    "stimulusTitle": "Text 1: Navigating the Transition Towards a Cashless Society",
+    "stimulusBody": "<p>In recent years, the rapid advancement of financial technology has propelled the global shift toward a cashless society. Across Indonesia, electronic wallets, mobile banking applications, and standardized QR codes (QRIS) have become omnipresent in modern commerce. Proponents argue that digital payment systems offer unmatched speed and financial efficiency. For consumers, carrying a smartphone eliminates the physical burden of paper currency and reduces the risk of street robbery. For small businesses, digital transactions streamline accounting records, accelerate payments, and expand access to formal microfinance loans. Moreover, governments benefit from enhanced fiscal transparency, as electronic records make tax evasion and illegal transactions significantly harder to conceal.</p>\n      <p>Conversely, critical economists and consumer advocates urge caution regarding a completely cashless economy. Their primary concern revolves around financial exclusion. Millions of rural citizens, small traditional market vendors, and elderly individuals still lack reliable smartphone connectivity, digital literacy, or access to formal bank accounts. Forcing an abrupt transition to cashless systems threatens to marginalize these vulnerable groups from everyday economic life. Furthermore, overreliance on digital networks introduces grave cybersecurity vulnerabilities. Server outages, cyberattacks, and sophisticated phishing scams can suddenly freeze access to funds. In addition, storing every financial transaction on private servers creates serious privacy concerns, enabling corporate tracking of personal consumer habits.</p>\n      <p>In conclusion, while the transition toward digital payments brings undeniable economic benefits, policymakers must balance technological innovation with social inclusion. Rather than completely outlawing physical banknotes, nations should adopt a hybrid financial ecosystem. By simultaneously strengthening cybersecurity regulations, expanding affordable internet access, and safeguarding the legal status of cash, society can harness the efficiency of digital finance without leaving marginalized citizens behind.</p>",
     "prompt": "What major socioeconomic risk of an abrupt cashless transition is highlighted in paragraph 2?",
     "options": [
       {
@@ -540,8 +540,8 @@ function getGrade12TLAstsQuestions() {
     "source": "Sumber: Kajian Literasi Keuangan Digital — BSKAP Kemendikbudristek",
     "type": "reading_discussion",
     "title": "Reading Section: Discussion Text Analysis",
-    "stimulusTitle": "Text 1: The Transition to a Cashless Society: Modern Convenience vs. Financial Inclusion and Security",
-    "stimulusBody": "Lihat wacana Text 1 pada soal sebelumnya.",
+    "stimulusTitle": "Text 1: Navigating the Transition Towards a Cashless Society",
+    "stimulusBody": "<p>In recent years, the rapid advancement of financial technology has propelled the global shift toward a cashless society. Across Indonesia, electronic wallets, mobile banking applications, and standardized QR codes (QRIS) have become omnipresent in modern commerce. Proponents argue that digital payment systems offer unmatched speed and financial efficiency. For consumers, carrying a smartphone eliminates the physical burden of paper currency and reduces the risk of street robbery. For small businesses, digital transactions streamline accounting records, accelerate payments, and expand access to formal microfinance loans. Moreover, governments benefit from enhanced fiscal transparency, as electronic records make tax evasion and illegal transactions significantly harder to conceal.</p>\n      <p>Conversely, critical economists and consumer advocates urge caution regarding a completely cashless economy. Their primary concern revolves around financial exclusion. Millions of rural citizens, small traditional market vendors, and elderly individuals still lack reliable smartphone connectivity, digital literacy, or access to formal bank accounts. Forcing an abrupt transition to cashless systems threatens to marginalize these vulnerable groups from everyday economic life. Furthermore, overreliance on digital networks introduces grave cybersecurity vulnerabilities. Server outages, cyberattacks, and sophisticated phishing scams can suddenly freeze access to funds. In addition, storing every financial transaction on private servers creates serious privacy concerns, enabling corporate tracking of personal consumer habits.</p>\n      <p>In conclusion, while the transition toward digital payments brings undeniable economic benefits, policymakers must balance technological innovation with social inclusion. Rather than completely outlawing physical banknotes, nations should adopt a hybrid financial ecosystem. By simultaneously strengthening cybersecurity regulations, expanding affordable internet access, and safeguarding the legal status of cash, society can harness the efficiency of digital finance without leaving marginalized citizens behind.</p>",
     "prompt": "The word 'streamline' in the first paragraph is closest in meaning to...",
     "options": [
       {
@@ -570,8 +570,8 @@ function getGrade12TLAstsQuestions() {
     "source": "Sumber: Kajian Literasi Keuangan Digital — BSKAP Kemendikbudristek",
     "type": "reading_discussion",
     "title": "Reading Section: Discussion Text Analysis",
-    "stimulusTitle": "Text 1: The Transition to a Cashless Society: Modern Convenience vs. Financial Inclusion and Security",
-    "stimulusBody": "Lihat wacana Text 1 pada soal sebelumnya.",
+    "stimulusTitle": "Text 1: Navigating the Transition Towards a Cashless Society",
+    "stimulusBody": "<p>In recent years, the rapid advancement of financial technology has propelled the global shift toward a cashless society. Across Indonesia, electronic wallets, mobile banking applications, and standardized QR codes (QRIS) have become omnipresent in modern commerce. Proponents argue that digital payment systems offer unmatched speed and financial efficiency. For consumers, carrying a smartphone eliminates the physical burden of paper currency and reduces the risk of street robbery. For small businesses, digital transactions streamline accounting records, accelerate payments, and expand access to formal microfinance loans. Moreover, governments benefit from enhanced fiscal transparency, as electronic records make tax evasion and illegal transactions significantly harder to conceal.</p>\n      <p>Conversely, critical economists and consumer advocates urge caution regarding a completely cashless economy. Their primary concern revolves around financial exclusion. Millions of rural citizens, small traditional market vendors, and elderly individuals still lack reliable smartphone connectivity, digital literacy, or access to formal bank accounts. Forcing an abrupt transition to cashless systems threatens to marginalize these vulnerable groups from everyday economic life. Furthermore, overreliance on digital networks introduces grave cybersecurity vulnerabilities. Server outages, cyberattacks, and sophisticated phishing scams can suddenly freeze access to funds. In addition, storing every financial transaction on private servers creates serious privacy concerns, enabling corporate tracking of personal consumer habits.</p>\n      <p>In conclusion, while the transition toward digital payments brings undeniable economic benefits, policymakers must balance technological innovation with social inclusion. Rather than completely outlawing physical banknotes, nations should adopt a hybrid financial ecosystem. By simultaneously strengthening cybersecurity regulations, expanding affordable internet access, and safeguarding the legal status of cash, society can harness the efficiency of digital finance without leaving marginalized citizens behind.</p>",
     "prompt": "What constructive policy does the author recommend in the final paragraph?",
     "options": [
       {
@@ -599,25 +599,25 @@ function getGrade12TLAstsQuestions() {
     "id": 16,
     "source": "Sumber: Kajian Kebijakan Ekonomi Digital — Kemendikbudristek & Bank Indonesia",
     "type": "complex_matrix",
-    "title": "Pilihan Ganda Kompleks: Evaluasi Fakta Wacana Masyarakat Nontunai (Cashless Society)",
-    "stimulusTitle": "Evaluasi Argumen Kritis Teks Diskusi Ekonomi Digital",
-    "stimulusBody": "Tentukan apakah setiap pernyataan berikut <strong>BENAR (TRUE)</strong> atau <strong>SALAH (FALSE)</strong> berdasarkan wacana diskusi tentang peralihan menuju masyarakat nontunai:",
-    "prompt": "Berdasarkan wacana Text 1, tentukan nilai kebenaran dari masing-masing pernyataan berikut:",
+    "title": "Complex Multiple Choice: Fact & Opinion Analysis (Cashless Society & Digital Finance)",
+    "stimulusTitle": "Text 1: Navigating the Transition Towards a Cashless Society",
+    "stimulusBody": "<p>In recent years, the rapid advancement of financial technology has propelled the global shift toward a cashless society. Across Indonesia, electronic wallets, mobile banking applications, and standardized QR codes (QRIS) have become omnipresent in modern commerce. Proponents argue that digital payment systems offer unmatched speed and financial efficiency. For consumers, carrying a smartphone eliminates the physical burden of paper currency and reduces the risk of street robbery. For small businesses, digital transactions streamline accounting records, accelerate payments, and expand access to formal microfinance loans. Moreover, governments benefit from enhanced fiscal transparency, as electronic records make tax evasion and illegal transactions significantly harder to conceal.</p>\n      <p>Conversely, critical economists and consumer advocates urge caution regarding a completely cashless economy. Their primary concern revolves around financial exclusion. Millions of rural citizens, small traditional market vendors, and elderly individuals still lack reliable smartphone connectivity, digital literacy, or access to formal bank accounts. Forcing an abrupt transition to cashless systems threatens to marginalize these vulnerable groups from everyday economic life. Furthermore, overreliance on digital networks introduces grave cybersecurity vulnerabilities. Server outages, cyberattacks, and sophisticated phishing scams can suddenly freeze access to funds. In addition, storing every financial transaction on private servers creates serious privacy concerns, enabling corporate tracking of personal consumer habits.</p>\n      <p>In conclusion, while the transition toward digital payments brings undeniable economic benefits, policymakers must balance technological innovation with social inclusion. Rather than completely outlawing physical banknotes, nations should adopt a hybrid financial ecosystem. By simultaneously strengthening cybersecurity regulations, expanding affordable internet access, and safeguarding the legal status of cash, society can harness the efficiency of digital finance without leaving marginalized citizens behind.</p>",
+    "prompt": "Based on Text 1, determine whether each statement regarding digital payment ecosystems is **TRUE** or **FALSE**:",
     "matrixStatements": [
       {
-        "statement": "Sistem pembayaran digital seperti QRIS dan dompet elektronik menyederhanakan pencatatan keuangan UMKM dan mengurangi risiko pencurian uang tunai.",
+        "statement": "Digital payment architectures like QRIS and mobile e-wallets streamline bookkeeping for small vendors and reduce risks of physical cash theft.",
         "isCorrect": true
       },
       {
-        "statement": "Penulis teks menyarankan agar pemerintah segera melarang total uang tunai dan menghukum warga yang bertransaksi dengan uang kertas.",
+        "statement": "The author advocates that the government immediately enact an outright ban on physical banknotes and penalize cash users.",
         "isCorrect": false
       },
       {
-        "statement": "Masyarakat lanjut usia dan warga di pelosok dengan koneksi internet terbatas berisiko mengalami keterasingan finansial (financial exclusion).",
+        "statement": "Elderly populations and rural citizens facing unstable connectivity are vulnerable to acute financial exclusion.",
         "isCorrect": true
       },
       {
-        "statement": "Sistem pembayaran nontunai sepenuhnya kebal dari gangguan pemadaman listrik, kegagalan server, dan serangan penipuan siber.",
+        "statement": "Cashless payment systems are entirely immune to electrical blackouts, server failures, and sophisticated cyber phishing scams.",
         "isCorrect": false
       }
     ],
@@ -628,10 +628,10 @@ function getGrade12TLAstsQuestions() {
     "id": 17,
     "source": "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
     "type": "complex_matrix",
-    "title": "Pilihan Ganda Kompleks: Kalimat Pengandaian Inversi (Inverted Conditionals)",
-    "stimulusTitle": "Kaidah Pengandaian Bentuk Inversi (Had, Were, Should)",
-    "stimulusBody": "Pola inversi tanpa 'If': Had + S + V3 (Type 3), Were + S + to V1 (Type 2), Should + S + V1 (Type 1).",
-    "prompt": "Tentukan apakah susunan kalimat pengandaian inversi berikut <strong>BENAR (TRUE)</strong> atau <strong>SALAH (FALSE)</strong>:",
+    "title": "Complex Multiple Choice: Inverted Conditionals",
+    "stimulusTitle": "Grammar Focus: Inverted Conditionals (Had / Should / Were)",
+    "stimulusBody": "<p style=\"margin-bottom:0;\">Inverted conditional structures omit <em>if</em> and begin with auxiliary verbs: <code>Had + Subject + V3</code>, <code>Should + Subject + base verb</code>, <code>Were + Subject + to + verb</code>.</p>",
+    "prompt": "Determine whether each inverted conditional sentence below is grammatically **TRUE** (correct) or **FALSE** (incorrect):",
     "matrixStatements": [
       {
         "statement": "Had the school provided comprehensive cybersecurity training, students would have recognized the phishing link immediately.",
@@ -657,10 +657,10 @@ function getGrade12TLAstsQuestions() {
     "id": 18,
     "source": "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
     "type": "complex_matrix",
-    "title": "Pilihan Ganda Kompleks: Kalimat Cleft untuk Penekanan (Cleft Sentences)",
-    "stimulusTitle": "Kaidah Kalimat Cleft (It-cleft & Wh-cleft for Emphasis)",
-    "stimulusBody": "Pola: It is/was + [elemen fokus] + that/who... dan What + S + V + is/was...",
-    "prompt": "Tentukan apakah pembentukan kalimat cleft berikut <strong>BENAR (TRUE)</strong> atau <strong>SALAH (FALSE)</strong>:",
+    "title": "Complex Multiple Choice: Cleft Sentences for Focus and Emphasis",
+    "stimulusTitle": "Grammar Focus: It-Cleft and Wh-Cleft Structures",
+    "stimulusBody": "<p style=\"margin-bottom:0;\">Cleft sentences split a clause into two parts to highlight focal information: <code>It + be + focus + that/who...</code> or <code>What + clause + be + complement</code>.</p>",
+    "prompt": "Determine whether each cleft sentence below is grammatically **TRUE** (correct) or **FALSE** (incorrect):",
     "matrixStatements": [
       {
         "statement": "It was Nyai Ontosoroh's perseverance and moral dignity that inspired Minke to challenge colonial prejudice.",
@@ -686,25 +686,25 @@ function getGrade12TLAstsQuestions() {
     "id": 19,
     "source": "Sumber: Kajian Resensi Sastra Klasik Indonesia — Balai Bahasa & Kemendikbudristek",
     "type": "complex_matrix",
-    "title": "Pilihan Ganda Kompleks: Evaluasi Fakta Resensi 'Bumi Manusia'",
-    "stimulusTitle": "Evaluasi Resensi Novel Pramoedya Ananta Toer: Bumi Manusia",
-    "stimulusBody": "Tentukan apakah pernyataan berikut <strong>BENAR (TRUE)</strong> atau <strong>SALAH (FALSE)</strong> berdasarkan teks ulasan sastra novel Bumi Manusia:",
-    "prompt": "Berdasarkan ulasan novel Bumi Manusia, tentukan nilai kebenaran dari masing-masing pernyataan berikut:",
+    "title": "Complex Multiple Choice: Literary Review Analysis (This Earth of Mankind)",
+    "stimulusTitle": "Text 2: Literary Review — Pramoedya Ananta Toer's This Earth of Mankind",
+    "stimulusBody": "<p>First published in 1980, Pramoedya Ananta Toer’s historical novel <em>This Earth of Mankind</em> (Bumi Manusia) stands as one of the most powerful milestones in Indonesian and world literature. Set in the late nineteenth-century Dutch East Indies (colonial Indonesia), the narrative chronicles the coming of age of Minke, an exceptionally gifted Javanese youth permitted to study at the elite Dutch High School (H.B.S.) in Surabaya. Through Minke's journey, Pramoedya crafts a profound reflection on human dignity, social inequality, and the awakening of national consciousness.</p>\n      <p>The beating heart of the novel is Nyai Ontosoroh, a native concubine sold by her own father to a Dutch merchant in her youth. Rather than succumbing to despair or accepting a submissive status, she educates herself in Dutch commerce, law, and culture. Through sheer intellect and relentless perseverance, she becomes the master administrator of a sprawling agricultural enterprise. When Minke falls in love with her gentle daughter, Annelies, Nyai Ontosoroh becomes his greatest mentor, demonstrating that true aristocracy is defined not by royal blood or colonial privilege, but by moral courage and self-respect.</p>\n      <p>From a literary standpoint, Pramoedya’s prose is both evocative and accessible. He skillfully blends historical realism with dramatic intimacy, transforming personal romance into a broader struggle against prejudice. While some modern readers may find the opening chapters somewhat deliberate in pacing, the dramatic momentum intensifies grippingly as colonial legal authorities attempt to strip Nyai Ontosoroh and Minke of their rights. The novel concludes with one of the most memorable declarations in world literature: \"We have fought back, child, with all our might.\"</p>\n      <p>Ultimately, <em>This Earth of Mankind</em> transcends its historical setting. It is an indispensable classic for high school students and general readers alike, offering timeless insights into the transformative power of education, literacy, and ethical resistance against injustice.</p>",
+    "prompt": "Based on the literary review in Text 2, evaluate whether each statement is **TRUE** or **FALSE**:",
     "matrixStatements": [
       {
-        "statement": "Latar cerita novel Bumi Manusia berada pada akhir abad ke-19 pada masa pemerintahan kolonial Belanda di Jawa.",
+        "statement": "The narrative of This Earth of Mankind is set in late 19th-century Java during the Dutch colonial administration.",
         "isCorrect": true
       },
       {
-        "statement": "Tokoh Minke digambarkan sebagai pemuda buta huruf yang menolak mempelajari ilmu pengetahuan modern.",
+        "statement": "The protagonist Minke is portrayed as an illiterate youth who refuses to acquire modern Western education.",
         "isCorrect": false
       },
       {
-        "statement": "Nyai Ontosoroh mengelola perusahaan pertanian besar secara mandiri melalui kecerdasan, ketekunan, dan martabat moral.",
+        "statement": "Nyai Ontosoroh manages a large-scale agricultural enterprise independently through intellect, resilience, and personal dignity.",
         "isCorrect": true
       },
       {
-        "statement": "Pengulas menyimpulkan bahwa novel Bumi Manusia tidak bermakna dan sebaiknya dihindari oleh pelajar SMA.",
+        "statement": "The reviewer concludes that the novel lacks enduring relevance and should be avoided by high school literature students.",
         "isCorrect": false
       }
     ],
@@ -715,10 +715,10 @@ function getGrade12TLAstsQuestions() {
     "id": 20,
     "source": "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
     "type": "complex_matrix",
-    "title": "Pilihan Ganda Kompleks: Konjungsi Konsesi & Pertentangan Maju (Advanced Concession)",
-    "stimulusTitle": "Kaidah Kata Hubung Konsesi dan Kontras Tingkat Lanjut",
-    "stimulusBody": "Much as (meskipun sangat), Whereas (sedangkan/sebaliknya), In contrast to, Even though.",
-    "prompt": "Tentukan apakah kalimat dengan kata hubung pertentangan berikut <strong>BENAR (TRUE)</strong> atau <strong>SALAH (FALSE)</strong>:",
+    "title": "Complex Multiple Choice: Advanced Concession & Contrast Connectors",
+    "stimulusTitle": "Grammar Focus: Advanced Concession and Contrast Connectors",
+    "stimulusBody": "<p style=\"margin-bottom:0;\">Evaluate advanced discourse markers of concession (<em>Much as, Whereas, While, In contrast to</em>).</p>",
+    "prompt": "Determine whether each transitional sentence below is grammatically **TRUE** (correct) or **FALSE** (incorrect):",
     "matrixStatements": [
       {
         "statement": "Much as she appreciated the convenience of digital payments, Maya remained cautious about personal data privacy.",
@@ -744,26 +744,26 @@ function getGrade12TLAstsQuestions() {
     "id": 21,
     "source": "Sumber: Kajian Literasi Keuangan Digital — BSKAP Kemendikbudristek",
     "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-    "stimulusTitle": "Keunggulan Utama Sistem Pembayaran Digital",
-    "stimulusBody": "Wacana teks diskusi menguraikan berbagai manfaat positif pembayaran nontunai bagi konsumen dan pelaku usaha kecil.",
-    "prompt": "Manakah <strong>DUA (2)</strong> keunggulan utama dari adopsi transaksi digital berdasarkan teks?",
+    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+    "stimulusTitle": "Text 1: Navigating the Transition Towards a Cashless Society",
+    "stimulusBody": "<p>In recent years, the rapid advancement of financial technology has propelled the global shift toward a cashless society. Across Indonesia, electronic wallets, mobile banking applications, and standardized QR codes (QRIS) have become omnipresent in modern commerce. Proponents argue that digital payment systems offer unmatched speed and financial efficiency. For consumers, carrying a smartphone eliminates the physical burden of paper currency and reduces the risk of street robbery. For small businesses, digital transactions streamline accounting records, accelerate payments, and expand access to formal microfinance loans. Moreover, governments benefit from enhanced fiscal transparency, as electronic records make tax evasion and illegal transactions significantly harder to conceal.</p>\n      <p>Conversely, critical economists and consumer advocates urge caution regarding a completely cashless economy. Their primary concern revolves around financial exclusion. Millions of rural citizens, small traditional market vendors, and elderly individuals still lack reliable smartphone connectivity, digital literacy, or access to formal bank accounts. Forcing an abrupt transition to cashless systems threatens to marginalize these vulnerable groups from everyday economic life. Furthermore, overreliance on digital networks introduces grave cybersecurity vulnerabilities. Server outages, cyberattacks, and sophisticated phishing scams can suddenly freeze access to funds. In addition, storing every financial transaction on private servers creates serious privacy concerns, enabling corporate tracking of personal consumer habits.</p>\n      <p>In conclusion, while the transition toward digital payments brings undeniable economic benefits, policymakers must balance technological innovation with social inclusion. Rather than completely outlawing physical banknotes, nations should adopt a hybrid financial ecosystem. By simultaneously strengthening cybersecurity regulations, expanding affordable internet access, and safeguarding the legal status of cash, society can harness the efficiency of digital finance without leaving marginalized citizens behind.</p>",
+    "prompt": "Which **TWO (2)** primary benefits of digital payment systems are emphasized in Text 1?",
     "options": [
       {
         "key": "A",
-        "text": "Kecepatan transaksi instan yang meniadakan repotnya membawa uang kertas dan koin fisik."
+        "text": "Instant transaction speed that eliminates the burden of carrying physical banknotes and loose coins."
       },
       {
         "key": "B",
-        "text": "Jaminan mutlak bahwa server perbankan tidak akan pernah mengalami mati listrik atau peretasan."
+        "text": "An absolute guarantee that banking servers will never suffer power outages or cyber incursions."
       },
       {
         "key": "C",
-        "text": "Pencatatan riwayat transaksi elektronik yang rapi, transparan, dan memudahkan akses kredit mikro."
+        "text": "Neat, transparent electronic transaction records that facilitate small business credit eligibility."
       },
       {
         "key": "D",
-        "text": "Penghapusan seluruh utang pribadi secara otomatis setiap kali aplikasi dompet digital diperbarui."
+        "text": "The automatic elimination of all personal household debt whenever digital wallet applications update."
       }
     ],
     "correctAnswer": [
@@ -777,10 +777,10 @@ function getGrade12TLAstsQuestions() {
     "id": 22,
     "source": "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
     "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-    "stimulusTitle": "Pola Kalimat Pengandaian Inversi yang Tepat",
-    "stimulusBody": "Pilihlah kalimat pengandaian bentuk inversi yang memenuhi kaidah tata bahasa Inggris baku.",
-    "prompt": "Manakah <strong>DUA (2)</strong> kalimat di bawah ini yang menggunakan pola inversi pengandaian secara benar?",
+    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+    "stimulusTitle": "Grammar Focus: Inverted Conditionals",
+    "stimulusBody": "<p style=\"margin-bottom:0;\">Select sentences that correctly utilize inverted conditional patterns.</p>",
+    "prompt": "Which **TWO (2)** sentences correctly demonstrate inverted conditional structures?",
     "options": [
       {
         "key": "A",
@@ -810,10 +810,10 @@ function getGrade12TLAstsQuestions() {
     "id": 23,
     "source": "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
     "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-    "stimulusTitle": "Kalimat Cleft untuk Penekanan Makna",
-    "stimulusBody": "Kalimat cleft membagi klausa tunggal menjadi dua bagian guna memberikan fokus penekanan yang kuat.",
-    "prompt": "Manakah <strong>DUA (2)</strong> kalimat cleft di bawah ini yang disusun secara gramatikal dan baku?",
+    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+    "stimulusTitle": "Grammar Focus: Grammatically Accurate Cleft Sentences",
+    "stimulusBody": "<p style=\"margin-bottom:0;\">Select cleft sentences that correctly satisfy subject-verb concord and relative pronoun conventions.</p>",
+    "prompt": "Which **TWO (2)** cleft sentences below are grammatically accurate and standard?",
     "options": [
       {
         "key": "A",
@@ -843,26 +843,26 @@ function getGrade12TLAstsQuestions() {
     "id": 24,
     "source": "Sumber: Kajian Resensi Sastra Klasik Indonesia — Balai Bahasa & Kemendikbudristek",
     "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-    "stimulusTitle": "Keteladanan Karakter dalam Novel 'Bumi Manusia'",
-    "stimulusBody": "Novel Bumi Manusia menyajikan tokoh-tokoh dengan karakter moral yang kuat dalam menghadapi penindasan sistemik.",
-    "prompt": "Manakah <strong>DUA (2)</strong> nilai karakter utama yang dipuji oleh pengulas dalam novel Bumi Manusia?",
+    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+    "stimulusTitle": "Text 2: Literary Review — Pramoedya Ananta Toer's This Earth of Mankind",
+    "stimulusBody": "<p>First published in 1980, Pramoedya Ananta Toer’s historical novel <em>This Earth of Mankind</em> (Bumi Manusia) stands as one of the most powerful milestones in Indonesian and world literature. Set in the late nineteenth-century Dutch East Indies (colonial Indonesia), the narrative chronicles the coming of age of Minke, an exceptionally gifted Javanese youth permitted to study at the elite Dutch High School (H.B.S.) in Surabaya. Through Minke's journey, Pramoedya crafts a profound reflection on human dignity, social inequality, and the awakening of national consciousness.</p>\n      <p>The beating heart of the novel is Nyai Ontosoroh, a native concubine sold by her own father to a Dutch merchant in her youth. Rather than succumbing to despair or accepting a submissive status, she educates herself in Dutch commerce, law, and culture. Through sheer intellect and relentless perseverance, she becomes the master administrator of a sprawling agricultural enterprise. When Minke falls in love with her gentle daughter, Annelies, Nyai Ontosoroh becomes his greatest mentor, demonstrating that true aristocracy is defined not by royal blood or colonial privilege, but by moral courage and self-respect.</p>\n      <p>From a literary standpoint, Pramoedya’s prose is both evocative and accessible. He skillfully blends historical realism with dramatic intimacy, transforming personal romance into a broader struggle against prejudice. While some modern readers may find the opening chapters somewhat deliberate in pacing, the dramatic momentum intensifies grippingly as colonial legal authorities attempt to strip Nyai Ontosoroh and Minke of their rights. The novel concludes with one of the most memorable declarations in world literature: \"We have fought back, child, with all our might.\"</p>\n      <p>Ultimately, <em>This Earth of Mankind</em> transcends its historical setting. It is an indispensable classic for high school students and general readers alike, offering timeless insights into the transformative power of education, literacy, and ethical resistance against injustice.</p>",
+    "prompt": "Which **TWO (2)** character virtues and social critiques are commended by the reviewer of *This Earth of Mankind*?",
     "options": [
       {
         "key": "A",
-        "text": "Kecerdasan luar biasa, kepiawaian bisnis, dan keteguhan harga diri Nyai Ontosoroh."
+        "text": "The extraordinary intellect, entrepreneurial resilience, and unyielding self-worth demonstrated by Nyai Ontosoroh."
       },
       {
         "key": "B",
-        "text": "Komitmen Minke terhadap literasi, kepekaan sosial, dan keberanian membela kaum tertindas."
+        "text": "Minke's dedication to literacy, social awareness, and moral courage in giving voice to the marginalized."
       },
       {
         "key": "C",
-        "text": "Keadilan dan kenetralan mutlak yang ditunjukkan oleh para hakim pengadilan kolonial Belanda."
+        "text": "The absolute impartiality and judicial fairness exhibited by the Dutch colonial legal system."
       },
       {
         "key": "D",
-        "text": "Ambisi Annelies untuk melupakan asal-usul tanah Jawa demi menjadi saudagar di Eropa."
+        "text": "Annelies's ambition to abandon her Javanese heritage in order to become a commercial trader in Europe."
       }
     ],
     "correctAnswer": [
@@ -876,10 +876,10 @@ function getGrade12TLAstsQuestions() {
     "id": 25,
     "source": "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
     "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-    "stimulusTitle": "Konjungsi Transisi Pertentangan dalam Esai Akademik",
-    "stimulusBody": "Pilihlah kalimat yang menggunakan kata transisi pertentangan secara kohesif dan baku.",
-    "prompt": "Manakah <strong>DUA (2)</strong> kalimat di bawah ini yang menerapkan kata transisi kontras dengan tepat?",
+    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+    "stimulusTitle": "Grammar Focus: Contrast Transitions in Academic English",
+    "stimulusBody": "<p style=\"margin-bottom:0;\">Select sentences that correctly employ contrast discourse markers.</p>",
+    "prompt": "Which **TWO (2)** sentences below correctly employ contrast transitions to connect conflicting ideas?",
     "options": [
       {
         "key": "A",
@@ -910,7 +910,7 @@ function getGrade12TLAstsQuestions() {
     "source": "Sumber: Telaah Kritis Sastra Indonesia Klasik — Balai Bahasa Jawa Tengah & Kemendikbudristek",
     "type": "reading_review",
     "title": "Reading Section: Literary Review Text",
-    "stimulusTitle": "Text 2: Literary Review — Pramoedya Ananta Toer’s 'This Earth of Mankind' (Bumi Manusia): A Masterpiece of Dignity, Education, and Moral Courage",
+    "stimulusTitle": "Text 2: Literary Review — Pramoedya Ananta Toer's This Earth of Mankind",
     "stimulusBody": "<p>First published in 1980, Pramoedya Ananta Toer’s historical novel <em>This Earth of Mankind</em> (Bumi Manusia) stands as one of the most powerful milestones in Indonesian and world literature. Set in the late nineteenth-century Dutch East Indies (colonial Indonesia), the narrative chronicles the coming of age of Minke, an exceptionally gifted Javanese youth permitted to study at the elite Dutch High School (H.B.S.) in Surabaya. Through Minke's journey, Pramoedya crafts a profound reflection on human dignity, social inequality, and the awakening of national consciousness.</p>\n      <p>The beating heart of the novel is Nyai Ontosoroh, a native concubine sold by her own father to a Dutch merchant in her youth. Rather than succumbing to despair or accepting a submissive status, she educates herself in Dutch commerce, law, and culture. Through sheer intellect and relentless perseverance, she becomes the master administrator of a sprawling agricultural enterprise. When Minke falls in love with her gentle daughter, Annelies, Nyai Ontosoroh becomes his greatest mentor, demonstrating that true aristocracy is defined not by royal blood or colonial privilege, but by moral courage and self-respect.</p>\n      <p>From a literary standpoint, Pramoedya’s prose is both evocative and accessible. He skillfully blends historical realism with dramatic intimacy, transforming personal romance into a broader struggle against prejudice. While some modern readers may find the opening chapters somewhat deliberate in pacing, the dramatic momentum intensifies grippingly as colonial legal authorities attempt to strip Nyai Ontosoroh and Minke of their rights. The novel concludes with one of the most memorable declarations in world literature: \"We have fought back, child, with all our might.\"</p>\n      <p>Ultimately, <em>This Earth of Mankind</em> transcends its historical setting. It is an indispensable classic for high school students and general readers alike, offering timeless insights into the transformative power of education, literacy, and ethical resistance against injustice.</p>",
     "prompt": "What is the primary communicative purpose of the text above?",
     "options": [
@@ -940,8 +940,8 @@ function getGrade12TLAstsQuestions() {
     "source": "Sumber: Telaah Kritis Sastra Indonesia Klasik — Balai Bahasa Jawa Tengah & Kemendikbudristek",
     "type": "reading_review",
     "title": "Reading Section: Literary Review Text",
-    "stimulusTitle": "Text 2: Literary Review — Pramoedya Ananta Toer’s 'This Earth of Mankind' (Bumi Manusia)",
-    "stimulusBody": "Lihat wacana Text 2 pada soal sebelumnya.",
+    "stimulusTitle": "Text 2: Literary Review — Pramoedya Ananta Toer's This Earth of Mankind",
+    "stimulusBody": "<p>First published in 1980, Pramoedya Ananta Toer’s historical novel <em>This Earth of Mankind</em> (Bumi Manusia) stands as one of the most powerful milestones in Indonesian and world literature. Set in the late nineteenth-century Dutch East Indies (colonial Indonesia), the narrative chronicles the coming of age of Minke, an exceptionally gifted Javanese youth permitted to study at the elite Dutch High School (H.B.S.) in Surabaya. Through Minke's journey, Pramoedya crafts a profound reflection on human dignity, social inequality, and the awakening of national consciousness.</p>\n      <p>The beating heart of the novel is Nyai Ontosoroh, a native concubine sold by her own father to a Dutch merchant in her youth. Rather than succumbing to despair or accepting a submissive status, she educates herself in Dutch commerce, law, and culture. Through sheer intellect and relentless perseverance, she becomes the master administrator of a sprawling agricultural enterprise. When Minke falls in love with her gentle daughter, Annelies, Nyai Ontosoroh becomes his greatest mentor, demonstrating that true aristocracy is defined not by royal blood or colonial privilege, but by moral courage and self-respect.</p>\n      <p>From a literary standpoint, Pramoedya’s prose is both evocative and accessible. He skillfully blends historical realism with dramatic intimacy, transforming personal romance into a broader struggle against prejudice. While some modern readers may find the opening chapters somewhat deliberate in pacing, the dramatic momentum intensifies grippingly as colonial legal authorities attempt to strip Nyai Ontosoroh and Minke of their rights. The novel concludes with one of the most memorable declarations in world literature: \"We have fought back, child, with all our might.\"</p>\n      <p>Ultimately, <em>This Earth of Mankind</em> transcends its historical setting. It is an indispensable classic for high school students and general readers alike, offering timeless insights into the transformative power of education, literacy, and ethical resistance against injustice.</p>",
     "prompt": "According to the review, what historical setting forms the backdrop of Minke's narrative?",
     "options": [
       {
@@ -970,8 +970,8 @@ function getGrade12TLAstsQuestions() {
     "source": "Sumber: Telaah Kritis Sastra Indonesia Klasik — Balai Bahasa Jawa Tengah & Kemendikbudristek",
     "type": "reading_review",
     "title": "Reading Section: Literary Review Text",
-    "stimulusTitle": "Text 2: Literary Review — Pramoedya Ananta Toer’s 'This Earth of Mankind' (Bumi Manusia)",
-    "stimulusBody": "Lihat wacana Text 2 pada soal sebelumnya.",
+    "stimulusTitle": "Text 2: Literary Review — Pramoedya Ananta Toer's This Earth of Mankind",
+    "stimulusBody": "<p>First published in 1980, Pramoedya Ananta Toer’s historical novel <em>This Earth of Mankind</em> (Bumi Manusia) stands as one of the most powerful milestones in Indonesian and world literature. Set in the late nineteenth-century Dutch East Indies (colonial Indonesia), the narrative chronicles the coming of age of Minke, an exceptionally gifted Javanese youth permitted to study at the elite Dutch High School (H.B.S.) in Surabaya. Through Minke's journey, Pramoedya crafts a profound reflection on human dignity, social inequality, and the awakening of national consciousness.</p>\n      <p>The beating heart of the novel is Nyai Ontosoroh, a native concubine sold by her own father to a Dutch merchant in her youth. Rather than succumbing to despair or accepting a submissive status, she educates herself in Dutch commerce, law, and culture. Through sheer intellect and relentless perseverance, she becomes the master administrator of a sprawling agricultural enterprise. When Minke falls in love with her gentle daughter, Annelies, Nyai Ontosoroh becomes his greatest mentor, demonstrating that true aristocracy is defined not by royal blood or colonial privilege, but by moral courage and self-respect.</p>\n      <p>From a literary standpoint, Pramoedya’s prose is both evocative and accessible. He skillfully blends historical realism with dramatic intimacy, transforming personal romance into a broader struggle against prejudice. While some modern readers may find the opening chapters somewhat deliberate in pacing, the dramatic momentum intensifies grippingly as colonial legal authorities attempt to strip Nyai Ontosoroh and Minke of their rights. The novel concludes with one of the most memorable declarations in world literature: \"We have fought back, child, with all our might.\"</p>\n      <p>Ultimately, <em>This Earth of Mankind</em> transcends its historical setting. It is an indispensable classic for high school students and general readers alike, offering timeless insights into the transformative power of education, literacy, and ethical resistance against injustice.</p>",
     "prompt": "How does Nyai Ontosoroh overcome her tragic past according to paragraph 2?",
     "options": [
       {
@@ -1000,8 +1000,8 @@ function getGrade12TLAstsQuestions() {
     "source": "Sumber: Telaah Kritis Sastra Indonesia Klasik — Balai Bahasa Jawa Tengah & Kemendikbudristek",
     "type": "reading_review",
     "title": "Reading Section: Literary Review Text",
-    "stimulusTitle": "Text 2: Literary Review — Pramoedya Ananta Toer’s 'This Earth of Mankind' (Bumi Manusia)",
-    "stimulusBody": "Lihat wacana Text 2 pada soal sebelumnya.",
+    "stimulusTitle": "Text 2: Literary Review — Pramoedya Ananta Toer's This Earth of Mankind",
+    "stimulusBody": "<p>First published in 1980, Pramoedya Ananta Toer’s historical novel <em>This Earth of Mankind</em> (Bumi Manusia) stands as one of the most powerful milestones in Indonesian and world literature. Set in the late nineteenth-century Dutch East Indies (colonial Indonesia), the narrative chronicles the coming of age of Minke, an exceptionally gifted Javanese youth permitted to study at the elite Dutch High School (H.B.S.) in Surabaya. Through Minke's journey, Pramoedya crafts a profound reflection on human dignity, social inequality, and the awakening of national consciousness.</p>\n      <p>The beating heart of the novel is Nyai Ontosoroh, a native concubine sold by her own father to a Dutch merchant in her youth. Rather than succumbing to despair or accepting a submissive status, she educates herself in Dutch commerce, law, and culture. Through sheer intellect and relentless perseverance, she becomes the master administrator of a sprawling agricultural enterprise. When Minke falls in love with her gentle daughter, Annelies, Nyai Ontosoroh becomes his greatest mentor, demonstrating that true aristocracy is defined not by royal blood or colonial privilege, but by moral courage and self-respect.</p>\n      <p>From a literary standpoint, Pramoedya’s prose is both evocative and accessible. He skillfully blends historical realism with dramatic intimacy, transforming personal romance into a broader struggle against prejudice. While some modern readers may find the opening chapters somewhat deliberate in pacing, the dramatic momentum intensifies grippingly as colonial legal authorities attempt to strip Nyai Ontosoroh and Minke of their rights. The novel concludes with one of the most memorable declarations in world literature: \"We have fought back, child, with all our might.\"</p>\n      <p>Ultimately, <em>This Earth of Mankind</em> transcends its historical setting. It is an indispensable classic for high school students and general readers alike, offering timeless insights into the transformative power of education, literacy, and ethical resistance against injustice.</p>",
     "prompt": "What minor critique of the novel does the reviewer mention in paragraph 3?",
     "options": [
       {
@@ -1030,8 +1030,8 @@ function getGrade12TLAstsQuestions() {
     "source": "Sumber: Telaah Kritis Sastra Indonesia Klasik — Balai Bahasa Jawa Tengah & Kemendikbudristek",
     "type": "reading_review",
     "title": "Reading Section: Literary Review Text",
-    "stimulusTitle": "Text 2: Literary Review — Pramoedya Ananta Toer’s 'This Earth of Mankind' (Bumi Manusia)",
-    "stimulusBody": "Lihat wacana Text 2 pada soal sebelumnya.",
+    "stimulusTitle": "Text 2: Literary Review — Pramoedya Ananta Toer's This Earth of Mankind",
+    "stimulusBody": "<p>First published in 1980, Pramoedya Ananta Toer’s historical novel <em>This Earth of Mankind</em> (Bumi Manusia) stands as one of the most powerful milestones in Indonesian and world literature. Set in the late nineteenth-century Dutch East Indies (colonial Indonesia), the narrative chronicles the coming of age of Minke, an exceptionally gifted Javanese youth permitted to study at the elite Dutch High School (H.B.S.) in Surabaya. Through Minke's journey, Pramoedya crafts a profound reflection on human dignity, social inequality, and the awakening of national consciousness.</p>\n      <p>The beating heart of the novel is Nyai Ontosoroh, a native concubine sold by her own father to a Dutch merchant in her youth. Rather than succumbing to despair or accepting a submissive status, she educates herself in Dutch commerce, law, and culture. Through sheer intellect and relentless perseverance, she becomes the master administrator of a sprawling agricultural enterprise. When Minke falls in love with her gentle daughter, Annelies, Nyai Ontosoroh becomes his greatest mentor, demonstrating that true aristocracy is defined not by royal blood or colonial privilege, but by moral courage and self-respect.</p>\n      <p>From a literary standpoint, Pramoedya’s prose is both evocative and accessible. He skillfully blends historical realism with dramatic intimacy, transforming personal romance into a broader struggle against prejudice. While some modern readers may find the opening chapters somewhat deliberate in pacing, the dramatic momentum intensifies grippingly as colonial legal authorities attempt to strip Nyai Ontosoroh and Minke of their rights. The novel concludes with one of the most memorable declarations in world literature: \"We have fought back, child, with all our might.\"</p>\n      <p>Ultimately, <em>This Earth of Mankind</em> transcends its historical setting. It is an indispensable classic for high school students and general readers alike, offering timeless insights into the transformative power of education, literacy, and ethical resistance against injustice.</p>",
     "prompt": "The word 'transcends' in the concluding paragraph is closest in meaning to...",
     "options": [
       {
@@ -1555,7 +1555,7 @@ function renderQuestion(index) {
     if (srcEl) {
       if (q.source) {
         srcEl.style.display = "block";
-        srcEl.innerHTML = `📌 <strong>${q.source}</strong>`;
+        srcEl.innerHTML = `<span style="font-size:0.75rem; color:#64748b; font-style:italic;">Source: ${q.source}</span>`;
       } else {
         srcEl.style.display = "none";
       }
@@ -1565,13 +1565,7 @@ function renderQuestion(index) {
   }
 
   const promptBox = document.getElementById("question-prompt-text");
-  let srcBadge = "";
-  if (q.source) {
-    srcBadge = `<div class="source-citation" style="margin-top: 10px; font-size: 0.8rem; color: #475569; background: #f8fafc; border-left: 3.5px solid var(--accent-teal); padding: 6px 12px; border-radius: 4px; font-style: italic;">
-      📌 <strong>${q.source}</strong>
-    </div>`;
-  }
-  promptBox.innerHTML = q.prompt + srcBadge;
+  promptBox.innerHTML = q.prompt;
 
   const optContainer = document.getElementById("options-container");
   optContainer.innerHTML = "";

@@ -14,3 +14,4 @@ files.forEach(f => {
   const m = content.match(reg);
   console.log(`${f}: matched ${Boolean(m)} (len: ${m ? m[1].length : 0})`);
 });
+

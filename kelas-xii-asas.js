@@ -98,22 +98,22 @@ function getGrade12AsasQuestions() {
     "options": [
       {
         "key": "A",
-        "svg": SVG_PICTURES.debate,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M15 85h70M25 85V45h15v40M60 85V45h15v40\"/>\n    <circle cx=\"32\" cy=\"28\" r=\"8\"/>\n    <path d=\"M22 45c0-6 4-10 10-10s10 4 10 10\"/>\n    <circle cx=\"68\" cy=\"28\" r=\"8\"/>\n    <path d=\"M58 45c0-6 4-10 10-10s10 4 10 10\"/>\n    <path d=\"M40 32l6-4M60 32l-6-4\" stroke=\"#d97706\" stroke-width=\"2\"/>\n    <rect x=\"42\" y=\"15\" width=\"16\" height=\"10\" rx=\"2\" stroke=\"#dc2626\"/>\n  </svg>",
         "label": "Two speakers debating opposing perspectives at academic podiums"
       },
       {
         "key": "B",
-        "svg": SVG_PICTURES.solo_singer,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#9333ea\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <circle cx=\"50\" cy=\"26\" r=\"9\"/>\n    <path d=\"M50 35v30M35 45l15-5 15 5M40 85l10-20 10 20\"/>\n    <rect x=\"62\" y=\"20\" width=\"8\" height=\"16\" rx=\"4\" fill=\"#cbd5e1\" stroke=\"#475569\"/>\n    <path d=\"M66 36v35M58 71h16\" stroke=\"#475569\" stroke-width=\"2.5\"/>\n  </svg>",
         "label": "A musical performer singing on a concert stage"
       },
       {
         "key": "C",
-        "svg": SVG_PICTURES.lab_microscope,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M20 85h60M50 85V60M40 85h20\"/>\n    <path d=\"M50 60c0-15 10-25 20-25h5\"/>\n    <rect x=\"35\" y=\"25\" width=\"14\" height=\"26\" rx=\"3\" transform=\"rotate(-30 35 25)\" stroke=\"#059669\"/>\n    <circle cx=\"32\" cy=\"52\" r=\"5\" fill=\"#a7f3d0\"/>\n    <path d=\"M25 65h30\" stroke=\"#047857\" stroke-width=\"3\"/>\n  </svg>",
         "label": "A scientist inspecting samples through a laboratory microscope"
       },
       {
         "key": "D",
-        "svg": SVG_PICTURES.hiking_trail,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#d97706\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M10 85l30-45 20 25 15-20 20 40H10z\"/>\n    <circle cx=\"55\" cy=\"30\" r=\"5\"/>\n    <path d=\"M55 35l-4 12 8 6M51 47l-6 12M59 53l6 10\"/>\n    <path d=\"M62 42l10 15\" stroke=\"#78350f\" stroke-width=\"1.8\"/>\n  </svg>",
         "label": "A mountaineer hiking along an outdoor trail"
       }
     ],
@@ -131,22 +131,22 @@ function getGrade12AsasQuestions() {
     "options": [
       {
         "key": "A",
-        "svg": SVG_PICTURES.coal_plant,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M10 85h80M20 85V45l15 12V45l15 12V45l15 12v28H20z\"/>\n    <path d=\"M68 85V32h14v53\" stroke=\"#334155\" stroke-width=\"2.5\"/>\n    <path d=\"M70 28c-3-8 5-12 3-18M78 28c2-7 10-10 6-18\" stroke=\"#94a3b8\" stroke-dasharray=\"2 2\"/>\n  </svg>",
         "label": "A coal-fired power plant emitting dark exhaust fumes"
       },
       {
         "key": "B",
-        "svg": SVG_PICTURES.solar_wind,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#0284c7\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M10 85h80\"/>\n    <path d=\"M15 85l12-30h28l-8 30H15z\" fill=\"#bae6fd\" stroke=\"#0284c7\"/>\n    <path d=\"M27 55l-6 30M39 55l-6 30M21 70h24\" stroke=\"#0369a1\"/>\n    <path d=\"M72 85V35M72 35l14-10M72 35l-14-10M72 35V20\" stroke=\"#16a34a\" stroke-width=\"2.5\"/>\n    <circle cx=\"72\" cy=\"35\" r=\"3\" fill=\"#16a34a\"/>\n    <circle cx=\"25\" cy=\"22\" r=\"8\" fill=\"#fef08a\" stroke=\"#eab308\"/>\n  </svg>",
         "label": "A renewable facility with solar photovoltaic panels and wind turbines"
       },
       {
         "key": "C",
-        "svg": SVG_PICTURES.oil_rig,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#b45309\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M10 80h80M15 88c10-3 20 3 35 0s25-3 40 0\" stroke=\"#0284c7\"/>\n    <path d=\"M30 80l15-45h10l15 45M37 58h26M42 45h16\"/>\n    <path d=\"M50 35V18M46 18h8M50 18l5-8\" stroke=\"#dc2626\"/>\n  </svg>",
         "label": "An offshore fossil fuel drilling rig in deep water"
       },
       {
         "key": "D",
-        "svg": SVG_PICTURES.busy_highway,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M20 85L42 35h16l22 50H20z\" fill=\"#f1f5f9\"/>\n    <path d=\"M50 40v8M50 54v10M50 70v12\" stroke=\"#eab308\" stroke-width=\"3\"/>\n    <rect x=\"30\" y=\"65\" width=\"12\" height=\"8\" rx=\"2\" stroke=\"#dc2626\"/>\n    <rect x=\"58\" y=\"55\" width=\"10\" height=\"7\" rx=\"2\" stroke=\"#2563eb\"/>\n  </svg>",
         "label": "A congested highway with gasoline-powered vehicles"
       }
     ],
@@ -164,22 +164,22 @@ function getGrade12AsasQuestions() {
     "options": [
       {
         "key": "A",
-        "svg": SVG_PICTURES.industrial_factory,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <rect x=\"15\" y=\"45\" width=\"70\" height=\"40\" rx=\"3\"/>\n    <path d=\"M25 45V25h12v20M45 45V30h12v15M65 45V20h12v25\"/>\n    <path d=\"M30 65h10v10H30zM50 65h10v10H50z\" fill=\"#cbd5e1\"/>\n  </svg>",
         "label": "A heavy manufacturing industrial plant with tall brick chimneys"
       },
       {
         "key": "B",
-        "svg": SVG_PICTURES.traditional_farm,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#854d0e\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M10 85h80M10 65c20-10 40 5 80-5M10 75c25-6 45 4 80-6\"/>\n    <circle cx=\"35\" cy=\"45\" r=\"6\"/>\n    <path d=\"M35 51v20M25 58l10-4 10 4M30 71l5 12M40 71l-5 12\"/>\n    <path d=\"M42 54l14 8\" stroke=\"#475569\" stroke-width=\"2\"/>\n  </svg>",
         "label": "A traditional farmer hand-tilling soil with a manual hoe"
       },
       {
         "key": "C",
-        "svg": SVG_PICTURES.smart_greenhouse,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#16a34a\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M15 85h70M20 85V48l30-20 30 20v37H20z\"/>\n    <path d=\"M50 28v57M20 58h60M35 85V68h30v17\"/>\n    <circle cx=\"50\" cy=\"45\" r=\"4\" fill=\"#86efac\"/>\n    <path d=\"M72 25l8-4M80 25l-8-4M76 21v6\" stroke=\"#0284c7\" stroke-width=\"2\"/>\n    <circle cx=\"76\" cy=\"23\" r=\"1.5\" fill=\"#0284c7\"/>\n  </svg>",
         "label": "A high-tech smart greenhouse with automated sensors and irrigation"
       },
       {
         "key": "D",
-        "svg": SVG_PICTURES.desert_dunes,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#d97706\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <circle cx=\"75\" cy=\"25\" r=\"10\" fill=\"#fef08a\" stroke=\"#d97706\"/>\n    <path d=\"M10 85c20-25 45 5 80-15M10 85c35-15 50 8 80-5M10 60c25-10 40 10 80-10\"/>\n  </svg>",
         "label": "Dry arid desert sand dunes under direct sunlight"
       }
     ],
@@ -208,7 +208,7 @@ function getGrade12AsasQuestions() {
       },
       {
         "gender": "female",
-        "pitch": 1.30,
+        "pitch": 1.3,
         "rateMultiplier": 1.04,
         "text": "You raise an insightful concern. While generative algorithms can assist in outlining concepts, over-relying on them deprives students of personal voice. True academic mastery comes from wrestling with complex ideas yourself.",
         "pauseAfter": 400
@@ -222,7 +222,7 @@ function getGrade12AsasQuestions() {
       },
       {
         "gender": "female",
-        "pitch": 1.30,
+        "pitch": 1.3,
         "rateMultiplier": 1.04,
         "text": "Precisely. AI should be an assistive tool for inspiration, never a substitute for human intellect.",
         "pauseAfter": 500
@@ -279,7 +279,7 @@ function getGrade12AsasQuestions() {
       },
       {
         "gender": "female",
-        "pitch": 1.30,
+        "pitch": 1.3,
         "rateMultiplier": 1.04,
         "text": "Nuclear power provides a stable baseload without weather dependency. However, the capital investment is immense, construction takes over a decade, and managing radioactive waste remains contentious. Decentralized renewable microgrids can be deployed much faster across our archipelago.",
         "pauseAfter": 400
@@ -293,7 +293,7 @@ function getGrade12AsasQuestions() {
       },
       {
         "gender": "female",
-        "pitch": 1.30,
+        "pitch": 1.3,
         "rateMultiplier": 1.04,
         "text": "Exactly. A diversified grid combining regional solar, geothermal, and smart storage is both safer and more resilient for our geography.",
         "pauseAfter": 500
@@ -350,7 +350,7 @@ function getGrade12AsasQuestions() {
       },
       {
         "gender": "female",
-        "pitch": 1.30,
+        "pitch": 1.3,
         "rateMultiplier": 1.04,
         "text": "Yes, twice! What impressed me most was how the narrative highlights unyielding perseverance in education despite extreme poverty on Belitung Island.",
         "pauseAfter": 400
@@ -364,7 +364,7 @@ function getGrade12AsasQuestions() {
       },
       {
         "gender": "female",
-        "pitch": 1.30,
+        "pitch": 1.3,
         "rateMultiplier": 1.04,
         "text": "Indeed. It reminds us that quality education is fundamentally driven by human spirit and empathy, not just lavish facilities.",
         "pauseAfter": 500
@@ -400,7 +400,6 @@ function getGrade12AsasQuestions() {
     "explanation": "Kedua pembicara sepakat bahwa pesan inti novel adalah pendidikan berkualitas digerakkan oleh kegigihan dan dedikasi guru, bukan sekadar fasilitas mewah ('quality education is fundamentally driven by human spirit... not just lavish facilities'). Pilihan A tepat.",
     "grammarNote": "Passive voice & Emphatic adverbials: 'fundamentally driven by human spirit and empathy'."
   },
-
   {
     "id": 7,
     "source": "Sumber: Kuliah Umum Transisi Energi Bersih — Forum Akademik Teknik Lingkungan Universitas Indonesia",
@@ -522,7 +521,7 @@ function getGrade12AsasQuestions() {
     "source": "Sumber: Jurnal Pendidikan Menengah Terbuka & Riset Pedagogi Kontemporer — Ikatan Peneliti Kurikulum Nasional (2026)",
     "type": "reading",
     "title": "Reading Section: TP 12.1 Discussion Text",
-    "stimulusTitle": "Generative Artificial Intelligence in Secondary Classrooms: Revolutionary Opportunity or Cognitive Threat?",
+    "stimulusTitle": "Text 1: Generative Artificial Intelligence in High School Education",
     "stimulusBody": "The unprecedented integration of generative artificial intelligence into high school environments has sparked an intensive pedagogical debate worldwide. Proponents argue that intelligent language models democratize learning by serving as round-the-clock personalized tutors. Students struggling with intricate scientific concepts, foreign language composition, or algorithmic coding can receive tailored explanations suited to their individual comprehension speeds. Furthermore, advocates highlight that engaging with digital tools equips prospective graduates with essential digital literacy and prompting skills demanded by modern university faculties and automated professional sectors.<br><br>Conversely, cautious educators and cognitive researchers express profound reservations. They contend that unconditional reliance on automated chatbots induces cognitive atrophy, steadily eroding students' capacity for sustained concentration and independent analytical synthesis. When learners delegate the drafting of essays or problem-solving calculations to automated systems, they forfeit the vital intellectual struggle necessary to cultivate authentic problem-solving resilience. Moreover, generative algorithms frequently generate convincing factual hallucinations and reinforce systemic cultural biases embedded in their training datasets, misleading students who lack mature evaluative judgment.<br><br>In light of these contrasting viewpoints, an outright prohibition of technological tools appears both impractical and short-sighted. Instead, high schools should cultivate a balanced educational framework. Educational leaders must formulate clear, enforceable ethical guidelines that delineate acceptable technological assistance from unacceptable academic dishonesty. Rather than assessing solely static written outputs, educators ought to prioritize interactive oral defenses, collaborative research workshops, and reflective handwritten journals. By treating artificial intelligence as a supportive analytical instrument rather than a surrogate intellect, secondary institutions can foster technologically proficient scholars who retain rigorous critical judgment.",
     "prompt": "What is the primary communicative purpose of the text above?",
     "options": [
@@ -552,7 +551,7 @@ function getGrade12AsasQuestions() {
     "source": "Sumber: Jurnal Pendidikan Menengah Terbuka & Riset Pedagogi Kontemporer — Ikatan Peneliti Kurikulum Nasional (2026)",
     "type": "reading",
     "title": "Reading Section: TP 12.1 Discussion Text",
-    "stimulusTitle": "Generative Artificial Intelligence in Secondary Classrooms: Revolutionary Opportunity or Cognitive Threat?",
+    "stimulusTitle": "Text 1: Generative Artificial Intelligence in High School Education",
     "stimulusBody": "The unprecedented integration of generative artificial intelligence into high school environments has sparked an intensive pedagogical debate worldwide. Proponents argue that intelligent language models democratize learning by serving as round-the-clock personalized tutors. Students struggling with intricate scientific concepts, foreign language composition, or algorithmic coding can receive tailored explanations suited to their individual comprehension speeds. Furthermore, advocates highlight that engaging with digital tools equips prospective graduates with essential digital literacy and prompting skills demanded by modern university faculties and automated professional sectors.<br><br>Conversely, cautious educators and cognitive researchers express profound reservations. They contend that unconditional reliance on automated chatbots induces cognitive atrophy, steadily eroding students' capacity for sustained concentration and independent analytical synthesis. When learners delegate the drafting of essays or problem-solving calculations to automated systems, they forfeit the vital intellectual struggle necessary to cultivate authentic problem-solving resilience. Moreover, generative algorithms frequently generate convincing factual hallucinations and reinforce systemic cultural biases embedded in their training datasets, misleading students who lack mature evaluative judgment.<br><br>In light of these contrasting viewpoints, an outright prohibition of technological tools appears both impractical and short-sighted. Instead, high schools should cultivate a balanced educational framework. Educational leaders must formulate clear, enforceable ethical guidelines that delineate acceptable technological assistance from unacceptable academic dishonesty. Rather than assessing solely static written outputs, educators ought to prioritize interactive oral defenses, collaborative research workshops, and reflective handwritten journals. By treating artificial intelligence as a supportive analytical instrument rather than a surrogate intellect, secondary institutions can foster technologically proficient scholars who retain rigorous critical judgment.",
     "prompt": "According to the proponents mentioned in the first paragraph, how does generative AI positively benefit secondary learners?",
     "options": [
@@ -582,7 +581,7 @@ function getGrade12AsasQuestions() {
     "source": "Sumber: Jurnal Pendidikan Menengah Terbuka & Riset Pedagogi Kontemporer — Ikatan Peneliti Kurikulum Nasional (2026)",
     "type": "reading",
     "title": "Reading Section: TP 12.1 Discussion Text",
-    "stimulusTitle": "Generative Artificial Intelligence in Secondary Classrooms: Revolutionary Opportunity or Cognitive Threat?",
+    "stimulusTitle": "Text 1: Generative Artificial Intelligence in High School Education",
     "stimulusBody": "The unprecedented integration of generative artificial intelligence into high school environments has sparked an intensive pedagogical debate worldwide. Proponents argue that intelligent language models democratize learning by serving as round-the-clock personalized tutors. Students struggling with intricate scientific concepts, foreign language composition, or algorithmic coding can receive tailored explanations suited to their individual comprehension speeds. Furthermore, advocates highlight that engaging with digital tools equips prospective graduates with essential digital literacy and prompting skills demanded by modern university faculties and automated professional sectors.<br><br>Conversely, cautious educators and cognitive researchers express profound reservations. They contend that unconditional reliance on automated chatbots induces cognitive atrophy, steadily eroding students' capacity for sustained concentration and independent analytical synthesis. When learners delegate the drafting of essays or problem-solving calculations to automated systems, they forfeit the vital intellectual struggle necessary to cultivate authentic problem-solving resilience. Moreover, generative algorithms frequently generate convincing factual hallucinations and reinforce systemic cultural biases embedded in their training datasets, misleading students who lack mature evaluative judgment.<br><br>In light of these contrasting viewpoints, an outright prohibition of technological tools appears both impractical and short-sighted. Instead, high schools should cultivate a balanced educational framework. Educational leaders must formulate clear, enforceable ethical guidelines that delineate acceptable technological assistance from unacceptable academic dishonesty. Rather than assessing solely static written outputs, educators ought to prioritize interactive oral defenses, collaborative research workshops, and reflective handwritten journals. By treating artificial intelligence as a supportive analytical instrument rather than a surrogate intellect, secondary institutions can foster technologically proficient scholars who retain rigorous critical judgment.",
     "prompt": "Why do critics argue that unconditional reliance on automated chatbots harms students' academic development?",
     "options": [
@@ -612,7 +611,7 @@ function getGrade12AsasQuestions() {
     "source": "Sumber: Jurnal Pendidikan Menengah Terbuka & Riset Pedagogi Kontemporer — Ikatan Peneliti Kurikulum Nasional (2026)",
     "type": "reading",
     "title": "Reading Section: TP 12.1 Discussion Text",
-    "stimulusTitle": "Generative Artificial Intelligence in Secondary Classrooms: Revolutionary Opportunity or Cognitive Threat?",
+    "stimulusTitle": "Text 1: Generative Artificial Intelligence in High School Education",
     "stimulusBody": "The unprecedented integration of generative artificial intelligence into high school environments has sparked an intensive pedagogical debate worldwide. Proponents argue that intelligent language models democratize learning by serving as round-the-clock personalized tutors. Students struggling with intricate scientific concepts, foreign language composition, or algorithmic coding can receive tailored explanations suited to their individual comprehension speeds. Furthermore, advocates highlight that engaging with digital tools equips prospective graduates with essential digital literacy and prompting skills demanded by modern university faculties and automated professional sectors.<br><br>Conversely, cautious educators and cognitive researchers express profound reservations. They contend that unconditional reliance on automated chatbots induces cognitive atrophy, steadily eroding students' capacity for sustained concentration and independent analytical synthesis. When learners delegate the drafting of essays or problem-solving calculations to automated systems, they forfeit the vital intellectual struggle necessary to cultivate authentic problem-solving resilience. Moreover, generative algorithms frequently generate convincing factual hallucinations and reinforce systemic cultural biases embedded in their training datasets, misleading students who lack mature evaluative judgment.<br><br>In light of these contrasting viewpoints, an outright prohibition of technological tools appears both impractical and short-sighted. Instead, high schools should cultivate a balanced educational framework. Educational leaders must formulate clear, enforceable ethical guidelines that delineate acceptable technological assistance from unacceptable academic dishonesty. Rather than assessing solely static written outputs, educators ought to prioritize interactive oral defenses, collaborative research workshops, and reflective handwritten journals. By treating artificial intelligence as a supportive analytical instrument rather than a surrogate intellect, secondary institutions can foster technologically proficient scholars who retain rigorous critical judgment.",
     "prompt": "The word 'atrophy' in the second paragraph is closest in meaning to...",
     "options": [
@@ -642,7 +641,7 @@ function getGrade12AsasQuestions() {
     "source": "Sumber: Jurnal Pendidikan Menengah Terbuka & Riset Pedagogi Kontemporer — Ikatan Peneliti Kurikulum Nasional (2026)",
     "type": "reading",
     "title": "Reading Section: TP 12.1 Discussion Text",
-    "stimulusTitle": "Generative Artificial Intelligence in Secondary Classrooms: Revolutionary Opportunity or Cognitive Threat?",
+    "stimulusTitle": "Text 1: Generative Artificial Intelligence in High School Education",
     "stimulusBody": "The unprecedented integration of generative artificial intelligence into high school environments has sparked an intensive pedagogical debate worldwide. Proponents argue that intelligent language models democratize learning by serving as round-the-clock personalized tutors. Students struggling with intricate scientific concepts, foreign language composition, or algorithmic coding can receive tailored explanations suited to their individual comprehension speeds. Furthermore, advocates highlight that engaging with digital tools equips prospective graduates with essential digital literacy and prompting skills demanded by modern university faculties and automated professional sectors.<br><br>Conversely, cautious educators and cognitive researchers express profound reservations. They contend that unconditional reliance on automated chatbots induces cognitive atrophy, steadily eroding students' capacity for sustained concentration and independent analytical synthesis. When learners delegate the drafting of essays or problem-solving calculations to automated systems, they forfeit the vital intellectual struggle necessary to cultivate authentic problem-solving resilience. Moreover, generative algorithms frequently generate convincing factual hallucinations and reinforce systemic cultural biases embedded in their training datasets, misleading students who lack mature evaluative judgment.<br><br>In light of these contrasting viewpoints, an outright prohibition of technological tools appears both impractical and short-sighted. Instead, high schools should cultivate a balanced educational framework. Educational leaders must formulate clear, enforceable ethical guidelines that delineate acceptable technological assistance from unacceptable academic dishonesty. Rather than assessing solely static written outputs, educators ought to prioritize interactive oral defenses, collaborative research workshops, and reflective handwritten journals. By treating artificial intelligence as a supportive analytical instrument rather than a surrogate intellect, secondary institutions can foster technologically proficient scholars who retain rigorous critical judgment.",
     "prompt": "What synthesised recommendation does the author offer in the concluding paragraph?",
     "options": [
@@ -671,25 +670,25 @@ function getGrade12AsasQuestions() {
     "id": 16,
     "source": "Sumber: Analisis Teks Diskusi Pembelajaran Digital — BSKAP Kemendikbudristek",
     "type": "complex_matrix",
-    "title": "Pilihan Ganda Kompleks: Evaluasi Argumen Teks Diskusi Kecerdasan Buatan (AI)",
-    "stimulusTitle": "Evaluasi Argumen Kritis Teks Diskusi (Generative AI in Education)",
-    "stimulusBody": "Tentukan apakah setiap pernyataan berikut <strong>BENAR (TRUE)</strong> atau <strong>SALAH (FALSE)</strong> berdasarkan wacana diskusi tentang kecerdasan buatan (AI) di sekolah:",
-    "prompt": "Berdasarkan teks diskusi, tentukan nilai kebenaran dari masing-masing pernyataan berikut:",
+    "title": "Complex Multiple Choice: Critical Argument Evaluation (Generative AI in Education)",
+    "stimulusTitle": "Text 1: Generative Artificial Intelligence in High School Education",
+    "stimulusBody": "The unprecedented integration of generative artificial intelligence into high school environments has sparked an intensive pedagogical debate worldwide. Proponents argue that intelligent language models democratize learning by serving as round-the-clock personalized tutors. Students struggling with intricate scientific concepts, foreign language composition, or algorithmic coding can receive tailored explanations suited to their individual comprehension speeds. Furthermore, advocates highlight that engaging with digital tools equips prospective graduates with essential digital literacy and prompting skills demanded by modern university faculties and automated professional sectors.<br><br>Conversely, cautious educators and cognitive researchers express profound reservations. They contend that unconditional reliance on automated chatbots induces cognitive atrophy, steadily eroding students' capacity for sustained concentration and independent analytical synthesis. When learners delegate the drafting of essays or problem-solving calculations to automated systems, they forfeit the vital intellectual struggle necessary to cultivate authentic problem-solving resilience. Moreover, generative algorithms frequently generate convincing factual hallucinations and reinforce systemic cultural biases embedded in their training datasets, misleading students who lack mature evaluative judgment.<br><br>In light of these contrasting viewpoints, an outright prohibition of technological tools appears both impractical and short-sighted. Instead, high schools should cultivate a balanced educational framework. Educational leaders must formulate clear, enforceable ethical guidelines that delineate acceptable technological assistance from unacceptable academic dishonesty. Rather than assessing solely static written outputs, educators ought to prioritize interactive oral defenses, collaborative research workshops, and reflective handwritten journals. By treating artificial intelligence as a supportive analytical instrument rather than a surrogate intellect, secondary institutions can foster technologically proficient scholars who retain rigorous critical judgment.",
+    "prompt": "Based on Text 1, determine whether each statement regarding the ethical adoption of AI is **TRUE** or **FALSE**:",
     "matrixStatements": [
       {
-        "statement": "Kecerdasan buatan (AI) dapat membantu siswa melakukan curah pendapat (brainstorming) dan menyusun kerangka esai secara efisien.",
+        "statement": "Artificial Intelligence (AI) can assist students in brainstorming ideas and structuring essay outlines efficiently.",
         "isCorrect": true
       },
       {
-        "statement": "Penulis teks menyarankan agar seluruh institusi pendidikan melarang total penggunaan aplikasi AI bagi siswa.",
+        "statement": "The author advises educational institutions to implement an absolute ban on all student AI usage.",
         "isCorrect": false
       },
       {
-        "statement": "Ketergantungan pasif pada teks otomatis tanpa verifikasi kritis dapat melemahkan daya nalar dan orisinalitas berpikir siswa.",
+        "statement": "Passive dependence on automated text generation without critical verification can atrophy students' analytical reasoning and cognitive stamina.",
         "isCorrect": true
       },
       {
-        "statement": "Seluruh respons dan data yang dihasilkan oleh chatbot berbasis AI dijamin seratus persen akurat, bebas bias, dan faktual.",
+        "statement": "All analytical responses and statistical data produced by generative AI models are guaranteed to be completely unbiased and entirely factual.",
         "isCorrect": false
       }
     ],
@@ -700,10 +699,10 @@ function getGrade12AsasQuestions() {
     "id": 17,
     "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XII — SMAN 1 Bae Kudus",
     "type": "complex_matrix",
-    "title": "Pilihan Ganda Kompleks: Kalimat Pengandaian Tipe 3 (Conditional Type 3)",
-    "stimulusTitle": "Kaidah Pengandaian Masa Lalu (Unreal Past Conditionals)",
-    "stimulusBody": "Pola Conditional Type 3: If + Past Perfect (had + V3), Subject + would/could/might + have + Past Participle (V3).",
-    "prompt": "Tentukan apakah susunan kalimat pengandaian Type 3 berikut <strong>BENAR (TRUE)</strong> atau <strong>SALAH (FALSE)</strong>:",
+    "title": "Complex Multiple Choice: Past Unreal Conditionals (Third Conditional)",
+    "stimulusTitle": "Grammar Focus: Unreal Past Conditionals (Third Conditional)",
+    "stimulusBody": "<p style=\"margin-bottom:0;\">Third conditional pattern: <code>If + had + V3, Subject + would / could / might + have + V3</code>.</p>",
+    "prompt": "Determine whether each conditional sentence below is grammatically **TRUE** (correct) or **FALSE** (incorrect):",
     "matrixStatements": [
       {
         "statement": "If the school had organized the digital literacy seminar earlier, students would have understood the AI guidelines better.",
@@ -729,10 +728,10 @@ function getGrade12AsasQuestions() {
     "id": 18,
     "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XII — SMAN 1 Bae Kudus",
     "type": "complex_matrix",
-    "title": "Pilihan Ganda Kompleks: Konjungsi Pertentangan & Konsesi (Contrast & Concession)",
-    "stimulusTitle": "Kaidah Transisi Pertentangan dan Konsesi",
-    "stimulusBody": "Konjungsi pertentangan (However, Nevertheless, In contrast) dan konsesi (Although, Despite, In spite of) menghubungkan dua gagasan yang berlawanan.",
-    "prompt": "Tentukan apakah penggunaan kata transisi dalam kalimat berikut <strong>BENAR (TRUE)</strong> atau <strong>SALAH (FALSE)</strong>:",
+    "title": "Complex Multiple Choice: Contrast & Concession Discourse Markers",
+    "stimulusTitle": "Grammar Focus: Transitions of Contrast and Concession",
+    "stimulusBody": "<p style=\"margin-bottom:0;\">Concession markers (<em>Although, Even though, Despite, In spite of</em>) and contrast transitions (<em>However, Nevertheless, In contrast</em>) connect conflicting propositions.</p>",
+    "prompt": "Determine whether each transitional sentence below is grammatically **TRUE** (correct) or **FALSE** (incorrect):",
     "matrixStatements": [
       {
         "statement": "Despite facing severe economic limitations, the students demonstrated remarkable academic achievement.",
@@ -758,25 +757,25 @@ function getGrade12AsasQuestions() {
     "id": 19,
     "source": "Sumber: Telaah Kritis Teks Resensi Sastra Indonesia — Kemendikbudristek",
     "type": "complex_matrix",
-    "title": "Pilihan Ganda Kompleks: Evaluasi Fakta Teks Ulasan Novel (Laskar Pelangi)",
-    "stimulusTitle": "Evaluasi Kritis Resensi Novel Andrea Hirata: Laskar Pelangi",
-    "stimulusBody": "Tentukan apakah pernyataan berikut <strong>BENAR (TRUE)</strong> atau <strong>SALAH (FALSE)</strong> berdasarkan wacana teks ulasan (review text) novel Laskar Pelangi:",
-    "prompt": "Berdasarkan teks ulasan, tentukan nilai kebenaran dari masing-masing pernyataan berikut:",
+    "title": "Complex Multiple Choice: Review Text Analysis (The Rainbow Troops / Laskar Pelangi)",
+    "stimulusTitle": "Review Text: The Inspiring Journey of Laskar Pelangi",
+    "stimulusBody": "<div style=\"font-size:0.95rem; line-height:1.6; color:#1e293b;\">\n<p style=\"margin-bottom:8px;\"><strong>Title:</strong> The Rainbow Troops (<em>Laskar Pelangi</em>)<br><strong>Author:</strong> Andrea Hirata | <strong>Setting:</strong> Belitung Island, Indonesia</p>\n<p style=\"margin-bottom:8px;\">Andrea Hirata's celebrated novel, <em>The Rainbow Troops</em>, chronicles the heroic educational struggle of ten impoverished students attending SD Muhammadiyah Gantong on the remote island of Belitung. Facing severe material deprivation, dilapidated school infrastructure, and the constant threat of closure by the local education department, these resilient children—affectionately dubbed the \"Rainbow Troops\" by their beloved teacher—demonstrate an extraordinary passion for learning.</p>\n<p style=\"margin-bottom:8px;\">Central to their success is the selfless dedication of their devoted educators, Bu Muslimah and Pak Harfan, who refuse to let poverty extinguish their students' dreams. Rather than relying on modern facilities or wealthy corporate sponsorship, the school thrives on unyielding moral integrity, mutual camaraderie, and deep community solidarity. Andrea Hirata artfully weaves humor and poignant socio-economic critiques, highlighting the stark contrast between prosperous tin-mining conglomerates and the marginalized local population.</p>\n<p style=\"margin-bottom:0;\">In conclusion, <em>The Rainbow Troops</em> is far more than a heartwarming coming-of-age memoir; it is a profound testament to the transformative power of human empathy and universal education. The novel delivers a timeless reminder that authentic scholastic achievement stems not from opulent buildings, but from an indomitable spirit, passionate teaching, and unwavering perseverance in the face of adversity.</p>\n</div>",
+    "prompt": "Based on the review text above, evaluate whether each statement is **TRUE** or **FALSE**:",
     "matrixStatements": [
       {
-        "statement": "Novel Laskar Pelangi mengisahkan perjuangan sepuluh murid desa di Belitung untuk mempertahankan sekolah mereka dari ancaman penutupan.",
+        "statement": "The novel Laskar Pelangi chronicles the resilient struggle of ten village pupils in Belitung to prevent their humble school from being closed.",
         "isCorrect": true
       },
       {
-        "statement": "Pengulas berpendapat bahwa keberhasilan pendidikan semata-mata ditentukan oleh kemewahan gedung dan kelengkapan fasilitas sekolah.",
+        "statement": "The reviewer argues that educational excellence is exclusively determined by luxurious facilities and modern campus architecture.",
         "isCorrect": false
       },
       {
-        "statement": "Keteladanan Bu Muslimah dan Pak Harfan menjadi pendorong semangat utama murid-murid meski di tengah serba keterbatasan.",
+        "statement": "The inspirational leadership and dedication of Bu Muslimah and Pak Harfan motivated the students despite severe resource constraints.",
         "isCorrect": true
       },
       {
-        "statement": "Resensi tersebut menyimpulkan bahwa novel Laskar Pelangi bernilai buruk dan menyarankan agar ditarik dari seluruh perpustakaan.",
+        "statement": "The review concludes that Laskar Pelangi lacks literary value and recommends that public libraries remove it from their collections.",
         "isCorrect": false
       }
     ],
@@ -787,26 +786,26 @@ function getGrade12AsasQuestions() {
     "id": 20,
     "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XII — SMAN 1 Bae Kudus",
     "type": "complex_matrix",
-    "title": "Pilihan Ganda Kompleks: Modal Deduksi Masa Lalu (Modals of Past Deduction)",
-    "stimulusTitle": "Kaidah Modalitas Deduksi Logis Masa Lalu",
-    "stimulusBody": "Modal deduksi masa lalu: must have + V3 (pasti sudah), cannot/could not have + V3 (mustahil sudah), might/may have + V3 (mungkin sudah).",
-    "prompt": "Tentukan apakah penerapan modalitas deduksi berikut <strong>BENAR (TRUE)</strong> atau <strong>SALAH (FALSE)</strong>:",
+    "title": "Complex Multiple Choice: Modals of Past Deduction",
+    "stimulusTitle": "Grammar Focus: Modal Auxiliaries for Past Logical Deductions",
+    "stimulusBody": "<p style=\"margin-bottom:0;\">Past deduction modals: <code>must have + V3</code> (certainty), <code>cannot / could not have + V3</code> (impossibility), <code>might / could have + V3</code> (possibility).</p>",
+    "prompt": "Determine whether each past deduction sentence below is grammatically **TRUE** (correct) or **FALSE** (incorrect):",
     "matrixStatements": [
       {
-        "statement": "The classroom lights are completely turned off; the students must have gone home already.",
+        "statement": "The laboratory door was locked from the inside, so the missing tablet computer could not have been taken by an outsider.",
         "isCorrect": true
       },
       {
-        "statement": "He didn't study at all last semester, so he must have scored the highest grade in the entire province.",
+        "statement": "He must left his student identity card at home because it is not in his backpack.",
         "isCorrect": false
       },
       {
-        "statement": "The sudden power failure in the laboratory might have been triggered by the severe lightning storm.",
+        "statement": "Given her outstanding debate performance yesterday, Siti might have practiced with the coach all weekend.",
         "isCorrect": true
       },
       {
-        "statement": "She could not has submitted the digital assignment because the web portal was already locked.",
-        "isCorrect": false
+        "statement": "They should have arrived two hours ago, but their bus was held up in an unexpected expressway traffic jam.",
+        "isCorrect": true
       }
     ],
     "explanation": "1) BENAR (deduksi logis kuat: must have + gone). 2) SALAH (deduksi tidak logis; seharusnya 'cannot have scored'). 3) BENAR (kemungkinan logis: might have been triggered). 4) SALAH (kesalahan gramatikal: modal selalu diikuti bare infinitive 'have', bukan 'has').",
@@ -816,26 +815,26 @@ function getGrade12AsasQuestions() {
     "id": 21,
     "source": "Sumber: Modul Pembelajaran Teks Diskusi — BSKAP Kemendikbudristek",
     "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-    "stimulusTitle": "Prinsip Pemanfaatan Kecerdasan Buatan (AI) yang Bertanggung Jawab",
-    "stimulusBody": "Dalam teks diskusi tentang pemanfaatan AI di sekolah, disajikan berbagai langkah strategis untuk mengoptimalkan teknologi tanpa mengorbankan integritas akademik.",
-    "prompt": "Manakah <strong>DUA (2)</strong> argumen utama yang mendukung penggunaan AI secara etis dan bertanggung jawab oleh siswa?",
+    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+    "stimulusTitle": "Text 1: Generative Artificial Intelligence in High School Education",
+    "stimulusBody": "The unprecedented integration of generative artificial intelligence into high school environments has sparked an intensive pedagogical debate worldwide. Proponents argue that intelligent language models democratize learning by serving as round-the-clock personalized tutors. Students struggling with intricate scientific concepts, foreign language composition, or algorithmic coding can receive tailored explanations suited to their individual comprehension speeds. Furthermore, advocates highlight that engaging with digital tools equips prospective graduates with essential digital literacy and prompting skills demanded by modern university faculties and automated professional sectors.<br><br>Conversely, cautious educators and cognitive researchers express profound reservations. They contend that unconditional reliance on automated chatbots induces cognitive atrophy, steadily eroding students' capacity for sustained concentration and independent analytical synthesis. When learners delegate the drafting of essays or problem-solving calculations to automated systems, they forfeit the vital intellectual struggle necessary to cultivate authentic problem-solving resilience. Moreover, generative algorithms frequently generate convincing factual hallucinations and reinforce systemic cultural biases embedded in their training datasets, misleading students who lack mature evaluative judgment.<br><br>In light of these contrasting viewpoints, an outright prohibition of technological tools appears both impractical and short-sighted. Instead, high schools should cultivate a balanced educational framework. Educational leaders must formulate clear, enforceable ethical guidelines that delineate acceptable technological assistance from unacceptable academic dishonesty. Rather than assessing solely static written outputs, educators ought to prioritize interactive oral defenses, collaborative research workshops, and reflective handwritten journals. By treating artificial intelligence as a supportive analytical instrument rather than a surrogate intellect, secondary institutions can foster technologically proficient scholars who retain rigorous critical judgment.",
+    "prompt": "Which **TWO (2)** arguments does the author support regarding the ethical and responsible use of AI by high school students?",
     "options": [
       {
         "key": "A",
-        "text": "AI sebaiknya difungsikan sebagai asisten riset untuk memicu ide dan nalar kritis, bukan sebagai penulis esai otomatis."
+        "text": "AI should serve as an interactive research assistant to stimulate critical inquiry and idea generation rather than replace independent authorship."
       },
       {
         "key": "B",
-        "text": "Sekolah harus mewajibkan seluruh ujian akhir ditulis seratus persen oleh aplikasi chatbot otomatis."
+        "text": "Secondary schools should mandate that all final examination essays be written entirely by automated conversational bots."
       },
       {
         "key": "C",
-        "text": "Siswa wajib menjaga kejujuran intelektual, memverifikasi fakta keluaran mesin, dan mencantumkan sumber sitasi bantuan digital secara transparan."
+        "text": "Students must uphold intellectual honesty by rigorously validating machine output and transparently citing algorithmic assistance."
       },
       {
         "key": "D",
-        "text": "Siswa tidak perlu lagi membaca buku teks atau literatur ilmiah karena seluruh informasi telah dirangkum oleh mesin pintar."
+        "text": "Students no longer need to read scholarly books or peer-reviewed literature since generative models synthesize information instantaneously."
       }
     ],
     "correctAnswer": [
@@ -849,10 +848,10 @@ function getGrade12AsasQuestions() {
     "id": 22,
     "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XII — SMAN 1 Bae Kudus",
     "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-    "stimulusTitle": "Kalimat Pengandaian Tipe 3 (Conditional Type 3) yang Gramatikal",
-    "stimulusBody": "Pilihlah kalimat pengandaian Type 3 yang disusun secara baku dan memenuhi kaidah tata bahasa Inggris.",
-    "prompt": "Manakah <strong>DUA (2)</strong> kalimat di bawah ini yang menerapkan pola Conditional Type 3 dengan benar?",
+    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+    "stimulusTitle": "Grammar Focus: Grammatically Accurate Third Conditionals",
+    "stimulusBody": "<p style=\"margin-bottom:0;\">Select sentences that correctly adhere to the unreal past conditional framework.</p>",
+    "prompt": "Which **TWO (2)** sentences correctly employ Third Conditional structures to express hypothetical past situations?",
     "options": [
       {
         "key": "A",
@@ -882,10 +881,10 @@ function getGrade12AsasQuestions() {
     "id": 23,
     "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XII — SMAN 1 Bae Kudus",
     "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-    "stimulusTitle": "Konjungsi Transisi Pertentangan dalam Wacana Akademik",
-    "stimulusBody": "Transisi pertentangan digunakan untuk menghubungkan dua sudut pandang yang kontras secara kohesif.",
-    "prompt": "Manakah <strong>DUA (2)</strong> kalimat di bawah ini yang menggunakan kata transisi pertentangan secara tepat?",
+    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+    "stimulusTitle": "Grammar Focus: Contrast Transitions in Academic Writing",
+    "stimulusBody": "<p style=\"margin-bottom:0;\">Select sentences that correctly utilize conjunctive adverbs and subordinating conjunctions of contrast.</p>",
+    "prompt": "Which **TWO (2)** sentences correctly demonstrate discourse markers of contrast or concession?",
     "options": [
       {
         "key": "A",
@@ -915,26 +914,26 @@ function getGrade12AsasQuestions() {
     "id": 24,
     "source": "Sumber: Telaah Kritis Teks Resensi Sastra Indonesia — Kemendikbudristek",
     "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-    "stimulusTitle": "Nilai-Nilai Utama Novel Laskar Pelangi",
-    "stimulusBody": "Novel Laskar Pelangi karya Andrea Hirata sarat akan pesan moral dan refleksi sosial tentang pendidikan di daerah terpencil.",
-    "prompt": "Manakah <strong>DUA (2)</strong> nilai karakter dan pesan sosial utama yang disoroti oleh pengulas novel?",
+    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+    "stimulusTitle": "Review Text: The Inspiring Journey of Laskar Pelangi",
+    "stimulusBody": "<div style=\"font-size:0.95rem; line-height:1.6; color:#1e293b;\">\n<p style=\"margin-bottom:8px;\"><strong>Title:</strong> The Rainbow Troops (<em>Laskar Pelangi</em>)<br><strong>Author:</strong> Andrea Hirata | <strong>Setting:</strong> Belitung Island, Indonesia</p>\n<p style=\"margin-bottom:8px;\">Andrea Hirata's celebrated novel, <em>The Rainbow Troops</em>, chronicles the heroic educational struggle of ten impoverished students attending SD Muhammadiyah Gantong on the remote island of Belitung. Facing severe material deprivation, dilapidated school infrastructure, and the constant threat of closure by the local education department, these resilient children—affectionately dubbed the \"Rainbow Troops\" by their beloved teacher—demonstrate an extraordinary passion for learning.</p>\n<p style=\"margin-bottom:8px;\">Central to their success is the selfless dedication of their devoted educators, Bu Muslimah and Pak Harfan, who refuse to let poverty extinguish their students' dreams. Rather than relying on modern facilities or wealthy corporate sponsorship, the school thrives on unyielding moral integrity, mutual camaraderie, and deep community solidarity. Andrea Hirata artfully weaves humor and poignant socio-economic critiques, highlighting the stark contrast between prosperous tin-mining conglomerates and the marginalized local population.</p>\n<p style=\"margin-bottom:0;\">In conclusion, <em>The Rainbow Troops</em> is far more than a heartwarming coming-of-age memoir; it is a profound testament to the transformative power of human empathy and universal education. The novel delivers a timeless reminder that authentic scholastic achievement stems not from opulent buildings, but from an indomitable spirit, passionate teaching, and unwavering perseverance in the face of adversity.</p>\n</div>",
+    "prompt": "Which **TWO (2)** core virtues and societal lessons does the reviewer emphasize regarding Andrea Hirata's novel *Laskar Pelangi*?",
     "options": [
       {
         "key": "A",
-        "text": "Kekuatan transformatif pendidikan dan empati kemanusiaan dalam mengatasi kesulitan sosial-ekonomi yang ekstrem."
+        "text": "The transformative power of inclusive education and genuine human empathy in surmounting severe socio-economic deprivation."
       },
       {
         "key": "B",
-        "text": "Pentingnya menimbun harta kekayaan pribadi sebanyak-banyaknya demi memperoleh status sosial tertinggi di masyarakat."
+        "text": "The imperative of accumulating vast personal material wealth to secure the highest prestige in contemporary society."
       },
       {
         "key": "C",
-        "text": "Nilai luhur keteladanan dan dedikasi tanpa pamrih seorang guru yang membangkitkan rasa percaya diri murid."
+        "text": "The noble values of exemplary mentorship and selfless teaching dedication that foster unyielding confidence among pupils."
       },
       {
         "key": "D",
-        "text": "Keunggulan mutlak perusahaan tambang industri modern dalam menyingkirkan kehidupan masyarakat pedesaan."
+        "text": "The unquestioned superiority of industrial tin mining corporations over traditional rural indigenous communities."
       }
     ],
     "correctAnswer": [
@@ -948,10 +947,10 @@ function getGrade12AsasQuestions() {
     "id": 25,
     "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XII — SMAN 1 Bae Kudus",
     "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-    "stimulusTitle": "Kalimat Tak Langsung (Reported Speech / Indirect Statements)",
-    "stimulusBody": "Dalam melaporkan pernyataan lampau, tenses dan kata keterangan waktu mengalami penyesuaian gramatikal (backshift).",
-    "prompt": "Manakah <strong>DUA (2)</strong> kalimat tak langsung di bawah ini yang disusun secara baku dan benar?",
+    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+    "stimulusTitle": "Grammar Focus: Indirect Speech / Reported Statements",
+    "stimulusBody": "<p style=\"margin-bottom:0;\">Select indirect speech sentences that correctly execute backshift rules.</p>",
+    "prompt": "Which **TWO (2)** sentences correctly report past statements adhering to standard English backshift rules?",
     "options": [
       {
         "key": "A",
@@ -982,7 +981,7 @@ function getGrade12AsasQuestions() {
     "source": "Sumber: Tinjauan Teknologi Terapan & Rekayasa Pertanian Berkelanjutan — Jurnal Riset Agroteknologi Nasional",
     "type": "reading",
     "title": "Reading Section: TP 12.2 Review Text",
-    "stimulusTitle": "Product Review: Smart IoT Drip Irrigation System — High-Tech Precision for Indonesian Dryland Farming",
+    "stimulusTitle": "Text 2: Agro-Technology Innovation for Sustainable Rice Farming",
     "stimulusBody": "As prolonged dry seasons and climatic volatility challenge smallholder horticultural farmers across Java, automated micro-irrigation systems have emerged as promising solutions. Among the latest domestic innovations tested by agricultural cooperatives in Central Java is the 'AgriSmart IoT Drip Irrigation System'—a solar-powered micro-irrigation unit designed to deliver precise moisture directly to plant roots based on automated subterranean soil telemetry.<br><br>In extensive four-month field trials on chili and shallot plantations, the AgriSmart system demonstrated remarkable operational efficiency. Its primary triumph is water conservation: by utilizing subterranean humidity and ambient temperature probes to regulate precision dripping valves, the system reduced irrigation water consumption by approximately thirty-eight percent compared to conventional manual spraying. Furthermore, the accompanying mobile application delivers real-time soil data and autonomous valve controls, freeing farmers from arduous physical labor under the blazing midday sun and increasing crop harvest uniformity by nearly twenty percent.<br><br>Despite these impressive technological merits, prospective adopters must weigh certain practical constraints. First, the unit relies on local cellular network coverage for cloud telemetry, making it susceptible to connection blackouts in mountainous, signal-deprived hollows. Second, while the initial hardware installation cost has been minimized, it still represents a formidable capital barrier for individual impoverished smallholders unless subsidized by local farmer associations. Finally, the sensitive micro-drippers require periodic manual flushing to prevent mineral sediment clogs when utilizing mineral-heavy well water.<br><br>On balance, the AgriSmart IoT System represents a highly commendable step forward in sustainable tropical agriculture. While isolated subsistence farmers may find individual investment challenging, the system is enthusiastically recommended for farmer collectives, agricultural vocational schools, and forward-looking horticultural enterprises seeking to optimize water resilience and labor productivity.",
     "prompt": "What is the primary function of the AgriSmart IoT System described in the text?",
     "options": [
@@ -1012,7 +1011,7 @@ function getGrade12AsasQuestions() {
     "source": "Sumber: Tinjauan Teknologi Terapan & Rekayasa Pertanian Berkelanjutan — Jurnal Riset Agroteknologi Nasional",
     "type": "reading",
     "title": "Reading Section: TP 12.2 Review Text",
-    "stimulusTitle": "Product Review: Smart IoT Drip Irrigation System — High-Tech Precision for Indonesian Dryland Farming",
+    "stimulusTitle": "Text 2: Agro-Technology Innovation for Sustainable Rice Farming",
     "stimulusBody": "As prolonged dry seasons and climatic volatility challenge smallholder horticultural farmers across Java, automated micro-irrigation systems have emerged as promising solutions. Among the latest domestic innovations tested by agricultural cooperatives in Central Java is the 'AgriSmart IoT Drip Irrigation System'—a solar-powered micro-irrigation unit designed to deliver precise moisture directly to plant roots based on automated subterranean soil telemetry.<br><br>In extensive four-month field trials on chili and shallot plantations, the AgriSmart system demonstrated remarkable operational efficiency. Its primary triumph is water conservation: by utilizing subterranean humidity and ambient temperature probes to regulate precision dripping valves, the system reduced irrigation water consumption by approximately thirty-eight percent compared to conventional manual spraying. Furthermore, the accompanying mobile application delivers real-time soil data and autonomous valve controls, freeing farmers from arduous physical labor under the blazing midday sun and increasing crop harvest uniformity by nearly twenty percent.<br><br>Despite these impressive technological merits, prospective adopters must weigh certain practical constraints. First, the unit relies on local cellular network coverage for cloud telemetry, making it susceptible to connection blackouts in mountainous, signal-deprived hollows. Second, while the initial hardware installation cost has been minimized, it still represents a formidable capital barrier for individual impoverished smallholders unless subsidized by local farmer associations. Finally, the sensitive micro-drippers require periodic manual flushing to prevent mineral sediment clogs when utilizing mineral-heavy well water.<br><br>On balance, the AgriSmart IoT System represents a highly commendable step forward in sustainable tropical agriculture. While isolated subsistence farmers may find individual investment challenging, the system is enthusiastically recommended for farmer collectives, agricultural vocational schools, and forward-looking horticultural enterprises seeking to optimize water resilience and labor productivity.",
     "prompt": "According to the field test results, what was the primary operational triumph of the system?",
     "options": [
@@ -1042,7 +1041,7 @@ function getGrade12AsasQuestions() {
     "source": "Sumber: Tinjauan Teknologi Terapan & Rekayasa Pertanian Berkelanjutan — Jurnal Riset Agroteknologi Nasional",
     "type": "reading",
     "title": "Reading Section: TP 12.2 Review Text",
-    "stimulusTitle": "Product Review: Smart IoT Drip Irrigation System — High-Tech Precision for Indonesian Dryland Farming",
+    "stimulusTitle": "Text 2: Agro-Technology Innovation for Sustainable Rice Farming",
     "stimulusBody": "As prolonged dry seasons and climatic volatility challenge smallholder horticultural farmers across Java, automated micro-irrigation systems have emerged as promising solutions. Among the latest domestic innovations tested by agricultural cooperatives in Central Java is the 'AgriSmart IoT Drip Irrigation System'—a solar-powered micro-irrigation unit designed to deliver precise moisture directly to plant roots based on automated subterranean soil telemetry.<br><br>In extensive four-month field trials on chili and shallot plantations, the AgriSmart system demonstrated remarkable operational efficiency. Its primary triumph is water conservation: by utilizing subterranean humidity and ambient temperature probes to regulate precision dripping valves, the system reduced irrigation water consumption by approximately thirty-eight percent compared to conventional manual spraying. Furthermore, the accompanying mobile application delivers real-time soil data and autonomous valve controls, freeing farmers from arduous physical labor under the blazing midday sun and increasing crop harvest uniformity by nearly twenty percent.<br><br>Despite these impressive technological merits, prospective adopters must weigh certain practical constraints. First, the unit relies on local cellular network coverage for cloud telemetry, making it susceptible to connection blackouts in mountainous, signal-deprived hollows. Second, while the initial hardware installation cost has been minimized, it still represents a formidable capital barrier for individual impoverished smallholders unless subsidized by local farmer associations. Finally, the sensitive micro-drippers require periodic manual flushing to prevent mineral sediment clogs when utilizing mineral-heavy well water.<br><br>On balance, the AgriSmart IoT System represents a highly commendable step forward in sustainable tropical agriculture. While isolated subsistence farmers may find individual investment challenging, the system is enthusiastically recommended for farmer collectives, agricultural vocational schools, and forward-looking horticultural enterprises seeking to optimize water resilience and labor productivity.",
     "prompt": "Which of the following is identified as a practical constraint of the AgriSmart system in paragraph three?",
     "options": [
@@ -1072,7 +1071,7 @@ function getGrade12AsasQuestions() {
     "source": "Sumber: Tinjauan Teknologi Terapan & Rekayasa Pertanian Berkelanjutan — Jurnal Riset Agroteknologi Nasional",
     "type": "reading",
     "title": "Reading Section: TP 12.2 Review Text",
-    "stimulusTitle": "Product Review: Smart IoT Drip Irrigation System — High-Tech Precision for Indonesian Dryland Farming",
+    "stimulusTitle": "Text 2: Agro-Technology Innovation for Sustainable Rice Farming",
     "stimulusBody": "As prolonged dry seasons and climatic volatility challenge smallholder horticultural farmers across Java, automated micro-irrigation systems have emerged as promising solutions. Among the latest domestic innovations tested by agricultural cooperatives in Central Java is the 'AgriSmart IoT Drip Irrigation System'—a solar-powered micro-irrigation unit designed to deliver precise moisture directly to plant roots based on automated subterranean soil telemetry.<br><br>In extensive four-month field trials on chili and shallot plantations, the AgriSmart system demonstrated remarkable operational efficiency. Its primary triumph is water conservation: by utilizing subterranean humidity and ambient temperature probes to regulate precision dripping valves, the system reduced irrigation water consumption by approximately thirty-eight percent compared to conventional manual spraying. Furthermore, the accompanying mobile application delivers real-time soil data and autonomous valve controls, freeing farmers from arduous physical labor under the blazing midday sun and increasing crop harvest uniformity by nearly twenty percent.<br><br>Despite these impressive technological merits, prospective adopters must weigh certain practical constraints. First, the unit relies on local cellular network coverage for cloud telemetry, making it susceptible to connection blackouts in mountainous, signal-deprived hollows. Second, while the initial hardware installation cost has been minimized, it still represents a formidable capital barrier for individual impoverished smallholders unless subsidized by local farmer associations. Finally, the sensitive micro-drippers require periodic manual flushing to prevent mineral sediment clogs when utilizing mineral-heavy well water.<br><br>On balance, the AgriSmart IoT System represents a highly commendable step forward in sustainable tropical agriculture. While isolated subsistence farmers may find individual investment challenging, the system is enthusiastically recommended for farmer collectives, agricultural vocational schools, and forward-looking horticultural enterprises seeking to optimize water resilience and labor productivity.",
     "prompt": "The word 'commendable' in the final paragraph is closest in meaning to...",
     "options": [
@@ -1102,7 +1101,7 @@ function getGrade12AsasQuestions() {
     "source": "Sumber: Tinjauan Teknologi Terapan & Rekayasa Pertanian Berkelanjutan — Jurnal Riset Agroteknologi Nasional",
     "type": "reading",
     "title": "Reading Section: TP 12.2 Review Text",
-    "stimulusTitle": "Product Review: Smart IoT Drip Irrigation System — High-Tech Precision for Indonesian Dryland Farming",
+    "stimulusTitle": "Text 2: Agro-Technology Innovation for Sustainable Rice Farming",
     "stimulusBody": "As prolonged dry seasons and climatic volatility challenge smallholder horticultural farmers across Java, automated micro-irrigation systems have emerged as promising solutions. Among the latest domestic innovations tested by agricultural cooperatives in Central Java is the 'AgriSmart IoT Drip Irrigation System'—a solar-powered micro-irrigation unit designed to deliver precise moisture directly to plant roots based on automated subterranean soil telemetry.<br><br>In extensive four-month field trials on chili and shallot plantations, the AgriSmart system demonstrated remarkable operational efficiency. Its primary triumph is water conservation: by utilizing subterranean humidity and ambient temperature probes to regulate precision dripping valves, the system reduced irrigation water consumption by approximately thirty-eight percent compared to conventional manual spraying. Furthermore, the accompanying mobile application delivers real-time soil data and autonomous valve controls, freeing farmers from arduous physical labor under the blazing midday sun and increasing crop harvest uniformity by nearly twenty percent.<br><br>Despite these impressive technological merits, prospective adopters must weigh certain practical constraints. First, the unit relies on local cellular network coverage for cloud telemetry, making it susceptible to connection blackouts in mountainous, signal-deprived hollows. Second, while the initial hardware installation cost has been minimized, it still represents a formidable capital barrier for individual impoverished smallholders unless subsidized by local farmer associations. Finally, the sensitive micro-drippers require periodic manual flushing to prevent mineral sediment clogs when utilizing mineral-heavy well water.<br><br>On balance, the AgriSmart IoT System represents a highly commendable step forward in sustainable tropical agriculture. While isolated subsistence farmers may find individual investment challenging, the system is enthusiastically recommended for farmer collectives, agricultural vocational schools, and forward-looking horticultural enterprises seeking to optimize water resilience and labor productivity.",
     "prompt": "Who is the primary target group enthusiastically recommended to adopt this system?",
     "options": [
@@ -1616,7 +1615,7 @@ function renderQuestion(index) {
     if (srcEl) {
       if (q.source) {
         srcEl.style.display = "block";
-        srcEl.innerHTML = `📌 <strong>${q.source}</strong>`;
+        srcEl.innerHTML = `<span style="font-size:0.75rem; color:#64748b; font-style:italic;">Source: ${q.source}</span>`;
       } else {
         srcEl.style.display = "none";
       }
@@ -1626,13 +1625,7 @@ function renderQuestion(index) {
   }
 
   const promptBox = document.getElementById("question-prompt-text");
-  let srcBadge = "";
-  if (q.source) {
-    srcBadge = `<div class="source-citation" style="margin-top: 10px; font-size: 0.8rem; color: #475569; background: #f8fafc; border-left: 3.5px solid var(--accent-teal); padding: 6px 12px; border-radius: 4px; font-style: italic;">
-      📌 <strong>${q.source}</strong>
-    </div>`;
-  }
-  promptBox.innerHTML = q.prompt + srcBadge;
+  promptBox.innerHTML = q.prompt;
 
   const optContainer = document.getElementById("options-container");
   optContainer.innerHTML = "";

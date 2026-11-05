@@ -34,22 +34,22 @@ function getGrade11TLAstsQuestions() {
     "options": [
       {
         "key": "A",
-        "svg": SVG_PICTURES.digitalManuscript,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"18\" y=\"22\" width=\"64\" height=\"46\" rx=\"4\" fill=\"#eff6ff\" stroke=\"#2563eb\"/><circle cx=\"50\" cy=\"45\" r=\"14\" stroke=\"#3b82f6\" stroke-width=\"2\" stroke-dasharray=\"3 3\"/><line x1=\"50\" y1=\"36\" x2=\"50\" y2=\"54\" stroke=\"#1d4ed8\"/><line x1=\"41\" y1=\"45\" x2=\"59\" y2=\"45\" stroke=\"#1d4ed8\"/><path d=\"M26 32h14M26 38h10M60 52h14M60 58h10\" stroke=\"#93c5fd\"/><path d=\"M30 76l20-8 20 8\" stroke=\"#475569\" stroke-width=\"2\"/><line x1=\"50\" y1=\"68\" x2=\"50\" y2=\"84\" stroke=\"#475569\" stroke-width=\"3\"/></svg>",
         "label": "A student reading an ancient manuscript in a library"
       },
       {
         "key": "B",
-        "svg": SVG_PICTURES.amphitheaterDrama,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#b45309\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 75c8-18 36-24 76 0\" stroke=\"#78350f\" stroke-width=\"3\"/><path d=\"M22 62c6-14 28-18 56 0\" stroke=\"#b45309\" stroke-dasharray=\"2 2\"/><polygon points=\"50,15 35,45 65,45\" fill=\"#fef3c7\" stroke=\"#d97706\"/><circle cx=\"50\" cy=\"30\" r=\"5\" fill=\"#d97706\"/><path d=\"M38 48h24v20H38z\" fill=\"#fef9c3\" stroke=\"#ca8a04\"/><path d=\"M42 48v20M58 48v20\" stroke=\"#b45309\"/><line x1=\"15\" y1=\"84\" x2=\"85\" y2=\"84\" stroke=\"#64748b\"/></svg>",
         "label": "Students performing a classic play in an outdoor theater"
       },
       {
         "key": "C",
-        "svg": SVG_PICTURES.climateObservatory,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M15 85c15-8 30-14 70-4\" stroke=\"#16a34a\" stroke-width=\"3\"/><path d=\"M35 80V50c0-12 12-22 25-22s25 10 25 22v30H35z\" fill=\"#ecfdf5\" stroke=\"#059669\"/><path d=\"M50 28v-12M42 16h16\" stroke=\"#047857\" stroke-width=\"2\"/><circle cx=\"60\" cy=\"46\" r=\"6\" fill=\"#fef08a\" stroke=\"#ca8a04\"/><line x1=\"60\" y1=\"40\" x2=\"75\" y2=\"28\" stroke=\"#0284c7\" stroke-width=\"2.5\"/><circle cx=\"75\" cy=\"28\" r=\"3\" fill=\"#0284c7\"/></svg>",
         "label": "A weather observation dome on a coastal hill"
       },
       {
         "key": "D",
-        "svg": SVG_PICTURES.oilRefinery,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"20\" y=\"50\" width=\"30\" height=\"35\" fill=\"#f1f5f9\"/><rect x=\"55\" y=\"40\" width=\"25\" height=\"45\" fill=\"#e2e8f0\"/><line x1=\"35\" y1=\"50\" x2=\"35\" y2=\"25\" stroke=\"#64748b\" stroke-width=\"2.5\"/><line x1=\"68\" y1=\"40\" x2=\"68\" y2=\"20\" stroke=\"#64748b\" stroke-width=\"2.5\"/><path d=\"M30 20c3-5 7-5 10 0M63 15c3-5 7-5 10 0\" stroke=\"#94a3b8\"/></svg>",
         "label": "An industrial fuel refining plant"
       }
     ],
@@ -74,22 +74,22 @@ function getGrade11TLAstsQuestions() {
     "options": [
       {
         "key": "A",
-        "svg": SVG_PICTURES.digitalManuscript,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"18\" y=\"22\" width=\"64\" height=\"46\" rx=\"4\" fill=\"#eff6ff\" stroke=\"#2563eb\"/><circle cx=\"50\" cy=\"45\" r=\"14\" stroke=\"#3b82f6\" stroke-width=\"2\" stroke-dasharray=\"3 3\"/><line x1=\"50\" y1=\"36\" x2=\"50\" y2=\"54\" stroke=\"#1d4ed8\"/><line x1=\"41\" y1=\"45\" x2=\"59\" y2=\"45\" stroke=\"#1d4ed8\"/><path d=\"M26 32h14M26 38h10M60 52h14M60 58h10\" stroke=\"#93c5fd\"/><path d=\"M30 76l20-8 20 8\" stroke=\"#475569\" stroke-width=\"2\"/><line x1=\"50\" y1=\"68\" x2=\"50\" y2=\"84\" stroke=\"#475569\" stroke-width=\"3\"/></svg>",
         "label": "A student reading an ancient manuscript in a library"
       },
       {
         "key": "B",
-        "svg": SVG_PICTURES.amphitheaterDrama,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#b45309\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 75c8-18 36-24 76 0\" stroke=\"#78350f\" stroke-width=\"3\"/><path d=\"M22 62c6-14 28-18 56 0\" stroke=\"#b45309\" stroke-dasharray=\"2 2\"/><polygon points=\"50,15 35,45 65,45\" fill=\"#fef3c7\" stroke=\"#d97706\"/><circle cx=\"50\" cy=\"30\" r=\"5\" fill=\"#d97706\"/><path d=\"M38 48h24v20H38z\" fill=\"#fef9c3\" stroke=\"#ca8a04\"/><path d=\"M42 48v20M58 48v20\" stroke=\"#b45309\"/><line x1=\"15\" y1=\"84\" x2=\"85\" y2=\"84\" stroke=\"#64748b\"/></svg>",
         "label": "Students performing a classic play in an outdoor theater"
       },
       {
         "key": "C",
-        "svg": SVG_PICTURES.climateObservatory,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M15 85c15-8 30-14 70-4\" stroke=\"#16a34a\" stroke-width=\"3\"/><path d=\"M35 80V50c0-12 12-22 25-22s25 10 25 22v30H35z\" fill=\"#ecfdf5\" stroke=\"#059669\"/><path d=\"M50 28v-12M42 16h16\" stroke=\"#047857\" stroke-width=\"2\"/><circle cx=\"60\" cy=\"46\" r=\"6\" fill=\"#fef08a\" stroke=\"#ca8a04\"/><line x1=\"60\" y1=\"40\" x2=\"75\" y2=\"28\" stroke=\"#0284c7\" stroke-width=\"2.5\"/><circle cx=\"75\" cy=\"28\" r=\"3\" fill=\"#0284c7\"/></svg>",
         "label": "A weather observation dome on a coastal hill"
       },
       {
         "key": "D",
-        "svg": SVG_PICTURES.oilRefinery,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"20\" y=\"50\" width=\"30\" height=\"35\" fill=\"#f1f5f9\"/><rect x=\"55\" y=\"40\" width=\"25\" height=\"45\" fill=\"#e2e8f0\"/><line x1=\"35\" y1=\"50\" x2=\"35\" y2=\"25\" stroke=\"#64748b\" stroke-width=\"2.5\"/><line x1=\"68\" y1=\"40\" x2=\"68\" y2=\"20\" stroke=\"#64748b\" stroke-width=\"2.5\"/><path d=\"M30 20c3-5 7-5 10 0M63 15c3-5 7-5 10 0\" stroke=\"#94a3b8\"/></svg>",
         "label": "An industrial fuel refining plant"
       }
     ],
@@ -114,22 +114,22 @@ function getGrade11TLAstsQuestions() {
     "options": [
       {
         "key": "A",
-        "svg": SVG_PICTURES.digitalManuscript,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"18\" y=\"22\" width=\"64\" height=\"46\" rx=\"4\" fill=\"#eff6ff\" stroke=\"#2563eb\"/><circle cx=\"50\" cy=\"45\" r=\"14\" stroke=\"#3b82f6\" stroke-width=\"2\" stroke-dasharray=\"3 3\"/><line x1=\"50\" y1=\"36\" x2=\"50\" y2=\"54\" stroke=\"#1d4ed8\"/><line x1=\"41\" y1=\"45\" x2=\"59\" y2=\"45\" stroke=\"#1d4ed8\"/><path d=\"M26 32h14M26 38h10M60 52h14M60 58h10\" stroke=\"#93c5fd\"/><path d=\"M30 76l20-8 20 8\" stroke=\"#475569\" stroke-width=\"2\"/><line x1=\"50\" y1=\"68\" x2=\"50\" y2=\"84\" stroke=\"#475569\" stroke-width=\"3\"/></svg>",
         "label": "A student reading an ancient manuscript in a library"
       },
       {
         "key": "B",
-        "svg": SVG_PICTURES.amphitheaterDrama,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#b45309\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 75c8-18 36-24 76 0\" stroke=\"#78350f\" stroke-width=\"3\"/><path d=\"M22 62c6-14 28-18 56 0\" stroke=\"#b45309\" stroke-dasharray=\"2 2\"/><polygon points=\"50,15 35,45 65,45\" fill=\"#fef3c7\" stroke=\"#d97706\"/><circle cx=\"50\" cy=\"30\" r=\"5\" fill=\"#d97706\"/><path d=\"M38 48h24v20H38z\" fill=\"#fef9c3\" stroke=\"#ca8a04\"/><path d=\"M42 48v20M58 48v20\" stroke=\"#b45309\"/><line x1=\"15\" y1=\"84\" x2=\"85\" y2=\"84\" stroke=\"#64748b\"/></svg>",
         "label": "Students performing a classic play in an outdoor theater"
       },
       {
         "key": "C",
-        "svg": SVG_PICTURES.climateObservatory,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M15 85c15-8 30-14 70-4\" stroke=\"#16a34a\" stroke-width=\"3\"/><path d=\"M35 80V50c0-12 12-22 25-22s25 10 25 22v30H35z\" fill=\"#ecfdf5\" stroke=\"#059669\"/><path d=\"M50 28v-12M42 16h16\" stroke=\"#047857\" stroke-width=\"2\"/><circle cx=\"60\" cy=\"46\" r=\"6\" fill=\"#fef08a\" stroke=\"#ca8a04\"/><line x1=\"60\" y1=\"40\" x2=\"75\" y2=\"28\" stroke=\"#0284c7\" stroke-width=\"2.5\"/><circle cx=\"75\" cy=\"28\" r=\"3\" fill=\"#0284c7\"/></svg>",
         "label": "A weather observation dome on a coastal hill"
       },
       {
         "key": "D",
-        "svg": SVG_PICTURES.oilRefinery,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"20\" y=\"50\" width=\"30\" height=\"35\" fill=\"#f1f5f9\"/><rect x=\"55\" y=\"40\" width=\"25\" height=\"45\" fill=\"#e2e8f0\"/><line x1=\"35\" y1=\"50\" x2=\"35\" y2=\"25\" stroke=\"#64748b\" stroke-width=\"2.5\"/><line x1=\"68\" y1=\"40\" x2=\"68\" y2=\"20\" stroke=\"#64748b\" stroke-width=\"2.5\"/><path d=\"M30 20c3-5 7-5 10 0M63 15c3-5 7-5 10 0\" stroke=\"#94a3b8\"/></svg>",
         "label": "An industrial fuel refining plant"
       }
     ],
@@ -151,7 +151,7 @@ function getGrade11TLAstsQuestions() {
       },
       {
         "gender": "female",
-        "pitch": 1.30,
+        "pitch": 1.3,
         "rateMultiplier": 1.04,
         "text": "Excuse me, Sir. In the legend we studied yesterday, why did the arrogant prince fail in the end?",
         "pauseAfter": 400
@@ -165,7 +165,7 @@ function getGrade11TLAstsQuestions() {
       },
       {
         "gender": "female",
-        "pitch": 1.30,
+        "pitch": 1.3,
         "rateMultiplier": 1.04,
         "text": "So true greatness comes from humility and kindness toward others?",
         "pauseAfter": 400
@@ -229,7 +229,7 @@ function getGrade11TLAstsQuestions() {
       },
       {
         "gender": "female",
-        "pitch": 1.30,
+        "pitch": 1.3,
         "rateMultiplier": 1.04,
         "text": "Using AI to understand difficult topics is helpful, but letting it write our assignments means we miss the chance to develop our own critical thinking.",
         "pauseAfter": 400
@@ -243,7 +243,7 @@ function getGrade11TLAstsQuestions() {
       },
       {
         "gender": "female",
-        "pitch": 1.30,
+        "pitch": 1.3,
         "rateMultiplier": 1.04,
         "text": "Exactly. Developing our own critical thinking is much more valuable.",
         "pauseAfter": 500
@@ -300,7 +300,7 @@ function getGrade11TLAstsQuestions() {
       },
       {
         "gender": "female",
-        "pitch": 1.30,
+        "pitch": 1.3,
         "rateMultiplier": 1.04,
         "text": "Did you include the rule about single-use plastic bottles in the canteen?",
         "pauseAfter": 400
@@ -314,7 +314,7 @@ function getGrade11TLAstsQuestions() {
       },
       {
         "gender": "female",
-        "pitch": 1.30,
+        "pitch": 1.3,
         "rateMultiplier": 1.04,
         "text": "That is a great step. Clear school rules will help reduce our plastic waste significantly.",
         "pauseAfter": 500
@@ -350,7 +350,6 @@ function getGrade11TLAstsQuestions() {
     "explanation": "Tujuan proposal OSIS adalah mengurangi sampah plastik dengan mewajibkan botol dan wadah makan isi ulang. Pilihan A tepat.",
     "grammarNote": "Subjunctive / Recommendation Structure: 'recommend that every student bring a reusable bottle'."
   },
-
   {
     "id": 7,
     "source": "Sumber: Seri Apresiasi Cerita Rakyat Nusantara — Balai Bahasa & Kemendikbudristek",
@@ -500,7 +499,7 @@ function getGrade11TLAstsQuestions() {
     "source": "Sumber: Dikutip dan disesuaikan dari Cerita Rakyat Jawa Tengah — Balai Bahasa Provinsi Jawa Tengah & Kemendikbudristek",
     "type": "single_choice",
     "title": "Advanced Narrative: Central Theme & Conflict",
-    "stimulusTitle": "Text 1: The Legend of Rawa Pening: A Tale of Kindness and Humility",
+    "stimulusTitle": "Text 1: The Legend of Rawa Pening",
     "stimulusBody": "Once upon a time in a peaceful village called Ngasem in Central Java, there lived a humble woman named Endang Sawitri. She gave birth to an extraordinary boy named Baru Klinthing. Due to an unusual condition at birth, Baru Klinthing was shunned by many villagers, and his body was covered with painful wounds that emitted an unpleasant smell. As he grew older, Baru Klinthing decided to search for his father, Ki Hajar Salokantara, who was meditating on the sacred slopes of Mount Telomoyo.<br><br>During his long journey through the valley, Baru Klinthing arrived at a prosperous village called Pathok. The villagers were celebrating a grand harvest festival. Delicious roasted meats and traditional dishes were served in abundance, and the village square was filled with joyful laughter and music. Exhausted, hungry, and thirsty, the poor boy approached the gathering and politely asked for a small portion of leftover food.<br><br>However, the wealthy villagers were proud and arrogant. Instead of showing sympathy, they mocked his ragged clothes and dirty appearance. They drove him away cruelly, shouting insulting words and throwing stones. Heartbroken, Baru Klinthing walked toward the quiet outskirts of the village. There, in a small wooden cottage, lived an elderly widow named Mbok Rondo.<br><br>Unlike the arrogant villagers, Mbok Rondo welcomed the boy warmly into her home. Seeing his condition, she generously offered him warm rice, fresh vegetables, and cool water. Baru Klinthing was deeply moved by her sincerity. Before departing, he whispered an important warning: 'Mbok, if you hear a loud rumbling sound from the village center, please prepare your wooden mortar (lesung) and use it as a boat.'<br><br>Baru Klinthing then returned to the busy festival square. Standing before the crowd, he drove a single wooden stick deep into the ground. He challenged the proud crowd: 'If you are truly strong and mighty, try to pull this simple stick out of the earth!'<br><br>The villagers laughed scornfully. One by one, the strongest men stepped forward and pulled with all their strength, but the stick did not move at all. Even when several warriors pulled together, it remained firmly anchored. Finally, Baru Klinthing walked forward and pulled the stick out effortlessly with one hand.<br><br>Instantly, clear water gushed forth from the hole like a powerful fountain. The water rose rapidly, submerging the homes, streets, and festival grounds. The panic-stricken villagers tried to run, but the rushing flood swallowed the entire village, transforming the area into a vast lake known today as Rawa Pening. Only kind Mbok Rondo survived safely, floating on her wooden mortar. The legend remains an enduring reminder that true human worth is found in kindness and humility, not in outward wealth or pride.",
     "prompt": "What is the primary moral theme conveyed throughout the story of Baru Klinthing?",
     "options": [
@@ -530,8 +529,8 @@ function getGrade11TLAstsQuestions() {
     "source": "Sumber: Dikutip dan disesuaikan dari Cerita Rakyat Jawa Tengah — Balai Bahasa Provinsi Jawa Tengah & Kemendikbudristek",
     "type": "single_choice",
     "title": "Advanced Narrative: Explicit Character Conflict",
-    "stimulusTitle": "Text 1: The Legend of Rawa Pening: A Tale of Kindness and Humility",
-    "stimulusBody": "(Silakan merujuk pada Teks 1: 'The Legend of Rawa Pening' di atas)",
+    "stimulusTitle": "Text 1: The Legend of Rawa Pening",
+    "stimulusBody": "Once upon a time in a peaceful village called Ngasem in Central Java, there lived a humble woman named Endang Sawitri. She gave birth to an extraordinary boy named Baru Klinthing. Due to an unusual condition at birth, Baru Klinthing was shunned by many villagers, and his body was covered with painful wounds that emitted an unpleasant smell. As he grew older, Baru Klinthing decided to search for his father, Ki Hajar Salokantara, who was meditating on the sacred slopes of Mount Telomoyo.<br><br>During his long journey through the valley, Baru Klinthing arrived at a prosperous village called Pathok. The villagers were celebrating a grand harvest festival. Delicious roasted meats and traditional dishes were served in abundance, and the village square was filled with joyful laughter and music. Exhausted, hungry, and thirsty, the poor boy approached the gathering and politely asked for a small portion of leftover food.<br><br>However, the wealthy villagers were proud and arrogant. Instead of showing sympathy, they mocked his ragged clothes and dirty appearance. They drove him away cruelly, shouting insulting words and throwing stones. Heartbroken, Baru Klinthing walked toward the quiet outskirts of the village. There, in a small wooden cottage, lived an elderly widow named Mbok Rondo.<br><br>Unlike the arrogant villagers, Mbok Rondo welcomed the boy warmly into her home. Seeing his condition, she generously offered him warm rice, fresh vegetables, and cool water. Baru Klinthing was deeply moved by her sincerity. Before departing, he whispered an important warning: 'Mbok, if you hear a loud rumbling sound from the village center, please prepare your wooden mortar (lesung) and use it as a boat.'<br><br>Baru Klinthing then returned to the busy festival square. Standing before the crowd, he drove a single wooden stick deep into the ground. He challenged the proud crowd: 'If you are truly strong and mighty, try to pull this simple stick out of the earth!'<br><br>The villagers laughed scornfully. One by one, the strongest men stepped forward and pulled with all their strength, but the stick did not move at all. Even when several warriors pulled together, it remained firmly anchored. Finally, Baru Klinthing walked forward and pulled the stick out effortlessly with one hand.<br><br>Instantly, clear water gushed forth from the hole like a powerful fountain. The water rose rapidly, submerging the homes, streets, and festival grounds. The panic-stricken villagers tried to run, but the rushing flood swallowed the entire village, transforming the area into a vast lake known today as Rawa Pening. Only kind Mbok Rondo survived safely, floating on her wooden mortar. The legend remains an enduring reminder that true human worth is found in kindness and humility, not in outward wealth or pride.",
     "prompt": "According to paragraph 3, why did the villagers of Pathok cruelly reject and drive Baru Klinthing away?",
     "options": [
       {
@@ -560,8 +559,8 @@ function getGrade11TLAstsQuestions() {
     "source": "Sumber: Dikutip dan disesuaikan dari Cerita Rakyat Jawa Tengah — Balai Bahasa Provinsi Jawa Tengah & Kemendikbudristek",
     "type": "single_choice",
     "title": "Advanced Narrative: Character Traits & Motivation",
-    "stimulusTitle": "Text 1: The Legend of Rawa Pening: A Tale of Kindness and Humility",
-    "stimulusBody": "(Silakan merujuk pada Teks 1: 'The Legend of Rawa Pening' di atas)",
+    "stimulusTitle": "Text 1: The Legend of Rawa Pening",
+    "stimulusBody": "Once upon a time in a peaceful village called Ngasem in Central Java, there lived a humble woman named Endang Sawitri. She gave birth to an extraordinary boy named Baru Klinthing. Due to an unusual condition at birth, Baru Klinthing was shunned by many villagers, and his body was covered with painful wounds that emitted an unpleasant smell. As he grew older, Baru Klinthing decided to search for his father, Ki Hajar Salokantara, who was meditating on the sacred slopes of Mount Telomoyo.<br><br>During his long journey through the valley, Baru Klinthing arrived at a prosperous village called Pathok. The villagers were celebrating a grand harvest festival. Delicious roasted meats and traditional dishes were served in abundance, and the village square was filled with joyful laughter and music. Exhausted, hungry, and thirsty, the poor boy approached the gathering and politely asked for a small portion of leftover food.<br><br>However, the wealthy villagers were proud and arrogant. Instead of showing sympathy, they mocked his ragged clothes and dirty appearance. They drove him away cruelly, shouting insulting words and throwing stones. Heartbroken, Baru Klinthing walked toward the quiet outskirts of the village. There, in a small wooden cottage, lived an elderly widow named Mbok Rondo.<br><br>Unlike the arrogant villagers, Mbok Rondo welcomed the boy warmly into her home. Seeing his condition, she generously offered him warm rice, fresh vegetables, and cool water. Baru Klinthing was deeply moved by her sincerity. Before departing, he whispered an important warning: 'Mbok, if you hear a loud rumbling sound from the village center, please prepare your wooden mortar (lesung) and use it as a boat.'<br><br>Baru Klinthing then returned to the busy festival square. Standing before the crowd, he drove a single wooden stick deep into the ground. He challenged the proud crowd: 'If you are truly strong and mighty, try to pull this simple stick out of the earth!'<br><br>The villagers laughed scornfully. One by one, the strongest men stepped forward and pulled with all their strength, but the stick did not move at all. Even when several warriors pulled together, it remained firmly anchored. Finally, Baru Klinthing walked forward and pulled the stick out effortlessly with one hand.<br><br>Instantly, clear water gushed forth from the hole like a powerful fountain. The water rose rapidly, submerging the homes, streets, and festival grounds. The panic-stricken villagers tried to run, but the rushing flood swallowed the entire village, transforming the area into a vast lake known today as Rawa Pening. Only kind Mbok Rondo survived safely, floating on her wooden mortar. The legend remains an enduring reminder that true human worth is found in kindness and humility, not in outward wealth or pride.",
     "prompt": "How did Mbok Rondo treat Baru Klinthing when he arrived at her humble cottage?",
     "options": [
       {
@@ -590,8 +589,8 @@ function getGrade11TLAstsQuestions() {
     "source": "Sumber: Dikutip dan disesuaikan dari Cerita Rakyat Jawa Tengah — Balai Bahasa Provinsi Jawa Tengah & Kemendikbudristek",
     "type": "single_choice",
     "title": "Advanced Narrative: Contextual Lexis (CEFR B2)",
-    "stimulusTitle": "Text 1: The Legend of Rawa Pening: A Tale of Kindness and Humility",
-    "stimulusBody": "(Silakan merujuk pada Teks 1: 'The Legend of Rawa Pening' di atas)",
+    "stimulusTitle": "Text 1: The Legend of Rawa Pening",
+    "stimulusBody": "Once upon a time in a peaceful village called Ngasem in Central Java, there lived a humble woman named Endang Sawitri. She gave birth to an extraordinary boy named Baru Klinthing. Due to an unusual condition at birth, Baru Klinthing was shunned by many villagers, and his body was covered with painful wounds that emitted an unpleasant smell. As he grew older, Baru Klinthing decided to search for his father, Ki Hajar Salokantara, who was meditating on the sacred slopes of Mount Telomoyo.<br><br>During his long journey through the valley, Baru Klinthing arrived at a prosperous village called Pathok. The villagers were celebrating a grand harvest festival. Delicious roasted meats and traditional dishes were served in abundance, and the village square was filled with joyful laughter and music. Exhausted, hungry, and thirsty, the poor boy approached the gathering and politely asked for a small portion of leftover food.<br><br>However, the wealthy villagers were proud and arrogant. Instead of showing sympathy, they mocked his ragged clothes and dirty appearance. They drove him away cruelly, shouting insulting words and throwing stones. Heartbroken, Baru Klinthing walked toward the quiet outskirts of the village. There, in a small wooden cottage, lived an elderly widow named Mbok Rondo.<br><br>Unlike the arrogant villagers, Mbok Rondo welcomed the boy warmly into her home. Seeing his condition, she generously offered him warm rice, fresh vegetables, and cool water. Baru Klinthing was deeply moved by her sincerity. Before departing, he whispered an important warning: 'Mbok, if you hear a loud rumbling sound from the village center, please prepare your wooden mortar (lesung) and use it as a boat.'<br><br>Baru Klinthing then returned to the busy festival square. Standing before the crowd, he drove a single wooden stick deep into the ground. He challenged the proud crowd: 'If you are truly strong and mighty, try to pull this simple stick out of the earth!'<br><br>The villagers laughed scornfully. One by one, the strongest men stepped forward and pulled with all their strength, but the stick did not move at all. Even when several warriors pulled together, it remained firmly anchored. Finally, Baru Klinthing walked forward and pulled the stick out effortlessly with one hand.<br><br>Instantly, clear water gushed forth from the hole like a powerful fountain. The water rose rapidly, submerging the homes, streets, and festival grounds. The panic-stricken villagers tried to run, but the rushing flood swallowed the entire village, transforming the area into a vast lake known today as Rawa Pening. Only kind Mbok Rondo survived safely, floating on her wooden mortar. The legend remains an enduring reminder that true human worth is found in kindness and humility, not in outward wealth or pride.",
     "prompt": "The word 'shunned' in paragraph 1 ('Baru Klinthing was shunned by many villagers') is closest in meaning to...",
     "options": [
       {
@@ -620,8 +619,8 @@ function getGrade11TLAstsQuestions() {
     "source": "Sumber: Dikutip dan disesuaikan dari Cerita Rakyat Jawa Tengah — Balai Bahasa Provinsi Jawa Tengah & Kemendikbudristek",
     "type": "single_choice",
     "title": "Advanced Narrative: Symbolic Action Analysis",
-    "stimulusTitle": "Text 1: The Legend of Rawa Pening: A Tale of Kindness and Humility",
-    "stimulusBody": "(Silakan merujuk pada Teks 1: 'The Legend of Rawa Pening' di atas)",
+    "stimulusTitle": "Text 1: The Legend of Rawa Pening",
+    "stimulusBody": "Once upon a time in a peaceful village called Ngasem in Central Java, there lived a humble woman named Endang Sawitri. She gave birth to an extraordinary boy named Baru Klinthing. Due to an unusual condition at birth, Baru Klinthing was shunned by many villagers, and his body was covered with painful wounds that emitted an unpleasant smell. As he grew older, Baru Klinthing decided to search for his father, Ki Hajar Salokantara, who was meditating on the sacred slopes of Mount Telomoyo.<br><br>During his long journey through the valley, Baru Klinthing arrived at a prosperous village called Pathok. The villagers were celebrating a grand harvest festival. Delicious roasted meats and traditional dishes were served in abundance, and the village square was filled with joyful laughter and music. Exhausted, hungry, and thirsty, the poor boy approached the gathering and politely asked for a small portion of leftover food.<br><br>However, the wealthy villagers were proud and arrogant. Instead of showing sympathy, they mocked his ragged clothes and dirty appearance. They drove him away cruelly, shouting insulting words and throwing stones. Heartbroken, Baru Klinthing walked toward the quiet outskirts of the village. There, in a small wooden cottage, lived an elderly widow named Mbok Rondo.<br><br>Unlike the arrogant villagers, Mbok Rondo welcomed the boy warmly into her home. Seeing his condition, she generously offered him warm rice, fresh vegetables, and cool water. Baru Klinthing was deeply moved by her sincerity. Before departing, he whispered an important warning: 'Mbok, if you hear a loud rumbling sound from the village center, please prepare your wooden mortar (lesung) and use it as a boat.'<br><br>Baru Klinthing then returned to the busy festival square. Standing before the crowd, he drove a single wooden stick deep into the ground. He challenged the proud crowd: 'If you are truly strong and mighty, try to pull this simple stick out of the earth!'<br><br>The villagers laughed scornfully. One by one, the strongest men stepped forward and pulled with all their strength, but the stick did not move at all. Even when several warriors pulled together, it remained firmly anchored. Finally, Baru Klinthing walked forward and pulled the stick out effortlessly with one hand.<br><br>Instantly, clear water gushed forth from the hole like a powerful fountain. The water rose rapidly, submerging the homes, streets, and festival grounds. The panic-stricken villagers tried to run, but the rushing flood swallowed the entire village, transforming the area into a vast lake known today as Rawa Pening. Only kind Mbok Rondo survived safely, floating on her wooden mortar. The legend remains an enduring reminder that true human worth is found in kindness and humility, not in outward wealth or pride.",
     "prompt": "What was the significance of the stick-pulling challenge organized by Baru Klinthing?",
     "options": [
       {
@@ -649,25 +648,25 @@ function getGrade11TLAstsQuestions() {
     "id": 16,
     "source": "Sumber: Kajian Cerita Rakyat Jawa Tengah — Balai Bahasa Provinsi Jawa Tengah & Kemendikbudristek",
     "type": "complex_matrix",
-    "title": "Pilihan Ganda Kompleks: Evaluasi Fakta Cerita Rawa Pening",
-    "stimulusTitle": "Evaluasi Kritis: The Legend of Rawa Pening",
-    "stimulusBody": "Tentukan apakah setiap pernyataan berikut <strong>BENAR (TRUE)</strong> atau <strong>SALAH (FALSE)</strong> berdasarkan isi cerita rakyat Rawa Pening:",
-    "prompt": "Berdasarkan Teks 1, tentukan nilai kebenaran dari masing-masing pernyataan berikut:",
+    "title": "Complex Multiple Choice: Narrative Plot & Character Actions (The Legend of Rawa Pening)",
+    "stimulusTitle": "Text 1: The Legend of Rawa Pening",
+    "stimulusBody": "Once upon a time in a peaceful village called Ngasem in Central Java, there lived a humble woman named Endang Sawitri. She gave birth to an extraordinary boy named Baru Klinthing. Due to an unusual condition at birth, Baru Klinthing was shunned by many villagers, and his body was covered with painful wounds that emitted an unpleasant smell. As he grew older, Baru Klinthing decided to search for his father, Ki Hajar Salokantara, who was meditating on the sacred slopes of Mount Telomoyo.<br><br>During his long journey through the valley, Baru Klinthing arrived at a prosperous village called Pathok. The villagers were celebrating a grand harvest festival. Delicious roasted meats and traditional dishes were served in abundance, and the village square was filled with joyful laughter and music. Exhausted, hungry, and thirsty, the poor boy approached the gathering and politely asked for a small portion of leftover food.<br><br>However, the wealthy villagers were proud and arrogant. Instead of showing sympathy, they mocked his ragged clothes and dirty appearance. They drove him away cruelly, shouting insulting words and throwing stones. Heartbroken, Baru Klinthing walked toward the quiet outskirts of the village. There, in a small wooden cottage, lived an elderly widow named Mbok Rondo.<br><br>Unlike the arrogant villagers, Mbok Rondo welcomed the boy warmly into her home. Seeing his condition, she generously offered him warm rice, fresh vegetables, and cool water. Baru Klinthing was deeply moved by her sincerity. Before departing, he whispered an important warning: 'Mbok, if you hear a loud rumbling sound from the village center, please prepare your wooden mortar (lesung) and use it as a boat.'<br><br>Baru Klinthing then returned to the busy festival square. Standing before the crowd, he drove a single wooden stick deep into the ground. He challenged the proud crowd: 'If you are truly strong and mighty, try to pull this simple stick out of the earth!'<br><br>The villagers laughed scornfully. One by one, the strongest men stepped forward and pulled with all their strength, but the stick did not move at all. Even when several warriors pulled together, it remained firmly anchored. Finally, Baru Klinthing walked forward and pulled the stick out effortlessly with one hand.<br><br>Instantly, clear water gushed forth from the hole like a powerful fountain. The water rose rapidly, submerging the homes, streets, and festival grounds. The panic-stricken villagers tried to run, but the rushing flood swallowed the entire village, transforming the area into a vast lake known today as Rawa Pening. Only kind Mbok Rondo survived safely, floating on her wooden mortar. The legend remains an enduring reminder that true human worth is found in kindness and humility, not in outward wealth or pride.",
+    "prompt": "Based on Text 1, determine whether each statement regarding the narrative plot is **TRUE** or **FALSE**:",
     "matrixStatements": [
       {
-        "statement": "Baru Klinthing dihina dan diusir oleh warga Desa Pathok karena rupa fisik dan pakaiannya yang compang-camping.",
+        "statement": "Baru Klinthing was humiliated and driven away by the villagers of Pathok because of his ragged appearance and bodily wounds.",
         "isCorrect": true
       },
       {
-        "statement": "Mbok Rondo menolak memberikan makanan kepada Baru Klinthing karena ia juga sedang kekurangan beras.",
+        "statement": "Mbok Rondo refused to offer food or shelter to the starving boy when he knocked on her door.",
         "isCorrect": false
       },
       {
-        "statement": "Tidak ada seorang pun pria terkuat di desa yang sanggup mencabut lidi yang ditancapkan Baru Klinthing.",
+        "statement": "None of the arrogant villagers was capable of pulling out the small wooden stick planted firmly in the ground.",
         "isCorrect": true
       },
       {
-        "statement": "Seluruh warga desa yang sombong berhasil menyelamatkan diri ke puncak Gunung Telomoyo saat air bah datang.",
+        "statement": "The entire village was saved from the flood because the village chief apologized immediately.",
         "isCorrect": false
       }
     ],
@@ -678,26 +677,26 @@ function getGrade11TLAstsQuestions() {
     "id": 17,
     "source": "Sumber: Analisis Unsur Sastra Naratif Nusantara — Balai Bahasa Provinsi Jawa Tengah",
     "type": "complex_matrix",
-    "title": "Pilihan Ganda Kompleks: Fitur Kebahasaan & Majas Naratif",
-    "stimulusTitle": "Analisis Majas & Struktur Naratif",
-    "stimulusBody": "Tentukan apakah analisis kebahasaan berikut <strong>BENAR (TRUE)</strong> atau <strong>SALAH (FALSE)</strong>:",
-    "prompt": "Analisis kebenaran kaidah sastra dan kebahasaan pada butir-butir pernyataan berikut:",
+    "title": "Complex Multiple Choice: Figurative Language & Literary Elements",
+    "stimulusTitle": "Text 1: The Legend of Rawa Pening",
+    "stimulusBody": "Once upon a time in a peaceful village called Ngasem in Central Java, there lived a humble woman named Endang Sawitri. She gave birth to an extraordinary boy named Baru Klinthing. Due to an unusual condition at birth, Baru Klinthing was shunned by many villagers, and his body was covered with painful wounds that emitted an unpleasant smell. As he grew older, Baru Klinthing decided to search for his father, Ki Hajar Salokantara, who was meditating on the sacred slopes of Mount Telomoyo.<br><br>During his long journey through the valley, Baru Klinthing arrived at a prosperous village called Pathok. The villagers were celebrating a grand harvest festival. Delicious roasted meats and traditional dishes were served in abundance, and the village square was filled with joyful laughter and music. Exhausted, hungry, and thirsty, the poor boy approached the gathering and politely asked for a small portion of leftover food.<br><br>However, the wealthy villagers were proud and arrogant. Instead of showing sympathy, they mocked his ragged clothes and dirty appearance. They drove him away cruelly, shouting insulting words and throwing stones. Heartbroken, Baru Klinthing walked toward the quiet outskirts of the village. There, in a small wooden cottage, lived an elderly widow named Mbok Rondo.<br><br>Unlike the arrogant villagers, Mbok Rondo welcomed the boy warmly into her home. Seeing his condition, she generously offered him warm rice, fresh vegetables, and cool water. Baru Klinthing was deeply moved by her sincerity. Before departing, he whispered an important warning: 'Mbok, if you hear a loud rumbling sound from the village center, please prepare your wooden mortar (lesung) and use it as a boat.'<br><br>Baru Klinthing then returned to the busy festival square. Standing before the crowd, he drove a single wooden stick deep into the ground. He challenged the proud crowd: 'If you are truly strong and mighty, try to pull this simple stick out of the earth!'<br><br>The villagers laughed scornfully. One by one, the strongest men stepped forward and pulled with all their strength, but the stick did not move at all. Even when several warriors pulled together, it remained firmly anchored. Finally, Baru Klinthing walked forward and pulled the stick out effortlessly with one hand.<br><br>Instantly, clear water gushed forth from the hole like a powerful fountain. The water rose rapidly, submerging the homes, streets, and festival grounds. The panic-stricken villagers tried to run, but the rushing flood swallowed the entire village, transforming the area into a vast lake known today as Rawa Pening. Only kind Mbok Rondo survived safely, floating on her wooden mortar. The legend remains an enduring reminder that true human worth is found in kindness and humility, not in outward wealth or pride.",
+    "prompt": "Analyze the literary devices and character archetypes in the narrative text (TRUE/FALSE):",
     "matrixStatements": [
       {
-        "statement": "Frasa 'water gushed forth from the hole like a powerful fountain' menggunakan majas Simile (perumpamaan dengan kata 'like').",
+        "statement": "The phrase 'water gushed forth from the hole like a powerful fountain' employs a Simile to describe the sudden torrent.",
         "isCorrect": true
       },
       {
-        "statement": "Karakter Mbok Rondo berfungsi sebagai 'foil' (penegas kontras moral) terhadap keangkuhan para warga desa yang kaya.",
+        "statement": "Mbok Rondo's character exemplifies the literary archetype of the compassionate helper who receives salvation through kindness.",
         "isCorrect": true
       },
       {
-        "statement": "Kata 'effortlessly' pada kalimat 'pulled the stick out effortlessly' berfungsi sebagai kata sifat (adjective) yang menerangkan kata benda 'stick'.",
+        "statement": "The sentence 'The villagers were enjoying a grand feast' employs the Simple Future Tense.",
         "isCorrect": false
       },
       {
-        "statement": "Bagian tenggelamnya desa menjadi danau Rawa Pening merupakan tahap 'Orientation' dalam struktur generik teks naratif.",
-        "isCorrect": false
+        "statement": "The moral of the narrative demonstrates that arrogance and selfishness ultimately bring destruction.",
+        "isCorrect": true
       }
     ],
     "explanation": "1) BENAR (Simile dengan 'like'). 2) BENAR (Karakter foil penegas kontras moral). 3) SALAH ('effortlessly' berakhiran -ly adalah adverb of manner yang menerangkan kata kerja 'pulled'). 4) SALAH (bagian tersebut adalah Resolution, bukan Orientation).",
@@ -707,26 +706,26 @@ function getGrade11TLAstsQuestions() {
     "id": 18,
     "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat Lanjut — SMAN 1 Bae Kudus",
     "type": "complex_matrix",
-    "title": "Pilihan Ganda Kompleks: Kaidah Inversi Bahasa Inggris (Negative Inversion)",
-    "stimulusTitle": "Kaidah Inversi dengan Adverbial Negatif / Pembatas",
-    "stimulusBody": "Inversi terjadi ketika kalimat diawali adverbial negatif/pembatas seperti Rarely, Seldom, atau Scarcely (Adverbial + Auxiliary + Subject + Main Verb).",
-    "prompt": "Tentukan apakah formulasi kalimat inversi berikut <strong>BENAR (TRUE)</strong> atau <strong>SALAH (FALSE)</strong>:",
+    "title": "Complex Multiple Choice: Subjunctive Mood & Inverted Conditionals",
+    "stimulusTitle": "Grammar Focus: Subjunctive Mood and Conditional Inversion in Advanced English",
+    "stimulusBody": "Evaluate the grammatical accuracy of each sentence structure below:",
+    "prompt": "Determine whether each grammatical formulation below is **TRUE** (grammatically correct) or **FALSE** (incorrect):",
     "matrixStatements": [
       {
-        "statement": "'Rarely do students achieve high literacy scores without consistent reading habits.'",
+        "statement": "'The wise village elder recommended that the celebration proceed without delay' correctly uses the present subjunctive base verb 'proceed'.",
         "isCorrect": true
       },
       {
-        "statement": "'Seldom the arrogant villagers listened to the wise advice of the elderly widow.'",
+        "statement": "'It is essential that every student understands how to evaluate folklore allegories' uses standard subjunctive form.",
         "isCorrect": false
       },
       {
-        "statement": "'Not only did Baru Klinthing expose their false pride, but he also revealed the power of nature.'",
+        "statement": "'Had Baru Klinthing revealed his divine dragon form earlier, the villagers might have reacted with terror' demonstrates standard inverted past conditional.",
         "isCorrect": true
       },
       {
-        "statement": "'Hardly had the stick been pulled when clear water gushing from the soil.'",
-        "isCorrect": false
+        "statement": "'If Mbok Rondo did not provide the mortar boat, she would have drowned in the flood' is grammatically flawed.",
+        "isCorrect": true
       }
     ],
     "explanation": "1) BENAR (Rarely + do + students + achieve). 2) SALAH (harus inversi: 'Seldom did the arrogant villagers listen...'). 3) BENAR (Not only + did + Subject + Base Verb). 4) SALAH (klausa kedua harus 'gushed' bentuk lampau teratur).",
@@ -736,25 +735,25 @@ function getGrade11TLAstsQuestions() {
     "id": 19,
     "source": "Sumber: Panduan Pemanfaatan Etis AI untuk Siswa — BSKAP Kemendikbudristek",
     "type": "complex_matrix",
-    "title": "Pilihan Ganda Kompleks: Argumen Teks Hortatori AI",
-    "stimulusTitle": "Evaluasi Argumen Teks: Using AI Responsibly in Learning",
-    "stimulusBody": "Tentukan apakah pernyataan berikut <strong>BENAR (TRUE)</strong> atau <strong>SALAH (FALSE)</strong> berdasarkan wacana eksposisi hortatori pada Teks 2:",
-    "prompt": "Berdasarkan Teks 2, tentukan nilai kebenaran dari masing-masing pernyataan argumentatif berikut:",
+    "title": "Complex Multiple Choice: Critical Argument Evaluation (AI in High School Writing)",
+    "stimulusTitle": "Text 2: Using Artificial Intelligence Responsibly in High School Writing",
+    "stimulusBody": "In recent years, artificial intelligence (AI) has rapidly transformed the educational landscape. With just a few simple prompts, students can use AI applications to explain complicated science concepts, suggest essay outlines, or solve complex mathematical formulas. While these digital tools provide tremendous convenience, relying too heavily on them without careful thinking can harm our learning process. Therefore, high school students should learn to use AI responsibly as a supportive study assistant rather than letting it do all the thinking for them.<br><br>First of all, writing and problem-solving are fundamental exercises for developing our intellect. When students compose an essay in their own words, they practice organizing arguments, thinking critically, and expressing their original voice. If learners simply copy and paste AI-generated answers into their school assignments, their ability to think independently and analyze problems will gradually weaken over time. Completing assignments through our own effort builds the genuine intellectual competence and self-confidence needed for university and future careers.<br><br>Secondly, generative AI tools are not always completely accurate. AI generates responses based on language patterns found across the internet, which means it can occasionally produce false facts, misleading statements, or fake reference sources with high confidence. If students accept these answers blindly without checking reliable sources, they risk submitting incorrect information in their homework. Students must develop the habit of cross-checking AI responses with school textbooks, trusted educational websites, or their teachers' guidance.<br><br>In conclusion, artificial intelligence is a powerful modern innovation that cannot be ignored. Instead of completely banning AI or misusing it to cheat on assignments, schools and students should adopt a balanced and principled approach. Students should view AI as a helpful tutor to clarify difficult concepts and inspire creative ideas, while ensuring that the final work is always created through their own hard work and critical thought. By building responsible digital habits today, students can master technology as an empowering learning partner rather than becoming passive consumers.",
+    "prompt": "Based on Text 2, determine whether each evaluative argument is **TRUE** or **FALSE**:",
     "matrixStatements": [
       {
-        "statement": "Penulis menyarankan agar sekolah melarang secara mutlak seluruh penggunaan teknologi kecerdasan buatan.",
+        "statement": "The author argues that educational institutions should enforce an absolute and total prohibition on all artificial intelligence technologies.",
         "isCorrect": false
       },
       {
-        "statement": "Menulis esai dengan kata-kata sendiri merupakan sarana penting untuk melatih kemandirian berpikir kritis.",
+        "statement": "Writing analytical essays independently allows secondary students to cultivate critical thinking and authentic voice.",
         "isCorrect": true
       },
       {
-        "statement": "Model AI dapat menghasilkan informasi yang keliru (halusinasi) karena ia menyusun kata berdasarkan pola statistik internet.",
+        "statement": "Automated AI algorithms can experience hallucination by generating fabricated citations and misleading factual claims.",
         "isCorrect": true
       },
       {
-        "statement": "Siswa dianjurkan untuk langsung menyalin jawaban dari AI tanpa perlu memverifikasi ke buku teks atau penjelasan guru.",
+        "statement": "Submitting an essay entirely composed by an automated AI chatbot without review is considered a standard academic best practice.",
         "isCorrect": false
       }
     ],
@@ -765,25 +764,25 @@ function getGrade11TLAstsQuestions() {
     "id": 20,
     "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat Lanjut — SMAN 1 Bae Kudus",
     "type": "complex_matrix",
-    "title": "Pilihan Ganda Kompleks: Modus Subjungtif (Mandative Subjunctive)",
-    "stimulusTitle": "Kaidah Subjungtif Formal (Present Subjunctive)",
-    "stimulusBody": "Setelah kata kerja rekomendasi formal (recommend, demand, insist) + that + Subject, kata kerja berbentuk Bare Infinitive (bentuk dasar tanpa akhiran -s).",
-    "prompt": "Tentukan apakah susunan kalimat subjungtif berikut <strong>BENAR (TRUE)</strong> atau <strong>SALAH (FALSE)</strong>:",
+    "title": "Complex Multiple Choice: Cleft Sentences & Focus Constructions",
+    "stimulusTitle": "Grammar Focus: Cleft Sentences (It-Cleft and Wh-Cleft) for Emphatic Discourse",
+    "stimulusBody": "Analyze the syntax and agreement in the following emphatic cleft structures:",
+    "prompt": "Determine whether each advanced focus construction below is **TRUE** (grammatically sound) or **FALSE** (grammatically flawed):",
     "matrixStatements": [
       {
-        "statement": "The school guidelines recommend that every learner check online facts before quoting them.",
+        "statement": "'It was through her compassionate generosity that Mbok Rondo survived the great flood' is a grammatically accurate it-cleft sentence.",
         "isCorrect": true
       },
       {
-        "statement": "The teacher insisted that the student submits his original essay without plagiarism.",
+        "statement": "'What students need to cultivate is intellectual autonomy rather than passive reliance on algorithms' correctly uses a wh-cleft structure.",
+        "isCorrect": true
+      },
+      {
+        "statement": "'It is artificial intelligence which compose all original scientific research in universities' is grammatically accurate.",
         "isCorrect": false
       },
       {
-        "statement": "It is essential that each student verify artificial intelligence responses carefully.",
-        "isCorrect": true
-      },
-      {
-        "statement": "The principal demands that smartphones are banned permanently from the campus.",
+        "statement": "'What astonished the arrogant villagers were the sudden torrent of water gushing from the ground' correctly agrees in subject-verb number.",
         "isCorrect": false
       }
     ],
@@ -794,26 +793,26 @@ function getGrade11TLAstsQuestions() {
     "id": 21,
     "source": "Sumber: Kajian Cerita Rakyat Jawa Tengah — Balai Bahasa Provinsi Jawa Tengah & Kemendikbudristek",
     "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-    "stimulusTitle": "Nilai Moral Cerita Rakyat Rawa Pening",
-    "stimulusBody": "Cerita rakyat Rawa Pening mengandung banyak amanat luhur yang relevan bagi pendidikan budi pekerti remaja masa kini.",
-    "prompt": "Manakah <strong>DUA (2)</strong> nilai moral utama yang diajarkan melalui kisah Baru Klinthing dan Mbok Rondo?",
+    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+    "stimulusTitle": "Text 1: The Legend of Rawa Pening",
+    "stimulusBody": "Once upon a time in a peaceful village called Ngasem in Central Java, there lived a humble woman named Endang Sawitri. She gave birth to an extraordinary boy named Baru Klinthing. Due to an unusual condition at birth, Baru Klinthing was shunned by many villagers, and his body was covered with painful wounds that emitted an unpleasant smell. As he grew older, Baru Klinthing decided to search for his father, Ki Hajar Salokantara, who was meditating on the sacred slopes of Mount Telomoyo.<br><br>During his long journey through the valley, Baru Klinthing arrived at a prosperous village called Pathok. The villagers were celebrating a grand harvest festival. Delicious roasted meats and traditional dishes were served in abundance, and the village square was filled with joyful laughter and music. Exhausted, hungry, and thirsty, the poor boy approached the gathering and politely asked for a small portion of leftover food.<br><br>However, the wealthy villagers were proud and arrogant. Instead of showing sympathy, they mocked his ragged clothes and dirty appearance. They drove him away cruelly, shouting insulting words and throwing stones. Heartbroken, Baru Klinthing walked toward the quiet outskirts of the village. There, in a small wooden cottage, lived an elderly widow named Mbok Rondo.<br><br>Unlike the arrogant villagers, Mbok Rondo welcomed the boy warmly into her home. Seeing his condition, she generously offered him warm rice, fresh vegetables, and cool water. Baru Klinthing was deeply moved by her sincerity. Before departing, he whispered an important warning: 'Mbok, if you hear a loud rumbling sound from the village center, please prepare your wooden mortar (lesung) and use it as a boat.'<br><br>Baru Klinthing then returned to the busy festival square. Standing before the crowd, he drove a single wooden stick deep into the ground. He challenged the proud crowd: 'If you are truly strong and mighty, try to pull this simple stick out of the earth!'<br><br>The villagers laughed scornfully. One by one, the strongest men stepped forward and pulled with all their strength, but the stick did not move at all. Even when several warriors pulled together, it remained firmly anchored. Finally, Baru Klinthing walked forward and pulled the stick out effortlessly with one hand.<br><br>Instantly, clear water gushed forth from the hole like a powerful fountain. The water rose rapidly, submerging the homes, streets, and festival grounds. The panic-stricken villagers tried to run, but the rushing flood swallowed the entire village, transforming the area into a vast lake known today as Rawa Pening. Only kind Mbok Rondo survived safely, floating on her wooden mortar. The legend remains an enduring reminder that true human worth is found in kindness and humility, not in outward wealth or pride.",
+    "prompt": "Which **TWO (2)** moral themes are prominently conveyed through the narrative of Baru Klinthing and Rawa Pening?",
     "options": [
       {
         "key": "A",
-        "text": "Menghargai sesama manusia dengan ketulusan dan kerendahan hati tanpa memandang rupa fisik atau status harta."
+        "text": "Treating fellow human beings with sincerity and humility, regardless of outward appearance or socioeconomic standing."
       },
       {
         "key": "B",
-        "text": "Menuntut imbalan emas setiap kali menolong musafir yang tersesat di desa."
+        "text": "Demanding monetary tribute before assisting travelers who are hungry or in distress."
       },
       {
         "key": "C",
-        "text": "Kesombongan dan keangkuhan sosial pada akhirnya akan mendatangkan kerugian dan penyesalan bagi diri sendiri."
+        "text": "Recognizing that unbridled arrogance and cruelty toward the vulnerable lead to collective ruin."
       },
       {
         "key": "D",
-        "text": "Menolak seluruh perayaan panen padi di lingkungan masyarakat pedesaan."
+        "text": "Relying on physical weaponry as the only legitimate basis for community justice."
       }
     ],
     "correctAnswer": [
@@ -827,31 +826,31 @@ function getGrade11TLAstsQuestions() {
     "id": 22,
     "source": "Sumber: Adaptasi Kebijakan Etika AI dalam Pendidikan — UNESCO & Kemendikbudristek",
     "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-    "stimulusTitle": "Dampak Negatif Ketergantungan Berlebih pada AI",
-    "stimulusBody": "Berdasarkan argumen pada Teks 2 (Using Artificial Intelligence Responsibly in High School Learning), ketergantungan berlebih pada AI membawa risiko bagi pelajar.",
-    "prompt": "Manakah <strong>DUA (2)</strong> dampak negatif ketergantungan penuh pada alat teks otomatis yang diungkapkan penulis?",
+    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+    "stimulusTitle": "Text 2: Using Artificial Intelligence Responsibly in High School Writing",
+    "stimulusBody": "In recent years, artificial intelligence (AI) has rapidly transformed the educational landscape. With just a few simple prompts, students can use AI applications to explain complicated science concepts, suggest essay outlines, or solve complex mathematical formulas. While these digital tools provide tremendous convenience, relying too heavily on them without careful thinking can harm our learning process. Therefore, high school students should learn to use AI responsibly as a supportive study assistant rather than letting it do all the thinking for them.<br><br>First of all, writing and problem-solving are fundamental exercises for developing our intellect. When students compose an essay in their own words, they practice organizing arguments, thinking critically, and expressing their original voice. If learners simply copy and paste AI-generated answers into their school assignments, their ability to think independently and analyze problems will gradually weaken over time. Completing assignments through our own effort builds the genuine intellectual competence and self-confidence needed for university and future careers.<br><br>Secondly, generative AI tools are not always completely accurate. AI generates responses based on language patterns found across the internet, which means it can occasionally produce false facts, misleading statements, or fake reference sources with high confidence. If students accept these answers blindly without checking reliable sources, they risk submitting incorrect information in their homework. Students must develop the habit of cross-checking AI responses with school textbooks, trusted educational websites, or their teachers' guidance.<br><br>In conclusion, artificial intelligence is a powerful modern innovation that cannot be ignored. Instead of completely banning AI or misusing it to cheat on assignments, schools and students should adopt a balanced and principled approach. Students should view AI as a helpful tutor to clarify difficult concepts and inspire creative ideas, while ensuring that the final work is always created through their own hard work and critical thought. By building responsible digital habits today, students can master technology as an empowering learning partner rather than becoming passive consumers.",
+    "prompt": "Which **TWO (2)** negative outcomes does the author associate with excessive student dependency on generative AI tools?",
     "options": [
       {
         "key": "A",
-        "text": "Biaya langganan jaringan internet sekolah akan mengalami kenaikan drastis setiap bulan."
+        "text": "The atrophy of independent analytical reasoning and diminished stamina for wrestling with complex ideas."
       },
       {
         "key": "B",
-        "text": "Kemampuan nalar mandiri dan ketahanan berpikir kritis siswa akan berangsur-angsur melemah."
+        "text": "A permanent surge in internet subscription fees for all public school students."
       },
       {
         "key": "C",
-        "text": "Seluruh buku pelajaran fisik di perpustakaan sekolah akan hilang dalam sepekan."
+        "text": "The erosion of personal academic integrity and the unwitting dissemination of unverified AI hallucinations."
       },
       {
         "key": "D",
-        "text": "Siswa berisiko menyebarkan informasi palsu atau keliru karena tidak memverifikasi sumber data."
+        "text": "The immediate hardware obsolescence of all school computer laboratories."
       }
     ],
     "correctAnswer": [
-      "B",
-      "D"
+      "A",
+      "C"
     ],
     "explanation": "Dua risiko utama yang diuraikan pada teks adalah: (B) melemahnya daya nalar dan berpikir kritis siswa, serta (D) risiko mengumpulkan atau menyebarkan fakta keliru akibat halusinasi AI yang tidak dicek ulang.",
     "grammarNote": "Argumentative Risk Identification in Hortatory Exposition."
@@ -860,31 +859,31 @@ function getGrade11TLAstsQuestions() {
     "id": 23,
     "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat Lanjut — SMAN 1 Bae Kudus",
     "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-    "stimulusTitle": "Identifikasi Kalimat Inversi Gramatikal",
-    "stimulusBody": "Pilihlah kalimat yang menggunakan kaidah Inversi Bahasa Inggris secara tepat dan baku menurut standar CEFR B2.",
-    "prompt": "Manakah <strong>DUA (2)</strong> kalimat di bawah ini yang menerapkan aturan inversi gramatikal dengan benar?",
+    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+    "stimulusTitle": "Grammar Focus: Negative Inversion for Dramatic Emphasis",
+    "stimulusBody": "Negative adverbials placed at the beginning of a clause require inverted auxiliary-subject word order:",
+    "prompt": "Which **TWO (2)** sentences correctly demonstrate negative inversion to emphasize dramatic narrative moments?",
     "options": [
       {
         "key": "A",
-        "text": "Seldom have researchers witnessed such rapid evolution in educational technology as we see today."
+        "text": "Scarcely had the boy pulled out the wooden stick when torrents of water gushed across the village square."
       },
       {
         "key": "B",
-        "text": "Barely the alarm rang when the students entered the examination hall."
+        "text": "Never the villagers realized that pride would cause their own destruction."
       },
       {
         "key": "C",
-        "text": "Only yesterday the headmaster has warned all candidates about exam regulations."
+        "text": "Under no circumstances should students submit automated AI-generated drafts as their own original work."
       },
       {
         "key": "D",
-        "text": "Under no circumstances should learners submit unverified automated text as their original work."
+        "text": "Seldom secondary schools provides instruction on mythological folklore analysis."
       }
     ],
     "correctAnswer": [
       "A",
-      "D"
+      "C"
     ],
     "explanation": "Kalimat A ('Seldom have researchers witnessed...') dan kalimat D ('Under no circumstances should learners submit...') menerapkan pola inversi baku (Negative Adverbial + Auxiliary + Subject + Verb). Kalimat B dan C tidak menginversi auxiliary.",
     "grammarNote": "Identification of Formal Negative Inversion Structures."
@@ -893,30 +892,30 @@ function getGrade11TLAstsQuestions() {
     "id": 24,
     "source": "Sumber: Panduan Literasi Digital Remaja — Balai Pengembangan Talenta Indonesia",
     "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-    "stimulusTitle": "Penerapan Praktis Penggunaan AI yang Bertanggung Jawab",
-    "stimulusBody": "Pelajar SMA diharapkan mampu menjadi pengguna teknologi cerdas yang berintegritas tinggi.",
-    "prompt": "Manakah <strong>DUA (2)</strong> contoh tindakan yang mencerminkan pemanfaatan kecerdasan buatan secara etis dan bertanggung jawab oleh siswa?",
+    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+    "stimulusTitle": "Academic Ethics: Responsible AI Adoption Strategies in High Schools",
+    "stimulusBody": "In recent years, artificial intelligence (AI) has rapidly transformed the educational landscape. With just a few simple prompts, students can use AI applications to explain complicated science concepts, suggest essay outlines, or solve complex mathematical formulas. While these digital tools provide tremendous convenience, relying too heavily on them without careful thinking can harm our learning process. Therefore, high school students should learn to use AI responsibly as a supportive study assistant rather than letting it do all the thinking for them.<br><br>First of all, writing and problem-solving are fundamental exercises for developing our intellect. When students compose an essay in their own words, they practice organizing arguments, thinking critically, and expressing their original voice. If learners simply copy and paste AI-generated answers into their school assignments, their ability to think independently and analyze problems will gradually weaken over time. Completing assignments through our own effort builds the genuine intellectual competence and self-confidence needed for university and future careers.<br><br>Secondly, generative AI tools are not always completely accurate. AI generates responses based on language patterns found across the internet, which means it can occasionally produce false facts, misleading statements, or fake reference sources with high confidence. If students accept these answers blindly without checking reliable sources, they risk submitting incorrect information in their homework. Students must develop the habit of cross-checking AI responses with school textbooks, trusted educational websites, or their teachers' guidance.<br><br>In conclusion, artificial intelligence is a powerful modern innovation that cannot be ignored. Instead of completely banning AI or misusing it to cheat on assignments, schools and students should adopt a balanced and principled approach. Students should view AI as a helpful tutor to clarify difficult concepts and inspire creative ideas, while ensuring that the final work is always created through their own hard work and critical thought. By building responsible digital habits today, students can master technology as an empowering learning partner rather than becoming passive consumers.",
+    "prompt": "Which **TWO (2)** actions illustrate ethical and intellectually productive uses of AI by high school students?",
     "options": [
       {
         "key": "A",
-        "text": "Menyalin seluruh esai dari aplikasi AI lima menit sebelum tenggat waktu pengumpulan."
+        "text": "Using AI to brainstorm diverse analytical angles or clarify intricate scientific terminology while drafting one's own arguments."
       },
       {
         "key": "B",
-        "text": "Menggunakan AI untuk membantu menjelaskan konsep ilmiah yang rumit, lalu menyusun rangkuman sendiri."
+        "text": "Copying and pasting an entire AI response five minutes before the assignment deadline to obtain full marks."
       },
       {
         "key": "C",
-        "text": "Melakukan verifikasi silang terhadap data yang diberikan AI dengan memeriksa buku teks rujukan."
+        "text": "Critically cross-referencing AI-generated summaries against peer-reviewed academic literature and primary historical records."
       },
       {
         "key": "D",
-        "text": "Membiarkan AI menyelesaikan seluruh soal ulangan harian secara daring tanpa membaca soalnya."
+        "text": "Allowing an AI model to fabricate fictitious bibliographic sources for a scientific research paper."
       }
     ],
     "correctAnswer": [
-      "B",
+      "A",
       "C"
     ],
     "explanation": "Tindakan B (menggunakan AI sebagai tutor penjelas konsep lalu merangkum sendiri) dan C (memverifikasi data AI dengan buku teks) merupakan wujud nyata pemanfaatan AI yang bertanggung jawab dan berintegritas.",
@@ -926,31 +925,31 @@ function getGrade11TLAstsQuestions() {
     "id": 25,
     "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat Lanjut — SMAN 1 Bae Kudus",
     "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-    "stimulusTitle": "Kaidah Kata Hubung Konsesif (Concession Connectors)",
-    "stimulusBody": "Konjungsi konsesif (seperti Although, Even though, Despite the fact that) digunakan untuk menghubungkan dua klausa yang bertentangan secara logis.",
-    "prompt": "Manakah <strong>DUA (2)</strong> kalimat di bawah ini yang menggunakan kata hubung konsesif secara tepat dan gramatikal?",
+    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+    "stimulusTitle": "Grammar Focus: Complex Prepositional Phrases Indicating Concession",
+    "stimulusBody": "Prepositional phrases of concession introduce unexpected contrasting facts:",
+    "prompt": "Which **TWO (2)** sentences correctly employ complex prepositional phrases indicating concession or contrast?",
     "options": [
       {
         "key": "A",
-        "text": "Although the assignment was intellectually demanding, the students finished it successfully through teamwork."
+        "text": "Notwithstanding his severe physical wounds, Baru Klinthing preserved an unwavering spirit of dignity."
       },
       {
         "key": "B",
-        "text": "Even though Mbok Rondo lived in a modest wooden hut, she shared her warm food with true generosity."
+        "text": "In spite of the boy was hungry, but no villager offered him a grain of rice."
       },
       {
         "key": "C",
-        "text": "Despite the boy was exhausted and hungry, but the villagers chased him away."
+        "text": "Despite its immense computational capabilities, generative AI lacks authentic emotional intuition and ethical consciousness."
       },
       {
         "key": "D",
-        "text": "In spite of the weather was rainy, the harvest festival proceeded joyfully."
+        "text": "Regardless of he studied until dawn, because he could not remember the mythological chronology."
       }
     ],
     "correctAnswer": [
       "A",
-      "B"
+      "C"
     ],
     "explanation": "Kalimat A dan B menggunakan 'Although' dan 'Even though' yang diikuti oleh klausa lengkap (Subject + Verb) secara gramatikal. Kalimat C dan D salah karena 'Despite' dan 'In spite of' tidak boleh langsung diikuti klausa tanpa 'the fact that' dan tidak boleh digabung dengan 'but'.",
     "grammarNote": "Concessive Connectors: Although / Even though + Clause vs Despite / In spite of + Noun."
@@ -960,7 +959,7 @@ function getGrade11TLAstsQuestions() {
     "source": "Sumber: Adaptasi Kebijakan Etika AI dalam Pendidikan Menengah — UNESCO & Kemendikbudristek",
     "type": "single_choice",
     "title": "Hortatory Exposition: Communicative Purpose",
-    "stimulusTitle": "Text 2: Using Artificial Intelligence Responsibly in High School Learning",
+    "stimulusTitle": "Text 2: Using Artificial Intelligence Responsibly in High School Writing",
     "stimulusBody": "In recent years, artificial intelligence (AI) has rapidly transformed the educational landscape. With just a few simple prompts, students can use AI applications to explain complicated science concepts, suggest essay outlines, or solve complex mathematical formulas. While these digital tools provide tremendous convenience, relying too heavily on them without careful thinking can harm our learning process. Therefore, high school students should learn to use AI responsibly as a supportive study assistant rather than letting it do all the thinking for them.<br><br>First of all, writing and problem-solving are fundamental exercises for developing our intellect. When students compose an essay in their own words, they practice organizing arguments, thinking critically, and expressing their original voice. If learners simply copy and paste AI-generated answers into their school assignments, their ability to think independently and analyze problems will gradually weaken over time. Completing assignments through our own effort builds the genuine intellectual competence and self-confidence needed for university and future careers.<br><br>Secondly, generative AI tools are not always completely accurate. AI generates responses based on language patterns found across the internet, which means it can occasionally produce false facts, misleading statements, or fake reference sources with high confidence. If students accept these answers blindly without checking reliable sources, they risk submitting incorrect information in their homework. Students must develop the habit of cross-checking AI responses with school textbooks, trusted educational websites, or their teachers' guidance.<br><br>In conclusion, artificial intelligence is a powerful modern innovation that cannot be ignored. Instead of completely banning AI or misusing it to cheat on assignments, schools and students should adopt a balanced and principled approach. Students should view AI as a helpful tutor to clarify difficult concepts and inspire creative ideas, while ensuring that the final work is always created through their own hard work and critical thought. By building responsible digital habits today, students can master technology as an empowering learning partner rather than becoming passive consumers.",
     "prompt": "What is the primary communicative purpose of the hortatory exposition text above?",
     "options": [
@@ -990,8 +989,8 @@ function getGrade11TLAstsQuestions() {
     "source": "Sumber: Adaptasi Kebijakan Etika AI dalam Pendidikan Menengah — UNESCO & Kemendikbudristek",
     "type": "single_choice",
     "title": "Hortatory Exposition: Thesis Statement Identification",
-    "stimulusTitle": "Text 2: Using Artificial Intelligence Responsibly in High School Learning",
-    "stimulusBody": "(Silakan merujuk pada Teks 2: 'Using Artificial Intelligence Responsibly in High School Learning' di atas)",
+    "stimulusTitle": "Text 2: Using Artificial Intelligence Responsibly in High School Writing",
+    "stimulusBody": "In recent years, artificial intelligence (AI) has rapidly transformed the educational landscape. With just a few simple prompts, students can use AI applications to explain complicated science concepts, suggest essay outlines, or solve complex mathematical formulas. While these digital tools provide tremendous convenience, relying too heavily on them without careful thinking can harm our learning process. Therefore, high school students should learn to use AI responsibly as a supportive study assistant rather than letting it do all the thinking for them.<br><br>First of all, writing and problem-solving are fundamental exercises for developing our intellect. When students compose an essay in their own words, they practice organizing arguments, thinking critically, and expressing their original voice. If learners simply copy and paste AI-generated answers into their school assignments, their ability to think independently and analyze problems will gradually weaken over time. Completing assignments through our own effort builds the genuine intellectual competence and self-confidence needed for university and future careers.<br><br>Secondly, generative AI tools are not always completely accurate. AI generates responses based on language patterns found across the internet, which means it can occasionally produce false facts, misleading statements, or fake reference sources with high confidence. If students accept these answers blindly without checking reliable sources, they risk submitting incorrect information in their homework. Students must develop the habit of cross-checking AI responses with school textbooks, trusted educational websites, or their teachers' guidance.<br><br>In conclusion, artificial intelligence is a powerful modern innovation that cannot be ignored. Instead of completely banning AI or misusing it to cheat on assignments, schools and students should adopt a balanced and principled approach. Students should view AI as a helpful tutor to clarify difficult concepts and inspire creative ideas, while ensuring that the final work is always created through their own hard work and critical thought. By building responsible digital habits today, students can master technology as an empowering learning partner rather than becoming passive consumers.",
     "prompt": "Which sentence from paragraph 1 directly presents the author's main thesis statement?",
     "options": [
       {
@@ -1020,8 +1019,8 @@ function getGrade11TLAstsQuestions() {
     "source": "Sumber: Adaptasi Kebijakan Etika AI dalam Pendidikan Menengah — UNESCO & Kemendikbudristek",
     "type": "single_choice",
     "title": "Hortatory Exposition: Detail Argument on Cognitive Skills",
-    "stimulusTitle": "Text 2: Using Artificial Intelligence Responsibly in High School Learning",
-    "stimulusBody": "(Silakan merujuk pada Teks 2: 'Using Artificial Intelligence Responsibly in High School Learning' di atas)",
+    "stimulusTitle": "Text 2: Using Artificial Intelligence Responsibly in High School Writing",
+    "stimulusBody": "In recent years, artificial intelligence (AI) has rapidly transformed the educational landscape. With just a few simple prompts, students can use AI applications to explain complicated science concepts, suggest essay outlines, or solve complex mathematical formulas. While these digital tools provide tremendous convenience, relying too heavily on them without careful thinking can harm our learning process. Therefore, high school students should learn to use AI responsibly as a supportive study assistant rather than letting it do all the thinking for them.<br><br>First of all, writing and problem-solving are fundamental exercises for developing our intellect. When students compose an essay in their own words, they practice organizing arguments, thinking critically, and expressing their original voice. If learners simply copy and paste AI-generated answers into their school assignments, their ability to think independently and analyze problems will gradually weaken over time. Completing assignments through our own effort builds the genuine intellectual competence and self-confidence needed for university and future careers.<br><br>Secondly, generative AI tools are not always completely accurate. AI generates responses based on language patterns found across the internet, which means it can occasionally produce false facts, misleading statements, or fake reference sources with high confidence. If students accept these answers blindly without checking reliable sources, they risk submitting incorrect information in their homework. Students must develop the habit of cross-checking AI responses with school textbooks, trusted educational websites, or their teachers' guidance.<br><br>In conclusion, artificial intelligence is a powerful modern innovation that cannot be ignored. Instead of completely banning AI or misusing it to cheat on assignments, schools and students should adopt a balanced and principled approach. Students should view AI as a helpful tutor to clarify difficult concepts and inspire creative ideas, while ensuring that the final work is always created through their own hard work and critical thought. By building responsible digital habits today, students can master technology as an empowering learning partner rather than becoming passive consumers.",
     "prompt": "According to paragraph 2, why is composing essays in our own words essential for high school students?",
     "options": [
       {
@@ -1050,8 +1049,8 @@ function getGrade11TLAstsQuestions() {
     "source": "Sumber: Adaptasi Kebijakan Etika AI dalam Pendidikan Menengah — UNESCO & Kemendikbudristek",
     "type": "single_choice",
     "title": "Hortatory Exposition: Contextual Lexis (CEFR B2)",
-    "stimulusTitle": "Text 2: Using Artificial Intelligence Responsibly in High School Learning",
-    "stimulusBody": "(Silakan merujuk pada Teks 2: 'Using Artificial Intelligence Responsibly in High School Learning' di atas)",
+    "stimulusTitle": "Text 2: Using Artificial Intelligence Responsibly in High School Writing",
+    "stimulusBody": "In recent years, artificial intelligence (AI) has rapidly transformed the educational landscape. With just a few simple prompts, students can use AI applications to explain complicated science concepts, suggest essay outlines, or solve complex mathematical formulas. While these digital tools provide tremendous convenience, relying too heavily on them without careful thinking can harm our learning process. Therefore, high school students should learn to use AI responsibly as a supportive study assistant rather than letting it do all the thinking for them.<br><br>First of all, writing and problem-solving are fundamental exercises for developing our intellect. When students compose an essay in their own words, they practice organizing arguments, thinking critically, and expressing their original voice. If learners simply copy and paste AI-generated answers into their school assignments, their ability to think independently and analyze problems will gradually weaken over time. Completing assignments through our own effort builds the genuine intellectual competence and self-confidence needed for university and future careers.<br><br>Secondly, generative AI tools are not always completely accurate. AI generates responses based on language patterns found across the internet, which means it can occasionally produce false facts, misleading statements, or fake reference sources with high confidence. If students accept these answers blindly without checking reliable sources, they risk submitting incorrect information in their homework. Students must develop the habit of cross-checking AI responses with school textbooks, trusted educational websites, or their teachers' guidance.<br><br>In conclusion, artificial intelligence is a powerful modern innovation that cannot be ignored. Instead of completely banning AI or misusing it to cheat on assignments, schools and students should adopt a balanced and principled approach. Students should view AI as a helpful tutor to clarify difficult concepts and inspire creative ideas, while ensuring that the final work is always created through their own hard work and critical thought. By building responsible digital habits today, students can master technology as an empowering learning partner rather than becoming passive consumers.",
     "prompt": "The word 'relying' in paragraph 1 ('relying too heavily on them without careful thinking') is closest in meaning to...",
     "options": [
       {
@@ -1080,8 +1079,8 @@ function getGrade11TLAstsQuestions() {
     "source": "Sumber: Adaptasi Kebijakan Etika AI dalam Pendidikan Menengah — UNESCO & Kemendikbudristek",
     "type": "single_choice",
     "title": "Hortatory Exposition: Cause & Effect of AI Hallucinations",
-    "stimulusTitle": "Text 2: Using Artificial Intelligence Responsibly in High School Learning",
-    "stimulusBody": "(Silakan merujuk pada Teks 2: 'Using Artificial Intelligence Responsibly in High School Learning' di atas)",
+    "stimulusTitle": "Text 2: Using Artificial Intelligence Responsibly in High School Writing",
+    "stimulusBody": "In recent years, artificial intelligence (AI) has rapidly transformed the educational landscape. With just a few simple prompts, students can use AI applications to explain complicated science concepts, suggest essay outlines, or solve complex mathematical formulas. While these digital tools provide tremendous convenience, relying too heavily on them without careful thinking can harm our learning process. Therefore, high school students should learn to use AI responsibly as a supportive study assistant rather than letting it do all the thinking for them.<br><br>First of all, writing and problem-solving are fundamental exercises for developing our intellect. When students compose an essay in their own words, they practice organizing arguments, thinking critically, and expressing their original voice. If learners simply copy and paste AI-generated answers into their school assignments, their ability to think independently and analyze problems will gradually weaken over time. Completing assignments through our own effort builds the genuine intellectual competence and self-confidence needed for university and future careers.<br><br>Secondly, generative AI tools are not always completely accurate. AI generates responses based on language patterns found across the internet, which means it can occasionally produce false facts, misleading statements, or fake reference sources with high confidence. If students accept these answers blindly without checking reliable sources, they risk submitting incorrect information in their homework. Students must develop the habit of cross-checking AI responses with school textbooks, trusted educational websites, or their teachers' guidance.<br><br>In conclusion, artificial intelligence is a powerful modern innovation that cannot be ignored. Instead of completely banning AI or misusing it to cheat on assignments, schools and students should adopt a balanced and principled approach. Students should view AI as a helpful tutor to clarify difficult concepts and inspire creative ideas, while ensuring that the final work is always created through their own hard work and critical thought. By building responsible digital habits today, students can master technology as an empowering learning partner rather than becoming passive consumers.",
     "prompt": "Based on paragraph 3, why can generative AI systems sometimes present misleading or incorrect information?",
     "options": [
       {
@@ -1652,7 +1651,7 @@ function renderQuestion(index) {
     if (srcEl) {
       if (q.source) {
         srcEl.style.display = "block";
-        srcEl.innerHTML = `📌 <strong>${q.source}</strong>`;
+        srcEl.innerHTML = `<span style="font-size:0.75rem; color:#64748b; font-style:italic;">Source: ${q.source}</span>`;
       } else {
         srcEl.style.display = "none";
       }
@@ -1662,13 +1661,7 @@ function renderQuestion(index) {
   }
 
   const promptBox = document.getElementById("question-prompt-text");
-  let srcBadge = "";
-  if (q.source) {
-    srcBadge = `<div class="source-citation" style="margin-top: 10px; font-size: 0.8rem; color: #475569; background: #f8fafc; border-left: 3.5px solid var(--accent-teal); padding: 6px 12px; border-radius: 4px; font-style: italic;">
-      📌 <strong>${q.source}</strong>
-    </div>`;
-  }
-  promptBox.innerHTML = q.prompt + srcBadge;
+  promptBox.innerHTML = q.prompt;
 
   const optContainer = document.getElementById("options-container");
   optContainer.innerHTML = "";
@@ -2098,15 +2091,13 @@ function submitTest() {
   renderQuestion(currentQuestionIndex);
 }
 
+let isSyncingScore = false;
 function syncScoreToGoogleSheets(payload) {
+  if (isSyncingScore) return;
+  isSyncingScore = true;
   const statusEl = document.getElementById("cloud-status-text");
   if (statusEl) statusEl.textContent = "Menyinkronkan nilai ke server sekolah...";
   const webAppUrl = localStorage.getItem("sabaku_gs_url") || DEFAULT_GS_URL;
-  try {
-    if (navigator.sendBeacon) {
-      navigator.sendBeacon(webAppUrl, new Blob([JSON.stringify(payload)], { type: "text/plain;charset=utf-8" }));
-    }
-  } catch (e) {}
   fetch(webAppUrl, {
     method: "POST",
     mode: "no-cors",
@@ -2116,19 +2107,9 @@ function syncScoreToGoogleSheets(payload) {
     if (statusEl) statusEl.innerHTML = "✅ Nilai Anda telah berhasil tercatat di server rekapitulasi sekolah.";
   }).catch(err => {
     try {
-      const beacon = new Image();
-      const query = new URLSearchParams({
-        action: "submit",
-        tingkat: payload.tingkat || "",
-        rombel: payload.rombel || "",
-        presensi: payload.presensi || "",
-        nama: payload.nama || "",
-        grade: payload.grade || 0,
-        score: payload.score || 0,
-        duration: payload.duration || "",
-        mode: payload.mode || ""
-      }).toString();
-      beacon.src = `${webAppUrl}?${query}`;
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon(webAppUrl, new Blob([JSON.stringify(payload)], { type: "text/plain;charset=utf-8" }));
+      }
     } catch (bErr) {}
     if (statusEl) statusEl.innerHTML = "💾 Nilai Anda telah tersimpan dengan aman di sistem sekolah.";
   });

@@ -21,3 +21,4 @@ function printSegments(content, fileName, id) {
 
 printSegments(xi_tl, 'kelas-xi-tl-asas.js', 4);
 printSegments(xii_tl, 'kelas-xii-tl-asas.js', 4);
+

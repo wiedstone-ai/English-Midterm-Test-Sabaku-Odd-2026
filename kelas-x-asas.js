@@ -36,22 +36,22 @@ function getGrade10Questions() {
     "options": [
       {
         "key": "A",
-        "svg": SVG_PICTURES.badminton,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"50\" cy=\"22\" r=\"10\"/><path d=\"M50 32v28M30 42l20-8 20 12M50 60l-16 26M50 60l18 26\"/><path d=\"M70 46l14-14M84 32a7 7 0 10-10-10 7 7 0 0010 10zM77 25l7 7\"/></svg>",
         "label": "A world badminton champion executing a powerful smash"
       },
       {
         "key": "B",
-        "svg": SVG_PICTURES.runner,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#16a34a\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"65\" cy=\"22\" r=\"9\"/><path d=\"M60 31l-14 16 10 12-14 26M46 47l-18-6M56 59l18 6 12 18\"/><path d=\"M15 88h70\" stroke=\"#94a3b8\" stroke-dasharray=\"4 4\"/></svg>",
         "label": "A marathon athlete sprinting towards the finish line"
       },
       {
         "key": "C",
-        "svg": SVG_PICTURES.swimmer,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#0d9488\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"32\" cy=\"38\" r=\"9\"/><path d=\"M41 38l24 4 15-18M25 50l30 4 18 10\"/><path d=\"M10 65c10-5 20 5 30 0s20 5 30 0 20 5 20 0M10 78c10-5 20 5 30 0s20 5 30 0 20 5 20 0\" stroke=\"#0284c7\"/></svg>",
         "label": "A swimmer competing in the freestyle race"
       },
       {
         "key": "D",
-        "svg": SVG_PICTURES.weightlifter,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#dc2626\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"50\" cy=\"38\" r=\"8\"/><path d=\"M50 46v24M38 56l12-8 12 8M42 70l-8 20M58 70l8 20\"/><path d=\"M15 26h70\" stroke=\"#475569\" stroke-width=\"4\"/><circle cx=\"15\" cy=\"26\" r=\"12\" fill=\"#94a3b8\"/><circle cx=\"85\" cy=\"26\" r=\"12\" fill=\"#94a3b8\"/></svg>",
         "label": "A weightlifter lifting a heavy barbell overhead"
       }
     ],
@@ -69,22 +69,22 @@ function getGrade10Questions() {
     "options": [
       {
         "key": "A",
-        "svg": SVG_PICTURES.beach,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#0284c7\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"25\" cy=\"25\" r=\"10\" fill=\"#fef08a\" stroke=\"#eab308\"/><path d=\"M60 85c-5-25 15-45 25-50M85 35c-15 0-25-10-30-5M85 35c5-10 15-12 20-10M85 35c-5 12-12 18-18 20\"/><path d=\"M10 85c15-4 35 2 50-2s25-6 30-2\" stroke=\"#16a34a\" stroke-width=\"3\"/></svg>",
         "label": "A tropical sandy beach with coconut palm trees"
       },
       {
         "key": "B",
-        "svg": SVG_PICTURES.temple,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#d97706\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M10 85h80M20 70h60M30 55h40M40 40h20M50 20v20\"/><path d=\"M35 85v-15M65 85v-15M42 70v-15M58 70v-15\"/><circle cx=\"50\" cy=\"18\" r=\"3\" fill=\"#d97706\"/></svg>",
         "label": "An ancient monumental stone temple with terraces and stupas"
       },
       {
         "key": "C",
-        "svg": SVG_PICTURES.mountain,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M10 85l35-50 15 20 15-15 20 45H10z\"/><path d=\"M38 45l7 8 10-5\" stroke=\"#cbd5e1\" fill=\"#f8fafc\"/></svg>",
         "label": "A towering volcanic peak covered in alpine snow"
       },
       {
         "key": "D",
-        "svg": SVG_PICTURES.bridge,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#7c3aed\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M10 65h80M25 25v55M75 25v55M10 50c15-15 25-25 40 0s25-15 40 0M25 25l25 25 25-25\"/><path d=\"M10 80c10-3 20 3 40 0s30 3 40 0\" stroke=\"#0284c7\"/></svg>",
         "label": "A modern suspension bridge across a metropolis bay"
       }
     ],
@@ -102,22 +102,22 @@ function getGrade10Questions() {
     "options": [
       {
         "key": "A",
-        "svg": SVG_PICTURES.puppet,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#9333ea\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><ellipse cx=\"50\" cy=\"30\" rx=\"12\" ry=\"16\"/><path d=\"M50 46v30M32 38l-12 24 14 16M68 38l12 24-14 16M50 76l-14 16M50 76l14 16M45 14c5-8 15-5 18 2\"/></svg>",
         "label": "Wayang shadow puppet leather figure"
       },
       {
         "key": "B",
-        "svg": SVG_PICTURES.batik,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"15\" y=\"15\" width=\"70\" height=\"70\" rx=\"6\"/><circle cx=\"50\" cy=\"50\" r=\"14\"/><path d=\"M50 20v16M50 64v16M20 50h16M64 50h16M28 28l12 12M60 60l12 12M28 72l12-12M60 40l12-12\"/></svg>",
         "label": "Traditional geometric batik textile pattern"
       },
       {
         "key": "C",
-        "svg": SVG_PICTURES.minaret,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#b45309\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M30 85h40M35 85V45h30v40M32 45h36M38 45V28h24v17M35 28h30M45 28V15h10v13M42 15h16M50 10v5\"/><circle cx=\"50\" cy=\"8\" r=\"2\" fill=\"#b45309\"/><path d=\"M42 65h16v20H42z\"/></svg>",
         "label": "Historic red-brick heritage tower minaret of Kudus"
       },
       {
         "key": "D",
-        "svg": SVG_PICTURES.concert,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#e11d48\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"25\" y=\"45\" width=\"50\" height=\"40\" rx=\"4\"/><path d=\"M35 45V25l30-8v28M35 35l30-8\"/><circle cx=\"38\" cy=\"72\" r=\"6\" fill=\"#f43f5e\"/><circle cx=\"62\" cy=\"65\" r=\"6\" fill=\"#f43f5e\"/></svg>",
         "label": "Modern musical auditorium stage"
       }
     ],
@@ -146,7 +146,7 @@ function getGrade10Questions() {
       },
       {
         "gender": "female",
-        "pitch": 1.30,
+        "pitch": 1.3,
         "rateMultiplier": 1.04,
         "text": "Well, I always maintain a nutritious diet, drink plenty of fresh water, and jog for twenty minutes every morning before studying.",
         "pauseAfter": 400
@@ -210,7 +210,7 @@ function getGrade10Questions() {
       },
       {
         "gender": "female",
-        "pitch": 1.30,
+        "pitch": 1.3,
         "rateMultiplier": 1.04,
         "text": "Yes, my family and I intend to visit the mangrove conservation park in Jepara. We want to plant ten mangrove seedlings to prevent coastal erosion.",
         "pauseAfter": 400
@@ -267,7 +267,7 @@ function getGrade10Questions() {
       },
       {
         "gender": "female",
-        "pitch": 1.30,
+        "pitch": 1.3,
         "rateMultiplier": 1.04,
         "text": "Your descriptive brochure about Mount Muria is very attractive, but the fonts are slightly difficult to read against the dark background.",
         "pauseAfter": 400
@@ -281,7 +281,7 @@ function getGrade10Questions() {
       },
       {
         "gender": "female",
-        "pitch": 1.30,
+        "pitch": 1.3,
         "rateMultiplier": 1.04,
         "text": "That will make the tourism information much clearer for visitors.",
         "pauseAfter": 500
@@ -317,7 +317,6 @@ function getGrade10Questions() {
     "explanation": "Siswa laki-laki merespons masukan guru: 'I will modify the font colors to high-contrast white and resize the heading immediately'. Pilihan B tepat.",
     "grammarNote": "Future intention / immediate response: 'will modify', 'resize the heading'."
   },
-
   {
     "id": 7,
     "source": "Sumber: Brosur Wisata Sejarah Menara Kudus — Dinas Kebudayaan dan Pariwisata Kudus",
@@ -474,7 +473,7 @@ function getGrade10Questions() {
     "type": "single_choice",
     "title": "Reading Comprehension: Vocabulary & Inference",
     "stimulusTitle": "Text 1: The Splendor of Karimunjawa Archipelago",
-    "stimulusBody": "<em>Refer to the second paragraph: 'The underwater realm of Karimunjawa is extraordinarily breathtaking... snorkelers and divers gaze upon the aquatic kaleidoscope with <u>crystalline</u> clarity.'</em>",
+    "stimulusBody": "Karimunjawa is a pristine tropical archipelago situated in the Java Sea, approximately eighty kilometers northwest of Jepara, Central Java. Designated as a National Marine Park in 2001, the cluster comprises twenty-seven paradise islands, of which only five are inhabited.<br><br>The underwater realm of Karimunjawa is extraordinarily breathtaking. Vast expanses of thriving coral reefs, characterized by magnificent branching acropora and vibrant brain corals, shelter hundreds of pelagic fish species, including clownfish, blue damselfish, and gentle hawksbill sea turtles. The water visibility frequently exceeds twenty meters, allowing snorkelers and divers to gaze upon the aquatic kaleidoscope with crystalline clarity.<br><br>On land, Karimunjawa boasts expansive coastal stretches lined with powdery white sands and whispering casuarina trees. In the interior of the main island, dense mangrove forests and lush hilltops provide sanctuary for endemic fruit bats and the white-bellied sea eagle. Local inhabitants, who predominantly earn their living as traditional artisanal fishermen and eco-tourism guides, preserve a harmonious lifestyle deeply rooted in maritime conservation.",
     "prompt": "The underlined word 'crystalline' in the passage is closest in meaning to...",
     "options": [
       {
@@ -504,7 +503,7 @@ function getGrade10Questions() {
     "type": "single_choice",
     "title": "Reading Comprehension: Detail Information",
     "stimulusTitle": "Text 1: The Splendor of Karimunjawa Archipelago",
-    "stimulusBody": "<em>Refer to Text 1 above.</em>",
+    "stimulusBody": "Karimunjawa is a pristine tropical archipelago situated in the Java Sea, approximately eighty kilometers northwest of Jepara, Central Java. Designated as a National Marine Park in 2001, the cluster comprises twenty-seven paradise islands, of which only five are inhabited.<br><br>The underwater realm of Karimunjawa is extraordinarily breathtaking. Vast expanses of thriving coral reefs, characterized by magnificent branching acropora and vibrant brain corals, shelter hundreds of pelagic fish species, including clownfish, blue damselfish, and gentle hawksbill sea turtles. The water visibility frequently exceeds twenty meters, allowing snorkelers and divers to gaze upon the aquatic kaleidoscope with crystalline clarity.<br><br>On land, Karimunjawa boasts expansive coastal stretches lined with powdery white sands and whispering casuarina trees. In the interior of the main island, dense mangrove forests and lush hilltops provide sanctuary for endemic fruit bats and the white-bellied sea eagle. Local inhabitants, who predominantly earn their living as traditional artisanal fishermen and eco-tourism guides, preserve a harmonious lifestyle deeply rooted in maritime conservation.",
     "prompt": "According to the third paragraph, what terrestrial flora and fauna inhabit the interior of the island?",
     "options": [
       {
@@ -534,7 +533,7 @@ function getGrade10Questions() {
     "type": "single_choice",
     "title": "Reading Comprehension: Social Function",
     "stimulusTitle": "Text 1: The Splendor of Karimunjawa Archipelago",
-    "stimulusBody": "<em>Refer to Text 1 above.</em>",
+    "stimulusBody": "Karimunjawa is a pristine tropical archipelago situated in the Java Sea, approximately eighty kilometers northwest of Jepara, Central Java. Designated as a National Marine Park in 2001, the cluster comprises twenty-seven paradise islands, of which only five are inhabited.<br><br>The underwater realm of Karimunjawa is extraordinarily breathtaking. Vast expanses of thriving coral reefs, characterized by magnificent branching acropora and vibrant brain corals, shelter hundreds of pelagic fish species, including clownfish, blue damselfish, and gentle hawksbill sea turtles. The water visibility frequently exceeds twenty meters, allowing snorkelers and divers to gaze upon the aquatic kaleidoscope with crystalline clarity.<br><br>On land, Karimunjawa boasts expansive coastal stretches lined with powdery white sands and whispering casuarina trees. In the interior of the main island, dense mangrove forests and lush hilltops provide sanctuary for endemic fruit bats and the white-bellied sea eagle. Local inhabitants, who predominantly earn their living as traditional artisanal fishermen and eco-tourism guides, preserve a harmonious lifestyle deeply rooted in maritime conservation.",
     "prompt": "What is the primary communicative purpose of the writer in publishing this text?",
     "options": [
       {
@@ -564,7 +563,7 @@ function getGrade10Questions() {
     "type": "single_choice",
     "title": "Reading Comprehension: Author's Attitude",
     "stimulusTitle": "Text 1: The Splendor of Karimunjawa Archipelago",
-    "stimulusBody": "<em>Refer to Text 1 above.</em>",
+    "stimulusBody": "Karimunjawa is a pristine tropical archipelago situated in the Java Sea, approximately eighty kilometers northwest of Jepara, Central Java. Designated as a National Marine Park in 2001, the cluster comprises twenty-seven paradise islands, of which only five are inhabited.<br><br>The underwater realm of Karimunjawa is extraordinarily breathtaking. Vast expanses of thriving coral reefs, characterized by magnificent branching acropora and vibrant brain corals, shelter hundreds of pelagic fish species, including clownfish, blue damselfish, and gentle hawksbill sea turtles. The water visibility frequently exceeds twenty meters, allowing snorkelers and divers to gaze upon the aquatic kaleidoscope with crystalline clarity.<br><br>On land, Karimunjawa boasts expansive coastal stretches lined with powdery white sands and whispering casuarina trees. In the interior of the main island, dense mangrove forests and lush hilltops provide sanctuary for endemic fruit bats and the white-bellied sea eagle. Local inhabitants, who predominantly earn their living as traditional artisanal fishermen and eco-tourism guides, preserve a harmonious lifestyle deeply rooted in maritime conservation.",
     "prompt": "The author's tone throughout the entire text can best be described as...",
     "options": [
       {
@@ -592,25 +591,25 @@ function getGrade10Questions() {
     "id": 16,
     "source": "Sumber: Laporan Ilmiah Populasi Satwa Dilindungi — Balai Taman Nasional Ujung Kulon & WWF",
     "type": "complex_matrix",
-    "title": "Pilihan Ganda Kompleks: Evaluasi Pernyataan Teks",
-    "stimulusTitle": "Evaluasi Kritis Teks Deskripsi Karimunjawa",
-    "stimulusBody": "Tentukan apakah setiap pernyataan berikut <strong>BENAR (TRUE)</strong> atau <strong>SALAH (FALSE)</strong> berdasarkan informasi faktual pada Teks 1:",
-    "prompt": "Berdasarkan Teks 1, tentukan kebenaran dari masing-masing pernyataan berikut:",
+    "title": "Complex Multiple Choice: Fact Evaluation of Karimunjawa Archipelago",
+    "stimulusTitle": "Text 1: The Splendor of Karimunjawa Archipelago",
+    "stimulusBody": "Karimunjawa is a pristine tropical archipelago situated in the Java Sea, approximately eighty kilometers northwest of Jepara, Central Java. Designated as a National Marine Park in 2001, the cluster comprises twenty-seven paradise islands, of which only five are inhabited.<br><br>The underwater realm of Karimunjawa is extraordinarily breathtaking. Vast expanses of thriving coral reefs, characterized by magnificent branching acropora and vibrant brain corals, shelter hundreds of pelagic fish species, including clownfish, blue damselfish, and gentle hawksbill sea turtles. The water visibility frequently exceeds twenty meters, allowing snorkelers and divers to gaze upon the aquatic kaleidoscope with crystalline clarity.<br><br>On land, Karimunjawa boasts expansive coastal stretches lined with powdery white sands and whispering casuarina trees. In the interior of the main island, dense mangrove forests and lush hilltops provide sanctuary for endemic fruit bats and the white-bellied sea eagle. Local inhabitants, who predominantly earn their living as traditional artisanal fishermen and eco-tourism guides, preserve a harmonious lifestyle deeply rooted in maritime conservation.",
+    "prompt": "Based on Text 1, determine whether each of the following statements is **TRUE** or **FALSE**:",
     "matrixStatements": [
       {
-        "statement": "Seluruh pulau di gugusan kepulauan Karimunjawa dihuni secara padat oleh penduduk lokal.",
+        "statement": "All twenty-seven islands in the Karimunjawa archipelago are densely populated by local residents.",
         "isCorrect": false
       },
       {
-        "statement": "Karimunjawa secara resmi ditetapkan sebagai Taman Nasional Laut sejak tahun 2001.",
+        "statement": "Karimunjawa was officially designated as a National Marine Park in the year 2001.",
         "isCorrect": true
       },
       {
-        "statement": "Jarak pandang di dalam air Karimunjawa sering kali mencapai lebih dari dua puluh meter.",
+        "statement": "Underwater visibility in the coral reef areas of Karimunjawa frequently exceeds twenty meters.",
         "isCorrect": true
       },
       {
-        "statement": "Mayoritas mata pencaharian penduduk setempat adalah penambang minyak lepas pantai.",
+        "statement": "The vast majority of local inhabitants earn their livelihood as offshore petroleum miners.",
         "isCorrect": false
       }
     ],
@@ -621,25 +620,25 @@ function getGrade10Questions() {
     "id": 17,
     "source": "Sumber: Laporan Ilmiah Populasi Satwa Dilindungi — Balai Taman Nasional Ujung Kulon & WWF",
     "type": "complex_matrix",
-    "title": "Pilihan Ganda Kompleks: Fitur Bahasa Simple Present & Passive",
-    "stimulusTitle": "Analisis Tata Bahasa Kalimat Faktual",
-    "stimulusBody": "Tentukan apakah analisis gramatikal pada kalimat-kalimat berikut <strong>BENAR (TRUE)</strong> atau <strong>SALAH (FALSE)</strong>:",
-    "prompt": "Analisis kebenaran kaidah tata bahasa pada butir-butir pernyataan berikut:",
+    "title": "Complex Multiple Choice: Simple Present & Passive Voice Analysis",
+    "stimulusTitle": "Grammar Focus: Simple Present & Passive Voice in Descriptive Contexts",
+    "stimulusBody": "Analyze the grammatical accuracy of the following sentences based on standard descriptive and scientific grammar rules:",
+    "prompt": "Determine whether each grammatical statement below is **TRUE** or **FALSE**:",
     "matrixStatements": [
       {
-        "statement": "Kalimat 'Karimunjawa comprises twenty-seven islands' menggunakan Simple Present Tense untuk menyatakan fakta geografis tetap.",
+        "statement": "The sentence 'Karimunjawa comprises twenty-seven islands' uses the Simple Present Tense to express an objective geographical fact.",
         "isCorrect": true
       },
       {
-        "statement": "Bentuk pasif dari 'Snorkelers observe the coral reefs' adalah 'The coral reefs is observed by snorkelers'.",
+        "statement": "The passive voice transformation of 'Snorkelers observe the coral reefs' is 'The coral reefs is observed by snorkelers'.",
         "isCorrect": false
       },
       {
-        "statement": "Frasa 'Vast expanses of thriving coral reefs shelter hundreds of fish' memiliki subjek jamak sehingga kata kerjanya adalah 'shelter' (tanpa akhiran -s).",
+        "statement": "The subject in 'Vast expanses of thriving coral reefs shelter hundreds of fish' is plural, requiring the base verb 'shelter' without an -s suffix.",
         "isCorrect": true
       },
       {
-        "statement": "Kata 'extraordinarily' dalam teks berfungsi sebagai kata sifat (adjective) yang menerangkan kata benda.",
+        "statement": "The word 'extraordinarily' in the text functions as an adjective modifying a noun.",
         "isCorrect": false
       }
     ],
@@ -650,25 +649,25 @@ function getGrade10Questions() {
     "id": 18,
     "source": "Sumber: Laporan Ilmiah Populasi Satwa Dilindungi — Balai Taman Nasional Ujung Kulon & WWF",
     "type": "complex_matrix",
-    "title": "Pilihan Ganda Kompleks: Urutan Frasa Kata Sifat (OSASCOMP)",
-    "stimulusTitle": "Kaidah Susunan Kata Sifat (Adjective Order Rules)",
-    "stimulusBody": "Dalam bahasa Inggris, susunan kata sifat mengikuti aturan OSASCOMP: Opinion -> Size -> Age -> Shape -> Color -> Origin -> Material -> Purpose.",
-    "prompt": "Tentukan apakah susunan frasa kata sifat berikut <strong>BENAR (TRUE)</strong> atau <strong>SALAH (FALSE)</strong> menurut kaidah OSASCOMP:",
+    "title": "Complex Multiple Choice: Adjective Order Rules (OSASCOMP)",
+    "stimulusTitle": "Grammar Focus: Standard Adjective Order (Opinion - Size - Age - Shape - Color - Origin - Material - Purpose)",
+    "stimulusBody": "Determine whether the following adjective phrases follow standard English word order rules:",
+    "prompt": "Determine whether each adjective phrase below is **TRUE** (grammatically correct) or **FALSE** (incorrect) according to standard adjective order (OSASCOMP):",
     "matrixStatements": [
       {
-        "statement": "'A charming small old wooden cottage' (Opinion: charming, Size: small, Age: old, Material: wooden).",
+        "statement": "'A charming small old wooden cottage' adheres to standard adjective order (Opinion: charming, Size: small, Age: old, Material: wooden).",
         "isCorrect": true
       },
       {
-        "statement": "'A stone ancient magnificent statue' (Material ditempatkan sebelum Opinion dan Age).",
+        "statement": "'A stone ancient magnificent statue' places material before opinion and age correctly.",
         "isCorrect": false
       },
       {
-        "statement": "'An energetic young Indonesian badminton athlete' (Opinion: energetic, Age: young, Origin: Indonesian, Purpose: badminton).",
+        "statement": "'An energetic young Indonesian badminton athlete' correctly arranges opinion, age, origin, and purpose.",
         "isCorrect": true
       },
       {
-        "statement": "'A circular large brown dining table' (Shape ditempatkan mendahului Size).",
+        "statement": "'A circular large brown dining table' correctly places shape before size.",
         "isCorrect": false
       }
     ],
@@ -679,25 +678,25 @@ function getGrade10Questions() {
     "id": 19,
     "source": "Sumber: Laporan Ilmiah Populasi Satwa Dilindungi — Balai Taman Nasional Ujung Kulon & WWF",
     "type": "complex_matrix",
-    "title": "Pilihan Ganda Kompleks: Fakta Sains Teks Report (Javan Rhino)",
-    "stimulusTitle": "Stimulus Sains: The Endangered Javan Rhinoceros",
+    "title": "Complex Multiple Choice: Scientific Report Facts (Javan Rhinoceros)",
+    "stimulusTitle": "Scientific Report: The Endangered Javan Rhinoceros",
     "stimulusBody": "The Javan rhinoceros (<em>Rhinoceros sondaicus</em>) is one of the most critically endangered large mammals on Earth. Currently, fewer than eighty individuals survive, strictly confined to the tropical lowland rainforests of Ujung Kulon National Park at the western tip of Java, Indonesia.<br><br>Unlike their African relatives, Javan rhinos possess only a single horn, which rarely exceeds twenty-five centimeters in length. They are plant-eating animals that live alone and feed on tender shoots, twigs, and fallen fruits. Because rhinos possess poor eyesight, their acute sense of smell and hearing are vital for detecting dangerous predators and humans.",
-    "prompt": "Berdasarkan cuplikan teks Report ilmiah di atas, tentukan nilai kebenaran pernyataan berikut:",
+    "prompt": "Based on the scientific report excerpt above, determine whether each statement is **TRUE** or **FALSE**:",
     "matrixStatements": [
       {
-        "statement": "Badak Jawa saat ini hanya dapat ditemukan di alam liar di Taman Nasional Ujung Kulon.",
+        "statement": "Javan rhinoceroses can currently be found in the wild solely within Ujung Kulon National Park.",
         "isCorrect": true
       },
       {
-        "statement": "Badak Jawa jantan dan betina memiliki dua cula besar berukuran lebih dari satu meter.",
+        "statement": "Both male and female Javan rhinos possess two large facial horns measuring over one meter in length.",
         "isCorrect": false
       },
       {
-        "statement": "Badak Jawa merupakan satwa pemakan daging (karnivora) yang hidup berkelompok dalam kawanan besar.",
+        "statement": "Javan rhinos are carnivorous predators that hunt large prey in social packs.",
         "isCorrect": false
       },
       {
-        "statement": "Indra penciuman dan pendengaran yang tajam mengimbangi kelemahan indra penglihatan badak Jawa.",
+        "statement": "Acute senses of smell and hearing effectively compensate for the Javan rhino's poor eyesight.",
         "isCorrect": true
       }
     ],
@@ -708,10 +707,10 @@ function getGrade10Questions() {
     "id": 20,
     "source": "Sumber: Laporan Ilmiah Populasi Satwa Dilindungi — Balai Taman Nasional Ujung Kulon & WWF",
     "type": "complex_matrix",
-    "title": "Pilihan Ganda Kompleks: Kalimat Pengandaian (Conditionals)",
-    "stimulusTitle": "Kaidah Logika Conditional Sentence Type 1 & Type 2",
-    "stimulusBody": "Perhatikan kaidah pengandaian: Type 1 (Realistis/Masa Depan: If + Present, Will + V1) dan Type 2 (Hipotetis/Sekarang: If + Past/were, Would + V1).",
-    "prompt": "Tentukan apakah formulasi kalimat pengandaian berikut <strong>BENAR (TRUE)</strong> atau <strong>SALAH (FALSE)</strong>:",
+    "title": "Complex Multiple Choice: Conditional Sentence Structures",
+    "stimulusTitle": "Grammar Focus: Real and Unreal Conditional Sentence Patterns",
+    "stimulusBody": "Analyze the structural and logical validity of each conditional sentence:",
+    "prompt": "Determine whether each conditional sentence formulation is **TRUE** (grammatically sound) or **FALSE** (grammatically flawed):",
     "matrixStatements": [
       {
         "statement": "If students protect the coral reefs diligently, marine biodiversity will flourish.",
@@ -737,10 +736,10 @@ function getGrade10Questions() {
     "id": 21,
     "source": "Sumber: Modul Pembelajaran Teks Deskriptif Atlet — BSKAP Kemendikbudristek",
     "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-    "stimulusTitle": "Refleksi Teks Deskriptif Atlet Berprestasi",
-    "stimulusBody": "Seorang penulis ingin mendeskripsikan seorang atlet panahan nasional dalam teks deskriptif yang otentik dan inspiratif.",
-    "prompt": "Manakah <strong>DUA (2)</strong> kalimat di bawah ini yang menggunakan kata sifat deskriptif (descriptive adjectives) dan Simple Present Tense secara tepat?",
+    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+    "stimulusTitle": "Writing Focus: Descriptive Portrayal of an Inspiring Athlete",
+    "stimulusBody": "A writer intends to portray an internationally accomplished athlete using vivid descriptive adjectives and standard Simple Present Tense.",
+    "prompt": "Which **TWO (2)** sentences below correctly use descriptive adjectives and the Simple Present Tense to portray an inspiring athlete?",
     "options": [
       {
         "key": "A",
@@ -770,26 +769,26 @@ function getGrade10Questions() {
     "id": 22,
     "source": "Sumber: Modul Pembelajaran Teks Report Ilmiah — BSKAP Kemendikbudristek",
     "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-    "stimulusTitle": "Fitur Kebahasaan Teks Report Ilmiah",
-    "stimulusBody": "Teks Report Ilmiah (Scientific Report) memiliki karakteristik kebahasaan tersendiri yang membedakannya dari teks naratif personal.",
-    "prompt": "Manakah <strong>DUA (2)</strong> fitur kebahasaan utama yang menjadi ciri khas teks Report ilmiah?",
+    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+    "stimulusTitle": "Genre Focus: Distinctive Language Features of Scientific Report Texts",
+    "stimulusBody": "Scientific report texts communicate factual classifications and descriptions of natural and social phenomena.",
+    "prompt": "Which **TWO (2)** linguistic features are characteristic of scientific Report texts?",
     "options": [
       {
         "key": "A",
-        "text": "Penggunaan sudut pandang orang pertama 'I' dan 'My family' untuk menceritakan emosi pribadi."
+        "text": "Frequent use of first-person pronouns ('I', 'My family') to convey subjective personal emotions."
       },
       {
         "key": "B",
-        "text": "Penggunaan istilah teknis ilmiah (technical scientific vocabulary) dan kata benda umum (general nouns)."
+        "text": "Use of objective technical vocabulary and general nouns to describe classes of things."
       },
       {
         "key": "C",
-        "text": "Penyajian dialog langsung dramatis antara tokoh antagonis dan protagonis dalam dongeng."
+        "text": "Dramatic spoken dialogues between mythical protagonists and antagonists in folklore."
       },
       {
         "key": "D",
-        "text": "Dominasi kalimat pasif (Passive Voice) untuk menonjolkan proses atau objek yang diobservasi."
+        "text": "Frequent use of timeless Simple Present Tense and Passive Voice to highlight observed natural processes."
       }
     ],
     "correctAnswer": [
@@ -803,31 +802,31 @@ function getGrade10Questions() {
     "id": 23,
     "source": "Sumber: Silabus Kosakata Oxford 3000 Level A2 — Oxford University Press",
     "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-    "stimulusTitle": "Keluarga Kata Kosakata Oxford 3000 (CEFR A2/B1)",
-    "stimulusBody": "Perhatikan kata kunci dalam tema lingkungan dan keanekaragaman hayati: <em>'conserve'</em> dan <em>'endanger'</em>.",
-    "prompt": "Manakah <strong>DUA (2)</strong> pasangan kata turunan dan arti yang tepat berdasarkan kamus Oxford 3000?",
+    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+    "stimulusTitle": "Lexical Study: Oxford 3000 Word Family for 'Conservation'",
+    "stimulusBody": "Understanding parts of speech and derivational affixes is essential for mastering academic English vocabulary.",
+    "prompt": "Which **TWO (2)** statements correctly explain word forms related to 'conservation'?",
     "options": [
       {
         "key": "A",
-        "text": "'Conservation' (noun) bermakna upaya perlindungan dan pelestarian alam dari kerusakan."
+        "text": "'Conservation' (noun) denotes the careful preservation and protection of natural environments and wildlife."
       },
       {
         "key": "B",
-        "text": "'Conservatively' (adverb) bermakna secara berbahaya dan merusak ekosistem."
+        "text": "'Conserve' (verb) means to exhaust natural resources as rapidly as possible without restraint."
       },
       {
         "key": "C",
-        "text": "'Dangerously' (noun) bermakna tempat suaka perlindungan satwa liar."
+        "text": "'Conservationist' (noun) refers to a person who actively advocates for or works toward environmental protection."
       },
       {
         "key": "D",
-        "text": "'Endangered' (adjective) bermakna spesies makhluk hidup yang berada dalam bahaya kepunahan."
+        "text": "'Conservatively' (adverb) is always used to describe severe industrial pollution in coastal regions."
       }
     ],
     "correctAnswer": [
       "A",
-      "D"
+      "C"
     ],
     "explanation": "Opsi A benar: 'conservation' adalah nomina pelestarian lingkungan. Opsi B benar: 'endangered' adalah adjektiva terancam punah (e.g. endangered species). Opsi C salah (artinya secara konservatif/hati-hati), Opsi D salah (dangerously adalah adverb).",
     "grammarNote": "Word Formations: Noun, Adjective, Adverb derivation from Oxford 3000 core lexis."
@@ -836,30 +835,30 @@ function getGrade10Questions() {
     "id": 24,
     "source": "Sumber: Materi Fungsional Stating Intentions — Modul Ajar Fase E Kelas X",
     "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-    "stimulusTitle": "Ungkapan Rencana & Tujuan (Intentions and Plans)",
-    "stimulusBody": "Dalam percakapan sehari-hari, siswa sering mengungkapkan rencana dan intensi untuk melakukan sesuatu di masa mendatang.",
-    "prompt": "Manakah <strong>DUA (2)</strong> ungkapan yang secara formal dan santun digunakan untuk menyatakan niat atau rencana (intentions/plans)?",
+    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+    "stimulusTitle": "Language Function: Expressing Intentions and Future Plans",
+    "stimulusBody": "Review the grammatical conventions for expressing future intentions and plans in communicative English.",
+    "prompt": "Which **TWO (2)** sentences correctly express future intentions or plans using 'intend to' or 'be going to'?",
     "options": [
       {
         "key": "A",
-        "text": "'I was regretting that you didn't call me yesterday afternoon.'"
+        "text": "Our eco-club intends to plant one hundred mangrove seedlings along the Jepara coastline."
       },
       {
         "key": "B",
-        "text": "'I am planning to conduct an interview with our local batik artisan this weekend.'"
+        "text": "They is going to visiting the national museum last Tuesday."
       },
       {
         "key": "C",
-        "text": "'We intend to submit our environmental science project to the national committee.'"
+        "text": "We are going to organize an environmental workshop for high school students next month."
       },
       {
         "key": "D",
-        "text": "'I have no interest in doing any homework forever.'"
+        "text": "She intend to cleans the entire laboratory alone without gloves."
       }
     ],
     "correctAnswer": [
-      "B",
+      "A",
       "C"
     ],
     "explanation": "Opsi A ('I am planning to...') dan Opsi C ('We intend to...') adalah formula baku untuk menyatakan rencana/intensi (stating intentions). Opsi B menyatakan penyesalan masa lalu, Opsi D menyatakan penolakan ketidakpedulian.",
@@ -869,31 +868,31 @@ function getGrade10Questions() {
     "id": 25,
     "source": "Sumber: Silabus Kosakata Fungsional Bahasa Inggris — MGMP Bahasa Inggris SMA",
     "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-    "stimulusTitle": "Struktur Kalimat Pasif dalam Deskripsi Proses Ilmiah",
-    "stimulusBody": "Kalimat pasif dalam Simple Present Tense dibentuk dengan rumus: Subjek + is/am/are + Verb 3 (Past Participle).",
-    "prompt": "Manakah <strong>DUA (2)</strong> kalimat di bawah ini yang merupakan kalimat pasif (Passive Voice) yang gramatikal dan tepat?",
+    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+    "stimulusTitle": "Grammar Focus: Passive Voice Constructions in Scientific Descriptions",
+    "stimulusBody": "The passive voice is frequently employed in technical explanations to emphasize the action or recipient of an action rather than the performer.",
+    "prompt": "Which **TWO (2)** sentences demonstrate grammatically accurate passive voice constructions describing scientific processes?",
     "options": [
       {
         "key": "A",
-        "text": "Organic wastes are collected by student volunteers every Tuesday morning."
+        "text": "The condensed steam is cooled and pumped back underground into the volcanic reservoir."
       },
       {
         "key": "B",
-        "text": "Rare medicinal herbs are carefully preserved in the school botanical sanctuary."
+        "text": "The engineer pumps the water into the turbine generator every morning."
       },
       {
         "key": "C",
-        "text": "The young athlete is running around the track with his new shoes."
+        "text": "Solar radiation is absorbed by photovoltaic silicon cells to generate electricity."
       },
       {
         "key": "D",
-        "text": "The headmaster will delivers an inspiring speech at the assembly."
+        "text": "The electric current flows quickly across the copper transmission wires."
       }
     ],
     "correctAnswer": [
       "A",
-      "B"
+      "C"
     ],
     "explanation": "Kalimat A ('wastes are collected') dan Kalimat C ('herbs are carefully preserved') memiliki pola pasif 'are + Verb 3' yang sempurna. Kalimat B adalah Present Continuous aktif ('is running'). Kalimat D memiliki kesalahan gramatikal 'will delivers'.",
     "grammarNote": "Present Simple Passive Voice: S + is/am/are + V3 (+ by Agent)."
@@ -933,8 +932,8 @@ function getGrade10Questions() {
     "source": "Sumber: Profil Potensi Energi Panas Bumi Jawa Tengah — PT Geo Dipa Energi (Persero) & Kementerian ESDM RI",
     "type": "single_choice",
     "title": "Reading Comprehension: Environmental Advantage",
-    "stimulusTitle": "Text 2: Geothermal Energy Exploration in Central Java",
-    "stimulusBody": "<em>Refer to Text 2 above.</em>",
+    "stimulusTitle": "Text 2: Clean Geothermal Energy in the Dieng Plateau, Central Java",
+    "stimulusBody": "Geothermal energy is a clean, renewable energy resource that comes from natural heat stored deep inside the Earth. In Central Java, the volcanic highland of the Dieng Plateau (located across Banjarnegara and Wonosobo regencies) is one of Indonesia's most important locations for geothermal power plants (PLTP Dieng).<br><br>Electricity production from geothermal energy works in a simple, sustainable way. Deep wells are drilled into underground reservoirs of hot water and natural steam. This high-pressure steam rises through strong pipes to turn large turbine generators, which convert the steam's energy into clean electricity. Afterward, the condensed water is cooled and pumped back underground into the reservoir, keeping the system environmentally friendly and producing almost zero smoke or carbon emissions.<br><br>Unlike solar panels and wind turbines that depend on sunny or windy weather, geothermal power plants can generate electricity steadily twenty-four hours a day without stopping. Therefore, developing geothermal clean energy in Central Java is an <u>essential</u> milestone to supply reliable electricity while protecting the natural environment.",
     "prompt": "Why is the geothermal electricity generation described as a 'closed-loop system'?",
     "options": [
       {
@@ -963,8 +962,8 @@ function getGrade10Questions() {
     "source": "Sumber: Profil Potensi Energi Panas Bumi Jawa Tengah — PT Geo Dipa Energi (Persero) & Kementerian ESDM RI",
     "type": "single_choice",
     "title": "Reading Comprehension: Comparative Logic",
-    "stimulusTitle": "Text 2: Geothermal Energy Exploration in Central Java",
-    "stimulusBody": "<em>Refer to Text 2, third paragraph.</em>",
+    "stimulusTitle": "Text 2: Clean Geothermal Energy in the Dieng Plateau, Central Java",
+    "stimulusBody": "Geothermal energy is a clean, renewable energy resource that comes from natural heat stored deep inside the Earth. In Central Java, the volcanic highland of the Dieng Plateau (located across Banjarnegara and Wonosobo regencies) is one of Indonesia's most important locations for geothermal power plants (PLTP Dieng).<br><br>Electricity production from geothermal energy works in a simple, sustainable way. Deep wells are drilled into underground reservoirs of hot water and natural steam. This high-pressure steam rises through strong pipes to turn large turbine generators, which convert the steam's energy into clean electricity. Afterward, the condensed water is cooled and pumped back underground into the reservoir, keeping the system environmentally friendly and producing almost zero smoke or carbon emissions.<br><br>Unlike solar panels and wind turbines that depend on sunny or windy weather, geothermal power plants can generate electricity steadily twenty-four hours a day without stopping. Therefore, developing geothermal clean energy in Central Java is an <u>essential</u> milestone to supply reliable electricity while protecting the natural environment.",
     "prompt": "What major advantage does geothermal power have compared to solar and wind energy?",
     "options": [
       {
@@ -993,8 +992,8 @@ function getGrade10Questions() {
     "source": "Sumber: Profil Potensi Energi Panas Bumi Jawa Tengah — PT Geo Dipa Energi (Persero) & Kementerian ESDM RI",
     "type": "single_choice",
     "title": "Reading Comprehension: Vocabulary in Context",
-    "stimulusTitle": "Text 2: Geothermal Energy Exploration in Central Java",
-    "stimulusBody": "<em>Refer to the final sentence: '...developing geothermal clean energy in Central Java is an <u>essential</u> milestone to supply reliable electricity while protecting the natural environment.'</em>",
+    "stimulusTitle": "Text 2: Clean Geothermal Energy in the Dieng Plateau, Central Java",
+    "stimulusBody": "Geothermal energy is a clean, renewable energy resource that comes from natural heat stored deep inside the Earth. In Central Java, the volcanic highland of the Dieng Plateau (located across Banjarnegara and Wonosobo regencies) is one of Indonesia's most important locations for geothermal power plants (PLTP Dieng).<br><br>Electricity production from geothermal energy works in a simple, sustainable way. Deep wells are drilled into underground reservoirs of hot water and natural steam. This high-pressure steam rises through strong pipes to turn large turbine generators, which convert the steam's energy into clean electricity. Afterward, the condensed water is cooled and pumped back underground into the reservoir, keeping the system environmentally friendly and producing almost zero smoke or carbon emissions.<br><br>Unlike solar panels and wind turbines that depend on sunny or windy weather, geothermal power plants can generate electricity steadily twenty-four hours a day without stopping. Therefore, developing geothermal clean energy in Central Java is an <u>essential</u> milestone to supply reliable electricity while protecting the natural environment.",
     "prompt": "The word 'essential' in the sentence is closest in meaning to...",
     "options": [
       {
@@ -1023,8 +1022,8 @@ function getGrade10Questions() {
     "source": "Sumber: Profil Potensi Energi Panas Bumi Jawa Tengah — PT Geo Dipa Energi (Persero) & Kementerian ESDM RI",
     "type": "single_choice",
     "title": "Reading Comprehension: Discourse Logic",
-    "stimulusTitle": "Text 2: Geothermal Energy Exploration in Central Java",
-    "stimulusBody": "<em>Refer to Text 2 above.</em>",
+    "stimulusTitle": "Text 2: Clean Geothermal Energy in the Dieng Plateau, Central Java",
+    "stimulusBody": "Geothermal energy is a clean, renewable energy resource that comes from natural heat stored deep inside the Earth. In Central Java, the volcanic highland of the Dieng Plateau (located across Banjarnegara and Wonosobo regencies) is one of Indonesia's most important locations for geothermal power plants (PLTP Dieng).<br><br>Electricity production from geothermal energy works in a simple, sustainable way. Deep wells are drilled into underground reservoirs of hot water and natural steam. This high-pressure steam rises through strong pipes to turn large turbine generators, which convert the steam's energy into clean electricity. Afterward, the condensed water is cooled and pumped back underground into the reservoir, keeping the system environmentally friendly and producing almost zero smoke or carbon emissions.<br><br>Unlike solar panels and wind turbines that depend on sunny or windy weather, geothermal power plants can generate electricity steadily twenty-four hours a day without stopping. Therefore, developing geothermal clean energy in Central Java is an <u>essential</u> milestone to supply reliable electricity while protecting the natural environment.",
     "prompt": "What would most likely happen if Central Java maximizes its geothermal potential?",
     "options": [
       {
@@ -1591,7 +1590,7 @@ function renderQuestion(index) {
     if (srcEl) {
       if (q.source) {
         srcEl.style.display = "block";
-        srcEl.innerHTML = `📌 <strong>${q.source}</strong>`;
+        srcEl.innerHTML = `<span style="font-size:0.75rem; color:#64748b; font-style:italic;">Source: ${q.source}</span>`;
       } else {
         srcEl.style.display = "none";
       }
@@ -1601,13 +1600,7 @@ function renderQuestion(index) {
   }
 
   const promptBox = document.getElementById("question-prompt-text");
-  let srcBadge = "";
-  if (q.source) {
-    srcBadge = `<div class="source-citation" style="margin-top: 10px; font-size: 0.8rem; color: #475569; background: #f8fafc; border-left: 3.5px solid var(--accent-teal); padding: 6px 12px; border-radius: 4px; font-style: italic;">
-      📌 <strong>${q.source}</strong>
-    </div>`;
-  }
-  promptBox.innerHTML = q.prompt + srcBadge;
+  promptBox.innerHTML = q.prompt;
 
   const optContainer = document.getElementById("options-container");
   optContainer.innerHTML = "";
@@ -2037,15 +2030,13 @@ function submitTest() {
   renderQuestion(currentQuestionIndex);
 }
 
+let isSyncingScore = false;
 function syncScoreToGoogleSheets(payload) {
+  if (isSyncingScore) return;
+  isSyncingScore = true;
   const statusEl = document.getElementById("cloud-status-text");
   if (statusEl) statusEl.textContent = "Menyinkronkan nilai ke server sekolah...";
   const webAppUrl = localStorage.getItem("sabaku_gs_url") || DEFAULT_GS_URL;
-  try {
-    if (navigator.sendBeacon) {
-      navigator.sendBeacon(webAppUrl, new Blob([JSON.stringify(payload)], { type: "text/plain;charset=utf-8" }));
-    }
-  } catch (e) {}
   fetch(webAppUrl, {
     method: "POST",
     mode: "no-cors",
@@ -2055,19 +2046,9 @@ function syncScoreToGoogleSheets(payload) {
     if (statusEl) statusEl.innerHTML = "✅ Nilai Anda telah berhasil tercatat di server rekapitulasi sekolah.";
   }).catch(err => {
     try {
-      const beacon = new Image();
-      const query = new URLSearchParams({
-        action: "submit",
-        tingkat: payload.tingkat || "",
-        rombel: payload.rombel || "",
-        presensi: payload.presensi || "",
-        nama: payload.nama || "",
-        grade: payload.grade || 0,
-        score: payload.score || 0,
-        duration: payload.duration || "",
-        mode: payload.mode || ""
-      }).toString();
-      beacon.src = `${webAppUrl}?${query}`;
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon(webAppUrl, new Blob([JSON.stringify(payload)], { type: "text/plain;charset=utf-8" }));
+      }
     } catch (bErr) {}
     if (statusEl) statusEl.innerHTML = "💾 Nilai Anda telah tersimpan dengan aman di sistem sekolah.";
   });

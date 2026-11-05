@@ -36,22 +36,22 @@ function getGrade11AsasQuestions() {
     "options": [
       {
         "key": "A",
-        "svg": SVG_PICTURES.laptopResearch,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"20\" y=\"24\" width=\"60\" height=\"42\" rx=\"3\" fill=\"#eff6ff\" stroke=\"#2563eb\"/><path d=\"M12 70h76l-4 6H16l-4-6z\" fill=\"#cbd5e1\" stroke=\"#2563eb\"/><circle cx=\"50\" cy=\"45\" r=\"10\" stroke=\"#3b82f6\" stroke-dasharray=\"3 3\"/><path d=\"M50 39v12M44 45h12\" stroke=\"#1d4ed8\"/><circle cx=\"50\" cy=\"73\" r=\"1.5\" fill=\"#475569\"/></svg>",
         "label": "A student conducting digital research and fact-checking on a laptop"
       },
       {
         "key": "B",
-        "svg": SVG_PICTURES.antiqueBook,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#b45309\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M15 72c15-8 35-4 35 10 0-14 20-18 35-10V28c-15-8-35-4-35 10 0-14-20-18-35-10v44z\" fill=\"#fef3c7\" stroke=\"#b45309\"/><path d=\"M50 38v44M25 40h15M25 50h15M60 40h15M60 50h15\" stroke=\"#d97706\"/></svg>",
         "label": "Reading an antique book quietly in a library"
       },
       {
         "key": "C",
-        "svg": SVG_PICTURES.microphoneStage,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#7c3aed\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"42\" y=\"16\" width=\"16\" height=\"26\" rx=\"8\" fill=\"#f3e8ff\" stroke=\"#7c3aed\"/><path d=\"M34 32c0 10 7 18 16 18s16-8 16-18M50 50v24M35 74h30\" stroke=\"#7c3aed\" stroke-width=\"2.5\"/><path d=\"M20 85h60\" stroke=\"#64748b\" stroke-width=\"3\"/></svg>",
         "label": "Speaking into a microphone on an empty stage"
       },
       {
         "key": "D",
-        "svg": SVG_PICTURES.smartphoneVideo,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#e11d48\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"34\" y=\"16\" width=\"32\" height=\"54\" rx=\"5\" fill=\"#fff1f2\" stroke=\"#e11d48\"/><circle cx=\"50\" cy=\"62\" r=\"3\" fill=\"#e11d48\"/><circle cx=\"50\" cy=\"36\" r=\"8\" fill=\"#fda4af\" stroke=\"#e11d48\"/><polygon points=\"48,32 55,36 48,40\" fill=\"#be123c\"/><path d=\"M30 84l20-14 20 14\" stroke=\"#475569\" stroke-width=\"2.5\"/></svg>",
         "label": "Recording a vertical short video with a smartphone camera"
       }
     ],
@@ -69,22 +69,22 @@ function getGrade11AsasQuestions() {
     "options": [
       {
         "key": "A",
-        "svg": SVG_PICTURES.fishingPort,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#0284c7\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M10 75c12-4 24 2 36-2s24-2 44 2\" stroke=\"#0284c7\" stroke-width=\"2.5\"/><path d=\"M20 65l10 10h24l6-10H20z\" fill=\"#e0f2fe\" stroke=\"#0369a1\"/><path d=\"M42 65V42l16 8-16 4\" stroke=\"#0369a1\" fill=\"#bae6fd\"/><path d=\"M12 70v15M24 70v15M8 72h24\" stroke=\"#78350f\" stroke-width=\"2\"/></svg>",
         "label": "A coastal wooden fishing port with docked boats"
       },
       {
         "key": "B",
-        "svg": SVG_PICTURES.templeRuins,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#d97706\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M10 85h80M22 70h56M34 55h32M44 40h12M50 20v20\"/><path d=\"M30 85V70M70 85V70M40 70V55M60 70V55M47 55V40M53 55V40\"/><circle cx=\"50\" cy=\"17\" r=\"3\" fill=\"#d97706\"/><path d=\"M15 85l6-15M85 85l-6-15\" stroke=\"#b45309\"/></svg>",
         "label": "An ancient multi-tiered stone temple complex"
       },
       {
         "key": "C",
-        "svg": SVG_PICTURES.suspensionBridge,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#6366f1\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M10 68h80M25 22v52M75 22v52\" stroke=\"#4338ca\" stroke-width=\"2.5\"/><path d=\"M10 50c15-15 25-22 40 0s25 15 40 0\" stroke=\"#6366f1\"/><path d=\"M25 22l25 28 25-28\" stroke=\"#818cf8\"/><path d=\"M10 80c10-3 20 3 40 0s30 3 40 0\" stroke=\"#38bdf8\"/></svg>",
         "label": "A suspension steel bridge over a city river"
       },
       {
         "key": "D",
-        "svg": SVG_PICTURES.mountainSummit,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"30\" cy=\"28\" r=\"8\" fill=\"#fef08a\" stroke=\"#eab308\"/><path d=\"M10 85l32-45 18 22 14-16 16 39H10z\" fill=\"#f8fafc\" stroke=\"#475569\" stroke-width=\"2.2\"/><path d=\"M36 48l6 8 8-4\" stroke=\"#94a3b8\"/></svg>",
         "label": "A rocky mountain summit under the morning sun"
       }
     ],
@@ -102,22 +102,22 @@ function getGrade11AsasQuestions() {
     "options": [
       {
         "key": "A",
-        "svg": SVG_PICTURES.fuelStation,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"25\" y=\"32\" width=\"36\" height=\"52\" rx=\"4\" fill=\"#fef2f2\" stroke=\"#dc2626\"/><rect x=\"33\" y=\"40\" width=\"20\" height=\"15\" fill=\"#fee2e2\" stroke=\"#ef4444\"/><path d=\"M61 44h10c4 0 6 3 6 7v20l-4 3\" stroke=\"#b91c1c\" stroke-width=\"2.5\"/><rect x=\"20\" y=\"84\" width=\"46\" height=\"5\" fill=\"#64748b\"/></svg>",
         "label": "A conventional roadside petroleum fuel station"
       },
       {
         "key": "B",
-        "svg": SVG_PICTURES.smokestackFactory,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"20\" y=\"52\" width=\"60\" height=\"32\" fill=\"#f1f5f9\" stroke=\"#475569\"/><polygon points=\"30,52 32,25 40,25 42,52\" fill=\"#e2e8f0\" stroke=\"#475569\"/><polygon points=\"50,52 52,30 58,30 60,52\" fill=\"#e2e8f0\" stroke=\"#475569\"/><path d=\"M36 20c2-5 6-5 8 0s6 5 8 0M55 24c2-4 5-4 7 0\" stroke=\"#94a3b8\" stroke-width=\"2\"/></svg>",
         "label": "An industrial factory releasing dark smoke plumes"
       },
       {
         "key": "C",
-        "svg": SVG_PICTURES.solarRooftop,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M15 85V50l35-22 35 22v35H15z\" fill=\"#f0fdf4\" stroke=\"#059669\"/><path d=\"M22 46l28-18 28 18\" stroke=\"#047857\" stroke-width=\"3\"/><path d=\"M52 58h28v24H52z\" fill=\"#bae6fd\" stroke=\"#0284c7\"/><path d=\"M66 58v24M52 70h28\" stroke=\"#0284c7\"/><circle cx=\"82\" cy=\"22\" r=\"8\" fill=\"#fef08a\" stroke=\"#eab308\"/></svg>",
         "label": "Rooftop solar photovoltaic panels capturing sunlight"
       },
       {
         "key": "D",
-        "svg": SVG_PICTURES.hydroDam,
+        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#0284c7\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M15 40h70l-10 44H25L15 40z\" fill=\"#e0f2fe\" stroke=\"#0369a1\" stroke-width=\"2.5\"/><path d=\"M35 40v44M50 40v44M65 40v44\" stroke=\"#0284c7\" stroke-width=\"2\"/><path d=\"M40 70c4 5 8 5 12 0s8-5 12 0\" stroke=\"#38bdf8\" stroke-width=\"2\"/><path d=\"M10 84h80\" stroke=\"#64748b\" stroke-width=\"3\"/></svg>",
         "label": "A heavy concrete hydro dam structure"
       }
     ],
@@ -139,7 +139,7 @@ function getGrade11AsasQuestions() {
       },
       {
         "gender": "female",
-        "pitch": 1.30,
+        "pitch": 1.3,
         "rateMultiplier": 1.04,
         "text": "Did you see the shocking news shared in our class group chat just now?",
         "pauseAfter": 400
@@ -153,7 +153,7 @@ function getGrade11AsasQuestions() {
       },
       {
         "gender": "female",
-        "pitch": 1.30,
+        "pitch": 1.3,
         "rateMultiplier": 1.04,
         "text": "That makes total sense. We should never spread unverified rumors.",
         "pauseAfter": 400
@@ -217,7 +217,7 @@ function getGrade11AsasQuestions() {
       },
       {
         "gender": "female",
-        "pitch": 1.30,
+        "pitch": 1.3,
         "rateMultiplier": 1.04,
         "text": "We chose The Legend of Roro Jonggrang. It has powerful drama, especially the consequences of dishonest pride.",
         "pauseAfter": 400
@@ -231,7 +231,7 @@ function getGrade11AsasQuestions() {
       },
       {
         "gender": "female",
-        "pitch": 1.30,
+        "pitch": 1.3,
         "rateMultiplier": 1.04,
         "text": "We want to remind everyone that deceitful shortcuts always bring regret in the end.",
         "pauseAfter": 500
@@ -288,7 +288,7 @@ function getGrade11AsasQuestions() {
       },
       {
         "gender": "female",
-        "pitch": 1.30,
+        "pitch": 1.3,
         "rateMultiplier": 1.04,
         "text": "Absolutely, sir. If every student brought a reusable water bottle and lunch box, our school waste would drop dramatically.",
         "pauseAfter": 400
@@ -331,7 +331,6 @@ function getGrade11AsasQuestions() {
     "explanation": "Inisiatif ramah lingkungan yang diusulkan adalah membawa botol dan wadah makan reusable: 'If every student brought a reusable water bottle and lunch box, our school waste would drop dramatically'. Pilihan B tepat.",
     "grammarNote": "Second Conditional (Hypothetical): 'If every student brought..., our school waste would drop'."
   },
-
   {
     "id": 7,
     "source": "Sumber: Rekaman Audio Cerita Rakyat Nusantara — Balai Bahasa Jawa Tengah",
@@ -484,7 +483,7 @@ function getGrade11AsasQuestions() {
     "type": "single_choice",
     "title": "Reading Comprehension: Explicit Detail",
     "stimulusTitle": "Text 1: The Legend of Roro Jonggrang and the Thousand Temples",
-    "stimulusBody": "(Silakan merujuk pada teks bacaan 'The Legend of Roro Jonggrang and the Thousand Temples' di atas)",
+    "stimulusBody": "Once upon a time in ancient Java, there existed two neighboring kingdoms: Pengging and Boko. Pengging was fertile and prosperous, ruled by King Prabu Damar Moyo. His valiant son, Prince Bandung Bondowoso, possessed extraordinary physical strength and supernatural abilities. In contrast, the neighboring kingdom of Boko was governed by a cruel giant named King Boko. A fierce war erupted between the two kingdoms, ending when Bandung Bondowoso courageously defeated and killed King Boko in battle.<br><br>Entering Boko Palace as the victor, Bandung encountered Princess Roro Jonggrang, the late king's daughter. Enchanted by her grace and breathtaking beauty, the prince immediately offered her his hand in marriage. However, Roro Jonggrang harbored intense sorrow and resentment; she could never bring herself to willingly marry the conqueror who had ended her beloved father's life. Knowing that a direct refusal would provoke dangerous anger, she devised a clever plan. She promised to marry Bandung on one strict condition: he must construct one thousand sacred stone temples within a single night, completed before the dawn rooster crowed.<br><br>Confident in his mystical gifts, Bandung Bondowoso accepted the challenge. As darkness blanketed the earth, he mediated and summoned hundreds of earth spirits from the spirit realm. The spirits labored tirelessly at astonishing speed, gathering giant stones and carving ornate pillars. By three o'clock in the morning, nine hundred and ninety-nine magnificent temples stood proudly under the starlit sky, leaving only one final shrine unfinished.<br><br>Terrified that the prince would fulfill the impossible requirement, Roro Jonggrang swiftly gathered her palace maidens. She instructed them to burn piles of dry straw to the east to illuminate the sky with an orange glow, while others pounded rice mortars with heavy wooden pestles to simulate the lively sounds of a busy morning. Deceived by the dawn-like glow and the loud rhythmic pounding, village roosters began to crow repeatedly. Convinced that the morning sun was rising, the supernatural spirits panicked and fled back into the underground realm, abandoning the final temple. When Bandung discovered the deceit, he was filled with profound fury. Pointing his finger at Roro Jonggrang, he declared that she herself would become the one thousandth statue to complete the sacred complex. Instantly, the princess transformed into a graceful stone statue, known to this day as the statue of Durga Mahisasuramardini in Prambanan Temple.",
     "prompt": "Based on paragraph 2, why did Princess Roro Jonggrang formulate an impossible requirement instead of simply saying no?",
     "options": [
       {
@@ -514,7 +513,7 @@ function getGrade11AsasQuestions() {
     "type": "single_choice",
     "title": "Reading Comprehension: Character Strategy",
     "stimulusTitle": "Text 1: The Legend of Roro Jonggrang and the Thousand Temples",
-    "stimulusBody": "(Silakan merujuk pada teks bacaan 'The Legend of Roro Jonggrang and the Thousand Temples' di atas)",
+    "stimulusBody": "Once upon a time in ancient Java, there existed two neighboring kingdoms: Pengging and Boko. Pengging was fertile and prosperous, ruled by King Prabu Damar Moyo. His valiant son, Prince Bandung Bondowoso, possessed extraordinary physical strength and supernatural abilities. In contrast, the neighboring kingdom of Boko was governed by a cruel giant named King Boko. A fierce war erupted between the two kingdoms, ending when Bandung Bondowoso courageously defeated and killed King Boko in battle.<br><br>Entering Boko Palace as the victor, Bandung encountered Princess Roro Jonggrang, the late king's daughter. Enchanted by her grace and breathtaking beauty, the prince immediately offered her his hand in marriage. However, Roro Jonggrang harbored intense sorrow and resentment; she could never bring herself to willingly marry the conqueror who had ended her beloved father's life. Knowing that a direct refusal would provoke dangerous anger, she devised a clever plan. She promised to marry Bandung on one strict condition: he must construct one thousand sacred stone temples within a single night, completed before the dawn rooster crowed.<br><br>Confident in his mystical gifts, Bandung Bondowoso accepted the challenge. As darkness blanketed the earth, he mediated and summoned hundreds of earth spirits from the spirit realm. The spirits labored tirelessly at astonishing speed, gathering giant stones and carving ornate pillars. By three o'clock in the morning, nine hundred and ninety-nine magnificent temples stood proudly under the starlit sky, leaving only one final shrine unfinished.<br><br>Terrified that the prince would fulfill the impossible requirement, Roro Jonggrang swiftly gathered her palace maidens. She instructed them to burn piles of dry straw to the east to illuminate the sky with an orange glow, while others pounded rice mortars with heavy wooden pestles to simulate the lively sounds of a busy morning. Deceived by the dawn-like glow and the loud rhythmic pounding, village roosters began to crow repeatedly. Convinced that the morning sun was rising, the supernatural spirits panicked and fled back into the underground realm, abandoning the final temple. When Bandung discovered the deceit, he was filled with profound fury. Pointing his finger at Roro Jonggrang, he declared that she herself would become the one thousandth statue to complete the sacred complex. Instantly, the princess transformed into a graceful stone statue, known to this day as the statue of Durga Mahisasuramardini in Prambanan Temple.",
     "prompt": "What specific tactical actions did Princess Roro Jonggrang order her palace maidens to perform?",
     "options": [
       {
@@ -544,7 +543,7 @@ function getGrade11AsasQuestions() {
     "type": "single_choice",
     "title": "Reading Comprehension: Vocabulary in Context",
     "stimulusTitle": "Text 1: The Legend of Roro Jonggrang and the Thousand Temples",
-    "stimulusBody": "(Silakan merujuk pada teks bacaan 'The Legend of Roro Jonggrang and the Thousand Temples' di atas)",
+    "stimulusBody": "Once upon a time in ancient Java, there existed two neighboring kingdoms: Pengging and Boko. Pengging was fertile and prosperous, ruled by King Prabu Damar Moyo. His valiant son, Prince Bandung Bondowoso, possessed extraordinary physical strength and supernatural abilities. In contrast, the neighboring kingdom of Boko was governed by a cruel giant named King Boko. A fierce war erupted between the two kingdoms, ending when Bandung Bondowoso courageously defeated and killed King Boko in battle.<br><br>Entering Boko Palace as the victor, Bandung encountered Princess Roro Jonggrang, the late king's daughter. Enchanted by her grace and breathtaking beauty, the prince immediately offered her his hand in marriage. However, Roro Jonggrang harbored intense sorrow and resentment; she could never bring herself to willingly marry the conqueror who had ended her beloved father's life. Knowing that a direct refusal would provoke dangerous anger, she devised a clever plan. She promised to marry Bandung on one strict condition: he must construct one thousand sacred stone temples within a single night, completed before the dawn rooster crowed.<br><br>Confident in his mystical gifts, Bandung Bondowoso accepted the challenge. As darkness blanketed the earth, he mediated and summoned hundreds of earth spirits from the spirit realm. The spirits labored tirelessly at astonishing speed, gathering giant stones and carving ornate pillars. By three o'clock in the morning, nine hundred and ninety-nine magnificent temples stood proudly under the starlit sky, leaving only one final shrine unfinished.<br><br>Terrified that the prince would fulfill the impossible requirement, Roro Jonggrang swiftly gathered her palace maidens. She instructed them to burn piles of dry straw to the east to illuminate the sky with an orange glow, while others pounded rice mortars with heavy wooden pestles to simulate the lively sounds of a busy morning. Deceived by the dawn-like glow and the loud rhythmic pounding, village roosters began to crow repeatedly. Convinced that the morning sun was rising, the supernatural spirits panicked and fled back into the underground realm, abandoning the final temple. When Bandung discovered the deceit, he was filled with profound fury. Pointing his finger at Roro Jonggrang, he declared that she herself would become the one thousandth statue to complete the sacred complex. Instantly, the princess transformed into a graceful stone statue, known to this day as the statue of Durga Mahisasuramardini in Prambanan Temple.",
     "prompt": "The word 'valiant' in paragraph 1 ('His valiant son, Prince Bandung Bondowoso...') is closest in meaning to...",
     "options": [
       {
@@ -574,7 +573,7 @@ function getGrade11AsasQuestions() {
     "type": "single_choice",
     "title": "Reading Comprehension: Pronoun Reference",
     "stimulusTitle": "Text 1: The Legend of Roro Jonggrang and the Thousand Temples",
-    "stimulusBody": "(Silakan merujuk pada teks bacaan 'The Legend of Roro Jonggrang and the Thousand Temples' di atas)",
+    "stimulusBody": "Once upon a time in ancient Java, there existed two neighboring kingdoms: Pengging and Boko. Pengging was fertile and prosperous, ruled by King Prabu Damar Moyo. His valiant son, Prince Bandung Bondowoso, possessed extraordinary physical strength and supernatural abilities. In contrast, the neighboring kingdom of Boko was governed by a cruel giant named King Boko. A fierce war erupted between the two kingdoms, ending when Bandung Bondowoso courageously defeated and killed King Boko in battle.<br><br>Entering Boko Palace as the victor, Bandung encountered Princess Roro Jonggrang, the late king's daughter. Enchanted by her grace and breathtaking beauty, the prince immediately offered her his hand in marriage. However, Roro Jonggrang harbored intense sorrow and resentment; she could never bring herself to willingly marry the conqueror who had ended her beloved father's life. Knowing that a direct refusal would provoke dangerous anger, she devised a clever plan. She promised to marry Bandung on one strict condition: he must construct one thousand sacred stone temples within a single night, completed before the dawn rooster crowed.<br><br>Confident in his mystical gifts, Bandung Bondowoso accepted the challenge. As darkness blanketed the earth, he mediated and summoned hundreds of earth spirits from the spirit realm. The spirits labored tirelessly at astonishing speed, gathering giant stones and carving ornate pillars. By three o'clock in the morning, nine hundred and ninety-nine magnificent temples stood proudly under the starlit sky, leaving only one final shrine unfinished.<br><br>Terrified that the prince would fulfill the impossible requirement, Roro Jonggrang swiftly gathered her palace maidens. She instructed them to burn piles of dry straw to the east to illuminate the sky with an orange glow, while others pounded rice mortars with heavy wooden pestles to simulate the lively sounds of a busy morning. Deceived by the dawn-like glow and the loud rhythmic pounding, village roosters began to crow repeatedly. Convinced that the morning sun was rising, the supernatural spirits panicked and fled back into the underground realm, abandoning the final temple. When Bandung discovered the deceit, he was filled with profound fury. Pointing his finger at Roro Jonggrang, he declared that she herself would become the one thousandth statue to complete the sacred complex. Instantly, the princess transformed into a graceful stone statue, known to this day as the statue of Durga Mahisasuramardini in Prambanan Temple.",
     "prompt": "In paragraph 4, what does the pronoun 'them' refer to in the sentence: 'She instructed them to burn piles of dry straw...'?",
     "options": [
       {
@@ -602,25 +601,25 @@ function getGrade11AsasQuestions() {
     "id": 16,
     "source": "Sumber: Modul Pembelajaran Literasi Digital & Analisis Isu Sosial — BSKAP Kemendikbudristek",
     "type": "complex_matrix",
-    "title": "Pilihan Ganda Kompleks: Evaluasi Fakta Wacana Literasi Digital",
-    "stimulusTitle": "Evaluasi Argumen Kritis Teks Literasi Digital",
-    "stimulusBody": "Tentukan apakah setiap pernyataan berikut <strong>BENAR (TRUE)</strong> atau <strong>SALAH (FALSE)</strong> berdasarkan wacana eksposisi analitis tentang literasi digital:",
-    "prompt": "Berdasarkan teks wacana, tentukan kebenaran dari masing-masing pernyataan berikut:",
+    "title": "Complex Multiple Choice: Fact Evaluation of Critical Digital Literacy",
+    "stimulusTitle": "Text 2: Why Critical Digital Literacy Is an Essential Competence for Modern Teenagers",
+    "stimulusBody": "In the contemporary era of hyper-connected social networks, secondary students are continuously inundated with immense streams of digital information. While access to the internet offers unprecedented learning opportunities, it simultaneously exposes youths to pervasive misinformation, deceptive clickbait, and algorithmic echo chambers. Therefore, cultivating critical digital literacy is no longer merely an optional scholastic skill; it has become an indispensable life competence for modern teenagers.<br><br>First and foremost, critical digital literacy empowers adolescents to distinguish between factual evidence and fabricated falsehoods. Sensationalized headlines are deliberately engineered to trigger volatile emotional responses, enticing users to share misleading posts without prior verification. Digitally literate students possess the cognitive discipline to evaluate the authority of sources, cross-check claims against verified databases, and recognize commercial or political biases.<br><br>Furthermore, possessing mature digital awareness is paramount for safeguarding one's permanent digital footprint. Every comment, shared image, and forum reaction leaves persistent electronic traces that cannot be completely erased by hitting 'delete'. Admissions committees for prestigious universities and scholarship foundations now routinely scrutinize applicants' public profiles to evaluate personal integrity and constructive communication habits.<br><br>Finally, critical digital awareness shields adolescent mental wellbeing from algorithmic manipulation. Social media algorithms intentionally prioritize outrage-inducing content and idealized portrayals of peer lifestyle, which can foster profound social anxiety, body dissatisfaction, and depression among vulnerable youths. By understanding how algorithmic engagement metrics operate, students can consciously regulate their screen exposure and consume digital media intentionally rather than passively.<br><br>In conclusion, critical digital literacy is not simply about operating software applications; it is about cultivating intellectual autonomy, safeguarding ethical reputation, and protecting psychological health in an automated society. Secondary schools must systematically embed comprehensive digital literacy frameworks across all academic curricula.",
+    "prompt": "Based on the text on Critical Digital Literacy, determine whether each statement is **TRUE** or **FALSE**:",
     "matrixStatements": [
       {
-        "statement": "Literasi digital kritis hanya berkaitan dengan keterampilan teknis mengoperasikan komputer dan gawai pintar.",
+        "statement": "Critical digital literacy relates solely to the technical ability to operate computers and smartphone devices.",
         "isCorrect": false
       },
       {
-        "statement": "Judul berita yang sensasional sengaja dirancang untuk memancing emosi pembaca agar membagikan berita tanpa verifikasi.",
+        "statement": "Sensationalized headlines are intentionally engineered to trigger emotional reactions and encourage unverified sharing.",
         "isCorrect": true
       },
       {
-        "statement": "Jejak digital (digital footprint) seseorang dapat dihapus secara permanen dan total hanya dengan menekan tombol delete.",
-        "isCorrect": false
+        "statement": "University admissions committees and scholarship foundations routinely scrutinize applicants' digital footprints.",
+        "isCorrect": true
       },
       {
-        "statement": "Memahami cara kerja algoritma media sosial membantu remaja mengontrol waktu layar secara sadar dan mandiri.",
+        "statement": "Understanding algorithmic engagement metrics helps teenagers regulate their screen exposure and consume media intentionally.",
         "isCorrect": true
       }
     ],
@@ -631,26 +630,26 @@ function getGrade11AsasQuestions() {
     "id": 17,
     "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XI — SMAN 1 Bae Kudus",
     "type": "complex_matrix",
-    "title": "Pilihan Ganda Kompleks: Kata Hubung Sebab-Akibat (Cause and Effect)",
-    "stimulusTitle": "Kaidah Hubungan Kausalitas (Cause & Effect Connectors)",
-    "stimulusBody": "Perhatikan kaidah kata hubung penyebab: 'because of / due to / owing to' diikuti oleh Noun Phrase, sedangkan 'because / since / as' diikuti oleh Klausa (Subject + Verb).",
-    "prompt": "Tentukan apakah formulasi kalimat kausalitas berikut <strong>BENAR (TRUE)</strong> atau <strong>SALAH (FALSE)</strong>:",
+    "title": "Complex Multiple Choice: Analytical Exposition Language Features",
+    "stimulusTitle": "Genre Focus: Linguistic Features of Analytical Exposition Texts",
+    "stimulusBody": "Analyze the grammatical accuracy and language features of analytical exposition texts based on Text 2:",
+    "prompt": "Determine whether each grammatical statement below is **TRUE** or **FALSE** based on Text 2:",
     "matrixStatements": [
       {
-        "statement": "'Many teenagers experience social anxiety because of they spend ten hours daily on social media.'",
-        "isCorrect": false
-      },
-      {
-        "statement": "'Due to the widespread dissemination of false rumors, the local authorities issued an immediate public clarification.'",
+        "statement": "The conjunction 'Therefore' in paragraph 1 introduces the writer's central thesis statement.",
         "isCorrect": true
       },
       {
-        "statement": "'The research project succeeded because the students analyzed credible academic journals together.'",
+        "statement": "The phrase 'algorithmic echo chambers' uses noun adjuncts to specify a digital communication phenomenon.",
         "isCorrect": true
       },
       {
-        "statement": "'Owing to the internet was down, the class could not take the online literacy quiz.'",
+        "statement": "The sentence 'Students possess the cognitive discipline to evaluate sources' uses the Past Continuous Tense.",
         "isCorrect": false
+      },
+      {
+        "statement": "In the sentence 'Admissions committees routinely scrutinize applicants', 'scrutinize' means to examine very closely and critically.",
+        "isCorrect": true
       }
     ],
     "explanation": "1) SALAH ('because of' tidak boleh diikuti klausa lengkap 'they spend'). 2) BENAR ('Due to' diikuti Noun Phrase). 3) BENAR ('because' diikuti klausa lengkap). 4) SALAH ('Owing to' adalah preposisi yang tidak boleh langsung diikuti klausa 'the internet was down').",
@@ -660,25 +659,25 @@ function getGrade11AsasQuestions() {
     "id": 18,
     "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XI — SMAN 1 Bae Kudus",
     "type": "complex_matrix",
-    "title": "Pilihan Ganda Kompleks: Kalimat Pasif dalam Wacana Ilmiah",
-    "stimulusTitle": "Kaidah Kalimat Pasif (Passive Voice in Analytical Discourse)",
-    "stimulusBody": "Kalimat pasif dibentuk dengan pola: Subject + to be (sesuai tenses & subjek) + Past Participle (V3).",
-    "prompt": "Tentukan apakah bentuk kalimat pasif berikut <strong>BENAR (TRUE)</strong> atau <strong>SALAH (FALSE)</strong>:",
+    "title": "Complex Multiple Choice: Modals & Passive Voice Grammar",
+    "stimulusTitle": "Grammar Focus: Passive Voice and Modal Auxiliaries in Academic Writing",
+    "stimulusBody": "Evaluate the grammatical accuracy of the following modal and passive constructions:",
+    "prompt": "Determine whether each sentence formulation below is **TRUE** (grammatically sound) or **FALSE** (grammatically flawed):",
     "matrixStatements": [
       {
-        "statement": "Unverified claims should not be shared across online social networks without prior verification.",
+        "statement": "'Misleading information can be easily spread across social media networks' demonstrates accurate modal passive voice.",
         "isCorrect": true
       },
       {
-        "statement": "The digital literacy curriculum is being implement in secondary schools this semester.",
+        "statement": "'Sensational headlines was engineered by algorithms yesterday' correctly agrees in subject-verb number.",
         "isCorrect": false
       },
       {
-        "statement": "Crucial study data were collected through an extensive anonymous student questionnaire.",
+        "statement": "'Digital footprints cannot be completely erased simply by hitting delete' is grammatically correct.",
         "isCorrect": true
       },
       {
-        "statement": "Misinformation can easily spreaded if internet users ignore fact-checking tools.",
+        "statement": "'Students should verified every online claim before believing it' correctly uses the modal verb 'should'.",
         "isCorrect": false
       }
     ],
@@ -689,26 +688,26 @@ function getGrade11AsasQuestions() {
     "id": 19,
     "source": "Sumber: Analisis Isu Kesehatan Remaja & Pola Hidup Sehat — Kemenkes RI",
     "type": "complex_matrix",
-    "title": "Pilihan Ganda Kompleks: Evaluasi Fakta Gaya Hidup Sehat",
-    "stimulusTitle": "Evaluasi Argumen: Manfaat Aktivitas Fisik bagi Remaja",
-    "stimulusBody": "Tentukan apakah pernyataan berikut <strong>BENAR (TRUE)</strong> atau <strong>SALAH (FALSE)</strong> berdasarkan prinsip ilmiah kesehatan remaja:",
-    "prompt": "Tentukan nilai kebenaran dari masing-masing pernyataan berikut:",
+    "title": "Complex Multiple Choice: Adolescent Lifestyle & Cognitive Focus",
+    "stimulusTitle": "Health Focus: The Science of Adolescent Sleep and Brain Function",
+    "stimulusBody": "Medical and educational research highlights the direct correlation between adolescent lifestyle habits, sleep quality, and academic performance:",
+    "prompt": "Determine whether each statement regarding adolescent health habits and focus is **TRUE** or **FALSE**:",
     "matrixStatements": [
       {
-        "statement": "Olahraga teratur meningkatkan aliran darah dan oksigen ke otak sehingga mempertajam memori dan fokus belajar.",
+        "statement": "Regular physical exercise increases blood circulation and oxygen supply to the brain, enhancing cognitive focus.",
         "isCorrect": true
       },
       {
-        "statement": "Tidur malam selama kurang dari empat jam terbukti meningkatkan nilai akademik siswa secara permanen.",
+        "statement": "Sleeping fewer than five hours nightly consistently boosts academic performance and long-term memory retention.",
         "isCorrect": false
       },
       {
-        "statement": "Aktivitas fisik memicu pelepasan hormon endorfin yang secara alami meredakan stres dan kecemasan mental.",
+        "statement": "Excessive late-night screen time disrupts natural circadian rhythms due to blue light emissions from devices.",
         "isCorrect": true
       },
       {
-        "statement": "Mengonsumsi makanan cepat saji kaya gula secara terus-menerus disarankan sebelum mengikuti ujian penting.",
-        "isCorrect": false
+        "statement": "A balanced nutritious diet rich in whole foods supports sustained mental energy during rigorous school examination weeks.",
+        "isCorrect": true
       }
     ],
     "explanation": "1) BENAR (olahraga meningkatkan oksigen ke otak dan memori). 2) SALAH (kurang tidur justru menurunkan daya konsentrasi). 3) BENAR (endorfin meredakan stres dan memperbaiki mood). 4) SALAH (makanan manis berlebih menyebabkan lonjakan gula darah dan kantuk).",
@@ -718,25 +717,25 @@ function getGrade11AsasQuestions() {
     "id": 20,
     "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XI — SMAN 1 Bae Kudus",
     "type": "complex_matrix",
-    "title": "Pilihan Ganda Kompleks: Kalimat Pengandaian Tipe 2 (Conditional Type 2)",
-    "stimulusTitle": "Kaidah Pengandaian Tipe 2 (Unreal Present Conditionals)",
-    "stimulusBody": "Conditional Type 2 digunakan untuk mengandaikan hal yang tidak nyata saat ini: If + Simple Past (were untuk semua subjek), Subject + would/could + V1.",
-    "prompt": "Tentukan apakah susunan kalimat pengandaian Type 2 berikut <strong>BENAR (TRUE)</strong> atau <strong>SALAH (FALSE)</strong>:",
+    "title": "Complex Multiple Choice: Cause and Effect Conjunctions",
+    "stimulusTitle": "Grammar Focus: Cause and Effect Connectors (Because, Because of, Due to, As a consequence)",
+    "stimulusBody": "Analyze the syntax and prepositional rules governing causal connectors:",
+    "prompt": "Determine whether each causal connector sentence below is **TRUE** (grammatically correct) or **FALSE** (grammatically flawed):",
     "matrixStatements": [
       {
-        "statement": "If students balanced their screen time with physical activity, they would feel more energized throughout the day.",
-        "isCorrect": true
-      },
-      {
-        "statement": "If I was the school principal, I will install solar panels on every classroom building.",
+        "statement": "'Due to social media algorithms prioritize sensational posts, many users share hoaxes' correctly uses 'due to'.",
         "isCorrect": false
       },
       {
-        "statement": "If teenagers verified online rumors before sharing, misinformation would decrease significantly.",
+        "statement": "'Because of persistent blue light emissions, teenagers often experience delayed sleep onset' is grammatically accurate.",
         "isCorrect": true
       },
       {
-        "statement": "If they study harder yesterday, they would have passed the scholarship selection.",
+        "statement": "'As a consequence of rigorous daily training, the athlete secured a gold medal for her school' correctly expresses result.",
+        "isCorrect": true
+      },
+      {
+        "statement": "'He failed the exam owing to he did not study the course materials' is standard formal English.",
         "isCorrect": false
       }
     ],
@@ -747,26 +746,26 @@ function getGrade11AsasQuestions() {
     "id": 21,
     "source": "Sumber: Modul Pembelajaran Teks Eksposisi Analitis — BSKAP Kemendikbudristek",
     "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-    "stimulusTitle": "Argumen Pentingnya Literasi Digital Kritis",
-    "stimulusBody": "Penulis teks eksposisi analitis menyajikan berbagai alasan mengapa remaja masa kini harus menguasai literasi digital kritis.",
-    "prompt": "Manakah <strong>DUA (2)</strong> argumen utama yang mendukung tesis penulis dalam teks?",
+    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+    "stimulusTitle": "Text 2: Why Critical Digital Literacy Is an Essential Competence for Modern Teenagers",
+    "stimulusBody": "In the contemporary era of hyper-connected social networks, secondary students are continuously inundated with immense streams of digital information. While access to the internet offers unprecedented learning opportunities, it simultaneously exposes youths to pervasive misinformation, deceptive clickbait, and algorithmic echo chambers. Therefore, cultivating critical digital literacy is no longer merely an optional scholastic skill; it has become an indispensable life competence for modern teenagers.<br><br>First and foremost, critical digital literacy empowers adolescents to distinguish between factual evidence and fabricated falsehoods. Sensationalized headlines are deliberately engineered to trigger volatile emotional responses, enticing users to share misleading posts without prior verification. Digitally literate students possess the cognitive discipline to evaluate the authority of sources, cross-check claims against verified databases, and recognize commercial or political biases.<br><br>Furthermore, possessing mature digital awareness is paramount for safeguarding one's permanent digital footprint. Every comment, shared image, and forum reaction leaves persistent electronic traces that cannot be completely erased by hitting 'delete'. Admissions committees for prestigious universities and scholarship foundations now routinely scrutinize applicants' public profiles to evaluate personal integrity and constructive communication habits.<br><br>Finally, critical digital awareness shields adolescent mental wellbeing from algorithmic manipulation. Social media algorithms intentionally prioritize outrage-inducing content and idealized portrayals of peer lifestyle, which can foster profound social anxiety, body dissatisfaction, and depression among vulnerable youths. By understanding how algorithmic engagement metrics operate, students can consciously regulate their screen exposure and consume digital media intentionally rather than passively.<br><br>In conclusion, critical digital literacy is not simply about operating software applications; it is about cultivating intellectual autonomy, safeguarding ethical reputation, and protecting psychological health in an automated society. Secondary schools must systematically embed comprehensive digital literacy frameworks across all academic curricula.",
+    "prompt": "Which **TWO (2)** statements correctly represent the core benefits of critical digital literacy according to the text?",
     "options": [
       {
         "key": "A",
-        "text": "Literasi digital kritis melatih remaja menyaring kebenaran berita dan melindungi diri dari manipulasi informasi hoaks."
+        "text": "It trains adolescents to filter online information and protects them from deceptive clickbait and algorithmic manipulation."
       },
       {
         "key": "B",
-        "text": "Menguasai media sosial menjamin setiap siswa akan langsung diterima bekerja di perusahaan multinasional."
+        "text": "It guarantees that software developers will automatically delete negative public comments after twenty-four hours."
       },
       {
         "key": "C",
-        "text": "Kesadaran digital melindungi reputasi jangka panjang siswa serta menjaga kesehatan mental dari kecemasan berlebih."
+        "text": "It fosters intellectual autonomy and helps students maintain a constructive, responsible digital footprint."
       },
       {
         "key": "D",
-        "text": "Remaja harus membeli tiga perangkat laptop baru setiap tahun untuk mengikuti perkembangan teknologi."
+        "text": "It allows students to browse social media during all school lectures without paying attention to teachers."
       }
     ],
     "correctAnswer": [
@@ -780,31 +779,31 @@ function getGrade11AsasQuestions() {
     "id": 22,
     "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XI — SMAN 1 Bae Kudus",
     "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-    "stimulusTitle": "Konektor Kausalitas (Cause & Effect) yang Tepat",
-    "stimulusBody": "Pilihlah kalimat yang menggunakan kata penghubung sebab-akibat secara tepat dan gramatikal.",
-    "prompt": "Manakah <strong>DUA (2)</strong> kalimat di bawah ini yang menggunakan konjungsi kausalitas dengan benar?",
+    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+    "stimulusTitle": "Literary Focus: Moral Reflection in Javanese Narrative Folklore (Roro Jonggrang)",
+    "stimulusBody": "Once upon a time in ancient Java, there existed two neighboring kingdoms: Pengging and Boko. Pengging was fertile and prosperous, ruled by King Prabu Damar Moyo. His valiant son, Prince Bandung Bondowoso, possessed extraordinary physical strength and supernatural abilities. In contrast, the neighboring kingdom of Boko was governed by a cruel giant named King Boko. A fierce war erupted between the two kingdoms, ending when Bandung Bondowoso courageously defeated and killed King Boko in battle.<br><br>Entering Boko Palace as the victor, Bandung encountered Princess Roro Jonggrang, the late king's daughter. Enchanted by her grace and breathtaking beauty, the prince immediately offered her his hand in marriage. However, Roro Jonggrang harbored intense sorrow and resentment; she could never bring herself to willingly marry the conqueror who had ended her beloved father's life. Knowing that a direct refusal would provoke dangerous anger, she devised a clever plan. She promised to marry Bandung on one strict condition: he must construct one thousand sacred stone temples within a single night, completed before the dawn rooster crowed.<br><br>Confident in his mystical gifts, Bandung Bondowoso accepted the challenge. As darkness blanketed the earth, he mediated and summoned hundreds of earth spirits from the spirit realm. The spirits labored tirelessly at astonishing speed, gathering giant stones and carving ornate pillars. By three o'clock in the morning, nine hundred and ninety-nine magnificent temples stood proudly under the starlit sky, leaving only one final shrine unfinished.<br><br>Terrified that the prince would fulfill the impossible requirement, Roro Jonggrang swiftly gathered her palace maidens. She instructed them to burn piles of dry straw to the east to illuminate the sky with an orange glow, while others pounded rice mortars with heavy wooden pestles to simulate the lively sounds of a busy morning. Deceived by the dawn-like glow and the loud rhythmic pounding, village roosters began to crow repeatedly. Convinced that the morning sun was rising, the supernatural spirits panicked and fled back into the underground realm, abandoning the final temple. When Bandung discovered the deceit, he was filled with profound fury. Pointing his finger at Roro Jonggrang, he declared that she herself would become the one thousandth statue to complete the sacred complex. Instantly, the princess transformed into a graceful stone statue, known to this day as the statue of Durga Mahisasuramardini in Prambanan Temple.",
+    "prompt": "Which **TWO (2)** moral values or character insights can be deduced from the legend of Roro Jonggrang?",
     "options": [
       {
         "key": "A",
-        "text": "The school cancelled the outdoor sports event because heavy storm."
+        "text": "Arrogance and deceitful shortcuts ultimately lead to tragic consequences and bitter regret."
       },
       {
         "key": "B",
-        "text": "Owing to diligent practice and strategic teamwork, our debate club won first place in the provincial tournament."
+        "text": "Physical power and magical commands are the only admirable virtues in human relationships."
       },
       {
         "key": "C",
-        "text": "Consequently the student forgot his homework, the teacher asked him to write a summary."
+        "text": "Honesty, mutual respect, and humility are foundational virtues in traditional cultural heritage."
       },
       {
         "key": "D",
-        "text": "The students achieved outstanding test scores because they reviewed their study notes consistently."
+        "text": "Breaking solemn promises is considered an honorable path to victory in ancient folklore."
       }
     ],
     "correctAnswer": [
-      "B",
-      "D"
+      "A",
+      "C"
     ],
     "explanation": "Kalimat B ('Owing to + Noun Phrase') dan kalimat D ('because + Clause') menggunakan konjungsi kausalitas secara tepat. Kalimat A salah (karena 'because' harus diikuti klausa, bukan 'heavy storm'), dan kalimat C salah penempatan 'consequently' sebagai konjungsi antarklausa.",
     "grammarNote": "Grammatical Accuracy of Cause and Effect Linkers."
@@ -813,31 +812,31 @@ function getGrade11AsasQuestions() {
     "id": 23,
     "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XI — SMAN 1 Bae Kudus",
     "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-    "stimulusTitle": "Konjungsi Pertentangan (Contrast Connectors)",
-    "stimulusBody": "Konektor pertentangan (seperti However, On the other hand, Whereas) digunakan untuk menghubungkan dua gagasan yang kontras.",
-    "prompt": "Manakah <strong>DUA (2)</strong> kalimat di bawah ini yang menerapkan kata transisi pertentangan dengan benar?",
+    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+    "stimulusTitle": "Grammar Focus: Connectors of Concession and Contrast (Although, Despite, In spite of)",
+    "stimulusBody": "Review the proper grammatical usage of subordinating conjunctions and prepositional phrases that indicate concession:",
+    "prompt": "Which **TWO (2)** sentences correctly demonstrate concession connectors to express contrast between ideas?",
     "options": [
       {
         "key": "A",
-        "text": "Online learning offers great flexibility; however, it requires strong self-discipline from students to succeed."
+        "text": "Although social media offers vast educational resources, it also presents significant risks of misinformation."
       },
       {
         "key": "B",
-        "text": "Although the rain was pouring heavily, but the soccer match continued."
+        "text": "Despite the news looked very genuine, but Farhan did not forward it to the class group."
       },
       {
         "key": "C",
-        "text": "In spite of she was very tired, she finished her science assignment."
+        "text": "In spite of facing severe academic pressure, she maintained disciplined study and sleep habits."
       },
       {
         "key": "D",
-        "text": "Social media allows instant global communication; nevertheless, unverified news can spread rapidly through feeds."
+        "text": "However she studied all night, because she felt exhausted during the morning exam."
       }
     ],
     "correctAnswer": [
       "A",
-      "D"
+      "C"
     ],
     "explanation": "Kalimat A ('however') dan kalimat D ('nevertheless') menggunakan konjungsi transisi pertentangan dengan tanda baca dan makna yang tepat. Kalimat B salah (tidak boleh menggabungkan 'Although' dengan 'but'), dan kalimat C salah ('in spite of' tidak boleh langsung diikuti klausa 'she was').",
     "grammarNote": "Transitions of Contrast: however, nevertheless, on the contrary."
@@ -846,30 +845,30 @@ function getGrade11AsasQuestions() {
     "id": 24,
     "source": "Sumber: Panduan Kesehatan Fisik & Mental Pelajar — Kemenkes RI",
     "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-    "stimulusTitle": "Penerapan Kebiasaan Gaya Hidup Sehat bagi Pelajar",
-    "stimulusBody": "Menerapkan gaya hidup seimbang sangat penting bagi ketahanan fisik dan konsentrasi belajar siswa.",
-    "prompt": "Manakah <strong>DUA (2)</strong> rekomendasi praktis yang paling efektif untuk menjaga kesehatan fisik dan konsentrasi belajar remaja?",
+    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+    "stimulusTitle": "Practical Study Habits: Optimizing Adolescent Cognitive Health",
+    "stimulusBody": "Health and educational specialists recommend evidence-based study and lifestyle habits for optimal high school performance:",
+    "prompt": "Which **TWO (2)** habits reflect responsible time management and optimal cognitive health for high school students?",
     "options": [
       {
         "key": "A",
-        "text": "Menghabiskan waktu hingga larut malam bermain game online agar merasa terhibur sebelum ujian."
+        "text": "Maintaining a consistent nightly sleep schedule of 7 to 8 hours to consolidate newly learned information."
       },
       {
         "key": "B",
-        "text": "Menyediakan waktu tidur teratur antara 7 hingga 8 jam setiap malam untuk memulihkan fungsi kognitif otak."
+        "text": "Staying awake until 3 AM every night playing multiplayer online games before examination morning."
       },
       {
         "key": "C",
-        "text": "Melakukan aktivitas fisik aerobik ringan atau olahraga teratur minimal 30 menit setiap hari."
+        "text": "Scheduling twenty minutes of brisk morning physical exercise and staying well-hydrated throughout the day."
       },
       {
         "key": "D",
-        "text": "Mengganti seluruh konsumsi air putih dengan minuman berenergi berkadar kafein tinggi."
+        "text": "Consuming excessive sugary energy drinks while completely skipping nutritious meals during exam week."
       }
     ],
     "correctAnswer": [
-      "B",
+      "A",
       "C"
     ],
     "explanation": "Rekomendasi gaya hidup sehat yang efektif dan ilmiah adalah (B) menjaga waktu tidur berkualitas 7-8 jam per malam, serta (C) melakukan aktivitas fisik/olahraga teratur minimal 30 menit sehari.",
@@ -879,31 +878,31 @@ function getGrade11AsasQuestions() {
     "id": 25,
     "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XI — SMAN 1 Bae Kudus",
     "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-    "stimulusTitle": "Kalimat Pasif Akademis (Academic Passive Sentences)",
-    "stimulusBody": "Dalam penulisan ilmiah dan analitis, kalimat pasif digunakan untuk memfokuskan perhatian pada proses atau hasil tindakan.",
-    "prompt": "Manakah <strong>DUA (2)</strong> kalimat pasif di bawah ini yang disusun secara gramatikal dan baku?",
+    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+    "stimulusTitle": "Academic Lexis: Oxford 3000 Vocabulary for 'Verify' and 'Evaluate'",
+    "stimulusBody": "Precision in understanding core academic English verbs is critical for analytical literacy:",
+    "prompt": "Which **TWO (2)** statements correctly define academic vocabulary forms from the text?",
     "options": [
       {
         "key": "A",
-        "text": "Comprehensive guidelines on digital ethics have been introduced by the school committee."
+        "text": "'Verify' (verb) means to prove or confirm the truth, accuracy, or reality of a statement or report."
       },
       {
         "key": "B",
-        "text": "Important safety warnings were announced by the principal during the morning assembly."
+        "text": "'Verifiable' (adjective) describes a claim that cannot be proven by any factual evidence."
       },
       {
         "key": "C",
-        "text": "The scientific experiment was did by the biology students in the laboratory yesterday."
+        "text": "'Evaluation' (noun) denotes the systematic assessment of the value, authority, or credibility of an information source."
       },
       {
         "key": "D",
-        "text": "Valuable research articles is published in international journals every semester."
+        "text": "'Manipulate' (verb) means to tell the truth openly and sincerely to all audiences."
       }
     ],
     "correctAnswer": [
       "A",
-      "B"
+      "C"
     ],
     "explanation": "Kalimat A ('have been introduced' - Present Perfect Passive) dan B ('were announced' - Past Simple Passive) tersusun sempurna. Kalimat C salah ('was did' harusnya 'was DONE'), dan kalimat D salah ('articles is' harusnya 'articles ARE published').",
     "grammarNote": "Passive Voice Subject-Verb Agreement and Irregular Past Participle Mastery."
@@ -913,8 +912,8 @@ function getGrade11AsasQuestions() {
     "source": "Sumber: Diadaptasi dari Laporan Kajian Literasi Digital Remaja Indonesia — Pusdatin Kemendikbudristek & UNESCO Youth Digital Media Literacy",
     "type": "single_choice",
     "title": "Reading Comprehension: Cause and Effect Inference",
-    "stimulusTitle": "Text 2: Why Critical Digital Literacy Is Essential for Modern Teenagers",
-    "stimulusBody": "(Silakan merujuk pada teks bacaan 'Why Critical Digital Literacy Is Essential for Modern Teenagers' di atas)",
+    "stimulusTitle": "Text 2: Why Critical Digital Literacy Is an Essential Competence for Modern Teenagers",
+    "stimulusBody": "In the contemporary era of hyper-connected social networks, secondary students are continuously inundated with immense streams of digital information. While access to the internet offers unprecedented learning opportunities, it simultaneously exposes youths to pervasive misinformation, deceptive clickbait, and algorithmic echo chambers. Therefore, cultivating critical digital literacy is no longer merely an optional scholastic skill; it has become an indispensable life competence for modern teenagers.<br><br>First and foremost, critical digital literacy empowers adolescents to distinguish between factual evidence and fabricated falsehoods. Sensationalized headlines are deliberately engineered to trigger volatile emotional responses, enticing users to share misleading posts without prior verification. Digitally literate students possess the cognitive discipline to evaluate the authority of sources, cross-check claims against verified databases, and recognize commercial or political biases.<br><br>Furthermore, possessing mature digital awareness is paramount for safeguarding one's permanent digital footprint. Every comment, shared image, and forum reaction leaves persistent electronic traces that cannot be completely erased by hitting 'delete'. Admissions committees for prestigious universities and scholarship foundations now routinely scrutinize applicants' public profiles to evaluate personal integrity and constructive communication habits.<br><br>Finally, critical digital awareness shields adolescent mental wellbeing from algorithmic manipulation. Social media algorithms intentionally prioritize outrage-inducing content and idealized portrayals of peer lifestyle, which can foster profound social anxiety, body dissatisfaction, and depression among vulnerable youths. By understanding how algorithmic engagement metrics operate, students can consciously regulate their screen exposure and consume digital media intentionally rather than passively.<br><br>In conclusion, critical digital literacy is not simply about operating software applications; it is about cultivating intellectual autonomy, safeguarding ethical reputation, and protecting psychological health in an automated society. Secondary schools must systematically embed comprehensive digital literacy frameworks across all academic curricula.",
     "prompt": "Based on paragraph 4, what is one major direct cause of late-night sleep disruption among adolescents?",
     "options": [
       {
@@ -943,8 +942,8 @@ function getGrade11AsasQuestions() {
     "source": "Sumber: Diadaptasi dari Laporan Kajian Literasi Digital Remaja Indonesia — Pusdatin Kemendikbudristek & UNESCO Youth Digital Media Literacy",
     "type": "single_choice",
     "title": "Reading Comprehension: Author's Stance and Tone",
-    "stimulusTitle": "Text 2: Why Critical Digital Literacy Is Essential for Modern Teenagers",
-    "stimulusBody": "(Silakan merujuk pada teks bacaan 'Why Critical Digital Literacy Is Essential for Modern Teenagers' di atas)",
+    "stimulusTitle": "Text 2: Why Critical Digital Literacy Is an Essential Competence for Modern Teenagers",
+    "stimulusBody": "In the contemporary era of hyper-connected social networks, secondary students are continuously inundated with immense streams of digital information. While access to the internet offers unprecedented learning opportunities, it simultaneously exposes youths to pervasive misinformation, deceptive clickbait, and algorithmic echo chambers. Therefore, cultivating critical digital literacy is no longer merely an optional scholastic skill; it has become an indispensable life competence for modern teenagers.<br><br>First and foremost, critical digital literacy empowers adolescents to distinguish between factual evidence and fabricated falsehoods. Sensationalized headlines are deliberately engineered to trigger volatile emotional responses, enticing users to share misleading posts without prior verification. Digitally literate students possess the cognitive discipline to evaluate the authority of sources, cross-check claims against verified databases, and recognize commercial or political biases.<br><br>Furthermore, possessing mature digital awareness is paramount for safeguarding one's permanent digital footprint. Every comment, shared image, and forum reaction leaves persistent electronic traces that cannot be completely erased by hitting 'delete'. Admissions committees for prestigious universities and scholarship foundations now routinely scrutinize applicants' public profiles to evaluate personal integrity and constructive communication habits.<br><br>Finally, critical digital awareness shields adolescent mental wellbeing from algorithmic manipulation. Social media algorithms intentionally prioritize outrage-inducing content and idealized portrayals of peer lifestyle, which can foster profound social anxiety, body dissatisfaction, and depression among vulnerable youths. By understanding how algorithmic engagement metrics operate, students can consciously regulate their screen exposure and consume digital media intentionally rather than passively.<br><br>In conclusion, critical digital literacy is not simply about operating software applications; it is about cultivating intellectual autonomy, safeguarding ethical reputation, and protecting psychological health in an automated society. Secondary schools must systematically embed comprehensive digital literacy frameworks across all academic curricula.",
     "prompt": "Which adjective best describes the author's tone throughout the entire text?",
     "options": [
       {
@@ -973,8 +972,8 @@ function getGrade11AsasQuestions() {
     "source": "Sumber: Diadaptasi dari Laporan Kajian Literasi Digital Remaja Indonesia — Pusdatin Kemendikbudristek & UNESCO Youth Digital Media Literacy",
     "type": "single_choice",
     "title": "Reading Comprehension: Sentence Function",
-    "stimulusTitle": "Text 2: Why Critical Digital Literacy Is Essential for Modern Teenagers",
-    "stimulusBody": "(Silakan merujuk pada teks bacaan 'Why Critical Digital Literacy Is Essential for Modern Teenagers' di atas)",
+    "stimulusTitle": "Text 2: Why Critical Digital Literacy Is an Essential Competence for Modern Teenagers",
+    "stimulusBody": "In the contemporary era of hyper-connected social networks, secondary students are continuously inundated with immense streams of digital information. While access to the internet offers unprecedented learning opportunities, it simultaneously exposes youths to pervasive misinformation, deceptive clickbait, and algorithmic echo chambers. Therefore, cultivating critical digital literacy is no longer merely an optional scholastic skill; it has become an indispensable life competence for modern teenagers.<br><br>First and foremost, critical digital literacy empowers adolescents to distinguish between factual evidence and fabricated falsehoods. Sensationalized headlines are deliberately engineered to trigger volatile emotional responses, enticing users to share misleading posts without prior verification. Digitally literate students possess the cognitive discipline to evaluate the authority of sources, cross-check claims against verified databases, and recognize commercial or political biases.<br><br>Furthermore, possessing mature digital awareness is paramount for safeguarding one's permanent digital footprint. Every comment, shared image, and forum reaction leaves persistent electronic traces that cannot be completely erased by hitting 'delete'. Admissions committees for prestigious universities and scholarship foundations now routinely scrutinize applicants' public profiles to evaluate personal integrity and constructive communication habits.<br><br>Finally, critical digital awareness shields adolescent mental wellbeing from algorithmic manipulation. Social media algorithms intentionally prioritize outrage-inducing content and idealized portrayals of peer lifestyle, which can foster profound social anxiety, body dissatisfaction, and depression among vulnerable youths. By understanding how algorithmic engagement metrics operate, students can consciously regulate their screen exposure and consume digital media intentionally rather than passively.<br><br>In conclusion, critical digital literacy is not simply about operating software applications; it is about cultivating intellectual autonomy, safeguarding ethical reputation, and protecting psychological health in an automated society. Secondary schools must systematically embed comprehensive digital literacy frameworks across all academic curricula.",
     "prompt": "In the overall structure of analytical exposition, what role does paragraph 5 play?",
     "options": [
       {
@@ -1003,8 +1002,8 @@ function getGrade11AsasQuestions() {
     "source": "Sumber: Diadaptasi dari Laporan Kajian Literasi Digital Remaja Indonesia — Pusdatin Kemendikbudristek & UNESCO Youth Digital Media Literacy",
     "type": "single_choice",
     "title": "Reading Comprehension: Paraphrasing",
-    "stimulusTitle": "Text 2: Why Critical Digital Literacy Is Essential for Modern Teenagers",
-    "stimulusBody": "(Silakan merujuk pada teks bacaan 'Why Critical Digital Literacy Is Essential for Modern Teenagers' di atas)",
+    "stimulusTitle": "Text 2: Why Critical Digital Literacy Is an Essential Competence for Modern Teenagers",
+    "stimulusBody": "In the contemporary era of hyper-connected social networks, secondary students are continuously inundated with immense streams of digital information. While access to the internet offers unprecedented learning opportunities, it simultaneously exposes youths to pervasive misinformation, deceptive clickbait, and algorithmic echo chambers. Therefore, cultivating critical digital literacy is no longer merely an optional scholastic skill; it has become an indispensable life competence for modern teenagers.<br><br>First and foremost, critical digital literacy empowers adolescents to distinguish between factual evidence and fabricated falsehoods. Sensationalized headlines are deliberately engineered to trigger volatile emotional responses, enticing users to share misleading posts without prior verification. Digitally literate students possess the cognitive discipline to evaluate the authority of sources, cross-check claims against verified databases, and recognize commercial or political biases.<br><br>Furthermore, possessing mature digital awareness is paramount for safeguarding one's permanent digital footprint. Every comment, shared image, and forum reaction leaves persistent electronic traces that cannot be completely erased by hitting 'delete'. Admissions committees for prestigious universities and scholarship foundations now routinely scrutinize applicants' public profiles to evaluate personal integrity and constructive communication habits.<br><br>Finally, critical digital awareness shields adolescent mental wellbeing from algorithmic manipulation. Social media algorithms intentionally prioritize outrage-inducing content and idealized portrayals of peer lifestyle, which can foster profound social anxiety, body dissatisfaction, and depression among vulnerable youths. By understanding how algorithmic engagement metrics operate, students can consciously regulate their screen exposure and consume digital media intentionally rather than passively.<br><br>In conclusion, critical digital literacy is not simply about operating software applications; it is about cultivating intellectual autonomy, safeguarding ethical reputation, and protecting psychological health in an automated society. Secondary schools must systematically embed comprehensive digital literacy frameworks across all academic curricula.",
     "prompt": "Which of the following statements best restates the thesis of the passage in different words?",
     "options": [
       {
@@ -1033,8 +1032,8 @@ function getGrade11AsasQuestions() {
     "source": "Sumber: Diadaptasi dari Laporan Kajian Literasi Digital Remaja Indonesia — Pusdatin Kemendikbudristek & UNESCO Youth Digital Media Literacy",
     "type": "single_choice",
     "title": "Reading Comprehension: Practical Application",
-    "stimulusTitle": "Text 2: Why Critical Digital Literacy Is Essential for Modern Teenagers",
-    "stimulusBody": "(Silakan merujuk pada teks bacaan 'Why Critical Digital Literacy Is Essential for Modern Teenagers' di atas)",
+    "stimulusTitle": "Text 2: Why Critical Digital Literacy Is an Essential Competence for Modern Teenagers",
+    "stimulusBody": "In the contemporary era of hyper-connected social networks, secondary students are continuously inundated with immense streams of digital information. While access to the internet offers unprecedented learning opportunities, it simultaneously exposes youths to pervasive misinformation, deceptive clickbait, and algorithmic echo chambers. Therefore, cultivating critical digital literacy is no longer merely an optional scholastic skill; it has become an indispensable life competence for modern teenagers.<br><br>First and foremost, critical digital literacy empowers adolescents to distinguish between factual evidence and fabricated falsehoods. Sensationalized headlines are deliberately engineered to trigger volatile emotional responses, enticing users to share misleading posts without prior verification. Digitally literate students possess the cognitive discipline to evaluate the authority of sources, cross-check claims against verified databases, and recognize commercial or political biases.<br><br>Furthermore, possessing mature digital awareness is paramount for safeguarding one's permanent digital footprint. Every comment, shared image, and forum reaction leaves persistent electronic traces that cannot be completely erased by hitting 'delete'. Admissions committees for prestigious universities and scholarship foundations now routinely scrutinize applicants' public profiles to evaluate personal integrity and constructive communication habits.<br><br>Finally, critical digital awareness shields adolescent mental wellbeing from algorithmic manipulation. Social media algorithms intentionally prioritize outrage-inducing content and idealized portrayals of peer lifestyle, which can foster profound social anxiety, body dissatisfaction, and depression among vulnerable youths. By understanding how algorithmic engagement metrics operate, students can consciously regulate their screen exposure and consume digital media intentionally rather than passively.<br><br>In conclusion, critical digital literacy is not simply about operating software applications; it is about cultivating intellectual autonomy, safeguarding ethical reputation, and protecting psychological health in an automated society. Secondary schools must systematically embed comprehensive digital literacy frameworks across all academic curricula.",
     "prompt": "Which actionable habit exemplifies mindful digital usage as recommended in paragraph 4?",
     "options": [
       {
@@ -1594,7 +1593,7 @@ function renderQuestion(index) {
     if (srcEl) {
       if (q.source) {
         srcEl.style.display = "block";
-        srcEl.innerHTML = `📌 <strong>${q.source}</strong>`;
+        srcEl.innerHTML = `<span style="font-size:0.75rem; color:#64748b; font-style:italic;">Source: ${q.source}</span>`;
       } else {
         srcEl.style.display = "none";
       }
@@ -1604,13 +1603,7 @@ function renderQuestion(index) {
   }
 
   const promptBox = document.getElementById("question-prompt-text");
-  let srcBadge = "";
-  if (q.source) {
-    srcBadge = `<div class="source-citation" style="margin-top: 10px; font-size: 0.8rem; color: #475569; background: #f8fafc; border-left: 3.5px solid var(--accent-teal); padding: 6px 12px; border-radius: 4px; font-style: italic;">
-      📌 <strong>${q.source}</strong>
-    </div>`;
-  }
-  promptBox.innerHTML = q.prompt + srcBadge;
+  promptBox.innerHTML = q.prompt;
 
   const optContainer = document.getElementById("options-container");
   optContainer.innerHTML = "";
@@ -2040,15 +2033,13 @@ function submitTest() {
   renderQuestion(currentQuestionIndex);
 }
 
+let isSyncingScore = false;
 function syncScoreToGoogleSheets(payload) {
+  if (isSyncingScore) return;
+  isSyncingScore = true;
   const statusEl = document.getElementById("cloud-status-text");
   if (statusEl) statusEl.textContent = "Menyinkronkan nilai ke server sekolah...";
   const webAppUrl = localStorage.getItem("sabaku_gs_url") || DEFAULT_GS_URL;
-  try {
-    if (navigator.sendBeacon) {
-      navigator.sendBeacon(webAppUrl, new Blob([JSON.stringify(payload)], { type: "text/plain;charset=utf-8" }));
-    }
-  } catch (e) {}
   fetch(webAppUrl, {
     method: "POST",
     mode: "no-cors",
@@ -2058,19 +2049,9 @@ function syncScoreToGoogleSheets(payload) {
     if (statusEl) statusEl.innerHTML = "✅ Nilai Anda telah berhasil tercatat di server rekapitulasi sekolah.";
   }).catch(err => {
     try {
-      const beacon = new Image();
-      const query = new URLSearchParams({
-        action: "submit",
-        tingkat: payload.tingkat || "",
-        rombel: payload.rombel || "",
-        presensi: payload.presensi || "",
-        nama: payload.nama || "",
-        grade: payload.grade || 0,
-        score: payload.score || 0,
-        duration: payload.duration || "",
-        mode: payload.mode || ""
-      }).toString();
-      beacon.src = `${webAppUrl}?${query}`;
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon(webAppUrl, new Blob([JSON.stringify(payload)], { type: "text/plain;charset=utf-8" }));
+      }
     } catch (bErr) {}
     if (statusEl) statusEl.innerHTML = "💾 Nilai Anda telah tersimpan dengan aman di sistem sekolah.";
   });
