@@ -9,10 +9,20 @@
 const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbz1dnapNS6sFak-BlG-xxaFhGR9f0BhGYKyyddEvmIEOTxPrlARC2tHkeLLP1owzBToIw/exec";
 
 const SVG_PICTURES = {
-  digitalManuscript: `<svg viewBox="0 0 100 100" fill="none" stroke="#2563eb" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="18" y="22" width="64" height="46" rx="4" fill="#eff6ff" stroke="#2563eb"/><circle cx="50" cy="45" r="14" stroke="#3b82f6" stroke-width="2" stroke-dasharray="3 3"/><line x1="50" y1="36" x2="50" y2="54" stroke="#1d4ed8"/><line x1="41" y1="45" x2="59" y2="45" stroke="#1d4ed8"/><path d="M26 32h14M26 38h10M60 52h14M60 58h10" stroke="#93c5fd"/><path d="M30 76l20-8 20 8" stroke="#475569" stroke-width="2"/><line x1="50" y1="68" x2="50" y2="84" stroke="#475569" stroke-width="3"/></svg>`,
-  amphitheaterDrama: `<svg viewBox="0 0 100 100" fill="none" stroke="#b45309" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 75c8-18 36-24 76 0" stroke="#78350f" stroke-width="3"/><path d="M22 62c6-14 28-18 56 0" stroke="#b45309" stroke-dasharray="2 2"/><polygon points="50,15 35,45 65,45" fill="#fef3c7" stroke="#d97706"/><circle cx="50" cy="30" r="5" fill="#d97706"/><path d="M38 48h24v20H38z" fill="#fef9c3" stroke="#ca8a04"/><path d="M42 48v20M58 48v20" stroke="#b45309"/><line x1="15" y1="84" x2="85" y2="84" stroke="#64748b"/></svg>`,
-  climateObservatory: `<svg viewBox="0 0 100 100" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 85c15-8 30-14 70-4" stroke="#16a34a" stroke-width="3"/><path d="M35 80V50c0-12 12-22 25-22s25 10 25 22v30H35z" fill="#ecfdf5" stroke="#059669"/><path d="M50 28v-12M42 16h16" stroke="#047857" stroke-width="2"/><circle cx="60" cy="46" r="6" fill="#fef08a" stroke="#ca8a04"/><line x1="60" y1="40" x2="75" y2="28" stroke="#0284c7" stroke-width="2.5"/><circle cx="75" cy="28" r="3" fill="#0284c7"/></svg>`,
-  oilRefinery: `<svg viewBox="0 0 100 100" fill="none" stroke="#475569" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="50" width="30" height="35" fill="#f1f5f9"/><rect x="55" y="40" width="25" height="45" fill="#e2e8f0"/><line x1="35" y1="50" x2="35" y2="25" stroke="#64748b" stroke-width="2.5"/><line x1="68" y1="40" x2="68" y2="20" stroke="#64748b" stroke-width="2.5"/><path d="M30 20c3-5 7-5 10 0M63 15c3-5 7-5 10 0" stroke="#94a3b8"/></svg>`
+  laptopResearch: `<svg viewBox="0 0 100 100" fill="none" stroke="#2563eb" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="24" width="60" height="42" rx="3" fill="#eff6ff" stroke="#2563eb"/><path d="M12 70h76l-4 6H16l-4-6z" fill="#cbd5e1" stroke="#2563eb"/><circle cx="50" cy="45" r="10" stroke="#3b82f6" stroke-dasharray="3 3"/><path d="M50 39v12M44 45h12" stroke="#1d4ed8"/><circle cx="50" cy="73" r="1.5" fill="#475569"/></svg>`,
+  antiqueBook: `<svg viewBox="0 0 100 100" fill="none" stroke="#b45309" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 72c15-8 35-4 35 10 0-14 20-18 35-10V28c-15-8-35-4-35 10 0-14-20-18-35-10v44z" fill="#fef3c7" stroke="#b45309"/><path d="M50 38v44M25 40h15M25 50h15M60 40h15M60 50h15" stroke="#d97706"/></svg>`,
+  microphoneStage: `<svg viewBox="0 0 100 100" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="42" y="16" width="16" height="26" rx="8" fill="#f3e8ff" stroke="#7c3aed"/><path d="M34 32c0 10 7 18 16 18s16-8 16-18M50 50v24M35 74h30" stroke="#7c3aed" stroke-width="2.5"/><path d="M20 85h60" stroke="#64748b" stroke-width="3"/></svg>`,
+  smartphoneVideo: `<svg viewBox="0 0 100 100" fill="none" stroke="#e11d48" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="34" y="16" width="32" height="54" rx="5" fill="#fff1f2" stroke="#e11d48"/><circle cx="50" cy="62" r="3" fill="#e11d48"/><circle cx="50" cy="36" r="8" fill="#fda4af" stroke="#e11d48"/><polygon points="48,32 55,36 48,40" fill="#be123c"/><path d="M30 84l20-14 20 14" stroke="#475569" stroke-width="2.5"/></svg>`,
+
+  fishingPort: `<svg viewBox="0 0 100 100" fill="none" stroke="#0284c7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 75c12-4 24 2 36-2s24-2 44 2" stroke="#0284c7" stroke-width="2.5"/><path d="M20 65l10 10h24l6-10H20z" fill="#e0f2fe" stroke="#0369a1"/><path d="M42 65V42l16 8-16 4" stroke="#0369a1" fill="#bae6fd"/><path d="M12 70v15M24 70v15M8 72h24" stroke="#78350f" stroke-width="2"/></svg>`,
+  templeRuins: `<svg viewBox="0 0 100 100" fill="none" stroke="#d97706" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 85h80M22 70h56M34 55h32M44 40h12M50 20v20"/><path d="M30 85V70M70 85V70M40 70V55M60 70V55M47 55V40M53 55V40"/><circle cx="50" cy="17" r="3" fill="#d97706"/><path d="M15 85l6-15M85 85l-6-15" stroke="#b45309"/></svg>`,
+  suspensionBridge: `<svg viewBox="0 0 100 100" fill="none" stroke="#6366f1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 68h80M25 22v52M75 22v52" stroke="#4338ca" stroke-width="2.5"/><path d="M10 50c15-15 25-22 40 0s25 15 40 0" stroke="#6366f1"/><path d="M25 22l25 28 25-28" stroke="#818cf8"/><path d="M10 80c10-3 20 3 40 0s30 3 40 0" stroke="#38bdf8"/></svg>`,
+  mountainSummit: `<svg viewBox="0 0 100 100" fill="none" stroke="#475569" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="30" cy="28" r="8" fill="#fef08a" stroke="#eab308"/><path d="M10 85l32-45 18 22 14-16 16 39H10z" fill="#f8fafc" stroke="#475569" stroke-width="2.2"/><path d="M36 48l6 8 8-4" stroke="#94a3b8"/></svg>`,
+
+  fuelStation: `<svg viewBox="0 0 100 100" fill="none" stroke="#ef4444" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="25" y="32" width="36" height="52" rx="4" fill="#fef2f2" stroke="#dc2626"/><rect x="33" y="40" width="20" height="15" fill="#fee2e2" stroke="#ef4444"/><path d="M61 44h10c4 0 6 3 6 7v20l-4 3" stroke="#b91c1c" stroke-width="2.5"/><rect x="20" y="84" width="46" height="5" fill="#64748b"/></svg>`,
+  smokestackFactory: `<svg viewBox="0 0 100 100" fill="none" stroke="#475569" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="52" width="60" height="32" fill="#f1f5f9" stroke="#475569"/><polygon points="30,52 32,25 40,25 42,52" fill="#e2e8f0" stroke="#475569"/><polygon points="50,52 52,30 58,30 60,52" fill="#e2e8f0" stroke="#475569"/><path d="M36 20c2-5 6-5 8 0s6 5 8 0M55 24c2-4 5-4 7 0" stroke="#94a3b8" stroke-width="2"/></svg>`,
+  solarRooftop: `<svg viewBox="0 0 100 100" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 85V50l35-22 35 22v35H15z" fill="#f0fdf4" stroke="#059669"/><path d="M22 46l28-18 28 18" stroke="#047857" stroke-width="3"/><path d="M52 58h28v24H52z" fill="#bae6fd" stroke="#0284c7"/><path d="M66 58v24M52 70h28" stroke="#0284c7"/><circle cx="82" cy="22" r="8" fill="#fef08a" stroke="#eab308"/></svg>`,
+  hydroDam: `<svg viewBox="0 0 100 100" fill="none" stroke="#0284c7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 40h70l-10 44H25L15 40z" fill="#e0f2fe" stroke="#0369a1" stroke-width="2.5"/><path d="M35 40v44M50 40v44M65 40v44" stroke="#0284c7" stroke-width="2"/><path d="M40 70c4 5 8 5 12 0s8-5 12 0" stroke="#38bdf8" stroke-width="2"/><path d="M10 84h80" stroke="#64748b" stroke-width="3"/></svg>`
 };
 
 function getGrade11AstsQuestions() {
@@ -27,18 +37,22 @@ function getGrade11AstsQuestions() {
     "options": [
       {
         "key": "A",
+        "svg": SVG_PICTURES.laptopResearch,
         "label": "A student conducting digital research and fact-checking on a laptop"
       },
       {
         "key": "B",
+        "svg": SVG_PICTURES.antiqueBook,
         "label": "Reading an antique book quietly in a library"
       },
       {
         "key": "C",
+        "svg": SVG_PICTURES.microphoneStage,
         "label": "Speaking into a microphone on an empty stage"
       },
       {
         "key": "D",
+        "svg": SVG_PICTURES.smartphoneVideo,
         "label": "Recording a vertical short video with a smartphone camera"
       }
     ],
@@ -56,18 +70,22 @@ function getGrade11AstsQuestions() {
     "options": [
       {
         "key": "A",
+        "svg": SVG_PICTURES.fishingPort,
         "label": "A coastal wooden fishing port with docked boats"
       },
       {
         "key": "B",
+        "svg": SVG_PICTURES.templeRuins,
         "label": "An ancient multi-tiered stone temple complex"
       },
       {
         "key": "C",
+        "svg": SVG_PICTURES.suspensionBridge,
         "label": "A suspension steel bridge over a city river"
       },
       {
         "key": "D",
+        "svg": SVG_PICTURES.mountainSummit,
         "label": "A rocky mountain summit under the morning sun"
       }
     ],
@@ -85,18 +103,22 @@ function getGrade11AstsQuestions() {
     "options": [
       {
         "key": "A",
+        "svg": SVG_PICTURES.fuelStation,
         "label": "A conventional roadside petroleum fuel station"
       },
       {
         "key": "B",
+        "svg": SVG_PICTURES.smokestackFactory,
         "label": "An industrial factory releasing dark smoke plumes"
       },
       {
         "key": "C",
+        "svg": SVG_PICTURES.solarRooftop,
         "label": "Rooftop solar photovoltaic panels capturing sunlight"
       },
       {
         "key": "D",
+        "svg": SVG_PICTURES.hydroDam,
         "label": "A heavy concrete hydro dam structure"
       }
     ],
@@ -1253,6 +1275,9 @@ let questions = [];
 
 function randomizeQuestionOptions(rawQuestions) {
   return rawQuestions.map(q => {
+    if (q.type === "listening_pictures") {
+      return q;
+    }
     const cloned = JSON.parse(JSON.stringify(q));
     if (cloned.type === "complex_matrix" && Array.isArray(cloned.matrixStatements)) {
       const stmts = [...cloned.matrixStatements];
@@ -1261,7 +1286,7 @@ function randomizeQuestionOptions(rawQuestions) {
         [stmts[i], stmts[j]] = [stmts[j], stmts[i]];
       }
       cloned.matrixStatements = stmts;
-    } else if (Array.isArray(cloned.options) && cloned.options.length > 0 && !cloned.options[0].svg) {
+    } else if (Array.isArray(cloned.options) && cloned.options.length > 0) {
       const opts = [...cloned.options];
       const isMCMA = cloned.type === "mcma" && Array.isArray(cloned.correctAnswer);
       const originalCorrect = isMCMA ? [...cloned.correctAnswer] : cloned.correctAnswer;
@@ -1273,10 +1298,13 @@ function randomizeQuestionOptions(rawQuestions) {
       const keyMap = {};
       cloned.options = opts.map((opt, idx) => {
         keyMap[opt.key] = alphabet[idx];
-        return {
+        const resOpt = {
           key: alphabet[idx],
-          text: opt.text
+          text: opt.text || opt.label || ""
         };
+        if (opt.label) resOpt.label = opt.label;
+        if (opt.svg) resOpt.svg = opt.svg;
+        return resOpt;
       });
       if (isMCMA) {
         cloned.correctAnswer = originalCorrect.map(k => keyMap[k] || k).sort();
@@ -1534,10 +1562,12 @@ function renderPictureChoices(q, container) {
       userAnswers[q.id] = opt.key;
       renderQuestion(currentQuestionIndex);
     };
+    const svgContent = opt.svg || `<svg viewBox="0 0 100 100" fill="none" stroke="#2563eb" stroke-width="2"><rect x="10" y="10" width="80" height="80" rx="8" fill="#eff6ff"/><circle cx="50" cy="50" r="20" stroke="#3b82f6"/><text x="50" y="55" font-size="14" text-anchor="middle" fill="#1e40af" font-weight="bold">${opt.key}</text></svg>`;
+    const labelContent = opt.label || opt.text || `Pilihan ${opt.key}`;
     card.innerHTML = `
-      <div class="picture-svg-wrapper">${opt.svg}</div>
+      <div class="picture-svg-wrapper">${svgContent}</div>
       <div class="picture-letter-badge">${opt.key}</div>
-      <div class="picture-label-text">${opt.label}</div>
+      <div class="picture-label-text">${labelContent}</div>
     `;
     grid.appendChild(card);
   });

@@ -48,3 +48,4 @@ jsFiles.forEach(f => {
   fs.writeFileSync(filePath, content, 'utf-8');
   console.log('Guarded:', f);
 });
+

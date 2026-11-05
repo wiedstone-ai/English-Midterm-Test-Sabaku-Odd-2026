@@ -1485,6 +1485,9 @@ let questions = [];
 
 function randomizeQuestionOptions(rawQuestions) {
   return rawQuestions.map(q => {
+    if (q.type === "listening_pictures") {
+      return q;
+    }
     const cloned = JSON.parse(JSON.stringify(q));
     if (cloned.type === "complex_matrix" && Array.isArray(cloned.matrixStatements)) {
       const stmts = [...cloned.matrixStatements];
@@ -1493,7 +1496,7 @@ function randomizeQuestionOptions(rawQuestions) {
         [stmts[i], stmts[j]] = [stmts[j], stmts[i]];
       }
       cloned.matrixStatements = stmts;
-    } else if (Array.isArray(cloned.options) && cloned.options.length > 0 && !cloned.options[0].svg) {
+    } else if (Array.isArray(cloned.options) && cloned.options.length > 0) {
       const opts = [...cloned.options];
       const isMCMA = cloned.type === "mcma" && Array.isArray(cloned.correctAnswer);
       const originalCorrect = isMCMA ? [...cloned.correctAnswer] : cloned.correctAnswer;
@@ -1505,10 +1508,13 @@ function randomizeQuestionOptions(rawQuestions) {
       const keyMap = {};
       cloned.options = opts.map((opt, idx) => {
         keyMap[opt.key] = alphabet[idx];
-        return {
+        const resOpt = {
           key: alphabet[idx],
-          text: opt.text
+          text: opt.text || opt.label || ""
         };
+        if (opt.label) resOpt.label = opt.label;
+        if (opt.svg) resOpt.svg = opt.svg;
+        return resOpt;
       });
       if (isMCMA) {
         cloned.correctAnswer = originalCorrect.map(k => keyMap[k] || k).sort();
@@ -1766,10 +1772,12 @@ function renderPictureChoices(q, container) {
       userAnswers[q.id] = opt.key;
       renderQuestion(currentQuestionIndex);
     };
+    const svgContent = opt.svg || `<svg viewBox="0 0 100 100" fill="none" stroke="#2563eb" stroke-width="2"><rect x="10" y="10" width="80" height="80" rx="8" fill="#eff6ff"/><circle cx="50" cy="50" r="20" stroke="#3b82f6"/><text x="50" y="55" font-size="14" text-anchor="middle" fill="#1e40af" font-weight="bold">${opt.key}</text></svg>`;
+    const labelContent = opt.label || opt.text || `Pilihan ${opt.key}`;
     card.innerHTML = `
-      <div class="picture-svg-wrapper">${opt.svg}</div>
+      <div class="picture-svg-wrapper">${svgContent}</div>
       <div class="picture-letter-badge">${opt.key}</div>
-      <div class="picture-label-text">${opt.label}</div>
+      <div class="picture-label-text">${labelContent}</div>
     `;
     grid.appendChild(card);
   });

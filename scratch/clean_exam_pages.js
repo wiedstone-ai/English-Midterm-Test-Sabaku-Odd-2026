@@ -137,3 +137,4 @@ pages.forEach(p => {
   fs.writeFileSync(filePath, content, 'utf-8');
   console.log('Cleaned:', p.file);
 });
+
