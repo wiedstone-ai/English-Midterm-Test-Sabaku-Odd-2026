@@ -1,30 +1,862 @@
 /**
- * ASESMEN SUMATIF TENGAH SEMESTER GASAL (ASTS) & LATIHAN MANDIRI 2026
+ * ASESMEN SUMATIF TENGAH SEMESTER GASAL (ASTS) & LATIHAN KOMPREHENSIF 2026
  * SMA NEGERI 1 BAE KUDUS (SABAKU)
- * TINGKAT XI (FASE F) — SEMESTER GASAL 2026/2027
+ * TINGKAT XI (FASE F — BAHASA INGGRIS WAJIB) — SEMESTER GASAL 2026/2027
  * 
- * Features:
- * - 40 Questions specifically designed for Grade X Fase E
- * - Authentic Sources cited on every reading text
- * - Accurate Geographical Fact: Dieng Plateau Geothermal Energy (Banjarnegara/Wonosobo)
- * - Level A2 Vocabulary (Oxford 3000)
- * - Realtime Autosave with LocalStorage (Session persistent across refresh)
- * - Fisher-Yates Dynamic Option Shuffling
- * - Instant Grading & KKTP 75 Evaluation
- * - Google Sheets Sync & 1-Click CSV Export
+ * Komposisi Soal:
+ * - 60% (24 Butir Soal) Diambil Langsung dari Bank Soal ASAS Gasal Kelas XI
+ * - 40% (16 Butir Soal) Melengkapi Seluruh Materi Semester Gasal (TP 11.1 & TP 11.2)
+ * 
+ * Standar: Tes Kemampuan Akademik (TKA / AKM Literasi / UTBK SNBT)
+ * Bebas Token / Password — Langsung Masuk Latihan & Asesmen
  */
 
-// Default Configuration
 const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbz1dnapNS6sFak-BlG-xxaFhGR9f0BhGYKyyddEvmIEOTxPrlARC2tHkeLLP1owzBToIw/exec";
 
-// State Management
+const SVG_PICTURES = {
+  laptopResearch: `<svg viewBox="0 0 100 100" fill="none" stroke="#2563eb" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="20" y="24" width="60" height="42" rx="3" fill="#eff6ff" stroke="#2563eb"/>
+    <path d="M12 70h76l-4 6H16l-4-6z" fill="#cbd5e1" stroke="#2563eb"/>
+    <circle cx="50" cy="45" r="10" stroke="#3b82f6" stroke-dasharray="3 3"/>
+    <path d="M50 39v12M44 45h12" stroke="#1d4ed8"/>
+    <circle cx="50" cy="73" r="1.5" fill="#475569"/>
+  </svg>`,
+  templeRuins: `<svg viewBox="0 0 100 100" fill="none" stroke="#d97706" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10 85h80M22 70h56M34 55h32M44 40h12M50 20v20"/>
+    <path d="M30 85V70M70 85V70M40 70V55M60 70V55M47 55V40M53 55V40"/>
+    <circle cx="50" cy="17" r="3" fill="#d97706"/>
+    <path d="M15 85l6-15M85 85l-6-15" stroke="#b45309"/>
+  </svg>`,
+  solarSchool: `<svg viewBox="0 0 100 100" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M15 85V50l35-22 35 22v35H15z" fill="#f0fdf4" stroke="#059669"/>
+    <path d="M30 85V62h16v23M50 28v57"/>
+    <path d="M22 46l28-18 28 18" stroke="#047857" stroke-width="3"/>
+    <path d="M54 60h26v25H54z" fill="#bae6fd" stroke="#0284c7"/>
+    <path d="M67 60v25M54 72h26" stroke="#0284c7"/>
+    <circle cx="82" cy="22" r="8" fill="#fef08a" stroke="#eab308"/>
+  </svg>`,
+  mountainVillage: `<svg viewBox="0 0 100 100" fill="none" stroke="#475569" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10 85l32-45 18 22 14-16 16 39H10z" fill="#f8fafc"/>
+    <path d="M25 85v-12h14v12M55 85v-16h18v16" stroke="#0f172a"/>
+    <circle cx="30" cy="25" r="7" fill="#fed7aa" stroke="#ea580c"/>
+  </svg>`
+};
+
+function getGrade11AstsQuestions() {
+  return [
+    // =========================================================================
+    // SECTION 1: LISTENING SECTION (QUESTIONS 1 - 10)
+    // 60% ASAS Bank: Q1-Q3 (Pictures), Q4-Q6 (Dialogues), Q7-Q9 (Talks) = 9 Soal
+    // 40% Komplementer: Q10 (Short Talk) = 1 Soal
+    // =========================================================================
+
+    // Q1 - ASAS Bank (Pictures)
+    {
+      id: 1,
+      source: "Sumber: Panduan Literasi Digital Remaja — Kementerian Komunikasi dan Informatika RI (Kominfo)",
+      type: "listening_pictures",
+      title: "Listening Section: Part I - Pictures",
+      audioText: "Number one. Look at the pictures. A disciplined high school student is conducting online academic research on his modern blue laptop in a quiet study room, verifying digital information carefully against reliable library sources. Which picture best corresponds to the spoken description?",
+      prompt: "Look at the four pictures below. Which picture matches the digital research activity described in the audio?",
+      options: [
+        { key: "A", svg: SVG_PICTURES.laptopResearch, label: "A student conducting digital research and verifying sources on a laptop" },
+        { key: "B", svg: SVG_PICTURES.templeRuins, label: "An ancient tiered stone temple heritage site" },
+        { key: "C", svg: SVG_PICTURES.solarSchool, label: "A modern school building powered by rooftop solar panels" },
+        { key: "D", svg: SVG_PICTURES.mountainVillage, label: "A rural village situated at the foot of volcanic mountains" }
+      ],
+      correctAnswer: "A",
+      explanation: "Audio menyebutkan: 'A disciplined high school student is conducting online academic research on his modern blue laptop... verifying digital information'. Gambar A menampilkan laptop untuk riset digital.",
+      grammarNote: "Present Continuous Tense ('is conducting', 'verifying') & Digital Literacy Vocabulary."
+    },
+
+    // Q2 - ASAS Bank (Pictures)
+    {
+      id: 2,
+      source: "Sumber: Direktori Cagar Budaya Candi Sewu & Prambanan — Balai Pelestarian Kebudayaan Wilayah X",
+      type: "listening_pictures",
+      title: "Listening Section: Part I - Pictures",
+      audioText: "Number two. Look at the pictures. This historic cultural monument features majestic tiered stone structures, ancient carved spires, and historic terraces rising proudly in Central Java, embodying centuries of architectural ingenuity. Which picture depicts this cultural landmark?",
+      prompt: "Which picture corresponds to the historic stone temple heritage site mentioned in the recording?",
+      options: [
+        { key: "A", svg: SVG_PICTURES.laptopResearch, label: "A digital laptop station for academic research" },
+        { key: "B", svg: SVG_PICTURES.templeRuins, label: "An ancient tiered stone temple monument in Central Java" },
+        { key: "C", svg: SVG_PICTURES.solarSchool, label: "A green school building with rooftop solar photovoltaic cells" },
+        { key: "D", svg: SVG_PICTURES.mountainVillage, label: "A mountainous rural community landscape" }
+      ],
+      correctAnswer: "B",
+      explanation: "Audio mendeskripsikan candi bersejarah Jawa Tengah: 'majestic tiered stone structures, ancient carved spires, and historic terraces'. Gambar B menampilkan candi batu bertingkat kuno.",
+      grammarNote: "Descriptive Compound Nouns: 'tiered stone structures', 'carved spires', 'cultural landmark'."
+    },
+
+    // Q3 - ASAS Bank (Pictures)
+    {
+      id: 3,
+      source: "Sumber: Program Sekolah Adiwiyata Mandiri — Kementerian Lingkungan Hidup dan Kehutanan (KLHK)",
+      type: "listening_pictures",
+      title: "Listening Section: Part I - Pictures",
+      audioText: "Number three. Look at the pictures. This eco-friendly school building is outfitted with modern solar panels on its roof, harnessing clean solar energy under sunny skies to reduce institutional carbon emissions. Which picture illustrates this sustainable facility?",
+      prompt: "Which picture illustrates the sustainable school facility powered by solar energy described in the recording?",
+      options: [
+        { key: "A", svg: SVG_PICTURES.laptopResearch, label: "A student studying on a laptop at a library desk" },
+        { key: "B", svg: SVG_PICTURES.templeRuins, label: "An ancient tiered stone monument in Central Java" },
+        { key: "C", svg: SVG_PICTURES.solarSchool, label: "An eco-friendly school building outfitted with solar panels" },
+        { key: "D", svg: SVG_PICTURES.mountainVillage, label: "A rural settlement nestled in mountainous valleys" }
+      ],
+      correctAnswer: "C",
+      explanation: "Audio menyatakan: 'eco-friendly school building is outfitted with modern solar panels on its roof, harnessing clean solar energy'. Gambar C memperlihatkan gedung sekolah dengan panel surya.",
+      grammarNote: "Passive Participle Modifier: 'school building outfitted with modern solar panels, harnessing clean energy'."
+    },
+
+    // Q4 - ASAS Bank (Dialogues)
+    {
+      id: 4,
+      source: "Sumber: Dialog Pembelajaran Bahasa Inggris Fase F — Modul Ajar MGMP SMA Jawa Tengah",
+      type: "listening_dialogue",
+      title: "Listening Section: Part II - Dialogues",
+      audioText: "Number four. Listen to a conversation between two students.\n\nBoy: Hey Sarah, did you see the shocking news headline circulating on social media about school closures?\nGirl: I saw it, Budi, but we shouldn't believe it right away. The post uses sensational language and has no official signature from the education department.\nBoy: You're right. It is probably clickbait designed to generate emotional reactions. Let's check the verified school website first.\n\nQuestion: What does Sarah suggest Budi do before believing the social media post?",
+      prompt: "What does Sarah suggest regarding the sensational social media news?",
+      options: [
+        { key: "A", text: "Verify the information by checking the official school website instead of believing clickbait." },
+        { key: "B", text: "Forward the news immediately to all class group chats to spread the alarm." },
+        { key: "C", text: "Delete their personal social media accounts and never use smartphones again." },
+        { key: "D", text: "Complain directly to the local television news station without any evidence." }
+      ],
+      correctAnswer: "A",
+      explanation: "Sarah mengingatkan agar tidak langsung percaya pada judul sensasional dan Budi menyetujui untuk memeriksa situs web resmi sekolah ('check the verified school website first').",
+      grammarNote: "Modal of Advisability: 'we shouldn't believe it right away... Let's check the verified website'."
+    },
+
+    // Q5 - ASAS Bank (Dialogues)
+    {
+      id: 5,
+      source: "Sumber: Wawancara Apresiasi Budaya Remaja — Balai Pelestarian Nilai Budaya D.I. Yogyakarta",
+      type: "listening_dialogue",
+      title: "Listening Section: Part II - Dialogues",
+      audioText: "Number five. Listen to a conversation between a teacher and a student.\n\nTeacher: Dimas, having read the folklore of Ki Ageng Selo, what character lesson stood out to you the most?\nStudent: I was struck by how dangerous arrogance can be, Sir. Ki Ageng Selo possessed exceptional bravery, yet his overconfidence when capturing lightning led to unexpected consequences.\nTeacher: Indeed. True strength is always tempered by humility, wisdom, and moral self-control.\n\nQuestion: What character lesson did Dimas derive from the folklore?",
+      prompt: "According to Dimas, what character lesson is highlighted in the folklore?",
+      options: [
+        { key: "A", text: "Exceptional talent and strength must always be balanced with humility and self-control." },
+        { key: "B", text: "People should always seek supernatural powers to gain fame in their village." },
+        { key: "C", text: "Thunderstorms can easily be stored inside clay jars for electricity generation." },
+        { key: "D", text: "Heroes must defeat all their neighbors in physical combat to maintain authority." }
+      ],
+      correctAnswer: "A",
+      explanation: "Dimas mengemukakan bahwa kehebatan tanpa kerendahan hati dapat berakibat buruk ('how dangerous arrogance can be... True strength is always tempered by humility').",
+      grammarNote: "Passive Voice in Moral Evaluation: 'True strength is always tempered by humility, wisdom, and self-control'."
+    },
+
+    // Q6 - ASAS Bank (Dialogues)
+    {
+      id: 6,
+      source: "Sumber: Diskusi Kelompok Proyek Penguatan Profil Pelajar Pancasila (P5) — SMAN 1 Bae Kudus",
+      type: "listening_dialogue",
+      title: "Listening Section: Part II - Dialogues",
+      audioText: "Number six. Listen to a conversation between two committee members of the student council.\n\nRina: Deni, our campus still produces hundreds of single-use plastic cups every single week.\nDeni: If every student brought a reusable tumbler from home, single-use plastic waste would drop by at least seventy percent within a month.\nRina: Absolutely. Let's launch a tumbler campaign and ask the cafeteria vendors to offer discounts for students who bring their own containers.\n\nQuestion: What solution does Deni propose to reduce single-use plastic waste at school?",
+      prompt: "What practical solution does Deni propose to tackle single-use plastic waste?",
+      options: [
+        { key: "A", text: "Encouraging all students to bring reusable tumblers from home to reduce plastic cups." },
+        { key: "B", text: "Shutting down the school cafeteria permanently to prevent food packaging." },
+        { key: "C", text: "Banning students from drinking water during morning classroom hours." },
+        { key: "D", text: "Burning plastic cups behind the school gymnasium every Friday afternoon." }
+      ],
+      correctAnswer: "A",
+      explanation: "Deni mengusulkan penggunaan tumbler isi ulang pribadi: 'If every student brought a reusable tumbler from home, single-use plastic waste would drop'.",
+      grammarNote: "Conditional Sentence Type 2: 'If every student brought... waste would drop by at least seventy percent'."
+    },
+
+    // Q7 - ASAS Bank (Talks)
+    {
+      id: 7,
+      source: "Sumber: Cerita Rakyat Nusantara: Kisah Roro Jonggrang & Candi Sewu — Kemendikbudristek",
+      type: "listening_talk",
+      title: "Listening Section: Part III - Short Talks",
+      audioText: "Questions 7 and 8 are based on the following folklore storytelling monologue.\n\nLong ago in ancient Java, Prince Bandung Bondowoso defeated King Boko in a fierce war. Enamored by the late king's beautiful daughter, Princess Roro Jonggrang, the prince proposed marriage. Unwilling to wed the man who had slain her father, Roro Jonggrang devised an impossible condition: Bandung Bondowoso had to construct one thousand magnificent stone temples in a single night before dawn. Determined to fulfill the task, Bandung summoned thousands of subterranean spirits. By midnight, hundreds of intricate spires rose toward the sky. Realizing the temples were nearly finished, the panicked princess ordered village maidens to pound rice mortars and ignite fires in the east, tricking roosters into crowing early. Discovered in her trickery, Roro Jonggrang was cursed into the thousandth stone statue by the enraged prince.\n\nNumber seven. Why did Princess Roro Jonggrang set the impossible condition of building one thousand temples in one night?",
+      prompt: "Why did Princess Roro Jonggrang demand the construction of one thousand temples in a single night?",
+      options: [
+        { key: "A", text: "She wanted to politely reject Bandung Bondowoso's marriage proposal because he had slain her father." },
+        { key: "B", text: "She desired to turn her kingdom into the largest religious tourist attraction in Southeast Asia." },
+        { key: "C", text: "She wished to test whether Bandung Bondowoso could speak the language of mountain birds." },
+        { key: "D", text: "She promised her late father that she would only marry a professional stone architect." }
+      ],
+      correctAnswer: "A",
+      explanation: "Monolog menjelaskan: 'Unwilling to wed the man who had slain her father, Roro Jonggrang devised an impossible condition: Bandung Bondowoso had to construct one thousand magnificent stone temples in a single night'.",
+      grammarNote: "Past Participle Reason Clause: 'Unwilling to wed the man who had slain her father, Roro Jonggrang devised an impossible condition'."
+    },
+
+    // Q8 - ASAS Bank (Talks)
+    {
+      id: 8,
+      source: "Sumber: Cerita Rakyat Nusantara: Kisah Roro Jonggrang & Candi Sewu — Kemendikbudristek",
+      type: "listening_talk",
+      title: "Listening Section: Part III - Short Talks",
+      audioText: "Number eight. How did Princess Roro Jonggrang trick the spirits into halting their temple construction?",
+      prompt: "How did Roro Jonggrang manipulate the situation to halt the spirit workers?",
+      options: [
+        { key: "A", text: "By ordering maidens to pound rice mortars and light eastern fires to simulate the arrival of dawn." },
+        { key: "B", text: "By pouring holy river water onto the stone foundations to dissolve the mortar." },
+        { key: "C", text: "By inviting the prince to a celebratory feast inside the royal palace banquet hall." },
+        { key: "D", text: "By blowing royal brass trumpets to summon a sudden tropical thunderstorm." }
+      ],
+      correctAnswer: "A",
+      explanation: "Roro Jonggrang memerintahkan dayang menumbuk lesung dan menyalakan api di timur: 'ordered village maidens to pound rice mortars and ignite fires in the east, tricking roosters into crowing early'.",
+      grammarNote: "Gerund Phrases of Means: 'by ordering maidens to pound rice mortars and ignite fires'."
+    },
+
+    // Q9 - ASAS Bank (Talks)
+    {
+      id: 9,
+      source: "Sumber: Modul Etika Digital Remaja — Siberkreasi & Kominfo RI",
+      type: "listening_talk",
+      title: "Listening Section: Part III - Short Talks",
+      audioText: "Questions 9 and 10 are based on the following educational podcast snippet.\n\nGood morning, listeners. In today's digital society, every comment, photo, and click we leave behind creates a permanent digital footprint. While many teenagers believe that deleting a controversial post erases it forever, archived web caches and screenshots often preserve data indefinitely. Universities and scholarship boards frequently review applicants' digital behavior to evaluate integrity and mature communication. Therefore, cultivating self-restraint and positive online engagement is no longer optional; it is an indispensable life skill for every modern youth.\n\nNumber nine. What common misconception among teenagers is highlighted by the speaker?",
+      prompt: "What common misconception regarding digital behavior do many teenagers have?",
+      options: [
+        { key: "A", text: "Believing that deleting an online post erases it permanently from the internet." },
+        { key: "B", text: "Assuming that laptops consume more electrical energy than television sets." },
+        { key: "C", text: "Thinking that university scholarships are granted entirely through online lottery." },
+        { key: "D", text: "Believing that writing long essays improves physical athletic performance." }
+      ],
+      correctAnswer: "A",
+      explanation: "Pembicara menyebutkan kesalahpahaman umum: 'While many teenagers believe that deleting a controversial post erases it forever, archived web caches and screenshots often preserve data indefinitely'.",
+      grammarNote: "Concessive Subordinate Clause: 'While many teenagers believe... archived web caches preserve data'."
+    },
+
+    // Q10 - Komplementer (Short Talk - Oral Storytelling Traditions)
+    {
+      id: 10,
+      source: "Sumber: Seri Tradisi Lisan Nusantara — Asosiasi Tradisi Lisan & Dirjen Kebudayaan",
+      type: "listening_talk",
+      title: "Listening Section: Part III - Short Talks",
+      audioText: "Number ten. Why does the speaker emphasize that positive online communication is an indispensable life skill?",
+      prompt: "Why is maintaining a positive digital footprint considered an indispensable life skill according to the podcast?",
+      options: [
+        { key: "A", text: "Because universities and scholarship committees review applicants' online conduct to assess integrity." },
+        { key: "B", text: "Because internet service providers disconnect users who post fewer than ten pictures weekly." },
+        { key: "C", text: "Because social media applications automatically pay cash rewards to every active teenager." },
+        { key: "D", text: "Because high school diplomas are only awarded to students with verified social media badges." }
+      ],
+      correctAnswer: "A",
+      explanation: "Pembicara menjelaskan bahwa universitas dan panitia beasiswa meninjau jejak digital pendaftar untuk mengevaluasi integritas dan kedewasaan ('review applicants' digital behavior to evaluate integrity and mature communication').",
+      grammarNote: "Causal Connector & Purpose: 'review applicants' digital behavior to evaluate integrity'."
+    },
+
+    // =========================================================================
+    // SECTION 2: READING GENRE 1 — TP 11.1 NARRATIVE TEXT (11 - 20)
+    // 60% ASAS Bank: Q11-Q15 (Roro Jonggrang) = 5 Soal
+    // 40% Komplementer: Q16-Q20 (The Legend of Malin Kundang) = 5 Soal
+    // =========================================================================
+
+    // Q11 - ASAS Bank (Roro Jonggrang)
+    {
+      id: 11,
+      source: "Sumber: Dikutip dan diadaptasi dari TP_11.1_Materi_Otentik_Narrative_Text_Indonesian_Folklore.docx — Cerita Rakyat Prambanan",
+      type: "reading",
+      title: "Reading Section: TP 11.1 Narrative Text",
+      stimulusTitle: "The Legend of Roro Jonggrang and the Thousand Temples",
+      stimulusBody: `Once upon a time in ancient Central Java, there existed two neighboring kingdoms: Pengging, ruled by the wise Prabu Damar Moyo, and Boko, governed by a fierce, giant man-eating monarch named Prabu Boko. Driven by an insatiable desire to expand his dominion, Prabu Boko waged war against Pengging. In response, Prabu Damar Moyo dispatched his valiant and powerful son, Prince Bandung Bondowoso. Blessed with supernatural strength and invulnerability, Bandung Bondowoso swiftly vanquished Prabu Boko on the battlefield.<br><br>Following his triumph, Bandung Bondowoso entered the royal court of Boko. There, he caught sight of Princess Roro Jonggrang, the late king's daughter, whose breathtaking grace and beauty immediately captivated his heart. Eager to claim her as his bride, the prince made a formal proposal. However, Roro Jonggrang felt deep abhorrence toward the man who had slain her father and subjugated her realm. Knowing that an outright refusal would provoke deadly retaliation against her people, she devised a seemingly insurmountable condition: Bandung Bondowoso had to construct one thousand ornate stone temples and two deep wells in a single night before the first rooster crowed at dawn.<br><br>Confident in his mystical prowess, Bandung Bondowoso accepted the challenge. As twilight deepened, he meditated deeply and summoned hordes of spirits from the earth. The spirits labored with astonishing velocity, hauling colossal volcanic boulders, sculpting intricate bas-reliefs, and raising magnificent shrines from the soil. By midnight, over nine hundred temples had been completed. Terrified that the prince would succeed, Roro Jonggrang hastily awakened her trusted palace maidens. She instructed them to burn piles of dry straw in the east to illuminate the horizon with a fiery crimson glow, while others pounded rice mortars vigorously to simulate morning activities. Deceived by the light and noise, roosters throughout the valley began to crow lustily, signaling the dawn.<br><br>Believing the sun was rising, the spirit legions fled back into the netherworld, leaving nine hundred and ninety-nine temples standing. When Bandung Bondowoso realized that dawn had been artificially simulated through deliberate deception, his fury was boundless. He confronted Roro Jonggrang, declaring, 'You have deceived me! As you lack only one temple to complete the thousand, you shall become the final stone!' Instantly, the princess turned into a majestic stone statue. Today, this statue resides inside the grand Shiva temple at Prambanan, a timeless reminder of the tragic peril of pride, deceit, and unbridled anger.`,
+      prompt: "What was the main conflict between Bandung Bondowoso and Princess Roro Jonggrang?",
+      options: [
+        { key: "A", text: "Bandung Bondowoso wanted to marry Roro Jonggrang, but she despised him for killing her father." },
+        { key: "B", text: "Bandung Bondowoso refused to share his agricultural harvest with the people of Boko." },
+        { key: "C", text: "Roro Jonggrang challenged Bandung Bondowoso to a dual sword contest across the valley." },
+        { key: "D", text: "Prabu Damar Moyo ordered the destruction of all religious monuments in Central Java." }
+      ],
+      correctAnswer: "A",
+      explanation: "Konflik utama cerita adalah Bandung Bondowoso ingin menikahi Roro Jonggrang, namun sang putri membenci pangeran karena telah membunuh ayahnya di medan perang ('felt deep abhorrence toward the man who had slain her father').",
+      grammarNote: "Past Narrative Conflict: 'felt deep abhorrence toward the man who had slain her father'."
+    },
+
+    // Q12 - ASAS Bank (Roro Jonggrang)
+    {
+      id: 12,
+      source: "Sumber: Dikutip dan diadaptasi dari TP_11.1_Materi_Otentik_Narrative_Text_Indonesian_Folklore.docx — Cerita Rakyat Prambanan",
+      type: "reading",
+      title: "Reading Section: TP 11.1 Narrative Text",
+      stimulusTitle: "The Legend of Roro Jonggrang and the Thousand Temples",
+      stimulusBody: `Once upon a time in ancient Central Java, there existed two neighboring kingdoms: Pengging, ruled by the wise Prabu Damar Moyo, and Boko, governed by a fierce, giant man-eating monarch named Prabu Boko. Driven by an insatiable desire to expand his dominion, Prabu Boko waged war against Pengging. In response, Prabu Damar Moyo dispatched his valiant and powerful son, Prince Bandung Bondowoso. Blessed with supernatural strength and invulnerability, Bandung Bondowoso swiftly vanquished Prabu Boko on the battlefield.<br><br>Following his triumph, Bandung Bondowoso entered the royal court of Boko. There, he caught sight of Princess Roro Jonggrang, the late king's daughter, whose breathtaking grace and beauty immediately captivated his heart. Eager to claim her as his bride, the prince made a formal proposal. However, Roro Jonggrang felt deep abhorrence toward the man who had slain her father and subjugated her realm. Knowing that an outright refusal would provoke deadly retaliation against her people, she devised a seemingly insurmountable condition: Bandung Bondowoso had to construct one thousand ornate stone temples and two deep wells in a single night before the first rooster crowed at dawn.<br><br>Confident in his mystical prowess, Bandung Bondowoso accepted the challenge. As twilight deepened, he meditated deeply and summoned hordes of spirits from the earth. The spirits labored with astonishing velocity, hauling colossal volcanic boulders, sculpting intricate bas-reliefs, and raising magnificent shrines from the soil. By midnight, over nine hundred temples had been completed. Terrified that the prince would succeed, Roro Jonggrang hastily awakened her trusted palace maidens. She instructed them to burn piles of dry straw in the east to illuminate the horizon with a fiery crimson glow, while others pounded rice mortars vigorously to simulate morning activities. Deceived by the light and noise, roosters throughout the valley began to crow lustily, signaling the dawn.<br><br>Believing the sun was rising, the spirit legions fled back into the netherworld, leaving nine hundred and ninety-nine temples standing. When Bandung Bondowoso realized that dawn had been artificially simulated through deliberate deception, his fury was boundless. He confronted Roro Jonggrang, declaring, 'You have deceived me! As you lack only one temple to complete the thousand, you shall become the final stone!' Instantly, the princess turned into a majestic stone statue. Today, this statue resides inside the grand Shiva temple at Prambanan, a timeless reminder of the tragic peril of pride, deceit, and unbridled anger.`,
+      prompt: "Why did Princess Roro Jonggrang avoid rejecting Bandung Bondowoso's marriage proposal openly?",
+      options: [
+        { key: "A", text: "She feared an outright refusal would provoke violent retaliation against her conquered people." },
+        { key: "B", text: "She secretly harbored deep romantic admiration for the prince's battlefield prowess." },
+        { key: "C", text: "Her royal council insisted that all princesses must wed conquering military commanders." },
+        { key: "D", text: "She wanted Bandung Bondowoso to teach her how to summon supernatural spirit workers." }
+      ],
+      correctAnswer: "A",
+      explanation: "Paragraf 2 menyatakan bahwa Roro Jonggrang takut penolakan secara terang-terangan akan memicu pembalasan kejam terhadap rakyatnya ('Knowing that an outright refusal would provoke deadly retaliation against her people').",
+      grammarNote: "Participial Clause of Reason: 'Knowing that an outright refusal would provoke deadly retaliation... she devised a condition'."
+    },
+
+    // Q13 - ASAS Bank (Roro Jonggrang)
+    {
+      id: 13,
+      source: "Sumber: Dikutip dan diadaptasi dari TP_11.1_Materi_Otentik_Narrative_Text_Indonesian_Folklore.docx — Cerita Rakyat Prambanan",
+      type: "reading",
+      title: "Reading Section: TP 11.1 Narrative Text",
+      stimulusTitle: "The Legend of Roro Jonggrang and the Thousand Temples",
+      stimulusBody: `Once upon a time in ancient Central Java, there existed two neighboring kingdoms: Pengging, ruled by the wise Prabu Damar Moyo, and Boko, governed by a fierce, giant man-eating monarch named Prabu Boko. Driven by an insatiable desire to expand his dominion, Prabu Boko waged war against Pengging. In response, Prabu Damar Moyo dispatched his valiant and powerful son, Prince Bandung Bondowoso. Blessed with supernatural strength and invulnerability, Bandung Bondowoso swiftly vanquished Prabu Boko on the battlefield.<br><br>Following his triumph, Bandung Bondowoso entered the royal court of Boko. There, he caught sight of Princess Roro Jonggrang, the late king's daughter, whose breathtaking grace and beauty immediately captivated his heart. Eager to claim her as his bride, the prince made a formal proposal. However, Roro Jonggrang felt deep abhorrence toward the man who had slain her father and subjugated her realm. Knowing that an outright refusal would provoke deadly retaliation against her people, she devised a seemingly insurmountable condition: Bandung Bondowoso had to construct one thousand ornate stone temples and two deep wells in a single night before the first rooster crowed at dawn.<br><br>Confident in his mystical prowess, Bandung Bondowoso accepted the challenge. As twilight deepened, he meditated deeply and summoned hordes of spirits from the earth. The spirits labored with astonishing velocity, hauling colossal volcanic boulders, sculpting intricate bas-reliefs, and raising magnificent shrines from the soil. By midnight, over nine hundred temples had been completed. Terrified that the prince would succeed, Roro Jonggrang hastily awakened her trusted palace maidens. She instructed them to burn piles of dry straw in the east to illuminate the horizon with a fiery crimson glow, while others pounded rice mortars vigorously to simulate morning activities. Deceived by the light and noise, roosters throughout the valley began to crow lustily, signaling the dawn.<br><br>Believing the sun was rising, the spirit legions fled back into the netherworld, leaving nine hundred and ninety-nine temples standing. When Bandung Bondowoso realized that dawn had been artificially simulated through deliberate deception, his fury was boundless. He confronted Roro Jonggrang, declaring, 'You have deceived me! As you lack only one temple to complete the thousand, you shall become the final stone!' Instantly, the princess turned into a majestic stone statue. Today, this statue resides inside the grand Shiva temple at Prambanan, a timeless reminder of the tragic peril of pride, deceit, and unbridled anger.`,
+      prompt: "How did Roro Jonggrang create the illusion that dawn had arrived?",
+      options: [
+        { key: "A", text: "By burning piles of straw to light the horizon and ordering maidens to pound rice mortars." },
+        { key: "B", text: "By blowing ceremonial silver trumpets and ringing brass temple bells across the valley." },
+        { key: "C", text: "By using mirrors to reflect moonlight directly onto the prince's meditation tent." },
+        { key: "D", text: "By dispatching an army of archers to drive the spirit workers back into subterranean caves." }
+      ],
+      correctAnswer: "A",
+      explanation: "Paragraf 3 baris 7-10 menjelaskan taktik sang putri: membakar jerami kering di timur agar langit memerah dan menumbuk lesung padi ('burn piles of dry straw in the east to illuminate the horizon... others pounded rice mortars vigorously').",
+      grammarNote: "Past Coordinate Action: 'She instructed them to burn piles of dry straw... while others pounded rice mortars'."
+    },
+
+    // Q14 - ASAS Bank (Roro Jonggrang)
+    {
+      id: 14,
+      source: "Sumber: Dikutip dan diadaptasi dari TP_11.1_Materi_Otentik_Narrative_Text_Indonesian_Folklore.docx — Cerita Rakyat Prambanan",
+      type: "reading",
+      title: "Reading Section: TP 11.1 Narrative Text",
+      stimulusTitle: "The Legend of Roro Jonggrang and the Thousand Temples",
+      stimulusBody: `Once upon a time in ancient Central Java, there existed two neighboring kingdoms: Pengging, ruled by the wise Prabu Damar Moyo, and Boko, governed by a fierce, giant man-eating monarch named Prabu Boko. Driven by an insatiable desire to expand his dominion, Prabu Boko waged war against Pengging. In response, Prabu Damar Moyo dispatched his valiant and powerful son, Prince Bandung Bondowoso. Blessed with supernatural strength and invulnerability, Bandung Bondowoso swiftly vanquished Prabu Boko on the battlefield.<br><br>Following his triumph, Bandung Bondowoso entered the royal court of Boko. There, he caught sight of Princess Roro Jonggrang, the late king's daughter, whose breathtaking grace and beauty immediately captivated his heart. Eager to claim her as his bride, the prince made a formal proposal. However, Roro Jonggrang felt deep abhorrence toward the man who had slain her father and subjugated her realm. Knowing that an outright refusal would provoke deadly retaliation against her people, she devised a seemingly insurmountable condition: Bandung Bondowoso had to construct one thousand ornate stone temples and two deep wells in a single night before the first rooster crowed at dawn.<br><br>Confident in his mystical prowess, Bandung Bondowoso accepted the challenge. As twilight deepened, he meditated deeply and summoned hordes of spirits from the earth. The spirits labored with astonishing velocity, hauling colossal volcanic boulders, sculpting intricate bas-reliefs, and raising magnificent shrines from the soil. By midnight, over nine hundred temples had been completed. Terrified that the prince would succeed, Roro Jonggrang hastily awakened her trusted palace maidens. She instructed them to burn piles of dry straw in the east to illuminate the horizon with a fiery crimson glow, while others pounded rice mortars vigorously to simulate morning activities. Deceived by the light and noise, roosters throughout the valley began to crow lustily, signaling the dawn.<br><br>Believing the sun was rising, the spirit legions fled back into the netherworld, leaving nine hundred and ninety-nine temples standing. When Bandung Bondowoso realized that dawn had been artificially simulated through deliberate deception, his fury was boundless. He confronted Roro Jonggrang, declaring, 'You have deceived me! As you lack only one temple to complete the thousand, you shall become the final stone!' Instantly, the princess turned into a majestic stone statue. Today, this statue resides inside the grand Shiva temple at Prambanan, a timeless reminder of the tragic peril of pride, deceit, and unbridled anger.`,
+      prompt: "The word 'insurmountable' in the second paragraph is closest in meaning to...",
+      options: [
+        { key: "A", text: "impossible to overcome or accomplish" },
+        { key: "B", text: "delightful and pleasant to experience" },
+        { key: "C", text: "unimportant and simple to finish" },
+        { key: "D", text: "generous and filled with kindness" }
+      ],
+      correctAnswer: "A",
+      explanation: "Kata 'insurmountable' bermakna mustahil untuk diatasi atau diselesaikan (*impossible to overcome/achieve*).",
+      grammarNote: "Morphological Prefix Analysis: 'in-' (not) + 'surmount' (overcome) + '-able' (capable of) = mustahil terlampaui."
+    },
+
+    // Q15 - ASAS Bank (Roro Jonggrang)
+    {
+      id: 15,
+      source: "Sumber: Dikutip dan diadaptasi dari TP_11.1_Materi_Otentik_Narrative_Text_Indonesian_Folklore.docx — Cerita Rakyat Prambanan",
+      type: "reading",
+      title: "Reading Section: TP 11.1 Narrative Text",
+      stimulusTitle: "The Legend of Roro Jonggrang and the Thousand Temples",
+      stimulusBody: `Once upon a time in ancient Central Java, there existed two neighboring kingdoms: Pengging, ruled by the wise Prabu Damar Moyo, and Boko, governed by a fierce, giant man-eating monarch named Prabu Boko. Driven by an insatiable desire to expand his dominion, Prabu Boko waged war against Pengging. In response, Prabu Damar Moyo dispatched his valiant and powerful son, Prince Bandung Bondowoso. Blessed with supernatural strength and invulnerability, Bandung Bondowoso swiftly vanquished Prabu Boko on the battlefield.<br><br>Following his triumph, Bandung Bondowoso entered the royal court of Boko. There, he caught sight of Princess Roro Jonggrang, the late king's daughter, whose breathtaking grace and beauty immediately captivated his heart. Eager to claim her as his bride, the prince made a formal proposal. However, Roro Jonggrang felt deep abhorrence toward the man who had slain her father and subjugated her realm. Knowing that an outright refusal would provoke deadly retaliation against her people, she devised a seemingly insurmountable condition: Bandung Bondowoso had to construct one thousand ornate stone temples and two deep wells in a single night before the first rooster crowed at dawn.<br><br>Confident in his mystical prowess, Bandung Bondowoso accepted the challenge. As twilight deepened, he meditated deeply and summoned hordes of spirits from the earth. The spirits labored with astonishing velocity, hauling colossal volcanic boulders, sculpting intricate bas-reliefs, and raising magnificent shrines from the soil. By midnight, over nine hundred temples had been completed. Terrified that the prince would succeed, Roro Jonggrang hastily awakened her trusted palace maidens. She instructed them to burn piles of dry straw in the east to illuminate the horizon with a fiery crimson glow, while others pounded rice mortars vigorously to simulate morning activities. Deceived by the light and noise, roosters throughout the valley began to crow lustily, signaling the dawn.<br><br>Believing the sun was rising, the spirit legions fled back into the netherworld, leaving nine hundred and ninety-nine temples standing. When Bandung Bondowoso realized that dawn had been artificially simulated through deliberate deception, his fury was boundless. He confronted Roro Jonggrang, declaring, 'You have deceived me! As you lack only one temple to complete the thousand, you shall become the final stone!' Instantly, the princess turned into a majestic stone statue. Today, this statue resides inside the grand Shiva temple at Prambanan, a timeless reminder of the tragic peril of pride, deceit, and unbridled anger.`,
+      prompt: "What is the primary moral value conveyed by the story of Roro Jonggrang?",
+      options: [
+        { key: "A", text: "Deceitful tricks and arrogant wrath bring tragic ruin to both perpetrators." },
+        { key: "B", text: "Military conquests always produce peaceful and harmonious marital relationships." },
+        { key: "C", text: "Relying on nocturnal spirits guarantees everlasting good fortune in architecture." },
+        { key: "D", text: "Princesses should always agree to marriage proposals without asking any conditions." }
+      ],
+      correctAnswer: "A",
+      explanation: "Pesan moral cerita menegaskan bahwa tipu muslihat yang curang dan kemarahan tak terkendali membawa kebinasaan tragis bagi kedua belah pihak ('a timeless reminder of the tragic peril of pride, deceit, and unbridled anger').",
+      grammarNote: "Evaluative Moral Stance: 'peril of pride, deceit, and unbridled anger'."
+    },
+
+    // Q16 - Komplementer (Malin Kundang)
+    {
+      id: 16,
+      source: "Sumber: Antologi Cerita Rakyat Nusantara: Kisah Malin Kundang — Balai Bahasa Sumatera Barat & Kemendikbud",
+      type: "reading",
+      title: "Reading Section: TP 11.1 Narrative Text",
+      stimulusTitle: "The Legend of Malin Kundang: The Price of Ungrateful Pride",
+      stimulusBody: `A long time ago in a poor coastal fishing village in West Sumatra, there lived a humble widow named Mande Rubayah and her only son, Malin Kundang. They lived in profound poverty, surviving day to day on the meager fish Malin caught near the shore. Despite their destitution, Mande Rubayah nurtured her boy with unconditional maternal warmth and constant prayers for a brighter future.<br><br>As Malin grew into a robust and ambitious young man, he grew weary of village hardship. When a grand merchant trading ship docked at the harbor, Malin pleaded with his mother for permission to sail abroad to seek fortune. Though her heart was shattered with grief, Mande Rubayah consented, giving him seven small packets of rice wrapped in banana leaves. She stood weeping at the harbor until the ship disappeared beneath the ocean horizon.<br><br>Years passed without word, yet the devoted mother walked to the beach every afternoon, praying for her son's safe return. In faraway lands, Malin worked relentlessly, learning maritime navigation and trade. Through diligence and shrewdness, he eventually amassed colossal wealth, acquired a fleet of merchant vessels, and married a noblewoman. One morning, Malin's magnificent two-masted ship anchored at his native harbor. Hearing of the arrival of a wealthy merchant, Mande Rubayah rushed to the dock. Recognizing her beloved son by a distinctive scar on his arm, she ran forward with tears of joy, crying, 'Malin, my son, you have finally come home!'<br><br>However, ashamed of his mother's ragged clothes and withered appearance before his aristocratic wife and crew, Malin turned coldly upon her. 'Go away, filthy old beggar! My mother was a woman of high nobility, not an ugly wretch like you!' he shouted cruelly, shoving her onto the sand. Brokenhearted and humiliated, Mande Rubayah knelt on the shore, raising her trembling hands to the heavens: 'Oh Lord Almighty, if he is indeed not my son, I forgive his insolence. But if he is truly my son Malin, let your righteous justice be served!'<br><br>Shortly afterward, the calm azure sky darkened with menacing storm clouds. Thunderous gales arose, and colossal ocean waves battered Malin's vessel. Realizing his grave transgression, Malin fell to his knees in panic, attempting to beg for forgiveness, but it was too late. A blinding bolt of lightning struck the ship, wrecking it upon the reef. When the tempest subsided the next morning, a solitary jagged stone resembling a man kneeling in remorse stood upon the silent beach—a solemn testament to the sacred virtue of filial gratitude.`,
+      prompt: "What motivated young Malin Kundang to leave his native fishing village?",
+      options: [
+        { key: "A", text: "He grew weary of persistent poverty and wished to seek immense fortune by sailing abroad." },
+        { key: "B", text: "His mother forced him to join the imperial naval fleet to fight foreign invaders." },
+        { key: "C", text: "He wanted to escape a sudden volcanic eruption that threatened his coastal village." },
+        { key: "D", text: "He was exiled by the village elders for failing to maintain the fishing boats." }
+      ],
+      correctAnswer: "A",
+      explanation: "Paragraf 2 menyatakan alasan Malin merantau: ia lelah dengan kemiskinan dan memohon izin ibunya untuk mencari peruntungan di negeri seberang ('grew weary of village hardship... pleaded with his mother for permission to sail abroad to seek fortune').",
+      grammarNote: "Infinitive of Purpose: 'to sail abroad to seek fortune'."
+    },
+
+    // Q17 - Komplementer (Malin Kundang)
+    {
+      id: 17,
+      source: "Sumber: Antologi Cerita Rakyat Nusantara: Kisah Malin Kundang — Balai Bahasa Sumatera Barat & Kemendikbud",
+      type: "reading",
+      title: "Reading Section: TP 11.1 Narrative Text",
+      stimulusTitle: "The Legend of Malin Kundang: The Price of Ungrateful Pride",
+      stimulusBody: `A long time ago in a poor coastal fishing village in West Sumatra, there lived a humble widow named Mande Rubayah and her only son, Malin Kundang. They lived in profound poverty, surviving day to day on the meager fish Malin caught near the shore. Despite their destitution, Mande Rubayah nurtured her boy with unconditional maternal warmth and constant prayers for a brighter future.<br><br>As Malin grew into a robust and ambitious young man, he grew weary of village hardship. When a grand merchant trading ship docked at the harbor, Malin pleaded with his mother for permission to sail abroad to seek fortune. Though her heart was shattered with grief, Mande Rubayah consented, giving him seven small packets of rice wrapped in banana leaves. She stood weeping at the harbor until the ship disappeared beneath the ocean horizon.<br><br>Years passed without word, yet the devoted mother walked to the beach every afternoon, praying for her son's safe return. In faraway lands, Malin worked relentlessly, learning maritime navigation and trade. Through diligence and shrewdness, he eventually amassed colossal wealth, acquired a fleet of merchant vessels, and married a noblewoman. One morning, Malin's magnificent two-masted ship anchored at his native harbor. Hearing of the arrival of a wealthy merchant, Mande Rubayah rushed to the dock. Recognizing her beloved son by a distinctive scar on his arm, she ran forward with tears of joy, crying, 'Malin, my son, you have finally come home!'<br><br>However, ashamed of his mother's ragged clothes and withered appearance before his aristocratic wife and crew, Malin turned coldly upon her. 'Go away, filthy old beggar! My mother was a woman of high nobility, not an ugly wretch like you!' he shouted cruelly, shoving her onto the sand. Brokenhearted and humiliated, Mande Rubayah knelt on the shore, raising her trembling hands to the heavens: 'Oh Lord Almighty, if he is indeed not my son, I forgive his insolence. But if he is truly my son Malin, let your righteous justice be served!'<br><br>Shortly afterward, the calm azure sky darkened with menacing storm clouds. Thunderous gales arose, and colossal ocean waves battered Malin's vessel. Realizing his grave transgression, Malin fell to his knees in panic, attempting to beg for forgiveness, but it was too late. A blinding bolt of lightning struck the ship, wrecking it upon the reef. When the tempest subsided the next morning, a solitary jagged stone resembling a man kneeling in remorse stood upon the silent beach—a solemn testament to the sacred virtue of filial gratitude.`,
+      prompt: "How did Mande Rubayah recognize that the wealthy merchant was indeed her long-lost son?",
+      options: [
+        { key: "A", text: "She identified a distinctive scar on his arm that he had carried since childhood." },
+        { key: "B", text: "He presented her with a gold necklace bearing the royal crest of West Sumatra." },
+        { key: "C", text: "The ship captain sent an official messenger to announce his royal identity." },
+        { key: "D", text: "He was wearing the traditional embroidered jacket his mother had sewn for him." }
+      ],
+      correctAnswer: "A",
+      explanation: "Paragraf 3 baris 10-12 menjelaskan cara ibu mengenali putranya: melalui bekas luka khusus di lengannya ('Recognizing her beloved son by a distinctive scar on his arm').",
+      grammarNote: "Prepositional Identification Phrase: 'Recognizing her beloved son by a distinctive scar on his arm'."
+    },
+
+    // Q18 - Komplementer (Malin Kundang)
+    {
+      id: 18,
+      source: "Sumber: Antologi Cerita Rakyat Nusantara: Kisah Malin Kundang — Balai Bahasa Sumatera Barat & Kemendikbud",
+      type: "reading",
+      title: "Reading Section: TP 11.1 Narrative Text",
+      stimulusTitle: "The Legend of Malin Kundang: The Price of Ungrateful Pride",
+      stimulusBody: `A long time ago in a poor coastal fishing village in West Sumatra, there lived a humble widow named Mande Rubayah and her only son, Malin Kundang. They lived in profound poverty, surviving day to day on the meager fish Malin caught near the shore. Despite their destitution, Mande Rubayah nurtured her boy with unconditional maternal warmth and constant prayers for a brighter future.<br><br>As Malin grew into a robust and ambitious young man, he grew weary of village hardship. When a grand merchant trading ship docked at the harbor, Malin pleaded with his mother for permission to sail abroad to seek fortune. Though her heart was shattered with grief, Mande Rubayah consented, giving him seven small packets of rice wrapped in banana leaves. She stood weeping at the harbor until the ship disappeared beneath the ocean horizon.<br><br>Years passed without word, yet the devoted mother walked to the beach every afternoon, praying for her son's safe return. In faraway lands, Malin worked relentlessly, learning maritime navigation and trade. Through diligence and shrewdness, he eventually amassed colossal wealth, acquired a fleet of merchant vessels, and married a noblewoman. One morning, Malin's magnificent two-masted ship anchored at his native harbor. Hearing of the arrival of a wealthy merchant, Mande Rubayah rushed to the dock. Recognizing her beloved son by a distinctive scar on his arm, she ran forward with tears of joy, crying, 'Malin, my son, you have finally come home!'<br><br>However, ashamed of his mother's ragged clothes and withered appearance before his aristocratic wife and crew, Malin turned coldly upon her. 'Go away, filthy old beggar! My mother was a woman of high nobility, not an ugly wretch like you!' he shouted cruelly, shoving her onto the sand. Brokenhearted and humiliated, Mande Rubayah knelt on the shore, raising her trembling hands to the heavens: 'Oh Lord Almighty, if he is indeed not my son, I forgive his insolence. But if he is truly my son Malin, let your righteous justice be served!'<br><br>Shortly afterward, the calm azure sky darkened with menacing storm clouds. Thunderous gales arose, and colossal ocean waves battered Malin's vessel. Realizing his grave transgression, Malin fell to his knees in panic, attempting to beg for forgiveness, but it was too late. A blinding bolt of lightning struck the ship, wrecking it upon the reef. When the tempest subsided the next morning, a solitary jagged stone resembling a man kneeling in remorse stood upon the silent beach—a solemn testament to the sacred virtue of filial gratitude.`,
+      prompt: "Why did Malin Kundang deny and shove his own mother when she approached him?",
+      options: [
+        { key: "A", text: "He was ashamed of her ragged clothing and withered appearance in front of his aristocratic wife." },
+        { key: "B", text: "He believed she had stolen valuable porcelain spices from his cargo hold." },
+        { key: "C", text: "He had suffered memory loss from a tropical fever and truly did not know her." },
+        { key: "D", text: "His mother demanded that he surrender all his merchant ships to the village chief." }
+      ],
+      correctAnswer: "A",
+      explanation: "Paragraf 4 menyatakan bahwa Malin malu akan pakaian ibunya yang compang-camping di hadapan istri bangsawan dan anak buahnya ('ashamed of his mother's ragged clothes and withered appearance before his aristocratic wife and crew').",
+      grammarNote: "Cause and Effect Adjective: 'ashamed of his mother's ragged clothes... Malin turned coldly upon her'."
+    },
+
+    // Q19 - Komplementer (Malin Kundang)
+    {
+      id: 19,
+      source: "Sumber: Antologi Cerita Rakyat Nusantara: Kisah Malin Kundang — Balai Bahasa Sumatera Barat & Kemendikbud",
+      type: "reading",
+      title: "Reading Section: TP 11.1 Narrative Text",
+      stimulusTitle: "The Legend of Malin Kundang: The Price of Ungrateful Pride",
+      stimulusBody: `A long time ago in a poor coastal fishing village in West Sumatra, there lived a humble widow named Mande Rubayah and her only son, Malin Kundang. They lived in profound poverty, surviving day to day on the meager fish Malin caught near the shore. Despite their destitution, Mande Rubayah nurtured her boy with unconditional maternal warmth and constant prayers for a brighter future.<br><br>As Malin grew into a robust and ambitious young man, he grew weary of village hardship. When a grand merchant trading ship docked at the harbor, Malin pleaded with his mother for permission to sail abroad to seek fortune. Though her heart was shattered with grief, Mande Rubayah consented, giving him seven small packets of rice wrapped in banana leaves. She stood weeping at the harbor until the ship disappeared beneath the ocean horizon.<br><br>Years passed without word, yet the devoted mother walked to the beach every afternoon, praying for her son's safe return. In faraway lands, Malin worked relentlessly, learning maritime navigation and trade. Through diligence and shrewdness, he eventually amassed colossal wealth, acquired a fleet of merchant vessels, and married a noblewoman. One morning, Malin's magnificent two-masted ship anchored at his native harbor. Hearing of the arrival of a wealthy merchant, Mande Rubayah rushed to the dock. Recognizing her beloved son by a distinctive scar on his arm, she ran forward with tears of joy, crying, 'Malin, my son, you have finally come home!'<br><br>However, ashamed of his mother's ragged clothes and withered appearance before his aristocratic wife and crew, Malin turned coldly upon her. 'Go away, filthy old beggar! My mother was a woman of high nobility, not an ugly wretch like you!' he shouted cruelly, shoving her onto the sand. Brokenhearted and humiliated, Mande Rubayah knelt on the shore, raising her trembling hands to the heavens: 'Oh Lord Almighty, if he is indeed not my son, I forgive his insolence. But if he is truly my son Malin, let your righteous justice be served!'<br><br>Shortly afterward, the calm azure sky darkened with menacing storm clouds. Thunderous gales arose, and colossal ocean waves battered Malin's vessel. Realizing his grave transgression, Malin fell to his knees in panic, attempting to beg for forgiveness, but it was too late. A blinding bolt of lightning struck the ship, wrecking it upon the reef. When the tempest subsided the next morning, a solitary jagged stone resembling a man kneeling in remorse stood upon the silent beach—a solemn testament to the sacred virtue of filial gratitude.`,
+      prompt: "The word 'tempest' in the final paragraph is closest in meaning to...",
+      options: [
+        { key: "A", text: "violent ocean storm with strong winds" },
+        { key: "B", text: "gentle warm breeze on a sunny morning" },
+        { key: "C", text: "peaceful religious festival in a village" },
+        { key: "D", text: "shallow freshwater pool beside a river" }
+      ],
+      correctAnswer: "A",
+      explanation: "Kata 'tempest' bermakna badai dahsyat di laut yang disertai angin kencang dan gelombang laut besar (violent ocean storm).",
+      grammarNote: "Contextual Vocabulary (Oxford 3000 Level B1/B2): 'tempest' = badai topan dahsyat."
+    },
+
+    // Q20 - Komplementer (Malin Kundang)
+    {
+      id: 20,
+      source: "Sumber: Antologi Cerita Rakyat Nusantara: Kisah Malin Kundang — Balai Bahasa Sumatera Barat & Kemendikbud",
+      type: "reading",
+      title: "Reading Section: TP 11.1 Narrative Text",
+      stimulusTitle: "The Legend of Malin Kundang: The Price of Ungrateful Pride",
+      stimulusBody: `A long time ago in a poor coastal fishing village in West Sumatra, there lived a humble widow named Mande Rubayah and her only son, Malin Kundang. They lived in profound poverty, surviving day to day on the meager fish Malin caught near the shore. Despite their destitution, Mande Rubayah nurtured her boy with unconditional maternal warmth and constant prayers for a brighter future.<br><br>As Malin grew into a robust and ambitious young man, he grew weary of village hardship. When a grand merchant trading ship docked at the harbor, Malin pleaded with his mother for permission to sail abroad to seek fortune. Though her heart was shattered with grief, Mande Rubayah consented, giving him seven small packets of rice wrapped in banana leaves. She stood weeping at the harbor until the ship disappeared beneath the ocean horizon.<br><br>Years passed without word, yet the devoted mother walked to the beach every afternoon, praying for her son's safe return. In faraway lands, Malin worked relentlessly, learning maritime navigation and trade. Through diligence and shrewdness, he eventually amassed colossal wealth, acquired a fleet of merchant vessels, and married a noblewoman. One morning, Malin's magnificent two-masted ship anchored at his native harbor. Hearing of the arrival of a wealthy merchant, Mande Rubayah rushed to the dock. Recognizing her beloved son by a distinctive scar on his arm, she ran forward with tears of joy, crying, 'Malin, my son, you have finally come home!'<br><br>However, ashamed of his mother's ragged clothes and withered appearance before his aristocratic wife and crew, Malin turned coldly upon her. 'Go away, filthy old beggar! My mother was a woman of high nobility, not an ugly wretch like you!' he shouted cruelly, shoving her onto the sand. Brokenhearted and humiliated, Mande Rubayah knelt on the shore, raising her trembling hands to the heavens: 'Oh Lord Almighty, if he is indeed not my son, I forgive his insolence. But if he is truly my son Malin, let your righteous justice be served!'<br><br>Shortly afterward, the calm azure sky darkened with menacing storm clouds. Thunderous gales arose, and colossal ocean waves battered Malin's vessel. Realizing his grave transgression, Malin fell to his knees in panic, attempting to beg for forgiveness, but it was too late. A blinding bolt of lightning struck the ship, wrecking it upon the reef. When the tempest subsided the next morning, a solitary jagged stone resembling a man kneeling in remorse stood upon the silent beach—a solemn testament to the sacred virtue of filial gratitude.`,
+      prompt: "What timeless moral value does the legend of Malin Kundang teach young generations?",
+      options: [
+        { key: "A", text: "Children must always honor, respect, and cherish their parents regardless of their material wealth." },
+        { key: "B", text: "Ambitious traders should never return to their native coastal villages after becoming rich." },
+        { key: "C", text: "Building two-masted ships requires strong wooden planks from deep mountain forests." },
+        { key: "D", text: "Young sailors should avoid learning navigation skills from foreign merchant captains." }
+      ],
+      correctAnswer: "A",
+      explanation: "Pesan moral abadi dari legenda Malin Kundang adalah pentingnya berbakti dan menghormati orang tua dalam keadaan apa pun tanpa memandang status kekayaan ('sacred virtue of filial gratitude').",
+      grammarNote: "Moral Generalization: 'Children must always honor, respect, and cherish their parents'."
+    },
+
+    // =========================================================================
+    // SECTION 3: READING GENRE 2 — TP 11.2 ANALYTICAL EXPOSITION (21 - 30)
+    // 60% ASAS Bank: Q21-Q25 (Digital Literacy) + Q26-Q30 (Echo Chambers) = 10 Soal
+    // =========================================================================
+
+    // Q21 - ASAS Bank (Analytical Exposition)
+    {
+      id: 21,
+      source: "Sumber: Dikutip dan diadaptasi dari TP_11.2_Materi_Otentik_Analytical_Exposition_Digital_Literacy.docx — Jurnal Literasi Komunikasi Digital",
+      type: "reading",
+      title: "Reading Section: TP 11.2 Analytical Exposition",
+      stimulusTitle: "Why Critical Digital Literacy Is an Essential Competence for Modern Teenagers",
+      stimulusBody: `In the contemporary era of hyper-connected social networks, secondary students are continuously inundated with immense streams of digital information. While access to the internet offers unprecedented learning opportunities, it simultaneously exposes youths to pervasive misinformation, deceptive clickbait, and algorithmic echo chambers. Therefore, cultivating critical digital literacy is no longer merely an optional scholastic skill; it has become an indispensable life competence for modern teenagers.<br><br>First and foremost, critical digital literacy empowers adolescents to distinguish between factual evidence and fabricated falsehoods. Sensationalized headlines are deliberately engineered to trigger volatile emotional responses, enticing users to share misleading posts without prior verification. Digitally literate students possess the cognitive discipline to evaluate the authority of sources, cross-check claims against verified databases, and recognize commercial or political biases.<br><br>Furthermore, possessing mature digital awareness is paramount for safeguarding one's permanent digital footprint. Every comment, shared image, and forum reaction leaves persistent electronic traces that cannot be completely erased by hitting 'delete'. Admissions committees for prestigious universities and scholarship foundations now routinely scrutinize applicants' public profiles to evaluate personal integrity and constructive communication habits.<br><br>Finally, critical digital awareness shields adolescent mental wellbeing from algorithmic manipulation. Social media algorithms intentionally prioritize outrage-inducing content and idealized portrayals of peer lifestyle, which can foster profound social anxiety, body dissatisfaction, and depression among vulnerable youths. By understanding how algorithmic engagement metrics operate, students can consciously regulate their screen exposure and consume digital media intentionally rather than passively.<br><br>In conclusion, critical digital literacy is not simply about operating software applications; it is about cultivating intellectual autonomy, safeguarding ethical reputation, and protecting psychological health in an automated society. Secondary schools must systematically embed comprehensive digital literacy frameworks across all academic curricula.`,
+      prompt: "What is the primary thesis advocated by the author in the first paragraph?",
+      options: [
+        { key: "A", text: "Cultivating critical digital literacy is an indispensable life competence for modern teenagers." },
+        { key: "B", text: "High schools should completely ban all electronic internet connections from classrooms." },
+        { key: "C", text: "Social media networks have become completely useless for academic learning purposes." },
+        { key: "D", text: "Teenagers should spend at least ten hours daily browsing commercial video platforms." }
+      ],
+      correctAnswer: "A",
+      explanation: "Tesis pada paragraf 1 menyatakan: 'cultivating critical digital literacy is no longer merely an optional scholastic skill; it has become an indispensable life competence for modern teenagers'.",
+      grammarNote: "Analytical Exposition Thesis Statement: Subject + has become + Complement."
+    },
+
+    // Q22 - ASAS Bank (Analytical Exposition)
+    {
+      id: 22,
+      source: "Sumber: Dikutip dan diadaptasi dari TP_11.2_Materi_Otentik_Analytical_Exposition_Digital_Literacy.docx — Jurnal Literasi Komunikasi Digital",
+      type: "reading",
+      title: "Reading Section: TP 11.2 Analytical Exposition",
+      stimulusTitle: "Why Critical Digital Literacy Is an Essential Competence for Modern Teenagers",
+      stimulusBody: `In the contemporary era of hyper-connected social networks, secondary students are continuously inundated with immense streams of digital information. While access to the internet offers unprecedented learning opportunities, it simultaneously exposes youths to pervasive misinformation, deceptive clickbait, and algorithmic echo chambers. Therefore, cultivating critical digital literacy is no longer merely an optional scholastic skill; it has become an indispensable life competence for modern teenagers.<br><br>First and foremost, critical digital literacy empowers adolescents to distinguish between factual evidence and fabricated falsehoods. Sensationalized headlines are deliberately engineered to trigger volatile emotional responses, enticing users to share misleading posts without prior verification. Digitally literate students possess the cognitive discipline to evaluate the authority of sources, cross-check claims against verified databases, and recognize commercial or political biases.<br><br>Furthermore, possessing mature digital awareness is paramount for safeguarding one's permanent digital footprint. Every comment, shared image, and forum reaction leaves persistent electronic traces that cannot be completely erased by hitting 'delete'. Admissions committees for prestigious universities and scholarship foundations now routinely scrutinize applicants' public profiles to evaluate personal integrity and constructive communication habits.<br><br>Finally, critical digital awareness shields adolescent mental wellbeing from algorithmic manipulation. Social media algorithms intentionally prioritize outrage-inducing content and idealized portrayals of peer lifestyle, which can foster profound social anxiety, body dissatisfaction, and depression among vulnerable youths. By understanding how algorithmic engagement metrics operate, students can consciously regulate their screen exposure and consume digital media intentionally rather than passively.<br><br>In conclusion, critical digital literacy is not simply about operating software applications; it is about cultivating intellectual autonomy, safeguarding ethical reputation, and protecting psychological health in an automated society. Secondary schools must systematically embed comprehensive digital literacy frameworks across all academic curricula.`,
+      prompt: "According to the second paragraph, how do sensationalized headlines deceive uncritical internet users?",
+      options: [
+        { key: "A", text: "They trigger volatile emotional reactions, prompting users to share unverified claims." },
+        { key: "B", text: "They download destructive malware that immediately erases computer operating systems." },
+        { key: "C", text: "They prevent search engines from finding relevant scientific textbooks." },
+        { key: "D", text: "They force readers to purchase expensive commercial hardware products." }
+      ],
+      correctAnswer: "A",
+      explanation: "Paragraf 2 menjelaskan bahwa judul sensasional dirancang untuk memicu emosi labil agar berita disebarkan tanpa verifikasi ('deliberately engineered to trigger volatile emotional responses, enticing users to share misleading posts without prior verification').",
+      grammarNote: "Passive Voice with Infinitive: 'headlines are deliberately engineered to trigger emotional responses'."
+    },
+
+    // Q23 - ASAS Bank (Analytical Exposition)
+    {
+      id: 23,
+      source: "Sumber: Dikutip dan diadaptasi dari TP_11.2_Materi_Otentik_Analytical_Exposition_Digital_Literacy.docx — Jurnal Literasi Komunikasi Digital",
+      type: "reading",
+      title: "Reading Section: TP 11.2 Analytical Exposition",
+      stimulusTitle: "Why Critical Digital Literacy Is an Essential Competence for Modern Teenagers",
+      stimulusBody: `In the contemporary era of hyper-connected social networks, secondary students are continuously inundated with immense streams of digital information. While access to the internet offers unprecedented learning opportunities, it simultaneously exposes youths to pervasive misinformation, deceptive clickbait, and algorithmic echo chambers. Therefore, cultivating critical digital literacy is no longer merely an optional scholastic skill; it has become an indispensable life competence for modern teenagers.<br><br>First and foremost, critical digital literacy empowers adolescents to distinguish between factual evidence and fabricated falsehoods. Sensationalized headlines are deliberately engineered to trigger volatile emotional responses, enticing users to share misleading posts without prior verification. Digitally literate students possess the cognitive discipline to evaluate the authority of sources, cross-check claims against verified databases, and recognize commercial or political biases.<br><br>Furthermore, possessing mature digital awareness is paramount for safeguarding one's permanent digital footprint. Every comment, shared image, and forum reaction leaves persistent electronic traces that cannot be completely erased by hitting 'delete'. Admissions committees for prestigious universities and scholarship foundations now routinely scrutinize applicants' public profiles to evaluate personal integrity and constructive communication habits.<br><br>Finally, critical digital awareness shields adolescent mental wellbeing from algorithmic manipulation. Social media algorithms intentionally prioritize outrage-inducing content and idealized portrayals of peer lifestyle, which can foster profound social anxiety, body dissatisfaction, and depression among vulnerable youths. By understanding how algorithmic engagement metrics operate, students can consciously regulate their screen exposure and consume digital media intentionally rather than passively.<br><br>In conclusion, critical digital literacy is not simply about operating software applications; it is about cultivating intellectual autonomy, safeguarding ethical reputation, and protecting psychological health in an automated society. Secondary schools must systematically embed comprehensive digital literacy frameworks across all academic curricula.`,
+      prompt: "Why is a permanent digital footprint important for high school students' academic future?",
+      options: [
+        { key: "A", text: "Universities and scholarship committees scrutinize online profiles to evaluate integrity and conduct." },
+        { key: "B", text: "Internet providers charge higher fees for accounts that have older digital posts." },
+        { key: "C", text: "It guarantees automatic admission to foreign universities without examination." },
+        { key: "D", text: "It prevents search engines from indexing students' personal names." }
+      ],
+      correctAnswer: "A",
+      explanation: "Paragraf 3 menerangkan pentingnya jejak digital karena komite seleksi perguruan tinggi dan beasiswa meninjau profil publik pelamar ('Admissions committees for prestigious universities and scholarship foundations now routinely scrutinize applicants' public profiles').",
+      grammarNote: "Infinitive of Purpose: 'scrutinize applicants' public profiles to evaluate personal integrity'."
+    },
+
+    // Q24 - ASAS Bank (Analytical Exposition)
+    {
+      id: 24,
+      source: "Sumber: Dikutip dan diadaptasi dari TP_11.2_Materi_Otentik_Analytical_Exposition_Digital_Literacy.docx — Jurnal Literasi Komunikasi Digital",
+      type: "reading",
+      title: "Reading Section: TP 11.2 Analytical Exposition",
+      stimulusTitle: "Why Critical Digital Literacy Is an Essential Competence for Modern Teenagers",
+      stimulusBody: `In the contemporary era of hyper-connected social networks, secondary students are continuously inundated with immense streams of digital information. While access to the internet offers unprecedented learning opportunities, it simultaneously exposes youths to pervasive misinformation, deceptive clickbait, and algorithmic echo chambers. Therefore, cultivating critical digital literacy is no longer merely an optional scholastic skill; it has become an indispensable life competence for modern teenagers.<br><br>First and foremost, critical digital literacy empowers adolescents to distinguish between factual evidence and fabricated falsehoods. Sensationalized headlines are deliberately engineered to trigger volatile emotional responses, enticing users to share misleading posts without prior verification. Digitally literate students possess the cognitive discipline to evaluate the authority of sources, cross-check claims against verified databases, and recognize commercial or political biases.<br><br>Furthermore, possessing mature digital awareness is paramount for safeguarding one's permanent digital footprint. Every comment, shared image, and forum reaction leaves persistent electronic traces that cannot be completely erased by hitting 'delete'. Admissions committees for prestigious universities and scholarship foundations now routinely scrutinize applicants' public profiles to evaluate personal integrity and constructive communication habits.<br><br>Finally, critical digital awareness shields adolescent mental wellbeing from algorithmic manipulation. Social media algorithms intentionally prioritize outrage-inducing content and idealized portrayals of peer lifestyle, which can foster profound social anxiety, body dissatisfaction, and depression among vulnerable youths. By understanding how algorithmic engagement metrics operate, students can consciously regulate their screen exposure and consume digital media intentionally rather than passively.<br><br>In conclusion, critical digital literacy is not simply about operating software applications; it is about cultivating intellectual autonomy, safeguarding ethical reputation, and protecting psychological health in an automated society. Secondary schools must systematically embed comprehensive digital literacy frameworks across all academic curricula.`,
+      prompt: "The word 'scrutinize' in the third paragraph is closest in meaning to...",
+      options: [
+        { key: "A", text: "examine and inspect with careful attention" },
+        { key: "B", text: "ignore and disregard completely" },
+        { key: "C", text: "delete accidentally from storage" },
+        { key: "D", text: "distribute freely without authorization" }
+      ],
+      correctAnswer: "A",
+      explanation: "Kata 'scrutinize' bermakna memeriksa, meneliti, atau menginspeksi dengan cermat dan mendalam (examine carefully).",
+      grammarNote: "Contextual Vocabulary (Oxford 3000 Level B2): 'scrutinize' = memeriksa dengan seksama."
+    },
+
+    // Q25 - ASAS Bank (Analytical Exposition)
+    {
+      id: 25,
+      source: "Sumber: Dikutip dan diadaptasi dari TP_11.2_Materi_Otentik_Analytical_Exposition_Digital_Literacy.docx — Jurnal Literasi Komunikasi Digital",
+      type: "reading",
+      title: "Reading Section: TP 11.2 Analytical Exposition",
+      stimulusTitle: "Why Critical Digital Literacy Is an Essential Competence for Modern Teenagers",
+      stimulusBody: `In the contemporary era of hyper-connected social networks, secondary students are continuously inundated with immense streams of digital information. While access to the internet offers unprecedented learning opportunities, it simultaneously exposes youths to pervasive misinformation, deceptive clickbait, and algorithmic echo chambers. Therefore, cultivating critical digital literacy is no longer merely an optional scholastic skill; it has become an indispensable life competence for modern teenagers.<br><br>First and foremost, critical digital literacy empowers adolescents to distinguish between factual evidence and fabricated falsehoods. Sensationalized headlines are deliberately engineered to trigger volatile emotional responses, enticing users to share misleading posts without prior verification. Digitally literate students possess the cognitive discipline to evaluate the authority of sources, cross-check claims against verified databases, and recognize commercial or political biases.<br><br>Furthermore, possessing mature digital awareness is paramount for safeguarding one's permanent digital footprint. Every comment, shared image, and forum reaction leaves persistent electronic traces that cannot be completely erased by hitting 'delete'. Admissions committees for prestigious universities and scholarship foundations now routinely scrutinize applicants' public profiles to evaluate personal integrity and constructive communication habits.<br><br>Finally, critical digital awareness shields adolescent mental wellbeing from algorithmic manipulation. Social media algorithms intentionally prioritize outrage-inducing content and idealized portrayals of peer lifestyle, which can foster profound social anxiety, body dissatisfaction, and depression among vulnerable youths. By understanding how algorithmic engagement metrics operate, students can consciously regulate their screen exposure and consume digital media intentionally rather than passively.<br><br>In conclusion, critical digital literacy is not simply about operating software applications; it is about cultivating intellectual autonomy, safeguarding ethical reputation, and protecting psychological health in an automated society. Secondary schools must systematically embed comprehensive digital literacy frameworks across all academic curricula.`,
+      prompt: "What reiterated recommendation does the writer present in the concluding paragraph?",
+      options: [
+        { key: "A", text: "Secondary schools must systematically integrate digital literacy frameworks into curricula." },
+        { key: "B", text: "High schools should prohibit all students from using electronic technology at home." },
+        { key: "C", text: "Students ought to trust every algorithmic recommendation generated by search engines." },
+        { key: "D", text: "Educational institutions should eliminate all writing evaluations and focus on video games." }
+      ],
+      correctAnswer: "A",
+      explanation: "Paragraf penutup (Reiteration) menegaskan bahwa sekolah menengah harus menanamkan kerangka literasi digital secara sistematis ('Secondary schools must systematically embed comprehensive digital literacy frameworks across all academic curricula').",
+      grammarNote: "Modal Recommendation in Reiteration: 'Secondary schools must systematically embed...'."
+    },
+
+    // Q26 - ASAS Bank (Analytical Exposition)
+    {
+      id: 26,
+      source: "Sumber: Jurnal Komunikasi Massa & Riset Informasi Publik — Lembaga Pers Mahasiswa & Asosiasi Pengajar Komunikasi",
+      type: "reading",
+      title: "Reading Section: TP 11.2 Analytical Exposition",
+      stimulusTitle: "Escaping Algorithmic Echo Chambers in Modern Online Communities",
+      stimulusBody: `Modern social media platforms utilize sophisticated recommendation algorithms designed to maximize user engagement. While personalized newsfeeds provide convenient content discovery, they simultaneously trap users in narrow information feedback loops known as algorithmic echo chambers. In these enclosed digital environments, users are predominantly exposed to viewpoints that mirror their pre-existing convictions, while contradictory evidence is systematically filtered out.<br><br>The primary danger of echo chambers is the polarization of public discourse. When individuals never encounter opposing perspectives, they gradually lose the capacity for empathy and intellectual nuance. Complex societal challenges—such as climate change policies, public health measures, and economic strategies—become reduced to rigid, partisan conflicts where dissenting opinions are treated with hostility rather than constructive debate.<br><br>Moreover, algorithmic echo chambers accelerate the dissemination of unfounded conspiracy theories. When a user engages with unverified claims, recommendation algorithms automatically suggest more extreme variations of the same topic. Consequently, users become increasingly insulated from objective scientific reality, making evidence-based policy formulation profoundly difficult.<br><br>To dismantle these harmful bubbles, digital citizens must actively practice epistemic hygiene. Users should consciously seek out credible news outlets with diverse editorial stances, engage respectfully with differing viewpoints, and periodically reset their tracking cookies and recommendation histories. Cultivating an open, critical mindset remains our strongest defense against algorithmic polarization.`,
+      prompt: "What is an 'algorithmic echo chamber' as defined in the first paragraph?",
+      options: [
+        { key: "A", text: "An enclosed digital environment where users are only exposed to viewpoints mirroring their own beliefs." },
+        { key: "B", text: "A specialized soundproof auditorium used for recording vocal radio broadcasts." },
+        { key: "C", text: "A hardware device that accelerates internet bandwidth in rural settlements." },
+        { key: "D", text: "A computer virus that deletes browser bookmarks and saved passwords." }
+      ],
+      correctAnswer: "A",
+      explanation: "Paragraf 1 mendefinisikan ruang gema algoritmik (*algorithmic echo chambers*): lingkungan digital tempat pengguna hanya disuguhi konten yang mencerminkan keyakinan mereka sendiri ('exposed to viewpoints that mirror their pre-existing convictions').",
+      grammarNote: "Defining Relative Clause: 'loops in which users are predominantly exposed to viewpoints that mirror their pre-existing convictions'."
+    },
+
+    // Q27 - ASAS Bank (Analytical Exposition)
+    {
+      id: 27,
+      source: "Sumber: Jurnal Komunikasi Massa & Riset Informasi Publik — Lembaga Pers Mahasiswa & Asosiasi Pengajar Komunikasi",
+      type: "reading",
+      title: "Reading Section: TP 11.2 Analytical Exposition",
+      stimulusTitle: "Escaping Algorithmic Echo Chambers in Modern Online Communities",
+      stimulusBody: `Modern social media platforms utilize sophisticated recommendation algorithms designed to maximize user engagement. While personalized newsfeeds provide convenient content discovery, they simultaneously trap users in narrow information feedback loops known as algorithmic echo chambers. In these enclosed digital environments, users are predominantly exposed to viewpoints that mirror their pre-existing convictions, while contradictory evidence is systematically filtered out.<br><br>The primary danger of echo chambers is the polarization of public discourse. When individuals never encounter opposing perspectives, they gradually lose the capacity for empathy and intellectual nuance. Complex societal challenges—such as climate change policies, public health measures, and economic strategies—become reduced to rigid, partisan conflicts where dissenting opinions are treated with hostility rather than constructive debate.<br><br>Moreover, algorithmic echo chambers accelerate the dissemination of unfounded conspiracy theories. When a user engages with unverified claims, recommendation algorithms automatically suggest more extreme variations of the same topic. Consequently, users become increasingly insulated from objective scientific reality, making evidence-based policy formulation profoundly difficult.<br><br>To dismantle these harmful bubbles, digital citizens must actively practice epistemic hygiene. Users should consciously seek out credible news outlets with diverse editorial stances, engage respectfully with differing viewpoints, and periodically reset their tracking cookies and recommendation histories. Cultivating an open, critical mindset remains our strongest defense against algorithmic polarization.`,
+      prompt: "Why is the polarization of public discourse considered a primary danger of echo chambers?",
+      options: [
+        { key: "A", text: "It causes individuals to lose empathy and view dissenting opinions with hostility instead of debate." },
+        { key: "B", text: "It damages high-speed underwater fiber-optic cables connecting continents." },
+        { key: "C", text: "It forces smartphone manufacturers to raise battery replacement prices." },
+        { key: "D", text: "It prevents students from learning foreign languages in high school." }
+      ],
+      correctAnswer: "A",
+      explanation: "Paragraf 2 menyatakan bahwa polarisasi membuat orang kehilangan empati dan memperlakukan perbedaan pendapat dengan permusuhan ('gradually lose the capacity for empathy... dissenting opinions are treated with hostility rather than constructive debate').",
+      grammarNote: "Adverbial Clause of Time: 'When individuals never encounter opposing perspectives, they lose empathy'."
+    },
+
+    // Q28 - ASAS Bank (Analytical Exposition)
+    {
+      id: 28,
+      source: "Sumber: Jurnal Komunikasi Massa & Riset Informasi Publik — Lembaga Pers Mahasiswa & Asosiasi Pengajar Komunikasi",
+      type: "reading",
+      title: "Reading Section: TP 11.2 Analytical Exposition",
+      stimulusTitle: "Escaping Algorithmic Echo Chambers in Modern Online Communities",
+      stimulusBody: `Modern social media platforms utilize sophisticated recommendation algorithms designed to maximize user engagement. While personalized newsfeeds provide convenient content discovery, they simultaneously trap users in narrow information feedback loops known as algorithmic echo chambers. In these enclosed digital environments, users are predominantly exposed to viewpoints that mirror their pre-existing convictions, while contradictory evidence is systematically filtered out.<br><br>The primary danger of echo chambers is the polarization of public discourse. When individuals never encounter opposing perspectives, they gradually lose the capacity for empathy and intellectual nuance. Complex societal challenges—such as climate change policies, public health measures, and economic strategies—become reduced to rigid, partisan conflicts where dissenting opinions are treated with hostility rather than constructive debate.<br><br>Moreover, algorithmic echo chambers accelerate the dissemination of unfounded conspiracy theories. When a user engages with unverified claims, recommendation algorithms automatically suggest more extreme variations of the same topic. Consequently, users become increasingly insulated from objective scientific reality, making evidence-based policy formulation profoundly difficult.<br><br>To dismantle these harmful bubbles, digital citizens must actively practice epistemic hygiene. Users should consciously seek out credible news outlets with diverse editorial stances, engage respectfully with differing viewpoints, and periodically reset their tracking cookies and recommendation histories. Cultivating an open, critical mindset remains our strongest defense against algorithmic polarization.`,
+      prompt: "How do recommendation algorithms facilitate the spread of conspiracy theories?",
+      options: [
+        { key: "A", text: "They suggest increasingly extreme variations of unverified topics to engaged users." },
+        { key: "B", text: "They automatically delete verified scientific articles from all online encyclopedias." },
+        { key: "C", text: "They block users from visiting local municipal library facilities." },
+        { key: "D", text: "They send physical pamphlets directly to users' residential mailboxes." }
+      ],
+      correctAnswer: "A",
+      explanation: "Paragraf 3 menjelaskan bahwa algoritma secara otomatis menyarankan variasi topik yang semakin ekstrem begitu pengguna berinteraksi dengan klaim yang belum diverifikasi ('recommendation algorithms automatically suggest more extreme variations of the same topic').",
+      grammarNote: "Cause and Effect: 'When a user engages... algorithms suggest more extreme variations'."
+    },
+
+    // Q29 - ASAS Bank (Analytical Exposition)
+    {
+      id: 29,
+      source: "Sumber: Jurnal Komunikasi Massa & Riset Informasi Publik — Lembaga Pers Mahasiswa & Asosiasi Pengajar Komunikasi",
+      type: "reading",
+      title: "Reading Section: TP 11.2 Analytical Exposition",
+      stimulusTitle: "Escaping Algorithmic Echo Chambers in Modern Online Communities",
+      stimulusBody: `Modern social media platforms utilize sophisticated recommendation algorithms designed to maximize user engagement. While personalized newsfeeds provide convenient content discovery, they simultaneously trap users in narrow information feedback loops known as algorithmic echo chambers. In these enclosed digital environments, users are predominantly exposed to viewpoints that mirror their pre-existing convictions, while contradictory evidence is systematically filtered out.<br><br>The primary danger of echo chambers is the polarization of public discourse. When individuals never encounter opposing perspectives, they gradually lose the capacity for empathy and intellectual nuance. Complex societal challenges—such as climate change policies, public health measures, and economic strategies—become reduced to rigid, partisan conflicts where dissenting opinions are treated with hostility rather than constructive debate.<br><br>Moreover, algorithmic echo chambers accelerate the dissemination of unfounded conspiracy theories. When a user engages with unverified claims, recommendation algorithms automatically suggest more extreme variations of the same topic. Consequently, users become increasingly insulated from objective scientific reality, making evidence-based policy formulation profoundly difficult.<br><br>To dismantle these harmful bubbles, digital citizens must actively practice epistemic hygiene. Users should consciously seek out credible news outlets with diverse editorial stances, engage respectfully with differing viewpoints, and periodically reset their tracking cookies and recommendation histories. Cultivating an open, critical mindset remains our strongest defense against algorithmic polarization.`,
+      prompt: "The word 'insulated' in the third paragraph is closest in meaning to...",
+      options: [
+        { key: "A", text: "isolated and protected from outside contact" },
+        { key: "B", text: "connected openly with global researchers" },
+        { key: "C", text: "encouraged to debate in public symposiums" },
+        { key: "D", text: "financially rewarded for online engagement" }
+      ],
+      correctAnswer: "A",
+      explanation: "Kata 'insulated' dalam frasa 'increasingly insulated from objective reality' bermakna terisolasi, terkurung, atau terputus dari dunia nyata di luar lingkarannya (isolated / detached).",
+      grammarNote: "Contextual Vocabulary (Oxford 3000 Level B2): 'insulated from' = terisolasi dari."
+    },
+
+    // Q30 - ASAS Bank (Analytical Exposition)
+    {
+      id: 30,
+      source: "Sumber: Jurnal Komunikasi Massa & Riset Informasi Publik — Lembaga Pers Mahasiswa & Asosiasi Pengajar Komunikasi",
+      type: "reading",
+      title: "Reading Section: TP 11.2 Analytical Exposition",
+      stimulusTitle: "Escaping Algorithmic Echo Chambers in Modern Online Communities",
+      stimulusBody: `Modern social media platforms utilize sophisticated recommendation algorithms designed to maximize user engagement. While personalized newsfeeds provide convenient content discovery, they simultaneously trap users in narrow information feedback loops known as algorithmic echo chambers. In these enclosed digital environments, users are predominantly exposed to viewpoints that mirror their pre-existing convictions, while contradictory evidence is systematically filtered out.<br><br>The primary danger of echo chambers is the polarization of public discourse. When individuals never encounter opposing perspectives, they gradually lose the capacity for empathy and intellectual nuance. Complex societal challenges—such as climate change policies, public health measures, and economic strategies—become reduced to rigid, partisan conflicts where dissenting opinions are treated with hostility rather than constructive debate.<br><br>Moreover, algorithmic echo chambers accelerate the dissemination of unfounded conspiracy theories. When a user engages with unverified claims, recommendation algorithms automatically suggest more extreme variations of the same topic. Consequently, users become increasingly insulated from objective scientific reality, making evidence-based policy formulation profoundly difficult.<br><br>To dismantle these harmful bubbles, digital citizens must actively practice epistemic hygiene. Users should consciously seek out credible news outlets with diverse editorial stances, engage respectfully with differing viewpoints, and periodically reset their tracking cookies and recommendation histories. Cultivating an open, critical mindset remains our strongest defense against algorithmic polarization.`,
+      prompt: "What practical action does the author advise readers to take to break out of echo chambers?",
+      options: [
+        { key: "A", text: "Seek diverse reputable news sources and periodically reset recommendation tracking histories." },
+        { key: "B", text: "Only read posts written by anonymous internet accounts on social forums." },
+        { key: "C", text: "Stop reading all newspapers and consult astrology charts for factual advice." },
+        { key: "D", text: "Block every friend or family member who expresses a different viewpoint." }
+      ],
+      correctAnswer: "A",
+      explanation: "Paragraf terakhir menyarankan tindakan: 'consciously seek out credible news outlets with diverse editorial stances... and periodically reset their tracking cookies and recommendation histories'.",
+      grammarNote: "Imperative / Modal Suggestion: 'users should consciously seek out credible outlets... and reset histories'."
+    },
+
+    // =========================================================================
+    // SECTION 4: GRAMMAR & LANGUAGE MECHANICS IN ACADEMIC CONTEXT (31 - 40)
+    // 40% Komplementer Full-Semester Grammar: 10 Soal
+    // =========================================================================
+    {
+      id: 31,
+      source: "Sumber: Bank Soal Evaluasi Tata Bahasa Bahasa Inggris Fase F — Tim MGMP Kabupaten Kudus",
+      type: "grammar",
+      title: "Grammar & Discourse: Past Perfect Tense in Narrative Context",
+      prompt: "Before the rooster crowed to herald the dawn, the spirit legion ________ nine hundred and ninety-nine magnificent stone temples across the Prambanan plains.\n\nChoose the correct past verb form to complete the sentence:",
+      options: [
+        { key: "A", text: "had already constructed" },
+        { key: "B", text: "has already constructed" },
+        { key: "C", text: "will have constructed" },
+        { key: "D", text: "was constructing" }
+      ],
+      correctAnswer: "A",
+      explanation: "Peristiwa pembangunan candi terjadi lebih dahulu sebelum ayam berkokok di masa lampau ('Before the rooster crowed'). Untuk menyatakan peristiwa yang telah selesai sebelum peristiwa lampau lainnya terjadi, digunakan Past Perfect Tense (had + V3 / 'had already constructed').",
+      grammarNote: "Past Perfect Narrative Rule: Had + Past Participle menandai aksi yang selesai mendahului aksi Simple Past lainnya."
+    },
+    {
+      id: 32,
+      source: "Sumber: Bank Soal Evaluasi Tata Bahasa Bahasa Inggris Fase F — Tim MGMP Kabupaten Kudus",
+      type: "grammar",
+      title: "Grammar & Discourse: Concessive Connectors (Although vs Despite)",
+      prompt: "________ enduring intense emotional grief and living in severe poverty, Mande Rubayah never ceased praying for Malin Kundang's safe return.\n\nChoose the grammatically accurate connector to complete the sentence:",
+      options: [
+        { key: "A", text: "Despite" },
+        { key: "B", text: "Although" },
+        { key: "C", text: "Even though" },
+        { key: "D", text: "Because" }
+      ],
+      correctAnswer: "A",
+      explanation: "Frasa setelah rumpang adalah frasa nomina berbentuk gerund ('enduring intense emotional grief and living in severe poverty'). Preposisi yang tepat diikuti frasa nomina/gerund adalah 'Despite' (atau 'In spite of'). Pilihan 'Although' dan 'Even though' wajib diikuti klausa lengkap (Subject + Verb).",
+      grammarNote: "Concession Rule: Despite / In spite of + Noun/Gerund Phrase vs Although + Clause."
+    },
+    {
+      id: 33,
+      source: "Sumber: Bank Soal Evaluasi Tata Bahasa Bahasa Inggris Fase F — Tim MGMP Kabupaten Kudus",
+      type: "grammar",
+      title: "Grammar & Discourse: Causal Connectors (Due to vs Because)",
+      prompt: "The spirit workers fled abruptly back into the netherworld ________ the sudden crimson light and roosters crowing in the eastern valley.\n\nChoose the correct causal connector preceding the noun phrase:",
+      options: [
+        { key: "A", text: "because of" },
+        { key: "B", text: "because" },
+        { key: "C", text: "since" },
+        { key: "D", text: "as" }
+      ],
+      correctAnswer: "A",
+      explanation: "Setelah rumpang terdapat frasa kata benda ('the sudden crimson light and roosters crowing in the eastern valley'). Preposisi kausal yang diikuti kata benda/frasa nomina adalah 'because of' atau 'due to'. 'Because', 'since', dan 'as' adalah konjungsi yang harus diikuti klausa (S + V).",
+      grammarNote: "Causal Preposition Rule: 'Because of + Noun Phrase' vs 'Because + Clause (S + V)'."
+    },
+    {
+      id: 34,
+      source: "Sumber: Bank Soal Evaluasi Tata Bahasa Bahasa Inggris Fase F — Tim MGMP Kabupaten Kudus",
+      type: "grammar",
+      title: "Grammar & Discourse: Reported Speech in Narrative Discourse",
+      prompt: "Direct Speech: 'I will never marry the man who killed my father,' whispered Princess Roro Jonggrang.\n\nIndirect Speech: Princess Roro Jonggrang whispered that she ________ never marry the man who had killed her father.",
+      options: [
+        { key: "A", text: "would" },
+        { key: "B", text: "will" },
+        { key: "C", text: "shall" },
+        { key: "D", text: "must" }
+      ],
+      correctAnswer: "A",
+      explanation: "Dalam kalimat tidak langsung (*Reported Speech*) dengan kata pengantar lampau ('whispered'), modal 'will' harus mengalami pergeseran waktu (*backshift*) menjadi bentuk lampau 'would'.",
+      grammarNote: "Reported Speech Backshift Rule: Modal 'will' berubah menjadi 'would' dalam wacana naratif lampau."
+    },
+    {
+      id: 35,
+      source: "Sumber: Bank Soal Evaluasi Tata Bahasa Bahasa Inggris Fase F — Tim MGMP Kabupaten Kudus",
+      type: "grammar",
+      title: "Grammar & Discourse: Conditional Sentence Type 2",
+      prompt: "If modern teenagers ________ digital information critically before forwarding it, online rumors and hoaxes would not spread so rapidly.\n\nChoose the correct verb form for this hypothetical present condition:",
+      options: [
+        { key: "A", text: "verified" },
+        { key: "B", text: "verify" },
+        { key: "C", text: "will verify" },
+        { key: "D", text: "had verified" }
+      ],
+      correctAnswer: "A",
+      explanation: "Klausa utama menggunakan 'would not spread' (would + V1), yang menandakan Conditional Sentence Type 2 (situasi pengandaian tidak nyata masa kini). Pola if-clause Type 2 wajib menggunakan Simple Past (V2 / 'verified').",
+      grammarNote: "Conditional Type 2 Formula: If + Subject + V2 (Simple Past), Subject + would + V1."
+    },
+    {
+      id: 36,
+      source: "Sumber: Bank Soal Evaluasi Tata Bahasa Bahasa Inggris Fase F — Tim MGMP Kabupaten Kudus",
+      type: "grammar",
+      title: "Grammar & Discourse: Scientific Passive Voice in Analytical Writing",
+      prompt: "Sensationalized headlines ________ by algorithms to capture user attention and maximize online advertising revenue.\n\nChoose the correct passive verb phrase:",
+      options: [
+        { key: "A", text: "are engineered" },
+        { key: "B", text: "is engineering" },
+        { key: "C", text: "engineered" },
+        { key: "D", text: "was engineering" }
+      ],
+      correctAnswer: "A",
+      explanation: "Subjek jamak 'Sensationalized headlines' menerima aksi dari algoritma (kalimat pasif fakta umum / Simple Present Passive): are + V3 ('are engineered').",
+      grammarNote: "Passive Voice Formula: Plural Subject + are + Past Participle (engineered) + by Agent."
+    },
+    {
+      id: 37,
+      source: "Sumber: Bank Soal Evaluasi Tata Bahasa Bahasa Inggris Fase F — Tim MGMP Kabupaten Kudus",
+      type: "grammar",
+      title: "Grammar & Discourse: Contrastive Transitional Markers",
+      prompt: "Social media feeds offer unprecedented access to global learning resources. ________, unmoderated algorithms frequently trap young users in polarized echo chambers.\n\nChoose the most suitable transitional discourse connector:",
+      options: [
+        { key: "A", text: "However" },
+        { key: "B", text: "Furthermore" },
+        { key: "C", text: "Therefore" },
+        { key: "D", text: "Similarly" }
+      ],
+      correctAnswer: "A",
+      explanation: "Kalimat pertama menyajikan aspek positif (akses sumber belajar global), sedangkan kalimat kedua menyajikan aspek negatif (terperangkap dalam echo chamber). Kata transisi antarkalimat yang menyatakan pertentangan (*contrast*) adalah 'However' (namun demikian).",
+      grammarNote: "Contrastive Sentence Connector: 'However' menghubungkan dua pernyataan kontras dengan koma setelahnya."
+    },
+    {
+      id: 38,
+      source: "Sumber: Bank Soal Evaluasi Tata Bahasa Bahasa Inggris Fase F — Tim MGMP Kabupaten Kudus",
+      type: "grammar",
+      title: "Grammar & Discourse: Collocations in Digital Media Context",
+      prompt: "Responsible digital citizens should always ________ the authenticity of online claims before reposting them to social media groups.\n\nChoose the correct academic verb that collocates with 'authenticity':",
+      options: [
+        { key: "A", text: "verify" },
+        { key: "B", text: "fabricate" },
+        { key: "C", text: "postpone" },
+        { key: "D", text: "exaggerate" }
+      ],
+      correctAnswer: "A",
+      explanation: "Kolokasi akademis yang baku adalah 'verify the authenticity' (memverifikasi keabsahan/keotentikan suatu klaim atau berita). 'Fabricate' justru berarti memalsukan.",
+      grammarNote: "Lexical Collocation: 'verify authenticity' = memastikan kebenaran sumber informasi."
+    },
+    {
+      id: 39,
+      source: "Sumber: Bank Soal Evaluasi Tata Bahasa Bahasa Inggris Fase F — Tim MGMP Kabupaten Kudus",
+      type: "grammar",
+      title: "Grammar & Discourse: Relative Pronoun 'whose'",
+      prompt: "Princess Roro Jonggrang was a graceful princess ________ beauty and tragic fate inspired the construction of the Prambanan temple legend.\n\nChoose the correct relative pronoun showing possession:",
+      options: [
+        { key: "A", text: "whose" },
+        { key: "B", text: "which" },
+        { key: "C", text: "who" },
+        { key: "D", text: "whom" }
+      ],
+      correctAnswer: "A",
+      explanation: "Kata ganti relatif kepemilikan (*possessive relative pronoun*) yang menghubungkan subjek orang ('Princess Roro Jonggrang') dengan kata bendanya ('beauty and tragic fate') adalah 'whose'.",
+      grammarNote: "Relative Clause of Possession: 'Noun (person) + whose + Noun Phrase'."
+    },
+    {
+      id: 40,
+      source: "Sumber: Bank Soal Evaluasi Tata Bahasa Bahasa Inggris Fase F — Tim MGMP Kabupaten Kudus",
+      type: "grammar",
+      title: "Grammar & Discourse: Academic Vocabulary Level B2 (Imperative)",
+      prompt: "Given the prevalence of online misinformation, it is ________ that secondary schools equip learners with analytical verification skills.\n\nChoose the most accurate adjective expressing absolute necessity:",
+      options: [
+        { key: "A", text: "imperative" },
+        { key: "B", text: "negligible" },
+        { key: "C", text: "redundant" },
+        { key: "D", text: "trivial" }
+      ],
+      correctAnswer: "A",
+      explanation: "'Imperative' bermakna sangat mendesak, penting sekali, dan mutlak wajib dilaksanakan (*urgently necessary / vital*). Pilihan 'negligible' (dapat diabaikan), 'redundant' (tidak diperlukan), dan 'trivial' (sepele) bertentangan dengan konteks.",
+      grammarNote: "Evaluative Stance Adjective (Oxford 5000 Level B2): 'It is imperative that + clause'."
+    }
+  ];
+}
+
+// Fisher-Yates Dynamic Option Shuffling (Practice Mode)
+function randomizeQuestionOptions(qList) {
+  return qList.map(q => {
+    if (q.type === "listening_pictures") {
+      return { ...q };
+    }
+    const cloned = { ...q, options: [...q.options] };
+    const originalCorrectKey = q.correctAnswer;
+    const correctOpt = q.options.find(o => o.key === originalCorrectKey);
+    if (!correctOpt) return q;
+
+    for (let i = cloned.options.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [cloned.options[i], cloned.options[j]] = [cloned.options[j], cloned.options[i]];
+    }
+
+    const keyLetters = ["A", "B", "C", "D"];
+    let newCorrectKey = originalCorrectKey;
+    cloned.options = cloned.options.map((opt, idx) => {
+      const newKey = keyLetters[idx];
+      if (opt.text === correctOpt.text) {
+        newCorrectKey = newKey;
+      }
+      return { ...opt, key: newKey };
+    });
+
+    cloned.correctAnswer = newCorrectKey;
+    return cloned;
+  });
+}
+
+// Student & State Management
 let currentTingkat = "XI-F";
-let currentMode = "practice"; // 'practice' or 'exam'
+let currentMode = "practice";
 let currentQuestionIndex = 0;
-let userAnswers = {}; // { qId: answer }
+let userAnswers = {};
 let flaggedQuestions = new Set();
 let timerInterval = null;
-let remainingSeconds = 90 * 60; // 90 minutes
+let remainingSeconds = 90 * 60;
 let isExamSubmitted = false;
 let audioSpeechRate = 1.0;
 let currentUtterance = null;
@@ -34,912 +866,48 @@ let studentIdentity = {
   tingkat: "XI-F",
   rombel: "1",
   presensi: "1",
-  nama: "Siswa Kelas X"
+  nama: "Siswa Kelas XI"
 };
 
-const SVG_PICTURES = {
-  badminton: `<svg viewBox="0 0 100 100" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="22" r="10"/><path d="M50 32v28M30 42l20-8 20 12M50 60l-16 26M50 60l18 26"/><path d="M70 46l14-14M84 32a7 7 0 10-10-10 7 7 0 0010 10zM77 25l7 7"/></svg>`,
-  runner: `<svg viewBox="0 0 100 100" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="65" cy="22" r="9"/><path d="M60 31l-14 16 10 12-14 26M46 47l-18-6M56 59l18 6 12 18"/><path d="M15 88h70" stroke="#94a3b8" stroke-dasharray="4 4"/></svg>`,
-  swimmer: `<svg viewBox="0 0 100 100" fill="none" stroke="#0d9488" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="38" r="9"/><path d="M41 38l24 4 15-18M25 50l30 4 18 10"/><path d="M10 65c10-5 20 5 30 0s20 5 30 0 20 5 20 0M10 78c10-5 20 5 30 0s20 5 30 0 20 5 20 0" stroke="#0284c7"/></svg>`,
-  weightlifter: `<svg viewBox="0 0 100 100" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="38" r="8"/><path d="M50 46v24M38 56l12-8 12 8M42 70l-8 20M58 70l8 20"/><path d="M15 26h70" stroke="#475569" stroke-width="4"/><circle cx="15" cy="26" r="12" fill="#94a3b8"/><circle cx="85" cy="26" r="12" fill="#94a3b8"/></svg>`,
-  
-  temple: `<svg viewBox="0 0 100 100" fill="none" stroke="#d97706" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 85h80M20 70h60M30 55h40M40 40h20M50 20v20"/><path d="M35 85v-15M65 85v-15M42 70v-15M58 70v-15"/><circle cx="50" cy="18" r="3" fill="#d97706"/></svg>`,
-  beach: `<svg viewBox="0 0 100 100" fill="none" stroke="#0284c7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="25" cy="25" r="10" fill="#fef08a" stroke="#eab308"/><path d="M60 85c-5-25 15-45 25-50M85 35c-15 0-25-10-30-5M85 35c5-10 15-12 20-10M85 35c-5 12-12 18-18 20"/><path d="M10 85c15-4 35 2 50-2s25-6 30-2" stroke="#16a34a" stroke-width="3"/></svg>`,
-  mountain: `<svg viewBox="0 0 100 100" fill="none" stroke="#475569" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 85l35-50 15 20 15-15 20 45H10z"/><path d="M38 45l7 8 10-5" stroke="#cbd5e1" fill="#f8fafc"/></svg>`,
-  bridge: `<svg viewBox="0 0 100 100" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 65h80M25 25v55M75 25v55M10 50c15-15 25-25 40 0s25-15 40 0M25 25l25 25 25-25"/><path d="M10 80c10-3 20 3 40 0s30 3 40 0" stroke="#0284c7"/></svg>`,
-
-  minaret: `<svg viewBox="0 0 100 100" fill="none" stroke="#b45309" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M30 85h40M35 85V45h30v40M32 45h36M38 45V28h24v17M35 28h30M45 28V15h10v13M42 15h16M50 10v5"/><circle cx="50" cy="8" r="2" fill="#b45309"/><path d="M42 65h16v20H42z"/></svg>`,
-  puppet: `<svg viewBox="0 0 100 100" fill="none" stroke="#9333ea" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="50" cy="30" rx="12" ry="16"/><path d="M50 46v30M32 38l-12 24 14 16M68 38l12 24-14 16M50 76l-14 16M50 76l14 16M45 14c5-8 15-5 18 2"/></svg>`,
-  batik: `<svg viewBox="0 0 100 100" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="15" y="15" width="70" height="70" rx="6"/><circle cx="50" cy="50" r="14"/><path d="M50 20v16M50 64v16M20 50h16M64 50h16M28 28l12 12M60 60l12 12M28 72l12-12M60 40l12-12"/></svg>`,
-  concert: `<svg viewBox="0 0 100 100" fill="none" stroke="#e11d48" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="25" y="45" width="50" height="40" rx="4"/><path d="M35 45V25l30-8v28M35 35l30-8"/><circle cx="38" cy="72" r="6" fill="#f43f5e"/><circle cx="62" cy="65" r="6" fill="#f43f5e"/></svg>`
-};
-
-function getGrade10Questions() {
-  return [
-    // 1. LISTENING PICTURES
-    {
-      id: 1,
-      type: "listening_pictures",
-      title: "Listening Section: Part I - Pictures",
-      audioText: "Number one. Look at the pictures. This inspiring international athlete is leaping high in the air to deliver a powerful, precision smash with his racket over the net during the world championship final. Which picture best matches the description?",
-      prompt: "Look at the four pictures below. Which picture matches the athlete described in the audio?",
-      options: [
-        { key: "A", svg: SVG_PICTURES.badminton, label: "A world badminton champion executing a powerful smash" },
-        { key: "B", svg: SVG_PICTURES.runner, label: "A marathon athlete sprinting towards the finish line" },
-        { key: "C", svg: SVG_PICTURES.swimmer, label: "A swimmer competing in the freestyle race" },
-        { key: "D", svg: SVG_PICTURES.weightlifter, label: "A weightlifter lifting a heavy barbell overhead" }
-      ],
-      correctAnswer: "A",
-      explanation: "Audio mendeskripsikan: 'athlete is leaping high in the air to deliver a powerful, precision smash with his racket over the net'. Gambar A menampilkan atlet bulu tangkis yang melompat melakukan pukulan smash dengan raket.",
-      grammarNote: "Present Continuous Tense ('is leaping', 'executing') & Sports Vocabulary (athlete, racket, smash, championship)."
-    },
-    {
-      id: 2,
-      type: "listening_pictures",
-      title: "Listening Section: Part I - Pictures",
-      audioText: "Number two. Look at the pictures. This magnificent Indonesian cultural destination features ancient massive stone stupas, intricate relief carvings, and tiered terraces rising proudly against the morning mist. Which picture illustrates the spoken description?",
-      prompt: "Which picture corresponds to the magnificent cultural tourism site described in the audio?",
-      options: [
-        { key: "A", svg: SVG_PICTURES.beach, label: "A tropical sandy beach with coconut palm trees" },
-        { key: "B", svg: SVG_PICTURES.temple, label: "An ancient monumental stone temple with terraces and stupas" },
-        { key: "C", svg: SVG_PICTURES.mountain, label: "A towering volcanic peak covered in alpine snow" },
-        { key: "D", svg: SVG_PICTURES.bridge, label: "A modern suspension bridge across a metropolis bay" }
-      ],
-      correctAnswer: "B",
-      explanation: "Audio menyebutkan: 'magnificent Indonesian cultural destination features ancient massive stone stupas, intricate relief carvings, and tiered terraces'. Ciri-ciri stupa batu bertingkat dan relief relief kuno adalah candi bersejarah (Temple - Gambar B).",
-      grammarNote: "OSASCOMP Adjective Order: 'ancient massive stone stupas' (Age: ancient, Size: massive, Material: stone)."
-    },
-    {
-      id: 3,
-      type: "listening_pictures",
-      title: "Listening Section: Part I - Pictures",
-      audioText: "Number three. Look at the pictures. This unique architectural landmark in Kudus blends Hindu-Javanese brick craftsmanship with Islamic minaret structure, symbolizing historic cultural harmony. Which picture depicts this monument?",
-      prompt: "Which picture depicts the iconic heritage landmark in Kudus mentioned in the recording?",
-      options: [
-        { key: "A", svg: SVG_PICTURES.puppet, label: "Wayang shadow puppet leather figure" },
-        { key: "B", svg: SVG_PICTURES.batik, label: "Traditional geometric batik textile pattern" },
-        { key: "C", svg: SVG_PICTURES.minaret, label: "Historic red-brick heritage tower minaret of Kudus" },
-        { key: "D", svg: SVG_PICTURES.concert, label: "Modern musical auditorium stage" }
-      ],
-      correctAnswer: "C",
-      explanation: "Audio menyebutkan: 'unique architectural landmark in Kudus blends Hindu-Javanese brick craftsmanship with Islamic minaret structure'. Landmark menara bata merah ikonik khas Kudus adalah Menara Kudus (Gambar C).",
-      grammarNote: "Compound Adjectives & Cultural Heritage Nouns: 'Hindu-Javanese brick craftsmanship', 'historic cultural harmony'."
-    },
-
-    // 4-6. LISTENING SHORT DIALOGS
-    {
-      id: 4,
-      type: "listening_dialog",
-      title: "Listening Section: Part II - Short Dialogues",
-      audioText: "Number four. Listen to the conversation. Man: Good morning, Rian. You look so energetic today! What is your secret for staying fit during our exam week? Woman: Well, I always maintain a nutritious diet, drink plenty of fresh water, and jog for twenty minutes every morning before studying. Question: What does the woman do to maintain her physical fitness?",
-      stimulusTitle: "Audio Transcript (Listening)",
-      stimulusBody: "<strong>Man:</strong> Good morning, Rian. You look so energetic today! What is your secret for staying fit during our exam week?<br><strong>Woman:</strong> Well, I always maintain a nutritious diet, drink plenty of fresh water, and jog for twenty minutes every morning before studying.",
-      prompt: "What does the woman do to keep herself fit during examination week?",
-      options: [
-        { key: "A", text: "She studies until late at night and sleeps in the morning." },
-        { key: "B", text: "She eats nutritious food, hydrates well, and jogs for 20 minutes daily." },
-        { key: "C", text: "She skips breakfast and drinks energy coffee before testing." },
-        { key: "D", text: "She exercises at the professional fitness gym twice a day." }
-      ],
-      correctAnswer: "B",
-      explanation: "Wanita tersebut secara eksplisit menyatakan: 'I always maintain a nutritious diet, drink plenty of fresh water, and jog for twenty minutes every morning' (makanan bernutrisi, banyak minum air, dan lari pagi 20 menit).",
-      grammarNote: "Simple Present Tense of Habitual Action with Adverbs of Frequency: 'I always maintain...', 'drink', 'jog'."
-    },
-    {
-      id: 5,
-      type: "listening_dialog",
-      title: "Listening Section: Part II - Short Dialogues",
-      audioText: "Number five. Listen to the dialogue. Boy: Sinta, do you have any specific plans for the upcoming school mid-semester holiday? Girl: Yes, my family and I intend to visit the mangrove conservation park in Jepara. We want to plant ten mangrove seedlings to prevent coastal erosion. Boy: That sounds like a truly worthwhile environmental project! Question: What is the girl's intention for the upcoming holiday?",
-      stimulusTitle: "Audio Transcript (Listening)",
-      stimulusBody: "<strong>Boy:</strong> Sinta, do you have any specific plans for the upcoming school mid-semester holiday?<br><strong>Girl:</strong> Yes, my family and I intend to visit the mangrove conservation park in Jepara. We want to plant ten mangrove seedlings to prevent coastal erosion.<br><strong>Boy:</strong> That sounds like a truly worthwhile environmental project!",
-      prompt: "What is the girl intending to do during the mid-semester break?",
-      options: [
-        { key: "A", text: "She plans to plant mangrove seedlings in a coastal conservation park." },
-        { key: "B", text: "She intends to stay home and prepare for the national science olympiad." },
-        { key: "C", text: "She wants to buy ornamental trees for her school garden." },
-        { key: "D", text: "She is going to build a wooden cottage near the seashore." }
-      ],
-      correctAnswer: "A",
-      explanation: "Gadis tersebut menyatakan niatnya: 'my family and I intend to visit the mangrove conservation park... We want to plant ten mangrove seedlings'. Jawaban yang tepat adalah A.",
-      grammarNote: "Expressing Intentions & Plans: 'intend to visit...', 'want to plant...'. Vocabulary: conservation, seedlings, erosion."
-    },
-    {
-      id: 6,
-      type: "listening_dialog",
-      title: "Listening Section: Part II - Short Dialogues",
-      audioText: "Number six. Listen to the conversation. Teacher: Adi, your descriptive brochure about Mount Muria is very captivating, but the fonts are slightly difficult to read against the dark background. Student: Thank you for your feedback, Ma'am. I will modify the font colors to high-contrast white and resize the heading immediately. Question: What will the student most likely do next?",
-      stimulusTitle: "Audio Transcript (Listening)",
-      stimulusBody: "<strong>Teacher:</strong> Adi, your descriptive brochure about Mount Muria is very captivating, but the fonts are slightly difficult to read against the dark background.<br><strong>Student:</strong> Thank you for your feedback, Ma'am. I will modify the font colors to high-contrast white and resize the heading immediately.",
-      prompt: "What action will the student most likely take next?",
-      options: [
-        { key: "A", text: "Delete the entire brochure and choose a new topic." },
-        { key: "B", text: "Revise the typography by changing the font color to white and adjusting heading sizes." },
-        { key: "C", text: "Submit the dark brochure directly to the school principal." },
-        { key: "D", text: "Complain to his classmates about the teacher's grading system." }
-      ],
-      correctAnswer: "B",
-      explanation: "Siswa menjawab saran gurunya dengan: 'I will modify the font colors to high-contrast white and resize the heading immediately'. Jawaban B mendeskripsikan tindakan perbaikan tipografi tersebut.",
-      grammarNote: "Simple Future with 'will' for Immediate Decisions: 'I will modify...', 'resize'."
-    },
-
-    // 7-10. LISTENING SHORT TALKS
-    {
-      id: 7,
-      type: "listening_talk",
-      title: "Listening Section: Part III - Short Talks (Questions 7 & 8)",
-      audioText: "Questions seven and eight refer to the following short monologue. Hello students! Today I want to introduce you to Anthony Sinisuka Ginting, one of Indonesia's foremost badminton singles stars. Born in Cimahi, West Java, Ginting is widely renowned for his lightning-fast footwork, deceptive wrist drop-shots, and resilient fighting spirit on court. He secured a historic bronze medal at the Tokyo 2020 Olympics and spearheaded Indonesia to hoist the prestigious Thomas Cup trophy. Off court, he is humble, disciplined, and dedicated to mentoring younger shuttlecock players.",
-      stimulusTitle: "Monologue Audio Transcript (Listening)",
-      stimulusBody: "<em>Hello students! Today I want to introduce you to Anthony Sinisuka Ginting, one of Indonesia's foremost badminton singles stars. Born in Cimahi, West Java, Ginting is widely renowned for his lightning-fast footwork, deceptive wrist drop-shots, and resilient fighting spirit on court. He secured a historic bronze medal at the Tokyo 2020 Olympics and spearheaded Indonesia to hoist the prestigious Thomas Cup trophy. Off court, he is humble, disciplined, and dedicated to mentoring younger shuttlecock players.</em>",
-      prompt: "What is Anthony Sinisuka Ginting primarily celebrated for on the badminton court?",
-      options: [
-        { key: "A", text: "His defensive passive style and slow baseline returns." },
-        { key: "B", text: "His lightning-fast footwork, deceptive wrist shots, and resilient fighting spirit." },
-        { key: "C", text: "His career as a professional marathon and triathlon coach." },
-        { key: "D", text: "His height and heavy overhead weightlifting techniques." }
-      ],
-      correctAnswer: "B",
-      explanation: "Monolog menyatakan: 'renowned for his lightning-fast footwork, deceptive wrist drop-shots, and resilient fighting spirit on court'. Jawaban B adalah kutipan akurat.",
-      grammarNote: "Descriptive Adjectives & Compound Adjectives: 'lightning-fast', 'deceptive', 'resilient', 'prestigious'."
-    },
-    {
-      id: 8,
-      type: "listening_talk",
-      title: "Listening Section: Part III - Short Talks",
-      audioText: "Question eight is based on the previous monologue about Anthony Ginting. Question: What personality traits does Anthony Ginting exhibit outside his sports matches?",
-      prompt: "According to the speaker, what are Ginting's character traits outside the badminton court?",
-      options: [
-        { key: "A", text: "Arrogant, distant, and reluctant to communicate with fans." },
-        { key: "B", text: "Humble, disciplined, and dedicated to guiding younger athletes." },
-        { key: "C", text: "Impatient, unpredictable, and strict towards school teachers." },
-        { key: "D", text: "Reserved and uninterested in national sports development." }
-      ],
-      correctAnswer: "B",
-      explanation: "Pada bagian akhir monolog disebutkan: 'Off court, he is humble, disciplined, and dedicated to mentoring younger shuttlecock players'. Jawaban B tepat.",
-      grammarNote: "Predicate Adjectives describing Personality: 'humble', 'disciplined', 'dedicated'."
-    },
-    {
-      id: 9,
-      type: "listening_talk",
-      title: "Listening Section: Part III - Short Talks (Questions 9 & 10)",
-      audioText: "Questions nine and ten are based on the following official school announcement. Attention, all tenth-grade students of SMA Negeri 1 Bae Kudus! In accordance with our green school program, the student council will organize a Campus Eco-Clean and Flora Cataloging Campaign this coming Friday at seven o'clock in the morning. Each class is requested to bring reusable garden gloves, plant five native medicinal herbs in the school sanctuary, and classify the plant species into botanical report cards. Let us uphold our shared commitment towards a zero-waste and clean and green learning environment. Thank you.",
-      stimulusTitle: "School Announcement Audio Transcript",
-      source: "Sumber Otentik: Pengumuman Resmi OSIS & Tim Sekolah Adiwiyata — SMA Negeri 1 Bae Kudus",
-      stimulusBody: "<em>Attention, all tenth-grade students of SMA Negeri 1 Bae Kudus! In accordance with our green school program, the student council will organize a Campus Eco-Clean and Flora Cataloging Campaign this coming Friday at seven o'clock in the morning. Each class is requested to bring reusable garden gloves, plant five native medicinal herbs in the school sanctuary, and classify the plant species into botanical report cards. Let us uphold our shared commitment towards a zero-waste and clean and green learning environment. Thank you.</em>",
-      prompt: "What is the primary purpose of the official school announcement?",
-      options: [
-        { key: "A", text: "To invite 10th graders to participate in an eco-clean and flora cataloging campaign on Friday." },
-        { key: "B", text: "To announce the winners of the national English debating championship." },
-        { key: "C", text: "To cancel all classes on Friday due to heavy monsoon rain." },
-        { key: "D", text: "To inform teachers about an emergency staff meeting in the auditorium." }
-      ],
-      correctAnswer: "A",
-      explanation: "Pengumuman mengundang siswa kelas X untuk mengikuti 'Campus Eco-Clean and Flora Cataloging Campaign this coming Friday at seven o'clock in the morning'.",
-      grammarNote: "Announcement Functional Text Conventions: 'Attention, all...', 'is requested to bring...', 'Let us uphold...'."
-    },
-    {
-      id: 10,
-      type: "listening_talk",
-      title: "Listening Section: Part III - Short Talks",
-      audioText: "Question ten is based on the school announcement. Question: What specific assignment must each class accomplish in the school botanical sanctuary?",
-      prompt: "What specific task must each class perform during the school campaign?",
-      options: [
-        { key: "A", text: "Paint the school fence with green and yellow colors." },
-        { key: "B", text: "Plant five native medicinal herbs and classify them on botanical report cards." },
-        { key: "C", text: "Collect single-use plastic bottles from the local market." },
-        { key: "D", text: "Build a glass greenhouse near the principal's office." }
-      ],
-      correctAnswer: "B",
-      explanation: "Pengumuman menyebutkan instruksi: 'plant five native medicinal herbs in the school sanctuary, and classify the plant species into botanical report cards'.",
-      grammarNote: "Imperative Infinitive Clauses: 'plant native medicinal herbs', 'classify the plant species'."
-    },
-
-    // 11-15. READING COMPREHENSION (Descriptive Text - Tourism / Local Heritage)
-    {
-      id: 11,
-      type: "single_choice",
-      title: "Reading Comprehension: Descriptive Text",
-      stimulusTitle: "Text 1: The Splendor of Karimunjawa Archipelago",
-      stimulusBody: `Karimunjawa is a pristine tropical archipelago situated in the Java Sea, approximately eighty kilometers northwest of Jepara, Central Java. Designated as a National Marine Park in 2001, the cluster comprises twenty-seven paradise islands, of which only five are inhabited.<br><br>The underwater realm of Karimunjawa is extraordinarily breathtaking. Vast expanses of thriving coral reefs, characterized by magnificent branching acropora and vibrant brain corals, shelter hundreds of pelagic fish species, including clownfish, blue damselfish, and gentle hawksbill sea turtles. The water visibility frequently exceeds twenty meters, allowing snorkelers and divers to gaze upon the aquatic kaleidoscope with crystalline clarity.<br><br>On land, Karimunjawa boasts expansive coastal stretches lined with powdery white sands and whispering casuarina trees. In the interior of the main island, dense mangrove forests and lush hilltops provide sanctuary for endemic fruit bats and the white-bellied sea eagle. Local inhabitants, who predominantly earn their living as traditional artisanal fishermen and eco-tourism guides, preserve a harmonious lifestyle deeply rooted in maritime conservation.`,
-      prompt: "What is the main topic discussed in the second paragraph of the text?",
-      options: [
-        { key: "A", text: "The historical administrative status of Karimunjawa as a regency." },
-        { key: "B", text: "The magnificent biodiversity and remarkable visibility of Karimunjawa's marine underwater ecosystem." },
-        { key: "C", text: "The agricultural techniques employed by the islanders to grow fruit trees." },
-        { key: "D", text: "The commercial fishing methods used by deep-sea industrial trawlers." }
-      ],
-      correctAnswer: "B",
-      explanation: "Paragraf kedua berfokus penuh pada dunia bawah air: terumbu karang, ikan pelagis, penyu sisik, dan jarak pandang air yang jernih (underwater marine ecosystem).",
-      grammarNote: "Paragraph Topic Identification & Lexical Density: 'underwater realm', 'coral reefs', 'water visibility'."
-    },
-    {
-      id: 12,
-      type: "single_choice",
-      title: "Reading Comprehension: Vocabulary & Inference",
-      stimulusTitle: "Text 1: The Splendor of Karimunjawa Archipelago",
-      stimulusBody: "<em>Refer to the second paragraph: 'The underwater realm of Karimunjawa is extraordinarily breathtaking... snorkelers and divers gaze upon the aquatic kaleidoscope with <u>crystalline</u> clarity.'</em>",
-      prompt: "The underlined word 'crystalline' in the passage is closest in meaning to...",
-      options: [
-        { key: "A", text: "Turbid and dark" },
-        { key: "B", text: "Transparent and sparklingly clear" },
-        { key: "C", text: "Artificial and synthesized" },
-        { key: "D", text: "Dangerous and toxic" }
-      ],
-      correctAnswer: "B",
-      explanation: "Kata 'crystalline' (berakar dari crystal) berarti sangat bening, jernih berkilau seperti kristal (transparent and sparklingly clear). Lawan katanya adalah turbid (keruh).",
-      grammarNote: "Oxford 3000 Level B1/B2 Adjectives of Clarity: crystalline, transparent, vivid, immaculate."
-    },
-    {
-      id: 13,
-      type: "single_choice",
-      title: "Reading Comprehension: Detail Information",
-      stimulusTitle: "Text 1: The Splendor of Karimunjawa Archipelago",
-      stimulusBody: "<em>Refer to Text 1 above.</em>",
-      prompt: "According to the third paragraph, what terrestrial flora and fauna inhabit the interior of the island?",
-      options: [
-        { key: "A", text: "Extensive cactus shrubs, desert camels, and rattlesnakes." },
-        { key: "B", text: "Dense mangrove forests sheltering endemic fruit bats and white-bellied sea eagles." },
-        { key: "C", text: "Pine plantations occupied by Siberian tigers and grizzly bears." },
-        { key: "D", text: "Industrial oil palm plantations with imported macaque monkeys." }
-      ],
-      correctAnswer: "B",
-      explanation: "Paragraf ketiga baris 3-4 menyatakan: 'dense mangrove forests and lush hilltops provide sanctuary for endemic fruit bats and the white-bellied sea eagle'.",
-      grammarNote: "Scanning Specific Details: 'dense mangrove forests', 'fruit bats', 'white-bellied sea eagle'."
-    },
-    {
-      id: 14,
-      type: "single_choice",
-      title: "Reading Comprehension: Social Function",
-      stimulusTitle: "Text 1: The Splendor of Karimunjawa Archipelago",
-      stimulusBody: "<em>Refer to Text 1 above.</em>",
-      prompt: "What is the primary communicative purpose of the writer in publishing this text?",
-      options: [
-        { key: "A", text: "To describe the unique natural wonders and ecological beauty of Karimunjawa to inform and attract visitors." },
-        { key: "B", text: "To argue that tourism should be permanently forbidden in Central Java." },
-        { key: "C", text: "To explain the step-by-step procedure of diving with scuba gear." },
-        { key: "D", text: "To narrate a mythical folktale about ancient sea monsters in Java Sea." }
-      ],
-      correctAnswer: "A",
-      explanation: "Teks ini adalah Descriptive Text dengan struktur Identification (Paragraf 1) dan Description (Paragraf 2 & 3). Tujuannya adalah mendeskripsikan keindahan alam dan ekologi Karimunjawa untuk menginformasikan pembaca.",
-      grammarNote: "Social Function of Descriptive Genre: 'To describe a particular person, place, or thing in detail'."
-    },
-    {
-      id: 15,
-      type: "single_choice",
-      title: "Reading Comprehension: Author's Attitude",
-      stimulusTitle: "Text 1: The Splendor of Karimunjawa Archipelago",
-      stimulusBody: "<em>Refer to Text 1 above.</em>",
-      prompt: "The author's tone throughout the entire text can best be described as...",
-      options: [
-        { key: "A", text: "Cynical and detached" },
-        { key: "B", text: "Appreciative, admire-filled, and informative" },
-        { key: "C", text: "Hostile and dissatisfied" },
-        { key: "D", text: "Satirical and mocking" }
-      ],
-      correctAnswer: "B",
-      explanation: "Penulis menggunakan diksi apresiatif seperti 'pristine', 'extraordinarily breathtaking', 'magnificent', 'crystalline clarity', dan 'harmonious lifestyle'. Hal ini menunjukkan nada yang penuh kekaguman dan informatif (appreciative and informative).",
-      grammarNote: "Author's Tone and Perspective Analysis in TKA: appreciative, objective, subjective, critical."
-    },
-
-    // 16-20. PILIHAN GANDA KOMPLEKS (Matrix True / False Table - TKA Style)
-    {
-      id: 16,
-      type: "complex_matrix",
-      title: "Pilihan Ganda Kompleks: Evaluasi Pernyataan Teks",
-      stimulusTitle: "Evaluasi Kritis Teks Deskripsi Karimunjawa",
-      stimulusBody: "Tentukan apakah setiap pernyataan berikut <strong>BENAR (TRUE)</strong> atau <strong>SALAH (FALSE)</strong> berdasarkan informasi faktual pada Teks 1:",
-      prompt: "Berdasarkan Teks 1, tentukan kebenaran dari masing-masing pernyataan berikut:",
-      matrixStatements: [
-        { statement: "Seluruh pulau di gugusan kepulauan Karimunjawa dihuni secara padat oleh penduduk lokal.", isCorrect: false },
-        { statement: "Karimunjawa secara resmi ditetapkan sebagai Taman Nasional Laut sejak tahun 2001.", isCorrect: true },
-        { statement: "Jarak pandang di dalam air Karimunjawa sering kali mencapai lebih dari dua puluh meter.", isCorrect: true },
-        { statement: "Mayoritas mata pencaharian penduduk setempat adalah penambang minyak lepas pantai.", isCorrect: false }
-      ],
-      explanation: "Pernyataan 1 SALAH (hanya 5 dari 27 pulau yang berpenghuni). Pernyataan 2 BENAR (diresmikan tahun 2001). Pernyataan 3 BENAR (visibility exceeds 20 meters). Pernyataan 4 SALAH (penduduk bekerja sebagai nelayan tradisional dan pemandu wisata ramah lingkungan).",
-      grammarNote: "Factual Verification & Text Analysis in High-Order Thinking Skills (HOTS)."
-    },
-    {
-      id: 17,
-      type: "complex_matrix",
-      title: "Pilihan Ganda Kompleks: Fitur Bahasa Simple Present & Passive",
-      stimulusTitle: "Analisis Tata Bahasa Kalimat Faktual",
-      stimulusBody: "Tentukan apakah analisis gramatikal pada kalimat-kalimat berikut <strong>BENAR (TRUE)</strong> atau <strong>SALAH (FALSE)</strong>:",
-      prompt: "Analisis kebenaran kaidah tata bahasa pada butir-butir pernyataan berikut:",
-      matrixStatements: [
-        { statement: "Kalimat 'Karimunjawa comprises twenty-seven islands' menggunakan Simple Present Tense untuk menyatakan fakta geografis tetap.", isCorrect: true },
-        { statement: "Bentuk pasif dari 'Snorkelers observe the coral reefs' adalah 'The coral reefs is observed by snorkelers'.", isCorrect: false },
-        { statement: "Frasa 'Vast expanses of thriving coral reefs shelter hundreds of fish' memiliki subjek jamak sehingga kata kerjanya adalah 'shelter' (tanpa akhiran -s).", isCorrect: true },
-        { statement: "Kata 'extraordinarily' dalam teks berfungsi sebagai kata sifat (adjective) yang menerangkan kata benda.", isCorrect: false }
-      ],
-      explanation: "Pernyataan 1 BENAR (Simple Present untuk fakta umum). Pernyataan 2 SALAH (karena reefs jamak, harusnya 'The coral reefs ARE observed'). Pernyataan 3 BENAR (Subject-Verb Agreement subjek jamak). Pernyataan 4 SALAH ('extraordinarily' berakhiran -ly adalah adverb of degree yang menerangkan adjective 'breathtaking').",
-      grammarNote: "Subject-Verb Agreement, Passive Voice Plural ('are + V3'), and Adverb vs Adjective functions."
-    },
-    {
-      id: 18,
-      type: "complex_matrix",
-      title: "Pilihan Ganda Kompleks: Urutan Frasa Kata Sifat (OSASCOMP)",
-      stimulusTitle: "Kaidah Susunan Kata Sifat (Adjective Order Rules)",
-      stimulusBody: "Dalam bahasa Inggris, susunan kata sifat mengikuti aturan OSASCOMP: Opinion -> Size -> Age -> Shape -> Color -> Origin -> Material -> Purpose.",
-      prompt: "Tentukan apakah susunan frasa kata sifat berikut <strong>BENAR (TRUE)</strong> atau <strong>SALAH (FALSE)</strong> menurut kaidah OSASCOMP:",
-      matrixStatements: [
-        { statement: "'A charming small old wooden cottage' (Opinion: charming, Size: small, Age: old, Material: wooden).", isCorrect: true },
-        { statement: "'A stone ancient magnificent statue' (Material ditempatkan sebelum Opinion dan Age).", isCorrect: false },
-        { statement: "'An energetic young Indonesian badminton athlete' (Opinion: energetic, Age: young, Origin: Indonesian, Purpose: badminton).", isCorrect: true },
-        { statement: "'A circular large brown dining table' (Shape ditempatkan mendahului Size).", isCorrect: false }
-      ],
-      explanation: "1) BENAR: Opinion (charming) -> Size (small) -> Age (old) -> Material (wooden). 2) SALAH: Harusnya 'A magnificent ancient stone statue' (Opinion -> Age -> Material). 3) BENAR: Opinion (energetic) -> Age (young) -> Origin (Indonesian) -> Purpose (badminton). 4) SALAH: Size harus mendahului Shape ('A large circular brown dining table').",
-      grammarNote: "Mastery of OSASCOMP: Opinion, Size, Age, Shape, Color, Origin, Material, Purpose."
-    },
-    {
-      id: 19,
-      type: "complex_matrix",
-      title: "Pilihan Ganda Kompleks: Fakta Sains Teks Report (Javan Rhino)",
-      stimulusTitle: "Stimulus Sains: The Endangered Javan Rhinoceros",
-      stimulusBody: `The Javan rhinoceros (<em>Rhinoceros sondaicus</em>) is one of the most critically endangered large mammals on Earth. Currently, fewer than eighty individuals survive, strictly confined to the tropical lowland rainforests of Ujung Kulon National Park at the western tip of Java, Indonesia.<br><br>Unlike their African relatives, Javan rhinos possess only a single horn, which rarely exceeds twenty-five centimeters in length. They are solitary herbivores that browse upon tender shoots, twigs, and fallen fruits. Because rhinos possess poor eyesight, their acute sense of smell and hearing are vital for detecting encroaching predators and humans.`,
-      prompt: "Berdasarkan cuplikan teks Report ilmiah di atas, tentukan nilai kebenaran pernyataan berikut:",
-      matrixStatements: [
-        { statement: "Badak Jawa saat ini hanya dapat ditemukan di alam liar di Taman Nasional Ujung Kulon.", isCorrect: true },
-        { statement: "Badak Jawa jantan dan betina memiliki dua cula besar berukuran lebih dari satu meter.", isCorrect: false },
-        { statement: "Badak Jawa merupakan satwa pemakan daging (karnivora) yang hidup berkelompok dalam kawanan besar.", isCorrect: false },
-        { statement: "Indra penciuman dan pendengaran yang tajam mengimbangi kelemahan indra penglihatan badak Jawa.", isCorrect: true }
-      ],
-      explanation: "1) BENAR (strictly confined to Ujung Kulon). 2) SALAH (hanya memiliki 'single horn' kurang dari 25 cm). 3) SALAH (mereka adalah 'solitary herbivores' / pemakan tumbuhan yang hidup menyendiri). 4) BENAR (acute smell and hearing compensate for poor eyesight).",
-      grammarNote: "Scientific Report Comprehension: General classification, morphological features, habitat."
-    },
-    {
-      id: 20,
-      type: "complex_matrix",
-      title: "Pilihan Ganda Kompleks: Kalimat Pengandaian (Conditionals)",
-      stimulusTitle: "Kaidah Logika Conditional Sentence Type 1 & Type 2",
-      stimulusBody: "Perhatikan kaidah pengandaian: Type 1 (Realistis/Masa Depan: If + Present, Will + V1) dan Type 2 (Hipotetis/Sekarang: If + Past/were, Would + V1).",
-      prompt: "Tentukan apakah formulasi kalimat pengandaian berikut <strong>BENAR (TRUE)</strong> atau <strong>SALAH (FALSE)</strong>:",
-      matrixStatements: [
-        { statement: "If students protect the coral reefs diligently, marine biodiversity will flourish.", isCorrect: true },
-        { statement: "If I was you, I will definitely attend the Kudus cultural heritage workshop tomorrow.", isCorrect: false },
-        { statement: "If the national park rangers had more patrol boats, they would monitor the coast more effectively.", isCorrect: true },
-        { statement: "If the weather is sunny on Friday, we would have visited the botanical sanctuary.", isCorrect: false }
-      ],
-      explanation: "1) BENAR (Type 1: If + protect, will flourish). 2) SALAH (harus subjunctive 'If I WERE you, I WOULD...'). 3) BENAR (Type 2: If + had, would monitor). 4) SALAH (mencampur if present dengan would have V3; harusnya 'If the weather is sunny, we WILL visit').",
-      grammarNote: "Conditional Sentences Type 1 & Type 2 Standard Formulations."
-    },
-
-    // 21-25. MCMA (Multiple Choice Multiple Answer - Checkboxes)
-    {
-      id: 21,
-      type: "mcma",
-      title: "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-      stimulusTitle: "Refleksi Teks Deskriptif Atlet Berprestasi",
-      stimulusBody: "Seorang penulis ingin mendeskripsikan seorang atlet panahan nasional dalam teks deskriptif yang otentik dan inspiratif.",
-      prompt: "Manakah <strong>DUA (2)</strong> kalimat di bawah ini yang menggunakan kata sifat deskriptif (descriptive adjectives) dan Simple Present Tense secara tepat?",
-      options: [
-        { key: "A", text: "She consistently demonstrates extraordinary focus and razor-sharp accuracy during international tournaments." },
-        { key: "B", text: "She will bought an expensive carbon arrow tomorrow morning at the supermarket." },
-        { key: "C", text: "Her athletic posture remains remarkably calm under intense competitive pressure." },
-        { key: "D", text: "She was winning the match because the referee has slept during the game." }
-      ],
-      correctAnswer: ["A", "C"],
-      explanation: "Kalimat A dan C menggunakan Simple Present Tense yang benar ('demonstrates', 'remains') dan kata sifat deskriptif bermakna tinggi ('extraordinary focus', 'razor-sharp accuracy', 'athletic posture', 'intense competitive pressure'). Kalimat B gramatikal rusak ('will bought'), dan kalimat D menggunakan past continuous yang tidak koheren.",
-      grammarNote: "Selection of grammatically sound descriptive sentences with Present Tense and Adjectives."
-    },
-    {
-      id: 22,
-      type: "mcma",
-      title: "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-      stimulusTitle: "Fitur Kebahasaan Teks Report Ilmiah",
-      stimulusBody: "Teks Report Ilmiah (Scientific Report) memiliki karakteristik kebahasaan tersendiri yang membedakannya dari teks naratif personal.",
-      prompt: "Manakah <strong>DUA (2)</strong> fitur kebahasaan utama yang menjadi ciri khas teks Report ilmiah?",
-      options: [
-        { key: "A", text: "Penggunaan istilah teknis ilmiah (technical scientific vocabulary) dan kata benda umum (general nouns)." },
-        { key: "B", text: "Penggunaan sudut pandang orang pertama 'I' dan 'My family' untuk menceritakan emosi pribadi." },
-        { key: "C", text: "Dominasi kalimat pasif (Passive Voice) untuk menonjolkan proses atau objek yang diobservasi." },
-        { key: "D", text: "Penyajian dialog langsung dramatis antara tokoh antagonis dan protagonis dalam dongeng." }
-      ],
-      correctAnswer: ["A", "C"],
-      explanation: "Teks Report ilmiah menekankan objektivitas melalui: 1) Istilah teknis ilmiah & general nouns (Opsi A), dan 2) Kalimat pasif untuk memfokuskan proses/fenomena ilmiah tanpa bias personal (Opsi C). Opsi B adalah ciri personal recount, dan Opsi D adalah ciri narrative.",
-      grammarNote: "Generic Language Features of Scientific Report Text."
-    },
-    {
-      id: 23,
-      type: "mcma",
-      title: "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-      stimulusTitle: "Keluarga Kata Kosakata Oxford 3000 (CEFR A2/B1)",
-      stimulusBody: "Perhatikan kata kunci dalam tema lingkungan dan keanekaragaman hayati: <em>'conserve'</em> dan <em>'endanger'</em>.",
-      prompt: "Manakah <strong>DUA (2)</strong> pasangan kata turunan dan arti yang tepat berdasarkan kamus Oxford 3000?",
-      options: [
-        { key: "A", text: "'Conservation' (noun) bermakna upaya perlindungan dan pelestarian alam dari kerusakan." },
-        { key: "B", text: "'Endangered' (adjective) bermakna spesies makhluk hidup yang berada dalam bahaya kepunahan." },
-        { key: "C", text: "'Conservatively' (adverb) bermakna secara berbahaya dan merusak ekosistem." },
-        { key: "D", text: "'Dangerously' (noun) bermakna tempat suaka perlindungan satwa liar." }
-      ],
-      correctAnswer: ["A", "B"],
-      explanation: "Opsi A benar: 'conservation' adalah nomina pelestarian lingkungan. Opsi B benar: 'endangered' adalah adjektiva terancam punah (e.g. endangered species). Opsi C salah (artinya secara konservatif/hati-hati), Opsi D salah (dangerously adalah adverb).",
-      grammarNote: "Word Formations: Noun, Adjective, Adverb derivation from Oxford 3000 core lexis."
-    },
-    {
-      id: 24,
-      type: "mcma",
-      title: "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-      stimulusTitle: "Ungkapan Rencana & Tujuan (Intentions and Plans)",
-      stimulusBody: "Dalam percakapan sehari-hari, siswa sering mengungkapkan rencana dan intensi untuk melakukan sesuatu di masa mendatang.",
-      prompt: "Manakah <strong>DUA (2)</strong> ungkapan yang secara formal dan santun digunakan untuk menyatakan niat atau rencana (intentions/plans)?",
-      options: [
-        { key: "A", text: "'I am planning to conduct an interview with our local batik artisan this weekend.'" },
-        { key: "B", text: "'I was regretting that you didn't call me yesterday afternoon.'" },
-        { key: "C", text: "'We intend to submit our environmental science project to the national committee.'" },
-        { key: "D", text: "'I have no interest in doing any homework forever.'" }
-      ],
-      correctAnswer: ["A", "C"],
-      explanation: "Opsi A ('I am planning to...') dan Opsi C ('We intend to...') adalah formula baku untuk menyatakan rencana/intensi (stating intentions). Opsi B menyatakan penyesalan masa lalu, Opsi D menyatakan penolakan ketidakpedulian.",
-      grammarNote: "Functional Expressions: 'planning to + V1', 'intend to + V1', 'would like to + V1'."
-    },
-    {
-      id: 25,
-      type: "mcma",
-      title: "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
-      stimulusTitle: "Struktur Kalimat Pasif dalam Deskripsi Proses Ilmiah",
-      stimulusBody: "Kalimat pasif dalam Simple Present Tense dibentuk dengan rumus: Subjek + is/am/are + Verb 3 (Past Participle).",
-      prompt: "Manakah <strong>DUA (2)</strong> kalimat di bawah ini yang merupakan kalimat pasif (Passive Voice) yang gramatikal dan tepat?",
-      options: [
-        { key: "A", text: "Organic wastes are collected by student volunteers every Tuesday morning." },
-        { key: "B", text: "The young athlete is running around the track with his new shoes." },
-        { key: "C", text: "Rare medicinal herbs are carefully preserved in the school botanical sanctuary." },
-        { key: "D", text: "The headmaster will delivers an inspiring speech at the assembly." }
-      ],
-      correctAnswer: ["A", "C"],
-      explanation: "Kalimat A ('wastes are collected') dan Kalimat C ('herbs are carefully preserved') memiliki pola pasif 'are + Verb 3' yang sempurna. Kalimat B adalah Present Continuous aktif ('is running'). Kalimat D memiliki kesalahan gramatikal 'will delivers'.",
-      grammarNote: "Present Simple Passive Voice: S + is/am/are + V3 (+ by Agent)."
-    },
-
-    // 26-30. READING COMPREHENSION (Report Text - Renewable Energy / Geothermal in Central Java)
-    {
-      id: 26,
-      type: "single_choice",
-      title: "Reading Comprehension: Report Text",
-      stimulusTitle: "Text 2: Clean Geothermal Energy in the Dieng Plateau, Central Java",
-      stimulusBody: `Geothermal energy is a clean, renewable energy resource that comes from natural heat stored deep inside the Earth. In Central Java, the volcanic highland of the Dieng Plateau (located across Banjarnegara and Wonosobo regencies) is one of Indonesia's most important locations for geothermal power plants (PLTP Dieng).<br><br>Electricity production from geothermal energy works in a simple, sustainable way. Deep wells are drilled into underground reservoirs of hot water and natural steam. This high-pressure steam rises through strong pipes to turn large turbine generators, which convert the steam's energy into clean electricity. Afterward, the condensed water is cooled and pumped back underground into the reservoir, keeping the system environmentally friendly and producing almost zero smoke or carbon emissions.<br><br>Unlike solar panels and wind turbines that depend on sunny or windy weather, geothermal power plants can generate electricity steadily twenty-four hours a day without stopping. Therefore, developing geothermal clean energy in Central Java is an <u>essential</u> milestone to supply reliable electricity while protecting the natural environment.`,
-      source: "Sumber Otentik: Profil Potensi Energi Panas Bumi Jawa Tengah — PT Geo Dipa Energi (Persero) & Kementerian ESDM Republik Indonesia",
-      prompt: "According to the second paragraph, how is kinetic energy transformed into electricity in a geothermal power plant?",
-      options: [
-        { key: "A", text: "By burning fossil fuel coals to boil surface river water." },
-        { key: "B", text: "By channeling high-pressure underground steam to drive turbine generators." },
-        { key: "C", text: "By exposing photovoltaic panels directly to midday tropical sunlight." },
-        { key: "D", text: "By splitting radioactive atoms inside a heavy chemical reactor." }
-      ],
-      correctAnswer: "B",
-      explanation: "Paragraf kedua menjelaskan: 'This high-pressure thermal steam is channeled upwards through specialized pipeline networks to drive turbine generators, which convert kinetic energy into electrical power'. Jawaban B tepat.",
-      grammarNote: "Cause-Effect & Mechanical Sequence Analysis in Scientific Texts."
-    },
-    {
-      id: 27,
-      type: "single_choice",
-      title: "Reading Comprehension: Environmental Advantage",
-      stimulusTitle: "Text 2: Geothermal Energy Exploration in Central Java",
-      stimulusBody: "<em>Refer to Text 2 above.</em>",
-      prompt: "Why is the geothermal electricity generation described as a 'closed-loop system'?",
-      options: [
-        { key: "A", text: "Because the power plant operates exclusively behind locked concrete gates." },
-        { key: "B", text: "Because condensed steam is cooled and reinjected back into the underground reservoir with zero emissions." },
-        { key: "C", text: "Because electricity is only delivered to nearby government factories." },
-        { key: "D", text: "Because the underground wells are permanently abandoned after one month." }
-      ],
-      correctAnswer: "B",
-      explanation: "Paragraf kedua kalimat terakhir menyebutkan: 'Subsequently, the condensed water is cooled and reinjected back into the underground reservoir, ensuring a closed-loop system'.",
-      grammarNote: "Technical Term Definition & Closed-Loop Cycle."
-    },
-    {
-      id: 28,
-      type: "single_choice",
-      title: "Reading Comprehension: Comparative Logic",
-      stimulusTitle: "Text 2: Geothermal Energy Exploration in Central Java",
-      stimulusBody: "<em>Refer to Text 2, third paragraph.</em>",
-      prompt: "What major advantage does geothermal power have compared to solar and wind energy?",
-      options: [
-        { key: "A", text: "It requires no initial capital investment and no engineering equipment." },
-        { key: "B", text: "It provides reliable baseload power that does not depend on fluctuating weather conditions." },
-        { key: "C", text: "It can be easily transported in plastic barrels to remote villages." },
-        { key: "D", text: "It produces large amounts of smoke that warm up the cold mountain climate." }
-      ],
-      correctAnswer: "B",
-      explanation: "Paragraf ketiga menyatakan: 'Unlike intermittent solar and wind energy that depend strictly on weather conditions, geothermal plants provide steady baseload electricity with operational capacity factors exceeding ninety percent'.",
-      grammarNote: "Contrasting Linkers: 'Unlike + Noun Phrase, Subject + Verb'."
-    },
-    {
-      id: 29,
-      type: "single_choice",
-      title: "Reading Comprehension: Vocabulary in Context",
-      stimulusTitle: "Text 2: Geothermal Energy Exploration in Central Java",
-      stimulusBody: "<em>Refer to the final sentence: '...developing geothermal clean energy in Central Java is an <u>essential</u> milestone to supply reliable electricity while protecting the natural environment.'</em>",
-      prompt: "The word 'essential' in the sentence is closest in meaning to...",
-      options: [
-        { key: "A", text: "Very important and necessary for success" },
-        { key: "B", text: "Minor and not needed" },
-        { key: "C", text: "Hazardous and destructive" },
-        { key: "D", text: "Temporary and unreliable" }
-      ],
-      correctAnswer: "A",
-      explanation: "Kata 'essential' (Oxford 3000 A2) bermakna sangat penting, mendasar, dan diperlukan (very important, necessary).",
-      grammarNote: "Academic Lexis: pivotal, crucial, indispensable, essential."
-    },
-    {
-      id: 30,
-      type: "single_choice",
-      title: "Reading Comprehension: Discourse Logic",
-      stimulusTitle: "Text 2: Geothermal Energy Exploration in Central Java",
-      stimulusBody: "<em>Refer to Text 2 above.</em>",
-      prompt: "What would most likely happen if Central Java maximizes its geothermal potential?",
-      options: [
-        { key: "A", text: "Greenhouse gas emissions from electricity generation will significantly decrease." },
-        { key: "B", text: "Electricity supply in Central Java will become more stable and produce less pollution." },
-        { key: "C", text: "The region will face severe electricity blackouts during summer months." },
-        { key: "D", text: "Indonesia will completely abandon its 2060 climate commitments." }
-      ],
-      correctAnswer: "A",
-      explanation: "Karena panas bumi adalah energi bersih terbarukan dengan sistem tertutup 'virtually zero greenhouse gas emissions', pemanfaatannya akan menurunkan emisi gas rumah kaca secara signifikan dan membantu target Net Zero 2060.",
-      grammarNote: "Cause-and-Effect Inference in Academic Texts."
-    },
-
-    // 31-35. GRAMMAR ESSENTIALS
-    {
-      id: 31,
-      type: "single_choice",
-      title: "Grammar Essentials: Subject-Verb Agreement",
-      stimulusTitle: "Kaidah Kesesuaian Subjek dan Kata Kerja",
-      stimulusBody: "Pilihlah bentuk kata kerja yang tepat untuk melengkapi kalimat berikut:",
-      prompt: "The dedicated biology teacher, accompanied by twenty enthusiastic students, [...] currently observing the rare orchid species in the school conservatory.",
-      options: [
-        { key: "A", text: "is" },
-        { key: "B", text: "are" },
-        { key: "C", text: "were" },
-        { key: "D", text: "have been" }
-      ],
-      correctAnswer: "A",
-      explanation: "Subjek utama kalimat adalah 'The dedicated biology teacher' (tunggal/singular). Frasa penjelas 'accompanied by twenty enthusiastic students' tidak mengubah jumlah subjek utama. Keterangan waktu 'currently' menunjukkan waktu sekarang, sehingga kata kerja yang benar adalah 'is'.",
-      grammarNote: "Subject-Verb Agreement with Intervening Prepositional Phrases (accompanied by, together with, as well as)."
-    },
-    {
-      id: 32,
-      type: "single_choice",
-      title: "Grammar Essentials: Passive Voice Transformation",
-      stimulusTitle: "Transformasi Kalimat Aktif ke Pasif",
-      stimulusBody: "Perhatikan kalimat aktif berikut:<br><em>'Our school committee annually awards full scholarships to exceptional athletes.'</em>",
-      prompt: "Manakah bentuk kalimat pasif (Passive Voice) yang paling tepat?",
-      options: [
-        { key: "A", text: "Full scholarships is annually awarded to exceptional athletes by our school committee." },
-        { key: "B", text: "Full scholarships are annually awarded to exceptional athletes by our school committee." },
-        { key: "C", text: "Full scholarships were annually awarded to exceptional athletes by our school committee." },
-        { key: "D", text: "Full scholarships have been awarding exceptional athletes by our school committee." }
-      ],
-      correctAnswer: "B",
-      explanation: "Objek 'Full scholarships' adalah jamak (plural). Tense kalimat aktif adalah Simple Present Tense ('awards'). Maka rumus pasifnya: Object (plural) + ARE + Verb 3 (awarded) + by Agent.",
-      grammarNote: "Passive Voice in Present Tense for Plural Objects."
-    },
-    {
-      id: 33,
-      type: "single_choice",
-      title: "Grammar Essentials: Past Continuous with 'While'",
-      stimulusTitle: "Tata Bahasa Klausa Waktu Lampau",
-      stimulusBody: "Lengkapilah kalimat berikut dengan kombinasi bentuk kata kerja yang benar:",
-      prompt: "While the students [...] the museum artifacts, the tour guide [...] an inspiring story about Sunan Kudus.",
-      options: [
-        { key: "A", text: "were examining / narrated" },
-        { key: "B", text: "are examining / narrates" },
-        { key: "C", text: "examined / was narrating" },
-        { key: "D", text: "had examined / narrating" }
-      ],
-      correctAnswer: "A",
-      explanation: "Klausa 'While' digunakan untuk aksi berdurasi sedang berlangsung di masa lampau: 'While the students were examining...' (Past Continuous), disusul aksi yang terjadi pada periode tersebut: 'the tour guide narrated...' (Simple Past).",
-      grammarNote: "Past Continuous ('were examining') juxtaposed with Simple Past ('narrated') using time conjunction 'While'."
-    },
-    {
-      id: 34,
-      type: "single_choice",
-      title: "Grammar Essentials: Relative Pronoun 'Whose'",
-      stimulusTitle: "Klausa Relatif Kepemilikan (Relative Clauses)",
-      stimulusBody: "Lengkapilah kalimat berikut dengan kata ganti penghubung (relative pronoun) yang tepat:",
-      prompt: "We recently interviewed the young inventor [...] automated solar water pump won the provincial innovation championship.",
-      options: [
-        { key: "A", text: "who" },
-        { key: "B", text: "whom" },
-        { key: "C", text: "whose" },
-        { key: "D", text: "which" }
-      ],
-      correctAnswer: "C",
-      explanation: "'Whose' digunakan untuk menyatakan hubungan kepemilikan (possesive relative pronoun). Pada kalimat ini, 'automated solar water pump' adalah milik dari 'the young inventor'.",
-      grammarNote: "Possessive Relative Clause: Person + whose + Noun Phrase."
-    },
-    {
-      id: 35,
-      type: "single_choice",
-      title: "Grammar Essentials: Conditional Sentence Type 1",
-      stimulusTitle: "Kalimat Pengandaian Kemungkinan Masa Depan",
-      stimulusBody: "Lengkapilah kalimat pengandaian Type 1 berikut dengan bentuk kata kerja yang tepat:",
-      prompt: "If our school [...] the zero-plastic policy consistently, we [...] a significant reduction in campus waste by December.",
-      options: [
-        { key: "A", text: "enforces / will achieve" },
-        { key: "B", text: "enforced / will achieved" },
-        { key: "C", text: "will enforce / achieve" },
-        { key: "D", text: "enforcing / would achieve" }
-      ],
-      correctAnswer: "A",
-      explanation: "Rumus baku Conditional Type 1: If + Simple Present (S + V1/-s/-es: 'enforces'), Subject + will + V1 ('will achieve').",
-      grammarNote: "Conditional Type 1: Real and possible conditions in the present/future."
-    },
-
-    // 36-40. VOCABULARY OXFORD 3000 & FUNCTIONAL EXPRESSIONS
-    {
-      id: 36,
-      type: "single_choice",
-      title: "Vocabulary: Oxford 3000 (CEFR A2/B1)",
-      stimulusTitle: "Pemilihan Kata Kontekstual",
-      stimulusBody: "Pilihlah kosakata yang paling tepat untuk melengkapi kalimat rumpang di bawah ini:",
-      prompt: "Athletes must possess extraordinary mental [...] to overcome intense pressure and achieve victory in international tournaments.",
-      options: [
-        { key: "A", text: "resilience" },
-        { key: "B", text: "hesitation" },
-        { key: "C", text: "ignorance" },
-        { key: "D", text: "pollution" }
-      ],
-      correctAnswer: "A",
-      explanation: "'Resilience' (Oxford 3000 B1/B2) bermakna daya tahan mental, ketangguhan untuk bangkit dari kesulitan. Pilihan lain tidak sesuai: hesitation (keragu-raguan), ignorance (ketidaktahuan), pollution (polusi).",
-      grammarNote: "Abstract Nouns in Sports Psychology: resilience, tenacity, discipline."
-    },
-    {
-      id: 37,
-      type: "single_choice",
-      title: "Vocabulary: Collocation with 'Take'",
-      stimulusTitle: "Kolokasi Kata Bahasa Inggris",
-      stimulusBody: "Pilihlah kolokasi yang tepat dalam konteks tindakan pencegahan lingkungan:",
-      prompt: "Local environmentalists urge the municipal government to [...] immediate precautions against river pollution.",
-      options: [
-        { key: "A", text: "take" },
-        { key: "B", text: "make" },
-        { key: "C", text: "do" },
-        { key: "D", text: "hold" }
-      ],
-      correctAnswer: "A",
-      explanation: "Kolokasi tetap dalam bahasa Inggris adalah 'take precautions' (mengambil tindakan pencegahan), bukan make precautions atau do precautions.",
-      grammarNote: "English Collocations: take precautions, take measures, take action."
-    },
-    {
-      id: 38,
-      type: "single_choice",
-      title: "Functional Expressions: Asking for Clarification",
-      stimulusTitle: "Ungkapan Meminta Klarifikasi",
-      stimulusBody: "Seorang siswa tidak mendengar penjelasan instruksi guru secara jelas di laboratorium bahasa.",
-      prompt: "Manakah ungkapan yang paling santun dan baku (polite register) untuk meminta klarifikasi penjelasan?",
-      options: [
-        { key: "A", text: "What? Say that again louder!" },
-        { key: "B", text: "Pardon me, Sir. Could you please clarify the second step of the procedure?" },
-        { key: "C", text: "I don't care what you just said." },
-        { key: "D", text: "Stop talking and let me sleep." }
-      ],
-      correctAnswer: "B",
-      explanation: "Ungkapan santun dan formal (polite register): 'Pardon me, Sir. Could you please clarify...?'",
-      grammarNote: "Polite Request & Clarification: Modal 'could', 'pardon me', polite inquiry."
-    },
-    {
-      id: 39,
-      type: "single_choice",
-      title: "Functional Expressions: Expressing Stance / Agreement",
-      stimulusTitle: "Ungkapan Persetujuan Terhadap Argumen",
-      stimulusBody: "Dalam diskusi kelas mengenai pelestarian cagar budaya lokal:<br>Budi: 'I firmly believe that schools in Kudus should organize regular heritage tours to instill pride in our local traditions.'",
-      prompt: "Manakah respons yang menunjukkan persetujuan penuh secara formal (full agreement)?",
-      options: [
-        { key: "A", text: "I couldn't agree more; connecting students with historical roots is essential." },
-        { key: "B", text: "I strongly oppose your idea because heritage has no value." },
-        { key: "C", text: "That is totally irrelevant to our education." },
-        { key: "D", text: "I agree with you, but I don't care at all." }
-      ],
-      correctAnswer: "A",
-      explanation: "'I couldn't agree more' adalah ungkapan idiomatik baku untuk menyatakan persetujuan 100% (sangat setuju sekali).",
-      grammarNote: "Expressing Full Agreement: 'I couldn't agree more', 'You have a very valid point'."
-    },
-    {
-      id: 40,
-      type: "single_choice",
-      title: "Vocabulary: Oxford 3000 Academic Conjunction",
-      stimulusTitle: "Kata Hubung Kausal & Penjelas",
-      stimulusBody: "Lengkapilah kalimat berikut dengan konjungsi internal yang tepat:",
-      prompt: "Solar panels produce clean energy without greenhouse gases; [...], their initial installation costs have become increasingly affordable.",
-      options: [
-        { key: "A", text: "furthermore" },
-        { key: "B", text: "otherwise" },
-        { key: "C", text: "instead" },
-        { key: "D", text: "despite" }
-      ],
-      correctAnswer: "A",
-      explanation: "Kedua klausa menyajikan gagasan positif yang saling menambah/menguatkan (clean energy + affordable costs). Maka kata hubung penambahan yang tepat adalah 'furthermore' (lagi pula / selain itu).",
-      grammarNote: "Transitions of Addition: furthermore, moreover, in addition, additionally."
-    }
-  ];
-}
-
-
-function getGrade11Questions() {
-  const bank = getGrade10Questions();
-  // Grade 11: Contemporary Narrative & Analytical Exposition
-  bank[3].title = "Listening Section: Part II - Dialogue (Grade 11 Context)";
-  bank[3].prompt = "In Grade 11 Analytical Exposition discourse, what is the main purpose of an argument's evidence?";
-  bank[3].options = [
-    { key: "A", text: "To entertain the reader with fictional fairy tales." },
-    { key: "B", text: "To substantiate claims with empirical facts, statistics, and credible research." },
-    { key: "C", text: "To confuse the audience with contradictory statements." },
-    { key: "D", text: "To provide an emotional apology to opponents." }
-  ];
-  bank[3].correctAnswer = "B";
-  bank[3].explanation = "Dalam teks eksposisi analitis kelas XI, argumen didukung data faktual dan bukti empiris untuk memperkuat tesis.";
-  bank[3].grammarNote = "Analytical Exposition Discourse: Thesis -> Arguments -> Reiteration.";
-
-  bank[10].title = "Reading: Contemporary Narrative (Indonesian Folktale Adaptation)";
-  bank[10].stimulusTitle = "Text 1: The Legend of Rawa Pening (Moral Storytelling)";
-  bank[10].stimulusBody = "Once upon a time in Central Java, Baru Klinthing, a magical boy disguised as a poor beggar, arrived at a haughty village banquet. When the arrogant villagers refused him food, he planted a small lotus stick in the ground and challenged anyone to pull it out. Nobody could extract it. When Baru Klinthing pulled it with ease, clear spring water gushed forth, transforming the proud village into a vast lake known as Rawa Pening.";
-  bank[10].source = "Sumber Otentik: Kumpulan Cerita Rakyat Jawa Tengah — Balai Bahasa Provinsi Jawa Tengah & Kemendikbudristek";
-  bank[10].prompt = "What essential moral value can students learn from the narrative text above?";
-  bank[10].options = [
-    { key: "A", text: "To treat everyone with kindness and avoid arrogance or selfishness." },
-    { key: "B", text: "To accumulate material wealth at all costs." },
-    { key: "C", text: "To isolate oneself from rural community traditions." },
-    { key: "D", text: "To ignore environmental water conservation." }
-  ];
-  bank[10].correctAnswer = "A";
-  bank[10].explanation = "Nilai moral utama cerita rakyat Rawa Pening adalah mengajarkan kerendahan hati, menolong sesama, dan menjauhi kesombongan.";
-  bank[10].grammarNote = "Narrative Conventions: Past Tense narrative progression ('arrived', 'refused', 'planted', 'gushed').";
-
-  return bank;
-}
-
-// Fisher-Yates array shuffle utility
-function shuffleArray(arr) {
-  const array = [...arr];
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
-
-// Randomize question options and matrix statements while dynamically mapping correct answers and explanations
-function randomizeQuestionOptions(questionBank) {
-  const LETTERS = ["A", "B", "C", "D", "E"];
-
-  return questionBank.map(origQ => {
-    // Deep clone question to avoid mutating bank
-    const q = JSON.parse(JSON.stringify(origQ));
-
-    // Shuffle statements in complex matrix questions
-    if (q.type === "complex_matrix" && Array.isArray(q.matrixStatements)) {
-      q.matrixStatements = shuffleArray(q.matrixStatements);
-    } 
-    // Shuffle options in single choice, listening pictures, and MCMA
-    else if (Array.isArray(q.options) && q.options.length > 0) {
-      // Tag original option key
-      q.options.forEach(opt => {
-        opt._origKey = opt.key;
-      });
-
-      // Shuffle options list
-      const shuffled = shuffleArray(q.options);
-
-      // Re-assign sequential letters A, B, C, D and build key mapping
-      const keyMap = {};
-      shuffled.forEach((opt, idx) => {
-        const newKey = LETTERS[idx] || String.fromCharCode(65 + idx);
-        keyMap[opt._origKey] = newKey;
-        opt.key = newKey;
-        delete opt._origKey;
-      });
-
-      q.options = shuffled;
-
-      // Update correct answer pointer(s)
-      if (q.type === "mcma" && Array.isArray(q.correctAnswer)) {
-        q.correctAnswer = q.correctAnswer.map(k => keyMap[k] || k).sort();
-      } else if (typeof q.correctAnswer === "string") {
-        q.correctAnswer = keyMap[q.correctAnswer] || q.correctAnswer;
-      }
-
-      // Synchronize explanation references to newly mapped keys
-      if (q.explanation) {
-        q.explanation = q.explanation.replace(/(Opsi|Gambar|Pilihan|Jawaban)\s+([A-D])\b/gi, (match, prefix, oldLetter) => {
-          const up = oldLetter.toUpperCase();
-          return keyMap[up] ? `${prefix} ${keyMap[up]}` : match;
-        });
-      }
-    }
-
-    return q;
-  });
-}
-
-// =============================================================================
-// LOCALSTORAGE AUTOSAVE & STATE RECOVERY
-// =============================================================================
-
-function saveProgressToLocalStorage() {
-  try {
-    const state = {
-      studentIdentity,
-      userAnswers,
-      flaggedQuestions: Array.from(flaggedQuestions),
-      remainingSeconds,
-      currentQuestionIndex,
-      questions,
-      currentMode,
-      isExamSubmitted,
-      savedAt: new Date().toLocaleTimeString("id-ID")
-    };
-    localStorage.setItem("sabaku_ats_progress_XI", JSON.stringify(state));
-    
-    const autoEl = document.getElementById("autosave-indicator");
-    if (autoEl) autoEl.textContent = `💾 Tersimpan (${state.savedAt})`;
-    const sideSaved = document.getElementById("side-last-saved");
-    if (sideSaved) sideSaved.textContent = `Tersimpan: ${state.savedAt}`;
-  } catch (e) {
-    console.warn("LocalStorage save error:", e);
-  }
-}
-
-function loadProgressFromLocalStorage() {
-  try {
-    const savedStr = localStorage.getItem("sabaku_ats_progress_XI");
-    if (savedStr) {
-      const state = JSON.parse(savedStr);
-      if (state.questions && state.questions.length === 40 && !state.isExamSubmitted) {
-        studentIdentity = state.studentIdentity || studentIdentity;
-        userAnswers = state.userAnswers || {};
-        flaggedQuestions = new Set(state.flaggedQuestions || []);
-        remainingSeconds = (state.remainingSeconds && state.remainingSeconds > 0) ? state.remainingSeconds : (90 * 60);
-        currentQuestionIndex = state.currentQuestionIndex || 0;
-        questions = state.questions;
-        currentMode = state.currentMode || "practice";
-        return true;
-      }
-    }
-  } catch (e) {
-    console.warn("LocalStorage load error:", e);
-  }
-  return false;
-}
-
-// =============================================================================
-// INITIALIZATION & UI CONTROLLER
-// =============================================================================
-
+// Initialize Exam Engine
 window.addEventListener("DOMContentLoaded", () => {
-  initGradeXITest();
+  initStudentData();
+  const rawQ = getGrade11AstsQuestions();
+  questions = (currentMode === "practice") ? randomizeQuestionOptions(rawQ) : rawQ;
+
+  buildNavigatorGrid();
+  renderQuestion(0);
+  startTimer();
+  applyStudentMetadata();
 });
 
-function initGradeXITest() {
-  // Try to restore saved in-progress exam
-  const hasRestored = loadProgressFromLocalStorage();
-
-  if (hasRestored) {
-    applyStudentMetadata();
-    buildNavigatorGrid();
-    startTimer();
-    renderQuestion(currentQuestionIndex);
-    return;
-  }
-
-  // Read student identity passed from index.html portal
+function initStudentData() {
   try {
-    const portalData = JSON.parse(localStorage.getItem("sabaku_current_student") || "{}");
-    if (portalData.nama && portalData.tingkat) {
-      studentIdentity = {
-        tingkat: "XI-F",
-        rombel: portalData.rombel || "1",
-        presensi: portalData.presensi || "1",
-        nama: portalData.nama
-      };
-      currentMode = portalData.mode || "practice";
-      startFreshTest();
-      return;
+    const saved = localStorage.getItem("sabaku_current_student");
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      studentIdentity.nama = parsed.nama || "Siswa Kelas XI";
+      studentIdentity.tingkat = parsed.tingkat || "XI-F";
+      studentIdentity.rombel = parsed.rombel || "1";
+      studentIdentity.presensi = parsed.presensi || "1";
+      currentMode = parsed.mode || "practice";
     }
   } catch (e) {
-    console.warn("Portal data error:", e);
+    console.warn("Local student parse error:", e);
   }
 
-  // If no identity found, open quick prompt modal
-  document.getElementById("identity-prompt-modal").style.display = "flex";
+  try {
+    const savedProgress = localStorage.getItem("sabaku_asts_progress_XI");
+    if (savedProgress) {
+      const prog = JSON.parse(savedProgress);
+      if (prog.userAnswers) userAnswers = prog.userAnswers;
+      if (prog.flaggedQuestions) flaggedQuestions = new Set(prog.flaggedQuestions);
+      if (prog.remainingSeconds && prog.remainingSeconds > 0) remainingSeconds = prog.remainingSeconds;
+      if (typeof prog.currentIndex === "number") currentQuestionIndex = prog.currentIndex;
+    }
+  } catch (e) {
+    console.warn("Autosave load error:", e);
+  }
 }
 
 function handleDirectIdentitySubmit(e) {
@@ -949,15 +917,18 @@ function handleDirectIdentitySubmit(e) {
   const presensi = document.getElementById("direct-presensi").value.trim();
   const mode = document.getElementById("direct-mode").value;
 
-  // Tidak perlu token atau password untuk latihan / ujian
+  if (!nama || !rombel || !presensi) {
+    alert("Harap lengkapi semua kolom!");
+    return;
+  }
 
-  studentIdentity = {
-    tingkat: "XI-F",
-    rombel,
-    presensi,
-    nama
-  };
+  // Tidak perlu token atau password untuk latihan / asesmen
+  studentIdentity = { tingkat: "XI-F", rombel, presensi, nama };
   currentMode = mode;
+  localStorage.setItem("sabaku_current_student", JSON.stringify({
+    ...studentIdentity,
+    mode
+  }));
 
   document.getElementById("identity-prompt-modal").style.display = "none";
   startFreshTest();
@@ -976,30 +947,31 @@ function toggleDirectToken(mode) {}
 function startFreshTest() {
   userAnswers = {};
   flaggedQuestions.clear();
-  isExamSubmitted = false;
   remainingSeconds = 90 * 60;
   currentQuestionIndex = 0;
+  isExamSubmitted = false;
 
-  // Initialize and randomize Grade 10 question bank
-  const rawBank = getGrade11Questions();
-  questions = randomizeQuestionOptions(rawBank);
+  const rawQ = getGrade11AstsQuestions();
+  questions = (currentMode === "practice") ? randomizeQuestionOptions(rawQ) : rawQ;
 
   applyStudentMetadata();
   buildNavigatorGrid();
-  startTimer();
   renderQuestion(0);
-  saveProgressToLocalStorage();
+  startTimer();
 }
 
 function applyStudentMetadata() {
-  // Update Header Badges
+  const nameEl = document.getElementById("side-student-name");
+  const metaEl = document.getElementById("side-student-meta");
   const modeBadge = document.getElementById("nav-mode-badge");
-  modeBadge.textContent = (currentMode === "practice") ? "🎯 Mode Latihan" : "📝 Asesmen Resmi (ASTS)";
-  modeBadge.className = "badge-mode " + (currentMode === "practice" ? "practice" : "exam");
 
-  // Update Sidebar Student Meta
-  document.getElementById("side-student-name").textContent = studentIdentity.nama;
-  document.getElementById("side-student-meta").textContent = `Kelas ${studentIdentity.tingkat} | Rombel ${studentIdentity.rombel} | Presensi ${studentIdentity.presensi}`;
+  if (nameEl) nameEl.textContent = studentIdentity.nama;
+  if (metaEl) metaEl.textContent = `Kelas XI | Rombel ${studentIdentity.rombel} | Presensi ${studentIdentity.presensi}`;
+  if (modeBadge) {
+    modeBadge.textContent = "Mode ASTS Gasal";
+    modeBadge.style.background = "#ecfdf5";
+    modeBadge.style.color = "#047857";
+  }
 }
 
 function toggleKisiKisiContent() {
@@ -1007,281 +979,206 @@ function toggleKisiKisiContent() {
   const icon = document.getElementById("kisi-toggle-icon");
   if (body.style.display === "none") {
     body.style.display = "block";
-    icon.textContent = "▼ Sembunyikan Kisi-Kisi";
+    icon.textContent = "▲ Sembunyikan Kisi-Kisi";
   } else {
     body.style.display = "none";
-    icon.textContent = "▶ Tampilkan Kisi-Kisi";
+    icon.textContent = "▼ Lihat Rincian Kisi-Kisi";
   }
 }
 
 function toggleKisiKisiModal() {
-  const body = document.getElementById("kisi-kisi-body");
-  body.style.display = "block";
-  document.getElementById("kisi-toggle-icon").textContent = "▼ Sembunyikan Kisi-Kisi";
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  toggleKisiKisiContent();
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 function buildNavigatorGrid() {
   const grid = document.getElementById("question-navigator-grid");
+  if (!grid) return;
   grid.innerHTML = "";
-  
-  questions.forEach((q, idx) => {
+
+  for (let i = 1; i <= 40; i++) {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "q-num-btn";
-    btn.id = `nav-btn-${idx}`;
-    btn.textContent = idx + 1;
-    btn.onclick = () => renderQuestion(idx);
+    btn.id = `nav-btn-${i}`;
+    btn.textContent = i;
+    btn.onclick = () => renderQuestion(i - 1);
     grid.appendChild(btn);
-  });
+  }
   updateNavigatorStatus();
 }
 
 function updateNavigatorStatus() {
-  questions.forEach((q, idx) => {
-    const btn = document.getElementById(`nav-btn-${idx}`);
-    if (!btn) return;
-    
-    btn.classList.remove("active", "answered", "doubtful");
-    
-    if (idx === currentQuestionIndex) {
-      btn.classList.add("active");
+  for (let i = 1; i <= 40; i++) {
+    const btn = document.getElementById(`nav-btn-${i}`);
+    if (!btn) continue;
+
+    btn.className = "q-num-btn";
+    const isAnswered = isQuestionAnswered(i);
+    const isFlagged = flaggedQuestions.has(i);
+
+    if (i - 1 === currentQuestionIndex) {
+      btn.classList.add("current");
     }
-    
-    if (flaggedQuestions.has(idx)) {
-      btn.classList.add("doubtful");
-    } else if (isQuestionAnswered(q.id)) {
+
+    if (isFlagged) {
+      btn.classList.add("flagged");
+    } else if (isAnswered) {
       btn.classList.add("answered");
     }
-  });
+  }
 }
 
 function isQuestionAnswered(qId) {
-  const ans = userAnswers[qId];
-  if (ans === undefined || ans === null) return false;
-  if (Array.isArray(ans)) return ans.length > 0;
-  if (typeof ans === "object") return Object.keys(ans).length > 0;
-  return ans !== "";
+  return userAnswers[qId] !== undefined && userAnswers[qId] !== "";
 }
 
-function renderQuestion(index) {
-  if (index < 0 || index >= questions.length) return;
-  currentQuestionIndex = index;
-  const q = questions[index];
+function renderQuestion(idx) {
+  if (idx < 0 || idx >= questions.length) return;
+  currentQuestionIndex = idx;
+  const q = questions[idx];
 
-  // Stop active audio
-  stopAudio();
+  const numBadge = document.getElementById("q-number-badge");
+  const typeBadge = document.getElementById("q-type-badge");
+  if (numBadge) numBadge.textContent = `Soal No. ${q.id} dari ${questions.length}`;
+  if (typeBadge) typeBadge.textContent = q.title || "ASTS Gasal Kelas XI";
 
-  // Header badges
-  document.getElementById("q-number-badge").textContent = `Soal No. ${q.id} dari ${questions.length}`;
-  document.getElementById("q-type-badge").textContent = q.title || "Pilihan Ganda";
-
-  // Listening Audio Box
-  const listeningBox = document.getElementById("listening-container");
-  if (q.audioText) {
-    listeningBox.style.display = "block";
-    document.getElementById("audio-status-text").textContent = "Klik 'Putar Audio' untuk menyimak wacana otentik.";
-  } else {
-    listeningBox.style.display = "none";
-  }
-
-  // Stimulus Text Box
-  const stimBox = document.getElementById("stimulus-container");
-  if (q.stimulusBody && q.type !== "listening_pictures") {
-    stimBox.style.display = "block";
-    document.getElementById("stimulus-title").textContent = q.stimulusTitle || "Teks Stimulus";
-    document.getElementById("stimulus-body").innerHTML = q.stimulusBody;
-    const srcEl = document.getElementById("stimulus-source");
-    if (srcEl) {
-      if (q.source) {
-        srcEl.style.display = "block";
-        srcEl.innerHTML = `📌 <strong>${q.source}</strong>`;
-      } else {
-        srcEl.style.display = "none";
-      }
+  const btnFlag = document.getElementById("btn-flag-q");
+  if (btnFlag) {
+    if (flaggedQuestions.has(q.id)) {
+      btnFlag.classList.add("btn-warning");
+      btnFlag.innerHTML = "🚩 Ragu-ragu (Ditandai)";
+    } else {
+      btnFlag.classList.remove("btn-warning");
+      btnFlag.innerHTML = "🟡 Ragu-ragu";
     }
-  } else {
-    stimBox.style.display = "none";
   }
 
-  // Question Prompt
-  document.getElementById("question-prompt-text").innerHTML = q.prompt;
+  const audioBox = document.getElementById("listening-container");
+  if (q.audioText) {
+    audioBox.style.display = "block";
+    stopAudio();
+  } else {
+    audioBox.style.display = "none";
+    stopAudio();
+  }
 
-  // Options Rendering
+  const stimContainer = document.getElementById("stimulus-container");
+  const stimTitle = document.getElementById("stimulus-title");
+  const stimBody = document.getElementById("stimulus-body");
+  const stimSource = document.getElementById("stimulus-source");
+
+  if (q.stimulusBody) {
+    stimContainer.style.display = "block";
+    stimTitle.textContent = q.stimulusTitle || "Teks Stimulus";
+    stimBody.innerHTML = q.stimulusBody;
+    stimSource.textContent = q.source || "";
+  } else {
+    stimContainer.style.display = "none";
+  }
+
+  const promptEl = document.getElementById("question-prompt-text");
+  promptEl.innerHTML = q.prompt.replace(/\n/g, "<br>");
+
   const optContainer = document.getElementById("options-container");
   optContainer.innerHTML = "";
 
   if (q.type === "listening_pictures") {
     renderPictureChoices(q, optContainer);
-  } else if (q.type === "complex_matrix") {
-    renderMatrixTable(q, optContainer);
-  } else if (q.type === "mcma") {
-    renderMCMACheckboxes(q, optContainer);
   } else {
     renderSingleChoices(q, optContainer);
   }
 
-  // Explanation Box (In practice mode or review)
   const expBox = document.getElementById("question-explanation-box");
+  const expText = document.getElementById("explanation-text");
+  const expMeta = document.getElementById("explanation-meta-text");
+
   if (isExamSubmitted || (currentMode === "practice" && isQuestionAnswered(q.id))) {
     expBox.style.display = "block";
-    let keyBadge = "";
-    if (q.type === "complex_matrix") {
-      keyBadge = q.matrixStatements.map((s, i) => `Pernyataan ${i+1}: <strong>${s.isCorrect ? 'BENAR' : 'SALAH'}</strong>`).join(" | ");
-    } else if (Array.isArray(q.correctAnswer)) {
-      keyBadge = q.correctAnswer.join(", ");
-    } else {
-      keyBadge = q.correctAnswer;
-    }
-
-    document.getElementById("explanation-text").innerHTML = `
-      <div style="margin-bottom: 10px; padding: 6px 12px; background: #ecfdf5; border: 1.5px solid #a7f3d0; border-radius: 8px; color: #065f46; font-size: 0.95rem; display: inline-block;">
-        🔑 <strong>Kunci Jawaban:</strong> <span style="font-weight: 800; color: #047857; margin-left: 4px;">${keyBadge}</span>
-      </div>
-      <div>${q.explanation}</div>
-    `;
-    document.getElementById("explanation-meta-text").innerHTML = `<strong>Kaidah &amp; Kosakata:</strong> ${q.grammarNote || "-"}`;
+    expText.innerHTML = `<strong>Kunci Jawaban: ${q.correctAnswer}</strong><br>${q.explanation || ""}`;
+    expMeta.innerHTML = `<em>Kaidah Bahasa &amp; Materi:</em> ${q.grammarNote || ""}<br><span style="font-size:0.8rem; color:#64748b;">${q.source || ""}</span>`;
   } else {
     expBox.style.display = "none";
   }
 
-  // Flag Button status
-  const flagBtn = document.getElementById("btn-flag-q");
-  if (flaggedQuestions.has(index)) {
-    flagBtn.textContent = "🚩 Hapus Ragu";
-  } else {
-    flagBtn.textContent = "🏳️ Ragu-ragu";
-  }
+  document.getElementById("btn-prev-q").disabled = (idx === 0);
+  const nextBtn = document.getElementById("btn-next-q");
+  const submitBtn = document.getElementById("btn-submit-test");
 
-  // Nav buttons
-  document.getElementById("btn-prev-q").disabled = (index === 0);
-  document.getElementById("btn-next-q").disabled = (index === questions.length - 1);
-  document.getElementById("btn-submit-test").style.display = (index === questions.length - 1) ? "inline-flex" : "none";
+  if (idx === questions.length - 1) {
+    nextBtn.style.display = "none";
+    submitBtn.style.display = "inline-flex";
+  } else {
+    nextBtn.style.display = "inline-flex";
+    submitBtn.style.display = "none";
+  }
 
   updateNavigatorStatus();
   saveProgressToLocalStorage();
 }
 
-// 1. Picture Choices Renderer (For Q1, Q2, Q3)
 function renderPictureChoices(q, container) {
   const grid = document.createElement("div");
-  grid.className = "picture-choices-grid";
+  grid.className = "picture-options-grid";
 
   q.options.forEach(opt => {
     const card = document.createElement("div");
-    card.className = "picture-option-card" + (userAnswers[q.id] === opt.key ? " selected" : "");
+    card.className = "picture-option-card";
+    if (userAnswers[q.id] === opt.key) {
+      card.classList.add("selected");
+    }
+
+    if (isExamSubmitted || (currentMode === "practice" && isQuestionAnswered(q.id))) {
+      if (opt.key === q.correctAnswer) card.classList.add("correct-highlight");
+      if (userAnswers[q.id] === opt.key && opt.key !== q.correctAnswer) card.classList.add("wrong-highlight");
+    }
+
     card.onclick = () => {
+      if (isExamSubmitted) return;
       userAnswers[q.id] = opt.key;
       renderQuestion(currentQuestionIndex);
     };
 
     card.innerHTML = `
-      <div class="picture-svg-wrapper">${opt.svg}</div>
-      <div class="picture-letter-badge">${opt.key}</div>
-      <div class="picture-label-text">${opt.label}</div>
+      <div class="pic-svg-box">${opt.svg}</div>
+      <div class="pic-opt-label"><strong>Pilihan (${opt.key})</strong><br><span style="font-size:0.8rem; color:#475569;">${opt.label}</span></div>
     `;
     grid.appendChild(card);
   });
+
   container.appendChild(grid);
 }
 
-// 2. Single Choice Options Renderer
 function renderSingleChoices(q, container) {
   const list = document.createElement("div");
   list.className = "options-list";
 
   q.options.forEach(opt => {
     const item = document.createElement("div");
-    item.className = "option-item" + (userAnswers[q.id] === opt.key ? " selected" : "");
+    item.className = "option-item";
+    if (userAnswers[q.id] === opt.key) {
+      item.classList.add("selected");
+    }
+
+    if (isExamSubmitted || (currentMode === "practice" && isQuestionAnswered(q.id))) {
+      if (opt.key === q.correctAnswer) item.classList.add("correct-highlight");
+      if (userAnswers[q.id] === opt.key && opt.key !== q.correctAnswer) item.classList.add("wrong-highlight");
+    }
+
     item.onclick = () => {
+      if (isExamSubmitted) return;
       userAnswers[q.id] = opt.key;
       renderQuestion(currentQuestionIndex);
     };
 
     item.innerHTML = `
-      <div class="option-circle">${opt.key}</div>
-      <div class="option-text">${opt.text}</div>
+      <div class="opt-badge">${opt.key}</div>
+      <div class="opt-text">${opt.text}</div>
     `;
     list.appendChild(item);
   });
+
   container.appendChild(list);
-}
-
-// 3. Complex Multiple Choice (Matrix Table) Renderer
-function renderMatrixTable(q, container) {
-  const table = document.createElement("table");
-  table.className = "matrix-table";
-
-  table.innerHTML = `
-    <thead>
-      <tr>
-        <th style="width: 70%;">Pernyataan / Analisis Teks</th>
-        <th style="width: 15%;">BENAR (TRUE)</th>
-        <th style="width: 15%;">SALAH (FALSE)</th>
-      </tr>
-    </thead>
-    <tbody>
-      ${q.matrixStatements.map((stmt, sIdx) => {
-        const curVal = (userAnswers[q.id] && userAnswers[q.id][sIdx] !== undefined) ? userAnswers[q.id][sIdx] : null;
-        return `
-          <tr>
-            <td>${stmt.statement}</td>
-            <td onclick="setMatrixAnswer(${q.id}, ${sIdx}, true)">
-              <input type="radio" class="matrix-radio" name="matrix_${q.id}_${sIdx}" ${curVal === true ? "checked" : ""}>
-            </td>
-            <td onclick="setMatrixAnswer(${q.id}, ${sIdx}, false)">
-              <input type="radio" class="matrix-radio" name="matrix_${q.id}_${sIdx}" ${curVal === false ? "checked" : ""}>
-            </td>
-          </tr>
-        `;
-      }).join("")}
-    </tbody>
-  `;
-  container.appendChild(table);
-}
-
-function setMatrixAnswer(qId, statementIdx, value) {
-  if (!userAnswers[qId]) {
-    userAnswers[qId] = {};
-  }
-  userAnswers[qId][statementIdx] = value;
-  renderQuestion(currentQuestionIndex);
-}
-
-// 4. Multiple Choice Multiple Answer (MCMA Checkboxes) Renderer
-function renderMCMACheckboxes(q, container) {
-  const list = document.createElement("div");
-  list.className = "options-list";
-  const curAns = userAnswers[q.id] || [];
-
-  q.options.forEach(opt => {
-    const isChecked = curAns.includes(opt.key);
-    const item = document.createElement("div");
-    item.className = "option-item" + (isChecked ? " selected" : "");
-    item.onclick = () => {
-      toggleMCMAAnswer(q.id, opt.key);
-      renderQuestion(currentQuestionIndex);
-    };
-
-    item.innerHTML = `
-      <div class="option-checkbox">${isChecked ? "✓" : ""}</div>
-      <div class="option-text"><strong>[${opt.key}]</strong> ${opt.text}</div>
-    `;
-    list.appendChild(item);
-  });
-  container.appendChild(list);
-}
-
-function toggleMCMAAnswer(qId, key) {
-  if (!Array.isArray(userAnswers[qId])) {
-    userAnswers[qId] = [];
-  }
-  const idx = userAnswers[qId].indexOf(key);
-  if (idx > -1) {
-    userAnswers[qId].splice(idx, 1);
-  } else {
-    userAnswers[qId].push(key);
-  }
 }
 
 function navigateQuestion(delta) {
@@ -1289,115 +1186,109 @@ function navigateQuestion(delta) {
 }
 
 function toggleFlagQuestion() {
-  if (flaggedQuestions.has(currentQuestionIndex)) {
-    flaggedQuestions.delete(currentQuestionIndex);
+  const qId = questions[currentQuestionIndex].id;
+  if (flaggedQuestions.has(qId)) {
+    flaggedQuestions.delete(qId);
   } else {
-    flaggedQuestions.add(currentQuestionIndex);
+    flaggedQuestions.add(qId);
   }
   renderQuestion(currentQuestionIndex);
 }
 
-// Audio Engine: Native Web Speech API Voice Synthesis
+// Audio Synthesis
 function playQuestionAudio() {
   const q = questions[currentQuestionIndex];
-  if (!q || !q.audioText) return;
+  if (!q.audioText) return;
 
-  if (window.speechSynthesis) {
-    window.speechSynthesis.cancel();
-    
-    const playBtn = document.getElementById("btn-play-audio");
-    const playText = document.getElementById("play-text");
-    const statusText = document.getElementById("audio-status-text");
-
-    currentUtterance = new SpeechSynthesisUtterance(q.audioText);
-    currentUtterance.lang = "en-US";
-    currentUtterance.rate = audioSpeechRate;
-
-    const voices = window.speechSynthesis.getVoices();
-    const enVoice = voices.find(v => v.lang.startsWith("en") && (v.name.includes("Natural") || v.name.includes("Google") || v.name.includes("David") || v.name.includes("Zira")));
-    if (enVoice) {
-      currentUtterance.voice = enVoice;
-    }
-
-    currentUtterance.onstart = () => {
-      playText.textContent = "Sedang Memutar...";
-      statusText.textContent = "🔊 Audio sedang diputar. Simak dengan seksama.";
-      playBtn.style.backgroundColor = "#047857";
-    };
-
-    currentUtterance.onend = () => {
-      playText.textContent = "Putar Ulang";
-      statusText.textContent = "✅ Pemutaran audio selesai. Silakan pilih jawaban Anda.";
-      playBtn.style.backgroundColor = "var(--accent-teal)";
-    };
-
-    currentUtterance.onerror = () => {
-      playText.textContent = "Putar Audio";
-      statusText.textContent = "⚠️ Pemutaran audio selesai atau dihentikan.";
-      playBtn.style.backgroundColor = "var(--accent-teal)";
-    };
-
-    window.speechSynthesis.speak(currentUtterance);
-  } else {
-    alert("Peramban Anda belum mendukung Web Speech API. Silakan gunakan Google Chrome, Microsoft Edge, atau Safari.");
+  if (!("speechSynthesis" in window)) {
+    alert("Web Speech API tidak didukung di peramban ini.");
+    return;
   }
+
+  stopAudio();
+
+  const cleanText = q.audioText.replace(/\\n/g, " ").replace(/\n/g, " ");
+  currentUtterance = new SpeechSynthesisUtterance(cleanText);
+  currentUtterance.lang = "en-US";
+  currentUtterance.rate = audioSpeechRate;
+
+  const btnText = document.getElementById("play-text");
+  const statusEl = document.getElementById("audio-status-text");
+
+  currentUtterance.onstart = () => {
+    if (btnText) btnText.textContent = "Memutar Audio...";
+    if (statusEl) statusEl.textContent = "Sedang mendengarkan percakapan / monolog Bahasa Inggris...";
+  };
+
+  currentUtterance.onend = () => {
+    if (btnText) btnText.textContent = "Putar Ulang";
+    if (statusEl) statusEl.textContent = "Audio selesai diputar.";
+  };
+
+  currentUtterance.onerror = () => {
+    if (btnText) btnText.textContent = "Putar Audio";
+    if (statusEl) statusEl.textContent = "Terjadi kendala pemutaran audio.";
+  };
+
+  window.speechSynthesis.speak(currentUtterance);
 }
 
 function stopAudio() {
-  if (window.speechSynthesis) {
+  if ("speechSynthesis" in window) {
     window.speechSynthesis.cancel();
   }
-  const playText = document.getElementById("play-text");
-  if (playText) playText.textContent = "Putar Audio";
+  const btnText = document.getElementById("play-text");
+  const statusEl = document.getElementById("audio-status-text");
+  if (btnText) btnText.textContent = "Putar Audio";
+  if (statusEl) statusEl.textContent = "Klik 'Putar Audio' untuk mendengarkan percakapan/monolog.";
 }
 
 function toggleAudioSpeed() {
-  if (audioSpeechRate === 1.0) {
-    audioSpeechRate = 0.85;
-  } else {
-    audioSpeechRate = 1.0;
+  if (audioSpeechRate === 1.0) audioSpeechRate = 0.85;
+  else if (audioSpeechRate === 0.85) audioSpeechRate = 1.15;
+  else audioSpeechRate = 1.0;
+
+  document.getElementById("speed-text").textContent = `${audioSpeechRate}x`;
+  if (window.speechSynthesis && window.speechSynthesis.speaking) {
+    playQuestionAudio();
   }
-  document.getElementById("speed-text").textContent = audioSpeechRate + "x";
 }
 
-// Timer Engine
+// Timer
 function startTimer() {
-  if (timerInterval) clearInterval(timerInterval);
-  
+  clearInterval(timerInterval);
   timerInterval = setInterval(() => {
-    remainingSeconds--;
     if (remainingSeconds <= 0) {
       clearInterval(timerInterval);
-      alert("Waktu pengerjaan tes telah berakhir! Jawaban Anda akan otomatis dikumpulkan.");
+      alert("Waktu pengerjaan ASTS 90 menit telah berakhir. Jawaban Anda akan otomatis dikumpulkan.");
       submitTest();
       return;
     }
-
-    const mins = Math.floor(remainingSeconds / 60);
-    const secs = remainingSeconds % 60;
-    const disp = `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
-    document.getElementById("timer-display").textContent = disp;
-
-    if (remainingSeconds < 300) {
-      document.getElementById("timer-box").style.backgroundColor = "#dc2626";
-    }
-
-    // Autosave progress every 15 seconds
-    if (remainingSeconds % 15 === 0) {
-      saveProgressToLocalStorage();
-    }
+    remainingSeconds--;
+    updateTimerDisplay();
   }, 1000);
+  updateTimerDisplay();
 }
 
-function confirmSubmitTest() {
-  const answeredCount = questions.filter(q => isQuestionAnswered(q.id)).length;
-  const unansweredCount = questions.length - answeredCount;
+function updateTimerDisplay() {
+  const m = Math.floor(remainingSeconds / 60);
+  const s = remainingSeconds % 60;
+  const disp = `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
+  const el = document.getElementById("timer-display");
+  if (el) el.textContent = disp;
+}
 
-  let msg = `Anda telah menjawab ${answeredCount} dari ${questions.length} butir soal.`;
-  if (unansweredCount > 0) {
-    msg += ` Masih ada ${unansweredCount} butir soal yang belum dijawab.`;
-  }
-  msg += "\n\nApakah Anda yakin ingin menyelesaikan dan mengumpulkan tes sekarang?";
+// Submit & Scoring
+function confirmSubmitTest() {
+  const answeredCount = Object.keys(userAnswers).length;
+  const unanswered = 40 - answeredCount;
+  const flagged = flaggedQuestions.size;
+
+  let msg = `Apakah Anda yakin ingin mengumpulkan Asesmen ASTS Gasal?\n\n`;
+  msg += `• Terjawab: ${answeredCount} soal\n`;
+  msg += `• Belum dijawab: ${unanswered} soal\n`;
+  msg += `• Ditandai ragu: ${flagged} soal\n\n`;
+  msg += `Klik OK untuk mengumpulkan sekarang.`;
 
   if (confirm(msg)) {
     submitTest();
@@ -1407,123 +1298,101 @@ function confirmSubmitTest() {
 function submitTest() {
   clearInterval(timerInterval);
   isExamSubmitted = true;
-  stopAudio();
 
-  // Clear in-progress session state so next attempt is fresh
-  localStorage.removeItem("sabaku_ats_progress_XI");
-
-  // Calculate Scores
   let correctCount = 0;
   questions.forEach(q => {
-    const ans = userAnswers[q.id];
-    if (q.type === "complex_matrix") {
-      if (ans && typeof ans === "object") {
-        let allCorrect = true;
-        q.matrixStatements.forEach((stmt, sIdx) => {
-          if (ans[sIdx] !== stmt.isCorrect) allCorrect = false;
-        });
-        if (allCorrect) correctCount++;
-      }
-    } else if (q.type === "mcma") {
-      if (Array.isArray(ans)) {
-        const sortedUser = [...ans].sort();
-        const sortedTarget = [...q.correctAnswer].sort();
-        if (JSON.stringify(sortedUser) === JSON.stringify(sortedTarget)) {
-          correctCount++;
-        }
-      }
-    } else {
-      if (ans === q.correctAnswer) {
-        correctCount++;
-      }
+    if (userAnswers[q.id] === q.correctAnswer) {
+      correctCount++;
     }
   });
 
-  const totalQuestions = questions.length;
-  const finalScore = Math.round((correctCount / totalQuestions) * 100);
-  const isTuntas = finalScore >= 75;
+  const finalGrade = Math.round((correctCount / 40) * 100);
+  const accuracy = Math.round((correctCount / 40) * 100);
+  const isTuntas = (finalGrade >= 75);
 
-  // Show Modal Results
-  document.getElementById("result-modal").style.display = "flex";
-  document.getElementById("result-score-val").textContent = finalScore;
-  
-  const scoreCircle = document.getElementById("result-score-circle");
-  scoreCircle.className = "score-circle " + (isTuntas ? "tuntas" : "belum");
+  document.getElementById("result-score-val").textContent = finalGrade;
+  const statusEl = document.getElementById("result-status-text");
+  const circleEl = document.getElementById("result-score-circle");
 
-  const statusText = document.getElementById("result-status-text");
-  statusText.textContent = isTuntas ? "STATUS: TUNTAS KKTP (≥ 75) 🎉" : "STATUS: BELUM TUNTAS KKTP (< 75) ⚠️";
-  statusText.style.color = isTuntas ? "var(--accent-green)" : "var(--accent-red)";
+  if (isTuntas) {
+    statusEl.textContent = "STATUS: TUNTAS KKTP (≥ 75)";
+    statusEl.style.color = "#047857";
+    circleEl.className = "score-circle tuntas";
+  } else {
+    statusEl.textContent = "STATUS: BELUM TUNTAS KKTP (< 75)";
+    statusEl.style.color = "#b91c1c";
+    circleEl.className = "score-circle belum-tuntas";
+  }
 
   document.getElementById("stat-correct").textContent = correctCount;
-  document.getElementById("stat-wrong").textContent = totalQuestions - correctCount;
-  document.getElementById("stat-accuracy").textContent = `${Math.round((correctCount / totalQuestions) * 100)}%`;
+  document.getElementById("stat-wrong").textContent = 40 - correctCount;
+  document.getElementById("stat-accuracy").textContent = `${accuracy}%`;
 
-  // Prepare submission record
-  const record = {
+  document.getElementById("result-modal").style.display = "flex";
+
+  const historyItem = {
+    timestamp: new Date().toLocaleString("id-ID"),
     tingkat: studentIdentity.tingkat,
     rombel: studentIdentity.rombel,
     presensi: studentIdentity.presensi,
     nama: studentIdentity.nama,
-    mode: (currentMode === "practice") ? "Latihan Mandiri" : "Asesmen Resmi (ASTS)",
+    mode: "ASTS Gasal Kelas XI",
     score: correctCount,
-    total: totalQuestions,
-    grade: finalScore,
-    duration: `${Math.floor((5400 - remainingSeconds) / 60)} menit`,
-    timestamp: new Date().toLocaleString("id-ID"),
-    answers: userAnswers
+    total: 40,
+    grade: finalGrade,
+    duration: `${90 - Math.floor(remainingSeconds / 60)} menit`
   };
 
-  // Save to LocalStorage History
   try {
-    const history = JSON.parse(localStorage.getItem("sabaku_ats_history") || "[]");
-    history.push(record);
-    localStorage.setItem("sabaku_ats_history", JSON.stringify(history));
+    const hist = JSON.parse(localStorage.getItem("sabaku_ats_history") || "[]");
+    hist.push(historyItem);
+    localStorage.setItem("sabaku_ats_history", JSON.stringify(hist));
   } catch (e) {
     console.warn("History save error:", e);
   }
 
-  // Send to Google Sheets
-  syncScoreToGoogleSheets(record);
+  syncScoreToGoogleSheets({
+    tingkat: studentIdentity.tingkat,
+    rombel: studentIdentity.rombel,
+    presensi: studentIdentity.presensi,
+    nama: studentIdentity.nama,
+    mode: "ASTS Gasal Kelas XI (Wajib)",
+    score: correctCount,
+    total: 40,
+    grade: finalGrade,
+    duration: `${90 - Math.floor(remainingSeconds / 60)} menit`,
+    answers: userAnswers
+  });
 
-  // Re-render current question so explanation shows
   renderQuestion(currentQuestionIndex);
 }
 
 function syncScoreToGoogleSheets(payload) {
-  const statusEl = document.getElementById("cloud-status-text");
-  if (statusEl) statusEl.textContent = "Menyinkronkan nilai ke server sekolah...";
-
   const webAppUrl = localStorage.getItem("sabaku_gs_url") || DEFAULT_GS_URL;
+  const statusEl = document.getElementById("cloud-status-text");
+  if (statusEl) statusEl.innerHTML = "⏳ Menghubungkan ke basis data rekapitulasi sekolah...";
 
-  // Background Beacon safety net
-  try {
-    if (navigator.sendBeacon) {
-      navigator.sendBeacon(webAppUrl, new Blob([JSON.stringify(payload)], { type: "text/plain;charset=utf-8" }));
-    }
-  } catch (e) {
-    console.warn("sendBeacon error:", e);
-  }
-
-  // Primary fetch POST
   fetch(webAppUrl, {
     method: "POST",
     mode: "no-cors",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload)
-  }).then(() => {
-    if (statusEl) statusEl.innerHTML = "✅ Nilai Anda telah berhasil tercatat di server rekapitulasi sekolah.";
-  }).catch(err => {
-    console.warn("Direct POST fallback to Image beacon:", err);
+  })
+  .then(() => {
+    if (statusEl) statusEl.innerHTML = "✅ <strong>Nilai tersimpan otomatis</strong> di basis data rekapitulasi sekolah.";
+  })
+  .catch(err => {
+    console.warn("Sync error:", err);
     try {
       const beacon = new Image();
       const query = new URLSearchParams({
-        action: "submit",
-        tingkat: payload.tingkat || "",
+        tingkat: payload.tingkat || "XI-F",
         rombel: payload.rombel || "",
         presensi: payload.presensi || "",
         nama: payload.nama || "",
-        grade: payload.grade || 0,
         score: payload.score || 0,
+        total: payload.total || 40,
+        grade: payload.grade || 0,
         duration: payload.duration || "",
         mode: payload.mode || ""
       }).toString();
@@ -1535,7 +1404,6 @@ function syncScoreToGoogleSheets(payload) {
   });
 }
 
-// 1-Click CSV Export for Teachers/Students
 function downloadResultCSV() {
   try {
     const history = JSON.parse(localStorage.getItem("sabaku_ats_history") || "[]");
@@ -1556,7 +1424,7 @@ function downloadResultCSV() {
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", `Rekap_Nilai_Bahasa_Inggris_Sabaku_${studentIdentity.tingkat}_${studentIdentity.nama.replace(/\s+/g, "_")}.csv`);
+    link.setAttribute("download", `Rekap_Nilai_ASTS_XI_${studentIdentity.nama.replace(/\s+/g, "_")}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -1572,13 +1440,12 @@ function reviewAllAnswers() {
 
 function restartTest() {
   if (confirm("Apakah Anda ingin mengulangi pengerjaan dari awal?\nSemua jawaban saat ini akan direset.")) {
-    localStorage.removeItem("sabaku_ats_progress_XI");
+    localStorage.removeItem("sabaku_asts_progress_XI");
     document.getElementById("result-modal").style.display = "none";
     startFreshTest();
   }
 }
 
-// Database Settings Modal
 function openSettingsModal() {
   const url = localStorage.getItem("sabaku_gs_url") || DEFAULT_GS_URL;
   document.getElementById("input-gs-url").value = url;
@@ -1593,10 +1460,21 @@ function saveSettings() {
   const val = document.getElementById("input-gs-url").value.trim();
   if (val) {
     localStorage.setItem("sabaku_gs_url", val);
-    alert("URL Google Apps Script berhasil disimpan di peramban ini!");
-  } else {
-    localStorage.removeItem("sabaku_gs_url");
-    alert("Pengaturan dikembalikan ke URL default.");
+    alert("Pengaturan tautan basis data berhasil disimpan!");
+    closeSettingsModal();
   }
-  closeSettingsModal();
+}
+
+function saveProgressToLocalStorage() {
+  try {
+    const data = {
+      userAnswers,
+      flaggedQuestions: Array.from(flaggedQuestions),
+      remainingSeconds,
+      currentIndex: currentQuestionIndex
+    };
+    localStorage.setItem("sabaku_asts_progress_XI", JSON.stringify(data));
+  } catch (e) {
+    console.warn("Autosave error:", e);
+  }
 }

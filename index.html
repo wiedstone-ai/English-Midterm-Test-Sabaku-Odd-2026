@@ -44,9 +44,10 @@
               <select id="input-tingkat" class="form-control" required style="padding: 10px 12px; font-size: 0.95rem;">
                 <option value="">-- Pilih Tingkat Kelas --</option>
                 <option value="X-E">Kelas X (Fase E)</option>
-                <option value="XI-F">Kelas XI (Fase F)</option>
-                <option value="XI-TL">Kelas XI (Fase F — Tingkat Lanjut)</option>
-                <option value="XII-F">Kelas XII (Fase F)</option>
+                <option value="XI-F">Kelas XI (Fase F — Bahasa Inggris Wajib)</option>
+                <option value="XI-TL">Kelas XI (Fase F — Bahasa Inggris Tingkat Lanjut)</option>
+                <option value="XII-F">Kelas XII (Fase F — Bahasa Inggris Wajib)</option>
+                <option value="XII-TL">Kelas XII (Fase F — Bahasa Inggris Tingkat Lanjut)</option>
               </select>
             </div>
 
@@ -89,9 +90,12 @@
             </div>
           </div>
 
-          <div style="margin-top: 26px;">
-            <button type="submit" class="btn btn-primary btn-block" style="padding: 14px; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.5px; border-radius: 8px;">
-              Masuk ➔
+          <div style="margin-top: 26px; display: flex; flex-direction: column; gap: 12px;">
+            <button type="button" onclick="submitPortalForm('ASAS')" class="btn btn-primary btn-block" style="padding: 14px 18px; font-size: 1.05rem; font-weight: 700; border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.25); cursor: pointer;">
+              <span>📕</span> Masuk Latihan ASAS Gasal (Asesmen Sumatif Akhir Semester Gasal) ➔
+            </button>
+            <button type="button" onclick="submitPortalForm('ASTS')" class="btn btn-block" style="background: linear-gradient(135deg, #059669 0%, #047857 100%); color: white; border: none; padding: 14px 18px; font-size: 1.05rem; font-weight: 700; border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 6px -1px rgba(5, 150, 105, 0.25); cursor: pointer;">
+              <span>📘</span> Masuk ASTS Gasal (Asesmen Sumatif Tengah Semester Gasal) ➔
             </button>
           </div>
         </form>
@@ -120,16 +124,14 @@
       input.value = val;
     }
 
-    function handlePortalSubmit(e) {
-      e.preventDefault();
-
+    function submitPortalForm(jenisAsesmen) {
       const tingkat = document.getElementById('input-tingkat').value;
       const rombel = document.getElementById('input-rombel').value;
       const presensi = document.getElementById('input-presensi').value.trim();
       const nama = document.getElementById('input-nama').value.trim();
 
       if (!tingkat || !rombel || !presensi || !nama) {
-        alert('Harap lengkapi seluruh kolom identitas peserta!');
+        alert('Harap lengkapi seluruh kolom identitas peserta (Tingkat Kelas, Rombel, Nomor Presensi, dan Nama Lengkap)!');
         return;
       }
 
@@ -145,21 +147,40 @@
         rombel,
         presensi,
         nama,
+        jenisAsesmen: jenisAsesmen,
         mode: 'practice',
         loginTime: Date.now()
       };
       localStorage.setItem('sabaku_current_student', JSON.stringify(studentData));
 
-      // Arahkan langsung ke halaman sesuai tingkat kelas siswa
-      if (tingkat === 'XI-TL') {
-        window.location.href = 'kelas-xi-tl-asas.html';
-      } else if (tingkat === 'XI-F') {
-        window.location.href = 'kelas-xi-asas.html';
-      } else if (tingkat === 'XII-F') {
-        window.location.href = 'kelas-xii-asas.html';
+      // Arahkan ke instrumen latihan/asesmen sesuai jenis asesmen dan tingkat kelas
+      if (jenisAsesmen === 'ASAS') {
+        if (tingkat === 'XI-TL') {
+          window.location.href = 'kelas-xi-tl-asas.html';
+        } else if (tingkat === 'XI-F') {
+          window.location.href = 'kelas-xi-asas.html';
+        } else if (tingkat === 'XII-TL') {
+          window.location.href = 'kelas-xii-tl-asas.html';
+        } else if (tingkat === 'XII-F') {
+          window.location.href = 'kelas-xii-asas.html';
+        } else {
+          // Kelas X (Fase E)
+          window.location.href = 'kelas-x-asas.html';
+        }
       } else {
-        // Kelas X (Fase E)
-        window.location.href = 'kelas-x.html';
+        // Mode ASTS Gasal
+        if (tingkat === 'XI-TL') {
+          window.location.href = 'kelas-xi-tl-asts.html';
+        } else if (tingkat === 'XI-F') {
+          window.location.href = 'kelas-xi-asts.html';
+        } else if (tingkat === 'XII-TL') {
+          window.location.href = 'kelas-xii-tl-asts.html';
+        } else if (tingkat === 'XII-F') {
+          window.location.href = 'kelas-xii-asts.html';
+        } else {
+          // Kelas X (Fase E)
+          window.location.href = 'kelas-x-asts.html';
+        }
       }
     }
 

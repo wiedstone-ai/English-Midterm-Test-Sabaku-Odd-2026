@@ -21,7 +21,7 @@
  */
 
 const SPREADSHEET_ID = "1-PVYGcdgjIfEe4zc2P1kYF5PIXXoZAGNRHd3e02Why4";
-const SHEET_NAME = "Rekap_Nilai_ATS_2026";
+const SHEET_NAME = "Rekap_Nilai_ASTS_2026";
 
 function getTargetSheet() {
   let ss;
@@ -31,7 +31,7 @@ function getTargetSheet() {
     ss = SpreadsheetApp.getActiveSpreadsheet();
   }
   
-  let sheet = ss.getSheetByName(SHEET_NAME);
+  let sheet = ss.getSheetByName(SHEET_NAME) || ss.getSheetByName("Rekap_Nilai_ATS_2026");
   if (!sheet) {
     sheet = ss.insertSheet(SHEET_NAME);
     // Setup Header Row

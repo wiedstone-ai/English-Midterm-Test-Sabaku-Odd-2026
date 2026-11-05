@@ -1,80 +1,56 @@
-# 📚 English Midterm Test Sabaku Odd 2026
-## Portal Asesmen Sumatif Tengah Semester Gasal (ASTS) & Latihan Mandiri Bahasa Inggris — Semester Gasal 2026/2027
+# 📚 English Assessment Portal Sabaku Odd 2026/2027
+## Portal Asesmen Sumatif Akhir Semester (ASAS) & Tengah Semester (ASTS) Gasal — Bahasa Inggris
 **SMA Negeri 1 Bae Kudus (Sabaku) — Kurikulum Merdeka**
 
 🌐 **Live GitHub Pages URL:** [https://wiedstone-ai.github.io/English-Midterm-Test-Sabaku-Odd-2026/](https://wiedstone-ai.github.io/English-Midterm-Test-Sabaku-Odd-2026/)
 
-Aplikasi web interaktif terpadu berbasis HTML5, CSS3, dan Vanilla JavaScript modern untuk Asesmen Sumatif Tengah Semester Gasal (ASTS) dan Latihan Mandiri berbasis **Tes Kemampuan Akademik (TKA / AKM / UTBK)** dengan arsitektur multi-halaman untuk tiap jenjang kelas.
+Aplikasi web interaktif terpadu berbasis HTML5, CSS3, dan Vanilla JavaScript modern untuk **Latihan Asesmen Sumatif Akhir Semester Gasal (ASAS)** dan **Asesmen Sumatif Tengah Semester Gasal (ASTS)** berbasis **Tes Kemampuan Akademik (TKA / AKM Literasi / UTBK SNBT)** dengan arsitektur multi-jenjang untuk 5 tingkatan kelas.
 
 ---
 
-### 🏛️ Struktur Arsitektur Multi-Halaman:
+### 🏛️ Alur Portal Masuk Terpadu (`index.html`)
 
-1. **Halaman Utama / Portal Identitas:** [`index.html`](file:///c:/Users/LILI/OneDrive%20-%20PDK%20Jateng/Dokumen/English-Midterm-Test-Sabaku-Odd-2026/index.html)
-   * Mengumpulkan identitas siswa: *Nama Lengkap, Tingkat Kelas, Rombel (1–12), dan Nomor Presensi (1–36)*.
-   * Pemilihan mode pengerjaan (*Mode Latihan Mandiri* atau *Mode Asesmen Resmi*).
-   * Mengarahkan siswa secara otomatis ke ruang ujian tingkat yang dipilih.
-   * Menampilkan ringkasan kisi-kisi dan materi semester gasal tiap jenjang.
-
-2. **Ruang Asesmen Kelas X (Fase E):** [`kelas-x.html`](file:///c:/Users/LILI/OneDrive%20-%20PDK%20Jateng/Dokumen/English-Midterm-Test-Sabaku-Odd-2026/kelas-x.html) & [`kelas-x.js`](file:///c:/Users/LILI/OneDrive%20-%20PDK%20Jateng/Dokumen/English-Midterm-Test-Sabaku-Odd-2026/kelas-x.js)
-   * **Cakupan Kisi-Kisi Materi Tingkat X Semester Gasal:**
-     * **10 Soal Listening:**
-       * *Soal 1 s.d. 3:* Listening with Pictures (Vektor visual atlet & situs budaya).
-       * *Soal 4 s.d. 6:* Short Dialogues (Aktivitas harian & kebiasaan hidup sehat).
-       * *Soal 7 s.d. 10:* Short Talks (Cagar Budaya Menara Kudus & Program Sekolah Adiwiyata).
-     * **Teks Deskriptif Otentik:** Atlet bulutangkis nasional (Anthony Sinisuka Ginting), Candi Borobudur, Menara Kudus, dan Taman Nasional Laut Karimunjawa.
-     * **Teks Report Ilmiah Faktual:** Satwa langka dilindungi (Komodo, Badak Jawa Ujung Kulon) & Energi Panas Bumi Dataran Tinggi Dieng (PLTP Dieng Jawa Tengah, bukan Gunung Muria).
-     * **Grammar in Context:** *Simple Present Tense*, *Present Continuous*, *Adjective Order (OSASCOMP)*, dan *Passive Voice*.
-     * **Kosakata Oxford 3000 Level A2:** Kosakata fungsional, praktis, dan komunikatif (menghilangkan istilah arkais/terlalu rumit seperti *verdant*).
-     * **Sumber Otentik:** Dicantumkan secara eksplisit pada setiap stimulus wacana.
-
-3. **Ruang Asesmen Kelas XI (Fase F):** [`kelas-xi.html`](file:///c:/Users/LILI/OneDrive%20-%20PDK%20Jateng/Dokumen/English-Midterm-Test-Sabaku-Odd-2026/kelas-xi.html) & [`kelas-xi.js`](file:///c:/Users/LILI/OneDrive%20-%20PDK%20Jateng/Dokumen/English-Midterm-Test-Sabaku-Odd-2026/kelas-xi.js)
-   * **Cakupan Kisi-Kisi Materi Tingkat XI Semester Gasal:**
-     * *Contemporary Narrative Text* (Cerita Rakyat Nusantara, Dongeng Moral, Nilai Karakter).
-     * *Analytical Exposition Text* (Literasi Digital, Lingkungan Hidup, Pola Hidup Sehat).
-     * *Grammar & Lexis:* Simple Past, Past Continuous, Causal & Contrast Conjunctions, dan Kosakata Oxford 3000 Level B1.
-
-4. **Ruang Asesmen Kelas XII (Fase F / TL):** [`kelas-xii.html`](file:///c:/Users/LILI/OneDrive%20-%20PDK%20Jateng/Dokumen/English-Midterm-Test-Sabaku-Odd-2026/kelas-xii.html) & [`kelas-xii.js`](file:///c:/Users/LILI/OneDrive%20-%20PDK%20Jateng/Dokumen/English-Midterm-Test-Sabaku-Odd-2026/kelas-xii.js)
-   * **Cakupan Kisi-Kisi Materi Tingkat XII Semester Gasal:**
-     * *Discussion Text* (Isu Kecerdasan Buatan / AI dalam Pendidikan, Transisi Energi Hijau).
-     * *Review & Critical Response Text* (Evaluasi karya literatur dan riset ilmiah).
-     * *Grammar & Lexis:* Complex Conditionals (Type 2 & 3), Contrastive Connectors, dan Kosakata Oxford 3000 Level B2.
+Halaman portal awal hanya memuat isian identitas siswa yang bersih, cepat, dan tanpa hambatan token/password:
+1. **Pilih Tingkat Kelas:**
+   * `X-E`: Kelas X (Fase E)
+   * `XI-F`: Kelas XI (Fase F — Bahasa Inggris Wajib)
+   * `XI-TL`: Kelas XI (Fase F — Bahasa Inggris Tingkat Lanjut)
+   * `XII-F`: Kelas XII (Fase F — Bahasa Inggris Wajib)
+   * `XII-TL`: Kelas XII (Fase F — Bahasa Inggris Tingkat Lanjut)
+2. **Rombel (Rombongan Belajar):** Pilihan 1 s.d. 12.
+3. **Nomor Presensi:** Validasi angka 1 s.d. 36 (tanpa angka nol di depannya).
+4. **Nama Lengkap Siswa:** Sesuai daftar presensi resmi.
+5. **Tombol Masuk Ganda:**
+   * 📕 **Masuk Latihan ASAS Gasal (Asesmen Sumatif Akhir Semester Gasal)** ➔ Masuk ke latihan komprehensif 18 pekan penuh semester gasal.
+   * 📘 **Masuk ASTS Gasal (Asesmen Sumatif Tengah Semester Gasal)** ➔ Masuk ke instrumen asesmen tengah semester (komposisi 60% bank soal ASAS + 40% soal komplementer semester gasal).
 
 ---
 
-### 🌟 Fitur Keandalan & Integritas:
+### 📋 Matriks 10 Ruang Instrumen Asesmen (40 Soal / Tes):
 
-* **Penyimpanan Lokal Realtime (*LocalStorage Autosave*):**
-  * Seluruh progres jawaban (`userAnswers`), tanda ragu-ragu (`flaggedQuestions`), dan sisa waktu timer disimpan secara realtime di `localStorage`.
-  * **Anti-Kehilangan Data saat Refresh:** Jika siswa memuat ulang halaman (*refresh/F5*), peramban tertutup, atau koneksi terputus, seluruh jawaban yang telah dipilih dan sisa waktu ujian akan langsung dipulihkan 100%!
-* **Pengacakan Pilihan Jawaban (*Fisher-Yates Shuffle*):**
-  * Semua opsi pilihan jawaban ($A, B, C, D$) dan butir baris pernyataan matriks diacak secara dinamis pada setiap awal sesi ujian baru.
-  * Kunci jawaban dan rujukan pembahasan (*explanation*) otomatis tersinkronisasi.
-* **Integrasi Google Sheets & Cadangan CSV:**
-  * Terhubung secara otomatis ke Google Spreadsheet internal melalui Google Apps Script Web App terenkripsi.
-  * Tautan spreadsheet bersifat rahasia (*private*) dan tidak ditampilkan di sisi siswa demi privasi dan keamanan data rekapitulasi.
-  * Dilengkapi tombol **"📥 Unduh Rekap Nilai CSV"** pada modal hasil akhir sebagai opsi cadangan penyimpanan lokal.
+| Tingkat / Jenjang | Instrumen Latihan ASAS Gasal (18 Minggu) | Instrumen ASTS Gasal (60% ASAS + 40% Komp) |
+|---|---|---|
+| **Kelas X (Fase E)** | [`kelas-x-asas.html`](file:///c:/Users/LILI/OneDrive%20-%20PDK%20Jateng/Dokumen/English-Midterm-Test-Sabaku-Odd-2026/kelas-x-asas.html) & [`kelas-x-asas.js`](file:///c:/Users/LILI/OneDrive%20-%20PDK%20Jateng/Dokumen/English-Midterm-Test-Sabaku-Odd-2026/kelas-x-asas.js) | [`kelas-x-asts.html`](file:///c:/Users/LILI/OneDrive%20-%20PDK%20Jateng/Dokumen/English-Midterm-Test-Sabaku-Odd-2026/kelas-x-asts.html) & [`kelas-x-asts.js`](file:///c:/Users/LILI/OneDrive%20-%20PDK%20Jateng/Dokumen/English-Midterm-Test-Sabaku-Odd-2026/kelas-x-asts.js) |
+| **Kelas XI (Fase F - Wajib)** | [`kelas-xi-asas.html`](file:///c:/Users/LILI/OneDrive%20-%20PDK%20Jateng/Dokumen/English-Midterm-Test-Sabaku-Odd-2026/kelas-xi-asas.html) & [`kelas-xi-asas.js`](file:///c:/Users/LILI/OneDrive%20-%20PDK%20Jateng/Dokumen/English-Midterm-Test-Sabaku-Odd-2026/kelas-xi-asas.js) | [`kelas-xi-asts.html`](file:///c:/Users/LILI/OneDrive%20-%20PDK%20Jateng/Dokumen/English-Midterm-Test-Sabaku-Odd-2026/kelas-xi-asts.html) & [`kelas-xi-asts.js`](file:///c:/Users/LILI/OneDrive%20-%20PDK%20Jateng/Dokumen/English-Midterm-Test-Sabaku-Odd-2026/kelas-xi-asts.js) |
+| **Kelas XI (Fase F - TL)** | [`kelas-xi-tl-asas.html`](file:///c:/Users/LILI/OneDrive%20-%20PDK%20Jateng/Dokumen/English-Midterm-Test-Sabaku-Odd-2026/kelas-xi-tl-asas.html) & [`kelas-xi-tl-asas.js`](file:///c:/Users/LILI/OneDrive%20-%20PDK%20Jateng/Dokumen/English-Midterm-Test-Sabaku-Odd-2026/kelas-xi-tl-asas.js) | [`kelas-xi-tl-asts.html`](file:///c:/Users/LILI/OneDrive%20-%20PDK%20Jateng/Dokumen/English-Midterm-Test-Sabaku-Odd-2026/kelas-xi-tl-asts.html) & [`kelas-xi-tl-asts.js`](file:///c:/Users/LILI/OneDrive%20-%20PDK%20Jateng/Dokumen/English-Midterm-Test-Sabaku-Odd-2026/kelas-xi-tl-asts.js) |
+| **Kelas XII (Fase F - Wajib)** | [`kelas-xii-asas.html`](file:///c:/Users/LILI/OneDrive%20-%20PDK%20Jateng/Dokumen/English-Midterm-Test-Sabaku-Odd-2026/kelas-xii-asas.html) & [`kelas-xii-asas.js`](file:///c:/Users/LILI/OneDrive%20-%20PDK%20Jateng/Dokumen/English-Midterm-Test-Sabaku-Odd-2026/kelas-xii-asas.js) | [`kelas-xii-asts.html`](file:///c:/Users/LILI/OneDrive%20-%20PDK%20Jateng/Dokumen/English-Midterm-Test-Sabaku-Odd-2026/kelas-xii-asts.html) & [`kelas-xii-asts.js`](file:///c:/Users/LILI/OneDrive%20-%20PDK%20Jateng/Dokumen/English-Midterm-Test-Sabaku-Odd-2026/kelas-xii-asts.js) |
+| **Kelas XII (Fase F - TL)** | [`kelas-xii-tl-asas.html`](file:///c:/Users/LILI/OneDrive%20-%20PDK%20Jateng/Dokumen/English-Midterm-Test-Sabaku-Odd-2026/kelas-xii-tl-asas.html) & [`kelas-xii-tl-asas.js`](file:///c:/Users/LILI/OneDrive%20-%20PDK%20Jateng/Dokumen/English-Midterm-Test-Sabaku-Odd-2026/kelas-xii-tl-asas.js) | [`kelas-xii-tl-asts.html`](file:///c:/Users/LILI/OneDrive%20-%20PDK%20Jateng/Dokumen/English-Midterm-Test-Sabaku-Odd-2026/kelas-xii-tl-asts.html) & [`kelas-xii-tl-asts.js`](file:///c:/Users/LILI/OneDrive%20-%20PDK%20Jateng/Dokumen/English-Midterm-Test-Sabaku-Odd-2026/kelas-xii-tl-asts.js) |
 
 ---
 
-### 📂 Struktur Berkas Repositori:
+### 🌟 Fitur Utama & Integritas Sistem:
 
-```text
-English-Midterm-Test-Sabaku-Odd-2026/
-├── index.html               # Portal utama pengisian identitas peserta & router kelas
-├── style.css                # Desain CSS responsif, kisi-kisi accordion, & badge
-├── kelas-x.html             # Ruang ujian khusus Tingkat X (Fase E)
-├── kelas-x.js               # Mesin soal, autosave, audio, dan penilaian Kelas X
-├── kelas-xi.html            # Ruang ujian khusus Tingkat XI (Fase F)
-├── kelas-xi.js              # Mesin soal, autosave, audio, dan penilaian Kelas XI
-├── kelas-xii.html           # Ruang ujian khusus Tingkat XII (Fase F / TL)
-├── kelas-xii.js             # Mesin soal, autosave, audio, dan penilaian Kelas XII
-├── google_apps_script.js    # Backend Google Apps Script untuk Google Sheets sync
-└── README.md                # Dokumentasi teknis & panduan operasional
-```
-
----
-
-### 🚀 Cara Menjalankan:
-1. **Online (GitHub Pages):** Kunjungi [https://wiedstone-ai.github.io/English-Midterm-Test-Sabaku-Odd-2026/](https://wiedstone-ai.github.io/English-Midterm-Test-Sabaku-Odd-2026/)
-2. **Offline:** Buka `index.html` pada browser modern (Google Chrome, Microsoft Edge, Safari, Firefox).
+1. **Bebas Token & Password:**
+   * Seluruh siswa dapat langsung memulai latihan atau asesmen tanpa kendala token atau kata sandi.
+2. **Komposisi Soal ASTS 60% : 40%:**
+   * Tepat **24 butir soal (60%)** pada instrumen ASTS diambil langsung dari bank soal ASAS Gasal pada jenjang dan jurusan yang bersangkutan.
+   * Tepat **16 butir soal (40%)** merupakan butir soal komplementer berstandar AKM yang melengkapi seluruh materi semester gasal.
+3. **Penyimpanan Lokal Realtime (*LocalStorage Autosave*):**
+   * Seluruh jawaban, status ragu-ragu (*flagged*), dan sisa waktu timer tersimpan otomatis. Sesi pengerjaan tetap utuh 100% jika halaman di-refresh (*F5*) atau peramban tertutup secara tidak sengaja.
+4. **Pengacakan Pilihan Jawaban (*Fisher-Yates Shuffle*):**
+   * Opsi jawaban ($A, B, C, D$) teracak secara dinamis di awal sesi, sementara kunci jawaban dan pembahasan otomatis tersinkronisasi.
+5. **Navigasi 5 Kolom × 8 Baris:**
+   * Grid nomor soal 1–40 tersusun rapi dengan indikator status: *Belum dijawab (putih)*, *Sudah dijawab (hijau)*, *Ragu-ragu (kuning)*, dan *Soal aktif (outline biru)*.
+6. **Keamanan & Privasi Data:**
+   * Skor otomatis disinkronkan ke Google Apps Script Web App tanpa pernah menampilkan URL spreadsheet mentah di sisi klien/peramban siswa.
+   * Dilengkapi opsi **"📥 Unduh Rekap Nilai CSV"** untuk arsip mandiri siswa dan guru.
