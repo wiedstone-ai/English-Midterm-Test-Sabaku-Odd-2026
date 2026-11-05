@@ -830,3 +830,4 @@ function ${bankFnName}() {
 }
 
 module.exports = { generateGrade12Bank };
+

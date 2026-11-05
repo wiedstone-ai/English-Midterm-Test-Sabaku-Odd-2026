@@ -33,3 +33,4 @@ console.log('Built kelas-xi-asts.js successfully.');
 const xiPortalPath = path.join(__dirname, '..', 'kelas-xi.js');
 fs.writeFileSync(xiPortalPath, astsBank + '\n' + astsEngine, 'utf8');
 console.log('Built kelas-xi.js successfully.');
+

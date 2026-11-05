@@ -28,3 +28,4 @@ const astsEngine = getEngineCode({
 const astsPath = path.join(__dirname, '..', 'kelas-xi-tl-asts.js');
 fs.writeFileSync(astsPath, astsBank + '\n' + astsEngine, 'utf8');
 console.log('Built kelas-xi-tl-asts.js successfully.');
+

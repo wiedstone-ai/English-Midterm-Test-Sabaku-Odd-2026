@@ -59,3 +59,4 @@ const tlAstsEngine = getEngineCode({
 const tlAstsPath = path.join(__dirname, '..', 'kelas-xii-tl-asts.js');
 fs.writeFileSync(tlAstsPath, tlAstsBank + '\n' + tlAstsEngine, 'utf8');
 console.log('Built kelas-xii-tl-asts.js successfully.');
+
