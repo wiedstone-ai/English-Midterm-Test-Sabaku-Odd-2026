@@ -130,10 +130,43 @@ function getGrade10Questions() {
     "source": "Sumber: Dialog Otentik Modul Ajar Fase E — Tim Guru MGMP Bahasa Inggris SMA",
     "type": "listening_dialog",
     "title": "Listening Section: Part II - Short Dialogues",
-    "audioText": "Number four. Listen to the conversation. Man: Good morning, Rian. You look so energetic today! What is your secret for staying fit during our exam week? Woman: Well, I always maintain a nutritious diet, drink plenty of fresh water, and jog for twenty minutes every morning before studying. Question: What does the woman do to maintain her physical fitness?",
+    "audioSegments": [
+      {
+        "role": "narrator",
+        "lang": "en-US",
+        "text": "Number four. Listen to a conversation between a student and a friend.",
+        "pauseAfter": 450
+      },
+      {
+        "gender": "male",
+        "pitch": 0.75,
+        "rateMultiplier": 0.94,
+        "text": "Good morning! You look so energetic today. What is your secret for staying fit during our exam week?",
+        "pauseAfter": 400
+      },
+      {
+        "gender": "female",
+        "pitch": 1.30,
+        "rateMultiplier": 1.04,
+        "text": "Well, I always maintain a nutritious diet, drink plenty of fresh water, and jog for twenty minutes every morning before studying.",
+        "pauseAfter": 400
+      },
+      {
+        "gender": "male",
+        "pitch": 0.75,
+        "rateMultiplier": 0.94,
+        "text": "That sounds like a wonderful habit. I should try jogging in the morning too.",
+        "pauseAfter": 500
+      },
+      {
+        "role": "narrator",
+        "lang": "en-US",
+        "text": "Question: What does the female speaker do to maintain her physical fitness?"
+      }
+    ],
     "stimulusTitle": "Audio Transcript (Listening)",
-    "stimulusBody": "<strong>Man:</strong> Good morning, Rian. You look so energetic today! What is your secret for staying fit during our exam week?<br><strong>Woman:</strong> Well, I always maintain a nutritious diet, drink plenty of fresh water, and jog for twenty minutes every morning before studying.",
-    "prompt": "What does the woman do to keep herself fit during examination week?",
+    "stimulusBody": "<p><strong>Speaker 1 (Male):</strong> Good morning! You look so energetic today. What is your secret for staying fit during our exam week?</p><p><strong>Speaker 2 (Female):</strong> Well, I always maintain a nutritious diet, drink plenty of fresh water, and jog for twenty minutes every morning before studying.</p><p><strong>Speaker 1 (Male):</strong> That sounds like a wonderful habit. I should try jogging in the morning too.</p>",
+    "prompt": "What does the female speaker do to keep herself fit during examination week?",
     "options": [
       {
         "key": "A",
@@ -153,18 +186,51 @@ function getGrade10Questions() {
       }
     ],
     "correctAnswer": "D",
-    "explanation": "Wanita tersebut secara eksplisit menyatakan: 'I always maintain a nutritious diet, drink plenty of fresh water, and jog for twenty minutes every morning' (makanan bernutrisi, banyak minum air, dan lari pagi 20 menit).",
-    "grammarNote": "Simple Present Tense of Habitual Action with Adverbs of Frequency: 'I always maintain...', 'drink', 'jog'."
+    "explanation": "Pada rekaman, pembicara perempuan menyatakan kebiasaannya menjaga kebugaran: 'I always maintain a nutritious diet, drink plenty of fresh water, and jog for twenty minutes every morning before studying'. Pilihan D tepat.",
+    "grammarNote": "Adverb of Frequency & Habitual Present Simple: 'always maintain', 'drink plenty of fresh water'."
   },
   {
     "id": 5,
     "source": "Sumber: Dialog Otentik Modul Ajar Fase E — Tim Guru MGMP Bahasa Inggris SMA",
     "type": "listening_dialog",
     "title": "Listening Section: Part II - Short Dialogues",
-    "audioText": "Number five. Listen to the dialogue. Boy: Sinta, do you have any specific plans for the upcoming school mid-semester holiday? Girl: Yes, my family and I intend to visit the mangrove conservation park in Jepara. We want to plant ten mangrove seedlings to prevent coastal erosion. Boy: That sounds like a truly worthwhile environmental project! Question: What is the girl's intention for the upcoming holiday?",
+    "audioSegments": [
+      {
+        "role": "narrator",
+        "lang": "en-US",
+        "text": "Number five. Listen to a conversation between two high school students.",
+        "pauseAfter": 450
+      },
+      {
+        "gender": "male",
+        "pitch": 0.75,
+        "rateMultiplier": 0.94,
+        "text": "Do you have any specific plans for the upcoming school holiday?",
+        "pauseAfter": 400
+      },
+      {
+        "gender": "female",
+        "pitch": 1.30,
+        "rateMultiplier": 1.04,
+        "text": "Yes, my family and I intend to visit the mangrove conservation park in Jepara. We want to plant ten mangrove seedlings to prevent coastal erosion.",
+        "pauseAfter": 400
+      },
+      {
+        "gender": "male",
+        "pitch": 0.75,
+        "rateMultiplier": 0.94,
+        "text": "That sounds like a truly worthwhile environmental project!",
+        "pauseAfter": 500
+      },
+      {
+        "role": "narrator",
+        "lang": "en-US",
+        "text": "Question: What is the female speaker's intention for the upcoming holiday?"
+      }
+    ],
     "stimulusTitle": "Audio Transcript (Listening)",
-    "stimulusBody": "<strong>Boy:</strong> Sinta, do you have any specific plans for the upcoming school mid-semester holiday?<br><strong>Girl:</strong> Yes, my family and I intend to visit the mangrove conservation park in Jepara. We want to plant ten mangrove seedlings to prevent coastal erosion.<br><strong>Boy:</strong> That sounds like a truly worthwhile environmental project!",
-    "prompt": "What is the girl intending to do during the mid-semester break?",
+    "stimulusBody": "<p><strong>Speaker 1 (Male):</strong> Do you have any specific plans for the upcoming school holiday?</p><p><strong>Speaker 2 (Female):</strong> Yes, my family and I intend to visit the mangrove conservation park in Jepara. We want to plant ten mangrove seedlings to prevent coastal erosion.</p><p><strong>Speaker 1 (Male):</strong> That sounds like a truly worthwhile environmental project!</p>",
+    "prompt": "What is the female student intending to do during the holiday break?",
     "options": [
       {
         "key": "A",
@@ -184,18 +250,51 @@ function getGrade10Questions() {
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Gadis tersebut menyatakan niatnya: 'my family and I intend to visit the mangrove conservation park... We want to plant ten mangrove seedlings'. Jawaban yang tepat adalah A.",
-    "grammarNote": "Expressing Intentions & Plans: 'intend to visit...', 'want to plant...'. Vocabulary: conservation, seedlings, erosion."
+    "explanation": "Siswi perempuan menyampaikan niatnya: 'intend to visit the mangrove conservation park in Jepara. We want to plant ten mangrove seedlings to prevent coastal erosion'. Pilihan A paling tepat.",
+    "grammarNote": "Expressing Intention: 'intend to visit...', 'want to plant...'."
   },
   {
     "id": 6,
     "source": "Sumber: Dialog Otentik Modul Ajar Fase E — Tim Guru MGMP Bahasa Inggris SMA",
     "type": "listening_dialog",
     "title": "Listening Section: Part II - Short Dialogues",
-    "audioText": "Number six. Listen to the conversation. Teacher: Adi, your descriptive brochure about Mount Muria is very very attractive and interesting, but the fonts are slightly difficult to read against the dark background. Student: Thank you for your feedback, Ma'am. I will modify the font colors to high-contrast white and resize the heading immediately. Question: What will the student most likely do next?",
+    "audioSegments": [
+      {
+        "role": "narrator",
+        "lang": "en-US",
+        "text": "Number six. Listen to a conversation between a teacher and a student.",
+        "pauseAfter": 450
+      },
+      {
+        "gender": "female",
+        "pitch": 1.30,
+        "rateMultiplier": 1.04,
+        "text": "Your descriptive brochure about Mount Muria is very attractive, but the fonts are slightly difficult to read against the dark background.",
+        "pauseAfter": 400
+      },
+      {
+        "gender": "male",
+        "pitch": 0.75,
+        "rateMultiplier": 0.94,
+        "text": "Thank you for your feedback, Ma'am. I will modify the font colors to high-contrast white and resize the heading immediately.",
+        "pauseAfter": 400
+      },
+      {
+        "gender": "female",
+        "pitch": 1.30,
+        "rateMultiplier": 1.04,
+        "text": "That will make the tourism information much clearer for visitors.",
+        "pauseAfter": 500
+      },
+      {
+        "role": "narrator",
+        "lang": "en-US",
+        "text": "Question: What action will the male student most likely take next?"
+      }
+    ],
     "stimulusTitle": "Audio Transcript (Listening)",
-    "stimulusBody": "<strong>Teacher:</strong> Adi, your descriptive brochure about Mount Muria is very very attractive and interesting, but the fonts are slightly difficult to read against the dark background.<br><strong>Student:</strong> Thank you for your feedback, Ma'am. I will modify the font colors to high-contrast white and resize the heading immediately.",
-    "prompt": "What action will the student most likely take next?",
+    "stimulusBody": "<p><strong>Teacher (Female):</strong> Your descriptive brochure about Mount Muria is very attractive, but the fonts are slightly difficult to read against the dark background.</p><p><strong>Student (Male):</strong> Thank you for your feedback, Ma'am. I will modify the font colors to high-contrast white and resize the heading immediately.</p><p><strong>Teacher (Female):</strong> That will make the tourism information much clearer for visitors.</p>",
+    "prompt": "What action will the male student most likely take next?",
     "options": [
       {
         "key": "A",
@@ -207,17 +306,18 @@ function getGrade10Questions() {
       },
       {
         "key": "C",
-        "text": "Submit the dark brochure directly to the school principal."
+        "text": "Submit the dark brochure directly to the school principal without editing."
       },
       {
         "key": "D",
-        "text": "Complain to his classmates about the teacher's grading system."
+        "text": "Print one hundred copies of the unreadable brochure immediately."
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Siswa menjawab saran gurunya dengan: 'I will modify the font colors to high-contrast white and resize the heading immediately'. Jawaban B mendeskripsikan tindakan perbaikan tipografi tersebut.",
-    "grammarNote": "Simple Future with 'will' for Immediate Decisions: 'I will modify...', 'resize'."
+    "explanation": "Siswa laki-laki merespons masukan guru: 'I will modify the font colors to high-contrast white and resize the heading immediately'. Pilihan B tepat.",
+    "grammarNote": "Future intention / immediate response: 'will modify', 'resize the heading'."
   },
+
   {
     "id": 7,
     "source": "Sumber: Brosur Wisata Sejarah Menara Kudus — Dinas Kebudayaan dan Pariwisata Kudus",
@@ -1690,26 +1790,59 @@ if (typeof window !== "undefined" && window.speechSynthesis) {
 
 function getAvailableVoices() {
   if (!window.speechSynthesis) return [];
-  if (!cachedVoices || cachedVoices.length === 0) cachedVoices = window.speechSynthesis.getVoices();
-  return cachedVoices;
+  const live = window.speechSynthesis.getVoices();
+  if (live && live.length > 0) {
+    cachedVoices = live;
+    return live;
+  }
+  return cachedVoices || [];
+}
+
+if (typeof window !== "undefined" && window.speechSynthesis) {
+  window.speechSynthesis.onvoiceschanged = () => {
+    cachedVoices = window.speechSynthesis.getVoices();
+  };
 }
 
 function selectAudioVoice(role, gender, lang) {
   const voices = getAvailableVoices();
   if (!voices || voices.length === 0) return null;
+
   if (lang && lang.startsWith("id")) {
-    const idVoice = voices.find(v => v.lang.startsWith("id") || v.name.toLowerCase().includes("indonesia") || v.name.includes("Gadis") || v.name.includes("Ardi"));
+    const idVoice = voices.find(v => (v.lang && (v.lang.startsWith("id") || v.lang.startsWith("ID"))) || v.name.toLowerCase().includes("indonesia") || v.name.includes("Gadis") || v.name.includes("Ardi"));
     if (idVoice) return idVoice;
   }
-  const enVoices = voices.filter(v => v.lang.startsWith("en"));
-  if (gender === "female") {
-    const fVoice = enVoices.find(v => v.name.includes("Zira") || v.name.includes("Jenny") || v.name.includes("Aria") || v.name.toLowerCase().includes("female"));
-    if (fVoice) return fVoice;
-  } else if (gender === "male") {
-    const mVoice = enVoices.find(v => v.name.includes("David") || v.name.includes("Guy") || v.name.includes("Ryan") || v.name.toLowerCase().includes("male"));
-    if (mVoice) return mVoice;
+
+  const enVoices = voices.filter(v => v.lang && (v.lang.startsWith("en") || v.lang.startsWith("EN")));
+  if (enVoices.length === 0) return voices[0];
+
+  const femaleKeywords = ["female", "woman", "girl", "zira", "jenny", "aria", "samantha", "victoria", "karen", "fiona", "moira", "tessa", "clara", "libby", "ana", "sonia", "natasha", "google us english", "google uk english female"];
+  const maleKeywords = ["male", "man", "boy", "david", "guy", "mark", "ryan", "george", "daniel", "alex", "fred", "oliver", "steffan", "google uk english male", "james", "tom", "richard"];
+
+  const matchedFemale = enVoices.find(v => femaleKeywords.some(k => v.name.toLowerCase().includes(k)));
+  let matchedMale = enVoices.find(v => maleKeywords.some(k => v.name.toLowerCase().includes(k)));
+
+  // Ensure male and female are paired with different voices if at least 2 english voices exist
+  if (matchedFemale && matchedMale && matchedFemale.name === matchedMale.name && enVoices.length >= 2) {
+    matchedMale = enVoices.find(v => v.name !== matchedFemale.name) || matchedMale;
   }
-  return enVoices.find(v => v.name.includes("Natural") || v.name.includes("Google") || v.name.includes("David") || v.name.includes("Zira")) || enVoices[0] || voices[0];
+  if (!matchedMale && matchedFemale && enVoices.length >= 2) {
+    matchedMale = enVoices.find(v => v.name !== matchedFemale.name);
+  }
+  if (!matchedFemale && matchedMale && enVoices.length >= 2) {
+    const altFemale = enVoices.find(v => v.name !== matchedMale.name);
+    if (altFemale && gender === "female") return altFemale;
+  }
+
+  if (gender === "female") {
+    return matchedFemale || enVoices[0];
+  } else if (gender === "male") {
+    return matchedMale || (enVoices.length > 1 ? enVoices[1] : enVoices[0]);
+  }
+
+  // Default narrator voice
+  const narratorVoice = enVoices.find(v => v.name.includes("Natural") || v.name.includes("David") || v.name.includes("Google") || v.name.includes("Aria")) || enVoices[0];
+  return narratorVoice;
 }
 
 function stopAudio() {
@@ -1721,8 +1854,8 @@ function stopAudio() {
   const playBtn = document.getElementById("btn-play-audio");
   const statusText = document.getElementById("audio-status-text");
   if (playText) playText.textContent = "Putar Audio";
-  if (playBtn) playBtn.style.backgroundColor = "var(--accent-teal)";
-  if (statusText) statusText.textContent = "Klik 'Putar Audio' untuk menyimak wacana otentik.";
+  if (playBtn) playBtn.style.backgroundColor = "var(--royal-blue)";
+  if (statusText) statusText.textContent = "Klik 'Putar Audio' untuk mendengarkan kembali.";
 }
 
 function playQuestionAudio() {
@@ -1772,16 +1905,28 @@ function playNextAudioSegment() {
   const seg = audioQueue[audioQueueIdx++];
   const utt = new SpeechSynthesisUtterance(seg.text);
   utt.lang = seg.lang || "en-US";
-  utt.rate = audioSpeechRate * (seg.rateMultiplier || 1.0);
+
   const matchedVoice = selectAudioVoice(seg.role, seg.gender, seg.lang);
   if (matchedVoice) utt.voice = matchedVoice;
-  if (seg.pitch !== undefined) utt.pitch = seg.pitch;
-  else if (seg.gender === "female") utt.pitch = 1.25;
-  else if (seg.gender === "male") utt.pitch = 0.85;
-  else utt.pitch = 1.0;
+
+  if (seg.pitch !== undefined) {
+    utt.pitch = seg.pitch;
+  } else if (seg.gender === "female") {
+    utt.pitch = 1.30;
+  } else if (seg.gender === "male") {
+    utt.pitch = 0.75;
+  } else {
+    utt.pitch = 1.0;
+  }
+
+  let rateMult = seg.rateMultiplier || 1.0;
+  if (seg.gender === "female" && !seg.rateMultiplier) rateMult = 1.04;
+  else if (seg.gender === "male" && !seg.rateMultiplier) rateMult = 0.94;
+  else if (seg.role === "narrator" && !seg.rateMultiplier) rateMult = 0.96;
+  utt.rate = audioSpeechRate * rateMult;
 
   utt.onend = () => {
-    if (isAudioPlaying) setTimeout(playNextAudioSegment, seg.pauseAfter || 320);
+    if (isAudioPlaying) setTimeout(playNextAudioSegment, seg.pauseAfter || 360);
   };
   utt.onerror = () => {
     if (isAudioPlaying) playNextAudioSegment();

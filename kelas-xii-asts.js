@@ -191,199 +191,217 @@ function getGrade12AstsQuestions() {
   {
     "id": 4,
     "source": "Sumber: Percakapan Pembelajaran Berbasis Riset SMA — Modul Ajar Kurikulum Merdeka Fase F",
-    "type": "listening_dialogue",
+    "type": "listening_dialog",
     "title": "Listening Section: Part II - Dialogues",
-    "audioText": "Number four. Listen to a conversation between a senior student and an English teacher.\n\nStudent: Good morning, Mrs. Anjani. I noticed many classmates are using generative AI to produce their scientific essay drafts in just seconds. Doesn't that risk diminishing our genuine critical thinking abilities?\nTeacher: That is a very valid concern, Farhan. While AI can certainly assist in brainstorming complex outlines and checking syntactic errors, relying completely on automated outputs weakens your analytical reasoning. In our school, students must write their reflections independently and use AI strictly as a research assistant, not a ghostwriter.\nStudent: I agree completely. That means transparency and personal originality must always remain our top priorities.\n\nQuestion: What is the teacher's primary advice regarding generative AI tools?",
-    "prompt": "Based on the dialogue between Farhan and Mrs. Anjani, what is the teacher's primary advice regarding generative AI tools?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Teachers should replace all classroom argumentative writing tasks with multiple-choice quizzes."
-      },
-      {
-        "key": "B",
-        "text": "Schools must enforce an absolute ban on all digital devices and computer applications."
-      },
-      {
-        "key": "C",
-        "text": "Learners ought to allow AI algorithms to compose their final scientific research essays automatically."
-      },
-      {
-        "key": "D",
-        "text": "Students should use AI strictly for brainstorming and linguistic editing, while keeping their analysis independent."
-      }
-    ],
-    "correctAnswer": "D",
-    "explanation": "Guru (Mrs. Anjani) menyatakan bahwa ketergantungan penuh pada AI dapat melemahkan nalar kritis ('weakens your analytical reasoning'). Oleh karena itu, siswa harus tetap menulis refleksi secara mandiri dan memperlakukan AI sebagai asisten perancang kerangka/pengecek tata bahasa, bukan penulis utama.",
-    "grammarNote": "Modals of Necessity & Concession: 'While AI can certainly assist... students must write their reflections independently'.",
     "audioSegments": [
       {
         "role": "narrator",
         "lang": "en-US",
-        "text": "Number four. Listen to a conversation between a student and a teacher.",
+        "text": "Number four. Listen to a conversation between a student and an English teacher.",
+        "pauseAfter": 450
+      },
+      {
+        "gender": "male",
+        "pitch": 0.75,
+        "rateMultiplier": 0.94,
+        "text": "Good morning. I noticed many classmates are using generative AI to produce their scientific essay drafts in seconds. Doesn't that risk diminishing our genuine critical thinking?",
         "pauseAfter": 400
       },
       {
-        "role": "speaker1",
-        "gender": "male",
-        "pitch": 0.85,
-        "text": "Good morning, Mrs. Anjani. I noticed many classmates are using generative AI to produce their essay drafts in just seconds. Doesn't that risk diminishing our genuine critical thinking abilities?",
-        "pauseAfter": 450
-      },
-      {
-        "role": "speaker2",
         "gender": "female",
-        "pitch": 1.25,
-        "text": "That is a very valid concern, Farhan. While AI can certainly assist in brainstorming complex outlines and checking syntactic errors, relying completely on automated outputs weakens your analytical reasoning. In our school, students must write their reflections independently and use AI strictly as a research assistant, not a ghostwriter.",
-        "pauseAfter": 450
+        "pitch": 1.30,
+        "rateMultiplier": 1.04,
+        "text": "You raise an insightful concern. While generative algorithms can assist in outlining concepts, over-relying on them deprives students of personal voice. True academic mastery comes from wrestling with complex ideas yourself.",
+        "pauseAfter": 400
       },
       {
-        "role": "speaker1",
         "gender": "male",
-        "pitch": 0.85,
-        "text": "I agree completely. That means transparency and personal originality must always remain our top priorities.",
+        "pitch": 0.75,
+        "rateMultiplier": 0.94,
+        "text": "Exactly. I believe articulating our own original arguments is far more valuable than simply generating polished paragraphs.",
+        "pauseAfter": 400
+      },
+      {
+        "gender": "female",
+        "pitch": 1.30,
+        "rateMultiplier": 1.04,
+        "text": "Precisely. AI should be an assistive tool for inspiration, never a substitute for human intellect.",
         "pauseAfter": 500
       },
       {
         "role": "narrator",
         "lang": "en-US",
-        "text": "Question: What is the teacher's primary advice regarding generative AI tools?"
+        "text": "Question: What central concern regarding artificial intelligence is discussed by the student and teacher?"
       }
-    ]
+    ],
+    "stimulusTitle": "Audio Transcript (Listening)",
+    "stimulusBody": "<p><strong>Student (Male):</strong> Good morning. I noticed many classmates are using generative AI to produce their scientific essay drafts in seconds. Doesn't that risk diminishing our genuine critical thinking?</p><p><strong>Teacher (Female):</strong> You raise an insightful concern. While generative algorithms can assist in outlining concepts, over-relying on them deprives students of personal voice. True academic mastery comes from wrestling with complex ideas yourself.</p><p><strong>Student (Male):</strong> Exactly. I believe articulating our own original arguments is far more valuable than simply generating polished paragraphs.</p><p><strong>Teacher (Female):</strong> Precisely. AI should be an assistive tool for inspiration, never a substitute for human intellect.</p>",
+    "prompt": "What central concern regarding artificial intelligence is discussed by the student and teacher?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Excessive reliance on generative AI weakens students' critical thinking and personal synthesis."
+      },
+      {
+        "key": "B",
+        "text": "AI models require too much electricity to run on school laptop computers."
+      },
+      {
+        "key": "C",
+        "text": "Students cannot afford software subscriptions for advanced essay generators."
+      },
+      {
+        "key": "D",
+        "text": "Teachers prefer handwritten essays to eliminate computer screens entirely."
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Kekhawatiran utama yang dibahas adalah bahwa ketergantungan berlebihan pada AI melemahkan pemikiran kritis dan suara pribadi siswa ('deprives students of personal voice... wrestling with complex ideas yourself'). Pilihan A tepat.",
+    "grammarNote": "Complex Gerund & Concession Clauses: 'over-relying on them deprives...', 'While generative algorithms can assist...'."
   },
   {
     "id": 5,
     "source": "Sumber: Diskusi Kelompok Terfokus Siswa — Simposium Energi Masa Depan SMA Jawa Tengah",
-    "type": "listening_dialogue",
+    "type": "listening_dialog",
     "title": "Listening Section: Part II - Dialogues",
-    "audioText": "Number five. Listen to a conversation between two high school seniors preparing a presentation.\n\nRizky: Maya, when evaluating Indonesia's plan to achieve net-zero carbon emissions, do you believe nuclear energy is a more practical solution than decentralized solar and geothermal systems?\nMaya: Well, nuclear power undoubtedly provides a dense and continuous baseload electricity supply without greenhouse gases. However, our nation sits directly upon active tectonic fault lines. The immense cost of disaster containment and safe waste management makes solar and geothermal microgrids far safer for remote archipelagic islands.\nRizky: That makes complete sense. A diversified mix prioritizing natural geothermal and solar resources minimizes catastrophic environmental risks.\n\nQuestion: Why does Maya express caution regarding large nuclear power plants in Indonesia?",
-    "prompt": "According to Maya, why should Indonesia exercise caution regarding the construction of nuclear power plants?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Indonesia is located along active tectonic fault lines with high geological and waste containment risks."
-      },
-      {
-        "key": "B",
-        "text": "Nuclear energy generates significantly higher levels of carbon dioxide than coal combustion."
-      },
-      {
-        "key": "C",
-        "text": "Renewable solar installations require much more uranium fuel than traditional power stations."
-      },
-      {
-        "key": "D",
-        "text": "Geothermal energy has proven completely ineffective for generating electricity across Central Java."
-      }
-    ],
-    "correctAnswer": "A",
-    "explanation": "Maya menegaskan bahwa meskipun nuklir menghasilkan energi besar, Indonesia terletak tepat di atas patahan tektonik aktif ('our nation sits directly upon active tectonic fault lines'), sehingga risiko bencana geologis dan pengelolaan limbah radioaktif sangat tinggi.",
-    "grammarNote": "Contrastive Discourse Markers: 'undoubtedly provides... However, our nation sits directly upon active tectonic fault lines'.",
     "audioSegments": [
       {
         "role": "narrator",
         "lang": "en-US",
-        "text": "Number five. Listen to a conversation between two high school seniors preparing an environmental presentation.",
+        "text": "Number five. Listen to a conversation between two high school seniors preparing a presentation.",
+        "pauseAfter": 450
+      },
+      {
+        "gender": "male",
+        "pitch": 0.75,
+        "rateMultiplier": 0.94,
+        "text": "When evaluating Indonesia's plan to achieve net-zero carbon emissions, do you believe nuclear energy is a more practical solution than decentralized solar and geothermal power?",
         "pauseAfter": 400
       },
       {
-        "role": "speaker1",
-        "gender": "male",
-        "pitch": 0.85,
-        "text": "Maya, when evaluating Indonesia's plan to achieve net-zero carbon emissions, do you believe nuclear energy is a more practical solution than decentralized solar and geothermal systems?",
-        "pauseAfter": 450
-      },
-      {
-        "role": "speaker2",
         "gender": "female",
-        "pitch": 1.25,
-        "text": "Well, nuclear power undoubtedly provides a dense and continuous baseload electricity supply without greenhouse gases. However, our nation sits directly upon active tectonic fault lines. The immense cost of disaster containment and safe waste management makes solar and geothermal microgrids far safer for remote archipelagic islands.",
-        "pauseAfter": 450
+        "pitch": 1.30,
+        "rateMultiplier": 1.04,
+        "text": "Nuclear power provides a stable baseload without weather dependency. However, the capital investment is immense, construction takes over a decade, and managing radioactive waste remains contentious. Decentralized renewable microgrids can be deployed much faster across our archipelago.",
+        "pauseAfter": 400
       },
       {
-        "role": "speaker1",
         "gender": "male",
-        "pitch": 0.85,
-        "text": "That makes complete sense. A diversified mix prioritizing natural geothermal and solar resources minimizes catastrophic environmental risks.",
+        "pitch": 0.75,
+        "rateMultiplier": 0.94,
+        "text": "That is true. Besides, Indonesia has abundant geothermal potential along the volcanic belt that has barely been tapped.",
+        "pauseAfter": 400
+      },
+      {
+        "gender": "female",
+        "pitch": 1.30,
+        "rateMultiplier": 1.04,
+        "text": "Exactly. A diversified grid combining regional solar, geothermal, and smart storage is both safer and more resilient for our geography.",
         "pauseAfter": 500
       },
       {
         "role": "narrator",
         "lang": "en-US",
-        "text": "Question: Why does Maya express caution regarding large nuclear power plants in Indonesia?"
+        "text": "Question: According to the female speaker, why is decentralized renewable energy preferable to nuclear power for Indonesia?"
       }
-    ]
+    ],
+    "stimulusTitle": "Audio Transcript (Listening)",
+    "stimulusBody": "<p><strong>Speaker 1 (Male):</strong> When evaluating Indonesia's plan to achieve net-zero carbon emissions, do you believe nuclear energy is a more practical solution than decentralized solar and geothermal power?</p><p><strong>Speaker 2 (Female):</strong> Nuclear power provides a stable baseload without weather dependency. However, the capital investment is immense, construction takes over a decade, and managing radioactive waste remains contentious. Decentralized renewable microgrids can be deployed much faster across our archipelago.</p><p><strong>Speaker 1 (Male):</strong> That is true. Besides, Indonesia has abundant geothermal potential along the volcanic belt that has barely been tapped.</p><p><strong>Speaker 2 (Female):</strong> Exactly. A diversified grid combining regional solar, geothermal, and smart storage is both safer and more resilient for our geography.</p>",
+    "prompt": "According to the female speaker, why is decentralized renewable energy preferable to nuclear power for Indonesia?",
+    "options": [
+      {
+        "key": "A",
+        "text": "It requires significantly less initial capital, deploys faster, and fits Indonesia's island geography without radioactive waste concerns."
+      },
+      {
+        "key": "B",
+        "text": "Nuclear power plants can be constructed overnight without any government safety inspection."
+      },
+      {
+        "key": "C",
+        "text": "Solar panels generate more baseline electricity during rainy night storms than nuclear reactors."
+      },
+      {
+        "key": "D",
+        "text": "Geothermal energy is cheaper because it does not require steam turbines or electrical transformers."
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Pembicara perempuan menjelaskan bahwa energi terbarukan terdesentralisasi lebih unggul karena investasi modal lebih terjangkau, pembangunan jauh lebih cepat, dan cocok untuk negara kepulauan tanpa risiko limbah radioaktif. Pilihan A tepat.",
+    "grammarNote": "Comparative discourse markers & contrastive lexis: 'However, the capital investment is immense... can be deployed much faster'."
   },
   {
     "id": 6,
     "source": "Sumber: Wawancara Komunitas Literasi Remaja — Dewan Kesenian Daerah & Majalah Edukasi",
-    "type": "listening_dialogue",
+    "type": "listening_dialog",
     "title": "Listening Section: Part II - Dialogues",
-    "audioText": "Number six. Listen to a dialogue between two members of the school book club.\n\nDanang: Sinta, I recently finished reading Andrea Hirata's classic novel, 'The Rainbow Troops'. Have you read it?\nSinta: Yes, twice! What impressed me most was how the narrative highlights unyielding determination for education amidst severe economic poverty in Belitung.\nDanang: Exactly. Some critics claim the pacing is occasionally melodramatic, yet the profound emotional bond between the ten pupils and their dedicated teacher, Bu Muslimah, is genuinely inspiring.\nSinta: I couldn't agree more. It reminds us that quality learning is fueled by human empathy, resilience, and mutual hope rather than luxurious school infrastructure.\n\nQuestion: What core thematic value of the novel do both speakers strongly admire?",
-    "prompt": "What core thematic strength of Andrea Hirata's novel 'The Rainbow Troops' do both speakers strongly admire?",
-    "options": [
-      {
-        "key": "A",
-        "text": "The commercial profitability of modern tin mining corporations operating in Belitung."
-      },
-      {
-        "key": "B",
-        "text": "The unwavering determination for education and mutual human empathy in overcoming poverty."
-      },
-      {
-        "key": "C",
-        "text": "The sophisticated scientific laboratory facilities established in remote rural settlements."
-      },
-      {
-        "key": "D",
-        "text": "The leisurely vacation lifestyle experienced by urban tourists visiting coastal beaches."
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "Kedua siswa mengagumi kegigihan luar biasa dalam menuntut ilmu ('unyielding determination for education amidst severe economic poverty') serta empati dan ketangguhan manusiawi dalam menghadapi keterbatasan fasilitas.",
-    "grammarNote": "Concessive Clause with 'Yet': 'Some critics claim the pacing is melodramatic, yet the profound emotional bond... is genuinely inspiring'.",
     "audioSegments": [
       {
         "role": "narrator",
         "lang": "en-US",
         "text": "Number six. Listen to a dialogue between two members of the school book club.",
+        "pauseAfter": 450
+      },
+      {
+        "gender": "male",
+        "pitch": 0.75,
+        "rateMultiplier": 0.94,
+        "text": "I recently finished reading Andrea Hirata's classic novel, 'The Rainbow Troops'. Have you read it?",
         "pauseAfter": 400
       },
       {
-        "role": "speaker1",
-        "gender": "male",
-        "pitch": 0.85,
-        "text": "Sinta, I recently finished reading Andrea Hirata's classic novel, The Rainbow Troops. Have you read it?",
-        "pauseAfter": 450
-      },
-      {
-        "role": "speaker2",
         "gender": "female",
-        "pitch": 1.25,
-        "text": "Yes, twice! What impressed me most was how the narrative highlights unyielding determination for education amidst severe economic poverty in Belitung.",
-        "pauseAfter": 450
+        "pitch": 1.30,
+        "rateMultiplier": 1.04,
+        "text": "Yes, twice! What impressed me most was how the narrative highlights unyielding perseverance in education despite extreme poverty on Belitung Island.",
+        "pauseAfter": 400
       },
       {
-        "role": "speaker1",
         "gender": "male",
-        "pitch": 0.85,
-        "text": "Exactly. Some critics claim the pacing is occasionally melodramatic, yet the profound emotional bond between the ten pupils and their dedicated teacher, Bu Muslimah, is genuinely inspiring.",
-        "pauseAfter": 450
+        "pitch": 0.75,
+        "rateMultiplier": 0.94,
+        "text": "Absolutely. The teachers proved that passionate, dedicated mentorship can inspire students even inside a decaying classroom.",
+        "pauseAfter": 400
       },
       {
-        "role": "speaker2",
         "gender": "female",
-        "pitch": 1.25,
-        "text": "I couldn't agree more. It reminds us that quality learning is fueled by human empathy, resilience, and mutual hope rather than luxurious school infrastructure.",
+        "pitch": 1.30,
+        "rateMultiplier": 1.04,
+        "text": "Indeed. It reminds us that quality education is fundamentally driven by human spirit and empathy, not just lavish facilities.",
         "pauseAfter": 500
       },
       {
         "role": "narrator",
         "lang": "en-US",
-        "text": "Question: What core thematic value of the novel do both speakers strongly admire?"
+        "text": "Question: What core message from the novel do both speakers find most inspiring?"
       }
-    ]
+    ],
+    "stimulusTitle": "Audio Transcript (Listening)",
+    "stimulusBody": "<p><strong>Speaker 1 (Male):</strong> I recently finished reading Andrea Hirata's classic novel, 'The Rainbow Troops'. Have you read it?</p><p><strong>Speaker 2 (Female):</strong> Yes, twice! What impressed me most was how the narrative highlights unyielding perseverance in education despite extreme poverty on Belitung Island.</p><p><strong>Speaker 1 (Male):</strong> Absolutely. The teachers proved that passionate, dedicated mentorship can inspire students even inside a decaying classroom.</p><p><strong>Speaker 2 (Female):</strong> Indeed. It reminds us that quality education is fundamentally driven by human spirit and empathy, not just lavish facilities.</p>",
+    "prompt": "What core message from the novel do both speakers find most inspiring?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Quality education is driven by passionate mentorship and human perseverance, not merely luxurious facilities."
+      },
+      {
+        "key": "B",
+        "text": "Children in remote regions should give up schooling and work in tin mines instead."
+      },
+      {
+        "key": "C",
+        "text": "Literature books should only describe wealthy urban families to motivate poor readers."
+      },
+      {
+        "key": "D",
+        "text": "School buildings are unimportant and teachers should not maintain classrooms."
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Kedua pembicara sepakat bahwa pesan inti novel adalah pendidikan berkualitas digerakkan oleh kegigihan dan dedikasi guru, bukan sekadar fasilitas mewah ('quality education is fundamentally driven by human spirit... not just lavish facilities'). Pilihan A tepat.",
+    "grammarNote": "Passive voice & Emphatic adverbials: 'fundamentally driven by human spirit and empathy'."
   },
+
   {
     "id": 7,
     "source": "Sumber: Kuliah Umum Transisi Energi Bersih — Forum Akademik Teknik Lingkungan Universitas Indonesia",
@@ -1870,26 +1888,59 @@ if (typeof window !== "undefined" && window.speechSynthesis) {
 
 function getAvailableVoices() {
   if (!window.speechSynthesis) return [];
-  if (!cachedVoices || cachedVoices.length === 0) cachedVoices = window.speechSynthesis.getVoices();
-  return cachedVoices;
+  const live = window.speechSynthesis.getVoices();
+  if (live && live.length > 0) {
+    cachedVoices = live;
+    return live;
+  }
+  return cachedVoices || [];
+}
+
+if (typeof window !== "undefined" && window.speechSynthesis) {
+  window.speechSynthesis.onvoiceschanged = () => {
+    cachedVoices = window.speechSynthesis.getVoices();
+  };
 }
 
 function selectAudioVoice(role, gender, lang) {
   const voices = getAvailableVoices();
   if (!voices || voices.length === 0) return null;
+
   if (lang && lang.startsWith("id")) {
-    const idVoice = voices.find(v => v.lang.startsWith("id") || v.name.toLowerCase().includes("indonesia") || v.name.includes("Gadis") || v.name.includes("Ardi"));
+    const idVoice = voices.find(v => (v.lang && (v.lang.startsWith("id") || v.lang.startsWith("ID"))) || v.name.toLowerCase().includes("indonesia") || v.name.includes("Gadis") || v.name.includes("Ardi"));
     if (idVoice) return idVoice;
   }
-  const enVoices = voices.filter(v => v.lang.startsWith("en"));
-  if (gender === "female") {
-    const fVoice = enVoices.find(v => v.name.includes("Zira") || v.name.includes("Jenny") || v.name.includes("Aria") || v.name.toLowerCase().includes("female"));
-    if (fVoice) return fVoice;
-  } else if (gender === "male") {
-    const mVoice = enVoices.find(v => v.name.includes("David") || v.name.includes("Guy") || v.name.includes("Ryan") || v.name.toLowerCase().includes("male"));
-    if (mVoice) return mVoice;
+
+  const enVoices = voices.filter(v => v.lang && (v.lang.startsWith("en") || v.lang.startsWith("EN")));
+  if (enVoices.length === 0) return voices[0];
+
+  const femaleKeywords = ["female", "woman", "girl", "zira", "jenny", "aria", "samantha", "victoria", "karen", "fiona", "moira", "tessa", "clara", "libby", "ana", "sonia", "natasha", "google us english", "google uk english female"];
+  const maleKeywords = ["male", "man", "boy", "david", "guy", "mark", "ryan", "george", "daniel", "alex", "fred", "oliver", "steffan", "google uk english male", "james", "tom", "richard"];
+
+  const matchedFemale = enVoices.find(v => femaleKeywords.some(k => v.name.toLowerCase().includes(k)));
+  let matchedMale = enVoices.find(v => maleKeywords.some(k => v.name.toLowerCase().includes(k)));
+
+  // Ensure male and female are paired with different voices if at least 2 english voices exist
+  if (matchedFemale && matchedMale && matchedFemale.name === matchedMale.name && enVoices.length >= 2) {
+    matchedMale = enVoices.find(v => v.name !== matchedFemale.name) || matchedMale;
   }
-  return enVoices.find(v => v.name.includes("Natural") || v.name.includes("Google") || v.name.includes("David") || v.name.includes("Zira")) || enVoices[0] || voices[0];
+  if (!matchedMale && matchedFemale && enVoices.length >= 2) {
+    matchedMale = enVoices.find(v => v.name !== matchedFemale.name);
+  }
+  if (!matchedFemale && matchedMale && enVoices.length >= 2) {
+    const altFemale = enVoices.find(v => v.name !== matchedMale.name);
+    if (altFemale && gender === "female") return altFemale;
+  }
+
+  if (gender === "female") {
+    return matchedFemale || enVoices[0];
+  } else if (gender === "male") {
+    return matchedMale || (enVoices.length > 1 ? enVoices[1] : enVoices[0]);
+  }
+
+  // Default narrator voice
+  const narratorVoice = enVoices.find(v => v.name.includes("Natural") || v.name.includes("David") || v.name.includes("Google") || v.name.includes("Aria")) || enVoices[0];
+  return narratorVoice;
 }
 
 function stopAudio() {
@@ -1901,8 +1952,8 @@ function stopAudio() {
   const playBtn = document.getElementById("btn-play-audio");
   const statusText = document.getElementById("audio-status-text");
   if (playText) playText.textContent = "Putar Audio";
-  if (playBtn) playBtn.style.backgroundColor = "var(--accent-teal)";
-  if (statusText) statusText.textContent = "Klik 'Putar Audio' untuk menyimak wacana otentik.";
+  if (playBtn) playBtn.style.backgroundColor = "var(--royal-blue)";
+  if (statusText) statusText.textContent = "Klik 'Putar Audio' untuk mendengarkan kembali.";
 }
 
 function playQuestionAudio() {
@@ -1944,25 +1995,36 @@ function playNextAudioSegment() {
     const playBtn = document.getElementById("btn-play-audio");
     const playText = document.getElementById("play-text");
     const statusText = document.getElementById("audio-status-text");
-    if (playText) playText.textContent = "Putar Audio";
+    if (playText) playText.textContent = "Putar Ulang";
     if (playBtn) playBtn.style.backgroundColor = "var(--accent-teal)";
-    if (statusText) statusText.textContent = "Penyimakan audio selesai. Silakan jawab pertanyaan.";
+    if (statusText) statusText.textContent = "✅ Pemutaran audio selesai. Silakan pilih jawaban Anda.";
     return;
   }
-
   const seg = audioQueue[audioQueueIdx++];
   const utt = new SpeechSynthesisUtterance(seg.text);
   utt.lang = seg.lang || "en-US";
-  utt.rate = audioSpeechRate * (seg.rateMultiplier || 1.0);
+
   const matchedVoice = selectAudioVoice(seg.role, seg.gender, seg.lang);
   if (matchedVoice) utt.voice = matchedVoice;
-  if (seg.pitch !== undefined) utt.pitch = seg.pitch;
-  else if (seg.gender === "female") utt.pitch = 1.25;
-  else if (seg.gender === "male") utt.pitch = 0.85;
-  else utt.pitch = 1.0;
+
+  if (seg.pitch !== undefined) {
+    utt.pitch = seg.pitch;
+  } else if (seg.gender === "female") {
+    utt.pitch = 1.30;
+  } else if (seg.gender === "male") {
+    utt.pitch = 0.75;
+  } else {
+    utt.pitch = 1.0;
+  }
+
+  let rateMult = seg.rateMultiplier || 1.0;
+  if (seg.gender === "female" && !seg.rateMultiplier) rateMult = 1.04;
+  else if (seg.gender === "male" && !seg.rateMultiplier) rateMult = 0.94;
+  else if (seg.role === "narrator" && !seg.rateMultiplier) rateMult = 0.96;
+  utt.rate = audioSpeechRate * rateMult;
 
   utt.onend = () => {
-    if (isAudioPlaying) setTimeout(playNextAudioSegment, seg.pauseAfter || 320);
+    if (isAudioPlaying) setTimeout(playNextAudioSegment, seg.pauseAfter || 360);
   };
   utt.onerror = () => {
     if (isAudioPlaying) playNextAudioSegment();

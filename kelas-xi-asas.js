@@ -130,88 +130,208 @@ function getGrade11AsasQuestions() {
     "source": "Sumber: Modul Literasi Digital Siswa SMA — Kemendikbudristek & Mafindo",
     "type": "listening_dialog",
     "title": "Listening Section: Part II - Short Dialogues",
-    "audioText": "Number four. Listen to the conversation between Dewi and Farhan. Dewi: Farhan, did you see the shocking news shared in our class group chat just now? Farhan: Yes, but the headline looks sensational and there is no clear author. We should check trusted national news outlets before forwarding it. Dewi: You are right. Spreading unverified rumors can cause unnecessary panic. Question: What does Farhan advise Dewi to do?",
-    "prompt": "What does Farhan advise Dewi to do regarding the sensational news?",
+    "audioSegments": [
+      {
+        "role": "narrator",
+        "lang": "en-US",
+        "text": "Number four. Listen to a conversation between two students discussing online news.",
+        "pauseAfter": 450
+      },
+      {
+        "gender": "female",
+        "pitch": 1.30,
+        "rateMultiplier": 1.04,
+        "text": "Did you see the shocking news shared in our class group chat just now?",
+        "pauseAfter": 400
+      },
+      {
+        "gender": "male",
+        "pitch": 0.75,
+        "rateMultiplier": 0.94,
+        "text": "Yes, but the headline looks sensational and there is no clear author. We should check trusted national news outlets before forwarding it.",
+        "pauseAfter": 400
+      },
+      {
+        "gender": "female",
+        "pitch": 1.30,
+        "rateMultiplier": 1.04,
+        "text": "That makes total sense. We should never spread unverified rumors.",
+        "pauseAfter": 400
+      },
+      {
+        "gender": "male",
+        "pitch": 0.75,
+        "rateMultiplier": 0.94,
+        "text": "Exactly. Verifying sources is our responsibility as smart digital citizens.",
+        "pauseAfter": 500
+      },
+      {
+        "role": "narrator",
+        "lang": "en-US",
+        "text": "Question: What does the male speaker suggest doing before sharing online news?"
+      }
+    ],
+    "stimulusTitle": "Audio Transcript (Listening)",
+    "stimulusBody": "<p><strong>Speaker 1 (Female):</strong> Did you see the shocking news shared in our class group chat just now?</p><p><strong>Speaker 2 (Male):</strong> Yes, but the headline looks sensational and there is no clear author. We should check trusted national news outlets before forwarding it.</p><p><strong>Speaker 1 (Female):</strong> That makes total sense. We should never spread unverified rumors.</p><p><strong>Speaker 2 (Male):</strong> Exactly. Verifying sources is our responsibility as smart digital citizens.</p>",
+    "prompt": "What does the male student advise before forwarding news from social media?",
     "options": [
       {
         "key": "A",
-        "text": "Forward the message immediately to all family groups"
+        "text": "Forward the breaking story immediately to all family contacts."
       },
       {
         "key": "B",
-        "text": "Write an angry comment directly under the original post"
+        "text": "Verify the article by checking trusted national news sources."
       },
       {
         "key": "C",
-        "text": "Delete the class group chat to avoid drama"
+        "text": "Post angry comments on the unverified social media account."
       },
       {
         "key": "D",
-        "text": "Verify the news on reputable media websites before sharing"
+        "text": "Ignore school assignments and read clickbait gossip all afternoon."
       }
     ],
-    "correctAnswer": "D",
-    "explanation": "Farhan secara jelas menyarankan: 'We should check trusted national news outlets before forwarding it' (memverifikasi berita di portal terpercaya sebelum membagikannya).",
-    "grammarNote": "Modal of Advice: 'should check trusted news outlets before forwarding'."
+    "correctAnswer": "B",
+    "explanation": "Siswa laki-laki menyarankan untuk memverifikasi berita: 'We should check trusted national news outlets before forwarding it'. Pilihan B tepat.",
+    "grammarNote": "Modals of Recommendation: 'should check trusted outlets before forwarding'."
   },
   {
     "id": 5,
     "source": "Sumber: Panduan Guru Bahasa Inggris Fase F — Kurikulum Merdeka Kemendikbudristek",
     "type": "listening_dialog",
     "title": "Listening Section: Part II - Short Dialogues",
-    "audioText": "Number five. Listen to the conversation between Rian and Nita. Rian: Nita, which Indonesian folklore did your group choose for the English drama performance? Nita: We chose The Legend of Roro Jonggrang. It has powerful drama, especially the consequences of dishonest pride. Rian: That is a wonderful choice. Bandung Bondowoso had immense power, but his lack of respect ruined everything. Question: What moral aspect of the folklore does Nita emphasize?",
-    "prompt": "What moral aspect of the folklore does Nita emphasize in their conversation?",
+    "audioSegments": [
+      {
+        "role": "narrator",
+        "lang": "en-US",
+        "text": "Number five. Listen to a conversation between two students preparing a drama performance.",
+        "pauseAfter": 450
+      },
+      {
+        "gender": "male",
+        "pitch": 0.75,
+        "rateMultiplier": 0.94,
+        "text": "Which Indonesian folklore did your group choose for the English drama performance?",
+        "pauseAfter": 400
+      },
+      {
+        "gender": "female",
+        "pitch": 1.30,
+        "rateMultiplier": 1.04,
+        "text": "We chose The Legend of Roro Jonggrang. It has powerful drama, especially the consequences of dishonest pride.",
+        "pauseAfter": 400
+      },
+      {
+        "gender": "male",
+        "pitch": 0.75,
+        "rateMultiplier": 0.94,
+        "text": "That is a great choice! What moral lesson will your group emphasize?",
+        "pauseAfter": 400
+      },
+      {
+        "gender": "female",
+        "pitch": 1.30,
+        "rateMultiplier": 1.04,
+        "text": "We want to remind everyone that deceitful shortcuts always bring regret in the end.",
+        "pauseAfter": 500
+      },
+      {
+        "role": "narrator",
+        "lang": "en-US",
+        "text": "Question: What moral message will the students emphasize in their drama performance?"
+      }
+    ],
+    "stimulusTitle": "Audio Transcript (Listening)",
+    "stimulusBody": "<p><strong>Speaker 1 (Male):</strong> Which Indonesian folklore did your group choose for the English drama performance?</p><p><strong>Speaker 2 (Female):</strong> We chose The Legend of Roro Jonggrang. It has powerful drama, especially the consequences of dishonest pride.</p><p><strong>Speaker 1 (Male):</strong> That is a great choice! What moral lesson will your group emphasize?</p><p><strong>Speaker 2 (Female):</strong> We want to remind everyone that deceitful shortcuts always bring regret in the end.</p>",
+    "prompt": "What moral message will the students emphasize in their drama performance?",
     "options": [
       {
         "key": "A",
-        "text": "The negative consequences of dishonest pride and deceit"
+        "text": "That deceitful shortcuts and dishonesty always lead to regret."
       },
       {
         "key": "B",
-        "text": "The importance of winning every battle by any means"
+        "text": "That building stone temples overnight is an easy task for anyone."
       },
       {
         "key": "C",
-        "text": "The necessity of acquiring magical supernatural powers"
+        "text": "That breaking promises is acceptable when facing difficult challenges."
       },
       {
         "key": "D",
-        "text": "How to complete building projects quickly without help"
+        "text": "That physical wealth is the only important measure of human success."
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Nita menekankan: 'the consequences of dishonest pride' yang disetujui Rian bahwa ketidakhormatan dan keangkuhan menghancurkan segalanya. Pilihan B tepat.",
-    "grammarNote": "Noun phrase & Moral evaluation: 'the negative consequences of dishonest pride and deceit'."
+    "explanation": "Siswi perempuan menegaskan pesan moral pementasan: 'deceitful shortcuts always bring regret in the end'. Pilihan A paling tepat.",
+    "grammarNote": "Noun Clauses & Moral Lexis: 'that deceitful shortcuts always bring regret'."
   },
   {
     "id": 6,
     "source": "Sumber: Program Adiwiyata Sekolah Ramah Lingkungan — Kementerian Lingkungan Hidup dan Kehutanan",
     "type": "listening_dialog",
     "title": "Listening Section: Part II - Short Dialogues",
-    "audioText": "Number six. Listen to the dialogue between Mr. Bagus and Sarah. Mr. Bagus: Sarah, our student council should lead the zero single-use plastic campaign during recess. Sarah: Absolutely, sir. If every student brought a reusable water bottle and lunch box, our school waste would drop by forty percent. Mr. Bagus: Exactly. Let us begin by providing clean drinking water stations in every building. Question: What environmental solution does Sarah propose?",
-    "prompt": "What environmental solution does Sarah propose to reduce school waste?",
+    "audioSegments": [
+      {
+        "role": "narrator",
+        "lang": "en-US",
+        "text": "Number six. Listen to a dialogue between a teacher and a student council representative.",
+        "pauseAfter": 450
+      },
+      {
+        "gender": "male",
+        "pitch": 0.75,
+        "rateMultiplier": 0.94,
+        "text": "Our student council should lead the zero single-use plastic campaign during recess.",
+        "pauseAfter": 400
+      },
+      {
+        "gender": "female",
+        "pitch": 1.30,
+        "rateMultiplier": 1.04,
+        "text": "Absolutely, sir. If every student brought a reusable water bottle and lunch box, our school waste would drop dramatically.",
+        "pauseAfter": 400
+      },
+      {
+        "gender": "male",
+        "pitch": 0.75,
+        "rateMultiplier": 0.94,
+        "text": "Excellent. Let us draft an official announcement for the school assembly on Monday.",
+        "pauseAfter": 500
+      },
+      {
+        "role": "narrator",
+        "lang": "en-US",
+        "text": "Question: What eco-friendly initiative is proposed for the school assembly?"
+      }
+    ],
+    "stimulusTitle": "Audio Transcript (Listening)",
+    "stimulusBody": "<p><strong>Teacher (Male):</strong> Our student council should lead the zero single-use plastic campaign during recess.</p><p><strong>Student (Female):</strong> Absolutely, sir. If every student brought a reusable water bottle and lunch box, our school waste would drop dramatically.</p><p><strong>Teacher (Male):</strong> Excellent. Let us draft an official announcement for the school assembly on Monday.</p>",
+    "prompt": "What eco-friendly initiative is proposed for the school assembly?",
     "options": [
       {
         "key": "A",
-        "text": "Closing all school canteens permanently during recess"
+        "text": "Banning lunch breaks entirely during school examination week."
       },
       {
         "key": "B",
-        "text": "Encouraging students to bring reusable bottles and food containers"
+        "text": "Encouraging all students to bring reusable bottles and lunch boxes to reduce plastic waste."
       },
       {
         "key": "C",
-        "text": "Burning plastic waste behind the sports hall"
+        "text": "Buying disposable plastic cups in bulk for the school cafeteria."
       },
       {
         "key": "D",
-        "text": "Ordering packaged meals from outside catering vendors"
+        "text": "Canceling the student council meeting until next semester."
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Sarah mengusulkan: 'If every student brought a reusable water bottle and lunch box, our school waste would drop by forty percent' (membawa botol dan kotak makan yang dapat digunakan kembali).",
-    "grammarNote": "Conditional Sentence Type 2: 'If every student brought a reusable bottle..., our waste would drop...'."
+    "explanation": "Inisiatif ramah lingkungan yang diusulkan adalah membawa botol dan wadah makan reusable: 'If every student brought a reusable water bottle and lunch box, our school waste would drop dramatically'. Pilihan B tepat.",
+    "grammarNote": "Second Conditional (Hypothetical): 'If every student brought..., our school waste would drop'."
   },
+
   {
     "id": 7,
     "source": "Sumber: Rekaman Audio Cerita Rakyat Nusantara — Balai Bahasa Jawa Tengah",
@@ -1673,26 +1793,59 @@ if (typeof window !== "undefined" && window.speechSynthesis) {
 
 function getAvailableVoices() {
   if (!window.speechSynthesis) return [];
-  if (!cachedVoices || cachedVoices.length === 0) cachedVoices = window.speechSynthesis.getVoices();
-  return cachedVoices;
+  const live = window.speechSynthesis.getVoices();
+  if (live && live.length > 0) {
+    cachedVoices = live;
+    return live;
+  }
+  return cachedVoices || [];
+}
+
+if (typeof window !== "undefined" && window.speechSynthesis) {
+  window.speechSynthesis.onvoiceschanged = () => {
+    cachedVoices = window.speechSynthesis.getVoices();
+  };
 }
 
 function selectAudioVoice(role, gender, lang) {
   const voices = getAvailableVoices();
   if (!voices || voices.length === 0) return null;
+
   if (lang && lang.startsWith("id")) {
-    const idVoice = voices.find(v => v.lang.startsWith("id") || v.name.toLowerCase().includes("indonesia") || v.name.includes("Gadis") || v.name.includes("Ardi"));
+    const idVoice = voices.find(v => (v.lang && (v.lang.startsWith("id") || v.lang.startsWith("ID"))) || v.name.toLowerCase().includes("indonesia") || v.name.includes("Gadis") || v.name.includes("Ardi"));
     if (idVoice) return idVoice;
   }
-  const enVoices = voices.filter(v => v.lang.startsWith("en"));
-  if (gender === "female") {
-    const fVoice = enVoices.find(v => v.name.includes("Zira") || v.name.includes("Jenny") || v.name.includes("Aria") || v.name.toLowerCase().includes("female"));
-    if (fVoice) return fVoice;
-  } else if (gender === "male") {
-    const mVoice = enVoices.find(v => v.name.includes("David") || v.name.includes("Guy") || v.name.includes("Ryan") || v.name.toLowerCase().includes("male"));
-    if (mVoice) return mVoice;
+
+  const enVoices = voices.filter(v => v.lang && (v.lang.startsWith("en") || v.lang.startsWith("EN")));
+  if (enVoices.length === 0) return voices[0];
+
+  const femaleKeywords = ["female", "woman", "girl", "zira", "jenny", "aria", "samantha", "victoria", "karen", "fiona", "moira", "tessa", "clara", "libby", "ana", "sonia", "natasha", "google us english", "google uk english female"];
+  const maleKeywords = ["male", "man", "boy", "david", "guy", "mark", "ryan", "george", "daniel", "alex", "fred", "oliver", "steffan", "google uk english male", "james", "tom", "richard"];
+
+  const matchedFemale = enVoices.find(v => femaleKeywords.some(k => v.name.toLowerCase().includes(k)));
+  let matchedMale = enVoices.find(v => maleKeywords.some(k => v.name.toLowerCase().includes(k)));
+
+  // Ensure male and female are paired with different voices if at least 2 english voices exist
+  if (matchedFemale && matchedMale && matchedFemale.name === matchedMale.name && enVoices.length >= 2) {
+    matchedMale = enVoices.find(v => v.name !== matchedFemale.name) || matchedMale;
   }
-  return enVoices.find(v => v.name.includes("Natural") || v.name.includes("Google") || v.name.includes("David") || v.name.includes("Zira")) || enVoices[0] || voices[0];
+  if (!matchedMale && matchedFemale && enVoices.length >= 2) {
+    matchedMale = enVoices.find(v => v.name !== matchedFemale.name);
+  }
+  if (!matchedFemale && matchedMale && enVoices.length >= 2) {
+    const altFemale = enVoices.find(v => v.name !== matchedMale.name);
+    if (altFemale && gender === "female") return altFemale;
+  }
+
+  if (gender === "female") {
+    return matchedFemale || enVoices[0];
+  } else if (gender === "male") {
+    return matchedMale || (enVoices.length > 1 ? enVoices[1] : enVoices[0]);
+  }
+
+  // Default narrator voice
+  const narratorVoice = enVoices.find(v => v.name.includes("Natural") || v.name.includes("David") || v.name.includes("Google") || v.name.includes("Aria")) || enVoices[0];
+  return narratorVoice;
 }
 
 function stopAudio() {
@@ -1704,8 +1857,8 @@ function stopAudio() {
   const playBtn = document.getElementById("btn-play-audio");
   const statusText = document.getElementById("audio-status-text");
   if (playText) playText.textContent = "Putar Audio";
-  if (playBtn) playBtn.style.backgroundColor = "var(--accent-teal)";
-  if (statusText) statusText.textContent = "Klik 'Putar Audio' untuk menyimak wacana otentik.";
+  if (playBtn) playBtn.style.backgroundColor = "var(--royal-blue)";
+  if (statusText) statusText.textContent = "Klik 'Putar Audio' untuk mendengarkan kembali.";
 }
 
 function playQuestionAudio() {
@@ -1755,16 +1908,28 @@ function playNextAudioSegment() {
   const seg = audioQueue[audioQueueIdx++];
   const utt = new SpeechSynthesisUtterance(seg.text);
   utt.lang = seg.lang || "en-US";
-  utt.rate = audioSpeechRate * (seg.rateMultiplier || 1.0);
+
   const matchedVoice = selectAudioVoice(seg.role, seg.gender, seg.lang);
   if (matchedVoice) utt.voice = matchedVoice;
-  if (seg.pitch !== undefined) utt.pitch = seg.pitch;
-  else if (seg.gender === "female") utt.pitch = 1.25;
-  else if (seg.gender === "male") utt.pitch = 0.85;
-  else utt.pitch = 1.0;
+
+  if (seg.pitch !== undefined) {
+    utt.pitch = seg.pitch;
+  } else if (seg.gender === "female") {
+    utt.pitch = 1.30;
+  } else if (seg.gender === "male") {
+    utt.pitch = 0.75;
+  } else {
+    utt.pitch = 1.0;
+  }
+
+  let rateMult = seg.rateMultiplier || 1.0;
+  if (seg.gender === "female" && !seg.rateMultiplier) rateMult = 1.04;
+  else if (seg.gender === "male" && !seg.rateMultiplier) rateMult = 0.94;
+  else if (seg.role === "narrator" && !seg.rateMultiplier) rateMult = 0.96;
+  utt.rate = audioSpeechRate * rateMult;
 
   utt.onend = () => {
-    if (isAudioPlaying) setTimeout(playNextAudioSegment, seg.pauseAfter || 320);
+    if (isAudioPlaying) setTimeout(playNextAudioSegment, seg.pauseAfter || 360);
   };
   utt.onerror = () => {
     if (isAudioPlaying) playNextAudioSegment();

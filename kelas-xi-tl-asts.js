@@ -142,271 +142,215 @@ function getGrade11TLAstsQuestions() {
     "source": "Sumber: Modul Pembelajaran Bahasa Inggris Tingkat Lanjut Kelas XI — Kemendikbudristek",
     "type": "listening_dialog",
     "title": "Listening Section: Part II - Short Dialogues",
-    "audioText": "Number four. Listen to a conversation between Tari and her English teacher, Pak Wicaksono. Girl: Excuse me, Sir. In the legend we studied yesterday, why did the arrogant prince fail in the end? Teacher: Traditional legends teach us that physical strength and pride cannot force someone to respect us. Girl: So true greatness comes from humility and kindness toward others? Teacher: Exactly. Arrogance and selfish ambition will always lead to failure in the end. Question: What main lesson does the teacher explain?",
     "audioSegments": [
       {
-        "text": "Number four. Listen to a conversation between ",
-        "lang": "en-US",
-        "role": "narrator"
-      },
-      {
-        "text": "Tari",
-        "lang": "id-ID",
-        "role": "indonesian_name"
-      },
-      {
-        "text": " and her English teacher, ",
-        "lang": "en-US",
-        "role": "narrator"
-      },
-      {
-        "text": "Pak Wicaksono",
-        "lang": "id-ID",
-        "role": "indonesian_name"
-      },
-      {
-        "text": ".",
-        "lang": "en-US",
         "role": "narrator",
+        "lang": "en-US",
+        "text": "Number four. Listen to a conversation between a student and an English teacher.",
         "pauseAfter": 450
       },
       {
+        "gender": "female",
+        "pitch": 1.30,
+        "rateMultiplier": 1.04,
         "text": "Excuse me, Sir. In the legend we studied yesterday, why did the arrogant prince fail in the end?",
-        "lang": "en-US",
-        "gender": "female",
-        "pitch": 1.25,
-        "pauseAfter": 350
+        "pauseAfter": 400
       },
       {
+        "gender": "male",
+        "pitch": 0.75,
+        "rateMultiplier": 0.94,
         "text": "Traditional legends teach us that physical strength and pride cannot force someone to respect us.",
-        "lang": "en-US",
-        "gender": "male",
-        "pitch": 0.85,
-        "pauseAfter": 350
+        "pauseAfter": 400
       },
       {
+        "gender": "female",
+        "pitch": 1.30,
+        "rateMultiplier": 1.04,
         "text": "So true greatness comes from humility and kindness toward others?",
-        "lang": "en-US",
-        "gender": "female",
-        "pitch": 1.25,
-        "pauseAfter": 350
+        "pauseAfter": 400
       },
       {
+        "gender": "male",
+        "pitch": 0.75,
+        "rateMultiplier": 0.94,
         "text": "Exactly. Arrogance and selfish ambition will always lead to failure in the end.",
-        "lang": "en-US",
-        "gender": "male",
-        "pitch": 0.85,
-        "pauseAfter": 450
+        "pauseAfter": 500
       },
       {
-        "text": "Question: What main lesson does the teacher explain?",
-        "lang": "en-US",
-        "role": "narrator"
-      }
-    ],
-    "prompt": "What main moral lesson does the teacher emphasize in the conversation?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Building temples is the only way to gain royal respect"
-      },
-      {
-        "key": "B",
-        "text": "Physical power is the most valuable trait in human relationships"
-      },
-      {
-        "key": "C",
-        "text": "Students should avoid reading ancient folk legends"
-      },
-      {
-        "key": "D",
-        "text": "True respect and greatness cannot be achieved through arrogance or force"
-      }
-    ],
-    "correctAnswer": "D",
-    "explanation": "Pak Wicaksono menegaskan bahwa kekuatan dan kesombongan tidak dapat memaksakan rasa hormat, melainkan kebesaran sejati lahir dari kerendahan hati: 'strength and pride cannot force someone to respect us... Arrogance and selfish ambition will always lead to failure'. Pilihan A tepat.",
-    "grammarNote": "Moral theme synthesis: 'True respect and greatness cannot be achieved through arrogance or force'."
-  },
-  {
-    "id": 5,
-    "source": "Sumber: Panduan Pemanfaatan Teknologi untuk Pelajar — Dewan Pendidikan Nasional",
-    "type": "listening_dialog",
-    "title": "Listening Section: Part II - Short Dialogues",
-    "audioText": "Number five. Listen to a conversation between Kevin and Amanda. Boy: Amanda, what do you think about students using AI tools for homework? Girl: Using AI to understand difficult topics is helpful, but copying answers directly without thinking is a bad habit. Boy: I agree. We should treat it as a study guide, but the final writing must be our own work. Girl: Exactly. Developing our own critical thinking is much more valuable for our future. Question: What do Kevin and Amanda agree on regarding digital study tools?",
-    "audioSegments": [
-      {
-        "text": "Number five. Listen to a conversation between ",
-        "lang": "en-US",
-        "role": "narrator"
-      },
-      {
-        "text": "Kevin",
-        "lang": "id-ID",
-        "role": "indonesian_name"
-      },
-      {
-        "text": " and ",
-        "lang": "en-US",
-        "role": "narrator"
-      },
-      {
-        "text": "Amanda",
-        "lang": "id-ID",
-        "role": "indonesian_name"
-      },
-      {
-        "text": ".",
-        "lang": "en-US",
         "role": "narrator",
-        "pauseAfter": 450
-      },
-      {
-        "text": "Amanda, what do you think about students using AI tools for homework?",
         "lang": "en-US",
-        "gender": "male",
-        "pitch": 0.85,
-        "pauseAfter": 350
-      },
-      {
-        "text": "Using AI to understand difficult topics is helpful, but copying answers directly without thinking is a bad habit.",
-        "lang": "en-US",
-        "gender": "female",
-        "pitch": 1.25,
-        "pauseAfter": 350
-      },
-      {
-        "text": "I agree. We should treat it as a study guide, but the final writing must be our own work.",
-        "lang": "en-US",
-        "gender": "male",
-        "pitch": 0.85,
-        "pauseAfter": 350
-      },
-      {
-        "text": "Exactly. Developing our own critical thinking is much more valuable for our future.",
-        "lang": "en-US",
-        "gender": "female",
-        "pitch": 1.25,
-        "pauseAfter": 450
-      },
-      {
-        "text": "Question: What do Kevin and Amanda agree on regarding digital study tools?",
-        "lang": "en-US",
-        "role": "narrator"
+        "text": "Question: What main lesson does the teacher explain?"
       }
     ],
-    "prompt": "What do Kevin and Amanda agree on regarding the use of AI study tools?",
+    "stimulusTitle": "Audio Transcript (Listening)",
+    "stimulusBody": "<p><strong>Student (Female):</strong> Excuse me, Sir. In the legend we studied yesterday, why did the arrogant prince fail in the end?</p><p><strong>Teacher (Male):</strong> Traditional legends teach us that physical strength and pride cannot force someone to respect us.</p><p><strong>Student (Female):</strong> So true greatness comes from humility and kindness toward others?</p><p><strong>Teacher (Male):</strong> Exactly. Arrogance and selfish ambition will always lead to failure in the end.</p>",
+    "prompt": "What main moral lesson does the teacher explain in the conversation?",
     "options": [
       {
         "key": "A",
-        "text": "Students should use AI responsibly as a study guide while completing assignments with their own original work"
+        "text": "True greatness stems from humility, as arrogance leads to failure."
       },
       {
         "key": "B",
-        "text": "All electronic devices should be completely banned from secondary schools"
+        "text": "Physical power alone is enough to command genuine respect."
       },
       {
         "key": "C",
-        "text": "Copying AI-generated essays directly saves time and should be encouraged"
+        "text": "Selfish ambition should be pursued at all costs."
       },
       {
         "key": "D",
-        "text": "Writing by hand is no longer necessary in modern education"
+        "text": "Ancient stories have no relevance to contemporary life."
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Kevin dan Amanda sepakat bahwa AI bermanfaat sebagai alat bantu belajar (study guide), namun tugas akhir harus merupakan karya orisinal siswa sendiri guna melatih daya nalar kritis. Pilihan A tepat.",
-    "grammarNote": "Hortatory stance: 'should treat it as a study guide, but the final writing must be our own work'."
+    "explanation": "Guru menjelaskan bahwa kesombongan akan membawa kegagalan, dan kebesaran sejati datang dari kerendahan hati: 'Arrogance and selfish ambition will always lead to failure... true greatness comes from humility'. Pilihan A tepat.",
+    "grammarNote": "Noun Clauses & Inversion nuance: 'physical strength and pride cannot force someone to respect us'."
   },
   {
-    "id": 6,
-    "source": "Sumber: Forum Gerakan Sekolah Adiwiyata & Peduli Sampah Plastik — KLHK RI",
+    "id": 5,
+    "source": "Sumber: Cambridge Assessment English — B2 First for Schools & Kemendikbudristek",
     "type": "listening_dialog",
     "title": "Listening Section: Part II - Short Dialogues",
-    "audioText": "Number six. Listen to a conversation between Bima and Maya. Boy: Maya, our student council proposal for the school canteen is ready. Girl: Did you include the rule about single-use plastic cups? Boy: Yes. We recommend that every student bring a reusable water bottle, and the canteen replace plastic cups with washable glasses. Girl: That is a great step. Clear school rules will help everyone build sustainable habits. Question: What is the main objective of the student council proposal?",
     "audioSegments": [
       {
-        "text": "Number six. Listen to a conversation between ",
-        "lang": "en-US",
-        "role": "narrator"
-      },
-      {
-        "text": "Bima",
-        "lang": "id-ID",
-        "role": "indonesian_name"
-      },
-      {
-        "text": " and ",
-        "lang": "en-US",
-        "role": "narrator"
-      },
-      {
-        "text": "Maya",
-        "lang": "id-ID",
-        "role": "indonesian_name"
-      },
-      {
-        "text": ".",
-        "lang": "en-US",
         "role": "narrator",
+        "lang": "en-US",
+        "text": "Number five. Listen to a conversation between two high school students.",
         "pauseAfter": 450
       },
       {
-        "text": "Maya, our student council proposal for the school canteen is ready.",
-        "lang": "en-US",
         "gender": "male",
-        "pitch": 0.85,
-        "pauseAfter": 350
+        "pitch": 0.75,
+        "rateMultiplier": 0.94,
+        "text": "What do you think about students using AI tools to write their English book reviews?",
+        "pauseAfter": 400
       },
       {
-        "text": "Did you include the rule about single-use plastic cups?",
-        "lang": "en-US",
         "gender": "female",
-        "pitch": 1.25,
-        "pauseAfter": 350
+        "pitch": 1.30,
+        "rateMultiplier": 1.04,
+        "text": "Using AI to understand difficult topics is helpful, but letting it write our assignments means we miss the chance to develop our own critical thinking.",
+        "pauseAfter": 400
       },
       {
-        "text": "Yes. We recommend that every student bring a reusable water bottle, and the canteen replace plastic cups with washable glasses.",
-        "lang": "en-US",
         "gender": "male",
-        "pitch": 0.85,
-        "pauseAfter": 350
+        "pitch": 0.75,
+        "rateMultiplier": 0.94,
+        "text": "I agree. We should treat it as a study guide, but write our own original analyses.",
+        "pauseAfter": 400
       },
       {
-        "text": "That is a great step. Clear school rules will help everyone build sustainable habits.",
-        "lang": "en-US",
         "gender": "female",
-        "pitch": 1.25,
-        "pauseAfter": 450
+        "pitch": 1.30,
+        "rateMultiplier": 1.04,
+        "text": "Exactly. Developing our own critical thinking is much more valuable.",
+        "pauseAfter": 500
       },
       {
-        "text": "Question: What is the main objective of the student council proposal?",
+        "role": "narrator",
         "lang": "en-US",
-        "role": "narrator"
+        "text": "Question: What do both students conclude regarding artificial intelligence in learning?"
       }
     ],
-    "prompt": "What is the main objective of the student council proposal?",
+    "stimulusTitle": "Audio Transcript (Listening)",
+    "stimulusBody": "<p><strong>Speaker 1 (Male):</strong> What do you think about students using AI tools to write their English book reviews?</p><p><strong>Speaker 2 (Female):</strong> Using AI to understand difficult topics is helpful, but letting it write our assignments means we miss the chance to develop our own critical thinking.</p><p><strong>Speaker 1 (Male):</strong> I agree. We should treat it as a study guide, but write our own original analyses.</p><p><strong>Speaker 2 (Female):</strong> Exactly. Developing our own critical thinking is much more valuable.</p>",
+    "prompt": "What do both students agree on regarding the use of AI in learning?",
     "options": [
       {
         "key": "A",
-        "text": "To close the school canteen during lunchtime"
+        "text": "AI should be used as a helpful guide while students write their own original critical thoughts."
       },
       {
         "key": "B",
-        "text": "To reduce plastic waste by encouraging reusable bottles and washable glasses in the school canteen"
+        "text": "AI software should be banned completely from all academic institutions."
       },
       {
         "key": "C",
-        "text": "To increase the prices of snacks sold at school"
+        "text": "Students should submit AI-generated book reviews without checking them."
       },
       {
         "key": "D",
-        "text": "To forbid students from eating meals during school breaks"
+        "text": "Critical thinking is no longer needed in the modern digital age."
       }
     ],
-    "correctAnswer": "B",
-    "explanation": "Tujuan utama proposal OSIS adalah mengurangi sampah plastik dengan botol minum ulang dan gelas yang dapat dicuci di kantin: 'reduce plastic waste by encouraging reusable bottles'. Pilihan A tepat.",
-    "grammarNote": "Purpose clause with infinitive: 'To reduce plastic waste by encouraging reusable bottles...'."
+    "correctAnswer": "A",
+    "explanation": "Kedua siswa sepakat bahwa AI dapat digunakan sebagai panduan belajar, tetapi siswa harus tetap menyusun analisis kritis orisinal sendiri. Pilihan A tepat.",
+    "grammarNote": "Gerund as Subject & Evaluative Adjectives: 'Using AI... is helpful', 'Developing our own critical thinking is much more valuable'."
   },
+  {
+    "id": 6,
+    "source": "Sumber: Modul Pembelajaran Bahasa Inggris Tingkat Lanjut Kelas XI — Kemendikbudristek",
+    "type": "listening_dialog",
+    "title": "Listening Section: Part II - Short Dialogues",
+    "audioSegments": [
+      {
+        "role": "narrator",
+        "lang": "en-US",
+        "text": "Number six. Listen to a conversation between two student council members.",
+        "pauseAfter": 450
+      },
+      {
+        "gender": "male",
+        "pitch": 0.75,
+        "rateMultiplier": 0.94,
+        "text": "Our student council proposal for the green school campaign is almost ready.",
+        "pauseAfter": 400
+      },
+      {
+        "gender": "female",
+        "pitch": 1.30,
+        "rateMultiplier": 1.04,
+        "text": "Did you include the rule about single-use plastic bottles in the canteen?",
+        "pauseAfter": 400
+      },
+      {
+        "gender": "male",
+        "pitch": 0.75,
+        "rateMultiplier": 0.94,
+        "text": "Yes. We recommend that every student bring a reusable bottle and food container from home.",
+        "pauseAfter": 400
+      },
+      {
+        "gender": "female",
+        "pitch": 1.30,
+        "rateMultiplier": 1.04,
+        "text": "That is a great step. Clear school rules will help reduce our plastic waste significantly.",
+        "pauseAfter": 500
+      },
+      {
+        "role": "narrator",
+        "lang": "en-US",
+        "text": "Question: What is the main objective of the student council proposal?"
+      }
+    ],
+    "stimulusTitle": "Audio Transcript (Listening)",
+    "stimulusBody": "<p><strong>Speaker 1 (Male):</strong> Our student council proposal for the green school campaign is almost ready.</p><p><strong>Speaker 2 (Female):</strong> Did you include the rule about single-use plastic bottles in the canteen?</p><p><strong>Speaker 1 (Male):</strong> Yes. We recommend that every student bring a reusable bottle and food container from home.</p><p><strong>Speaker 2 (Female):</strong> That is a great step. Clear school rules will help reduce our plastic waste significantly.</p>",
+    "prompt": "What is the primary objective of the student council proposal?",
+    "options": [
+      {
+        "key": "A",
+        "text": "To reduce plastic waste by encouraging reusable bottles and food containers."
+      },
+      {
+        "key": "B",
+        "text": "To close down the school cafeteria permanently during recess."
+      },
+      {
+        "key": "C",
+        "text": "To sell branded bottled water at higher prices to students."
+      },
+      {
+        "key": "D",
+        "text": "To cancel all environmental programs for the remainder of the year."
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Tujuan proposal OSIS adalah mengurangi sampah plastik dengan mewajibkan botol dan wadah makan isi ulang. Pilihan A tepat.",
+    "grammarNote": "Subjunctive / Recommendation Structure: 'recommend that every student bring a reusable bottle'."
+  },
+
   {
     "id": 7,
     "source": "Sumber: Seri Apresiasi Cerita Rakyat Nusantara — Balai Bahasa & Kemendikbudristek",
@@ -1907,26 +1851,59 @@ if (typeof window !== "undefined" && window.speechSynthesis) {
 
 function getAvailableVoices() {
   if (!window.speechSynthesis) return [];
-  if (!cachedVoices || cachedVoices.length === 0) cachedVoices = window.speechSynthesis.getVoices();
-  return cachedVoices;
+  const live = window.speechSynthesis.getVoices();
+  if (live && live.length > 0) {
+    cachedVoices = live;
+    return live;
+  }
+  return cachedVoices || [];
+}
+
+if (typeof window !== "undefined" && window.speechSynthesis) {
+  window.speechSynthesis.onvoiceschanged = () => {
+    cachedVoices = window.speechSynthesis.getVoices();
+  };
 }
 
 function selectAudioVoice(role, gender, lang) {
   const voices = getAvailableVoices();
   if (!voices || voices.length === 0) return null;
+
   if (lang && lang.startsWith("id")) {
-    const idVoice = voices.find(v => v.lang.startsWith("id") || v.name.toLowerCase().includes("indonesia") || v.name.includes("Gadis") || v.name.includes("Ardi"));
+    const idVoice = voices.find(v => (v.lang && (v.lang.startsWith("id") || v.lang.startsWith("ID"))) || v.name.toLowerCase().includes("indonesia") || v.name.includes("Gadis") || v.name.includes("Ardi"));
     if (idVoice) return idVoice;
   }
-  const enVoices = voices.filter(v => v.lang.startsWith("en"));
-  if (gender === "female") {
-    const fVoice = enVoices.find(v => v.name.includes("Zira") || v.name.includes("Jenny") || v.name.includes("Aria") || v.name.toLowerCase().includes("female"));
-    if (fVoice) return fVoice;
-  } else if (gender === "male") {
-    const mVoice = enVoices.find(v => v.name.includes("David") || v.name.includes("Guy") || v.name.includes("Ryan") || v.name.toLowerCase().includes("male"));
-    if (mVoice) return mVoice;
+
+  const enVoices = voices.filter(v => v.lang && (v.lang.startsWith("en") || v.lang.startsWith("EN")));
+  if (enVoices.length === 0) return voices[0];
+
+  const femaleKeywords = ["female", "woman", "girl", "zira", "jenny", "aria", "samantha", "victoria", "karen", "fiona", "moira", "tessa", "clara", "libby", "ana", "sonia", "natasha", "google us english", "google uk english female"];
+  const maleKeywords = ["male", "man", "boy", "david", "guy", "mark", "ryan", "george", "daniel", "alex", "fred", "oliver", "steffan", "google uk english male", "james", "tom", "richard"];
+
+  const matchedFemale = enVoices.find(v => femaleKeywords.some(k => v.name.toLowerCase().includes(k)));
+  let matchedMale = enVoices.find(v => maleKeywords.some(k => v.name.toLowerCase().includes(k)));
+
+  // Ensure male and female are paired with different voices if at least 2 english voices exist
+  if (matchedFemale && matchedMale && matchedFemale.name === matchedMale.name && enVoices.length >= 2) {
+    matchedMale = enVoices.find(v => v.name !== matchedFemale.name) || matchedMale;
   }
-  return enVoices.find(v => v.name.includes("Natural") || v.name.includes("Google") || v.name.includes("David") || v.name.includes("Zira")) || enVoices[0] || voices[0];
+  if (!matchedMale && matchedFemale && enVoices.length >= 2) {
+    matchedMale = enVoices.find(v => v.name !== matchedFemale.name);
+  }
+  if (!matchedFemale && matchedMale && enVoices.length >= 2) {
+    const altFemale = enVoices.find(v => v.name !== matchedMale.name);
+    if (altFemale && gender === "female") return altFemale;
+  }
+
+  if (gender === "female") {
+    return matchedFemale || enVoices[0];
+  } else if (gender === "male") {
+    return matchedMale || (enVoices.length > 1 ? enVoices[1] : enVoices[0]);
+  }
+
+  // Default narrator voice
+  const narratorVoice = enVoices.find(v => v.name.includes("Natural") || v.name.includes("David") || v.name.includes("Google") || v.name.includes("Aria")) || enVoices[0];
+  return narratorVoice;
 }
 
 function stopAudio() {
@@ -1938,8 +1915,8 @@ function stopAudio() {
   const playBtn = document.getElementById("btn-play-audio");
   const statusText = document.getElementById("audio-status-text");
   if (playText) playText.textContent = "Putar Audio";
-  if (playBtn) playBtn.style.backgroundColor = "var(--accent-teal)";
-  if (statusText) statusText.textContent = "Klik 'Putar Audio' untuk menyimak wacana otentik.";
+  if (playBtn) playBtn.style.backgroundColor = "var(--royal-blue)";
+  if (statusText) statusText.textContent = "Klik 'Putar Audio' untuk mendengarkan kembali.";
 }
 
 function playQuestionAudio() {
@@ -1989,16 +1966,28 @@ function playNextAudioSegment() {
   const seg = audioQueue[audioQueueIdx++];
   const utt = new SpeechSynthesisUtterance(seg.text);
   utt.lang = seg.lang || "en-US";
-  utt.rate = audioSpeechRate * (seg.rateMultiplier || 1.0);
+
   const matchedVoice = selectAudioVoice(seg.role, seg.gender, seg.lang);
   if (matchedVoice) utt.voice = matchedVoice;
-  if (seg.pitch !== undefined) utt.pitch = seg.pitch;
-  else if (seg.gender === "female") utt.pitch = 1.25;
-  else if (seg.gender === "male") utt.pitch = 0.85;
-  else utt.pitch = 1.0;
+
+  if (seg.pitch !== undefined) {
+    utt.pitch = seg.pitch;
+  } else if (seg.gender === "female") {
+    utt.pitch = 1.30;
+  } else if (seg.gender === "male") {
+    utt.pitch = 0.75;
+  } else {
+    utt.pitch = 1.0;
+  }
+
+  let rateMult = seg.rateMultiplier || 1.0;
+  if (seg.gender === "female" && !seg.rateMultiplier) rateMult = 1.04;
+  else if (seg.gender === "male" && !seg.rateMultiplier) rateMult = 0.94;
+  else if (seg.role === "narrator" && !seg.rateMultiplier) rateMult = 0.96;
+  utt.rate = audioSpeechRate * rateMult;
 
   utt.onend = () => {
-    if (isAudioPlaying) setTimeout(playNextAudioSegment, seg.pauseAfter || 320);
+    if (isAudioPlaying) setTimeout(playNextAudioSegment, seg.pauseAfter || 360);
   };
   utt.onerror = () => {
     if (isAudioPlaying) playNextAudioSegment();
