@@ -165,38 +165,39 @@ function verifyPassword(tingkat, inputPassword) {
  * Menentukan nama sheet terpisah berdasarkan jenis asesmen dan tingkat kelas
  */
 function resolveSheetName(data) {
+  if (!data) data = {};
   if (data.sheetName) return String(data.sheetName).trim();
   
-  const jenis = String(data.jenisAsesmen || data.assessmentType || "").trim().toUpperCase();
-  const tingkat = String(data.tingkat || "").trim().toUpperCase();
-  const modeStr = String(data.mode || "").toUpperCase();
+  var jenisAsesmenInput = String(data.jenisAsesmen || data.assessmentType || "").trim().toUpperCase();
+  var tingkatInput = String(data.tingkat || "").trim().toUpperCase();
+  var modeStrInput = String(data.mode || "").toUpperCase();
   
-  let tingkatLabel = "Lainnya";
-  if (tingkat === "X-E" || (tingkat.includes("X") && !tingkat.includes("XI") && !tingkat.includes("XII"))) {
+  var tingkatLabel = "Lainnya";
+  if (tingkatInput === "X-E" || (tingkatInput.includes("X") && !tingkatInput.includes("XI") && !tingkatInput.includes("XII"))) {
     tingkatLabel = "Kelas_X";
-  } else if (tingkat === "XI-F" || (tingkat === "XI" && !tingkat.includes("TL"))) {
+  } else if (tingkatInput === "XI-F" || (tingkatInput === "XI" && !tingkatInput.includes("TL"))) {
     tingkatLabel = "Kelas_XI_Wajib";
-  } else if (tingkat === "XI-TL" || (tingkat.includes("XI") && tingkat.includes("TL"))) {
+  } else if (tingkatInput === "XI-TL" || (tingkatInput.includes("XI") && tingkatInput.includes("TL"))) {
     tingkatLabel = "Kelas_XI_TL";
-  } else if (tingkat === "XII-F" || (tingkat === "XII" && !tingkat.includes("TL"))) {
+  } else if (tingkatInput === "XII-F" || (tingkatInput === "XII" && !tingkatInput.includes("TL"))) {
     tingkatLabel = "Kelas_XII_Wajib";
-  } else if (tingkat === "XII-TL" || (tingkat.includes("XII") && tingkat.includes("TL"))) {
+  } else if (tingkatInput === "XII-TL" || (tingkatInput.includes("XII") && tingkatInput.includes("TL"))) {
     tingkatLabel = "Kelas_XII_TL";
   }
   
-  const isAsas = jenis.includes("ASAS") || modeStr.includes("ASAS") || String(data.testType || "").toUpperCase().includes("ASAS");
-  const prefix = isAsas ? "ASAS" : "ASTS";
+  var isAsas = jenisAsesmenInput.includes("ASAS") || modeStrInput.includes("ASAS") || String(data.testType || "").toUpperCase().includes("ASAS");
+  var prefix = isAsas ? "ASAS" : "ASTS";
   return prefix + "_" + tingkatLabel;
 }
 
 /**
  * Mengambil atau membuat sheet terpisah dengan header berformat profesional
  */
-function getTargetScoreSheet(ss, sheetName, jenis) {
-  let sheet = ss.getSheetByName(sheetName);
+function getTargetScoreSheet(ss, sheetName, jenisKategori) {
+  var sheet = ss.getSheetByName(sheetName);
   if (!sheet) {
     sheet = ss.insertSheet(sheetName);
-    const headers = [
+    var headers = [
       "Timestamp",
       "Tingkat",
       "Rombel",
@@ -214,7 +215,7 @@ function getTargetScoreSheet(ss, sheetName, jenis) {
     sheet.appendRow(headers);
     
     // Warna Header: Biru Tua untuk ASTS, Hijau Emerald untuk ASAS
-    const headerColor = (jenis && jenis.includes("ASAS")) ? "#065F46" : "#1E3A8A";
+    var headerColor = (jenisKategori && jenisKategori.includes("ASAS")) ? "#065F46" : "#1E3A8A";
     
     sheet.getRange(1, 1, 1, headers.length)
          .setBackground(headerColor)
@@ -230,24 +231,26 @@ function getTargetScoreSheet(ss, sheetName, jenis) {
  * Menyimpan data nilai siswa ke Sheet terpisah dan Sheet Master
  */
 function recordStudentScore(data) {
-  const ss = getSpreadsheet();
-  const jenis = String(data.jenisAsesmen || data.assessmentType || (String(data.mode || "").toUpperCase().includes("ASAS") ? "ASAS" : "ASTS")).toUpperCase();
-  const targetSheetName = resolveSheetName(data);
-  const targetSheet = getTargetScoreSheet(ss, targetSheetName, jenis);
+  if (!data) data = {};
+  var ss = getSpreadsheet();
+  var modeStr = String(data.mode || "").toUpperCase();
+  var jenisAsesmenStr = String(data.jenisAsesmen || data.assessmentType || (modeStr.includes("ASAS") ? "ASAS" : "ASTS")).toUpperCase();
+  var targetSheetName = resolveSheetName(data);
+  var targetSheet = getTargetScoreSheet(ss, targetSheetName, jenisAsesmenStr);
   
-  const timestamp = new Date();
-  const score = Number(data.score || 0);
-  const total = Number(data.total || 40);
-  const grade = Number(data.grade !== undefined ? data.grade : Math.round((score / total) * 100));
-  const kktpStatus = grade >= 75 ? "TUNTAS" : "BELUM TUNTAS";
+  var timestamp = new Date();
+  var score = Number(data.score || 0);
+  var total = Number(data.total || 40);
+  var grade = Number(data.grade !== undefined ? data.grade : Math.round((score / total) * 100));
+  var kktpStatus = grade >= 75 ? "TUNTAS" : "BELUM TUNTAS";
   
-  const row = [
+  var row = [
     timestamp,
     data.tingkat || "-",
     data.rombel || "-",
     data.presensi || "-",
     data.nama || "-",
-    jenis,
+    jenisAsesmenStr,
     data.mode || "Asesmen Resmi",
     score,
     total,
