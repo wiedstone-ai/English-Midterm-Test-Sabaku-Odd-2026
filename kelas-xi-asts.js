@@ -1,1393 +1,834 @@
 /**
  * ASESMEN SUMATIF TENGAH SEMESTER (ASTS) GASAL 2026
  * SMA NEGERI 1 BAE KUDUS (SABAKU)
- * BAHASA INGGRIS TINGKAT XI (FASE F)
- * Standar: TKA & AKM Literasi (Pilihan Ganda Biasa, Kompleks Matrix, & MCMA)
- * Dilengkapi Verifikasi Password ASTS Terpadu
+ * BAHASA INGGRIS TINGKAT XI — FASE F (REGULER / WAJIB)
+ * Standar: TKA & AKM Literasi (Pilihan Ganda, Matrix Kompleks, & MCMA - CEFR A2 Menuju B1)
  */
 
 const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbz1dnapNS6sFak-BlG-xxaFhGR9f0BhGYKyyddEvmIEOTxPrlARC2tHkeLLP1owzBToIw/exec";
 
 const SVG_PICTURES = {
-  laptopResearch: `<svg viewBox="0 0 100 100" fill="none" stroke="#2563eb" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="24" width="60" height="42" rx="3" fill="#eff6ff" stroke="#2563eb"/><path d="M12 70h76l-4 6H16l-4-6z" fill="#cbd5e1" stroke="#2563eb"/><circle cx="50" cy="45" r="10" stroke="#3b82f6" stroke-dasharray="3 3"/><path d="M50 39v12M44 45h12" stroke="#1d4ed8"/><circle cx="50" cy="73" r="1.5" fill="#475569"/></svg>`,
-  antiqueBook: `<svg viewBox="0 0 100 100" fill="none" stroke="#b45309" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 72c15-8 35-4 35 10 0-14 20-18 35-10V28c-15-8-35-4-35 10 0-14-20-18-35-10v44z" fill="#fef3c7" stroke="#b45309"/><path d="M50 38v44M25 40h15M25 50h15M60 40h15M60 50h15" stroke="#d97706"/></svg>`,
-  microphoneStage: `<svg viewBox="0 0 100 100" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="42" y="16" width="16" height="26" rx="8" fill="#f3e8ff" stroke="#7c3aed"/><path d="M34 32c0 10 7 18 16 18s16-8 16-18M50 50v24M35 74h30" stroke="#7c3aed" stroke-width="2.5"/><path d="M20 85h60" stroke="#64748b" stroke-width="3"/></svg>`,
-  smartphoneVideo: `<svg viewBox="0 0 100 100" fill="none" stroke="#e11d48" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="34" y="16" width="32" height="54" rx="5" fill="#fff1f2" stroke="#e11d48"/><circle cx="50" cy="62" r="3" fill="#e11d48"/><circle cx="50" cy="36" r="8" fill="#fda4af" stroke="#e11d48"/><polygon points="48,32 55,36 48,40" fill="#be123c"/><path d="M30 84l20-14 20 14" stroke="#475569" stroke-width="2.5"/></svg>`,
-
-  fishingPort: `<svg viewBox="0 0 100 100" fill="none" stroke="#0284c7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 75c12-4 24 2 36-2s24-2 44 2" stroke="#0284c7" stroke-width="2.5"/><path d="M20 65l10 10h24l6-10H20z" fill="#e0f2fe" stroke="#0369a1"/><path d="M42 65V42l16 8-16 4" stroke="#0369a1" fill="#bae6fd"/><path d="M12 70v15M24 70v15M8 72h24" stroke="#78350f" stroke-width="2"/></svg>`,
-  templeRuins: `<svg viewBox="0 0 100 100" fill="none" stroke="#d97706" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 85h80M22 70h56M34 55h32M44 40h12M50 20v20"/><path d="M30 85V70M70 85V70M40 70V55M60 70V55M47 55V40M53 55V40"/><circle cx="50" cy="17" r="3" fill="#d97706"/><path d="M15 85l6-15M85 85l-6-15" stroke="#b45309"/></svg>`,
-  suspensionBridge: `<svg viewBox="0 0 100 100" fill="none" stroke="#6366f1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 68h80M25 22v52M75 22v52" stroke="#4338ca" stroke-width="2.5"/><path d="M10 50c15-15 25-22 40 0s25 15 40 0" stroke="#6366f1"/><path d="M25 22l25 28 25-28" stroke="#818cf8"/><path d="M10 80c10-3 20 3 40 0s30 3 40 0" stroke="#38bdf8"/></svg>`,
-  mountainSummit: `<svg viewBox="0 0 100 100" fill="none" stroke="#475569" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="30" cy="28" r="8" fill="#fef08a" stroke="#eab308"/><path d="M10 85l32-45 18 22 14-16 16 39H10z" fill="#f8fafc" stroke="#475569" stroke-width="2.2"/><path d="M36 48l6 8 8-4" stroke="#94a3b8"/></svg>`,
-
-  fuelStation: `<svg viewBox="0 0 100 100" fill="none" stroke="#ef4444" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="25" y="32" width="36" height="52" rx="4" fill="#fef2f2" stroke="#dc2626"/><rect x="33" y="40" width="20" height="15" fill="#fee2e2" stroke="#ef4444"/><path d="M61 44h10c4 0 6 3 6 7v20l-4 3" stroke="#b91c1c" stroke-width="2.5"/><rect x="20" y="84" width="46" height="5" fill="#64748b"/></svg>`,
-  smokestackFactory: `<svg viewBox="0 0 100 100" fill="none" stroke="#475569" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="52" width="60" height="32" fill="#f1f5f9" stroke="#475569"/><polygon points="30,52 32,25 40,25 42,52" fill="#e2e8f0" stroke="#475569"/><polygon points="50,52 52,30 58,30 60,52" fill="#e2e8f0" stroke="#475569"/><path d="M36 20c2-5 6-5 8 0s6 5 8 0M55 24c2-4 5-4 7 0" stroke="#94a3b8" stroke-width="2"/></svg>`,
-  solarRooftop: `<svg viewBox="0 0 100 100" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 85V50l35-22 35 22v35H15z" fill="#f0fdf4" stroke="#059669"/><path d="M22 46l28-18 28 18" stroke="#047857" stroke-width="3"/><path d="M52 58h28v24H52z" fill="#bae6fd" stroke="#0284c7"/><path d="M66 58v24M52 70h28" stroke="#0284c7"/><circle cx="82" cy="22" r="8" fill="#fef08a" stroke="#eab308"/></svg>`,
-  hydroDam: `<svg viewBox="0 0 100 100" fill="none" stroke="#0284c7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 40h70l-10 44H25L15 40z" fill="#e0f2fe" stroke="#0369a1" stroke-width="2.5"/><path d="M35 40v44M50 40v44M65 40v44" stroke="#0284c7" stroke-width="2"/><path d="M40 70c4 5 8 5 12 0s8-5 12 0" stroke="#38bdf8" stroke-width="2"/><path d="M10 84h80" stroke="#64748b" stroke-width="3"/></svg>`
+  digitalClass: `<svg viewBox="0 0 100 100" fill="none" stroke="#2563eb" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="18" y="22" width="64" height="46" rx="4" fill="#eff6ff" stroke="#2563eb"/><circle cx="50" cy="45" r="14" stroke="#3b82f6" stroke-width="2" stroke-dasharray="3 3"/><line x1="50" y1="36" x2="50" y2="54" stroke="#1d4ed8"/><line x1="41" y1="45" x2="59" y2="45" stroke="#1d4ed8"/><path d="M26 32h14M26 38h10M60 52h14M60 58h10" stroke="#93c5fd"/><path d="M30 76l20-8 20 8" stroke="#475569" stroke-width="2"/><line x1="50" y1="68" x2="50" y2="84" stroke="#475569" stroke-width="3"/></svg>`,
+  ancientTemple: `<svg viewBox="0 0 100 100" fill="none" stroke="#b45309" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 75c8-18 36-24 76 0" stroke="#78350f" stroke-width="3"/><path d="M22 62c6-14 28-18 56 0" stroke="#b45309" stroke-dasharray="2 2"/><polygon points="50,15 35,45 65,45" fill="#fef3c7" stroke="#d97706"/><circle cx="50" cy="30" r="5" fill="#d97706"/><path d="M38 48h24v20H38z" fill="#fef9c3" stroke="#ca8a04"/><path d="M42 48v20M58 48v20" stroke="#b45309"/><line x1="15" y1="84" x2="85" y2="84" stroke="#64748b"/></svg>`,
+  solarRooftop: `<svg viewBox="0 0 100 100" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 85c15-8 30-14 70-4" stroke="#16a34a" stroke-width="3"/><path d="M35 80V50c0-12 12-22 25-22s25 10 25 22v30H35z" fill="#ecfdf5" stroke="#059669"/><path d="M50 28v-12M42 16h16" stroke="#047857" stroke-width="2"/><circle cx="60" cy="46" r="6" fill="#fef08a" stroke="#ca8a04"/><line x1="60" y1="40" x2="75" y2="28" stroke="#0284c7" stroke-width="2.5"/><circle cx="75" cy="28" r="3" fill="#0284c7"/></svg>`,
+  industrialFactory: `<svg viewBox="0 0 100 100" fill="none" stroke="#475569" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="50" width="30" height="35" fill="#f1f5f9"/><rect x="55" y="40" width="25" height="45" fill="#e2e8f0"/><line x1="35" y1="50" x2="35" y2="25" stroke="#64748b" stroke-width="2.5"/><line x1="68" y1="40" x2="68" y2="20" stroke="#64748b" stroke-width="2.5"/><path d="M30 20c3-5 7-5 10 0M63 15c3-5 7-5 10 0" stroke="#94a3b8"/></svg>`
 };
 
 function getGrade11AstsQuestions() {
   return [
-  {
-    "id": 1,
-    "source": "Sumber: Audio Pembelajaran Bahasa Inggris Tingkat Lanjut — Kemendikbudristek & BBC Learning English",
-    "type": "listening_pictures",
-    "title": "Listening Section: Part I - Pictures",
-    "audioText": "Number one. Look at the pictures. A high school student is sitting at his study desk with a modern open laptop, carefully cross-checking references and taking notes to verify the accuracy of online news. Which picture best illustrates the spoken statement?",
-    "prompt": "Look at the four pictures below. Which picture best represents the digital literacy activity described in the audio?",
-    "options": [
-      {
-        "key": "A",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"20\" y=\"24\" width=\"60\" height=\"42\" rx=\"3\" fill=\"#eff6ff\" stroke=\"#2563eb\"/><path d=\"M12 70h76l-4 6H16l-4-6z\" fill=\"#cbd5e1\" stroke=\"#2563eb\"/><circle cx=\"50\" cy=\"45\" r=\"10\" stroke=\"#3b82f6\" stroke-dasharray=\"3 3\"/><path d=\"M50 39v12M44 45h12\" stroke=\"#1d4ed8\"/><circle cx=\"50\" cy=\"73\" r=\"1.5\" fill=\"#475569\"/></svg>",
-        "label": "A student conducting digital research and fact-checking on a laptop"
-      },
-      {
-        "key": "B",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#b45309\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M15 72c15-8 35-4 35 10 0-14 20-18 35-10V28c-15-8-35-4-35 10 0-14-20-18-35-10v44z\" fill=\"#fef3c7\" stroke=\"#b45309\"/><path d=\"M50 38v44M25 40h15M25 50h15M60 40h15M60 50h15\" stroke=\"#d97706\"/></svg>",
-        "label": "Reading an antique book quietly in a library"
-      },
-      {
-        "key": "C",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#7c3aed\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"42\" y=\"16\" width=\"16\" height=\"26\" rx=\"8\" fill=\"#f3e8ff\" stroke=\"#7c3aed\"/><path d=\"M34 32c0 10 7 18 16 18s16-8 16-18M50 50v24M35 74h30\" stroke=\"#7c3aed\" stroke-width=\"2.5\"/><path d=\"M20 85h60\" stroke=\"#64748b\" stroke-width=\"3\"/></svg>",
-        "label": "Speaking into a microphone on an empty stage"
-      },
-      {
-        "key": "D",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#e11d48\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"34\" y=\"16\" width=\"32\" height=\"54\" rx=\"5\" fill=\"#fff1f2\" stroke=\"#e11d48\"/><circle cx=\"50\" cy=\"62\" r=\"3\" fill=\"#e11d48\"/><circle cx=\"50\" cy=\"36\" r=\"8\" fill=\"#fda4af\" stroke=\"#e11d48\"/><polygon points=\"48,32 55,36 48,40\" fill=\"#be123c\"/><path d=\"M30 84l20-14 20 14\" stroke=\"#475569\" stroke-width=\"2.5\"/></svg>",
-        "label": "Recording a vertical short video with a smartphone camera"
-      }
-    ],
-    "correctAnswer": "A",
-    "explanation": "Audio mendeskripsikan seorang siswa yang duduk di meja belajarnya dengan laptop terbuka modern, sedang tekun menyusun artikel esai analitis di kamarnya yang tertata rapi.",
-    "grammarNote": "Present Continuous Tense ('is sitting', 'cross-checking') & Digital Literacy Lexis (verify, accuracy, references)."
-  },
-  {
-    "id": 2,
-    "source": "Sumber: Arsip Balai Pelestarian Kebudayaan Wilayah X — Cerita Rakyat & Candi Nusantara",
-    "type": "listening_pictures",
-    "title": "Listening Section: Part I - Pictures",
-    "audioText": "Number two. Look at the pictures. This magnificent Indonesian cultural destination displays monumental stone temples built with detailed tiers and ornamental gates, celebrated in ancient Central Javanese legends. Which picture matches the description?",
-    "prompt": "Which picture corresponds to the monumental ancient stone temple landmark mentioned in the audio?",
-    "options": [
-      {
-        "key": "A",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#0284c7\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M10 75c12-4 24 2 36-2s24-2 44 2\" stroke=\"#0284c7\" stroke-width=\"2.5\"/><path d=\"M20 65l10 10h24l6-10H20z\" fill=\"#e0f2fe\" stroke=\"#0369a1\"/><path d=\"M42 65V42l16 8-16 4\" stroke=\"#0369a1\" fill=\"#bae6fd\"/><path d=\"M12 70v15M24 70v15M8 72h24\" stroke=\"#78350f\" stroke-width=\"2\"/></svg>",
-        "label": "A coastal wooden fishing port with docked boats"
-      },
-      {
-        "key": "B",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#d97706\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M10 85h80M22 70h56M34 55h32M44 40h12M50 20v20\"/><path d=\"M30 85V70M70 85V70M40 70V55M60 70V55M47 55V40M53 55V40\"/><circle cx=\"50\" cy=\"17\" r=\"3\" fill=\"#d97706\"/><path d=\"M15 85l6-15M85 85l-6-15\" stroke=\"#b45309\"/></svg>",
-        "label": "An ancient multi-tiered stone temple complex"
-      },
-      {
-        "key": "C",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#6366f1\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M10 68h80M25 22v52M75 22v52\" stroke=\"#4338ca\" stroke-width=\"2.5\"/><path d=\"M10 50c15-15 25-22 40 0s25 15 40 0\" stroke=\"#6366f1\"/><path d=\"M25 22l25 28 25-28\" stroke=\"#818cf8\"/><path d=\"M10 80c10-3 20 3 40 0s30 3 40 0\" stroke=\"#38bdf8\"/></svg>",
-        "label": "A suspension steel bridge over a city river"
-      },
-      {
-        "key": "D",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"30\" cy=\"28\" r=\"8\" fill=\"#fef08a\" stroke=\"#eab308\"/><path d=\"M10 85l32-45 18 22 14-16 16 39H10z\" fill=\"#f8fafc\" stroke=\"#475569\" stroke-width=\"2.2\"/><path d=\"M36 48l6 8 8-4\" stroke=\"#94a3b8\"/></svg>",
-        "label": "A rocky mountain summit under the morning sun"
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "Audio menyebutkan destinasi budaya Indonesia yang menampilkan candi-candi batu megah berlatar perbukitan berkabut dengan relief berukir rumit.",
-    "grammarNote": "Adjective clauses & Passive participle: 'monumental stone temples built with detailed tiers'."
-  },
-  {
-    "id": 3,
-    "source": "Sumber: Publikasi Direktorat Jenderal EBTKE — Kementerian ESDM Republik Indonesia",
-    "type": "listening_pictures",
-    "title": "Listening Section: Part I - Pictures",
-    "audioText": "Number three. Look at the pictures. The school installed wide solar photovoltaic panels across the facility rooftop to absorb sunlight and produce clean, renewable electric energy. Which picture matches this eco-friendly initiative?",
-    "prompt": "Which picture illustrates the clean solar energy initiative described in the recording?",
-    "options": [
-      {
-        "key": "A",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"25\" y=\"32\" width=\"36\" height=\"52\" rx=\"4\" fill=\"#fef2f2\" stroke=\"#dc2626\"/><rect x=\"33\" y=\"40\" width=\"20\" height=\"15\" fill=\"#fee2e2\" stroke=\"#ef4444\"/><path d=\"M61 44h10c4 0 6 3 6 7v20l-4 3\" stroke=\"#b91c1c\" stroke-width=\"2.5\"/><rect x=\"20\" y=\"84\" width=\"46\" height=\"5\" fill=\"#64748b\"/></svg>",
-        "label": "A conventional roadside petroleum fuel station"
-      },
-      {
-        "key": "B",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"20\" y=\"52\" width=\"60\" height=\"32\" fill=\"#f1f5f9\" stroke=\"#475569\"/><polygon points=\"30,52 32,25 40,25 42,52\" fill=\"#e2e8f0\" stroke=\"#475569\"/><polygon points=\"50,52 52,30 58,30 60,52\" fill=\"#e2e8f0\" stroke=\"#475569\"/><path d=\"M36 20c2-5 6-5 8 0s6 5 8 0M55 24c2-4 5-4 7 0\" stroke=\"#94a3b8\" stroke-width=\"2\"/></svg>",
-        "label": "An industrial factory releasing dark smoke plumes"
-      },
-      {
-        "key": "C",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M15 85V50l35-22 35 22v35H15z\" fill=\"#f0fdf4\" stroke=\"#059669\"/><path d=\"M22 46l28-18 28 18\" stroke=\"#047857\" stroke-width=\"3\"/><path d=\"M52 58h28v24H52z\" fill=\"#bae6fd\" stroke=\"#0284c7\"/><path d=\"M66 58v24M52 70h28\" stroke=\"#0284c7\"/><circle cx=\"82\" cy=\"22\" r=\"8\" fill=\"#fef08a\" stroke=\"#eab308\"/></svg>",
-        "label": "Rooftop solar photovoltaic panels capturing sunlight"
-      },
-      {
-        "key": "D",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#0284c7\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M15 40h70l-10 44H25L15 40z\" fill=\"#e0f2fe\" stroke=\"#0369a1\" stroke-width=\"2.5\"/><path d=\"M35 40v44M50 40v44M65 40v44\" stroke=\"#0284c7\" stroke-width=\"2\"/><path d=\"M40 70c4 5 8 5 12 0s8-5 12 0\" stroke=\"#38bdf8\" stroke-width=\"2\"/><path d=\"M10 84h80\" stroke=\"#64748b\" stroke-width=\"3\"/></svg>",
-        "label": "A heavy concrete hydro dam structure"
-      }
-    ],
-    "correctAnswer": "C",
-    "explanation": "Audio mendeskripsikan instalasi panel surya fotovoltaik yang terpasang membentang di atap gedung sekolah modern untuk memasok energi bersih terbarukan.",
-    "grammarNote": "Infinitive of Purpose: 'to absorb sunlight and produce clean, renewable electric energy'."
-  },
-  {
-    "id": 4,
-    "source": "Sumber: Modul Literasi Digital Siswa SMA — Kemendikbudristek & Mafindo",
-    "type": "listening_dialog",
-    "title": "Listening Section: Part II - Short Dialogues",
-    "audioSegments": [
-      {
-        "role": "narrator",
-        "lang": "en-US",
-        "text": "Number four. Listen to a conversation between two students discussing online news.",
-        "pauseAfter": 450
-      },
-      {
-        "gender": "female",
-        "pitch": 1.3,
-        "rateMultiplier": 1.04,
-        "text": "Did you see the shocking news shared in our class group chat just now?",
-        "pauseAfter": 400
-      },
-      {
-        "gender": "male",
-        "pitch": 0.75,
-        "rateMultiplier": 0.94,
-        "text": "Yes, but the headline looks sensational and there is no clear author. We should check trusted national news outlets before forwarding it.",
-        "pauseAfter": 400
-      },
-      {
-        "gender": "female",
-        "pitch": 1.3,
-        "rateMultiplier": 1.04,
-        "text": "That makes total sense. We should never spread unverified rumors.",
-        "pauseAfter": 400
-      },
-      {
-        "gender": "male",
-        "pitch": 0.75,
-        "rateMultiplier": 0.94,
-        "text": "Exactly. Verifying sources is our responsibility as smart digital citizens.",
-        "pauseAfter": 500
-      },
-      {
-        "role": "narrator",
-        "lang": "en-US",
-        "text": "Question: What does the male speaker suggest doing before sharing online news?"
-      }
-    ],
-    "stimulusTitle": "Audio Transcript (Listening)",
-    "stimulusBody": "<p><strong>Speaker 1 (Female):</strong> Did you see the shocking news shared in our class group chat just now?</p><p><strong>Speaker 2 (Male):</strong> Yes, but the headline looks sensational and there is no clear author. We should check trusted national news outlets before forwarding it.</p><p><strong>Speaker 1 (Female):</strong> That makes total sense. We should never spread unverified rumors.</p><p><strong>Speaker 2 (Male):</strong> Exactly. Verifying sources is our responsibility as smart digital citizens.</p>",
-    "prompt": "What does the male student advise before forwarding news from social media?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Forward the breaking story immediately to all family contacts."
-      },
-      {
-        "key": "B",
-        "text": "Verify the article by checking trusted national news sources."
-      },
-      {
-        "key": "C",
-        "text": "Post angry comments on the unverified social media account."
-      },
-      {
-        "key": "D",
-        "text": "Ignore school assignments and read clickbait gossip all afternoon."
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "Siswa laki-laki menyarankan untuk memverifikasi berita: 'We should check trusted national news outlets and official government portals before sharing'.",
-    "grammarNote": "Modals of Recommendation: 'should check trusted outlets before forwarding'."
-  },
-  {
-    "id": 5,
-    "source": "Sumber: Panduan Guru Bahasa Inggris Fase F — Kurikulum Merdeka Kemendikbudristek",
-    "type": "listening_dialog",
-    "title": "Listening Section: Part II - Short Dialogues",
-    "audioSegments": [
-      {
-        "role": "narrator",
-        "lang": "en-US",
-        "text": "Number five. Listen to a conversation between two students preparing a drama performance.",
-        "pauseAfter": 450
-      },
-      {
-        "gender": "male",
-        "pitch": 0.75,
-        "rateMultiplier": 0.94,
-        "text": "Which Indonesian folklore did your group choose for the English drama performance?",
-        "pauseAfter": 400
-      },
-      {
-        "gender": "female",
-        "pitch": 1.3,
-        "rateMultiplier": 1.04,
-        "text": "We chose The Legend of Roro Jonggrang. It has powerful drama, especially the consequences of dishonest pride.",
-        "pauseAfter": 400
-      },
-      {
-        "gender": "male",
-        "pitch": 0.75,
-        "rateMultiplier": 0.94,
-        "text": "That is a great choice! What moral lesson will your group emphasize?",
-        "pauseAfter": 400
-      },
-      {
-        "gender": "female",
-        "pitch": 1.3,
-        "rateMultiplier": 1.04,
-        "text": "We want to remind everyone that deceitful shortcuts always bring regret in the end.",
-        "pauseAfter": 500
-      },
-      {
-        "role": "narrator",
-        "lang": "en-US",
-        "text": "Question: What moral message will the students emphasize in their drama performance?"
-      }
-    ],
-    "stimulusTitle": "Audio Transcript (Listening)",
-    "stimulusBody": "<p><strong>Speaker 1 (Male):</strong> Which Indonesian folklore did your group choose for the English drama performance?</p><p><strong>Speaker 2 (Female):</strong> We chose The Legend of Roro Jonggrang. It has powerful drama, especially the consequences of dishonest pride.</p><p><strong>Speaker 1 (Male):</strong> That is a great choice! What moral lesson will your group emphasize?</p><p><strong>Speaker 2 (Female):</strong> We want to remind everyone that deceitful shortcuts always bring regret in the end.</p>",
-    "prompt": "What moral message will the students emphasize in their drama performance?",
-    "options": [
-      {
-        "key": "A",
-        "text": "That deceitful shortcuts and dishonesty always lead to regret."
-      },
-      {
-        "key": "B",
-        "text": "That building stone temples overnight is an easy task for anyone."
-      },
-      {
-        "key": "C",
-        "text": "That breaking promises is acceptable when facing difficult challenges."
-      },
-      {
-        "key": "D",
-        "text": "That physical wealth is the only important measure of human success."
-      }
-    ],
-    "correctAnswer": "A",
-    "explanation": "Siswi perempuan menegaskan pesan moral pementasan: 'deceitful shortcuts always bring regret in the end... true success demands honesty and patience'.",
-    "grammarNote": "Noun Clauses & Moral Lexis: 'that deceitful shortcuts always bring regret'."
-  },
-  {
-    "id": 6,
-    "source": "Sumber: Program Adiwiyata Sekolah Ramah Lingkungan — Kementerian Lingkungan Hidup dan Kehutanan",
-    "type": "listening_dialog",
-    "title": "Listening Section: Part II - Short Dialogues",
-    "audioSegments": [
-      {
-        "role": "narrator",
-        "lang": "en-US",
-        "text": "Number six. Listen to a dialogue between a teacher and a student council representative.",
-        "pauseAfter": 450
-      },
-      {
-        "gender": "male",
-        "pitch": 0.75,
-        "rateMultiplier": 0.94,
-        "text": "Our student council should lead the zero single-use plastic campaign during recess.",
-        "pauseAfter": 400
-      },
-      {
-        "gender": "female",
-        "pitch": 1.3,
-        "rateMultiplier": 1.04,
-        "text": "Absolutely, sir. If every student brought a reusable water bottle and lunch box, our school waste would drop dramatically.",
-        "pauseAfter": 400
-      },
-      {
-        "gender": "male",
-        "pitch": 0.75,
-        "rateMultiplier": 0.94,
-        "text": "Excellent. Let us draft an official announcement for the school assembly on Monday.",
-        "pauseAfter": 500
-      },
-      {
-        "role": "narrator",
-        "lang": "en-US",
-        "text": "Question: What eco-friendly initiative is proposed for the school assembly?"
-      }
-    ],
-    "stimulusTitle": "Audio Transcript (Listening)",
-    "stimulusBody": "<p><strong>Teacher (Male):</strong> Our student council should lead the zero single-use plastic campaign during recess.</p><p><strong>Student (Female):</strong> Absolutely, sir. If every student brought a reusable water bottle and lunch box, our school waste would drop dramatically.</p><p><strong>Teacher (Male):</strong> Excellent. Let us draft an official announcement for the school assembly on Monday.</p>",
-    "prompt": "What eco-friendly initiative is proposed for the school assembly?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Banning lunch breaks entirely during school examination week."
-      },
-      {
-        "key": "B",
-        "text": "Encouraging all students to bring reusable bottles and lunch boxes to reduce plastic waste."
-      },
-      {
-        "key": "C",
-        "text": "Buying disposable plastic cups in bulk for the school cafeteria."
-      },
-      {
-        "key": "D",
-        "text": "Canceling the student council meeting until next semester."
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "Inisiatif ramah lingkungan yang diusulkan adalah membawa botol dan wadah makan reusable: 'If every student carries a reusable tumbler and food container, our school plastic waste will drop by half'.",
-    "grammarNote": "Second Conditional (Hypothetical): 'If every student brought..., our school waste would drop'."
-  },
-  {
-    "id": 7,
-    "source": "Sumber: Rekaman Audio Cerita Rakyat Nusantara — Balai Bahasa Jawa Tengah",
-    "type": "listening_talk",
-    "title": "Listening Section: Part III - Short Talks",
-    "audioText": "Questions seven and eight are based on the following short talk. Long ago in Central Java, the powerful Prince Bandung Bondowoso defeated King Boko and intended to marry his beautiful daughter, Princess Roro Jonggrang. Reluctant to accept the proposal from her father's slayer, the clever princess agreed under one impossible condition: the prince had to build one thousand stone temples before the first rooster crowed at dawn. Determined to succeed, Bandung summoned an army of unseen earth spirits who worked at extraordinary speed throughout the dark night. Now answer question number seven: Why did Princess Roro Jonggrang give the impossible task to Bandung Bondowoso?",
-    "prompt": "According to the monologue, why did Princess Roro Jonggrang give the impossible task to Bandung Bondowoso?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Because she wanted to test his architectural skills"
-      },
-      {
-        "key": "B",
-        "text": "Because the royal kingdom lacked places for public worship"
-      },
-      {
-        "key": "C",
-        "text": "Because she was reluctant to marry the man who had killed her father"
-      },
-      {
-        "key": "D",
-        "text": "Because she wanted to build a tourist destination for future generations"
-      }
-    ],
-    "correctAnswer": "C",
-    "explanation": "Monolog menguraikan bahwa literasi digital kritis bukan sekadar keterampilan mengoperasikan gadget, melainkan kemampuan mengevaluasi kebenaran informasi dan melindungi data pribadi.",
-    "grammarNote": "Participial Adjective phrase: 'Reluctant to accept the proposal from her father's slayer'."
-  },
-  {
-    "id": 8,
-    "source": "Sumber: Rekaman Audio Cerita Rakyat Nusantara — Balai Bahasa Jawa Tengah",
-    "type": "listening_talk",
-    "title": "Listening Section: Part III - Short Talks",
-    "audioText": "Now answer question number eight based on the same talk: How was Bandung Bondowoso able to construct hundreds of stone temples so rapidly during the night?",
-    "prompt": "How was Bandung Bondowoso able to construct hundreds of stone temples so rapidly during the night?",
-    "options": [
-      {
-        "key": "A",
-        "text": "He employed thousands of skilled craftsmen from neighboring kingdoms"
-      },
-      {
-        "key": "B",
-        "text": "He ordered local village farmers to work non-stop without sleep"
-      },
-      {
-        "key": "C",
-        "text": "He used modern steam-powered construction machines"
-      },
-      {
-        "key": "D",
-        "text": "He summoned an army of unseen earth spirits to do the hard labor"
-      }
-    ],
-    "correctAnswer": "D",
-    "explanation": "Pembicara menyarankan agar siswa meluangkan waktu sejenak untuk memverifikasi sumber berita sebelum membagikannya (pause and verify).",
-    "grammarNote": "Relative Clause: '...earth spirits who worked at extraordinary speed'."
-  },
-  {
-    "id": 9,
-    "source": "Sumber: Cyber Safety Guidelines for High School Students — Siberkreasi & Kominfo",
-    "type": "listening_talk",
-    "title": "Listening Section: Part III - Short Talks",
-    "audioText": "Questions nine and ten are based on the following short talk. Good morning, students. Whenever you post photos, share personal stories, or leave comments on social media, you leave behind an invisible record known as a digital footprint. Unlike pencil marks on paper, digital traces can be copied, screenshotted, and archived indefinitely, even if you delete the original post later. Future scholarship committees and university recruiters routinely review online profiles to evaluate a candidate's maturity, honesty, and emotional control. Therefore, always pause and reflect before hitting the publish button. Now answer question number nine: What does the speaker say about a person's digital footprint?",
-    "prompt": "According to the speaker, what is a key characteristic of a digital footprint?",
-    "options": [
-      {
-        "key": "A",
-        "text": "It can be archived and reviewed by future universities and employers"
-      },
-      {
-        "key": "B",
-        "text": "It automatically disappears permanently after twenty-four hours"
-      },
-      {
-        "key": "C",
-        "text": "It is only visible to close friends who follow your private account"
-      },
-      {
-        "key": "D",
-        "text": "It does not influence real-life professional or educational opportunities"
-      }
-    ],
-    "correctAnswer": "A",
-    "explanation": "Dokter menjelaskan bahwa tidur berkualitas 7-8 jam per malam esensial untuk konsolidasi memori dan menjaga fokus belajar jangka panjang.",
-    "grammarNote": "Passive Voice in Academic Advice: 'can be copied, screenshotted, and archived indefinitely'."
-  },
-  {
-    "id": 10,
-    "source": "Sumber: Cyber Safety Guidelines for High School Students — Siberkreasi & Kominfo",
-    "type": "listening_talk",
-    "title": "Listening Section: Part III - Short Talks",
-    "audioText": "Now answer question number ten based on the same talk: What practical advice does the speaker give to high school students?",
-    "prompt": "What practical recommendation does the speaker provide before posting online?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Never use the internet or social media platforms again"
-      },
-      {
-        "key": "B",
-        "text": "Pause and carefully reflect on the content before publishing"
-      },
-      {
-        "key": "C",
-        "text": "Use multiple anonymous fake accounts to insult others"
-      },
-      {
-        "key": "D",
-        "text": "Share private passwords with all close school friends"
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "Rekomendasi gaya hidup sehat mencakup asupan gizi seimbang, pembatasan konsumsi gula berlebih, dan olahraga teratur.",
-    "grammarNote": "Imperative sentence: 'always pause and reflect before hitting the publish button'."
-  },
-  {
-    "id": 11,
-    "source": "Sumber: Dikutip dan diadaptasi dari Cerita Rakyat Nusantara — Balai Bahasa Jawa Tengah & Kemendikbudristek (Legenda Candi Sewu)",
-    "type": "single_choice",
-    "title": "Reading Comprehension: Narrative Main Conflict",
-    "stimulusTitle": "Text 1: The Legend of Roro Jonggrang and the Thousand Temples",
-    "stimulusBody": "Once upon a time in ancient Java, there existed two neighboring kingdoms: Pengging and Boko. Pengging was fertile and prosperous, ruled by King Prabu Damar Moyo. His valiant son, Prince Bandung Bondowoso, possessed extraordinary physical strength and supernatural abilities. In contrast, the neighboring kingdom of Boko was governed by a cruel giant named King Boko. A fierce war erupted between the two kingdoms, ending when Bandung Bondowoso courageously defeated and killed King Boko in battle.<br><br>Entering Boko Palace as the victor, Bandung encountered Princess Roro Jonggrang, the late king's daughter. Enchanted by her grace and breathtaking beauty, the prince immediately offered her his hand in marriage. However, Roro Jonggrang harbored intense sorrow and resentment; she could never bring herself to willingly marry the conqueror who had ended her beloved father's life. Knowing that a direct refusal would provoke dangerous anger, she devised a clever plan. She promised to marry Bandung on one strict condition: he must construct one thousand sacred stone temples within a single night, completed before the dawn rooster crowed.<br><br>Confident in his mystical gifts, Bandung Bondowoso accepted the challenge. As darkness blanketed the earth, he mediated and summoned hundreds of earth spirits from the spirit realm. The spirits labored tirelessly at astonishing speed, gathering giant stones and carving ornate pillars. By three o'clock in the morning, nine hundred and ninety-nine magnificent temples stood proudly under the starlit sky, leaving only one final shrine unfinished.<br><br>Terrified that the prince would fulfill the impossible requirement, Roro Jonggrang swiftly gathered her palace maidens. She instructed them to burn piles of dry straw to the east to illuminate the sky with an orange glow, while others pounded rice mortars with heavy wooden pestles to simulate the lively sounds of a busy morning. Deceived by the dawn-like glow and the loud rhythmic pounding, village roosters began to crow repeatedly. Convinced that the morning sun was rising, the supernatural spirits panicked and fled back into the underground realm, abandoning the final temple. When Bandung discovered the deceit, he was filled with profound fury. Pointing his finger at Roro Jonggrang, he declared that she herself would become the one thousandth statue to complete the sacred complex. Instantly, the princess transformed into a graceful stone statue, known to this day as the statue of Durga Mahisasuramardini in Prambanan Temple.",
-    "prompt": "What is the primary conflict presented in the narrative passage above?",
-    "options": [
-      {
-        "key": "A",
-        "text": "A border dispute between two farmer communities over irrigation channels"
-      },
-      {
-        "key": "B",
-        "text": "The earth spirits refusing to obey Bandung Bondowoso's royal commands"
-      },
-      {
-        "key": "C",
-        "text": "Princess Roro Jonggrang's reluctance to marry the conqueror who slew her father"
-      },
-      {
-        "key": "D",
-        "text": "An earthquake destroying the thousand temples during construction"
-      }
-    ],
-    "correctAnswer": "C",
-    "explanation": "Teks analitis eksposisi bertujuan meyakinkan pembaca bahwa literasi digital kritis mutlak diperlukan oleh generasi muda di era limpahan informasi digital.",
-    "grammarNote": "Narrative Conflict Analysis (Complication): Reluctance to marry the slayer of her father."
-  },
-  {
-    "id": 12,
-    "source": "Sumber: Dikutip dan diadaptasi dari Cerita Rakyat Nusantara — Balai Bahasa Jawa Tengah & Kemendikbudristek (Legenda Candi Sewu)",
-    "type": "single_choice",
-    "title": "Reading Comprehension: Explicit Detail",
-    "stimulusTitle": "Text 1: The Legend of Roro Jonggrang and the Thousand Temples",
-    "stimulusBody": "Once upon a time in ancient Java, there existed two neighboring kingdoms: Pengging and Boko. Pengging was fertile and prosperous, ruled by King Prabu Damar Moyo. His valiant son, Prince Bandung Bondowoso, possessed extraordinary physical strength and supernatural abilities. In contrast, the neighboring kingdom of Boko was governed by a cruel giant named King Boko. A fierce war erupted between the two kingdoms, ending when Bandung Bondowoso courageously defeated and killed King Boko in battle.<br><br>Entering Boko Palace as the victor, Bandung encountered Princess Roro Jonggrang, the late king's daughter. Enchanted by her grace and breathtaking beauty, the prince immediately offered her his hand in marriage. However, Roro Jonggrang harbored intense sorrow and resentment; she could never bring herself to willingly marry the conqueror who had ended her beloved father's life. Knowing that a direct refusal would provoke dangerous anger, she devised a clever plan. She promised to marry Bandung on one strict condition: he must construct one thousand sacred stone temples within a single night, completed before the dawn rooster crowed.<br><br>Confident in his mystical gifts, Bandung Bondowoso accepted the challenge. As darkness blanketed the earth, he mediated and summoned hundreds of earth spirits from the spirit realm. The spirits labored tirelessly at astonishing speed, gathering giant stones and carving ornate pillars. By three o'clock in the morning, nine hundred and ninety-nine magnificent temples stood proudly under the starlit sky, leaving only one final shrine unfinished.<br><br>Terrified that the prince would fulfill the impossible requirement, Roro Jonggrang swiftly gathered her palace maidens. She instructed them to burn piles of dry straw to the east to illuminate the sky with an orange glow, while others pounded rice mortars with heavy wooden pestles to simulate the lively sounds of a busy morning. Deceived by the dawn-like glow and the loud rhythmic pounding, village roosters began to crow repeatedly. Convinced that the morning sun was rising, the supernatural spirits panicked and fled back into the underground realm, abandoning the final temple. When Bandung discovered the deceit, he was filled with profound fury. Pointing his finger at Roro Jonggrang, he declared that she herself would become the one thousandth statue to complete the sacred complex. Instantly, the princess transformed into a graceful stone statue, known to this day as the statue of Durga Mahisasuramardini in Prambanan Temple.",
-    "prompt": "Based on paragraph 2, why did Princess Roro Jonggrang formulate an impossible requirement instead of simply saying no?",
-    "options": [
-      {
-        "key": "A",
-        "text": "She genuinely admired Bandung's magical construction skills"
-      },
-      {
-        "key": "B",
-        "text": "Her royal advisers insisted on having one thousand temples for good luck"
-      },
-      {
-        "key": "C",
-        "text": "She wanted to give Bandung time to learn how to govern the kingdom"
-      },
-      {
-        "key": "D",
-        "text": "She understood that an outright refusal would provoke dangerous wrath"
-      }
-    ],
-    "correctAnswer": "D",
-    "explanation": "Paragraf 2 menyatakan bahwa Roro Jonggrang menyusun siasat cerdik karena penolakan langsung akan memicu kemarahan berbahaya: 'Knowing that a direct refusal would provoke dangerous anger, she devised a clever plan'.",
-    "grammarNote": "Cause and effect / Gerund phrase: 'Knowing that a direct refusal would provoke dangerous anger'."
-  },
-  {
-    "id": 13,
-    "source": "Sumber: Dikutip dan diadaptasi dari Cerita Rakyat Nusantara — Balai Bahasa Jawa Tengah & Kemendikbudristek (Legenda Candi Sewu)",
-    "type": "single_choice",
-    "title": "Reading Comprehension: Character Strategy",
-    "stimulusTitle": "Text 1: The Legend of Roro Jonggrang and the Thousand Temples",
-    "stimulusBody": "Once upon a time in ancient Java, there existed two neighboring kingdoms: Pengging and Boko. Pengging was fertile and prosperous, ruled by King Prabu Damar Moyo. His valiant son, Prince Bandung Bondowoso, possessed extraordinary physical strength and supernatural abilities. In contrast, the neighboring kingdom of Boko was governed by a cruel giant named King Boko. A fierce war erupted between the two kingdoms, ending when Bandung Bondowoso courageously defeated and killed King Boko in battle.<br><br>Entering Boko Palace as the victor, Bandung encountered Princess Roro Jonggrang, the late king's daughter. Enchanted by her grace and breathtaking beauty, the prince immediately offered her his hand in marriage. However, Roro Jonggrang harbored intense sorrow and resentment; she could never bring herself to willingly marry the conqueror who had ended her beloved father's life. Knowing that a direct refusal would provoke dangerous anger, she devised a clever plan. She promised to marry Bandung on one strict condition: he must construct one thousand sacred stone temples within a single night, completed before the dawn rooster crowed.<br><br>Confident in his mystical gifts, Bandung Bondowoso accepted the challenge. As darkness blanketed the earth, he mediated and summoned hundreds of earth spirits from the spirit realm. The spirits labored tirelessly at astonishing speed, gathering giant stones and carving ornate pillars. By three o'clock in the morning, nine hundred and ninety-nine magnificent temples stood proudly under the starlit sky, leaving only one final shrine unfinished.<br><br>Terrified that the prince would fulfill the impossible requirement, Roro Jonggrang swiftly gathered her palace maidens. She instructed them to burn piles of dry straw to the east to illuminate the sky with an orange glow, while others pounded rice mortars with heavy wooden pestles to simulate the lively sounds of a busy morning. Deceived by the dawn-like glow and the loud rhythmic pounding, village roosters began to crow repeatedly. Convinced that the morning sun was rising, the supernatural spirits panicked and fled back into the underground realm, abandoning the final temple. When Bandung discovered the deceit, he was filled with profound fury. Pointing his finger at Roro Jonggrang, he declared that she herself would become the one thousandth statue to complete the sacred complex. Instantly, the princess transformed into a graceful stone statue, known to this day as the statue of Durga Mahisasuramardini in Prambanan Temple.",
-    "prompt": "What specific tactical actions did Princess Roro Jonggrang order her palace maidens to perform?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Burn dry straw to mimic dawn light and pound rice mortars to mimic morning activity"
-      },
-      {
-        "key": "B",
-        "text": "Attack Bandung Bondowoso's soldiers with poisoned arrows"
-      },
-      {
-        "key": "C",
-        "text": "Hide all the construction stones in deep forest caves"
-      },
-      {
-        "key": "D",
-        "text": "Pour water onto the ground to extinguish the spirits' torches"
-      }
-    ],
-    "correctAnswer": "A",
-    "explanation": "Paragraf 4 menjelaskan bahwa Roro Jonggrang memerintahkan dayang-dayang membakar jerami kering di ufuk timur untuk menciptakan ilusi fajar: 'She instructed them to burn piles of dry straw to the east to illuminate the sky with an orange glow'.",
-    "grammarNote": "Parallel action clauses with 'while': 'burn piles of dry straw... while others pounded rice mortars'."
-  },
-  {
-    "id": 14,
-    "source": "Sumber: Dikutip dan diadaptasi dari Cerita Rakyat Nusantara — Balai Bahasa Jawa Tengah & Kemendikbudristek (Legenda Candi Sewu)",
-    "type": "single_choice",
-    "title": "Reading Comprehension: Vocabulary in Context",
-    "stimulusTitle": "Text 1: The Legend of Roro Jonggrang and the Thousand Temples",
-    "stimulusBody": "Once upon a time in ancient Java, there existed two neighboring kingdoms: Pengging and Boko. Pengging was fertile and prosperous, ruled by King Prabu Damar Moyo. His valiant son, Prince Bandung Bondowoso, possessed extraordinary physical strength and supernatural abilities. In contrast, the neighboring kingdom of Boko was governed by a cruel giant named King Boko. A fierce war erupted between the two kingdoms, ending when Bandung Bondowoso courageously defeated and killed King Boko in battle.<br><br>Entering Boko Palace as the victor, Bandung encountered Princess Roro Jonggrang, the late king's daughter. Enchanted by her grace and breathtaking beauty, the prince immediately offered her his hand in marriage. However, Roro Jonggrang harbored intense sorrow and resentment; she could never bring herself to willingly marry the conqueror who had ended her beloved father's life. Knowing that a direct refusal would provoke dangerous anger, she devised a clever plan. She promised to marry Bandung on one strict condition: he must construct one thousand sacred stone temples within a single night, completed before the dawn rooster crowed.<br><br>Confident in his mystical gifts, Bandung Bondowoso accepted the challenge. As darkness blanketed the earth, he mediated and summoned hundreds of earth spirits from the spirit realm. The spirits labored tirelessly at astonishing speed, gathering giant stones and carving ornate pillars. By three o'clock in the morning, nine hundred and ninety-nine magnificent temples stood proudly under the starlit sky, leaving only one final shrine unfinished.<br><br>Terrified that the prince would fulfill the impossible requirement, Roro Jonggrang swiftly gathered her palace maidens. She instructed them to burn piles of dry straw to the east to illuminate the sky with an orange glow, while others pounded rice mortars with heavy wooden pestles to simulate the lively sounds of a busy morning. Deceived by the dawn-like glow and the loud rhythmic pounding, village roosters began to crow repeatedly. Convinced that the morning sun was rising, the supernatural spirits panicked and fled back into the underground realm, abandoning the final temple. When Bandung discovered the deceit, he was filled with profound fury. Pointing his finger at Roro Jonggrang, he declared that she herself would become the one thousandth statue to complete the sacred complex. Instantly, the princess transformed into a graceful stone statue, known to this day as the statue of Durga Mahisasuramardini in Prambanan Temple.",
-    "prompt": "The word 'valiant' in paragraph 1 ('His valiant son, Prince Bandung Bondowoso...') is closest in meaning to...",
-    "options": [
-      {
-        "key": "A",
-        "text": "fragile and weak"
-      },
-      {
-        "key": "B",
-        "text": "courageous and brave"
-      },
-      {
-        "key": "C",
-        "text": "hesitant and timid"
-      },
-      {
-        "key": "D",
-        "text": "selfish and arrogant"
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "Kata 'deceptive' bersinonim dengan 'misleading' (menyesatkan atau memperdaya).",
-    "grammarNote": "Descriptive adjective of heroic character: valiant = brave, courageous, bold."
-  },
-  {
-    "id": 15,
-    "source": "Sumber: Dikutip dan diadaptasi dari Cerita Rakyat Nusantara — Balai Bahasa Jawa Tengah & Kemendikbudristek (Legenda Candi Sewu)",
-    "type": "single_choice",
-    "title": "Reading Comprehension: Pronoun Reference",
-    "stimulusTitle": "Text 1: The Legend of Roro Jonggrang and the Thousand Temples",
-    "stimulusBody": "Once upon a time in ancient Java, there existed two neighboring kingdoms: Pengging and Boko. Pengging was fertile and prosperous, ruled by King Prabu Damar Moyo. His valiant son, Prince Bandung Bondowoso, possessed extraordinary physical strength and supernatural abilities. In contrast, the neighboring kingdom of Boko was governed by a cruel giant named King Boko. A fierce war erupted between the two kingdoms, ending when Bandung Bondowoso courageously defeated and killed King Boko in battle.<br><br>Entering Boko Palace as the victor, Bandung encountered Princess Roro Jonggrang, the late king's daughter. Enchanted by her grace and breathtaking beauty, the prince immediately offered her his hand in marriage. However, Roro Jonggrang harbored intense sorrow and resentment; she could never bring herself to willingly marry the conqueror who had ended her beloved father's life. Knowing that a direct refusal would provoke dangerous anger, she devised a clever plan. She promised to marry Bandung on one strict condition: he must construct one thousand sacred stone temples within a single night, completed before the dawn rooster crowed.<br><br>Confident in his mystical gifts, Bandung Bondowoso accepted the challenge. As darkness blanketed the earth, he mediated and summoned hundreds of earth spirits from the spirit realm. The spirits labored tirelessly at astonishing speed, gathering giant stones and carving ornate pillars. By three o'clock in the morning, nine hundred and ninety-nine magnificent temples stood proudly under the starlit sky, leaving only one final shrine unfinished.<br><br>Terrified that the prince would fulfill the impossible requirement, Roro Jonggrang swiftly gathered her palace maidens. She instructed them to burn piles of dry straw to the east to illuminate the sky with an orange glow, while others pounded rice mortars with heavy wooden pestles to simulate the lively sounds of a busy morning. Deceived by the dawn-like glow and the loud rhythmic pounding, village roosters began to crow repeatedly. Convinced that the morning sun was rising, the supernatural spirits panicked and fled back into the underground realm, abandoning the final temple. When Bandung discovered the deceit, he was filled with profound fury. Pointing his finger at Roro Jonggrang, he declared that she herself would become the one thousandth statue to complete the sacred complex. Instantly, the princess transformed into a graceful stone statue, known to this day as the statue of Durga Mahisasuramardini in Prambanan Temple.",
-    "prompt": "In paragraph 4, what does the pronoun 'them' refer to in the sentence: 'She instructed them to burn piles of dry straw...'?",
-    "options": [
-      {
-        "key": "A",
-        "text": "The earth spirits"
-      },
-      {
-        "key": "B",
-        "text": "The village roosters"
-      },
-      {
-        "key": "C",
-        "text": "The palace maidens"
-      },
-      {
-        "key": "D",
-        "text": "The thousand statues"
-      }
-    ],
-    "correctAnswer": "C",
-    "explanation": "Pesan moral dari kisah Roro Jonggrang dan Bandung Bondowoso adalah bahwa pemaksaan kehendak dan tipu muslihat pada akhirnya akan membuahkan penyesalan.",
-    "grammarNote": "Pronoun reference tracking: 'palace maidens' (plural noun) -> 'them' (object pronoun)."
-  },
-  {
-    "id": 16,
-    "source": "Sumber: Modul Pembelajaran Literasi Digital & Analisis Isu Sosial — BSKAP Kemendikbudristek",
-    "type": "complex_matrix",
-    "title": "Complex Multiple Choice: Fact Evaluation of Critical Digital Literacy",
-    "stimulusTitle": "Text 2: Why Critical Digital Literacy Is an Essential Competence for Modern Teenagers",
-    "stimulusBody": "In the contemporary era of hyper-connected social networks, secondary students are continuously inundated with immense streams of digital information. While access to the internet offers unprecedented learning opportunities, it simultaneously exposes youths to pervasive misinformation, deceptive clickbait, and algorithmic echo chambers. Therefore, cultivating critical digital literacy is no longer merely an optional scholastic skill; it has become an indispensable life competence for modern teenagers.<br><br>First and foremost, critical digital literacy empowers adolescents to distinguish between factual evidence and fabricated falsehoods. Sensationalized headlines are deliberately engineered to trigger volatile emotional responses, enticing users to share misleading posts without prior verification. Digitally literate students possess the cognitive discipline to evaluate the authority of sources, cross-check claims against verified databases, and recognize commercial or political biases.<br><br>Furthermore, possessing mature digital awareness is paramount for safeguarding one's permanent digital footprint. Every comment, shared image, and forum reaction leaves persistent electronic traces that cannot be completely erased by hitting 'delete'. Admissions committees for prestigious universities and scholarship foundations now routinely scrutinize applicants' public profiles to evaluate personal integrity and constructive communication habits.<br><br>Finally, critical digital awareness shields adolescent mental wellbeing from algorithmic manipulation. Social media algorithms intentionally prioritize outrage-inducing content and idealized portrayals of peer lifestyle, which can foster profound social anxiety, body dissatisfaction, and depression among vulnerable youths. By understanding how algorithmic engagement metrics operate, students can consciously regulate their screen exposure and consume digital media intentionally rather than passively.<br><br>In conclusion, critical digital literacy is not simply about operating software applications; it is about cultivating intellectual autonomy, safeguarding ethical reputation, and protecting psychological health in an automated society. Secondary schools must systematically embed comprehensive digital literacy frameworks across all academic curricula.",
-    "prompt": "Based on the text on Critical Digital Literacy, determine whether each statement is **TRUE** or **FALSE**:",
-    "matrixStatements": [
-      {
-        "statement": "Critical digital literacy relates solely to the technical ability to operate computers and smartphone devices.",
-        "isCorrect": false
-      },
-      {
-        "statement": "Sensationalized headlines are intentionally engineered to trigger emotional reactions and encourage unverified sharing.",
-        "isCorrect": true
-      },
-      {
-        "statement": "University admissions committees and scholarship foundations routinely scrutinize applicants' digital footprints.",
-        "isCorrect": true
-      },
-      {
-        "statement": "Understanding algorithmic engagement metrics helps teenagers regulate their screen exposure and consume media intentionally.",
-        "isCorrect": true
-      }
-    ],
-    "explanation": "• Pernyataan 1: SALAH — Literasi digital kritis bukan sekadar kecakapan teknis mengoperasikan gawai, melainkan kemampuan mengevaluasi kebenaran informasi.<br>• Pernyataan 2: BENAR — Judul bernada sensasional (clickbait) sengaja dirancang untuk memancing respons emosional pengguna internet.<br>• Pernyataan 3: SALAH — Jejak digital meninggalkan rekam elektronik yang tersimpan di server dan sangat sulit dihapus secara permanen.<br>• Pernyataan 4: BENAR — Kesadaran akan cara kerja algoritma membantu pengguna dalam mengatur alokasi waktu layar secara mandiri.",
-    "grammarNote": "Critical Reading Analysis: Evaluating Thesis, Claims, and Supporting Arguments (TKA)."
-  },
-  {
-    "id": 17,
-    "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XI — SMAN 1 Bae Kudus",
-    "type": "complex_matrix",
-    "title": "Complex Multiple Choice: Analytical Exposition Language Features",
-    "stimulusTitle": "Genre Focus: Linguistic Features of Analytical Exposition Texts",
-    "stimulusBody": "Analyze the grammatical accuracy and language features of analytical exposition texts based on Text 2:",
-    "prompt": "Determine whether each grammatical statement below is **TRUE** or **FALSE** based on Text 2:",
-    "matrixStatements": [
-      {
-        "statement": "The conjunction 'Therefore' in paragraph 1 introduces the writer's central thesis statement.",
-        "isCorrect": true
-      },
-      {
-        "statement": "The phrase 'algorithmic echo chambers' uses noun adjuncts to specify a digital communication phenomenon.",
-        "isCorrect": true
-      },
-      {
-        "statement": "The sentence 'Students possess the cognitive discipline to evaluate sources' uses the Past Continuous Tense.",
-        "isCorrect": false
-      },
-      {
-        "statement": "In the sentence 'Admissions committees routinely scrutinize applicants', 'scrutinize' means to examine very closely and critically.",
-        "isCorrect": true
-      }
-    ],
-    "explanation": "• Pernyataan 1: SALAH — Preposisi 'because of' tidak boleh langsung diikuti oleh anak kalimat lengkap berpredikat ('they spend').<br>• Pernyataan 2: BENAR — Preposisi 'Due to' diikuti oleh frasa nomina ('excessive screen time') secara gramatikal.<br>• Pernyataan 3: BENAR — Konjungsi subordinatif 'because' diikuti oleh klausa lengkap (Subject + Verb) secara tepat.<br>• Pernyataan 4: SALAH — 'Owing to' adalah preposisi kausal yang tidak boleh langsung diikuti klausa berpredikat.",
-    "grammarNote": "Mastery of Cause and Effect: Prepositional vs Clausal Connectors."
-  },
-  {
-    "id": 18,
-    "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XI — SMAN 1 Bae Kudus",
-    "type": "complex_matrix",
-    "title": "Complex Multiple Choice: Modals & Passive Voice Grammar",
-    "stimulusTitle": "Grammar Focus: Passive Voice and Modal Auxiliaries in Academic Writing",
-    "stimulusBody": "Evaluate the grammatical accuracy of the following modal and passive constructions:",
-    "prompt": "Determine whether each sentence formulation below is **TRUE** (grammatically sound) or **FALSE** (grammatically flawed):",
-    "matrixStatements": [
-      {
-        "statement": "'Misleading information can be easily spread across social media networks' demonstrates accurate modal passive voice.",
-        "isCorrect": true
-      },
-      {
-        "statement": "'Sensational headlines was engineered by algorithms yesterday' correctly agrees in subject-verb number.",
-        "isCorrect": false
-      },
-      {
-        "statement": "'Digital footprints cannot be completely erased simply by hitting delete' is grammatically correct.",
-        "isCorrect": true
-      },
-      {
-        "statement": "'Students should verified every online claim before believing it' correctly uses the modal verb 'should'.",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "• Pernyataan 1: BENAR — Pola modal pasif 'should not be + V3' ('should not be shared') tersusun secara tepat.<br>• Pernyataan 2: SALAH — Bentuk present continuous passive membutuhkan 'is being + V3' ('is being implemented'), bukan 'implementing'.<br>• Pernyataan 3: BENAR — Subjek jamak 'data' dalam past passive menggunakan to be jamak ('data were collected').<br>• Pernyataan 4: SALAH — Bentuk past participle (V3) dari kata kerja 'spread' adalah 'spread', bukan 'spreaded'.",
-    "grammarNote": "Passive Voice Accuracy across Present, Past, and Modal Auxiliaries."
-  },
-  {
-    "id": 19,
-    "source": "Sumber: Analisis Isu Kesehatan Remaja & Pola Hidup Sehat — Kemenkes RI",
-    "type": "complex_matrix",
-    "title": "Complex Multiple Choice: Adolescent Lifestyle & Cognitive Focus",
-    "stimulusTitle": "Health Focus: The Science of Adolescent Sleep and Brain Function",
-    "stimulusBody": "Medical and educational research highlights the direct correlation between adolescent lifestyle habits, sleep quality, and academic performance:",
-    "prompt": "Determine whether each statement regarding adolescent health habits and focus is **TRUE** or **FALSE**:",
-    "matrixStatements": [
-      {
-        "statement": "Regular physical exercise increases blood circulation and oxygen supply to the brain, enhancing cognitive focus.",
-        "isCorrect": true
-      },
-      {
-        "statement": "Sleeping fewer than five hours nightly consistently boosts academic performance and long-term memory retention.",
-        "isCorrect": false
-      },
-      {
-        "statement": "Excessive late-night screen time disrupts natural circadian rhythms due to blue light emissions from devices.",
-        "isCorrect": true
-      },
-      {
-        "statement": "A balanced nutritious diet rich in whole foods supports sustained mental energy during rigorous school examination weeks.",
-        "isCorrect": true
-      }
-    ],
-    "explanation": "• Pernyataan 1: BENAR — Aktivitas fisik aerobik teratur meningkatkan sirkulasi oksigen ke otak dan mendukung daya ingat.<br>• Pernyataan 2: SALAH — Kurang tidur kronis justru menurunkan daya konsentrasi belajar dan kestabilan emosi.<br>• Pernyataan 3: BENAR — Pelepasan hormon endorfin saat berolahraga terbukti meredakan stres mental dan memperbaiki suasana hati.<br>• Pernyataan 4: SALAH — Asupan makanan berkadar gula tinggi berlebih memicu lonjakan gula darah mendadak yang diikuti rasa kantuk.",
-    "grammarNote": "Health and Expository Text Factual Verification (AKM Standar)."
-  },
-  {
-    "id": 20,
-    "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XI — SMAN 1 Bae Kudus",
-    "type": "complex_matrix",
-    "title": "Complex Multiple Choice: Cause and Effect Conjunctions",
-    "stimulusTitle": "Grammar Focus: Cause and Effect Connectors (Because, Because of, Due to, As a consequence)",
-    "stimulusBody": "Analyze the syntax and prepositional rules governing causal connectors:",
-    "prompt": "Determine whether each causal connector sentence below is **TRUE** (grammatically correct) or **FALSE** (grammatically flawed):",
-    "matrixStatements": [
-      {
-        "statement": "'Due to social media algorithms prioritize sensational posts, many users share hoaxes' correctly uses 'due to'.",
-        "isCorrect": false
-      },
-      {
-        "statement": "'Because of persistent blue light emissions, teenagers often experience delayed sleep onset' is grammatically accurate.",
-        "isCorrect": true
-      },
-      {
-        "statement": "'As a consequence of rigorous daily training, the athlete secured a gold medal for her school' correctly expresses result.",
-        "isCorrect": true
-      },
-      {
-        "statement": "'He failed the exam owing to he did not study the course materials' is standard formal English.",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "• Pernyataan 1: BENAR — Kalimat pengandaian tipe 2 menggunakan pola baku: 'If + past simple, would + bare infinitive'.<br>• Pernyataan 2: SALAH — Bentuk subjunctive pengandaian resmi untuk orang pertama tunggal adalah 'If I WERE you', bukan 'If I was you'.<br>• Pernyataan 3: BENAR — Pola second conditional hipotesis 'If + V2, would + V1' tersusun secara gramatikal.<br>• Pernyataan 4: SALAH — Tidak boleh memadukan present simple 'study' dengan bentuk modal past perfect 'would have passed'.",
-    "grammarNote": "Conditional Type 2: Hypothetical Present Condition and Consequence."
-  },
-  {
-    "id": 21,
-    "source": "Sumber: Modul Pembelajaran Teks Eksposisi Analitis — BSKAP Kemendikbudristek",
-    "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
-    "stimulusTitle": "Text 2: Why Critical Digital Literacy Is an Essential Competence for Modern Teenagers",
-    "stimulusBody": "In the contemporary era of hyper-connected social networks, secondary students are continuously inundated with immense streams of digital information. While access to the internet offers unprecedented learning opportunities, it simultaneously exposes youths to pervasive misinformation, deceptive clickbait, and algorithmic echo chambers. Therefore, cultivating critical digital literacy is no longer merely an optional scholastic skill; it has become an indispensable life competence for modern teenagers.<br><br>First and foremost, critical digital literacy empowers adolescents to distinguish between factual evidence and fabricated falsehoods. Sensationalized headlines are deliberately engineered to trigger volatile emotional responses, enticing users to share misleading posts without prior verification. Digitally literate students possess the cognitive discipline to evaluate the authority of sources, cross-check claims against verified databases, and recognize commercial or political biases.<br><br>Furthermore, possessing mature digital awareness is paramount for safeguarding one's permanent digital footprint. Every comment, shared image, and forum reaction leaves persistent electronic traces that cannot be completely erased by hitting 'delete'. Admissions committees for prestigious universities and scholarship foundations now routinely scrutinize applicants' public profiles to evaluate personal integrity and constructive communication habits.<br><br>Finally, critical digital awareness shields adolescent mental wellbeing from algorithmic manipulation. Social media algorithms intentionally prioritize outrage-inducing content and idealized portrayals of peer lifestyle, which can foster profound social anxiety, body dissatisfaction, and depression among vulnerable youths. By understanding how algorithmic engagement metrics operate, students can consciously regulate their screen exposure and consume digital media intentionally rather than passively.<br><br>In conclusion, critical digital literacy is not simply about operating software applications; it is about cultivating intellectual autonomy, safeguarding ethical reputation, and protecting psychological health in an automated society. Secondary schools must systematically embed comprehensive digital literacy frameworks across all academic curricula.",
-    "prompt": "Which **TWO (2)** statements correctly represent the core benefits of critical digital literacy according to the text?",
-    "options": [
-      {
-        "key": "A",
-        "text": "It trains adolescents to filter online information and protects them from deceptive clickbait and algorithmic manipulation."
-      },
-      {
-        "key": "B",
-        "text": "It guarantees that software developers will automatically delete negative public comments after twenty-four hours."
-      },
-      {
-        "key": "C",
-        "text": "It fosters intellectual autonomy and helps students maintain a constructive, responsible digital footprint."
-      },
-      {
-        "key": "D",
-        "text": "It allows students to browse social media during all school lectures without paying attention to teachers."
-      }
-    ],
-    "correctAnswer": [
-      "A",
-      "C"
-    ],
-    "explanation": "Argumen utama penulis dalam teks adalah menyaring kebenaran dan melindungi dari manipulasi hoaks, serta melindungi reputasi jejak digital dan menjaga kesehatan mental.",
-    "grammarNote": "Identifying Main Supporting Arguments in Analytical Exposition."
-  },
-  {
-    "id": 22,
-    "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XI — SMAN 1 Bae Kudus",
-    "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
-    "stimulusTitle": "Literary Focus: Moral Reflection in Javanese Narrative Folklore (Roro Jonggrang)",
-    "stimulusBody": "Once upon a time in ancient Java, there existed two neighboring kingdoms: Pengging and Boko. Pengging was fertile and prosperous, ruled by King Prabu Damar Moyo. His valiant son, Prince Bandung Bondowoso, possessed extraordinary physical strength and supernatural abilities. In contrast, the neighboring kingdom of Boko was governed by a cruel giant named King Boko. A fierce war erupted between the two kingdoms, ending when Bandung Bondowoso courageously defeated and killed King Boko in battle.<br><br>Entering Boko Palace as the victor, Bandung encountered Princess Roro Jonggrang, the late king's daughter. Enchanted by her grace and breathtaking beauty, the prince immediately offered her his hand in marriage. However, Roro Jonggrang harbored intense sorrow and resentment; she could never bring herself to willingly marry the conqueror who had ended her beloved father's life. Knowing that a direct refusal would provoke dangerous anger, she devised a clever plan. She promised to marry Bandung on one strict condition: he must construct one thousand sacred stone temples within a single night, completed before the dawn rooster crowed.<br><br>Confident in his mystical gifts, Bandung Bondowoso accepted the challenge. As darkness blanketed the earth, he mediated and summoned hundreds of earth spirits from the spirit realm. The spirits labored tirelessly at astonishing speed, gathering giant stones and carving ornate pillars. By three o'clock in the morning, nine hundred and ninety-nine magnificent temples stood proudly under the starlit sky, leaving only one final shrine unfinished.<br><br>Terrified that the prince would fulfill the impossible requirement, Roro Jonggrang swiftly gathered her palace maidens. She instructed them to burn piles of dry straw to the east to illuminate the sky with an orange glow, while others pounded rice mortars with heavy wooden pestles to simulate the lively sounds of a busy morning. Deceived by the dawn-like glow and the loud rhythmic pounding, village roosters began to crow repeatedly. Convinced that the morning sun was rising, the supernatural spirits panicked and fled back into the underground realm, abandoning the final temple. When Bandung discovered the deceit, he was filled with profound fury. Pointing his finger at Roro Jonggrang, he declared that she herself would become the one thousandth statue to complete the sacred complex. Instantly, the princess transformed into a graceful stone statue, known to this day as the statue of Durga Mahisasuramardini in Prambanan Temple.",
-    "prompt": "Which **TWO (2)** moral values or character insights can be deduced from the legend of Roro Jonggrang?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Arrogance and deceitful shortcuts ultimately lead to tragic consequences and bitter regret."
-      },
-      {
-        "key": "B",
-        "text": "Physical power and magical commands are the only admirable virtues in human relationships."
-      },
-      {
-        "key": "C",
-        "text": "Honesty, mutual respect, and humility are foundational virtues in traditional cultural heritage."
-      },
-      {
-        "key": "D",
-        "text": "Breaking solemn promises is considered an honorable path to victory in ancient folklore."
-      }
-    ],
-    "correctAnswer": [
-      "A",
-      "C"
-    ],
-    "explanation": "Kalimat yang menggunakan konjungsi kausalitas secara tepat adalah yang berpola 'Owing to + Noun Phrase' ('Owing to the severe typhoon...') dan 'because + Clause' ('...because the regional weather was severe'). Kalimat lainnya salah penempatan konjungsi atau tidak diikuti klausa.",
-    "grammarNote": "Grammatical Accuracy of Cause and Effect Linkers."
-  },
-  {
-    "id": 23,
-    "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XI — SMAN 1 Bae Kudus",
-    "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
-    "stimulusTitle": "Grammar Focus: Connectors of Concession and Contrast (Although, Despite, In spite of)",
-    "stimulusBody": "Review the proper grammatical usage of subordinating conjunctions and prepositional phrases that indicate concession:",
-    "prompt": "Which **TWO (2)** sentences correctly demonstrate concession connectors to express contrast between ideas?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Although social media offers vast educational resources, it also presents significant risks of misinformation."
-      },
-      {
-        "key": "B",
-        "text": "Despite the news looked very genuine, but Farhan did not forward it to the class group."
-      },
-      {
-        "key": "C",
-        "text": "In spite of facing severe academic pressure, she maintained disciplined study and sleep habits."
-      },
-      {
-        "key": "D",
-        "text": "However she studied all night, because she felt exhausted during the morning exam."
-      }
-    ],
-    "correctAnswer": [
-      "A",
-      "C"
-    ],
-    "explanation": "Kalimat yang menggunakan konjungsi transisi pertentangan dengan tanda baca dan makna yang tepat adalah yang menggunakan 'however' dan 'nevertheless'. Kalimat lainnya salah karena menggabungkan 'Although' dengan 'but', atau 'in spite of' yang langsung diikuti klausa.",
-    "grammarNote": "Transitions of Contrast: however, nevertheless, on the contrary."
-  },
-  {
-    "id": 24,
-    "source": "Sumber: Panduan Kesehatan Fisik & Mental Pelajar — Kemenkes RI",
-    "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
-    "stimulusTitle": "Practical Study Habits: Optimizing Adolescent Cognitive Health",
-    "stimulusBody": "Health and educational specialists recommend evidence-based study and lifestyle habits for optimal high school performance:",
-    "prompt": "Which **TWO (2)** habits reflect responsible time management and optimal cognitive health for high school students?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Maintaining a consistent nightly sleep schedule of 7 to 8 hours to consolidate newly learned information."
-      },
-      {
-        "key": "B",
-        "text": "Staying awake until 3 AM every night playing multiplayer online games before examination morning."
-      },
-      {
-        "key": "C",
-        "text": "Scheduling twenty minutes of brisk morning physical exercise and staying well-hydrated throughout the day."
-      },
-      {
-        "key": "D",
-        "text": "Consuming excessive sugary energy drinks while completely skipping nutritious meals during exam week."
-      }
-    ],
-    "correctAnswer": [
-      "A",
-      "C"
-    ],
-    "explanation": "Rekomendasi gaya hidup sehat yang efektif dan ilmiah menurut teks adalah menjaga waktu tidur berkualitas 7-8 jam per malam, serta melakukan aktivitas fisik/olahraga teratur minimal 30 menit sehari.",
-    "grammarNote": "Practical Life Skills & Analytical Text Conclusion Application."
-  },
-  {
-    "id": 25,
-    "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XI — SMAN 1 Bae Kudus",
-    "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
-    "stimulusTitle": "Academic Lexis: Oxford 3000 Vocabulary for 'Verify' and 'Evaluate'",
-    "stimulusBody": "Precision in understanding core academic English verbs is critical for analytical literacy:",
-    "prompt": "Which **TWO (2)** statements correctly define academic vocabulary forms from the text?",
-    "options": [
-      {
-        "key": "A",
-        "text": "'Verify' (verb) means to prove or confirm the truth, accuracy, or reality of a statement or report."
-      },
-      {
-        "key": "B",
-        "text": "'Verifiable' (adjective) describes a claim that cannot be proven by any factual evidence."
-      },
-      {
-        "key": "C",
-        "text": "'Evaluation' (noun) denotes the systematic assessment of the value, authority, or credibility of an information source."
-      },
-      {
-        "key": "D",
-        "text": "'Manipulate' (verb) means to tell the truth openly and sincerely to all audiences."
-      }
-    ],
-    "correctAnswer": [
-      "A",
-      "C"
-    ],
-    "explanation": "Kalimat pasif baku adalah yang menggunakan bentuk 'have been introduced' (Present Perfect Passive) dan 'were announced' (Past Simple Passive). Kalimat lainnya salah pola kata kerja ('was did') atau tidak selaras subjek-predikat ('articles is').",
-    "grammarNote": "Passive Voice Subject-Verb Agreement and Irregular Past Participle Mastery."
-  },
-  {
-    "id": 26,
-    "source": "Sumber: Diadaptasi dari Laporan Kajian Literasi Digital Remaja Indonesia — Pusdatin Kemendikbudristek & UNESCO Youth Digital Media Literacy",
-    "type": "single_choice",
-    "title": "Reading Comprehension: Cause and Effect Inference",
-    "stimulusTitle": "Text 2: Why Critical Digital Literacy Is an Essential Competence for Modern Teenagers",
-    "stimulusBody": "In the contemporary era of hyper-connected social networks, secondary students are continuously inundated with immense streams of digital information. While access to the internet offers unprecedented learning opportunities, it simultaneously exposes youths to pervasive misinformation, deceptive clickbait, and algorithmic echo chambers. Therefore, cultivating critical digital literacy is no longer merely an optional scholastic skill; it has become an indispensable life competence for modern teenagers.<br><br>First and foremost, critical digital literacy empowers adolescents to distinguish between factual evidence and fabricated falsehoods. Sensationalized headlines are deliberately engineered to trigger volatile emotional responses, enticing users to share misleading posts without prior verification. Digitally literate students possess the cognitive discipline to evaluate the authority of sources, cross-check claims against verified databases, and recognize commercial or political biases.<br><br>Furthermore, possessing mature digital awareness is paramount for safeguarding one's permanent digital footprint. Every comment, shared image, and forum reaction leaves persistent electronic traces that cannot be completely erased by hitting 'delete'. Admissions committees for prestigious universities and scholarship foundations now routinely scrutinize applicants' public profiles to evaluate personal integrity and constructive communication habits.<br><br>Finally, critical digital awareness shields adolescent mental wellbeing from algorithmic manipulation. Social media algorithms intentionally prioritize outrage-inducing content and idealized portrayals of peer lifestyle, which can foster profound social anxiety, body dissatisfaction, and depression among vulnerable youths. By understanding how algorithmic engagement metrics operate, students can consciously regulate their screen exposure and consume digital media intentionally rather than passively.<br><br>In conclusion, critical digital literacy is not simply about operating software applications; it is about cultivating intellectual autonomy, safeguarding ethical reputation, and protecting psychological health in an automated society. Secondary schools must systematically embed comprehensive digital literacy frameworks across all academic curricula.",
-    "prompt": "Based on paragraph 4, what is one major direct cause of late-night sleep disruption among adolescents?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Reading traditional printed books before bed"
-      },
-      {
-        "key": "B",
-        "text": "Doing physical sports early in the morning"
-      },
-      {
-        "key": "C",
-        "text": "Drinking excessive amounts of warm water"
-      },
-      {
-        "key": "D",
-        "text": "Uncontrolled late-night screen exposure and social media interactions"
-      }
-    ],
-    "correctAnswer": "D",
-    "explanation": "Teks analitis eksposisi berfokus membuktikan suatu tesis dengan argumen-argumen logis pendukung.",
-    "grammarNote": "Reduced Relative Clause: 'sleep disruption [which is] caused by late-night screen exposure'."
-  },
-  {
-    "id": 27,
-    "source": "Sumber: Diadaptasi dari Laporan Kajian Literasi Digital Remaja Indonesia — Pusdatin Kemendikbudristek & UNESCO Youth Digital Media Literacy",
-    "type": "single_choice",
-    "title": "Reading Comprehension: Author's Stance and Tone",
-    "stimulusTitle": "Text 2: Why Critical Digital Literacy Is an Essential Competence for Modern Teenagers",
-    "stimulusBody": "In the contemporary era of hyper-connected social networks, secondary students are continuously inundated with immense streams of digital information. While access to the internet offers unprecedented learning opportunities, it simultaneously exposes youths to pervasive misinformation, deceptive clickbait, and algorithmic echo chambers. Therefore, cultivating critical digital literacy is no longer merely an optional scholastic skill; it has become an indispensable life competence for modern teenagers.<br><br>First and foremost, critical digital literacy empowers adolescents to distinguish between factual evidence and fabricated falsehoods. Sensationalized headlines are deliberately engineered to trigger volatile emotional responses, enticing users to share misleading posts without prior verification. Digitally literate students possess the cognitive discipline to evaluate the authority of sources, cross-check claims against verified databases, and recognize commercial or political biases.<br><br>Furthermore, possessing mature digital awareness is paramount for safeguarding one's permanent digital footprint. Every comment, shared image, and forum reaction leaves persistent electronic traces that cannot be completely erased by hitting 'delete'. Admissions committees for prestigious universities and scholarship foundations now routinely scrutinize applicants' public profiles to evaluate personal integrity and constructive communication habits.<br><br>Finally, critical digital awareness shields adolescent mental wellbeing from algorithmic manipulation. Social media algorithms intentionally prioritize outrage-inducing content and idealized portrayals of peer lifestyle, which can foster profound social anxiety, body dissatisfaction, and depression among vulnerable youths. By understanding how algorithmic engagement metrics operate, students can consciously regulate their screen exposure and consume digital media intentionally rather than passively.<br><br>In conclusion, critical digital literacy is not simply about operating software applications; it is about cultivating intellectual autonomy, safeguarding ethical reputation, and protecting psychological health in an automated society. Secondary schools must systematically embed comprehensive digital literacy frameworks across all academic curricula.",
-    "prompt": "Which adjective best describes the author's tone throughout the entire text?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Persuasive, rational, and constructive"
-      },
-      {
-        "key": "B",
-        "text": "Humorous, playful, and sarcastic"
-      },
-      {
-        "key": "C",
-        "text": "Aggressive, bitter, and pessimistic"
-      },
-      {
-        "key": "D",
-        "text": "Indifferent, careless, and doubtful"
-      }
-    ],
-    "correctAnswer": "A",
-    "explanation": "Tesis utama artikel menekankan urgensi evaluasi kritis terhadap informasi digital.",
-    "grammarNote": "Author's Tone & Attitude Analysis: Persuasive, informative, and constructive."
-  },
-  {
-    "id": 28,
-    "source": "Sumber: Diadaptasi dari Laporan Kajian Literasi Digital Remaja Indonesia — Pusdatin Kemendikbudristek & UNESCO Youth Digital Media Literacy",
-    "type": "single_choice",
-    "title": "Reading Comprehension: Sentence Function",
-    "stimulusTitle": "Text 2: Why Critical Digital Literacy Is an Essential Competence for Modern Teenagers",
-    "stimulusBody": "In the contemporary era of hyper-connected social networks, secondary students are continuously inundated with immense streams of digital information. While access to the internet offers unprecedented learning opportunities, it simultaneously exposes youths to pervasive misinformation, deceptive clickbait, and algorithmic echo chambers. Therefore, cultivating critical digital literacy is no longer merely an optional scholastic skill; it has become an indispensable life competence for modern teenagers.<br><br>First and foremost, critical digital literacy empowers adolescents to distinguish between factual evidence and fabricated falsehoods. Sensationalized headlines are deliberately engineered to trigger volatile emotional responses, enticing users to share misleading posts without prior verification. Digitally literate students possess the cognitive discipline to evaluate the authority of sources, cross-check claims against verified databases, and recognize commercial or political biases.<br><br>Furthermore, possessing mature digital awareness is paramount for safeguarding one's permanent digital footprint. Every comment, shared image, and forum reaction leaves persistent electronic traces that cannot be completely erased by hitting 'delete'. Admissions committees for prestigious universities and scholarship foundations now routinely scrutinize applicants' public profiles to evaluate personal integrity and constructive communication habits.<br><br>Finally, critical digital awareness shields adolescent mental wellbeing from algorithmic manipulation. Social media algorithms intentionally prioritize outrage-inducing content and idealized portrayals of peer lifestyle, which can foster profound social anxiety, body dissatisfaction, and depression among vulnerable youths. By understanding how algorithmic engagement metrics operate, students can consciously regulate their screen exposure and consume digital media intentionally rather than passively.<br><br>In conclusion, critical digital literacy is not simply about operating software applications; it is about cultivating intellectual autonomy, safeguarding ethical reputation, and protecting psychological health in an automated society. Secondary schools must systematically embed comprehensive digital literacy frameworks across all academic curricula.",
-    "prompt": "In the overall structure of analytical exposition, what role does paragraph 5 play?",
-    "options": [
-      {
-        "key": "A",
-        "text": "It introduces a brand new unrelated topic"
-      },
-      {
-        "key": "B",
-        "text": "It serves as the Reiteration, summarizing the core thesis and urging collaborative action"
-      },
-      {
-        "key": "C",
-        "text": "It describes the biography of a famous software engineer"
-      },
-      {
-        "key": "D",
-        "text": "It provides a fictional resolution to a narrative fable"
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "Paragraf 3 menyoroti dampak psikologis paparan konten negatif berkelanjutan.",
-    "grammarNote": "Structure of Analytical Exposition: Reiteration / Conclusion restates thesis and key arguments."
-  },
-  {
-    "id": 29,
-    "source": "Sumber: Diadaptasi dari Laporan Kajian Literasi Digital Remaja Indonesia — Pusdatin Kemendikbudristek & UNESCO Youth Digital Media Literacy",
-    "type": "single_choice",
-    "title": "Reading Comprehension: Paraphrasing",
-    "stimulusTitle": "Text 2: Why Critical Digital Literacy Is an Essential Competence for Modern Teenagers",
-    "stimulusBody": "In the contemporary era of hyper-connected social networks, secondary students are continuously inundated with immense streams of digital information. While access to the internet offers unprecedented learning opportunities, it simultaneously exposes youths to pervasive misinformation, deceptive clickbait, and algorithmic echo chambers. Therefore, cultivating critical digital literacy is no longer merely an optional scholastic skill; it has become an indispensable life competence for modern teenagers.<br><br>First and foremost, critical digital literacy empowers adolescents to distinguish between factual evidence and fabricated falsehoods. Sensationalized headlines are deliberately engineered to trigger volatile emotional responses, enticing users to share misleading posts without prior verification. Digitally literate students possess the cognitive discipline to evaluate the authority of sources, cross-check claims against verified databases, and recognize commercial or political biases.<br><br>Furthermore, possessing mature digital awareness is paramount for safeguarding one's permanent digital footprint. Every comment, shared image, and forum reaction leaves persistent electronic traces that cannot be completely erased by hitting 'delete'. Admissions committees for prestigious universities and scholarship foundations now routinely scrutinize applicants' public profiles to evaluate personal integrity and constructive communication habits.<br><br>Finally, critical digital awareness shields adolescent mental wellbeing from algorithmic manipulation. Social media algorithms intentionally prioritize outrage-inducing content and idealized portrayals of peer lifestyle, which can foster profound social anxiety, body dissatisfaction, and depression among vulnerable youths. By understanding how algorithmic engagement metrics operate, students can consciously regulate their screen exposure and consume digital media intentionally rather than passively.<br><br>In conclusion, critical digital literacy is not simply about operating software applications; it is about cultivating intellectual autonomy, safeguarding ethical reputation, and protecting psychological health in an automated society. Secondary schools must systematically embed comprehensive digital literacy frameworks across all academic curricula.",
-    "prompt": "Which of the following statements best restates the thesis of the passage in different words?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Adolescents should completely eliminate all internet connections to avoid misinformation"
-      },
-      {
-        "key": "B",
-        "text": "Only computer science professionals require digital literacy in today's society"
-      },
-      {
-        "key": "C",
-        "text": "Possessing critical digital discernment is crucial for teenagers to navigate information safely and maintain wellbeing"
-      },
-      {
-        "key": "D",
-        "text": "Social media platforms have eliminated all academic problems for students"
-      }
-    ],
-    "correctAnswer": "C",
-    "explanation": "Kata 'verifying' bermakna mengonfirmasi atau membuktikan kebenaran suatu klaim fakta (confirming).",
-    "grammarNote": "Academic Paraphrasing: maintaining core semantic meaning with varied vocabulary and syntax."
-  },
-  {
-    "id": 30,
-    "source": "Sumber: Diadaptasi dari Laporan Kajian Literasi Digital Remaja Indonesia — Pusdatin Kemendikbudristek & UNESCO Youth Digital Media Literacy",
-    "type": "single_choice",
-    "title": "Reading Comprehension: Practical Application",
-    "stimulusTitle": "Text 2: Why Critical Digital Literacy Is an Essential Competence for Modern Teenagers",
-    "stimulusBody": "In the contemporary era of hyper-connected social networks, secondary students are continuously inundated with immense streams of digital information. While access to the internet offers unprecedented learning opportunities, it simultaneously exposes youths to pervasive misinformation, deceptive clickbait, and algorithmic echo chambers. Therefore, cultivating critical digital literacy is no longer merely an optional scholastic skill; it has become an indispensable life competence for modern teenagers.<br><br>First and foremost, critical digital literacy empowers adolescents to distinguish between factual evidence and fabricated falsehoods. Sensationalized headlines are deliberately engineered to trigger volatile emotional responses, enticing users to share misleading posts without prior verification. Digitally literate students possess the cognitive discipline to evaluate the authority of sources, cross-check claims against verified databases, and recognize commercial or political biases.<br><br>Furthermore, possessing mature digital awareness is paramount for safeguarding one's permanent digital footprint. Every comment, shared image, and forum reaction leaves persistent electronic traces that cannot be completely erased by hitting 'delete'. Admissions committees for prestigious universities and scholarship foundations now routinely scrutinize applicants' public profiles to evaluate personal integrity and constructive communication habits.<br><br>Finally, critical digital awareness shields adolescent mental wellbeing from algorithmic manipulation. Social media algorithms intentionally prioritize outrage-inducing content and idealized portrayals of peer lifestyle, which can foster profound social anxiety, body dissatisfaction, and depression among vulnerable youths. By understanding how algorithmic engagement metrics operate, students can consciously regulate their screen exposure and consume digital media intentionally rather than passively.<br><br>In conclusion, critical digital literacy is not simply about operating software applications; it is about cultivating intellectual autonomy, safeguarding ethical reputation, and protecting psychological health in an automated society. Secondary schools must systematically embed comprehensive digital literacy frameworks across all academic curricula.",
-    "prompt": "Which actionable habit exemplifies mindful digital usage as recommended in paragraph 4?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Keeping the smartphone under one's pillow with alerts turned on all night"
-      },
-      {
-        "key": "B",
-        "text": "Checking notifications every two minutes during study sessions"
-      },
-      {
-        "key": "C",
-        "text": "Leaving negative anonymous comments on peers' profiles"
-      },
-      {
-        "key": "D",
-        "text": "Setting intentional limits on screen time and engaging in positive online communities"
-      }
-    ],
-    "correctAnswer": "D",
-    "explanation": "Paragraf 4 merekomendasikan penetapan batas waktu penggunaan gawai secara sadar ('setting intentional screen time boundaries') serta aktif dalam komunitas digital yang suportif.",
-    "grammarNote": "Action Verb Collocations: 'setting intentional limits', 'curating supportive communities'."
-  },
-  {
-    "id": 31,
-    "source": "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
-    "type": "single_choice",
-    "title": "Grammar Essentials: Past Narrative Tenses (Past Perfect)",
-    "stimulusTitle": "Kaidah Waktu Lampau Berurutan (Narrative Sequence)",
-    "stimulusBody": "By the time Prince Bandung Bondowoso realized Princess Roro Jonggrang's clever trickery, the earth spirits _______ back into the subterranean realm.",
-    "prompt": "Choose the correct verb form to complete the past narrative sentence above:",
-    "options": [
-      {
-        "key": "A",
-        "text": "had already retreated"
-      },
-      {
-        "key": "B",
-        "text": "have already retreated"
-      },
-      {
-        "key": "C",
-        "text": "are retreating"
-      },
-      {
-        "key": "D",
-        "text": "will retreat"
-      }
-    ],
-    "correctAnswer": "A",
-    "explanation": "Kaidah modal verb 'should' diikuti bentuk kata kerja dasar (bare infinitive): 'should verify'.",
-    "grammarNote": "Past Perfect Tense (had + V3) denotes an action completed prior to another past event."
-  },
-  {
-    "id": 32,
-    "source": "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
-    "type": "single_choice",
-    "title": "Grammar Essentials: Conjunction of Contrast",
-    "stimulusTitle": "Kaidah Kata Hubung Pertentangan (Contrast Conjunction)",
-    "stimulusBody": "_______ social media algorithms are engineered to capture user attention through sensationalism, critical students always examine factual evidence before believing viral claims.",
-    "prompt": "Which conjunction of contrast correctly completes the sentence?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Because"
-      },
-      {
-        "key": "B",
-        "text": "Although"
-      },
-      {
-        "key": "C",
-        "text": "Therefore"
-      },
-      {
-        "key": "D",
-        "text": "In spite of"
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "Frasa 'Due to' berfungsi sebagai preposisi yang harus diikuti oleh frasa nomina (noun phrase).",
-    "grammarNote": "Subordinating Conjunction of Concession: Although + Subject + Verb, Main Clause."
-  },
-  {
-    "id": 33,
-    "source": "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
-    "type": "single_choice",
-    "title": "Grammar Essentials: Conjunction of Cause and Effect",
-    "stimulusTitle": "Kaidah Hubungan Sebab-Akibat (Cause and Effect)",
-    "stimulusBody": "Several internet users fell victim to identity theft _______ their careless habit of oversharing sensitive personal information on public forums.",
-    "prompt": "Choose the correct prepositional connector to express cause:",
-    "options": [
-      {
-        "key": "A",
-        "text": "nevertheless"
-      },
-      {
-        "key": "B",
-        "text": "because"
-      },
-      {
-        "key": "C",
-        "text": "due to"
-      },
-      {
-        "key": "D",
-        "text": "even though"
-      }
-    ],
-    "correctAnswer": "C",
-    "explanation": "Bentuk pasif Simple Present Tense untuk subjek jamak adalah: are + Verb 3 ('are examined').",
-    "grammarNote": "Prepositional Cause Marker: 'due to' / 'because of' + Noun Phrase."
-  },
-  {
-    "id": 34,
-    "source": "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
-    "type": "single_choice",
-    "title": "Grammar Essentials: Passive Voice in Academic Discourse",
-    "stimulusTitle": "Kaidah Kalimat Pasif Formal (Formal Passive Voice)",
-    "stimulusBody": "In academic research, online claims _______ thoroughly through credible scholarly publications before being accepted as valid evidence.",
-    "prompt": "Which passive verb phrase correctly completes the statement?",
-    "options": [
-      {
-        "key": "A",
-        "text": "is verifying"
-      },
-      {
-        "key": "B",
-        "text": "must verify"
-      },
-      {
-        "key": "C",
-        "text": "must have verified"
-      },
-      {
-        "key": "D",
-        "text": "must be verified"
-      }
-    ],
-    "correctAnswer": "D",
-    "explanation": "Subjek kalimat adalah 'online claims' yang menerima aksi pasif dengan modal keharusan: Modal + be + V3 -> 'must be verified'.",
-    "grammarNote": "Modal Passive Structure: Modal auxiliary (must/should) + be + Past Participle (V3)."
-  },
-  {
-    "id": 35,
-    "source": "Sumber: Modul Tata Bahasa Bahasa Inggris Fase F — Tim MGMP SMAN 1 Bae Kudus",
-    "type": "single_choice",
-    "title": "Grammar Essentials: Reported Speech (Indirect Speech)",
-    "stimulusTitle": "Transformasi Kalimat Langsung ke Tidak Langsung",
-    "stimulusBody": "Direct Speech: Dewi said to her classmates, \"I am analyzing the narrative structure of the Prambanan legend for our presentation.\"<br><br>Indirect Speech: Dewi told her classmates that she _______ the narrative structure of the Prambanan legend for their presentation.",
-    "prompt": "Choose the correct verb form for the indirect speech transformation:",
-    "options": [
-      {
-        "key": "A",
-        "text": "was analyzing"
-      },
-      {
-        "key": "B",
-        "text": "is analyzing"
-      },
-      {
-        "key": "C",
-        "text": "has analyzed"
-      },
-      {
-        "key": "D",
-        "text": "will analyze"
-      }
-    ],
-    "correctAnswer": "A",
-    "explanation": "Konjungsi konsesif 'Although' digunakan untuk menghubungkan dua klausa yang saling bertolak belakang.",
-    "grammarNote": "Reported Speech Backshift Rule: Present Continuous (am/is + V-ing) -> Past Continuous (was/were + V-ing)."
-  },
-  {
-    "id": 36,
-    "source": "Sumber: Modul Tata Bahasa Bahasa Inggris Fase F — Tim MGMP SMAN 1 Bae Kudus",
-    "type": "single_choice",
-    "title": "Grammar Essentials: Conditional Sentence Type 2",
-    "stimulusTitle": "Kalimat Pengandaian Situasi Hipotesis Masa Kini (Type 2)",
-    "stimulusBody": "If adolescents _______ critical verification habits consistently, they would not become easy targets for deceptive online clickbait.",
-    "prompt": "Select the correct verb form for the 'if-clause' in Conditional Type 2:",
-    "options": [
-      {
-        "key": "A",
-        "text": "practice"
-      },
-      {
-        "key": "B",
-        "text": "practiced"
-      },
-      {
-        "key": "C",
-        "text": "have practiced"
-      },
-      {
-        "key": "D",
-        "text": "will practice"
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "Pola second conditional baku dibentuk dengan 'If + past simple, would + bare infinitive'.",
-    "grammarNote": "Conditional Type 2 Formula: If + S + V2 (Simple Past), S + would + Base Verb (V1)."
-  },
-  {
-    "id": 37,
-    "source": "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
-    "type": "single_choice",
-    "title": "Grammar Essentials: Modals of Recommendation",
-    "stimulusTitle": "Kaidah Modalitas Anjuran Kuat (Obligation & Recommendation)",
-    "stimulusBody": "When students encounter an unverified breaking news story on social media, they _______ cross-check the claims with official news agencies before forwarding it.",
-    "prompt": "Which modal verb appropriately expresses a strong moral recommendation?",
-    "options": [
-      {
-        "key": "A",
-        "text": "would"
-      },
-      {
-        "key": "B",
-        "text": "might"
-      },
-      {
-        "key": "C",
-        "text": "ought to"
-      },
-      {
-        "key": "D",
-        "text": "shall"
-      }
-    ],
-    "correctAnswer": "C",
-    "explanation": "'Ought to' memiliki makna setara dengan 'should', digunakan untuk menyatakan anjuran moral yang kuat atau kewajiban etis (strong recommendation/moral duty).",
-    "grammarNote": "Modal of Moral Recommendation: 'ought to' + base verb = 'should' + base verb."
-  },
-  {
-    "id": 38,
-    "source": "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
-    "type": "single_choice",
-    "title": "Vocabulary Mastery: Academic Collocation with 'Awareness'",
-    "stimulusTitle": "Kaidah Pasangan Kata Baku (Collocation)",
-    "stimulusBody": "Our school regularly hosts digital literacy seminars in order to _______ awareness about personal data protection among all students.",
-    "prompt": "Which verb collocates naturally with the noun 'awareness'?",
-    "options": [
-      {
-        "key": "A",
-        "text": "take"
-      },
-      {
-        "key": "B",
-        "text": "make"
-      },
-      {
-        "key": "C",
-        "text": "do"
-      },
-      {
-        "key": "D",
-        "text": "raise"
-      }
-    ],
-    "correctAnswer": "D",
-    "explanation": "Konjungsi koordinatif 'so' digunakan untuk menyatakan hubungan sebab-akibat langsung.",
-    "grammarNote": "Fixed Academic Collocation: 'raise awareness' (meningkatkan kepedulian/kesadaran)."
-  },
-  {
-    "id": 39,
-    "source": "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
-    "type": "single_choice",
-    "title": "Functional Expressions: Expressing Stance / Strong Agreement",
-    "stimulusTitle": "Ungkapan Menyetujui Pandangan dalam Diskusi Analitis",
-    "stimulusBody": "Speaker A: 'I firmly believe that schools must incorporate digital safety ethics into the core curriculum.'<br>Speaker B: '_______ Digital wellbeing is essential for our generation's future.'",
-    "prompt": "Which expression best demonstrates strong, professional agreement with Speaker A?",
-    "options": [
-      {
-        "key": "A",
-        "text": "I couldn't agree more with your point."
-      },
-      {
-        "key": "B",
-        "text": "I totally doubt your suggestion."
-      },
-      {
-        "key": "C",
-        "text": "I am afraid that is completely irrelevant."
-      },
-      {
-        "key": "D",
-        "text": "That sounds like a terrible perspective."
-      }
-    ],
-    "correctAnswer": "A",
-    "explanation": "Ungkapan 'I couldn't agree more with your point' adalah idiom formal untuk menyatakan persetujuan mutlak (strong agreement). Pilihan lainnya menyatakan keraguan atau penolakan.",
-    "grammarNote": "Expressing Agreement in Analytical Discussions: 'I couldn't agree more' = I strongly agree."
-  },
-  {
-    "id": 40,
-    "source": "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
-    "type": "single_choice",
-    "title": "Vocabulary Mastery: Oxford 3000 Academic Lexis (Level B2)",
-    "stimulusTitle": "Pemilihan Kata Kontekstual Berdasarkan Makna",
-    "stimulusBody": "Cultivating critical thinking skills is _______ for high school students who must navigate an increasingly complex information ecosystem.",
-    "prompt": "Which adjective best completes the academic statement with the meaning of 'absolutely necessary and crucial'?",
-    "options": [
-      {
-        "key": "A",
-        "text": "hesitant"
-      },
-      {
-        "key": "B",
-        "text": "vital"
-      },
-      {
-        "key": "C",
-        "text": "artificial"
-      },
-      {
-        "key": "D",
-        "text": "fragile"
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "Konektor transisi antarkalimat 'Furthermore' digunakan untuk menambahkan argumen pendukung yang sejalan.",
-    "grammarNote": "Academic Evaluative Adjective (Oxford 3000 B2): vital = crucial, indispensable, essential."
-  }
-];
+    {
+      id: 1,
+      source: "Kemendikbudristek — Listening Practice Fase F",
+      type: "listening_pictures",
+      title: "Listening Section: Part I - Pictures",
+      audioText: "Number one. Look at the pictures. A high school student is typing on her laptop in the library, carefully studying digital articles for her English project. Which picture matches the statement?",
+      audioSegments: [
+        {
+          text: "Number one. Look at the pictures in your test booklet. A high school student is typing on her laptop in the library, carefully studying digital articles for her English project. Which picture matches the statement?",
+          lang: "en-US",
+          role: "narrator"
+        }
+      ],
+      prompt: "Which picture matches the student studying digital articles on a laptop in the library?",
+      options: [
+        { key: "A", svg: SVG_PICTURES.digitalClass, label: "A student studying on a laptop in a library" },
+        { key: "B", svg: SVG_PICTURES.ancientTemple, label: "A grand ancient stone temple" },
+        { key: "C", svg: SVG_PICTURES.solarRooftop, label: "Solar panels installed on a green school roof" },
+        { key: "D", svg: SVG_PICTURES.industrialFactory, label: "A manufacturing factory with tall chimneys" }
+      ],
+      correctAnswer: "A",
+      explanation: "Audio mendeskripsikan seorang siswi yang sedang menggunakan laptop di perpustakaan untuk mempelajari artikel digital bahasa Inggris ('typing on her laptop in the library, carefully studying digital articles').",
+      grammarNote: "Present continuous tense: 'is typing on her laptop, studying digital articles'."
+    },
+    {
+      id: 2,
+      source: "Kemendikbudristek — Listening Practice Fase F",
+      type: "listening_pictures",
+      title: "Listening Section: Part I - Pictures",
+      audioText: "Number two. Look at the pictures. Located in Central Java, this ancient stone temple has tall spires that attract thousands of cultural tourists every year. Which picture shows this historical monument?",
+      audioSegments: [
+        {
+          text: "Number two. Look at the pictures. Located in Central Java, this ancient stone temple has tall spires that attract thousands of cultural tourists every year. Which picture shows this historical monument?",
+          lang: "en-US",
+          role: "narrator"
+        }
+      ],
+      prompt: "Which picture shows the ancient stone temple landmark mentioned in the recording?",
+      options: [
+        { key: "A", svg: SVG_PICTURES.digitalClass, label: "A student studying on a laptop in a library" },
+        { key: "B", svg: SVG_PICTURES.ancientTemple, label: "A grand ancient stone temple" },
+        { key: "C", svg: SVG_PICTURES.solarRooftop, label: "Solar panels installed on a green school roof" },
+        { key: "D", svg: SVG_PICTURES.industrialFactory, label: "A manufacturing factory with tall chimneys" }
+      ],
+      correctAnswer: "B",
+      explanation: "Audio mendeskripsikan candi batu kuno di Jawa Tengah dengan puncak menara yang tinggi ('ancient stone temple has tall spires that attract thousands of cultural tourists').",
+      grammarNote: "Relative clause: 'ancient stone temple that has tall spires'."
+    },
+    {
+      id: 3,
+      source: "Kemendikbudristek — Listening Practice Fase F",
+      type: "listening_pictures",
+      title: "Listening Section: Part I - Pictures",
+      audioText: "Number three. Look at the pictures. Modern blue solar panels are installed on the roof of a green school building to generate clean and renewable electricity. Which picture matches this description?",
+      audioSegments: [
+        {
+          text: "Number three. Look at the pictures. Modern blue solar panels are installed on the roof of a green school building to generate clean and renewable electricity. Which picture matches this description?",
+          lang: "en-US",
+          role: "narrator"
+        }
+      ],
+      prompt: "Which picture illustrates the clean solar energy panels on the school roof?",
+      options: [
+        { key: "A", svg: SVG_PICTURES.digitalClass, label: "A student studying on a laptop in a library" },
+        { key: "B", svg: SVG_PICTURES.ancientTemple, label: "A grand ancient stone temple" },
+        { key: "C", svg: SVG_PICTURES.solarRooftop, label: "Solar panels installed on a green school roof" },
+        { key: "D", svg: SVG_PICTURES.industrialFactory, label: "A manufacturing factory with tall chimneys" }
+      ],
+      correctAnswer: "C",
+      explanation: "Audio mendeskripsikan panel surya yang dipasang di atap gedung sekolah untuk menghasilkan listrik bersih ('solar panels are installed on the roof of a green school building').",
+      grammarNote: "Passive voice: 'solar panels are installed on the roof'."
+    },
+    {
+      id: 4,
+      source: "Modul Pembelajaran Bahasa Inggris Kelas XI — Kemendikbudristek",
+      type: "listening_dialog",
+      title: "Listening Section: Part II - Short Dialogues",
+      audioSegments: [
+        { role: "narrator", lang: "en-US", text: "Number four. Listen to a conversation between two high school students.", pauseAfter: 450 },
+        { role: "student_m", lang: "en-US", name: "Budi", text: "Look at this dramatic news story on Instagram! It says our semester vacation will be shortened to three days.", pauseAfter: 350 },
+        { role: "student_f", lang: "en-US", name: "Rina", text: "Wait, do not forward it immediately! Let us check the official school website or ask our homeroom teacher first. Many sensational stories on social media are fake.", pauseAfter: 400 },
+        { role: "narrator", lang: "en-US", text: "Question: What does the female student advise before forwarding news from social media?", pauseAfter: 300 }
+      ],
+      stimulusTitle: "Dialogue: Checking Online Information",
+      stimulusBody: "<p><strong>Speaker 1 (Male):</strong> Look at this dramatic news story on Instagram! It says our semester vacation will be shortened to three days.</p><p><strong>Speaker 2 (Female):</strong> Wait, do not forward it immediately! Let us check the official school website or ask our homeroom teacher first. Many sensational stories on social media are fake.</p>",
+      prompt: "What does the female student advise before forwarding news from social media?",
+      options: [
+        { key: "A", text: "Forward the news immediately to all class group chats." },
+        { key: "B", text: "Check official school sources and verify facts before sharing." },
+        { key: "C", text: "Turn off smartphones permanently during the holidays." },
+        { key: "D", text: "Believe everything published on social media platforms." }
+      ],
+      correctAnswer: "B",
+      explanation: "Siswi perempuan menyarankan untuk tidak langsung membagikan berita tersebut, melainkan memverifikasi kebenarannya melalui situs resmi sekolah atau bertanya kepada wali kelas terlebih dahulu.",
+      grammarNote: "Imperative advice: 'Let us check the official school website first'."
+    },
+    {
+      id: 5,
+      source: "Modul Pembelajaran Bahasa Inggris Kelas XI — Kemendikbudristek",
+      type: "listening_dialog",
+      title: "Listening Section: Part II - Short Dialogues",
+      audioSegments: [
+        { role: "narrator", lang: "en-US", text: "Number five. Listen to two students preparing a drama performance.", pauseAfter: 450 },
+        { role: "student_m", lang: "en-US", name: "Eko", text: "In our school drama about Prambanan, what moral message should we emphasize in the final scene?", pauseAfter: 350 },
+        { role: "student_f", lang: "en-US", name: "Siti", text: "We should show that deception and broken promises bring sorrow, while honesty and mutual respect create peace.", pauseAfter: 400 },
+        { role: "narrator", lang: "en-US", text: "Question: What moral message will the students emphasize in their drama performance?", pauseAfter: 300 }
+      ],
+      stimulusTitle: "Dialogue: Moral Lesson in School Drama",
+      stimulusBody: "<p><strong>Speaker 1 (Male):</strong> In our school drama about Prambanan, what moral message should we emphasize in the final scene?</p><p><strong>Speaker 2 (Female):</strong> We should show that deception and broken promises bring sorrow, while honesty and mutual respect create peace.</p>",
+      prompt: "What moral message will the students emphasize in their drama performance?",
+      options: [
+        { key: "A", text: "Deception and broken promises cause sorrow, while honesty creates peace." },
+        { key: "B", text: "Winning a war with physical force is the best achievement." },
+        { key: "C", text: "Ancient legends are only designed for entertaining young children." },
+        { key: "D", text: "People should never help others during difficult times." }
+      ],
+      correctAnswer: "A",
+      explanation: "Pesan moral yang ditekankan dalam pementasan drama adalah bahwa tipu daya dan janji yang diingkari membawa duka, sedangkan kejujuran dan saling menghargai menciptakan kedamaian ('deception and broken promises bring sorrow, while honesty and mutual respect create peace').",
+      grammarNote: "Conjunction of contrast: 'while honesty and mutual respect create peace'."
+    },
+    {
+      id: 6,
+      source: "Modul Pembelajaran Bahasa Inggris Kelas XI — Kemendikbudristek",
+      type: "listening_dialog",
+      title: "Listening Section: Part II - Short Dialogues",
+      audioSegments: [
+        { role: "narrator", lang: "en-US", text: "Number six. Listen to two students discussing their green school program.", pauseAfter: 450 },
+        { role: "student_m", lang: "en-US", name: "Dani", text: "Our student council wants to make our school cleaner and greener.", pauseAfter: 300 },
+        { role: "student_f", lang: "en-US", name: "Maya", text: "What is our first practical step?", pauseAfter: 300 },
+        { role: "student_m", lang: "en-US", name: "Dani", text: "We will invite all students to bring reusable food boxes and tumblers to stop single-use plastics in the canteen.", pauseAfter: 400 },
+        { role: "narrator", lang: "en-US", text: "Question: What eco-friendly initiative is proposed for the school?", pauseAfter: 300 }
+      ],
+      stimulusTitle: "Dialogue: Green School Project",
+      stimulusBody: "<p><strong>Speaker 1 (Male):</strong> Our student council wants to make our school cleaner and greener.</p><p><strong>Speaker 2 (Female):</strong> What is our first practical step?</p><p><strong>Speaker 1 (Male):</strong> We will invite all students to bring reusable food boxes and tumblers to stop single-use plastics in the canteen.</p>",
+      prompt: "What eco-friendly initiative is proposed for the school?",
+      options: [
+        { key: "A", text: "Closing all school gardens permanently." },
+        { key: "B", text: "Bringing reusable containers and tumblers to reduce plastic waste." },
+        { key: "C", text: "Buying bottled soft drinks every day at the canteen." },
+        { key: "D", text: "Canceling all cleaning activities on Fridays." }
+      ],
+      correctAnswer: "B",
+      explanation: "Inisiatif ramah lingkungan yang diusulkan adalah mengajak seluruh siswa membawa kotak makan dan botol minum isi ulang untuk mengurangi sampah plastik sekali pakai.",
+      grammarNote: "Infinitive of purpose: 'to stop single-use plastics'."
+    },
+    {
+      id: 7,
+      source: "Kemendikbudristek — Listening Monologue: The Legend of Prambanan",
+      type: "listening_talk",
+      title: "Listening Section: Part III - Monologues",
+      audioSegments: [
+        { role: "narrator", lang: "en-US", text: "Questions seven and eight are based on the following monologue about an Indonesian folktale.", pauseAfter: 400 },
+        { role: "narrator", lang: "en-US", text: "Long ago, after Prince Bandung Bondowoso defeated King Boko, he wanted to marry Princess Roro Jonggrang. The princess did not love him because he had killed her father. To reject his proposal without causing war, she gave him an impossible condition: to build one thousand stone temples in just one night. Bandung accepted the challenge and asked supernatural spirits to assist him.", pauseAfter: 500 },
+        { role: "narrator", lang: "en-US", text: "Number seven. According to the monologue, why did Princess Roro Jonggrang give the difficult task to Bandung Bondowoso?", pauseAfter: 350 }
+      ],
+      prompt: "According to the monologue, why did Princess Roro Jonggrang give the difficult task to Bandung Bondowoso?",
+      options: [
+        { key: "A", text: "She wanted to test his cooking skills for the royal banquet." },
+        { key: "B", text: "She wanted to become the chief architect of Prambanan." },
+        { key: "C", text: "She wanted to reject his marriage proposal without starting a war." },
+        { key: "D", text: "She wanted to sell stone statues to neighboring kingdoms." }
+      ],
+      correctAnswer: "C",
+      explanation: "Putri Roro Jonggrang memberikan syarat mustahil tersebut karena ingin menolak lamaran Bandung Bondowoso secara halus tanpa menimbulkan perang baru ('to reject his proposal without causing war').",
+      grammarNote: "Infinitive phrase of purpose: 'to reject his proposal'."
+    },
+    {
+      id: 8,
+      source: "Kemendikbudristek — Listening Monologue: The Legend of Prambanan",
+      type: "listening_talk",
+      title: "Listening Section: Part III - Monologues",
+      audioSegments: [
+        { role: "narrator", lang: "en-US", text: "Bandung accepted the challenge and asked supernatural spirits to assist him. By midnight, hundreds of temples were almost completed.", pauseAfter: 350 },
+        { role: "narrator", lang: "en-US", text: "Number eight. How was Bandung Bondowoso able to construct hundreds of stone temples so rapidly during the night?", pauseAfter: 300 }
+      ],
+      prompt: "How was Bandung Bondowoso able to construct hundreds of stone temples so rapidly during the night?",
+      options: [
+        { key: "A", text: "He used modern industrial cranes and tractors." },
+        { key: "B", text: "He hired thousands of foreign builders from overseas." },
+        { key: "C", text: "He built all the temples alone without any assistance." },
+        { key: "D", text: "He called upon supernatural spirits to help him build the temples." }
+      ],
+      correctAnswer: "D",
+      explanation: "Bandung Bondowoso mampu mendirikan ratusan candi dalam waktu singkat karena memanggil bantuan makhluk halus / jin ('asked supernatural spirits to assist him').",
+      grammarNote: "Past simple: 'called upon supernatural spirits to help him'."
+    },
+    {
+      id: 9,
+      source: "Kemendikbudristek — Listening Monologue: Healthy Sleep Habits for Students",
+      type: "listening_talk",
+      title: "Listening Section: Part III - Monologues",
+      audioSegments: [
+        { role: "narrator", lang: "en-US", text: "Questions nine and ten are based on the following advice from a school counselor.", pauseAfter: 400 },
+        { role: "counselor_f", lang: "en-US", name: "Mrs. Maya", text: "Dear students, sleep is very important for your brain. When teenagers get seven to eight hours of good sleep each night, their memory improves and they can focus easily during morning classes. On the other hand, playing games or scrolling through social media past midnight makes you feel tired, moody, and stressed. Please turn off your screens thirty minutes before bedtime to rest well.", pauseAfter: 500 },
+        { role: "narrator", lang: "en-US", text: "Number nine. According to the counselor, what is a primary benefit of getting enough sleep each night?", pauseAfter: 350 }
+      ],
+      prompt: "According to the counselor, what is a primary benefit of getting enough sleep each night?",
+      options: [
+        { key: "A", text: "Better memory and improved focus during morning classes." },
+        { key: "B", text: "An automatic increase in monthly social media followers." },
+        { key: "C", text: "Never having to do English homework again." },
+        { key: "D", text: "The ability to run faster than school athletes." }
+      ],
+      correctAnswer: "A",
+      explanation: "Konselor menjelaskan bahwa manfaat utama tidur cukup bagi remaja adalah daya ingat yang lebih baik dan konsentrasi yang meningkat saat pelajaran pagi ('memory improves and they can focus easily during morning classes').",
+      grammarNote: "Compound sentence with coordinating conjunction 'and'."
+    },
+    {
+      id: 10,
+      source: "Kemendikbudristek — Listening Monologue: Healthy Sleep Habits for Students",
+      type: "listening_talk",
+      title: "Listening Section: Part III - Monologues",
+      audioSegments: [
+        { role: "counselor_f", lang: "en-US", name: "Mrs. Maya", text: "Please turn off your screens thirty minutes before bedtime to rest well.", pauseAfter: 350 },
+        { role: "narrator", lang: "en-US", text: "Number ten. What practical advice does the speaker give to help students rest well?", pauseAfter: 300 }
+      ],
+      prompt: "What practical advice does the speaker give to help students rest well?",
+      options: [
+        { key: "A", text: "Keep phone screens on under the pillow all night." },
+        { key: "B", text: "Turn off electronic screens thirty minutes before bedtime." },
+        { key: "C", text: "Drink three cups of strong coffee before sleeping." },
+        { key: "D", text: "Play video games until sunrise." }
+      ],
+      correctAnswer: "B",
+      explanation: "Konselor menyarankan untuk mematikan layar gawai 30 menit sebelum tidur agar dapat beristirahat dengan baik ('turn off your screens thirty minutes before bedtime').",
+      grammarNote: "Prepositional time phrase: 'thirty minutes before bedtime'."
+    },
+    {
+      id: 11,
+      source: "Cerita Rakyat Jawa Tengah — The Legend of Prambanan Temple (Fase F)",
+      type: "single_choice",
+      title: "Reading Section: Narrative Comprehension",
+      stimulusTitle: "Text 1: The Legend of Prambanan Temple",
+      stimulusBody: "A long time ago in Central Java, there were two neighboring kingdoms: Pengging and Prambanan. The King of Pengging had a powerful son named Bandung Bondowoso. Bandung was strong and skilled in martial arts, and he also possessed supernatural powers. When war broke out between the two kingdoms, Bandung Bondowoso defeated the King of Prambanan, Prabu Boko, in a fierce battle.<br><br>Following his victory, Bandung Bondowoso entered the palace of Prambanan. There, he saw the late king's daughter, the beautiful Princess Roro Jonggrang. Bandung fell in love with her immediately and asked her to marry him. However, Roro Jonggrang did not want to marry Bandung because he had killed her beloved father. She knew she could not refuse him directly without putting her people in danger. Therefore, she devised a clever plan.<br><br>'I will marry you, Bandung,' said the princess politely. 'However, you must build one thousand stone temples and two deep wells for me in just one single night before the first rooster crows at dawn.'<br><br>Confident in his magical power, Bandung Bondowoso agreed. When night fell, he called upon a horde of supernatural spirits to help him carve and stack the stones. The spirits worked with incredible speed. By midnight, more than nine hundred temples were already standing tall. Seeing this, Roro Jonggrang panicked. She knew Bandung would finish the task in time.<br><br>Quickly, the princess woke up the palace maids and village women. She commanded them to burn dried straw in the east and pound rice loudly in wooden mortars (lesung). Soon, the eastern sky glowed bright red like morning dawn, and the roosters began to crow. Hearing the roosters and seeing the red sky, the spirits thought that morning had arrived. Terrified of sunlight, they abandoned their work and fled into the underworld, leaving only 999 temples completed.<br><br>Bandung Bondowoso soon realized that he had been tricked. Furious with Roro Jonggrang's deceit, he confronted her and said, 'You have cheated me! You will complete the thousandth temple yourself!' With his supernatural power, he cursed the princess, turning her into a magnificent stone statue. Today, this statue can still be seen inside the largest temple of Prambanan, known as Candi Roro Jonggrang. The legend teaches us about the consequences of broken promises and the danger of arrogance.",
+      prompt: "What is the primary conflict presented in the narrative passage?",
+      options: [
+        { key: "A", text: "A trade dispute between the merchants of Pengging and Prambanan." },
+        { key: "B", text: "A disagreement between palace maids about preparing morning rice." },
+        { key: "C", text: "Roro Jonggrang's rejection of Bandung Bondowoso's marriage proposal through a difficult condition." },
+        { key: "D", text: "A natural disaster that destroyed all the ancient stone monuments." }
+      ],
+      correctAnswer: "C",
+      explanation: "Konflik utama dalam cerita adalah penolakan halus Roro Jonggrang terhadap pinangan Bandung Bondowoso dengan mengajukan syarat mustahil yaitu membangun seribu candi dalam satu malam.",
+      grammarNote: "Narrative conflict: protagonist versus antagonist."
+    },
+    {
+      id: 12,
+      source: "Cerita Rakyat Jawa Tengah — The Legend of Prambanan Temple (Fase F)",
+      type: "single_choice",
+      title: "Reading Section: Narrative Comprehension",
+      stimulusTitle: "Text 1: The Legend of Prambanan Temple",
+      stimulusBody: "A long time ago in Central Java, there were two neighboring kingdoms: Pengging and Prambanan. The King of Pengging had a powerful son named Bandung Bondowoso. Bandung was strong and skilled in martial arts, and he also possessed supernatural powers. When war broke out between the two kingdoms, Bandung Bondowoso defeated the King of Prambanan, Prabu Boko, in a fierce battle.<br><br>Following his victory, Bandung Bondowoso entered the palace of Prambanan. There, he saw the late king's daughter, the beautiful Princess Roro Jonggrang. Bandung fell in love with her immediately and asked her to marry him. However, Roro Jonggrang did not want to marry Bandung because he had killed her beloved father. She knew she could not refuse him directly without putting her people in danger. Therefore, she devised a clever plan.<br><br>'I will marry you, Bandung,' said the princess politely. 'However, you must build one thousand stone temples and two deep wells for me in just one single night before the first rooster crows at dawn.'<br><br>Confident in his magical power, Bandung Bondowoso agreed. When night fell, he called upon a horde of supernatural spirits to help him carve and stack the stones. The spirits worked with incredible speed. By midnight, more than nine hundred temples were already standing tall. Seeing this, Roro Jonggrang panicked. She knew Bandung would finish the task in time.<br><br>Quickly, the princess woke up the palace maids and village women. She commanded them to burn dried straw in the east and pound rice loudly in wooden mortars (lesung). Soon, the eastern sky glowed bright red like morning dawn, and the roosters began to crow. Hearing the roosters and seeing the red sky, the spirits thought that morning had arrived. Terrified of sunlight, they abandoned their work and fled into the underworld, leaving only 999 temples completed.<br><br>Bandung Bondowoso soon realized that he had been tricked. Furious with Roro Jonggrang's deceit, he confronted her and said, 'You have cheated me! You will complete the thousandth temple yourself!' With his supernatural power, he cursed the princess, turning her into a magnificent stone statue. Today, this statue can still be seen inside the largest temple of Prambanan, known as Candi Roro Jonggrang. The legend teaches us about the consequences of broken promises and the danger of arrogance.",
+      prompt: "Based on paragraph 2, why did Princess Roro Jonggrang refuse to marry Bandung Bondowoso?",
+      options: [
+        { key: "A", text: "Because Bandung was too poor to support her lifestyle." },
+        { key: "B", text: "Because she wanted to travel overseas to another kingdom." },
+        { key: "C", text: "Because Bandung refused to learn martial arts." },
+        { key: "D", text: "Because Bandung had killed her father during the war between their kingdoms." }
+      ],
+      correctAnswer: "D",
+      explanation: "Paragraf 2 menyatakan dengan jelas bahwa Roro Jonggrang menolak menikah dengan Bandung karena Bandung telah membunuh ayah tercintanya dalam pertempuran ('because he had killed her beloved father').",
+      grammarNote: "Past perfect in cause clause: 'because he had killed her beloved father'."
+    },
+    {
+      id: 13,
+      source: "Cerita Rakyat Jawa Tengah — The Legend of Prambanan Temple (Fase F)",
+      type: "single_choice",
+      title: "Reading Section: Narrative Comprehension",
+      stimulusTitle: "Text 1: The Legend of Prambanan Temple",
+      stimulusBody: "A long time ago in Central Java, there were two neighboring kingdoms: Pengging and Prambanan. The King of Pengging had a powerful son named Bandung Bondowoso. Bandung was strong and skilled in martial arts, and he also possessed supernatural powers. When war broke out between the two kingdoms, Bandung Bondowoso defeated the King of Prambanan, Prabu Boko, in a fierce battle.<br><br>Following his victory, Bandung Bondowoso entered the palace of Prambanan. There, he saw the late king's daughter, the beautiful Princess Roro Jonggrang. Bandung fell in love with her immediately and asked her to marry him. However, Roro Jonggrang did not want to marry Bandung because he had killed her beloved father. She knew she could not refuse him directly without putting her people in danger. Therefore, she devised a clever plan.<br><br>'I will marry you, Bandung,' said the princess politely. 'However, you must build one thousand stone temples and two deep wells for me in just one single night before the first rooster crows at dawn.'<br><br>Confident in his magical power, Bandung Bondowoso agreed. When night fell, he called upon a horde of supernatural spirits to help him carve and stack the stones. The spirits worked with incredible speed. By midnight, more than nine hundred temples were already standing tall. Seeing this, Roro Jonggrang panicked. She knew Bandung would finish the task in time.<br><br>Quickly, the princess woke up the palace maids and village women. She commanded them to burn dried straw in the east and pound rice loudly in wooden mortars (lesung). Soon, the eastern sky glowed bright red like morning dawn, and the roosters began to crow. Hearing the roosters and seeing the red sky, the spirits thought that morning had arrived. Terrified of sunlight, they abandoned their work and fled into the underworld, leaving only 999 temples completed.<br><br>Bandung Bondowoso soon realized that he had been tricked. Furious with Roro Jonggrang's deceit, he confronted her and said, 'You have cheated me! You will complete the thousandth temple yourself!' With his supernatural power, he cursed the princess, turning her into a magnificent stone statue. Today, this statue can still be seen inside the largest temple of Prambanan, known as Candi Roro Jonggrang. The legend teaches us about the consequences of broken promises and the danger of arrogance.",
+      prompt: "What actions did Princess Roro Jonggrang take to trick the supernatural spirits?",
+      options: [
+        { key: "A", text: "She ordered women to burn straw in the east and pound rice loudly to imitate dawn." },
+        { key: "B", text: "She attacked the spirits with bows and arrows during the night." },
+        { key: "C", text: "She hid all the stones deep inside the underground forest." },
+        { key: "D", text: "She invited Bandung Bondowoso to a midnight feast." }
+      ],
+      correctAnswer: "A",
+      explanation: "Roro Jonggrang memerintahkan dayang istana dan wanita desa untuk membakar jerami di sebelah timur dan menumbuk padi di lesung agar suasana fajar tiruan tercipta dan ayam jago berkokok ('burn dried straw in the east and pound rice loudly in wooden mortars').",
+      grammarNote: "Infinitive clauses: 'to burn dried straw... and pound rice'."
+    },
+    {
+      id: 14,
+      source: "Cerita Rakyat Jawa Tengah — The Legend of Prambanan Temple (Fase F)",
+      type: "single_choice",
+      title: "Reading Section: Narrative Comprehension",
+      stimulusTitle: "Text 1: The Legend of Prambanan Temple",
+      stimulusBody: "A long time ago in Central Java, there were two neighboring kingdoms: Pengging and Prambanan. The King of Pengging had a powerful son named Bandung Bondowoso. Bandung was strong and skilled in martial arts, and he also possessed supernatural powers. When war broke out between the two kingdoms, Bandung Bondowoso defeated the King of Prambanan, Prabu Boko, in a fierce battle.<br><br>Following his victory, Bandung Bondowoso entered the palace of Prambanan. There, he saw the late king's daughter, the beautiful Princess Roro Jonggrang. Bandung fell in love with her immediately and asked her to marry him. However, Roro Jonggrang did not want to marry Bandung because he had killed her beloved father. She knew she could not refuse him directly without putting her people in danger. Therefore, she devised a clever plan.<br><br>'I will marry you, Bandung,' said the princess politely. 'However, you must build one thousand stone temples and two deep wells for me in just one single night before the first rooster crows at dawn.'<br><br>Confident in his magical power, Bandung Bondowoso agreed. When night fell, he called upon a horde of supernatural spirits to help him carve and stack the stones. The spirits worked with incredible speed. By midnight, more than nine hundred temples were already standing tall. Seeing this, Roro Jonggrang panicked. She knew Bandung would finish the task in time.<br><br>Quickly, the princess woke up the palace maids and village women. She commanded them to burn dried straw in the east and pound rice loudly in wooden mortars (lesung). Soon, the eastern sky glowed bright red like morning dawn, and the roosters began to crow. Hearing the roosters and seeing the red sky, the spirits thought that morning had arrived. Terrified of sunlight, they abandoned their work and fled into the underworld, leaving only 999 temples completed.<br><br>Bandung Bondowoso soon realized that he had been tricked. Furious with Roro Jonggrang's deceit, he confronted her and said, 'You have cheated me! You will complete the thousandth temple yourself!' With his supernatural power, he cursed the princess, turning her into a magnificent stone statue. Today, this statue can still be seen inside the largest temple of Prambanan, known as Candi Roro Jonggrang. The legend teaches us about the consequences of broken promises and the danger of arrogance.",
+      prompt: "The word 'furious' in paragraph 6 ('Furious with Roro Jonggrang's deceit...') is closest in meaning to...",
+      options: [
+        { key: "A", text: "extremely happy" },
+        { key: "B", text: "very angry" },
+        { key: "C", text: "deeply confused" },
+        { key: "D", text: "politely patient" }
+      ],
+      correctAnswer: "B",
+      explanation: "Kata 'furious' bermakna sangat marah ('very angry').",
+      grammarNote: "Adjective synonym: furious = extremely angry."
+    },
+    {
+      id: 15,
+      source: "Cerita Rakyat Jawa Tengah — The Legend of Prambanan Temple (Fase F)",
+      type: "single_choice",
+      title: "Reading Section: Narrative Comprehension",
+      stimulusTitle: "Text 1: The Legend of Prambanan Temple",
+      stimulusBody: "A long time ago in Central Java, there were two neighboring kingdoms: Pengging and Prambanan. The King of Pengging had a powerful son named Bandung Bondowoso. Bandung was strong and skilled in martial arts, and he also possessed supernatural powers. When war broke out between the two kingdoms, Bandung Bondowoso defeated the King of Prambanan, Prabu Boko, in a fierce battle.<br><br>Following his victory, Bandung Bondowoso entered the palace of Prambanan. There, he saw the late king's daughter, the beautiful Princess Roro Jonggrang. Bandung fell in love with her immediately and asked her to marry him. However, Roro Jonggrang did not want to marry Bandung because he had killed her beloved father. She knew she could not refuse him directly without putting her people in danger. Therefore, she devised a clever plan.<br><br>'I will marry you, Bandung,' said the princess politely. 'However, you must build one thousand stone temples and two deep wells for me in just one single night before the first rooster crows at dawn.'<br><br>Confident in his magical power, Bandung Bondowoso agreed. When night fell, he called upon a horde of supernatural spirits to help him carve and stack the stones. The spirits worked with incredible speed. By midnight, more than nine hundred temples were already standing tall. Seeing this, Roro Jonggrang panicked. She knew Bandung would finish the task in time.<br><br>Quickly, the princess woke up the palace maids and village women. She commanded them to burn dried straw in the east and pound rice loudly in wooden mortars (lesung). Soon, the eastern sky glowed bright red like morning dawn, and the roosters began to crow. Hearing the roosters and seeing the red sky, the spirits thought that morning had arrived. Terrified of sunlight, they abandoned their work and fled into the underworld, leaving only 999 temples completed.<br><br>Bandung Bondowoso soon realized that he had been tricked. Furious with Roro Jonggrang's deceit, he confronted her and said, 'You have cheated me! You will complete the thousandth temple yourself!' With his supernatural power, he cursed the princess, turning her into a magnificent stone statue. Today, this statue can still be seen inside the largest temple of Prambanan, known as Candi Roro Jonggrang. The legend teaches us about the consequences of broken promises and the danger of arrogance.",
+      prompt: "In paragraph 5, what does the pronoun 'they' refer to in 'they abandoned their work and fled into the underworld'?",
+      options: [
+        { key: "A", text: "The village women" },
+        { key: "B", text: "The palace maids" },
+        { key: "C", text: "The supernatural spirits" },
+        { key: "D", text: "The roosters" }
+      ],
+      correctAnswer: "C",
+      explanation: "Kata ganti 'they' pada kalimat tersebut merujuk kepada para makhluk halus / jin pembangun candi ('the supernatural spirits') yang takut pada sinar matahari dan melarikan diri.",
+      grammarNote: "Pronoun reference in narrative text."
+    },
+    {
+      id: 16,
+      source: "AKM Literasi Membaca — Pilihan Ganda Kompleks (True/False Matrix)",
+      type: "complex_matrix",
+      title: "Complex Multiple Choice: Narrative Plot Analysis",
+      stimulusTitle: "Text 1: The Legend of Prambanan Temple",
+      stimulusBody: "Review Text 1 (The Legend of Prambanan Temple).",
+      prompt: "Based on Text 1, determine whether each statement regarding the narrative plot is **TRUE** or **FALSE**:",
+      matrixStatements: [
+        {
+          statement: "Bandung Bondowoso asked supernatural spirits to help him build the stone temples.",
+          isCorrect: true
+        },
+        {
+          statement: "Princess Roro Jonggrang accepted Bandung's marriage proposal happily without any condition.",
+          isCorrect: false
+        },
+        {
+          statement: "The spirits abandoned the construction because they thought dawn had arrived.",
+          isCorrect: true
+        },
+        {
+          statement: "All one thousand temples were completely finished before the roosters crowed.",
+          isCorrect: false
+        }
+      ],
+      explanation: "• Pernyataan 1: BENAR — Bandung Bondowoso meminta bantuan bangsa jin untuk mendirikan candi.<br>• Pernyataan 2: SALAH — Roro Jonggrang menolak dan memberikan syarat yang sangat berat.<br>• Pernyataan 3: BENAR — Bangsa jin lari ketakutan karena mengira fajar pagi telah tiba.<br>• Pernyataan 4: SALAH — Hanya 999 candi yang tuntas diselesaikan oleh bangsa jin.",
+      grammarNote: "Reading comprehension of narrative sequence."
+    },
+    {
+      id: 17,
+      source: "AKM Literasi Membaca — Pilihan Ganda Kompleks (True/False Matrix)",
+      type: "complex_matrix",
+      title: "Complex Multiple Choice: Character Traits Analysis",
+      stimulusTitle: "Text 1: The Legend of Prambanan Temple",
+      stimulusBody: "Review Text 1 (The Legend of Prambanan Temple).",
+      prompt: "Based on the character traits shown in Text 1, determine whether each statement is **TRUE** or **FALSE**:",
+      matrixStatements: [
+        {
+          statement: "Bandung Bondowoso possessed remarkable physical power and supernatural abilities.",
+          isCorrect: true
+        },
+        {
+          statement: "Roro Jonggrang wanted to protect her people from war while avoiding marriage with her father's killer.",
+          isCorrect: true
+        },
+        {
+          statement: "Bandung Bondowoso praised Roro Jonggrang after finding out that she had burned straw.",
+          isCorrect: false
+        },
+        {
+          statement: "Roro Jonggrang used deception to prevent the completion of the thousandth temple.",
+          isCorrect: true
+        }
+      ],
+      explanation: "• Pernyataan 1: BENAR — Bandung memiliki kesaktian dan kekuatan luar biasa.<br>• Pernyataan 2: BENAR — Roro Jonggrang ingin melindungi rakyatnya dan menolak pembunuh ayahnya.<br>• Pernyataan 3: SALAH — Bandung sangat murka saat mengetahui dirinya diperdaya.<br>• Pernyataan 4: BENAR — Roro Jonggrang membuat fajar palsu untuk menggagalkan penyelesaian candi ke-1000.",
+      grammarNote: "Character analysis in Indonesian legend."
+    },
+    {
+      id: 18,
+      source: "AKM Literasi Membaca — Pilihan Ganda Kompleks (True/False Matrix)",
+      type: "complex_matrix",
+      title: "Complex Multiple Choice: Cause and Effect Relations",
+      stimulusTitle: "Text 1: The Legend of Prambanan Temple",
+      stimulusBody: "Review Text 1 (The Legend of Prambanan Temple).",
+      prompt: "Based on cause-and-effect relationships in the text, determine whether each statement is **TRUE** or **FALSE**:",
+      matrixStatements: [
+        {
+          statement: "The spirits worked very quickly because Bandung Bondowoso commanded them with his magical power.",
+          isCorrect: true
+        },
+        {
+          statement: "The roosters crowed because the village women burned dried straw and pounded rice.",
+          isCorrect: true
+        },
+        {
+          statement: "Bandung cursed the princess because she openly defeated him in a physical battle.",
+          isCorrect: false
+        },
+        {
+          statement: "The thousandth temple was incomplete because the spirits fled before dawn.",
+          isCorrect: true
+        }
+      ],
+      explanation: "• Pernyataan 1: BENAR — Bangsa jin bekerja sangat cepat di bawah kendali sihir Bandung.<br>• Pernyataan 2: BENAR — Ayam jantan berkokok karena cahaya merah jerami dan bunyi lesung padi.<br>• Pernyataan 3: SALAH — Bandung mengutuk sang putri karena tipu daya sang putri yang membatalkan syarat.<br>• Pernyataan 4: BENAR — Candi ke-1000 tidak selesai karena jin melarikan diri sebelum fajar asli tiba.",
+      grammarNote: "Cause-effect relations with 'because' and 'so that'."
+    },
+    {
+      id: 19,
+      source: "AKM Literasi Membaca — Pilihan Ganda Kompleks (True/False Matrix)",
+      type: "complex_matrix",
+      title: "Complex Multiple Choice: Healthy Lifestyle Insights",
+      stimulusTitle: "Context: Teenager Digital Habits",
+      stimulusBody: "Healthy habits help students study effectively and avoid stress.",
+      prompt: "Determine whether each statement below regarding adolescent sleep and digital habits is **TRUE** or **FALSE**:",
+      matrixStatements: [
+        {
+          statement: "Getting 7 to 8 hours of sleep helps high school students concentrate better during morning classes.",
+          isCorrect: true
+        },
+        {
+          statement: "Playing online games late into the night improves a student's immune system and memory.",
+          isCorrect: false
+        },
+        {
+          statement: "Turning off phone screens before bedtime allows the brain to relax and fall asleep naturally.",
+          isCorrect: true
+        },
+        {
+          statement: "Checking news on official school websites helps students avoid fake information.",
+          isCorrect: true
+        }
+      ],
+      explanation: "• Pernyataan 1: BENAR — Tidur 7-8 jam meningkatkan konsentrasi belajar di kelas pagi.<br>• Pernyataan 2: SALAH — Bermain gim larut malam justru menurunkan daya tahan tubuh dan merusak ingatan.<br>• Pernyataan 3: BENAR — Mematikan layar ponsel sebelum tidur membuat otak lebih rileks.<br>• Pernyataan 4: BENAR — Mengecek laman resmi sekolah membantu siswa terhindar dari kabar bohong (hoaks).",
+      grammarNote: "Factual understanding of healthy habits."
+    },
+    {
+      id: 20,
+      source: "AKM Literasi Membaca — Pilihan Ganda Kompleks (True/False Matrix)",
+      type: "complex_matrix",
+      title: "Complex Multiple Choice: Moral Values Evaluation",
+      stimulusTitle: "Text 1: The Legend of Prambanan Temple",
+      stimulusBody: "Review Text 1 (The Legend of Prambanan Temple).",
+      prompt: "Determine whether each statement below correctly reflects the moral values of the legend (**TRUE**) or contradicts them (**FALSE**):",
+      matrixStatements: [
+        {
+          statement: "Using tricks and breaking promises can lead to tragic consequences for everyone involved.",
+          isCorrect: true
+        },
+        {
+          statement: "Forcing someone into marriage against their will is an honorable action in society.",
+          isCorrect: false
+        },
+        {
+          statement: "Arrogance and anger prevent people from solving problems peacefully.",
+          isCorrect: true
+        },
+        {
+          statement: "Mutual respect and honesty are essential for building peaceful relationships.",
+          isCorrect: true
+        }
+      ],
+      explanation: "• Pernyataan 1: BENAR — Menggunakan tipu daya dan mengingkari kesepakatan berujung pada akhir yang tragis.<br>• Pernyataan 2: SALAH — Memaksa seseorang untuk menikah secara paksa adalah tindakan yang salah.<br>• Pernyataan 3: BENAR — Kesombongan dan amarah menghalangi penyelesaian masalah secara damai.<br>• Pernyataan 4: BENAR — Saling menghargai dan kejujuran adalah dasar dari hubungan yang damai.",
+      grammarNote: "Evaluation of ethical and moral lessons."
+    },
+    {
+      id: 21,
+      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      type: "mcma",
+      title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+      stimulusTitle: "Context: Digital Literacy",
+      stimulusBody: "Digital literacy teaches students to be smart and responsible internet users.",
+      prompt: "Which **TWO (2)** actions demonstrate responsible digital habits for senior high school students?",
+      options: [
+        { key: "A", text: "Verifying the source of breaking news before sharing it on social media groups." },
+        { key: "B", text: "Forwarding unverified rumors immediately to create excitement among classmates." },
+        { key: "C", text: "Setting daily screen time limits to ensure sufficient rest and study time." },
+        { key: "D", text: "Using smartphones all night without sleeping during examination week." }
+      ],
+      correctAnswer: ["A", "C"],
+      explanation: "Dua kebiasaan digital yang bijak dan bertanggung jawab adalah memeriksa kebenaran sumber berita sebelum membagikannya, serta membatasi waktu layar gawai setiap hari agar tubuh cukup istirahat.",
+      grammarNote: "Gerunds indicating positive student habits."
+    },
+    {
+      id: 22,
+      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      type: "mcma",
+      title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+      stimulusTitle: "Text 1: The Legend of Prambanan Temple",
+      stimulusBody: "Review Text 1 (The Legend of Prambanan Temple).",
+      prompt: "Which **TWO (2)** character insights can be drawn from the story of Bandung Bondowoso and Roro Jonggrang?",
+      options: [
+        { key: "A", text: "Bandung Bondowoso relied heavily on his magical powers to accomplish an impossible challenge." },
+        { key: "B", text: "Princess Roro Jonggrang genuinely loved Bandung Bondowoso from their first meeting." },
+        { key: "C", text: "Roro Jonggrang used her quick wit and palace community to stop the spirits from finishing the temples." },
+        { key: "D", text: "The King of Pengging surrendered his kingdom peacefully to the people of Prambanan." }
+      ],
+      correctAnswer: ["A", "C"],
+      explanation: "Dua kesimpulan karakter yang tepat adalah bahwa Bandung Bondowoso mengandalkan kekuatan gaibnya untuk menuntaskan syarat mustahil, dan Roro Jonggrang menggunakan kecerdikan serta bantuan wanita istana untuk menghentikan bangsa jin.",
+      grammarNote: "Character traits: supernatural reliance and quick wit."
+    },
+    {
+      id: 23,
+      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      type: "mcma",
+      title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+      stimulusTitle: "Grammar in Context: Connectors of Contrast",
+      stimulusBody: "Connectors like 'Although' and 'Despite' express contrast between ideas.",
+      prompt: "Which **TWO (2)** sentences correctly express contrast using **Although** or **Despite**?",
+      options: [
+        { key: "A", text: "Although Bandung Bondowoso had magical power, he could not win Roro Jonggrang's genuine affection." },
+        { key: "B", text: "Despite the task was very hard, but Bandung agreed to build the temples." },
+        { key: "C", text: "Despite the darkness of the night, the spirits worked with astonishing speed." },
+        { key: "D", text: "Although the rooster crowed, because the morning sun had not risen yet." }
+      ],
+      correctAnswer: ["A", "C"],
+      explanation: "Dua kalimat yang menggunakan kata hubung pertentangan secara benar adalah kalimat dengan 'Although + Subject + Verb' ('Although Bandung Bondowoso had magical power...') dan 'Despite + Noun Phrase' ('Despite the darkness of the night...'). Pilihan lain salah karena memadukan 'Despite' langsung dengan klausa berpredikat dan 'but', atau 'Although' bersama 'because'.",
+      grammarNote: "Grammar rules of concession: Although + clause, Despite + noun phrase."
+    },
+    {
+      id: 24,
+      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      type: "mcma",
+      title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+      stimulusTitle: "Context: School Environment Initiatives",
+      stimulusBody: "Green schools protect the environment through simple daily actions.",
+      prompt: "Which **TWO (2)** practices help high school students reduce plastic waste on campus?",
+      options: [
+        { key: "A", text: "Bringing reusable water tumblers and lunch containers from home." },
+        { key: "B", text: "Purchasing single-use bottled drinks every break time." },
+        { key: "C", text: "Refilling water bottles at clean school drinking stations." },
+        { key: "D", text: "Throwing plastic wrappers into open drainage canals." }
+      ],
+      correctAnswer: ["A", "C"],
+      explanation: "Dua praktik ramah lingkungan untuk mengurangi sampah plastik di sekolah adalah membawa botol minum dan wadah makan isi ulang dari rumah, serta mengisi ulang botol di stasiun air minum sekolah.",
+      grammarNote: "Parallel gerund structures: bringing, refilling."
+    },
+    {
+      id: 25,
+      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      type: "mcma",
+      title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+      stimulusTitle: "Context: Narrative & Descriptive Language",
+      stimulusBody: "Descriptive words help readers visualize characters and settings.",
+      prompt: "Which **TWO (2)** sentences use descriptive adjectives correctly in context?",
+      options: [
+        { key: "A", text: "The ancient stone temples of Prambanan stand tall under the clear morning sky." },
+        { key: "B", text: "The princess was angrily because her father lost the kingdom." },
+        { key: "C", text: "Bandung Bondowoso was a powerful warrior who possessed extraordinary strength." },
+        { key: "D", text: "The spirits were happiness when they heard the roosters crow." }
+      ],
+      correctAnswer: ["A", "C"],
+      explanation: "Dua kalimat yang menggunakan kata sifat (adjectives) dengan tepat adalah kalimat dengan 'ancient stone temples' dan 'powerful warrior... extraordinary strength'. Pilihan B salah karena menggunakan adverb 'angrily' setelah to-be, dan pilihan D salah karena menggunakan noun 'happiness' setelah to-be.",
+      grammarNote: "Adjective usage after linking verbs and before nouns."
+    },
+    {
+      id: 26,
+      source: "Kemendikbudristek — Analytical Exposition: Healthy Sleep Habits",
+      type: "single_choice",
+      title: "Reading Section: Analytical Exposition",
+      stimulusTitle: "Text 2: The Importance of Good Sleep for High School Students",
+      stimulusBody: "In today's fast-paced digital world, many high school students stay awake until late at night. Some stay up late to finish school projects, but many others spend hours playing online games or scrolling through social media feeds on their phones. While staying connected with friends is enjoyable, sleeping late on a regular basis can negatively affect a student's health and academic achievement. Therefore, getting adequate sleep is vital for every teenager.<br><br>First and foremost, sleep is essential for brain function and memory. During deep sleep, the brain organizes and stores information that students learned throughout the day. When students do not get enough rest, they often experience difficulty focusing during morning classes, take longer to solve math problems, and find it hard to remember important facts during exams. A well-rested mind, on the other hand, is sharp, creative, and ready to learn.<br><br>Secondly, chronic lack of sleep harms physical and emotional well-being. Teenagers who consistently sleep fewer than six hours a night are more likely to catch colds and suffer from headaches because their immune system becomes weak. In addition, sleep deprivation often leads to mood swings, irritation, and higher levels of stress. When teenagers feel tired all day, they may lose motivation to participate in sports or join school clubs.<br><br>In conclusion, sleep is not a waste of time; it is a fundamental pillar of health and academic success. High school students should aim for seven to eight hours of restful sleep every night by managing their study time wisely and putting away electronic devices at least thirty minutes before going to bed.",
+      prompt: "What is the primary communicative purpose of the text above?",
+      options: [
+        { key: "A", text: "To give step-by-step instructions on how to install video games." },
+        { key: "B", text: "To persuade readers that good sleep is essential for students' health and learning." },
+        { key: "C", text: "To describe the physical components of modern smartphones." },
+        { key: "D", text: "To tell an entertaining folktale about an ancient king who loved sleeping." }
+      ],
+      correctAnswer: "B",
+      explanation: "Tujuan komunikatif teks eksposisi analitis adalah meyakinkan pembaca bahwa tidur yang cukup sangat penting bagi kesehatan dan keberhasilan belajar siswa SMA ('to persuade readers that good sleep is essential for students' health and learning').",
+      grammarNote: "Communicative purpose of analytical exposition: to persuade the reader about an important issue."
+    },
+    {
+      id: 27,
+      source: "Kemendikbudristek — Analytical Exposition: Healthy Sleep Habits",
+      type: "single_choice",
+      title: "Reading Section: Analytical Exposition",
+      stimulusTitle: "Text 2: The Importance of Good Sleep for High School Students",
+      stimulusBody: "In today's fast-paced digital world, many high school students stay awake until late at night. Some stay up late to finish school projects, but many others spend hours playing online games or scrolling through social media feeds on their phones. While staying connected with friends is enjoyable, sleeping late on a regular basis can negatively affect a student's health and academic achievement. Therefore, getting adequate sleep is vital for every teenager.<br><br>First and foremost, sleep is essential for brain function and memory. During deep sleep, the brain organizes and stores information that students learned throughout the day. When students do not get enough rest, they often experience difficulty focusing during morning classes, take longer to solve math problems, and find it hard to remember important facts during exams. A well-rested mind, on the other hand, is sharp, creative, and ready to learn.<br><br>Secondly, chronic lack of sleep harms physical and emotional well-being. Teenagers who consistently sleep fewer than six hours a night are more likely to catch colds and suffer from headaches because their immune system becomes weak. In addition, sleep deprivation often leads to mood swings, irritation, and higher levels of stress. When teenagers feel tired all day, they may lose motivation to participate in sports or join school clubs.<br><br>In conclusion, sleep is not a waste of time; it is a fundamental pillar of health and academic success. High school students should aim for seven to eight hours of restful sleep every night by managing their study time wisely and putting away electronic devices at least thirty minutes before going to bed.",
+      prompt: "According to paragraph 2, what happens to the brain during deep sleep?",
+      options: [
+        { key: "A", text: "The brain stops working completely until morning." },
+        { key: "B", text: "The brain organizes and stores information learned during the day." },
+        { key: "C", text: "The brain forgets all foreign language words." },
+        { key: "D", text: "The brain produces electric signals that prevent dreaming." }
+      ],
+      correctAnswer: "B",
+      explanation: "Paragraf 2 menyatakan bahwa saat tidur nyenyak, otak merapikan dan menyimpan informasi yang dipelajari siswa sepanjang hari ('the brain organizes and stores information that students learned throughout the day').",
+      grammarNote: "Simple present fact: 'the brain organizes and stores information'."
+    },
+    {
+      id: 28,
+      source: "Kemendikbudristek — Analytical Exposition: Healthy Sleep Habits",
+      type: "single_choice",
+      title: "Reading Section: Analytical Exposition",
+      stimulusTitle: "Text 2: The Importance of Good Sleep for High School Students",
+      stimulusBody: "In today's fast-paced digital world, many high school students stay awake until late at night. Some stay up late to finish school projects, but many others spend hours playing online games or scrolling through social media feeds on their phones. While staying connected with friends is enjoyable, sleeping late on a regular basis can negatively affect a student's health and academic achievement. Therefore, getting adequate sleep is vital for every teenager.<br><br>First and foremost, sleep is essential for brain function and memory. During deep sleep, the brain organizes and stores information that students learned throughout the day. When students do not get enough rest, they often experience difficulty focusing during morning classes, take longer to solve math problems, and find it hard to remember important facts during exams. A well-rested mind, on the other hand, is sharp, creative, and ready to learn.<br><br>Secondly, chronic lack of sleep harms physical and emotional well-being. Teenagers who consistently sleep fewer than six hours a night are more likely to catch colds and suffer from headaches because their immune system becomes weak. In addition, sleep deprivation often leads to mood swings, irritation, and higher levels of stress. When teenagers feel tired all day, they may lose motivation to participate in sports or join school clubs.<br><br>In conclusion, sleep is not a waste of time; it is a fundamental pillar of health and academic success. High school students should aim for seven to eight hours of restful sleep every night by managing their study time wisely and putting away electronic devices at least thirty minutes before going to bed.",
+      prompt: "Based on paragraph 3, what physical problems can happen if teenagers consistently sleep fewer than six hours a night?",
+      options: [
+        { key: "A", text: "They will gain extraordinary physical stamina." },
+        { key: "B", text: "They may catch colds easily and suffer from headaches." },
+        { key: "C", text: "Their vision will automatically improve." },
+        { key: "D", text: "They will grow taller much faster." }
+      ],
+      correctAnswer: "B",
+      explanation: "Paragraf 3 menyatakan bahwa remaja yang tidur kurang dari enam jam rentan terkena pilek/flu dan sakit kepala karena sistem kekebalan tubuh yang melemah ('more likely to catch colds and suffer from headaches').",
+      grammarNote: "Comparative phrase: 'more likely to catch colds'."
+    },
+    {
+      id: 29,
+      source: "Kemendikbudristek — Analytical Exposition: Healthy Sleep Habits",
+      type: "single_choice",
+      title: "Reading Section: Analytical Exposition",
+      stimulusTitle: "Text 2: The Importance of Good Sleep for High School Students",
+      stimulusBody: "In today's fast-paced digital world, many high school students stay awake until late at night. Some stay up late to finish school projects, but many others spend hours playing online games or scrolling through social media feeds on their phones. While staying connected with friends is enjoyable, sleeping late on a regular basis can negatively affect a student's health and academic achievement. Therefore, getting adequate sleep is vital for every teenager.<br><br>First and foremost, sleep is essential for brain function and memory. During deep sleep, the brain organizes and stores information that students learned throughout the day. When students do not get enough rest, they often experience difficulty focusing during morning classes, take longer to solve math problems, and find it hard to remember important facts during exams. A well-rested mind, on the other hand, is sharp, creative, and ready to learn.<br><br>Secondly, chronic lack of sleep harms physical and emotional well-being. Teenagers who consistently sleep fewer than six hours a night are more likely to catch colds and suffer from headaches because their immune system becomes weak. In addition, sleep deprivation often leads to mood swings, irritation, and higher levels of stress. When teenagers feel tired all day, they may lose motivation to participate in sports or join school clubs.<br><br>In conclusion, sleep is not a waste of time; it is a fundamental pillar of health and academic success. High school students should aim for seven to eight hours of restful sleep every night by managing their study time wisely and putting away electronic devices at least thirty minutes before going to bed.",
+      prompt: "The word 'adequate' in paragraph 1 ('getting adequate sleep is vital for every teenager') is closest in meaning to...",
+      options: [
+        { key: "A", text: "insufficient" },
+        { key: "B", text: "excessive" },
+        { key: "C", text: "sufficient" },
+        { key: "D", text: "harmful" }
+      ],
+      correctAnswer: "C",
+      explanation: "Kata 'adequate' bermakna cukup atau memadai ('sufficient').",
+      grammarNote: "Adjective synonym: adequate = sufficient."
+    },
+    {
+      id: 30,
+      source: "Kemendikbudristek — Analytical Exposition: Healthy Sleep Habits",
+      type: "single_choice",
+      title: "Reading Section: Analytical Exposition",
+      stimulusTitle: "Text 2: The Importance of Good Sleep for High School Students",
+      stimulusBody: "In today's fast-paced digital world, many high school students stay awake until late at night. Some stay up late to finish school projects, but many others spend hours playing online games or scrolling through social media feeds on their phones. While staying connected with friends is enjoyable, sleeping late on a regular basis can negatively affect a student's health and academic achievement. Therefore, getting adequate sleep is vital for every teenager.<br><br>First and foremost, sleep is essential for brain function and memory. During deep sleep, the brain organizes and stores information that students learned throughout the day. When students do not get enough rest, they often experience difficulty focusing during morning classes, take longer to solve math problems, and find it hard to remember important facts during exams. A well-rested mind, on the other hand, is sharp, creative, and ready to learn.<br><br>Secondly, chronic lack of sleep harms physical and emotional well-being. Teenagers who consistently sleep fewer than six hours a night are more likely to catch colds and suffer from headaches because their immune system becomes weak. In addition, sleep deprivation often leads to mood swings, irritation, and higher levels of stress. When teenagers feel tired all day, they may lose motivation to participate in sports or join school clubs.<br><br>In conclusion, sleep is not a waste of time; it is a fundamental pillar of health and academic success. High school students should aim for seven to eight hours of restful sleep every night by managing their study time wisely and putting away electronic devices at least thirty minutes before going to bed.",
+      prompt: "What practical recommendation does the author give in the concluding paragraph?",
+      options: [
+        { key: "A", text: "Drinking energy drinks every night to stay awake." },
+        { key: "B", text: "Sleeping only during weekend afternoons." },
+        { key: "C", text: "Never studying for school tests." },
+        { key: "D", text: "Putting away electronic devices thirty minutes before going to bed." }
+      ],
+      correctAnswer: "D",
+      explanation: "Penulis merekomendasikan siswa untuk tidur 7-8 jam per malam dan menjauhkan gawai elektronik setidaknya 30 menit sebelum tidur ('putting away electronic devices at least thirty minutes before going to bed').",
+      grammarNote: "Reiteration in analytical exposition: 'High school students should aim for seven to eight hours of restful sleep'."
+    },
+    {
+      id: 31,
+      source: "Kaidah Tata Bahasa Kelas XI — Past Simple Tense",
+      type: "single_choice",
+      title: "Grammar & Structure: Past Narrative Tense",
+      prompt: "Choose the correct past verb form to complete the sentence:<br><br><em>'Prince Bandung Bondowoso _______ the kingdom of Prambanan in a fierce battle.'</em>",
+      options: [
+        { key: "A", text: "defeated" },
+        { key: "B", text: "defeats" },
+        { key: "C", text: "is defeating" },
+        { key: "D", text: "will defeat" }
+      ],
+      correctAnswer: "A",
+      explanation: "Untuk menyatakan peristiwa lampau dalam teks naratif, kata kerja yang digunakan adalah bentuk Past Simple (V2): 'defeated' (mengalahkan).",
+      grammarNote: "Past simple tense (V2) for completed past events in narratives."
+    },
+    {
+      id: 32,
+      source: "Kaidah Tata Bahasa Kelas XI — Connectors of Contrast",
+      type: "single_choice",
+      title: "Grammar & Structure: Conjunction of Contrast",
+      prompt: "Which conjunction of contrast correctly completes the sentence?<br><br><em>'_______ the task was very difficult, Bandung Bondowoso accepted the challenge confidently.'</em>",
+      options: [
+        { key: "A", text: "Because" },
+        { key: "B", text: "Although" },
+        { key: "C", text: "Since" },
+        { key: "D", text: "So that" }
+      ],
+      correctAnswer: "B",
+      explanation: "Kata hubung yang menyatakan hubungan pertentangan yang diikuti oleh klausa lengkap (Subject + Verb) adalah 'Although' (meskipun/walaupun).",
+      grammarNote: "Concession connector: Although + clause."
+    },
+    {
+      id: 33,
+      source: "Kaidah Tata Bahasa Kelas XI — Cause and Effect Connectors",
+      type: "single_choice",
+      title: "Grammar & Structure: Cause Connectors",
+      prompt: "Choose the correct connector to express cause before a noun phrase:<br><br><em>'Roro Jonggrang devised a clever plan _______ her fear of Bandung\'s magical power.'</em>",
+      options: [
+        { key: "A", text: "so that" },
+        { key: "B", text: "although" },
+        { key: "C", text: "because of" },
+        { key: "D", text: "in order to" }
+      ],
+      correctAnswer: "C",
+      explanation: "Frasa 'her fear of Bandung\'s magical power' adalah Noun Phrase. Kata hubung penyebab yang diikuti oleh noun phrase adalah preposisi 'because of'.",
+      grammarNote: "Because of + Noun Phrase."
+    },
+    {
+      id: 34,
+      source: "Kaidah Tata Bahasa Kelas XI — Simple Past Passive Voice",
+      type: "single_choice",
+      title: "Grammar & Structure: Passive Voice",
+      prompt: "Which passive verb phrase correctly completes the sentence?<br><br><em>'Nearly one thousand stone temples _______ by the spirits in a single night.'</em>",
+      options: [
+        { key: "A", text: "were built" },
+        { key: "B", text: "is built" },
+        { key: "C", text: "builds" },
+        { key: "D", text: "was building" }
+      ],
+      correctAnswer: "A",
+      explanation: "Subjek jamak 'Nearly one thousand stone temples' menerima tindakan di masa lampau. Rumus kalimat pasif Past Simple jamak adalah: were + V3 ('were built').",
+      grammarNote: "Past passive voice (plural): were + past participle (V3)."
+    },
+    {
+      id: 35,
+      source: "Kaidah Tata Bahasa Kelas XI — Relative Pronouns",
+      type: "single_choice",
+      title: "Grammar & Structure: Relative Clauses",
+      prompt: "Choose the correct relative pronoun to connect the person with her action:<br><br><em>'Princess Roro Jonggrang, _______ was the daughter of King Boko, refused to marry the prince.'</em>",
+      options: [
+        { key: "A", text: "who" },
+        { key: "B", text: "which" },
+        { key: "C", text: "whose" },
+        { key: "D", text: "where" }
+      ],
+      correctAnswer: "A",
+      explanation: "Kata ganti penghubung (relative pronoun) yang digunakan untuk merujuk pada subjek orang (Princess Roro Jonggrang) adalah 'who'.",
+      grammarNote: "Relative pronoun for persons: who."
+    },
+    {
+      id: 36,
+      source: "Kaidah Tata Bahasa Kelas XI — First Conditional",
+      type: "single_choice",
+      title: "Grammar & Structure: Conditionals",
+      prompt: "Select the correct verb form for the if-clause in this first conditional sentence:<br><br><em>'If high school students _______ enough sleep every night, they will concentrate better during classes.'</em>",
+      options: [
+        { key: "A", text: "get" },
+        { key: "B", text: "got" },
+        { key: "C", text: "had got" },
+        { key: "D", text: "will get" }
+      ],
+      correctAnswer: "A",
+      explanation: "Pola baku kalimat pengandaian tipe 1 (First Conditional) adalah: If + Subject + V1 (Simple Present), Subject + will + V1. Maka kata kerja pada klausa 'if' adalah bentuk dasar 'get'.",
+      grammarNote: "First conditional formula: If + Simple Present (V1), will + V1."
+    },
+    {
+      id: 37,
+      source: "Kaidah Tata Bahasa Kelas XI — Modals for Recommendation",
+      type: "single_choice",
+      title: "Grammar & Structure: Modal Auxiliaries",
+      prompt: "Which modal verb appropriately expresses strong positive advice?<br><br><em>'Teenagers _______ put away their smartphones thirty minutes before sleeping.'</em>",
+      options: [
+        { key: "A", text: "should" },
+        { key: "B", text: "might have" },
+        { key: "C", text: "would have" },
+        { key: "D", text: "was" }
+      ],
+      correctAnswer: "A",
+      explanation: "Kata kerja bantu modal yang tepat untuk menyatakan saran atau anjuran baik adalah 'should' (sebaiknya/seharusnya).",
+      grammarNote: "Modal of recommendation: Subject + should + V1."
+    },
+    {
+      id: 38,
+      source: "Kaidah Tata Bahasa Kelas XI — Verb-Noun Collocation",
+      type: "single_choice",
+      title: "Grammar & Structure: Collocation",
+      prompt: "Which verb pairs naturally with the noun phrase 'close attention'?<br><br><em>'Students should _______ close attention to the teacher\'s explanation in class.'</em>",
+      options: [
+        { key: "A", text: "pay" },
+        { key: "B", text: "make" },
+        { key: "C", text: "do" },
+        { key: "D", text: "buy" }
+      ],
+      correctAnswer: "A",
+      explanation: "Kolokasi kata kerja yang baku dan alami dengan 'attention' adalah 'pay attention' (memperhatikan).",
+      grammarNote: "Collocation: pay attention."
+    },
+    {
+      id: 39,
+      source: "Kaidah Tata Bahasa Kelas XI — Expressing Agreement",
+      type: "single_choice",
+      title: "Grammar & Structure: Expressing Agreement",
+      prompt: "Which expression best demonstrates complete agreement with a friend's opinion?<br><br><em>Budi: 'I think reducing plastic waste makes our school much cleaner.'<br>Siti: '_______ It is a very positive project for all of us.'</em>",
+      options: [
+        { key: "A", text: "I completely agree with you." },
+        { key: "B", text: "I totally disagree with that." },
+        { key: "C", text: "I doubt that is true." },
+        { key: "D", text: "I am not sure about your idea." }
+      ],
+      correctAnswer: "A",
+      explanation: "Ungkapan yang menunjukkan persetujuan penuh terhadap pendapat teman adalah 'I completely agree with you' (Saya sangat setuju denganmu).",
+      grammarNote: "Language function: expressing full agreement."
+    },
+    {
+      id: 40,
+      source: "Kaidah Tata Bahasa Kelas XI — Subject-Verb Agreement",
+      type: "single_choice",
+      title: "Grammar & Structure: Subject-Verb Agreement",
+      prompt: "Choose the correct verb form that agrees with the plural subject in this sentence:<br><br><em>'Both the teachers and the students _______ delighted with the green school project.'</em>",
+      options: [
+        { key: "A", text: "are" },
+        { key: "B", text: "is" },
+        { key: "C", text: "was" },
+        { key: "D", text: "has" }
+      ],
+      correctAnswer: "A",
+      explanation: "Subjek gabungan dengan konjungsi 'Both... and...' selalu bernilai jamak (plural). Maka to-be yang tepat dalam Present Tense adalah 'are'.",
+      grammarNote: "Subject-verb agreement: Both A and B + plural verb (are)."
+    }
+  ];
 }
 
 
-
-// ASTS Authentication Guard
-function checkAstsAuth() {
-  const auth = sessionStorage.getItem("sabaku_asts_auth");
-  if (!auth) {
-    alert("Halaman ini memerlukan verifikasi password ASTS. Anda akan dialihkan ke halaman verifikasi.");
-    window.location.href = "masuk-asts.html";
-    return false;
-  }
-  return true;
-}
-
-
-let studentIdentity = {
-  tingkat: "XI-F",
-  rombel: "1",
-  presensi: "1",
-  nama: "Siswa Kelas XI (Fase F)"
-};
-
-let currentMode = "exam";
 let currentQuestionIndex = 0;
 let userAnswers = {};
 let flaggedQuestions = new Set();
 let timerInterval = null;
 let remainingSeconds = 90 * 60;
+let studentIdentity = { tingkat: "XI", rombel: "1", presensi: "1", nama: "Siswa SMA 1 Bae" };
+let currentMode = "practice";
 let isExamSubmitted = false;
 let audioSpeechRate = 1.0;
 let questions = [];
@@ -1398,7 +839,7 @@ function randomizeQuestionOptions(rawQuestions) {
       return q;
     }
     const cloned = JSON.parse(JSON.stringify(q));
-    // NOTE: DO NOT shuffle complex_matrix statements so that Pernyataan 1, 2, 3, 4 strictly match table rows
+    // Complex matrix statements maintain their logical order
     if (cloned.type !== "complex_matrix" && Array.isArray(cloned.options) && cloned.options.length > 0) {
       const opts = [...cloned.options];
       const isMCMA = cloned.type === "mcma" && Array.isArray(cloned.correctAnswer);
@@ -1430,7 +871,6 @@ function randomizeQuestionOptions(rawQuestions) {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-  if (!checkAstsAuth()) return;
   initStudentData();
 });
 
@@ -1440,30 +880,39 @@ function initStudentData() {
     if (rawPortal) {
       const portalData = JSON.parse(rawPortal);
       studentIdentity = {
-        tingkat: portalData.tingkat || "XI-F",
+        tingkat: portalData.tingkat || "XI",
         rombel: portalData.rombel || "1",
         presensi: portalData.presensi || "1",
-        nama: portalData.nama || "Siswa Kelas XI (Fase F)"
+        nama: portalData.nama || "Siswa Kelas XI"
       };
-      currentMode = portalData.mode || "exam";
+      currentMode = portalData.mode || "practice";
       startFreshTest();
       return;
     }
   } catch (e) {
     console.warn("Portal data error:", e);
   }
-  document.getElementById("identity-prompt-modal").style.display = "flex";
+  const modal = document.getElementById("identity-prompt-modal");
+  if (modal) modal.style.display = "flex";
+  else startFreshTest();
 }
 
 function handleDirectIdentitySubmit(e) {
-  e.preventDefault();
-  const nama = document.getElementById("direct-nama").value.trim();
-  const rombel = document.getElementById("direct-rombel").value;
-  const presensi = document.getElementById("direct-presensi").value.trim();
-  const mode = document.getElementById("direct-mode").value;
-  studentIdentity = { tingkat: "XI-F", rombel, presensi, nama };
-  currentMode = mode;
-  document.getElementById("identity-prompt-modal").style.display = "none";
+  if (e) e.preventDefault();
+  const namaEl = document.getElementById("direct-nama");
+  const rombelEl = document.getElementById("direct-rombel");
+  const presensiEl = document.getElementById("direct-presensi");
+  const modeEl = document.getElementById("direct-mode");
+  
+  studentIdentity = {
+    tingkat: "XI",
+    rombel: rombelEl ? rombelEl.value : "1",
+    presensi: presensiEl ? presensiEl.value.trim() : "1",
+    nama: (namaEl && namaEl.value.trim()) ? namaEl.value.trim() : "Siswa Kelas XI"
+  };
+  if (modeEl) currentMode = modeEl.value;
+  const modal = document.getElementById("identity-prompt-modal");
+  if (modal) modal.style.display = "none";
   startFreshTest();
 }
 
@@ -1484,23 +933,26 @@ function startFreshTest() {
   remainingSeconds = 90 * 60;
   currentQuestionIndex = 0;
 
-  const rawBank = (typeof getGrade11AsasQuestions === "function") ? getGrade11AsasQuestions() :
-                  (typeof getGrade11AstsQuestions === "function") ? getGrade11AstsQuestions() : [];
+  const rawBank = (typeof getGrade11AstsQuestions === "function") ? getGrade11AstsQuestions() : [];
 
-  questions = randomizeQuestionOptions(rawBank);
-
+  let restoredQuestions = null;
   try {
     const saved = localStorage.getItem("sabaku_asts_progress_XI");
     if (saved) {
       const parsed = JSON.parse(saved);
+      if (Array.isArray(parsed.questions) && parsed.questions.length > 0) {
+        restoredQuestions = parsed.questions;
+      }
       if (parsed.userAnswers) userAnswers = parsed.userAnswers;
       if (parsed.flaggedQuestions) flaggedQuestions = new Set(parsed.flaggedQuestions);
-      if (parsed.remainingSeconds) remainingSeconds = parsed.remainingSeconds;
+      if (parsed.remainingSeconds !== undefined) remainingSeconds = parsed.remainingSeconds;
       if (parsed.currentIndex !== undefined) currentQuestionIndex = parsed.currentIndex;
     }
   } catch (err) {
     console.warn("Progress restore warning:", err);
   }
+
+  questions = restoredQuestions || randomizeQuestionOptions(rawBank);
 
   applyStudentMetadata();
   buildNavigatorGrid();
@@ -1511,41 +963,40 @@ function startFreshTest() {
 
 function applyStudentMetadata() {
   const modeBadge = document.getElementById("nav-mode-badge");
-  modeBadge.textContent = (currentMode === "practice") ? "🎯 Mode Latihan ASTS Gasal" : "📝 Asesmen Resmi ASTS Gasal";
-  modeBadge.className = "badge-mode " + (currentMode === "practice" ? "practice" : "exam");
-  document.getElementById("side-student-name").textContent = studentIdentity.nama;
-  document.getElementById("side-student-meta").textContent = `Kelas XI (Fase F) | Rombel ${studentIdentity.rombel} | Presensi ${studentIdentity.presensi}`;
+  if (modeBadge) {
+    modeBadge.textContent = (currentMode === "practice") ? "🎯 Mode Latihan ASTS Gasal Kelas XI" : "📝 Asesmen Resmi ASTS Gasal Kelas XI";
+    modeBadge.className = "badge-mode " + (currentMode === "practice" ? "practice" : "exam");
+  }
+  const nameEl = document.getElementById("side-student-name");
+  if (nameEl) nameEl.textContent = studentIdentity.nama;
+  const rombelEl = document.getElementById("side-student-rombel");
+  if (rombelEl) rombelEl.textContent = studentIdentity.rombel;
+  const presensiEl = document.getElementById("side-student-presensi");
+  if (presensiEl) presensiEl.textContent = studentIdentity.presensi;
 }
 
 function toggleKisiKisiContent() {
-  const body = document.getElementById("kisi-kisi-body");
-  if (!body) return;
-  const icon = document.getElementById("kisi-toggle-icon");
-  if (body.style.display === "none") {
-    body.style.display = "block";
-    if (icon) icon.textContent = "▲ Sembunyikan Kisi-Kisi";
-  } else {
-    body.style.display = "none";
-    if (icon) icon.textContent = "▼ Buka Kisi-Kisi Lengkap";
-  }
+  const content = document.getElementById("kisi-kisi-content-area");
+  const icon = document.getElementById("kisi-kisi-expand-icon");
+  if (!content) return;
+  const isHidden = content.style.display === "none";
+  content.style.display = isHidden ? "block" : "none";
+  if (icon) icon.textContent = isHidden ? "▲" : "▼";
 }
 
 function toggleKisiKisiModal() {
-  const body = document.getElementById("kisi-kisi-body");
-  if (!body) return;
-  body.style.display = "block";
-  const icon = document.getElementById("kisi-toggle-icon");
-  if (icon) icon.textContent = "▲ Sembunyikan Kisi-Kisi";
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  const modal = document.getElementById("kisi-kisi-modal");
+  if (!modal) return;
+  modal.style.display = (modal.style.display === "flex") ? "none" : "flex";
 }
 
 function buildNavigatorGrid() {
-  const grid = document.getElementById("question-navigator-grid");
+  const grid = document.getElementById("navigator-grid");
+  if (!grid) return;
   grid.innerHTML = "";
   questions.forEach((q, idx) => {
     const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "q-num-btn";
+    btn.className = "nav-btn";
     btn.id = `nav-btn-${idx}`;
     btn.textContent = idx + 1;
     btn.onclick = () => renderQuestion(idx);
@@ -1579,81 +1030,103 @@ function renderQuestion(index) {
   const q = questions[index];
   stopAudio();
 
-  document.getElementById("q-number-badge").textContent = `Soal No. ${q.id} dari ${questions.length}`;
-  document.getElementById("q-type-badge").textContent = q.title || "Pilihan Ganda";
+  const numBadge = document.getElementById("q-number-badge");
+  if (numBadge) numBadge.textContent = `Soal No. ${q.id} dari ${questions.length}`;
+  const typeBadge = document.getElementById("q-type-badge");
+  if (typeBadge) typeBadge.textContent = q.title || "Pilihan Ganda";
 
   const listeningBox = document.getElementById("listening-container");
-  if (q.audioText || (q.audioSegments && q.audioSegments.length > 0)) {
-    listeningBox.style.display = "block";
-    document.getElementById("audio-status-text").textContent = "Klik 'Putar Audio' untuk menyimak wacana otentik.";
-  } else {
-    listeningBox.style.display = "none";
+  if (listeningBox) {
+    if (q.audioText || (q.audioSegments && q.audioSegments.length > 0)) {
+      listeningBox.style.display = "block";
+      const statusText = document.getElementById("audio-status-text");
+      if (statusText) statusText.textContent = "Klik 'Putar Audio' untuk mendengarkan audio rekaman penutur asli.";
+    } else {
+      listeningBox.style.display = "none";
+    }
   }
 
   const stimBox = document.getElementById("stimulus-container");
-  if (q.stimulusBody && q.type !== "listening_pictures") {
-    stimBox.style.display = "block";
-    document.getElementById("stimulus-title").textContent = q.stimulusTitle || "Teks Stimulus";
-    document.getElementById("stimulus-body").innerHTML = q.stimulusBody;
-    const srcEl = document.getElementById("stimulus-source");
-    if (srcEl) {
-      if (q.source) {
-        srcEl.style.display = "block";
-        srcEl.innerHTML = `<span style="font-size:0.75rem; color:#64748b; font-style:italic;">Source: ${q.source}</span>`;
-      } else {
-        srcEl.style.display = "none";
+  if (stimBox) {
+    if (q.stimulusBody && q.type !== "listening_pictures") {
+      stimBox.style.display = "block";
+      const stimTitle = document.getElementById("stimulus-title");
+      if (stimTitle) stimTitle.textContent = q.stimulusTitle || "Teks Stimulus";
+      const stimBody = document.getElementById("stimulus-body");
+      if (stimBody) stimBody.innerHTML = q.stimulusBody;
+      const srcEl = document.getElementById("stimulus-source");
+      if (srcEl) {
+        if (q.source) {
+          srcEl.style.display = "block";
+          srcEl.innerHTML = `<span style="font-size:0.75rem; color:#64748b; font-style:italic;">Source: ${q.source}</span>`;
+        } else {
+          srcEl.style.display = "none";
+        }
       }
+    } else {
+      stimBox.style.display = "none";
     }
-  } else {
-    stimBox.style.display = "none";
   }
 
   const promptBox = document.getElementById("question-prompt-text");
-  promptBox.innerHTML = q.prompt;
+  if (promptBox) promptBox.innerHTML = q.prompt;
 
   const optContainer = document.getElementById("options-container");
-  optContainer.innerHTML = "";
-
-  if (q.type === "listening_pictures") {
-    renderPictureChoices(q, optContainer);
-  } else if (q.type === "complex_matrix") {
-    renderMatrixTable(q, optContainer);
-  } else if (q.type === "mcma") {
-    renderMCMACheckboxes(q, optContainer);
-  } else {
-    renderSingleChoices(q, optContainer);
+  if (optContainer) {
+    optContainer.innerHTML = "";
+    if (q.type === "listening_pictures") {
+      renderPictureChoices(q, optContainer);
+    } else if (q.type === "complex_matrix") {
+      renderMatrixTable(q, optContainer);
+    } else if (q.type === "mcma") {
+      renderMCMACheckboxes(q, optContainer);
+    } else {
+      renderSingleChoices(q, optContainer);
+    }
   }
 
   const expBox = document.getElementById("question-explanation-box");
-  if (isExamSubmitted) {
-    expBox.style.display = "block";
-    let keyBadge = "";
-    if (q.type === "complex_matrix") {
-      keyBadge = q.matrixStatements.map((s, i) => `Pernyataan ${i+1}: <strong>${s.isCorrect ? 'BENAR (TRUE)' : 'SALAH (FALSE)'}</strong>`).join(" | ");
-    } else if (Array.isArray(q.correctAnswer)) {
-      keyBadge = q.correctAnswer.join(", ");
-    } else {
-      keyBadge = q.correctAnswer;
-    }
+  if (expBox) {
+    if (isExamSubmitted) {
+      expBox.style.display = "block";
+      let keyBadge = "";
+      if (q.type === "complex_matrix") {
+        keyBadge = q.matrixStatements.map((s, i) => `Pernyataan ${i+1}: <strong>${s.isCorrect ? 'BENAR (TRUE)' : 'SALAH (FALSE)'}</strong>`).join(" | ");
+      } else if (Array.isArray(q.correctAnswer)) {
+        keyBadge = q.correctAnswer.join(", ");
+      } else {
+        keyBadge = q.correctAnswer;
+      }
 
-    document.getElementById("explanation-text").innerHTML = `
-      <div style="margin-bottom: 10px; padding: 6px 12px; background: #ecfdf5; border: 1.5px solid #a7f3d0; border-radius: 8px; color: #065f46; font-size: 0.95rem; display: inline-block;">
-        🔑 <strong>Kunci Jawaban:</strong> <span style="font-weight: 800; color: #047857; margin-left: 4px;">${keyBadge}</span>
-      </div>
-      <div>${q.explanation}</div>
-    `;
-    document.getElementById("explanation-meta-text").innerHTML = `<strong>Kaidah &amp; Kosakata:</strong> ${q.grammarNote || "-"}`;
-  } else {
-    expBox.style.display = "none";
+      const expText = document.getElementById("explanation-text");
+      if (expText) {
+        expText.innerHTML = `
+          <div style="margin-bottom: 10px; padding: 6px 12px; background: #ecfdf5; border: 1.5px solid #a7f3d0; border-radius: 8px; color: #065f46; font-size: 0.95rem; display: inline-block;">
+            🔑 <strong>Kunci Jawaban:</strong> <span style="font-weight: 800; color: #047857; margin-left: 4px;">${keyBadge}</span>
+          </div>
+          <div>${q.explanation}</div>
+        `;
+      }
+      const expMeta = document.getElementById("explanation-meta-text");
+      if (expMeta) {
+        expMeta.innerHTML = `<strong>Kaidah &amp; Kosakata:</strong> ${q.grammarNote || "-"}`;
+      }
+    } else {
+      expBox.style.display = "none";
+    }
   }
 
   const flagBtn = document.getElementById("btn-flag-q");
-  if (flaggedQuestions.has(index)) flagBtn.textContent = "🔄 Hapus Ragu";
-  else flagBtn.textContent = "🟡 Ragu-ragu";
+  if (flagBtn) {
+    flagBtn.textContent = flaggedQuestions.has(index) ? "🔄 Hapus Ragu" : "🟡 Ragu-ragu";
+  }
 
-  document.getElementById("btn-prev-q").disabled = (index === 0);
-  document.getElementById("btn-next-q").disabled = (index === questions.length - 1);
-  document.getElementById("btn-submit-test").style.display = (index === questions.length - 1) ? "inline-flex" : "none";
+  const btnPrev = document.getElementById("btn-prev-q");
+  if (btnPrev) btnPrev.disabled = (index === 0);
+  const btnNext = document.getElementById("btn-next-q");
+  if (btnNext) btnNext.disabled = (index === questions.length - 1);
+  const btnSubmit = document.getElementById("btn-submit-test");
+  if (btnSubmit) btnSubmit.style.display = (index === questions.length - 1) ? "inline-flex" : "none";
 
   updateNavigatorStatus();
   saveProgressToLocalStorage();
@@ -1674,8 +1147,10 @@ function renderPictureChoices(q, container) {
     const labelContent = opt.label || opt.text || `Pilihan ${opt.key}`;
     card.innerHTML = `
       <div class="picture-svg-wrapper">${svgContent}</div>
-      <div class="picture-letter-badge">${opt.key}</div>
-      <div class="picture-label-text">${labelContent}</div>
+      <div class="picture-card-footer">
+        <span class="picture-key-badge">${opt.key}</span>
+        <span class="picture-label-text">${labelContent}</span>
+      </div>
     `;
     grid.appendChild(card);
   });
@@ -1709,8 +1184,8 @@ function renderMatrixTable(q, container) {
     <thead>
       <tr>
         <th style="width: 70%;">Pernyataan / Analisis Teks</th>
-        <th style="width: 15%;">BENAR (TRUE)</th>
-        <th style="width: 15%;">SALAH (FALSE)</th>
+        <th style="width: 15%; text-align: center;">BENAR (TRUE)</th>
+        <th style="width: 15%; text-align: center;">SALAH (FALSE)</th>
       </tr>
     </thead>
     <tbody>
@@ -1719,11 +1194,11 @@ function renderMatrixTable(q, container) {
         return `
           <tr>
             <td>${stmt.statement}</td>
-            <td onclick="setMatrixAnswer(${q.id}, ${sIdx}, true)">
-              <input type="radio" class="matrix-radio" name="matrix_${q.id}_${sIdx}" ${curVal === true ? "checked" : ""}>
+            <td onclick="setMatrixAnswer(${q.id}, ${sIdx}, true)" style="cursor: pointer; text-align: center;">
+              <input type="radio" class="matrix-radio" name="matrix_${q.id}_${sIdx}" ${curVal === true ? "checked" : ""} onclick="event.stopPropagation(); setMatrixAnswer(${q.id}, ${sIdx}, true)">
             </td>
-            <td onclick="setMatrixAnswer(${q.id}, ${sIdx}, false)">
-              <input type="radio" class="matrix-radio" name="matrix_${q.id}_${sIdx}" ${curVal === false ? "checked" : ""}>
+            <td onclick="setMatrixAnswer(${q.id}, ${sIdx}, false)" style="cursor: pointer; text-align: center;">
+              <input type="radio" class="matrix-radio" name="matrix_${q.id}_${sIdx}" ${curVal === false ? "checked" : ""} onclick="event.stopPropagation(); setMatrixAnswer(${q.id}, ${sIdx}, false)">
             </td>
           </tr>
         `;
@@ -1784,183 +1259,167 @@ function toggleFlagQuestion() {
 
 // Multi-speaker audio player with Indonesian name pronunciation
 let isAudioPlaying = false;
-let audioQueue = [];
-let audioQueueIdx = 0;
-let cachedVoices = [];
-
-if (typeof window !== "undefined" && window.speechSynthesis) {
-  cachedVoices = window.speechSynthesis.getVoices();
-  window.speechSynthesis.onvoiceschanged = () => {
-    cachedVoices = window.speechSynthesis.getVoices();
-  };
-}
+let currentSegmentIndex = 0;
+let activeAudioSegments = [];
+let audioPlayTimeout = null;
 
 function getAvailableVoices() {
-  if (!window.speechSynthesis) return [];
-  const live = window.speechSynthesis.getVoices();
-  if (live && live.length > 0) {
-    cachedVoices = live;
-    return live;
-  }
-  return cachedVoices || [];
+  if (!("speechSynthesis" in window)) return [];
+  return window.speechSynthesis.getVoices();
 }
 
-if (typeof window !== "undefined" && window.speechSynthesis) {
+if ("speechSynthesis" in window) {
   window.speechSynthesis.onvoiceschanged = () => {
-    cachedVoices = window.speechSynthesis.getVoices();
+    getAvailableVoices();
   };
 }
 
 function selectAudioVoice(role, gender, lang) {
   const voices = getAvailableVoices();
-  if (!voices || voices.length === 0) return null;
+  if (!voices.length) return null;
+  const isTargetLang = (v, l) => {
+    if (!v.lang) return false;
+    const clean = v.lang.replace("_", "-").toLowerCase();
+    const prefix = l.toLowerCase().split("-")[0];
+    return clean.startsWith(prefix);
+  };
+  const voiceLang = lang || "en-US";
+  let pool = voices.filter(v => isTargetLang(v, voiceLang));
+  if (!pool.length) pool = voices.filter(v => v.lang.startsWith("en"));
+  if (!pool.length) pool = voices;
 
-  if (lang && lang.startsWith("id")) {
-    const idVoice = voices.find(v => (v.lang && (v.lang.startsWith("id") || v.lang.startsWith("ID"))) || v.name.toLowerCase().includes("indonesia") || v.name.includes("Gadis") || v.name.includes("Ardi"));
-    if (idVoice) return idVoice;
+  const isFemaleRole = role && (role.includes("_f") || role.includes("female") || role.includes("student_f") || role.includes("teacher_f"));
+  const femaleKeywords = ["female", "zira", "samantha", "victoria", "karen", "susan", "helena", "catherine", "jenny", "aria"];
+  const maleKeywords = ["male", "david", "george", "mark", "james", "richard", "guy", "christopher"];
+
+  if (isFemaleRole) {
+    const fMatch = pool.find(v => femaleKeywords.some(kw => v.name.toLowerCase().includes(kw)));
+    if (fMatch) return fMatch;
+  } else if (role && (role.includes("_m") || role.includes("male"))) {
+    const mMatch = pool.find(v => maleKeywords.some(kw => v.name.toLowerCase().includes(kw)));
+    if (mMatch) return mMatch;
   }
+  return pool[0] || voices[0];
+}
 
-  const enVoices = voices.filter(v => v.lang && (v.lang.startsWith("en") || v.lang.startsWith("EN")));
-  if (enVoices.length === 0) return voices[0];
-
-  const femaleKeywords = ["female", "woman", "girl", "zira", "jenny", "aria", "samantha", "victoria", "karen", "fiona", "moira", "tessa", "clara", "libby", "ana", "sonia", "natasha", "google us english", "google uk english female"];
-  const maleKeywords = ["male", "man", "boy", "david", "guy", "mark", "ryan", "george", "daniel", "alex", "fred", "oliver", "steffan", "google uk english male", "james", "tom", "richard"];
-
-  const matchedFemale = enVoices.find(v => femaleKeywords.some(k => v.name.toLowerCase().includes(k)));
-  let matchedMale = enVoices.find(v => maleKeywords.some(k => v.name.toLowerCase().includes(k)));
-
-  // Ensure male and female are paired with different voices if at least 2 english voices exist
-  if (matchedFemale && matchedMale && matchedFemale.name === matchedMale.name && enVoices.length >= 2) {
-    matchedMale = enVoices.find(v => v.name !== matchedFemale.name) || matchedMale;
-  }
-  if (!matchedMale && matchedFemale && enVoices.length >= 2) {
-    matchedMale = enVoices.find(v => v.name !== matchedFemale.name);
-  }
-  if (!matchedFemale && matchedMale && enVoices.length >= 2) {
-    const altFemale = enVoices.find(v => v.name !== matchedMale.name);
-    if (altFemale && gender === "female") return altFemale;
-  }
-
-  if (gender === "female") {
-    return matchedFemale || enVoices[0];
-  } else if (gender === "male") {
-    return matchedMale || (enVoices.length > 1 ? enVoices[1] : enVoices[0]);
-  }
-
-  // Default narrator voice
-  const narratorVoice = enVoices.find(v => v.name.includes("Natural") || v.name.includes("David") || v.name.includes("Google") || v.name.includes("Aria")) || enVoices[0];
-  return narratorVoice;
+function preprocessIndonesianNames(text) {
+  return text
+    .replace(/\bEndang Sawitri\b/gi, "Ehn-dahng Sah-weet-tree")
+    .replace(/\bBaru Klinthing\b/gi, "Bah-roo Kleen-teeng")
+    .replace(/\bKi Hajar Salokantara\b/gi, "Kee Hah-jahr Sah-loh-kahn-tah-rah")
+    .replace(/\bMount Telomoyo\b/gi, "Mount Teh-loh-moh-yoh")
+    .replace(/\bMbok Rondo\b/gi, "Em-bock Ron-doh")
+    .replace(/\bRawa Pening\b/gi, "Rah-wah Peh-neeng")
+    .replace(/\bPathok\b/gi, "Pah-tock")
+    .replace(/\bNgasem\b/gi, "Nga-sem");
 }
 
 function stopAudio() {
-  if (window.speechSynthesis) window.speechSynthesis.cancel();
+  if ("speechSynthesis" in window) {
+    window.speechSynthesis.cancel();
+  }
+  if (audioPlayTimeout) {
+    clearTimeout(audioPlayTimeout);
+    audioPlayTimeout = null;
+  }
   isAudioPlaying = false;
-  audioQueue = [];
-  audioQueueIdx = 0;
+  activeAudioSegments = [];
+  currentSegmentIndex = 0;
+  const btn = document.getElementById("btn-play-audio");
+  if (btn) btn.classList.remove("playing");
   const playText = document.getElementById("play-text");
-  const playBtn = document.getElementById("btn-play-audio");
-  const statusText = document.getElementById("audio-status-text");
   if (playText) playText.textContent = "Putar Audio";
-  if (playBtn) playBtn.style.backgroundColor = "var(--royal-blue)";
-  if (statusText) statusText.textContent = "Klik 'Putar Audio' untuk mendengarkan kembali.";
 }
 
 function playQuestionAudio() {
-  const q = questions[currentQuestionIndex];
-  if (!q) return;
-  if (!window.speechSynthesis) {
-    alert("Peramban Anda belum mendukung Web Speech API.");
-    return;
-  }
   if (isAudioPlaying) {
     stopAudio();
     return;
   }
-  window.speechSynthesis.cancel();
-  let segments = [];
-  if (q.audioSegments && q.audioSegments.length > 0) segments = q.audioSegments;
-  else if (q.audioText) segments = [{ text: q.audioText, lang: "en-US", role: "narrator" }];
-  else return;
+  const q = questions[currentQuestionIndex];
+  if (!q) return;
 
-  audioQueue = segments;
-  audioQueueIdx = 0;
+  if (q.audioSegments && q.audioSegments.length > 0) {
+    activeAudioSegments = q.audioSegments;
+  } else if (q.audioText) {
+    activeAudioSegments = [{ role: "narrator", lang: "en-US", text: q.audioText }];
+  } else {
+    return;
+  }
+
   isAudioPlaying = true;
-
-  const playBtn = document.getElementById("btn-play-audio");
+  currentSegmentIndex = 0;
+  const btn = document.getElementById("btn-play-audio");
+  if (btn) btn.classList.add("playing");
   const playText = document.getElementById("play-text");
-  const statusText = document.getElementById("audio-status-text");
   if (playText) playText.textContent = "Hentikan";
-  if (playBtn) playBtn.style.backgroundColor = "#dc2626";
-  if (statusText) statusText.textContent = "🔊 Audio sedang diputar. Simak dengan seksama...";
+
   playNextAudioSegment();
 }
 
 function playNextAudioSegment() {
   if (!isAudioPlaying) return;
-  if (audioQueueIdx >= audioQueue.length) {
-    isAudioPlaying = false;
-    audioQueue = [];
-    audioQueueIdx = 0;
-    const playBtn = document.getElementById("btn-play-audio");
-    const playText = document.getElementById("play-text");
-    const statusText = document.getElementById("audio-status-text");
-    if (playText) playText.textContent = "Putar Ulang";
-    if (playBtn) playBtn.style.backgroundColor = "var(--accent-teal)";
-    if (statusText) statusText.textContent = "✅ Pemutaran audio selesai. Silakan pilih jawaban Anda.";
+  if (currentSegmentIndex >= activeAudioSegments.length) {
+    stopAudio();
     return;
   }
-  const seg = audioQueue[audioQueueIdx++];
-  const utt = new SpeechSynthesisUtterance(seg.text);
-  utt.lang = seg.lang || "en-US";
 
-  const matchedVoice = selectAudioVoice(seg.role, seg.gender, seg.lang);
-  if (matchedVoice) utt.voice = matchedVoice;
+  const seg = activeAudioSegments[currentSegmentIndex];
+  const cleanedText = preprocessIndonesianNames(seg.text);
+  const utterance = new SpeechSynthesisUtterance(cleanedText);
+  utterance.rate = audioSpeechRate;
+  utterance.lang = seg.lang || "en-US";
 
-  if (seg.pitch !== undefined) {
-    utt.pitch = seg.pitch;
-  } else if (seg.gender === "female") {
-    utt.pitch = 1.30;
-  } else if (seg.gender === "male") {
-    utt.pitch = 0.75;
-  } else {
-    utt.pitch = 1.0;
+  const voice = selectAudioVoice(seg.role, null, seg.lang);
+  if (voice) utterance.voice = voice;
+
+  const statusText = document.getElementById("audio-status-text");
+  if (statusText) {
+    const speakerLabel = seg.name ? `${seg.name} (${seg.role.includes('_f') ? 'Female' : 'Male'})` : (seg.role === "narrator" ? "Narrator" : "Audio");
+    statusText.textContent = `Sedang memutar: [${speakerLabel}] - Bagian ${currentSegmentIndex + 1} dari ${activeAudioSegments.length}`;
   }
 
-  let rateMult = seg.rateMultiplier || 1.0;
-  if (seg.gender === "female" && !seg.rateMultiplier) rateMult = 1.04;
-  else if (seg.gender === "male" && !seg.rateMultiplier) rateMult = 0.94;
-  else if (seg.role === "narrator" && !seg.rateMultiplier) rateMult = 0.96;
-  utt.rate = audioSpeechRate * rateMult;
+  utterance.onend = () => {
+    currentSegmentIndex++;
+    const pauseTime = seg.pauseAfter || 300;
+    audioPlayTimeout = setTimeout(() => {
+      playNextAudioSegment();
+    }, pauseTime);
+  };
 
-  utt.onend = () => {
-    if (isAudioPlaying) setTimeout(playNextAudioSegment, seg.pauseAfter || 360);
+  utterance.onerror = (e) => {
+    console.warn("Speech error:", e);
+    currentSegmentIndex++;
+    playNextAudioSegment();
   };
-  utt.onerror = () => {
-    if (isAudioPlaying) playNextAudioSegment();
-  };
-  window.speechSynthesis.speak(utt);
+
+  window.speechSynthesis.speak(utterance);
 }
 
 function toggleAudioSpeed() {
-  audioSpeechRate = (audioSpeechRate === 1.0) ? 0.85 : 1.0;
-  document.getElementById("speed-text").textContent = audioSpeechRate + "x";
+  if (audioSpeechRate === 1.0) audioSpeechRate = 0.85;
+  else if (audioSpeechRate === 0.85) audioSpeechRate = 1.15;
+  else audioSpeechRate = 1.0;
+  const speedText = document.getElementById("speed-text");
+  if (speedText) speedText.textContent = `${audioSpeechRate}x`;
 }
 
 function startTimer() {
   if (timerInterval) clearInterval(timerInterval);
   timerInterval = setInterval(() => {
-    remainingSeconds--;
     if (remainingSeconds <= 0) {
       clearInterval(timerInterval);
-      alert("Waktu pengerjaan tes telah berakhir! Jawaban Anda akan otomatis dikumpulkan.");
+      alert("Waktu pengerjaan telah habis! Sistem akan mengumpulkan jawaban Anda secara otomatis.");
       submitTest();
       return;
     }
+    remainingSeconds--;
     const mins = Math.floor(remainingSeconds / 60);
     const secs = remainingSeconds % 60;
-    document.getElementById("timer-display").textContent = `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
-    if (remainingSeconds < 300) document.getElementById("timer-box").style.backgroundColor = "#dc2626";
-    if (remainingSeconds % 15 === 0) saveProgressToLocalStorage();
+    const timerDisplay = document.getElementById("timer-display");
+    if (timerDisplay) {
+      timerDisplay.textContent = `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
+    }
   }, 1000);
 }
 
@@ -1979,51 +1438,65 @@ function submitTest() {
   stopAudio();
   localStorage.removeItem("sabaku_asts_progress_XI");
 
-  let correctCount = 0;
+  let totalScoreEarned = 0;
   questions.forEach(q => {
     const ans = userAnswers[q.id];
     if (q.type === "complex_matrix") {
       if (ans && typeof ans === "object") {
-        let allCorrect = true;
+        let correctStatements = 0;
         q.matrixStatements.forEach((stmt, sIdx) => {
-          if (ans[sIdx] !== stmt.isCorrect) allCorrect = false;
+          if (ans[sIdx] === stmt.isCorrect) correctStatements++;
         });
-        if (allCorrect) correctCount++;
+        totalScoreEarned += (correctStatements / q.matrixStatements.length);
       }
     } else if (q.type === "mcma") {
-      if (Array.isArray(ans)) {
-        const sortedUser = [...ans].sort();
-        const sortedTarget = [...q.correctAnswer].sort();
-        if (JSON.stringify(sortedUser) === JSON.stringify(sortedTarget)) correctCount++;
+      if (Array.isArray(ans) && ans.length > 0) {
+        const target = Array.isArray(q.correctAnswer) ? q.correctAnswer : [];
+        let correctPicks = 0;
+        let wrongPicks = 0;
+        ans.forEach(key => {
+          if (target.includes(key)) correctPicks++;
+          else wrongPicks++;
+        });
+        const netPicks = Math.max(0, correctPicks - (wrongPicks * 0.5));
+        totalScoreEarned += (target.length > 0 ? (netPicks / target.length) : 0);
       }
     } else {
-      if (ans === q.correctAnswer) correctCount++;
+      if (ans === q.correctAnswer) totalScoreEarned += 1.0;
     }
   });
 
   const totalQuestions = questions.length;
-  const finalScore = Math.round((correctCount / totalQuestions) * 100);
+  const finalScore = Math.min(100, Math.round((totalScoreEarned / totalQuestions) * 100));
   const isTuntas = finalScore >= 75;
+  const correctCount = Math.round(totalScoreEarned);
 
-  document.getElementById("result-modal").style.display = "flex";
-  document.getElementById("result-score-val").textContent = finalScore;
+  const resModal = document.getElementById("result-modal");
+  if (resModal) resModal.style.display = "flex";
+  const scoreVal = document.getElementById("result-score-val");
+  if (scoreVal) scoreVal.textContent = finalScore;
   const scoreCircle = document.getElementById("result-score-circle");
-  scoreCircle.className = "score-circle " + (isTuntas ? "tuntas" : "belum");
+  if (scoreCircle) scoreCircle.className = "score-circle " + (isTuntas ? "tuntas" : "belum");
 
   const statusText = document.getElementById("result-status-text");
-  statusText.textContent = isTuntas ? "STATUS: TUNTAS KKTP (≥ 75) 🎉" : "STATUS: BELUM TUNTAS KKTP (< 75) ⚠️";
-  statusText.style.color = isTuntas ? "var(--accent-green)" : "var(--accent-red)";
+  if (statusText) {
+    statusText.textContent = isTuntas ? "STATUS: TUNTAS KKTP (≥ 75) 🎉" : "STATUS: BELUM TUNTAS KKTP (< 75) ⚠️";
+    statusText.style.color = isTuntas ? "var(--accent-green)" : "var(--accent-red)";
+  }
 
-  document.getElementById("stat-correct").textContent = correctCount;
-  document.getElementById("stat-wrong").textContent = totalQuestions - correctCount;
-  document.getElementById("stat-accuracy").textContent = `${Math.round((correctCount / totalQuestions) * 100)}%`;
+  const statCorr = document.getElementById("stat-correct");
+  if (statCorr) statCorr.textContent = correctCount;
+  const statWrong = document.getElementById("stat-wrong");
+  if (statWrong) statWrong.textContent = totalQuestions - correctCount;
+  const statAcc = document.getElementById("stat-accuracy");
+  if (statAcc) statAcc.textContent = `${finalScore}%`;
 
   const record = {
     tingkat: studentIdentity.tingkat,
     rombel: studentIdentity.rombel,
     presensi: studentIdentity.presensi,
     nama: studentIdentity.nama,
-    mode: (currentMode === "practice") ? "Latihan ASTS Gasal Kelas XI (Fase F)" : "Asesmen Resmi ASTS Gasal Kelas XI (Fase F)",
+    mode: (currentMode === "practice") ? "Latihan ASTS Gasal Kelas XI" : "Asesmen Resmi ASTS Gasal Kelas XI",
     score: correctCount,
     total: totalQuestions,
     grade: finalScore,
@@ -2064,61 +1537,77 @@ function syncScoreToGoogleSheets(payload) {
         navigator.sendBeacon(webAppUrl, new Blob([JSON.stringify(payload)], { type: "text/plain;charset=utf-8" }));
       }
     } catch (bErr) {}
-    if (statusEl) statusEl.innerHTML = "💾 Nilai Anda telah tersimpan dengan aman di sistem sekolah.";
+    if (statusEl) statusEl.innerHTML = "⚠️ Nilai tercatat di penyimpanan lokal peramban (offline mode).";
   });
 }
 
 function downloadResultCSV() {
-  try {
-    const history = JSON.parse(localStorage.getItem("sabaku_ats_history") || "[]");
-    if (history.length === 0) {
-      alert("Belum ada data nilai yang tersimpan untuk diunduh.");
-      return;
+  const answeredCount = questions.filter(q => isQuestionAnswered(q.id)).length;
+  let csv = "NO,ID_SOAL,TIPE_SOAL,JAWABAN_SISWA,KUNCI_JAWABAN,STATUS\n";
+  questions.forEach((q, idx) => {
+    const ans = userAnswers[q.id];
+    let userStr = "";
+    let keyStr = "";
+    let isCorrect = false;
+
+    if (q.type === "complex_matrix") {
+      userStr = ans ? Object.keys(ans).map(k => `P${parseInt(k)+1}:${ans[k] ? 'T' : 'F'}`).join(";") : "KOSONG";
+      keyStr = q.matrixStatements.map((s, i) => `P${i+1}:${s.isCorrect ? 'T' : 'F'}`).join(";");
+      isCorrect = (userStr === keyStr);
+    } else if (Array.isArray(q.correctAnswer)) {
+      userStr = Array.isArray(ans) ? ans.sort().join(";") : (ans || "KOSONG");
+      keyStr = q.correctAnswer.sort().join(";");
+      isCorrect = (userStr === keyStr);
+    } else {
+      userStr = ans || "KOSONG";
+      keyStr = q.correctAnswer;
+      isCorrect = (userStr === keyStr);
     }
-    let csvContent = "data:text/csv;charset=utf-8,";
-    csvContent += "Timestamp,Tingkat,Rombel,Presensi,Nama Siswa,Mode,Skor Benar,Total Soal,Nilai (0-100),Status KKTP,Durasi\n";
-    history.forEach(r => {
-      const kktp = r.grade >= 75 ? "TUNTAS" : "BELUM TUNTAS";
-      const line = `"${r.timestamp}","${r.tingkat}","${r.rombel}","${r.presensi}","${r.nama}","${r.mode}",${r.score},${r.total},${r.grade},"${kktp}","${r.duration}"`;
-      csvContent += line + "\n";
-    });
-    const encodedUri = encodeURI(csvContent);
-    const link = document.createElement("a");
-    link.setAttribute("href", encodedUri);
-    link.setAttribute("download", `Rekap_Nilai_ASTS Gasal_XI-F_${studentIdentity.nama.replace(/\s+/g, "_")}.csv`);
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  } catch (e) {
-    alert("Gagal mengunduh file CSV: " + e.message);
-  }
+    csv += `${idx + 1},${q.id},"${q.type}","${userStr}","${keyStr}",${isCorrect ? "BENAR" : "SALAH"}\n`;
+  });
+
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `Hasil_${studentIdentity.tingkat}_${studentIdentity.nama.replace(/\s+/g, "_")}_${studentIdentity.presensi}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
 }
 
 function reviewAllAnswers() {
-  document.getElementById("result-modal").style.display = "none";
+  const resModal = document.getElementById("result-modal");
+  if (resModal) resModal.style.display = "none";
   renderQuestion(0);
 }
 
 function restartTest() {
   if (confirm("Apakah Anda ingin mengulangi pengerjaan dari awal?\nSemua jawaban saat ini akan direset.")) {
     localStorage.removeItem("sabaku_asts_progress_XI");
-    document.getElementById("result-modal").style.display = "none";
+    const resModal = document.getElementById("result-modal");
+    if (resModal) resModal.style.display = "none";
     startFreshTest();
   }
 }
 
 function openSettingsModal() {
   const url = localStorage.getItem("sabaku_gs_url") || DEFAULT_GS_URL;
-  document.getElementById("input-gs-url").value = url;
-  document.getElementById("settings-modal").style.display = "flex";
+  const inputEl = document.getElementById("input-gs-url");
+  if (inputEl) inputEl.value = url;
+  const modal = document.getElementById("settings-modal");
+  if (modal) modal.style.display = "flex";
 }
 
 function closeSettingsModal() {
-  document.getElementById("settings-modal").style.display = "none";
+  const modal = document.getElementById("settings-modal");
+  if (modal) modal.style.display = "none";
 }
 
 function saveSettings() {
-  const val = document.getElementById("input-gs-url").value.trim();
+  const inputEl = document.getElementById("input-gs-url");
+  const val = inputEl ? inputEl.value.trim() : "";
   if (val) {
     localStorage.setItem("sabaku_gs_url", val);
     alert("Pengaturan tautan basis data berhasil disimpan!");
@@ -2129,6 +1618,7 @@ function saveSettings() {
 function saveProgressToLocalStorage() {
   try {
     const data = {
+      questions,
       userAnswers,
       flaggedQuestions: Array.from(flaggedQuestions),
       remainingSeconds,
@@ -2137,4 +1627,3 @@ function saveProgressToLocalStorage() {
     localStorage.setItem("sabaku_asts_progress_XI", JSON.stringify(data));
   } catch (e) {}
 }
-

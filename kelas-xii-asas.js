@@ -1,1430 +1,833 @@
 /**
- * ASESMEN SUMATIF AKHIR SEMESTER (ASAS) GASAL & LATIHAN KOMPREHENSIF 2026
+ * ASESMEN SUMATIF AKHIR SEMESTER (ASAS) GASAL 2026
  * SMA NEGERI 1 BAE KUDUS (SABAKU)
- * BAHASA INGGRIS TINGKAT XII (FASE F+)
- * Standar: TKA & AKM Literasi (Pilihan Ganda Biasa, Kompleks Matrix, & MCMA)
+ * BAHASA INGGRIS TINGKAT XII — FASE F (REGULER / WAJIB)
+ * Standar: TKA & AKM Literasi (Pilihan Ganda, Matrix Kompleks, & MCMA - CEFR Level B1)
  */
 
 const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbz1dnapNS6sFak-BlG-xxaFhGR9f0BhGYKyyddEvmIEOTxPrlARC2tHkeLLP1owzBToIw/exec";
 
 const SVG_PICTURES = {
-  debate: `<svg viewBox="0 0 100 100" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M15 85h70M25 85V45h15v40M60 85V45h15v40"/>
-    <circle cx="32" cy="28" r="8"/>
-    <path d="M22 45c0-6 4-10 10-10s10 4 10 10"/>
-    <circle cx="68" cy="28" r="8"/>
-    <path d="M58 45c0-6 4-10 10-10s10 4 10 10"/>
-    <path d="M40 32l6-4M60 32l-6-4" stroke="#d97706" stroke-width="2"/>
-    <rect x="42" y="15" width="16" height="10" rx="2" stroke="#dc2626"/>
-  </svg>`,
-  solo_singer: `<svg viewBox="0 0 100 100" fill="none" stroke="#9333ea" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="50" cy="26" r="9"/>
-    <path d="M50 35v30M35 45l15-5 15 5M40 85l10-20 10 20"/>
-    <rect x="62" y="20" width="8" height="16" rx="4" fill="#cbd5e1" stroke="#475569"/>
-    <path d="M66 36v35M58 71h16" stroke="#475569" stroke-width="2.5"/>
-  </svg>`,
-  lab_microscope: `<svg viewBox="0 0 100 100" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M20 85h60M50 85V60M40 85h20"/>
-    <path d="M50 60c0-15 10-25 20-25h5"/>
-    <rect x="35" y="25" width="14" height="26" rx="3" transform="rotate(-30 35 25)" stroke="#059669"/>
-    <circle cx="32" cy="52" r="5" fill="#a7f3d0"/>
-    <path d="M25 65h30" stroke="#047857" stroke-width="3"/>
-  </svg>`,
-  hiking_trail: `<svg viewBox="0 0 100 100" fill="none" stroke="#d97706" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M10 85l30-45 20 25 15-20 20 40H10z"/>
-    <circle cx="55" cy="30" r="5"/>
-    <path d="M55 35l-4 12 8 6M51 47l-6 12M59 53l6 10"/>
-    <path d="M62 42l10 15" stroke="#78350f" stroke-width="1.8"/>
-  </svg>`,
-
-  solar_wind: `<svg viewBox="0 0 100 100" fill="none" stroke="#0284c7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M10 85h80"/>
-    <path d="M15 85l12-30h28l-8 30H15z" fill="#bae6fd" stroke="#0284c7"/>
-    <path d="M27 55l-6 30M39 55l-6 30M21 70h24" stroke="#0369a1"/>
-    <path d="M72 85V35M72 35l14-10M72 35l-14-10M72 35V20" stroke="#16a34a" stroke-width="2.5"/>
-    <circle cx="72" cy="35" r="3" fill="#16a34a"/>
-    <circle cx="25" cy="22" r="8" fill="#fef08a" stroke="#eab308"/>
-  </svg>`,
-  coal_plant: `<svg viewBox="0 0 100 100" fill="none" stroke="#475569" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M10 85h80M20 85V45l15 12V45l15 12V45l15 12v28H20z"/>
-    <path d="M68 85V32h14v53" stroke="#334155" stroke-width="2.5"/>
-    <path d="M70 28c-3-8 5-12 3-18M78 28c2-7 10-10 6-18" stroke="#94a3b8" stroke-dasharray="2 2"/>
-  </svg>`,
-  oil_rig: `<svg viewBox="0 0 100 100" fill="none" stroke="#b45309" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M10 80h80M15 88c10-3 20 3 35 0s25-3 40 0" stroke="#0284c7"/>
-    <path d="M30 80l15-45h10l15 45M37 58h26M42 45h16"/>
-    <path d="M50 35V18M46 18h8M50 18l5-8" stroke="#dc2626"/>
-  </svg>`,
-  busy_highway: `<svg viewBox="0 0 100 100" fill="none" stroke="#64748b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M20 85L42 35h16l22 50H20z" fill="#f1f5f9"/>
-    <path d="M50 40v8M50 54v10M50 70v12" stroke="#eab308" stroke-width="3"/>
-    <rect x="30" y="65" width="12" height="8" rx="2" stroke="#dc2626"/>
-    <rect x="58" y="55" width="10" height="7" rx="2" stroke="#2563eb"/>
-  </svg>`,
-
-  smart_greenhouse: `<svg viewBox="0 0 100 100" fill="none" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M15 85h70M20 85V48l30-20 30 20v37H20z"/>
-    <path d="M50 28v57M20 58h60M35 85V68h30v17"/>
-    <circle cx="50" cy="45" r="4" fill="#86efac"/>
-    <path d="M72 25l8-4M80 25l-8-4M76 21v6" stroke="#0284c7" stroke-width="2"/>
-    <circle cx="76" cy="23" r="1.5" fill="#0284c7"/>
-  </svg>`,
-  traditional_farm: `<svg viewBox="0 0 100 100" fill="none" stroke="#854d0e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M10 85h80M10 65c20-10 40 5 80-5M10 75c25-6 45 4 80-6"/>
-    <circle cx="35" cy="45" r="6"/>
-    <path d="M35 51v20M25 58l10-4 10 4M30 71l5 12M40 71l-5 12"/>
-    <path d="M42 54l14 8" stroke="#475569" stroke-width="2"/>
-  </svg>`,
-  industrial_factory: `<svg viewBox="0 0 100 100" fill="none" stroke="#475569" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="15" y="45" width="70" height="40" rx="3"/>
-    <path d="M25 45V25h12v20M45 45V30h12v15M65 45V20h12v25"/>
-    <path d="M30 65h10v10H30zM50 65h10v10H50z" fill="#cbd5e1"/>
-  </svg>`,
-  desert_dunes: `<svg viewBox="0 0 100 100" fill="none" stroke="#d97706" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="75" cy="25" r="10" fill="#fef08a" stroke="#d97706"/>
-    <path d="M10 85c20-25 45 5 80-15M10 85c35-15 50 8 80-5M10 60c25-10 40 10 80-10"/>
-  </svg>`
+  debateContest: `<svg viewBox="0 0 100 100" fill="none" stroke="#2563eb" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="18" y="22" width="64" height="46" rx="4" fill="#eff6ff" stroke="#2563eb"/><circle cx="50" cy="45" r="14" stroke="#3b82f6" stroke-width="2" stroke-dasharray="3 3"/><line x1="50" y1="36" x2="50" y2="54" stroke="#1d4ed8"/><line x1="41" y1="45" x2="59" y2="45" stroke="#1d4ed8"/><path d="M26 32h14M26 38h10M60 52h14M60 58h10" stroke="#93c5fd"/><path d="M30 76l20-8 20 8" stroke="#475569" stroke-width="2"/><line x1="50" y1="68" x2="50" y2="84" stroke="#475569" stroke-width="3"/></svg>`,
+  cleanWindSolar: `<svg viewBox="0 0 100 100" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 85c15-8 30-14 70-4" stroke="#16a34a" stroke-width="3"/><path d="M35 80V50c0-12 12-22 25-22s25 10 25 22v30H35z" fill="#ecfdf5" stroke="#059669"/><path d="M50 28v-12M42 16h16" stroke="#047857" stroke-width="2"/><circle cx="60" cy="46" r="6" fill="#fef08a" stroke="#ca8a04"/><line x1="60" y1="40" x2="75" y2="28" stroke="#0284c7" stroke-width="2.5"/><circle cx="75" cy="28" r="3" fill="#0284c7"/></svg>`,
+  smartGreenhouse: `<svg viewBox="0 0 100 100" fill="none" stroke="#b45309" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 75c8-18 36-24 76 0" stroke="#78350f" stroke-width="3"/><path d="M22 62c6-14 28-18 56 0" stroke="#b45309" stroke-dasharray="2 2"/><polygon points="50,15 35,45 65,45" fill="#fef3c7" stroke="#d97706"/><circle cx="50" cy="30" r="5" fill="#d97706"/><path d="M38 48h24v20H38z" fill="#fef9c3" stroke="#ca8a04"/><path d="M42 48v20M58 48v20" stroke="#b45309"/><line x1="15" y1="84" x2="85" y2="84" stroke="#64748b"/></svg>`,
+  manufacturingPlant: `<svg viewBox="0 0 100 100" fill="none" stroke="#475569" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="50" width="30" height="35" fill="#f1f5f9"/><rect x="55" y="40" width="25" height="45" fill="#e2e8f0"/><line x1="35" y1="50" x2="35" y2="25" stroke="#64748b" stroke-width="2.5"/><line x1="68" y1="40" x2="68" y2="20" stroke="#64748b" stroke-width="2.5"/><path d="M30 20c3-5 7-5 10 0M63 15c3-5 7-5 10 0" stroke="#94a3b8"/></svg>`
 };
 
 function getGrade12AsasQuestions() {
   return [
-  {
-    "id": 1,
-    "source": "Sumber: Panduan Debat Parlemen Siswa SMA Tingkat Nasional — Kemendikbudristek & Puspresnas",
-    "type": "listening_pictures",
-    "title": "Listening Section: Part I - Pictures",
-    "audioText": "Number one. Look at the pictures. In this academic forum, two formal student speakers are standing at separate wooden podiums, presenting opposing perspectives on artificial intelligence before a moderator and an engaged audience. Which picture best corresponds to the spoken description?",
-    "prompt": "Look at the four pictures below. Which picture matches the academic debate scene described in the audio?",
-    "options": [
-      {
-        "key": "A",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M15 85h70M25 85V45h15v40M60 85V45h15v40\"/>\n    <circle cx=\"32\" cy=\"28\" r=\"8\"/>\n    <path d=\"M22 45c0-6 4-10 10-10s10 4 10 10\"/>\n    <circle cx=\"68\" cy=\"28\" r=\"8\"/>\n    <path d=\"M58 45c0-6 4-10 10-10s10 4 10 10\"/>\n    <path d=\"M40 32l6-4M60 32l-6-4\" stroke=\"#d97706\" stroke-width=\"2\"/>\n    <rect x=\"42\" y=\"15\" width=\"16\" height=\"10\" rx=\"2\" stroke=\"#dc2626\"/>\n  </svg>",
-        "label": "Two speakers debating opposing perspectives at academic podiums"
-      },
-      {
-        "key": "B",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#9333ea\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <circle cx=\"50\" cy=\"26\" r=\"9\"/>\n    <path d=\"M50 35v30M35 45l15-5 15 5M40 85l10-20 10 20\"/>\n    <rect x=\"62\" y=\"20\" width=\"8\" height=\"16\" rx=\"4\" fill=\"#cbd5e1\" stroke=\"#475569\"/>\n    <path d=\"M66 36v35M58 71h16\" stroke=\"#475569\" stroke-width=\"2.5\"/>\n  </svg>",
-        "label": "A musical performer singing on a concert stage"
-      },
-      {
-        "key": "C",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M20 85h60M50 85V60M40 85h20\"/>\n    <path d=\"M50 60c0-15 10-25 20-25h5\"/>\n    <rect x=\"35\" y=\"25\" width=\"14\" height=\"26\" rx=\"3\" transform=\"rotate(-30 35 25)\" stroke=\"#059669\"/>\n    <circle cx=\"32\" cy=\"52\" r=\"5\" fill=\"#a7f3d0\"/>\n    <path d=\"M25 65h30\" stroke=\"#047857\" stroke-width=\"3\"/>\n  </svg>",
-        "label": "A scientist inspecting samples through a laboratory microscope"
-      },
-      {
-        "key": "D",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#d97706\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M10 85l30-45 20 25 15-20 20 40H10z\"/>\n    <circle cx=\"55\" cy=\"30\" r=\"5\"/>\n    <path d=\"M55 35l-4 12 8 6M51 47l-6 12M59 53l6 10\"/>\n    <path d=\"M62 42l10 15\" stroke=\"#78350f\" stroke-width=\"1.8\"/>\n  </svg>",
-        "label": "A mountaineer hiking along an outdoor trail"
-      }
-    ],
-    "correctAnswer": "A",
-    "explanation": "Audio mendeskripsikan dua pembicara siswa formal yang berdiri di podium terpisah dan menyampaikan sudut pandang berlawanan di hadapan moderator dan audiens.",
-    "grammarNote": "Present Continuous Tense ('are standing', 'presenting') & Academic Discussion Terminology ('opposing perspectives', 'moderator', 'engaged audience')."
-  },
-  {
-    "id": 2,
-    "source": "Sumber: Publikasi Transisi Energi Terbarukan Nasional — Kementerian ESDM & Dewan Energi Nasional",
-    "type": "listening_pictures",
-    "title": "Listening Section: Part I - Pictures",
-    "audioText": "Number two. Look at the pictures. This sustainable energy facility integrates an extensive array of blue photovoltaic solar panels on rooftops alongside towering modern wind turbines rotating in the sea breeze under clear sunny skies. Which picture illustrates this renewable power generation system?",
-    "prompt": "Which picture accurately depicts the sustainable renewable energy infrastructure described in the audio?",
-    "options": [
-      {
-        "key": "A",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M10 85h80M20 85V45l15 12V45l15 12V45l15 12v28H20z\"/>\n    <path d=\"M68 85V32h14v53\" stroke=\"#334155\" stroke-width=\"2.5\"/>\n    <path d=\"M70 28c-3-8 5-12 3-18M78 28c2-7 10-10 6-18\" stroke=\"#94a3b8\" stroke-dasharray=\"2 2\"/>\n  </svg>",
-        "label": "A coal-fired power plant emitting dark exhaust fumes"
-      },
-      {
-        "key": "B",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#0284c7\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M10 85h80\"/>\n    <path d=\"M15 85l12-30h28l-8 30H15z\" fill=\"#bae6fd\" stroke=\"#0284c7\"/>\n    <path d=\"M27 55l-6 30M39 55l-6 30M21 70h24\" stroke=\"#0369a1\"/>\n    <path d=\"M72 85V35M72 35l14-10M72 35l-14-10M72 35V20\" stroke=\"#16a34a\" stroke-width=\"2.5\"/>\n    <circle cx=\"72\" cy=\"35\" r=\"3\" fill=\"#16a34a\"/>\n    <circle cx=\"25\" cy=\"22\" r=\"8\" fill=\"#fef08a\" stroke=\"#eab308\"/>\n  </svg>",
-        "label": "A renewable facility with solar photovoltaic panels and wind turbines"
-      },
-      {
-        "key": "C",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#b45309\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M10 80h80M15 88c10-3 20 3 35 0s25-3 40 0\" stroke=\"#0284c7\"/>\n    <path d=\"M30 80l15-45h10l15 45M37 58h26M42 45h16\"/>\n    <path d=\"M50 35V18M46 18h8M50 18l5-8\" stroke=\"#dc2626\"/>\n  </svg>",
-        "label": "An offshore fossil fuel drilling rig in deep water"
-      },
-      {
-        "key": "D",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#64748b\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M20 85L42 35h16l22 50H20z\" fill=\"#f1f5f9\"/>\n    <path d=\"M50 40v8M50 54v10M50 70v12\" stroke=\"#eab308\" stroke-width=\"3\"/>\n    <rect x=\"30\" y=\"65\" width=\"12\" height=\"8\" rx=\"2\" stroke=\"#dc2626\"/>\n    <rect x=\"58\" y=\"55\" width=\"10\" height=\"7\" rx=\"2\" stroke=\"#2563eb\"/>\n  </svg>",
-        "label": "A congested highway with gasoline-powered vehicles"
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "Audio menyebutkan instalasi pembangkit listrik ramah lingkungan terdesentralisasi yang memadukan panel surya fotovoltaik biru dan kincir turbin angin modern.",
-    "grammarNote": "Descriptive Compound Nouns & Adjectives: 'photovoltaic solar panels', 'towering modern wind turbines', 'sustainable energy facility'."
-  },
-  {
-    "id": 3,
-    "source": "Sumber: Inovasi Pertanian Cerdas Iklim — Badan Riset dan Inovasi Nasional (BRIN) & Kementan RI",
-    "type": "listening_pictures",
-    "title": "Listening Section: Part I - Pictures",
-    "audioText": "Number three. Look at the pictures. This contemporary agricultural installation features a controlled smart glass greenhouse equipped with automated micro-irrigation nozzles and aerial telemetry monitoring sensors to foster sustainable crop growth. Which picture portrays this modern farming structure?",
-    "prompt": "Which picture matches the high-technology greenhouse facility described in the recording?",
-    "options": [
-      {
-        "key": "A",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <rect x=\"15\" y=\"45\" width=\"70\" height=\"40\" rx=\"3\"/>\n    <path d=\"M25 45V25h12v20M45 45V30h12v15M65 45V20h12v25\"/>\n    <path d=\"M30 65h10v10H30zM50 65h10v10H50z\" fill=\"#cbd5e1\"/>\n  </svg>",
-        "label": "A heavy manufacturing industrial plant with tall brick chimneys"
-      },
-      {
-        "key": "B",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#854d0e\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M10 85h80M10 65c20-10 40 5 80-5M10 75c25-6 45 4 80-6\"/>\n    <circle cx=\"35\" cy=\"45\" r=\"6\"/>\n    <path d=\"M35 51v20M25 58l10-4 10 4M30 71l5 12M40 71l-5 12\"/>\n    <path d=\"M42 54l14 8\" stroke=\"#475569\" stroke-width=\"2\"/>\n  </svg>",
-        "label": "A traditional farmer hand-tilling soil with a manual hoe"
-      },
-      {
-        "key": "C",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#16a34a\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M15 85h70M20 85V48l30-20 30 20v37H20z\"/>\n    <path d=\"M50 28v57M20 58h60M35 85V68h30v17\"/>\n    <circle cx=\"50\" cy=\"45\" r=\"4\" fill=\"#86efac\"/>\n    <path d=\"M72 25l8-4M80 25l-8-4M76 21v6\" stroke=\"#0284c7\" stroke-width=\"2\"/>\n    <circle cx=\"76\" cy=\"23\" r=\"1.5\" fill=\"#0284c7\"/>\n  </svg>",
-        "label": "A high-tech smart greenhouse with automated sensors and irrigation"
-      },
-      {
-        "key": "D",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#d97706\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <circle cx=\"75\" cy=\"25\" r=\"10\" fill=\"#fef08a\" stroke=\"#d97706\"/>\n    <path d=\"M10 85c20-25 45 5 80-15M10 85c35-15 50 8 80-5M10 60c25-10 40 10 80-10\"/>\n  </svg>",
-        "label": "Dry arid desert sand dunes under direct sunlight"
-      }
-    ],
-    "correctAnswer": "C",
-    "explanation": "Audio menerangkan fasilitas rumah kaca pintar modern (*smart glass greenhouse*) yang dilengkapi dengan nosel mikro-irigasi otomatis dan sensor telemetri udara.",
-    "grammarNote": "Passive Participle Modifier: 'controlled smart glass greenhouse equipped with automated nozzles'."
-  },
-  {
-    "id": 4,
-    "source": "Sumber: Percakapan Pembelajaran Berbasis Riset SMA — Modul Ajar Kurikulum Merdeka Fase F",
-    "type": "listening_dialog",
-    "title": "Listening Section: Part II - Dialogues",
-    "audioSegments": [
-      {
-        "role": "narrator",
-        "lang": "en-US",
-        "text": "Number four. Listen to a conversation between a student and an English teacher.",
-        "pauseAfter": 450
-      },
-      {
-        "gender": "male",
-        "pitch": 0.75,
-        "rateMultiplier": 0.94,
-        "text": "Good morning. I noticed many classmates are using generative AI to produce their scientific essay drafts in seconds. Doesn't that risk diminishing our genuine critical thinking?",
-        "pauseAfter": 400
-      },
-      {
-        "gender": "female",
-        "pitch": 1.3,
-        "rateMultiplier": 1.04,
-        "text": "You raise an insightful concern. While generative algorithms can assist in outlining concepts, over-relying on them deprives students of personal voice. True academic mastery comes from wrestling with complex ideas yourself.",
-        "pauseAfter": 400
-      },
-      {
-        "gender": "male",
-        "pitch": 0.75,
-        "rateMultiplier": 0.94,
-        "text": "Exactly. I believe articulating our own original arguments is far more valuable than simply generating polished paragraphs.",
-        "pauseAfter": 400
-      },
-      {
-        "gender": "female",
-        "pitch": 1.3,
-        "rateMultiplier": 1.04,
-        "text": "Precisely. AI should be an assistive tool for inspiration, never a substitute for human intellect.",
-        "pauseAfter": 500
-      },
-      {
-        "role": "narrator",
-        "lang": "en-US",
-        "text": "Question: What central concern regarding artificial intelligence is discussed by the student and teacher?"
-      }
-    ],
-    "stimulusTitle": "Audio Transcript (Listening)",
-    "stimulusBody": "<p><strong>Student (Male):</strong> Good morning. I noticed many classmates are using generative AI to produce their scientific essay drafts in seconds. Doesn't that risk diminishing our genuine critical thinking?</p><p><strong>Teacher (Female):</strong> You raise an insightful concern. While generative algorithms can assist in outlining concepts, over-relying on them deprives students of personal voice. True academic mastery comes from wrestling with complex ideas yourself.</p><p><strong>Student (Male):</strong> Exactly. I believe articulating our own original arguments is far more valuable than simply generating polished paragraphs.</p><p><strong>Teacher (Female):</strong> Precisely. AI should be an assistive tool for inspiration, never a substitute for human intellect.</p>",
-    "prompt": "What central concern regarding artificial intelligence is discussed by the student and teacher?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Excessive reliance on generative AI weakens students' critical thinking and personal synthesis."
-      },
-      {
-        "key": "B",
-        "text": "AI models require too much electricity to run on school laptop computers."
-      },
-      {
-        "key": "C",
-        "text": "Students cannot afford software subscriptions for advanced essay generators."
-      },
-      {
-        "key": "D",
-        "text": "Teachers prefer handwritten essays to eliminate computer screens entirely."
-      }
-    ],
-    "correctAnswer": "A",
-    "explanation": "Kekhawatiran utama yang dibahas adalah ketergantungan berlebihan pada AI dapat melemahkan daya pikir kritis serta orisinalitas ide siswa.",
-    "grammarNote": "Complex Gerund & Concession Clauses: 'over-relying on them deprives...', 'While generative algorithms can assist...'."
-  },
-  {
-    "id": 5,
-    "source": "Sumber: Diskusi Kelompok Terfokus Siswa — Simposium Energi Masa Depan SMA Jawa Tengah",
-    "type": "listening_dialog",
-    "title": "Listening Section: Part II - Dialogues",
-    "audioSegments": [
-      {
-        "role": "narrator",
-        "lang": "en-US",
-        "text": "Number five. Listen to a conversation between two high school seniors preparing a presentation.",
-        "pauseAfter": 450
-      },
-      {
-        "gender": "male",
-        "pitch": 0.75,
-        "rateMultiplier": 0.94,
-        "text": "When evaluating Indonesia's plan to achieve net-zero carbon emissions, do you believe nuclear energy is a more practical solution than decentralized solar and geothermal power?",
-        "pauseAfter": 400
-      },
-      {
-        "gender": "female",
-        "pitch": 1.3,
-        "rateMultiplier": 1.04,
-        "text": "Nuclear power provides a stable baseload without weather dependency. However, the capital investment is immense, construction takes over a decade, and managing radioactive waste remains contentious. Decentralized renewable microgrids can be deployed much faster across our archipelago.",
-        "pauseAfter": 400
-      },
-      {
-        "gender": "male",
-        "pitch": 0.75,
-        "rateMultiplier": 0.94,
-        "text": "That is true. Besides, Indonesia has abundant geothermal potential along the volcanic belt that has barely been tapped.",
-        "pauseAfter": 400
-      },
-      {
-        "gender": "female",
-        "pitch": 1.3,
-        "rateMultiplier": 1.04,
-        "text": "Exactly. A diversified grid combining regional solar, geothermal, and smart storage is both safer and more resilient for our geography.",
-        "pauseAfter": 500
-      },
-      {
-        "role": "narrator",
-        "lang": "en-US",
-        "text": "Question: According to the female speaker, why is decentralized renewable energy preferable to nuclear power for Indonesia?"
-      }
-    ],
-    "stimulusTitle": "Audio Transcript (Listening)",
-    "stimulusBody": "<p><strong>Speaker 1 (Male):</strong> When evaluating Indonesia's plan to achieve net-zero carbon emissions, do you believe nuclear energy is a more practical solution than decentralized solar and geothermal power?</p><p><strong>Speaker 2 (Female):</strong> Nuclear power provides a stable baseload without weather dependency. However, the capital investment is immense, construction takes over a decade, and managing radioactive waste remains contentious. Decentralized renewable microgrids can be deployed much faster across our archipelago.</p><p><strong>Speaker 1 (Male):</strong> That is true. Besides, Indonesia has abundant geothermal potential along the volcanic belt that has barely been tapped.</p><p><strong>Speaker 2 (Female):</strong> Exactly. A diversified grid combining regional solar, geothermal, and smart storage is both safer and more resilient for our geography.</p>",
-    "prompt": "According to the female speaker, why is decentralized renewable energy preferable to nuclear power for Indonesia?",
-    "options": [
-      {
-        "key": "A",
-        "text": "It requires significantly less initial capital, deploys faster, and fits Indonesia's island geography without radioactive waste concerns."
-      },
-      {
-        "key": "B",
-        "text": "Nuclear power plants can be constructed overnight without any government safety inspection."
-      },
-      {
-        "key": "C",
-        "text": "Solar panels generate more baseline electricity during rainy night storms than nuclear reactors."
-      },
-      {
-        "key": "D",
-        "text": "Geothermal energy is cheaper because it does not require steam turbines or electrical transformers."
-      }
-    ],
-    "correctAnswer": "A",
-    "explanation": "Pembicara menjelaskan bahwa energi terbarukan terdesentralisasi lebih unggul karena investasi modal lebih terjangkau, pembangunan jauh lebih cepat, dan cocok untuk negara kepulauan tanpa risiko limbah radioaktif.",
-    "grammarNote": "Comparative discourse markers & contrastive lexis: 'However, the capital investment is immense... can be deployed much faster'."
-  },
-  {
-    "id": 6,
-    "source": "Sumber: Wawancara Komunitas Literasi Remaja — Dewan Kesenian Daerah & Majalah Edukasi",
-    "type": "listening_dialog",
-    "title": "Listening Section: Part II - Dialogues",
-    "audioSegments": [
-      {
-        "role": "narrator",
-        "lang": "en-US",
-        "text": "Number six. Listen to a dialogue between two members of the school book club.",
-        "pauseAfter": 450
-      },
-      {
-        "gender": "male",
-        "pitch": 0.75,
-        "rateMultiplier": 0.94,
-        "text": "I recently finished reading Andrea Hirata's classic novel, 'The Rainbow Troops'. Have you read it?",
-        "pauseAfter": 400
-      },
-      {
-        "gender": "female",
-        "pitch": 1.3,
-        "rateMultiplier": 1.04,
-        "text": "Yes, twice! What impressed me most was how the narrative highlights unyielding perseverance in education despite extreme poverty on Belitung Island.",
-        "pauseAfter": 400
-      },
-      {
-        "gender": "male",
-        "pitch": 0.75,
-        "rateMultiplier": 0.94,
-        "text": "Absolutely. The teachers proved that passionate, dedicated mentorship can inspire students even inside a decaying classroom.",
-        "pauseAfter": 400
-      },
-      {
-        "gender": "female",
-        "pitch": 1.3,
-        "rateMultiplier": 1.04,
-        "text": "Indeed. It reminds us that quality education is fundamentally driven by human spirit and empathy, not just lavish facilities.",
-        "pauseAfter": 500
-      },
-      {
-        "role": "narrator",
-        "lang": "en-US",
-        "text": "Question: What core message from the novel do both speakers find most inspiring?"
-      }
-    ],
-    "stimulusTitle": "Audio Transcript (Listening)",
-    "stimulusBody": "<p><strong>Speaker 1 (Male):</strong> I recently finished reading Andrea Hirata's classic novel, 'The Rainbow Troops'. Have you read it?</p><p><strong>Speaker 2 (Female):</strong> Yes, twice! What impressed me most was how the narrative highlights unyielding perseverance in education despite extreme poverty on Belitung Island.</p><p><strong>Speaker 1 (Male):</strong> Absolutely. The teachers proved that passionate, dedicated mentorship can inspire students even inside a decaying classroom.</p><p><strong>Speaker 2 (Female):</strong> Indeed. It reminds us that quality education is fundamentally driven by human spirit and empathy, not just lavish facilities.</p>",
-    "prompt": "What core message from the novel do both speakers find most inspiring?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Quality education is driven by passionate mentorship and human perseverance, not merely luxurious facilities."
-      },
-      {
-        "key": "B",
-        "text": "Children in remote regions should give up schooling and work in tin mines instead."
-      },
-      {
-        "key": "C",
-        "text": "Literature books should only describe wealthy urban families to motivate poor readers."
-      },
-      {
-        "key": "D",
-        "text": "School buildings are unimportant and teachers should not maintain classrooms."
-      }
-    ],
-    "correctAnswer": "A",
-    "explanation": "Kedua pembicara sepakat bahwa pendidikan berkualitas digerakkan oleh semangat juang dan dedikasi guru, bukan semata kelengkapan fasilitas materi.",
-    "grammarNote": "Passive voice & Emphatic adverbials: 'fundamentally driven by human spirit and empathy'."
-  },
-  {
-    "id": 7,
-    "source": "Sumber: Kuliah Umum Transisi Energi Bersih — Forum Akademik Teknik Lingkungan Universitas Indonesia",
-    "type": "listening_talk",
-    "title": "Listening Section: Part III - Academic Talks",
-    "audioText": "Questions 7 and 8 are based on the following lecture extract.\n\nGood afternoon, students. Today we examine the global transition toward industrial decarbonization. While industrial manufacturing produces nearly thirty percent of worldwide greenhouse emissions, transitioning completely to renewable power presents a fundamental challenge known as the intermittency dilemma. Solar photovoltaics and wind turbines depend entirely upon variable weather conditions. When calm nights occur, electricity output declines abruptly. Therefore, energy planners emphasize that renewable adoption must be paired with either high-capacity battery storage systems or reliable, continuous baseload sources such as geothermal energy, as successfully harnessed in Central Java. Without dependable baseload stabilization, modern electrical grids risk unexpected blackouts and industrial disruption.\n\nNumber seven. What is the main topic of the professor's lecture?",
-    "prompt": "What is the primary topic of the academic lecture?",
-    "options": [
-      {
-        "key": "A",
-        "text": "The economic superiority of burning unprocessed fossil coal in modern manufacturing plants."
-      },
-      {
-        "key": "B",
-        "text": "The complete shutdown of all solar power installations across archipelagic Southeast Asia."
-      },
-      {
-        "key": "C",
-        "text": "The necessity of reliable baseload power and storage systems to address renewable energy intermittency."
-      },
-      {
-        "key": "D",
-        "text": "The elimination of electrical transmission lines in urban metropolitan residential zones."
-      }
-    ],
-    "correctAnswer": "C",
-    "explanation": "Dosen memaparkan tantangan intermitensi energi terbarukan ('intermittency dilemma') dan menekankan bahwa pemanfaatan surya/angin harus dipadukan dengan stabilisasi beban dasar (*baseload*) seperti panas bumi dan baterai penyimpan energi agar pasokan listrik industri tetap stabil.",
-    "grammarNote": "Cause and Effect Discourse Connectors: 'depend entirely upon variable weather... Therefore, energy planners emphasize...'."
-  },
-  {
-    "id": 8,
-    "source": "Sumber: Kuliah Umum Transisi Energi Bersih — Forum Akademik Teknik Lingkungan Universitas Indonesia",
-    "type": "listening_talk",
-    "title": "Listening Section: Part III - Academic Talks",
-    "audioText": "Number eight. According to the speaker, why are solar and wind systems insufficient on their own for heavy manufacturing industries?",
-    "prompt": "According to the speaker, why can solar and wind installations not power heavy industries alone without supportive systems?",
-    "options": [
-      {
-        "key": "A",
-        "text": "International regulatory treaties prohibit factories from connecting to solar panels."
-      },
-      {
-        "key": "B",
-        "text": "They consume far more freshwater than traditional nuclear and coal boiling facilities."
-      },
-      {
-        "key": "C",
-        "text": "Their machinery produces toxic chemical smoke that damages industrial manufacturing robots."
-      },
-      {
-        "key": "D",
-        "text": "Their power output fluctuates depending on weather changes, creating supply intermittency during calm nights."
-      }
-    ],
-    "correctAnswer": "D",
-    "explanation": "Dosen menjelaskan bahwa pembangkit surya dan angin memiliki kendala variasi cuaca: 'depend entirely upon variable weather conditions. When calm nights occur, electricity output declines abruptly'.",
-    "grammarNote": "Temporal & Conditional Adverbial Clauses: 'When calm nights occur, electricity output declines abruptly'."
-  },
-  {
-    "id": 9,
-    "source": "Sumber: Pidato Kunci Simposium Literasi Digital SMA — Ikatan Guru Bahasa dan Komunikasi Indonesia",
-    "type": "listening_talk",
-    "title": "Listening Section: Part III - Academic Talks",
-    "audioText": "Questions 9 and 10 are based on the following symposium address.\n\nDistinguished educators and students. As artificial intelligence models become increasingly integrated into educational software, we must recalibrate our definition of academic achievement. In previous decades, memorizing vast bodies of facts and reciting grammatical rules demonstrated high scholarly competence. Today, however, automated search algorithms can retrieve factual data in milliseconds. Consequently, the true value of modern high school graduates lies in their capacity for rigorous critical synthesis, ethical discernment, and creative inquiry. Educators should avoid banning emerging technological tools; rather, institutions must foster an academic culture where students actively question machine outputs, detect algorithmic biases, and formulate original solutions to complex real-world dilemmas.\n\nNumber nine. How has the definition of academic competence shifted according to the speaker?",
-    "prompt": "According to the keynote speaker, how has the definition of student academic competence changed in the modern digital era?",
-    "options": [
-      {
-        "key": "A",
-        "text": "From mere rote memorization of facts to critical synthesis, ethical evaluation, and creative problem-solving."
-      },
-      {
-        "key": "B",
-        "text": "From collaborative team research to completely isolated, internet-free manual memorization."
-      },
-      {
-        "key": "C",
-        "text": "From understanding scientific principles to blind acceptance of all algorithmic data results."
-      },
-      {
-        "key": "D",
-        "text": "From creative essay composition to memorizing telephone numbers and postal codes."
-      }
-    ],
-    "correctAnswer": "A",
-    "explanation": "Pembicara menjelaskan pergeseran kompetensi dari hafalan informasi pasif (*rote memorization*) menuju kemampuan sintesis kritis, pertimbangan etika, dan pemecahan masalah kreatif (*critical synthesis, ethical discernment, and creative inquiry*).",
-    "grammarNote": "Prepositional Contrast: 'From mere memorizing vast bodies of facts... to rigorous critical synthesis and ethical discernment'."
-  },
-  {
-    "id": 10,
-    "source": "Sumber: Pidato Kunci Simposium Literasi Digital SMA — Ikatan Guru Bahasa dan Komunikasi Indonesia",
-    "type": "listening_talk",
-    "title": "Listening Section: Part III - Academic Talks",
-    "audioText": "Number ten. What constructive action should educational institutions take regarding modern AI tools?",
-    "prompt": "What constructive approach does the speaker urge educational institutions to adopt toward AI technologies?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Confiscate all digital devices at the school entrance and prohibit all computer science subjects."
-      },
-      {
-        "key": "B",
-        "text": "Guide students to question machine outputs critically, identify algorithmic biases, and create authentic solutions."
-      },
-      {
-        "key": "C",
-        "text": "Delegate all grading, evaluation, and disciplinary decisions entirely to automated software."
-      },
-      {
-        "key": "D",
-        "text": "Instruct students never to consult scientific journals or verified library encyclopedias."
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "Pembicara menyarankan agar sekolah membimbing siswa untuk bersikap kritis terhadap hasil mesin, mengidentifikasi bias algoritma, dan merumuskan solusi orisinal ('actively question machine outputs, detect algorithmic biases, and formulate original solutions').",
-    "grammarNote": "Modal Parallelism with Imperative Verbs: 'question machine outputs, detect algorithmic biases, and formulate original solutions'."
-  },
-  {
-    "id": 11,
-    "source": "Sumber: Jurnal Pendidikan Menengah Terbuka & Riset Pedagogi Kontemporer — Ikatan Peneliti Kurikulum Nasional (2026)",
-    "type": "reading",
-    "title": "Reading Section: TP 12.1 Discussion Text",
-    "stimulusTitle": "Text 1: Generative Artificial Intelligence in High School Education",
-    "stimulusBody": "The unprecedented integration of generative artificial intelligence into high school environments has sparked an intensive pedagogical debate worldwide. Proponents argue that intelligent language models democratize learning by serving as round-the-clock personalized tutors. Students struggling with intricate scientific concepts, foreign language composition, or algorithmic coding can receive tailored explanations suited to their individual comprehension speeds. Furthermore, advocates highlight that engaging with digital tools equips prospective graduates with essential digital literacy and prompting skills demanded by modern university faculties and automated professional sectors.<br><br>Conversely, cautious educators and cognitive researchers express profound reservations. They contend that unconditional reliance on automated chatbots induces cognitive atrophy, steadily eroding students' capacity for sustained concentration and independent analytical synthesis. When learners delegate the drafting of essays or problem-solving calculations to automated systems, they forfeit the vital intellectual struggle necessary to cultivate authentic problem-solving resilience. Moreover, generative algorithms frequently generate convincing factual hallucinations and reinforce systemic cultural biases embedded in their training datasets, misleading students who lack mature evaluative judgment.<br><br>In light of these contrasting viewpoints, an outright prohibition of technological tools appears both impractical and short-sighted. Instead, high schools should cultivate a balanced educational framework. Educational leaders must formulate clear, enforceable ethical guidelines that delineate acceptable technological assistance from unacceptable academic dishonesty. Rather than assessing solely static written outputs, educators ought to prioritize interactive oral defenses, collaborative research workshops, and reflective handwritten journals. By treating artificial intelligence as a supportive analytical instrument rather than a surrogate intellect, secondary institutions can foster technologically proficient scholars who retain rigorous critical judgment.",
-    "prompt": "What is the primary communicative purpose of the text above?",
-    "options": [
-      {
-        "key": "A",
-        "text": "To provide step-by-step technical instructions on programming deep neural network algorithms."
-      },
-      {
-        "key": "B",
-        "text": "To persuade educational authorities to ban all electronic smartphones and computers from school premises."
-      },
-      {
-        "key": "C",
-        "text": "To present balanced arguments regarding the benefits and drawbacks of generative AI in high school classrooms."
-      },
-      {
-        "key": "D",
-        "text": "To entertain readers with humorous fictional stories about automated robots replacing teachers."
-      }
-    ],
-    "correctAnswer": "C",
-    "explanation": "Teks di atas merupakan Discussion Text yang menyajikan dua sudut pandang berimbang: sisi manfaat AI (tutor personal, akselerasi pemahaman) dan sisi risiko (atrofi kognitif, plagiarisme, halusinasi fakta), serta diakhiri dengan simpulan/rekomendasi bijak.",
-    "grammarNote": "Discussion Text Generic Structure: Issue (Paragraph 1) -> Arguments For (Paragraph 1) -> Arguments Against (Paragraph 2) -> Balanced Conclusion / Recommendation (Paragraph 3)."
-  },
-  {
-    "id": 12,
-    "source": "Sumber: Jurnal Pendidikan Menengah Terbuka & Riset Pedagogi Kontemporer — Ikatan Peneliti Kurikulum Nasional (2026)",
-    "type": "reading",
-    "title": "Reading Section: TP 12.1 Discussion Text",
-    "stimulusTitle": "Text 1: Generative Artificial Intelligence in High School Education",
-    "stimulusBody": "The unprecedented integration of generative artificial intelligence into high school environments has sparked an intensive pedagogical debate worldwide. Proponents argue that intelligent language models democratize learning by serving as round-the-clock personalized tutors. Students struggling with intricate scientific concepts, foreign language composition, or algorithmic coding can receive tailored explanations suited to their individual comprehension speeds. Furthermore, advocates highlight that engaging with digital tools equips prospective graduates with essential digital literacy and prompting skills demanded by modern university faculties and automated professional sectors.<br><br>Conversely, cautious educators and cognitive researchers express profound reservations. They contend that unconditional reliance on automated chatbots induces cognitive atrophy, steadily eroding students' capacity for sustained concentration and independent analytical synthesis. When learners delegate the drafting of essays or problem-solving calculations to automated systems, they forfeit the vital intellectual struggle necessary to cultivate authentic problem-solving resilience. Moreover, generative algorithms frequently generate convincing factual hallucinations and reinforce systemic cultural biases embedded in their training datasets, misleading students who lack mature evaluative judgment.<br><br>In light of these contrasting viewpoints, an outright prohibition of technological tools appears both impractical and short-sighted. Instead, high schools should cultivate a balanced educational framework. Educational leaders must formulate clear, enforceable ethical guidelines that delineate acceptable technological assistance from unacceptable academic dishonesty. Rather than assessing solely static written outputs, educators ought to prioritize interactive oral defenses, collaborative research workshops, and reflective handwritten journals. By treating artificial intelligence as a supportive analytical instrument rather than a surrogate intellect, secondary institutions can foster technologically proficient scholars who retain rigorous critical judgment.",
-    "prompt": "According to the proponents mentioned in the first paragraph, how does generative AI positively benefit secondary learners?",
-    "options": [
-      {
-        "key": "A",
-        "text": "It replaces all university professors with automated robotic software programs."
-      },
-      {
-        "key": "B",
-        "text": "It eliminates the requirement for students to attend high school lessons or read textbooks."
-      },
-      {
-        "key": "C",
-        "text": "It automatically awards top grades on international examinations without human evaluation."
-      },
-      {
-        "key": "D",
-        "text": "It provides personalized round-the-clock tutoring and builds valuable digital skills for future academic endeavors."
-      }
-    ],
-    "correctAnswer": "D",
-    "explanation": "Paragraf 1 baris 2-5 menjelaskan manfaat pendukung: 'serving as round-the-clock personalized tutors' dan 'equips prospective graduates with essential digital literacy and prompting skills demanded by modern university faculties'.",
-    "grammarNote": "Gerunds as Subjects & Objects of Prepositions: 'serving as personalized tutors', 'equips graduates with essential literacy'."
-  },
-  {
-    "id": 13,
-    "source": "Sumber: Jurnal Pendidikan Menengah Terbuka & Riset Pedagogi Kontemporer — Ikatan Peneliti Kurikulum Nasional (2026)",
-    "type": "reading",
-    "title": "Reading Section: TP 12.1 Discussion Text",
-    "stimulusTitle": "Text 1: Generative Artificial Intelligence in High School Education",
-    "stimulusBody": "The unprecedented integration of generative artificial intelligence into high school environments has sparked an intensive pedagogical debate worldwide. Proponents argue that intelligent language models democratize learning by serving as round-the-clock personalized tutors. Students struggling with intricate scientific concepts, foreign language composition, or algorithmic coding can receive tailored explanations suited to their individual comprehension speeds. Furthermore, advocates highlight that engaging with digital tools equips prospective graduates with essential digital literacy and prompting skills demanded by modern university faculties and automated professional sectors.<br><br>Conversely, cautious educators and cognitive researchers express profound reservations. They contend that unconditional reliance on automated chatbots induces cognitive atrophy, steadily eroding students' capacity for sustained concentration and independent analytical synthesis. When learners delegate the drafting of essays or problem-solving calculations to automated systems, they forfeit the vital intellectual struggle necessary to cultivate authentic problem-solving resilience. Moreover, generative algorithms frequently generate convincing factual hallucinations and reinforce systemic cultural biases embedded in their training datasets, misleading students who lack mature evaluative judgment.<br><br>In light of these contrasting viewpoints, an outright prohibition of technological tools appears both impractical and short-sighted. Instead, high schools should cultivate a balanced educational framework. Educational leaders must formulate clear, enforceable ethical guidelines that delineate acceptable technological assistance from unacceptable academic dishonesty. Rather than assessing solely static written outputs, educators ought to prioritize interactive oral defenses, collaborative research workshops, and reflective handwritten journals. By treating artificial intelligence as a supportive analytical instrument rather than a surrogate intellect, secondary institutions can foster technologically proficient scholars who retain rigorous critical judgment.",
-    "prompt": "Why do critics argue that unconditional reliance on automated chatbots harms students' academic development?",
-    "options": [
-      {
-        "key": "A",
-        "text": "It induces cognitive atrophy and deprives learners of the vital intellectual effort needed to develop resilience."
-      },
-      {
-        "key": "B",
-        "text": "It causes physical eye fatigue that prevents pupils from participating in athletic sports."
-      },
-      {
-        "key": "C",
-        "text": "It forces schools to invest all municipal funding exclusively into commercial software subscriptions."
-      },
-      {
-        "key": "D",
-        "text": "It guarantees that all digital text produced is entirely free of grammatical or spelling errors."
-      }
-    ],
-    "correctAnswer": "A",
-    "explanation": "Paragraf 2 menyatakan bahwa ketergantungan berlebihan menyebabkan atrofi kognitif ('induces cognitive atrophy') dan menghilangkan perjuangan intelektual penting untuk membangun daya nalar mandiri ('forfeit the vital intellectual struggle necessary to cultivate authentic problem-solving resilience').",
-    "grammarNote": "Cause and Effect Lexis: 'unconditional reliance... induces cognitive atrophy, steadily eroding students' capacity'."
-  },
-  {
-    "id": 14,
-    "source": "Sumber: Jurnal Pendidikan Menengah Terbuka & Riset Pedagogi Kontemporer — Ikatan Peneliti Kurikulum Nasional (2026)",
-    "type": "reading",
-    "title": "Reading Section: TP 12.1 Discussion Text",
-    "stimulusTitle": "Text 1: Generative Artificial Intelligence in High School Education",
-    "stimulusBody": "The unprecedented integration of generative artificial intelligence into high school environments has sparked an intensive pedagogical debate worldwide. Proponents argue that intelligent language models democratize learning by serving as round-the-clock personalized tutors. Students struggling with intricate scientific concepts, foreign language composition, or algorithmic coding can receive tailored explanations suited to their individual comprehension speeds. Furthermore, advocates highlight that engaging with digital tools equips prospective graduates with essential digital literacy and prompting skills demanded by modern university faculties and automated professional sectors.<br><br>Conversely, cautious educators and cognitive researchers express profound reservations. They contend that unconditional reliance on automated chatbots induces cognitive atrophy, steadily eroding students' capacity for sustained concentration and independent analytical synthesis. When learners delegate the drafting of essays or problem-solving calculations to automated systems, they forfeit the vital intellectual struggle necessary to cultivate authentic problem-solving resilience. Moreover, generative algorithms frequently generate convincing factual hallucinations and reinforce systemic cultural biases embedded in their training datasets, misleading students who lack mature evaluative judgment.<br><br>In light of these contrasting viewpoints, an outright prohibition of technological tools appears both impractical and short-sighted. Instead, high schools should cultivate a balanced educational framework. Educational leaders must formulate clear, enforceable ethical guidelines that delineate acceptable technological assistance from unacceptable academic dishonesty. Rather than assessing solely static written outputs, educators ought to prioritize interactive oral defenses, collaborative research workshops, and reflective handwritten journals. By treating artificial intelligence as a supportive analytical instrument rather than a surrogate intellect, secondary institutions can foster technologically proficient scholars who retain rigorous critical judgment.",
-    "prompt": "The word 'atrophy' in the second paragraph is closest in meaning to...",
-    "options": [
-      {
-        "key": "A",
-        "text": "rapid expansion and enhancement of strength"
-      },
-      {
-        "key": "B",
-        "text": "gradual decline or weakening due to disuse"
-      },
-      {
-        "key": "C",
-        "text": "accidental mechanical breakdown of hardware"
-      },
-      {
-        "key": "D",
-        "text": "spontaneous creation of artistic paintings"
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "Kata 'atrophy' dalam konteks kognitif bermakna penyusutan, pelemahan, atau penurunan daya fungsi secara perlahan akibat tidak pernah digunakan atau dilatih secara mandiri (gradual decline or weakening due to disuse).",
-    "grammarNote": "Contextual Vocabulary (Oxford 5000 Level B2): 'cognitive atrophy' = penyusutan kapasitas berpikir mandiri."
-  },
-  {
-    "id": 15,
-    "source": "Sumber: Jurnal Pendidikan Menengah Terbuka & Riset Pedagogi Kontemporer — Ikatan Peneliti Kurikulum Nasional (2026)",
-    "type": "reading",
-    "title": "Reading Section: TP 12.1 Discussion Text",
-    "stimulusTitle": "Text 1: Generative Artificial Intelligence in High School Education",
-    "stimulusBody": "The unprecedented integration of generative artificial intelligence into high school environments has sparked an intensive pedagogical debate worldwide. Proponents argue that intelligent language models democratize learning by serving as round-the-clock personalized tutors. Students struggling with intricate scientific concepts, foreign language composition, or algorithmic coding can receive tailored explanations suited to their individual comprehension speeds. Furthermore, advocates highlight that engaging with digital tools equips prospective graduates with essential digital literacy and prompting skills demanded by modern university faculties and automated professional sectors.<br><br>Conversely, cautious educators and cognitive researchers express profound reservations. They contend that unconditional reliance on automated chatbots induces cognitive atrophy, steadily eroding students' capacity for sustained concentration and independent analytical synthesis. When learners delegate the drafting of essays or problem-solving calculations to automated systems, they forfeit the vital intellectual struggle necessary to cultivate authentic problem-solving resilience. Moreover, generative algorithms frequently generate convincing factual hallucinations and reinforce systemic cultural biases embedded in their training datasets, misleading students who lack mature evaluative judgment.<br><br>In light of these contrasting viewpoints, an outright prohibition of technological tools appears both impractical and short-sighted. Instead, high schools should cultivate a balanced educational framework. Educational leaders must formulate clear, enforceable ethical guidelines that delineate acceptable technological assistance from unacceptable academic dishonesty. Rather than assessing solely static written outputs, educators ought to prioritize interactive oral defenses, collaborative research workshops, and reflective handwritten journals. By treating artificial intelligence as a supportive analytical instrument rather than a surrogate intellect, secondary institutions can foster technologically proficient scholars who retain rigorous critical judgment.",
-    "prompt": "What synthesised recommendation does the author offer in the concluding paragraph?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Permit students to submit fully automated AI essays without requiring any personal citations."
-      },
-      {
-        "key": "B",
-        "text": "Enact strict disciplinary expulsions for any student caught turning on an electronic computer screen."
-      },
-      {
-        "key": "C",
-        "text": "Establish clear ethical guidelines and emphasize process-based assessments like oral defenses and reflective logs."
-      },
-      {
-        "key": "D",
-        "text": "Replace all high school human teachers with automated commercial chatbot interfaces."
-      }
-    ],
-    "correctAnswer": "C",
-    "explanation": "Penulis merekomendasikan pembentukan kerangka etika yang jelas ('formulate clear, enforceable ethical guidelines') dan mengalihkan fokus penilaian ke proses berpikir autentik seperti ujian lisan interaktif dan jurnal reflektif ('interactive oral defenses... and reflective handwritten journals').",
-    "grammarNote": "Modal Recommendation: 'high schools should cultivate... Educational leaders must formulate... educators ought to prioritize'."
-  },
-  {
-    "id": 16,
-    "source": "Sumber: Analisis Teks Diskusi Pembelajaran Digital — BSKAP Kemendikbudristek",
-    "type": "complex_matrix",
-    "title": "Complex Multiple Choice: Critical Argument Evaluation (Generative AI in Education)",
-    "stimulusTitle": "Text 1: Generative Artificial Intelligence in High School Education",
-    "stimulusBody": "The unprecedented integration of generative artificial intelligence into high school environments has sparked an intensive pedagogical debate worldwide. Proponents argue that intelligent language models democratize learning by serving as round-the-clock personalized tutors. Students struggling with intricate scientific concepts, foreign language composition, or algorithmic coding can receive tailored explanations suited to their individual comprehension speeds. Furthermore, advocates highlight that engaging with digital tools equips prospective graduates with essential digital literacy and prompting skills demanded by modern university faculties and automated professional sectors.<br><br>Conversely, cautious educators and cognitive researchers express profound reservations. They contend that unconditional reliance on automated chatbots induces cognitive atrophy, steadily eroding students' capacity for sustained concentration and independent analytical synthesis. When learners delegate the drafting of essays or problem-solving calculations to automated systems, they forfeit the vital intellectual struggle necessary to cultivate authentic problem-solving resilience. Moreover, generative algorithms frequently generate convincing factual hallucinations and reinforce systemic cultural biases embedded in their training datasets, misleading students who lack mature evaluative judgment.<br><br>In light of these contrasting viewpoints, an outright prohibition of technological tools appears both impractical and short-sighted. Instead, high schools should cultivate a balanced educational framework. Educational leaders must formulate clear, enforceable ethical guidelines that delineate acceptable technological assistance from unacceptable academic dishonesty. Rather than assessing solely static written outputs, educators ought to prioritize interactive oral defenses, collaborative research workshops, and reflective handwritten journals. By treating artificial intelligence as a supportive analytical instrument rather than a surrogate intellect, secondary institutions can foster technologically proficient scholars who retain rigorous critical judgment.",
-    "prompt": "Based on Text 1, determine whether each statement regarding the ethical adoption of AI is **TRUE** or **FALSE**:",
-    "matrixStatements": [
-      {
-        "statement": "Artificial Intelligence (AI) can assist students in brainstorming ideas and structuring essay outlines efficiently.",
-        "isCorrect": true
-      },
-      {
-        "statement": "The author advises educational institutions to implement an absolute ban on all student AI usage.",
-        "isCorrect": false
-      },
-      {
-        "statement": "Passive dependence on automated text generation without critical verification can atrophy students' analytical reasoning and cognitive stamina.",
-        "isCorrect": true
-      },
-      {
-        "statement": "All analytical responses and statistical data produced by generative AI models are guaranteed to be completely unbiased and entirely factual.",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "• Pernyataan 1: BENAR — Teks menyatakan bahwa AI generatif mampu menghasilkan draf tulisan dan ringkasan dalam hitungan detik.<br>• Pernyataan 2: SALAH — Penulis tidak menganjurkan pelarangan AI secara mutlak, melainkan pemanfaatan secara etis dan bertanggung jawab.<br>• Pernyataan 3: BENAR — Ketergantungan berlebih berisiko melemahkan kemampuan penalaran mandiri dan pemecahan masalah kompleks.<br>• Pernyataan 4: SALAH — Penggunaan AI tanpa sitasi dan verifikasi justru berisiko menimbulkan plagiarisme dan kesalahan informasi.",
-    "grammarNote": "Discussion Text Argument Evaluation: Identifying Supporting vs Contrasting Stances."
-  },
-  {
-    "id": 17,
-    "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XII — SMAN 1 Bae Kudus",
-    "type": "complex_matrix",
-    "title": "Complex Multiple Choice: Past Unreal Conditionals (Third Conditional)",
-    "stimulusTitle": "Grammar Focus: Unreal Past Conditionals (Third Conditional)",
-    "stimulusBody": "<p style=\"margin-bottom:0;\">Third conditional pattern: <code>If + had + V3, Subject + would / could / might + have + V3</code>.</p>",
-    "prompt": "Determine whether each conditional sentence below is grammatically **TRUE** (correct) or **FALSE** (incorrect):",
-    "matrixStatements": [
-      {
-        "statement": "If the school had organized the digital literacy seminar earlier, students would have understood the AI guidelines better.",
-        "isCorrect": true
-      },
-      {
-        "statement": "If they studied harder last week, they would pass the national certification test today.",
-        "isCorrect": false
-      },
-      {
-        "statement": "If the solar panels had been maintained regularly, the sudden power failure during yesterday's storm would have been avoided.",
-        "isCorrect": true
-      },
-      {
-        "statement": "If she had arrived on time yesterday, she would meet the guest speaker before the lecture began.",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "• Pernyataan 1: BENAR — Keuntungan energi surya dan angin terdesentralisasi adalah fleksibilitas instalasi di pulau-pulau terpencil.<br>• Pernyataan 2: SALAH — Pembangkit nuklir konvensional membutuhkan modal investasi awal yang sangat besar serta waktu konstruksi panjang.<br>• Pernyataan 3: SALAH — Teks menyoroti bahwa isu limbah radioaktif tetap menjadi tantangan keselamatan jangka panjang.<br>• Pernyataan 4: BENAR — Pendekatan bauran energi hijau bertahap merupakan solusi realistis untuk stabilitas pasokan listrik nasional.",
-    "grammarNote": "Conditional Type 3: Form and Function for Past Unreal Situations."
-  },
-  {
-    "id": 18,
-    "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XII — SMAN 1 Bae Kudus",
-    "type": "complex_matrix",
-    "title": "Complex Multiple Choice: Contrast & Concession Discourse Markers",
-    "stimulusTitle": "Grammar Focus: Transitions of Contrast and Concession",
-    "stimulusBody": "<p style=\"margin-bottom:0;\">Concession markers (<em>Although, Even though, Despite, In spite of</em>) and contrast transitions (<em>However, Nevertheless, In contrast</em>) connect conflicting propositions.</p>",
-    "prompt": "Determine whether each transitional sentence below is grammatically **TRUE** (correct) or **FALSE** (incorrect):",
-    "matrixStatements": [
-      {
-        "statement": "Despite facing severe economic limitations, the students demonstrated remarkable academic achievement.",
-        "isCorrect": true
-      },
-      {
-        "statement": "Although it was raining heavily, but the sports competition continued until sunset.",
-        "isCorrect": false
-      },
-      {
-        "statement": "Geothermal power plants produce continuous energy; however, their initial construction requires substantial capital.",
-        "isCorrect": true
-      },
-      {
-        "statement": "In spite of she was exhausted after practice, Maya finished writing her comprehensive book review.",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "• Pernyataan 1: BENAR — Latar novel Laskar Pelangi menggambarkan keterbatasan fasilitas sekolah di pedalaman Belitung.<br>• Pernyataan 2: BENAR — Figur Bu Muslimah dan Pak Harfan menjadi teladan dedikasi pendidik sejati yang menginspirasi murid-muridnya.<br>• Pernyataan 3: SALAH — Resensi menekankan bahwa kemiskinan bukanlah penghalang untuk meraih cita-cita luhur melalui pendidikan.<br>• Pernyataan 4: SALAH — Resensi menyimpulkan bahwa novel Laskar Pelangi sarat dengan pesan moral dan nilai kemanusiaan yang mendalam.",
-    "grammarNote": "Mastery of Contrastive Connectors and Concessive Adverbials (B2 Level)."
-  },
-  {
-    "id": 19,
-    "source": "Sumber: Telaah Kritis Teks Resensi Sastra Indonesia — Kemendikbudristek",
-    "type": "complex_matrix",
-    "title": "Complex Multiple Choice: Review Text Analysis (The Rainbow Troops / Laskar Pelangi)",
-    "stimulusTitle": "Review Text: The Inspiring Journey of Laskar Pelangi",
-    "stimulusBody": "<div style=\"font-size:0.95rem; line-height:1.6; color:#1e293b;\">\n<p style=\"margin-bottom:8px;\"><strong>Title:</strong> The Rainbow Troops (<em>Laskar Pelangi</em>)<br><strong>Author:</strong> Andrea Hirata | <strong>Setting:</strong> Belitung Island, Indonesia</p>\n<p style=\"margin-bottom:8px;\">Andrea Hirata's celebrated novel, <em>The Rainbow Troops</em>, chronicles the heroic educational struggle of ten impoverished students attending SD Muhammadiyah Gantong on the remote island of Belitung. Facing severe material deprivation, dilapidated school infrastructure, and the constant threat of closure by the local education department, these resilient children—affectionately dubbed the \"Rainbow Troops\" by their beloved teacher—demonstrate an extraordinary passion for learning.</p>\n<p style=\"margin-bottom:8px;\">Central to their success is the selfless dedication of their devoted educators, Bu Muslimah and Pak Harfan, who refuse to let poverty extinguish their students' dreams. Rather than relying on modern facilities or wealthy corporate sponsorship, the school thrives on unyielding moral integrity, mutual camaraderie, and deep community solidarity. Andrea Hirata artfully weaves humor and poignant socio-economic critiques, highlighting the stark contrast between prosperous tin-mining conglomerates and the marginalized local population.</p>\n<p style=\"margin-bottom:0;\">In conclusion, <em>The Rainbow Troops</em> is far more than a heartwarming coming-of-age memoir; it is a profound testament to the transformative power of human empathy and universal education. The novel delivers a timeless reminder that authentic scholastic achievement stems not from opulent buildings, but from an indomitable spirit, passionate teaching, and unwavering perseverance in the face of adversity.</p>\n</div>",
-    "prompt": "Based on the review text above, evaluate whether each statement is **TRUE** or **FALSE**:",
-    "matrixStatements": [
-      {
-        "statement": "The novel Laskar Pelangi chronicles the resilient struggle of ten village pupils in Belitung to prevent their humble school from being closed.",
-        "isCorrect": true
-      },
-      {
-        "statement": "The reviewer argues that educational excellence is exclusively determined by luxurious facilities and modern campus architecture.",
-        "isCorrect": false
-      },
-      {
-        "statement": "The inspirational leadership and dedication of Bu Muslimah and Pak Harfan motivated the students despite severe resource constraints.",
-        "isCorrect": true
-      },
-      {
-        "statement": "The review concludes that Laskar Pelangi lacks literary value and recommends that public libraries remove it from their collections.",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "• Pernyataan 1: BENAR — Pola 'Even though' diikuti oleh klausa lengkap tanpa konjungsi koordinatif 'but'.<br>• Pernyataan 2: SALAH — 'Despite' tidak boleh diikuti oleh anak kalimat lengkap dengan predikat finite tanpa 'the fact that'.<br>• Pernyataan 3: BENAR — 'Whereas' membandingkan dua fakta yang berkebalikan secara simetris.<br>• Pernyataan 4: BENAR — 'Nevertheless' digunakan sebagai konjungsi transisi antarkalimat yang diawali tanda titik koma atau titik.",
-    "grammarNote": "Review Text Critical Evaluation: Distinguishing Evaluative Judgments from Text Facts."
-  },
-  {
-    "id": 20,
-    "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XII — SMAN 1 Bae Kudus",
-    "type": "complex_matrix",
-    "title": "Complex Multiple Choice: Modals of Past Deduction",
-    "stimulusTitle": "Grammar Focus: Modal Auxiliaries for Past Logical Deductions",
-    "stimulusBody": "<p style=\"margin-bottom:0;\">Past deduction modals: <code>must have + V3</code> (certainty), <code>cannot / could not have + V3</code> (impossibility), <code>might / could have + V3</code> (possibility).</p>",
-    "prompt": "Determine whether each past deduction sentence below is grammatically **TRUE** (correct) or **FALSE** (incorrect):",
-    "matrixStatements": [
-      {
-        "statement": "The laboratory door was locked from the inside, so the missing tablet computer could not have been taken by an outsider.",
-        "isCorrect": true
-      },
-      {
-        "statement": "He must left his student identity card at home because it is not in his backpack.",
-        "isCorrect": false
-      },
-      {
-        "statement": "Given her outstanding debate performance yesterday, Siti might have practiced with the coach all weekend.",
-        "isCorrect": true
-      },
-      {
-        "statement": "They should have arrived two hours ago, but their bus was held up in an unexpected expressway traffic jam.",
-        "isCorrect": true
-      }
-    ],
-    "explanation": "• Pernyataan 1: BENAR — Perubahan kalimat langsung ke tidak langsung dengan kata kerja pelapor 'said' mengubah Simple Present menjadi Simple Past.<br>• Pernyataan 2: SALAH — Perubahan kalimat tanya dalam reported speech harus menggunakan susunan afirmatif (S + V), bukan susunan inversi tanya.<br>• Pernyataan 3: BENAR — Keterangan waktu 'tomorrow' berubah menjadi 'the following day' atau 'the next day'.<br>• Pernyataan 4: SALAH — Kalimat perintah/larangan menggunakan pola 'told ... not to + verb base', bukan 'did not'.",
-    "grammarNote": "Modals of Past Deduction: must have, cannot have, might have + V3."
-  },
-  {
-    "id": 21,
-    "source": "Sumber: Modul Pembelajaran Teks Diskusi — BSKAP Kemendikbudristek",
-    "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
-    "stimulusTitle": "Text 1: Generative Artificial Intelligence in High School Education",
-    "stimulusBody": "The unprecedented integration of generative artificial intelligence into high school environments has sparked an intensive pedagogical debate worldwide. Proponents argue that intelligent language models democratize learning by serving as round-the-clock personalized tutors. Students struggling with intricate scientific concepts, foreign language composition, or algorithmic coding can receive tailored explanations suited to their individual comprehension speeds. Furthermore, advocates highlight that engaging with digital tools equips prospective graduates with essential digital literacy and prompting skills demanded by modern university faculties and automated professional sectors.<br><br>Conversely, cautious educators and cognitive researchers express profound reservations. They contend that unconditional reliance on automated chatbots induces cognitive atrophy, steadily eroding students' capacity for sustained concentration and independent analytical synthesis. When learners delegate the drafting of essays or problem-solving calculations to automated systems, they forfeit the vital intellectual struggle necessary to cultivate authentic problem-solving resilience. Moreover, generative algorithms frequently generate convincing factual hallucinations and reinforce systemic cultural biases embedded in their training datasets, misleading students who lack mature evaluative judgment.<br><br>In light of these contrasting viewpoints, an outright prohibition of technological tools appears both impractical and short-sighted. Instead, high schools should cultivate a balanced educational framework. Educational leaders must formulate clear, enforceable ethical guidelines that delineate acceptable technological assistance from unacceptable academic dishonesty. Rather than assessing solely static written outputs, educators ought to prioritize interactive oral defenses, collaborative research workshops, and reflective handwritten journals. By treating artificial intelligence as a supportive analytical instrument rather than a surrogate intellect, secondary institutions can foster technologically proficient scholars who retain rigorous critical judgment.",
-    "prompt": "Which **TWO (2)** arguments does the author support regarding the ethical and responsible use of AI by high school students?",
-    "options": [
-      {
-        "key": "A",
-        "text": "AI should serve as an interactive research assistant to stimulate critical inquiry and idea generation rather than replace independent authorship."
-      },
-      {
-        "key": "B",
-        "text": "Secondary schools should mandate that all final examination essays be written entirely by automated conversational bots."
-      },
-      {
-        "key": "C",
-        "text": "Students must uphold intellectual honesty by rigorously validating machine output and transparently citing algorithmic assistance."
-      },
-      {
-        "key": "D",
-        "text": "Students no longer need to read scholarly books or peer-reviewed literature since generative models synthesize information instantaneously."
-      }
-    ],
-    "correctAnswer": [
-      "A",
-      "C"
-    ],
-    "explanation": "Dua argumen kunci yang tepat adalah memfungsikan AI sebagai asisten riset pemicu ide dan menjaga integritas akademik dengan verifikasi data serta sitasi transparan.",
-    "grammarNote": "Identifying Balanced Stances in Analytical Discussion Texts."
-  },
-  {
-    "id": 22,
-    "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XII — SMAN 1 Bae Kudus",
-    "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
-    "stimulusTitle": "Grammar Focus: Grammatically Accurate Third Conditionals",
-    "stimulusBody": "<p style=\"margin-bottom:0;\">Select sentences that correctly adhere to the unreal past conditional framework.</p>",
-    "prompt": "Which **TWO (2)** sentences correctly employ Third Conditional structures to express hypothetical past situations?",
-    "options": [
-      {
-        "key": "A",
-        "text": "If the technical team had installed the backup generator yesterday, the power outage would not have disrupted the computer laboratory."
-      },
-      {
-        "key": "B",
-        "text": "If I have seen the competition announcement yesterday morning, I would submit the application promptly."
-      },
-      {
-        "key": "C",
-        "text": "If the school had provided sufficient scholarship funds, more rural students could have continued their higher education."
-      },
-      {
-        "key": "D",
-        "text": "If she took the earlier morning bus yesterday, she will arrive before the keynote speaker."
-      }
-    ],
-    "correctAnswer": [
-      "A",
-      "C"
-    ],
-    "explanation": "Kalimat yang menggunakan pola Third Conditional baku (If + had + V3, would/could have + V3) adalah 'If the technical team had installed the backup generator yesterday...' dan 'If the school had provided sufficient scholarship funds...'. Kalimat lainnya salah karena memadukan present perfect 'have seen' dengan waktu lampau 'yesterday' serta mencampur past tense 'took' dengan future 'will arrive'.",
-    "grammarNote": "Standard Third Conditional Accuracy."
-  },
-  {
-    "id": 23,
-    "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XII — SMAN 1 Bae Kudus",
-    "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
-    "stimulusTitle": "Grammar Focus: Contrast Transitions in Academic Writing",
-    "stimulusBody": "<p style=\"margin-bottom:0;\">Select sentences that correctly utilize conjunctive adverbs and subordinating conjunctions of contrast.</p>",
-    "prompt": "Which **TWO (2)** sentences correctly demonstrate discourse markers of contrast or concession?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Renewable energy adoption requires high initial capital; nevertheless, long-term environmental benefits far outweigh the costs."
-      },
-      {
-        "key": "B",
-        "text": "Although the historical novel was written decades ago, yet modern readers still find its characters deeply moving."
-      },
-      {
-        "key": "C",
-        "text": "Even though solar irradiance fluctuates with cloud cover, modern battery storage systems ensure continuous electrical stability."
-      },
-      {
-        "key": "D",
-        "text": "Despite of the heavy rainfall yesterday, the youth volunteers planted two hundred mangrove seedlings along the coast."
-      }
-    ],
-    "correctAnswer": [
-      "A",
-      "C"
-    ],
-    "explanation": "Kalimat dengan konjungsi kontras yang baku adalah kalimat dengan konjungsi antarkalimat 'nevertheless' dan konjungsi subordinatif 'Even though'. Kalimat lainnya salah karena merangkap 'Although' dengan 'yet', atau menggunakan bentuk 'Despite of' yang tidak baku.",
-    "grammarNote": "Transitions of Contrast and Concession in Academic Discourse."
-  },
-  {
-    "id": 24,
-    "source": "Sumber: Telaah Kritis Teks Resensi Sastra Indonesia — Kemendikbudristek",
-    "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
-    "stimulusTitle": "Review Text: The Inspiring Journey of Laskar Pelangi",
-    "stimulusBody": "<div style=\"font-size:0.95rem; line-height:1.6; color:#1e293b;\">\n<p style=\"margin-bottom:8px;\"><strong>Title:</strong> The Rainbow Troops (<em>Laskar Pelangi</em>)<br><strong>Author:</strong> Andrea Hirata | <strong>Setting:</strong> Belitung Island, Indonesia</p>\n<p style=\"margin-bottom:8px;\">Andrea Hirata's celebrated novel, <em>The Rainbow Troops</em>, chronicles the heroic educational struggle of ten impoverished students attending SD Muhammadiyah Gantong on the remote island of Belitung. Facing severe material deprivation, dilapidated school infrastructure, and the constant threat of closure by the local education department, these resilient children—affectionately dubbed the \"Rainbow Troops\" by their beloved teacher—demonstrate an extraordinary passion for learning.</p>\n<p style=\"margin-bottom:8px;\">Central to their success is the selfless dedication of their devoted educators, Bu Muslimah and Pak Harfan, who refuse to let poverty extinguish their students' dreams. Rather than relying on modern facilities or wealthy corporate sponsorship, the school thrives on unyielding moral integrity, mutual camaraderie, and deep community solidarity. Andrea Hirata artfully weaves humor and poignant socio-economic critiques, highlighting the stark contrast between prosperous tin-mining conglomerates and the marginalized local population.</p>\n<p style=\"margin-bottom:0;\">In conclusion, <em>The Rainbow Troops</em> is far more than a heartwarming coming-of-age memoir; it is a profound testament to the transformative power of human empathy and universal education. The novel delivers a timeless reminder that authentic scholastic achievement stems not from opulent buildings, but from an indomitable spirit, passionate teaching, and unwavering perseverance in the face of adversity.</p>\n</div>",
-    "prompt": "Which **TWO (2)** core virtues and societal lessons does the reviewer emphasize regarding Andrea Hirata's novel *Laskar Pelangi*?",
-    "options": [
-      {
-        "key": "A",
-        "text": "The transformative power of inclusive education and genuine human empathy in surmounting severe socio-economic deprivation."
-      },
-      {
-        "key": "B",
-        "text": "The imperative of accumulating vast personal material wealth to secure the highest prestige in contemporary society."
-      },
-      {
-        "key": "C",
-        "text": "The noble values of exemplary mentorship and selfless teaching dedication that foster unyielding confidence among pupils."
-      },
-      {
-        "key": "D",
-        "text": "The unquestioned superiority of industrial tin mining corporations over traditional rural indigenous communities."
-      }
-    ],
-    "correctAnswer": [
-      "A",
-      "C"
-    ],
-    "explanation": "Dua nilai luhur utama dalam ulasan Laskar Pelangi adalah kekuatan pendidikan dan empati melampaui kemiskinan, serta keteladanan dan dedikasi guru dalam membimbing anak-anak.",
-    "grammarNote": "Thematic and Character Value Synthesis in Literary Reviews."
-  },
-  {
-    "id": 25,
-    "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XII — SMAN 1 Bae Kudus",
-    "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
-    "stimulusTitle": "Grammar Focus: Indirect Speech / Reported Statements",
-    "stimulusBody": "<p style=\"margin-bottom:0;\">Select indirect speech sentences that correctly execute backshift rules.</p>",
-    "prompt": "Which **TWO (2)** sentences correctly report past statements adhering to standard English backshift rules?",
-    "options": [
-      {
-        "key": "A",
-        "text": "The English teacher explained that artificial intelligence was merely a tool to enhance human creativity."
-      },
-      {
-        "key": "B",
-        "text": "Maya told to me that she will travel to Belitung next month."
-      },
-      {
-        "key": "C",
-        "text": "Rizky stated that he had completed his comprehensive literature review the previous evening."
-      },
-      {
-        "key": "D",
-        "text": "Danang said that he is reading the historical novel two days ago."
-      }
-    ],
-    "correctAnswer": [
-      "A",
-      "C"
-    ],
-    "explanation": "Kalimat tidak langsung (reported speech) yang baku adalah kalimat yang mengubah Present Simple 'is' menjadi Past 'was', serta yang mengubah tenses lampau menjadi Past Perfect 'had completed' disertai time marker 'the previous evening'. Kalimat lainnya salah dalam pola ('told to me') atau memadukan present continuous dengan 'two days ago'.",
-    "grammarNote": "Reported Speech: Tense Backshift and Indirect Discourse Conventions."
-  },
-  {
-    "id": 26,
-    "source": "Sumber: Tinjauan Teknologi Terapan & Rekayasa Pertanian Berkelanjutan — Jurnal Riset Agroteknologi Nasional",
-    "type": "reading",
-    "title": "Reading Section: TP 12.2 Review Text",
-    "stimulusTitle": "Text 2: Agro-Technology Innovation for Sustainable Rice Farming",
-    "stimulusBody": "As prolonged dry seasons and climatic volatility challenge smallholder horticultural farmers across Java, automated micro-irrigation systems have emerged as promising solutions. Among the latest domestic innovations tested by agricultural cooperatives in Central Java is the 'AgriSmart IoT Drip Irrigation System'—a solar-powered micro-irrigation unit designed to deliver precise moisture directly to plant roots based on automated subterranean soil telemetry.<br><br>In extensive four-month field trials on chili and shallot plantations, the AgriSmart system demonstrated remarkable operational efficiency. Its primary triumph is water conservation: by utilizing subterranean humidity and ambient temperature probes to regulate precision dripping valves, the system reduced irrigation water consumption by approximately thirty-eight percent compared to conventional manual spraying. Furthermore, the accompanying mobile application delivers real-time soil data and autonomous valve controls, freeing farmers from arduous physical labor under the blazing midday sun and increasing crop harvest uniformity by nearly twenty percent.<br><br>Despite these impressive technological merits, prospective adopters must weigh certain practical constraints. First, the unit relies on local cellular network coverage for cloud telemetry, making it susceptible to connection blackouts in mountainous, signal-deprived hollows. Second, while the initial hardware installation cost has been minimized, it still represents a formidable capital barrier for individual impoverished smallholders unless subsidized by local farmer associations. Finally, the sensitive micro-drippers require periodic manual flushing to prevent mineral sediment clogs when utilizing mineral-heavy well water.<br><br>On balance, the AgriSmart IoT System represents a highly commendable step forward in sustainable tropical agriculture. While isolated subsistence farmers may find individual investment challenging, the system is enthusiastically recommended for farmer collectives, agricultural vocational schools, and forward-looking horticultural enterprises seeking to optimize water resilience and labor productivity.",
-    "prompt": "What is the primary function of the AgriSmart IoT System described in the text?",
-    "options": [
-      {
-        "key": "A",
-        "text": "To generate artificial rainclouds across large metropolitan residential zones."
-      },
-      {
-        "key": "B",
-        "text": "To manufacture synthetic chemical fertilizers using high-voltage solar batteries."
-      },
-      {
-        "key": "C",
-        "text": "To replace all human agricultural labor with autonomous robotic harvesting tractors."
-      },
-      {
-        "key": "D",
-        "text": "To automate precision water delivery to plant roots based on real-time soil moisture sensors."
-      }
-    ],
-    "correctAnswer": "D",
-    "explanation": "Paragraf 1 baris 5-7 menyatakan fungsi utama alat: 'a solar-powered micro-irrigation unit designed to deliver precise moisture directly to plant roots based on automated subterranean soil telemetry'.",
-    "grammarNote": "Infinitive of Purpose: 'designed to deliver precise moisture directly to plant roots based on telemetry'."
-  },
-  {
-    "id": 27,
-    "source": "Sumber: Tinjauan Teknologi Terapan & Rekayasa Pertanian Berkelanjutan — Jurnal Riset Agroteknologi Nasional",
-    "type": "reading",
-    "title": "Reading Section: TP 12.2 Review Text",
-    "stimulusTitle": "Text 2: Agro-Technology Innovation for Sustainable Rice Farming",
-    "stimulusBody": "As prolonged dry seasons and climatic volatility challenge smallholder horticultural farmers across Java, automated micro-irrigation systems have emerged as promising solutions. Among the latest domestic innovations tested by agricultural cooperatives in Central Java is the 'AgriSmart IoT Drip Irrigation System'—a solar-powered micro-irrigation unit designed to deliver precise moisture directly to plant roots based on automated subterranean soil telemetry.<br><br>In extensive four-month field trials on chili and shallot plantations, the AgriSmart system demonstrated remarkable operational efficiency. Its primary triumph is water conservation: by utilizing subterranean humidity and ambient temperature probes to regulate precision dripping valves, the system reduced irrigation water consumption by approximately thirty-eight percent compared to conventional manual spraying. Furthermore, the accompanying mobile application delivers real-time soil data and autonomous valve controls, freeing farmers from arduous physical labor under the blazing midday sun and increasing crop harvest uniformity by nearly twenty percent.<br><br>Despite these impressive technological merits, prospective adopters must weigh certain practical constraints. First, the unit relies on local cellular network coverage for cloud telemetry, making it susceptible to connection blackouts in mountainous, signal-deprived hollows. Second, while the initial hardware installation cost has been minimized, it still represents a formidable capital barrier for individual impoverished smallholders unless subsidized by local farmer associations. Finally, the sensitive micro-drippers require periodic manual flushing to prevent mineral sediment clogs when utilizing mineral-heavy well water.<br><br>On balance, the AgriSmart IoT System represents a highly commendable step forward in sustainable tropical agriculture. While isolated subsistence farmers may find individual investment challenging, the system is enthusiastically recommended for farmer collectives, agricultural vocational schools, and forward-looking horticultural enterprises seeking to optimize water resilience and labor productivity.",
-    "prompt": "According to the field test results, what was the primary operational triumph of the system?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Reducing irrigation water consumption by nearly 38% while improving harvest uniformity."
-      },
-      {
-        "key": "B",
-        "text": "Eliminating the need for any sunlight or photosynthesis in cultivating shallots."
-      },
-      {
-        "key": "C",
-        "text": "Doubling the market retail price of imported agricultural fertilizers in Central Java."
-      },
-      {
-        "key": "D",
-        "text": "Enabling crops to grow in complete darkness inside underground caves."
-      }
-    ],
-    "correctAnswer": "A",
-    "explanation": "Paragraf 2 baris 2-7 menyebutkan keberhasilan operasional sistem: 'reduced irrigation water consumption by approximately thirty-eight percent compared to conventional manual spraying... increasing crop harvest uniformity by nearly twenty percent'.",
-    "grammarNote": "Prepositional Gerund Phrase: 'by utilizing subterranean humidity probes... the system reduced consumption'."
-  },
-  {
-    "id": 28,
-    "source": "Sumber: Tinjauan Teknologi Terapan & Rekayasa Pertanian Berkelanjutan — Jurnal Riset Agroteknologi Nasional",
-    "type": "reading",
-    "title": "Reading Section: TP 12.2 Review Text",
-    "stimulusTitle": "Text 2: Agro-Technology Innovation for Sustainable Rice Farming",
-    "stimulusBody": "As prolonged dry seasons and climatic volatility challenge smallholder horticultural farmers across Java, automated micro-irrigation systems have emerged as promising solutions. Among the latest domestic innovations tested by agricultural cooperatives in Central Java is the 'AgriSmart IoT Drip Irrigation System'—a solar-powered micro-irrigation unit designed to deliver precise moisture directly to plant roots based on automated subterranean soil telemetry.<br><br>In extensive four-month field trials on chili and shallot plantations, the AgriSmart system demonstrated remarkable operational efficiency. Its primary triumph is water conservation: by utilizing subterranean humidity and ambient temperature probes to regulate precision dripping valves, the system reduced irrigation water consumption by approximately thirty-eight percent compared to conventional manual spraying. Furthermore, the accompanying mobile application delivers real-time soil data and autonomous valve controls, freeing farmers from arduous physical labor under the blazing midday sun and increasing crop harvest uniformity by nearly twenty percent.<br><br>Despite these impressive technological merits, prospective adopters must weigh certain practical constraints. First, the unit relies on local cellular network coverage for cloud telemetry, making it susceptible to connection blackouts in mountainous, signal-deprived hollows. Second, while the initial hardware installation cost has been minimized, it still represents a formidable capital barrier for individual impoverished smallholders unless subsidized by local farmer associations. Finally, the sensitive micro-drippers require periodic manual flushing to prevent mineral sediment clogs when utilizing mineral-heavy well water.<br><br>On balance, the AgriSmart IoT System represents a highly commendable step forward in sustainable tropical agriculture. While isolated subsistence farmers may find individual investment challenging, the system is enthusiastically recommended for farmer collectives, agricultural vocational schools, and forward-looking horticultural enterprises seeking to optimize water resilience and labor productivity.",
-    "prompt": "Which of the following is identified as a practical constraint of the AgriSmart system in paragraph three?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Excessive emission of greenhouse gases during subterranean water pumping."
-      },
-      {
-        "key": "B",
-        "text": "Vulnerability to cellular signal loss in remote areas and initial capital cost for individual smallholders."
-      },
-      {
-        "key": "C",
-        "text": "The inability of the solar panels to operate in tropical sunlight."
-      },
-      {
-        "key": "D",
-        "text": "The requirement that all farmers possess university degrees in software engineering."
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "Paragraf 3 memaparkan kendala praktis: rentan terhadap ketiadaan sinyal seluler di perbukitan ('susceptible to connection blackouts in mountainous, signal-deprived hollows') serta biaya instalasi awal yang masih menjadi beban bagi petani perorangan tanpa subsidi.",
-    "grammarNote": "Concessive Connectors in Review: 'Despite these impressive technological merits, prospective adopters must weigh certain practical constraints'."
-  },
-  {
-    "id": 29,
-    "source": "Sumber: Tinjauan Teknologi Terapan & Rekayasa Pertanian Berkelanjutan — Jurnal Riset Agroteknologi Nasional",
-    "type": "reading",
-    "title": "Reading Section: TP 12.2 Review Text",
-    "stimulusTitle": "Text 2: Agro-Technology Innovation for Sustainable Rice Farming",
-    "stimulusBody": "As prolonged dry seasons and climatic volatility challenge smallholder horticultural farmers across Java, automated micro-irrigation systems have emerged as promising solutions. Among the latest domestic innovations tested by agricultural cooperatives in Central Java is the 'AgriSmart IoT Drip Irrigation System'—a solar-powered micro-irrigation unit designed to deliver precise moisture directly to plant roots based on automated subterranean soil telemetry.<br><br>In extensive four-month field trials on chili and shallot plantations, the AgriSmart system demonstrated remarkable operational efficiency. Its primary triumph is water conservation: by utilizing subterranean humidity and ambient temperature probes to regulate precision dripping valves, the system reduced irrigation water consumption by approximately thirty-eight percent compared to conventional manual spraying. Furthermore, the accompanying mobile application delivers real-time soil data and autonomous valve controls, freeing farmers from arduous physical labor under the blazing midday sun and increasing crop harvest uniformity by nearly twenty percent.<br><br>Despite these impressive technological merits, prospective adopters must weigh certain practical constraints. First, the unit relies on local cellular network coverage for cloud telemetry, making it susceptible to connection blackouts in mountainous, signal-deprived hollows. Second, while the initial hardware installation cost has been minimized, it still represents a formidable capital barrier for individual impoverished smallholders unless subsidized by local farmer associations. Finally, the sensitive micro-drippers require periodic manual flushing to prevent mineral sediment clogs when utilizing mineral-heavy well water.<br><br>On balance, the AgriSmart IoT System represents a highly commendable step forward in sustainable tropical agriculture. While isolated subsistence farmers may find individual investment challenging, the system is enthusiastically recommended for farmer collectives, agricultural vocational schools, and forward-looking horticultural enterprises seeking to optimize water resilience and labor productivity.",
-    "prompt": "The word 'commendable' in the final paragraph is closest in meaning to...",
-    "options": [
-      {
-        "key": "A",
-        "text": "completely outdated and forgotten"
-      },
-      {
-        "key": "B",
-        "text": "economically wasteful and dangerous"
-      },
-      {
-        "key": "C",
-        "text": "worthy of praise and encouragement"
-      },
-      {
-        "key": "D",
-        "text": "unreliable and prone to failure"
-      }
-    ],
-    "correctAnswer": "C",
-    "explanation": "Kata 'commendable' dalam 'a highly commendable step forward' bermakna patut dipuji, terhormat, bernilai positif, dan layak diapresiasi (praiseworthy / admirable).",
-    "grammarNote": "Evaluative Adjective (Oxford 5000 Level B2): 'commendable' = patut dipuji / diacungi jempol."
-  },
-  {
-    "id": 30,
-    "source": "Sumber: Tinjauan Teknologi Terapan & Rekayasa Pertanian Berkelanjutan — Jurnal Riset Agroteknologi Nasional",
-    "type": "reading",
-    "title": "Reading Section: TP 12.2 Review Text",
-    "stimulusTitle": "Text 2: Agro-Technology Innovation for Sustainable Rice Farming",
-    "stimulusBody": "As prolonged dry seasons and climatic volatility challenge smallholder horticultural farmers across Java, automated micro-irrigation systems have emerged as promising solutions. Among the latest domestic innovations tested by agricultural cooperatives in Central Java is the 'AgriSmart IoT Drip Irrigation System'—a solar-powered micro-irrigation unit designed to deliver precise moisture directly to plant roots based on automated subterranean soil telemetry.<br><br>In extensive four-month field trials on chili and shallot plantations, the AgriSmart system demonstrated remarkable operational efficiency. Its primary triumph is water conservation: by utilizing subterranean humidity and ambient temperature probes to regulate precision dripping valves, the system reduced irrigation water consumption by approximately thirty-eight percent compared to conventional manual spraying. Furthermore, the accompanying mobile application delivers real-time soil data and autonomous valve controls, freeing farmers from arduous physical labor under the blazing midday sun and increasing crop harvest uniformity by nearly twenty percent.<br><br>Despite these impressive technological merits, prospective adopters must weigh certain practical constraints. First, the unit relies on local cellular network coverage for cloud telemetry, making it susceptible to connection blackouts in mountainous, signal-deprived hollows. Second, while the initial hardware installation cost has been minimized, it still represents a formidable capital barrier for individual impoverished smallholders unless subsidized by local farmer associations. Finally, the sensitive micro-drippers require periodic manual flushing to prevent mineral sediment clogs when utilizing mineral-heavy well water.<br><br>On balance, the AgriSmart IoT System represents a highly commendable step forward in sustainable tropical agriculture. While isolated subsistence farmers may find individual investment challenging, the system is enthusiastically recommended for farmer collectives, agricultural vocational schools, and forward-looking horticultural enterprises seeking to optimize water resilience and labor productivity.",
-    "prompt": "Who is the primary target group enthusiastically recommended to adopt this system?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Fishermen operating deep-sea trawlers off the southern coast of Java."
-      },
-      {
-        "key": "B",
-        "text": "Isolated smallholders with zero access to financial loans or communal cooperatives."
-      },
-      {
-        "key": "C",
-        "text": "Urban fashion boutiques situated inside air-conditioned metropolitan malls."
-      },
-      {
-        "key": "D",
-        "text": "Agricultural cooperatives, vocational schools, and commercial horticultural enterprises."
-      }
-    ],
-    "correctAnswer": "D",
-    "explanation": "Paragraf 4 merekomendasikan sistem ini secara khusus kepada kelompok tani terorganisir, SMK pertanian, dan badan usaha hortikultura: 'enthusiastically recommended for farmer collectives, agricultural vocational schools, and forward-looking horticultural enterprises'.",
-    "grammarNote": "Target Audience Recommendation in Reviews: 'is enthusiastically recommended for...'."
-  },
-  {
-    "id": 31,
-    "source": "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
-    "type": "grammar",
-    "title": "Grammar & Discourse: Contrastive Connectors",
-    "prompt": "Nuclear power plants deliver an uninterrupted baseload electrical output around the clock. ________, their astronomical construction expenses and severe vulnerability to seismic activity prompt intense public concern in archipelagic regions.\n\nChoose the most appropriate transitional discourse connector to fill in the blank:",
-    "options": [
-      {
-        "key": "A",
-        "text": "However"
-      },
-      {
-        "key": "B",
-        "text": "Furthermore"
-      },
-      {
-        "key": "C",
-        "text": "Consequently"
-      },
-      {
-        "key": "D",
-        "text": "Because"
-      }
-    ],
-    "correctAnswer": "A",
-    "explanation": "Kalimat pertama menyatakan keunggulan pasokan listrik stabil, sedangkan kalimat kedua menyajikan fakta kontras mengenai biaya dan kerentanan gempa. Kata hubung antarkalimat yang menyatakan pertentangan formal (*contrast*) adalah 'However' (namun demikian).",
-    "grammarNote": "Conjunctive Adverb of Contrast: 'However' menghubungkan dua ide yang bertentangan dengan tanda koma setelahnya."
-  },
-  {
-    "id": 32,
-    "source": "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
-    "type": "grammar",
-    "title": "Grammar & Discourse: Concessive Connectors",
-    "prompt": "________ enduring extreme financial hardship and lacking formal school funding, Bu Muslimah and Pak Harfan taught their pupils with unwavering devotion every morning.\n\nChoose the correct grammatical connector to complete the sentence:",
-    "options": [
-      {
-        "key": "A",
-        "text": "Although"
-      },
-      {
-        "key": "B",
-        "text": "Despite"
-      },
-      {
-        "key": "C",
-        "text": "Even though"
-      },
-      {
-        "key": "D",
-        "text": "Because of"
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "Setelah rumpang terdapat frasa kata benda gerund ('enduring extreme financial hardship and lacking formal school funding'). Preposisi konsesif (*concessive preposition*) yang diikuti oleh frasa nomina/gerund adalah 'Despite' atau 'In spite of'. Pilihan 'Although' dan 'Even though' harus diikuti klausa lengkap (Subject + Verb).",
-    "grammarNote": "Concession Rule: 'Despite / In spite of + Noun Phrase/Gerund' vs 'Although / Even though + S + V'."
-  },
-  {
-    "id": 33,
-    "source": "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
-    "type": "grammar",
-    "title": "Grammar & Discourse: Conditional Type 2 (Hypothetical Present)",
-    "prompt": "If regional governments ________ more capital into decentralized geothermal and solar infrastructure today, remote coastal villages would enjoy uninterrupted electricity.\n\nChoose the correct verb form to complete the hypothetical conditional clause:",
-    "options": [
-      {
-        "key": "A",
-        "text": "had invested"
-      },
-      {
-        "key": "B",
-        "text": "will invest"
-      },
-      {
-        "key": "C",
-        "text": "invested"
-      },
-      {
-        "key": "D",
-        "text": "are investing"
-      }
-    ],
-    "correctAnswer": "C",
-    "explanation": "Klausa utama menggunakan 'would enjoy' (would + V1), yang menunjukkan kalimat pengandaian Type 2 (kondisi tidak nyata saat ini / hypothetical present). Pola if-clause Type 2 wajib menggunakan Simple Past (V2 / 'invested').",
-    "grammarNote": "Conditional Type 2 Formula: If + Subject + V2 (Simple Past), Subject + would + V1 (Bare Infinitive)."
-  },
-  {
-    "id": 34,
-    "source": "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
-    "type": "grammar",
-    "title": "Grammar & Discourse: Conditional Type 3 (Unreal Past)",
-    "prompt": "If high school administrators ________ clear ethical guidelines regarding generative artificial intelligence last semester, students would not have experienced widespread confusion during their research exams.\n\nChoose the correct verb form to complete the sentence:",
-    "options": [
-      {
-        "key": "A",
-        "text": "have established"
-      },
-      {
-        "key": "B",
-        "text": "established"
-      },
-      {
-        "key": "C",
-        "text": "would establish"
-      },
-      {
-        "key": "D",
-        "text": "had established"
-      }
-    ],
-    "correctAnswer": "D",
-    "explanation": "Klausa utama menggunakan 'would not have experienced' (would have + V3) yang menerangkan penyesalan atau situasi masa lalu (past unreal). Pola if-clause Type 3 wajib menggunakan Past Perfect ('had established').",
-    "grammarNote": "Conditional Type 3 Formula: If + Subject + had + V3 (Past Perfect), Subject + would have + V3."
-  },
-  {
-    "id": 35,
-    "source": "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
-    "type": "grammar",
-    "title": "Grammar & Discourse: Modals of Stance & Necessity",
-    "prompt": "Educators maintain that secondary students ________ treat automated artificial intelligence outputs with critical scrutiny rather than blindly accepting them as authoritative truths.\n\nChoose the most accurate modal verb expressing strong moral advisability:",
-    "options": [
-      {
-        "key": "A",
-        "text": "ought to"
-      },
-      {
-        "key": "B",
-        "text": "might"
-      },
-      {
-        "key": "C",
-        "text": "could"
-      },
-      {
-        "key": "D",
-        "text": "would"
-      }
-    ],
-    "correctAnswer": "A",
-    "explanation": "'Ought to' menyatakan anjuran atau kewajiban moral yang kuat (*strong moral advisability/recommendation*), semakna dengan 'should'. 'Might' dan 'could' hanya menyatakan kemungkinan lemah (*weak possibility*).",
-    "grammarNote": "Modals of Stance: 'ought to / should + bare infinitive' digunakan untuk menyampaikan rekomendasi etis dalam teks analitis."
-  },
-  {
-    "id": 36,
-    "source": "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
-    "type": "grammar",
-    "title": "Grammar & Discourse: Impersonal Academic Passive",
-    "prompt": "It ________ by international education analysts that critical problem-solving skills will remain far more indispensable than rote factual recitation in an automated economy.\n\nChoose the correct impersonal passive verb phrase:",
-    "options": [
-      {
-        "key": "A",
-        "text": "widely acknowledges"
-      },
-      {
-        "key": "B",
-        "text": "is widely acknowledged"
-      },
-      {
-        "key": "C",
-        "text": "has widely acknowledging"
-      },
-      {
-        "key": "D",
-        "text": "was to acknowledge"
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "Struktur 'It + is + V3 + that-clause' adalah pola *Impersonal Passive* formal dalam penulisan akademis untuk melaporkan keyakinan atau temuan ilmiah umum secara objektif ('It is widely acknowledged that...').",
-    "grammarNote": "Impersonal Passive Structure: It + is + Past Participle (believed / acknowledged / reported) + that-clause."
-  },
-  {
-    "id": 37,
-    "source": "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
-    "type": "grammar",
-    "title": "Grammar & Discourse: Evaluative Stance Adjectives",
-    "prompt": "Given the rapid depletion of fossil fuels, it is ________ that regional governments accelerate investments in clean geothermal energy and solar microgrids.\n\nChoose the most fitting evaluative adjective expressing urgent necessity:",
-    "options": [
-      {
-        "key": "A",
-        "text": "redundant"
-      },
-      {
-        "key": "B",
-        "text": "negligible"
-      },
-      {
-        "key": "C",
-        "text": "imperative"
-      },
-      {
-        "key": "D",
-        "text": "trivial"
-      }
-    ],
-    "correctAnswer": "C",
-    "explanation": "'Imperative' bermakna sangat mendesak, penting sekali, dan mutlak harus dilakukan (*vital / urgently necessary*). Pilihan 'negligible' (dapat diabaikan), 'redundant' (berlebihan/tidak perlu), dan 'trivial' (sepele) bertentangan dengan konteks darurat energi.",
-    "grammarNote": "Evaluative Adjective of Stance (Oxford 5000 Level B2): 'It is imperative that + clause' menyatakan keharusan mutlak."
-  },
-  {
-    "id": 38,
-    "source": "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
-    "type": "grammar",
-    "title": "Grammar & Discourse: Academic Collocations",
-    "prompt": "Before authorizing the construction of a commercial nuclear plant, policymakers must carefully ________ the potential economic advantages against the profound geological hazards.\n\nChoose the correct academic verb that collocates with 'against':",
-    "options": [
-      {
-        "key": "A",
-        "text": "manufacture"
-      },
-      {
-        "key": "B",
-        "text": "discard"
-      },
-      {
-        "key": "C",
-        "text": "celebrate"
-      },
-      {
-        "key": "D",
-        "text": "weigh"
-      }
-    ],
-    "correctAnswer": "D",
-    "explanation": "Kolokasi akademis yang tepat untuk menimbang pro dan kontra adalah 'weigh ... against ...' (menimbang keuntungan ekonomi dengan potensi bahaya geologis sebelum mengambil keputusan).",
-    "grammarNote": "Discourse Collocation: 'weigh the benefits/pros against the risks/cons' = menimbang perbandingan untung dan rugi."
-  },
-  {
-    "id": 39,
-    "source": "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
-    "type": "grammar",
-    "title": "Grammar & Discourse: Relative Pronouns with Prepositions",
-    "prompt": "The innovative agricultural cooperative designed a controlled smart greenhouse, ________ precision micro-drip telemetry was monitored directly through a mobile application.\n\nChoose the correct prepositional relative pronoun:",
-    "options": [
-      {
-        "key": "A",
-        "text": "in which"
-      },
-      {
-        "key": "B",
-        "text": "which"
-      },
-      {
-        "key": "C",
-        "text": "whom"
-      },
-      {
-        "key": "D",
-        "text": "whose"
-      }
-    ],
-    "correctAnswer": "A",
-    "explanation": "Frasa 'in which' berfungsi menggantikan tempat atau lingkungan ('in the smart greenhouse'). Klausa setelahnya memiliki subjek lengkap ('precision telemetry') sehingga membutuhkan preposisi tempat formal 'in which' (atau 'where').",
-    "grammarNote": "Formal Relative Clause: Preposition + Relative Pronoun ('in which' = where, mengacu pada lingkungan rumah kaca)."
-  },
-  {
-    "id": 40,
-    "source": "Sumber: Bank Soal Tes Kemampuan Akademik (TKA) — Evaluasi Komprehensif SMAN 1 Bae Kudus",
-    "type": "grammar",
-    "title": "Grammar & Discourse: Concluding Transitional Connectors",
-    "prompt": "Both proponents and critics present compelling arguments regarding modern automation. ________, the decisive factor in high school education will always be the human teacher's moral guidance and students' commitment to authentic inquiry.\n\nChoose the most suitable transitional word to open the concluding synthesis:",
-    "options": [
-      {
-        "key": "A",
-        "text": "Initially"
-      },
-      {
-        "key": "B",
-        "text": "Ultimately"
-      },
-      {
-        "key": "C",
-        "text": "Previously"
-      },
-      {
-        "key": "D",
-        "text": "Meanwhile"
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "'Ultimately' bermakna pada akhirnya / secara mendasar (*in the end / fundamentally*), sangat tepat digunakan untuk menyintesiskan kesimpulan akhir dari sebuah diskusi dua sudut pandang.",
-    "grammarNote": "Transitional Marker of Synthesis: 'Ultimately' menandai simpulan puncak setelah mempertimbangkan berbagai argumen."
-  }
-];
+    {
+      id: 1,
+      source: "Kemendikbudristek — Listening Practice Fase F Kelas XII",
+      type: "listening_pictures",
+      title: "Listening Section: Part I - Pictures",
+      audioText: "Number one. Look at the pictures. In the school auditorium, two teams of senior high school students are holding an English debate competition about renewable energy. Which picture matches the description?",
+      audioSegments: [
+        {
+          text: "Number one. Look at the pictures in your test booklet. In the school auditorium, two teams of senior high school students are holding an English debate competition about renewable energy. Which picture matches the description?",
+          lang: "en-US",
+          role: "narrator"
+        }
+      ],
+      prompt: "Which picture matches the high school students holding an English debate in an auditorium?",
+      options: [
+        { key: "A", svg: SVG_PICTURES.debateContest, label: "Students holding an English debate in an auditorium" },
+        { key: "B", svg: SVG_PICTURES.cleanWindSolar, label: "Clean wind turbines and solar panels on a coastal hill" },
+        { key: "C", svg: SVG_PICTURES.smartGreenhouse, label: "A modern agricultural greenhouse with vegetables" },
+        { key: "D", svg: SVG_PICTURES.manufacturingPlant, label: "A traditional industrial manufacturing plant" }
+      ],
+      correctAnswer: "A",
+      explanation: "Audio mendeskripsikan dua tim siswa SMA yang sedang berkompetisi dalam lomba debat bahasa Inggris di auditorium ('holding an English debate competition about renewable energy').",
+      grammarNote: "Present continuous tense: 'students are holding an English debate competition'."
+    },
+    {
+      id: 2,
+      source: "Kemendikbudristek — Listening Practice Fase F Kelas XII",
+      type: "listening_pictures",
+      title: "Listening Section: Part I - Pictures",
+      audioText: "Number two. Look at the pictures. Built on an open green field, tall white wind turbines and clean solar panels produce renewable electricity for local houses. Which picture shows this clean energy site?",
+      audioSegments: [
+        {
+          text: "Number two. Look at the pictures. Built on an open green field, tall white wind turbines and clean solar panels produce renewable electricity for local houses. Which picture shows this clean energy site?",
+          lang: "en-US",
+          role: "narrator"
+        }
+      ],
+      prompt: "Which picture accurately depicts the renewable wind turbines and solar panels?",
+      options: [
+        { key: "A", svg: SVG_PICTURES.debateContest, label: "Students holding an English debate in an auditorium" },
+        { key: "B", svg: SVG_PICTURES.cleanWindSolar, label: "Clean wind turbines and solar panels on a coastal hill" },
+        { key: "C", svg: SVG_PICTURES.smartGreenhouse, label: "A modern agricultural greenhouse with vegetables" },
+        { key: "D", svg: SVG_PICTURES.manufacturingPlant, label: "A traditional industrial manufacturing plant" }
+      ],
+      correctAnswer: "B",
+      explanation: "Audio mendeskripsikan instalasi turbin angin dan panel surya di padang rumput hijau yang menghasilkan listrik bersih ('tall white wind turbines and clean solar panels produce renewable electricity').",
+      grammarNote: "Compound subject: 'tall white wind turbines and clean solar panels'."
+    },
+    {
+      id: 3,
+      source: "Kemendikbudristek — Listening Practice Fase F Kelas XII",
+      type: "listening_pictures",
+      title: "Listening Section: Part I - Pictures",
+      audioText: "Number three. Look at the pictures. Inside a modern agricultural greenhouse, rows of fresh organic vegetables are grown using hydroponic water systems. Which picture matches this scene?",
+      audioSegments: [
+        {
+          text: "Number three. Look at the pictures. Inside a modern agricultural greenhouse, rows of fresh organic vegetables are grown using hydroponic water systems. Which picture matches this scene?",
+          lang: "en-US",
+          role: "narrator"
+        }
+      ],
+      prompt: "Which picture matches the agricultural greenhouse with hydroponic vegetables?",
+      options: [
+        { key: "A", svg: SVG_PICTURES.debateContest, label: "Students holding an English debate in an auditorium" },
+        { key: "B", svg: SVG_PICTURES.cleanWindSolar, label: "Clean wind turbines and solar panels on a coastal hill" },
+        { key: "C", svg: SVG_PICTURES.smartGreenhouse, label: "A modern agricultural greenhouse with vegetables" },
+        { key: "D", svg: SVG_PICTURES.manufacturingPlant, label: "A traditional industrial manufacturing plant" }
+      ],
+      correctAnswer: "C",
+      explanation: "Audio mendeskripsikan fasilitas rumah kaca modern dengan tanaman sayuran organik hidroponik ('modern agricultural greenhouse, rows of fresh organic vegetables are grown').",
+      grammarNote: "Passive voice: 'vegetables are grown using hydroponic water systems'."
+    },
+    {
+      id: 4,
+      source: "Modul Pembelajaran Bahasa Inggris Kelas XII — Kemendikbudristek",
+      type: "listening_dialog",
+      title: "Listening Section: Part II - Short Dialogues",
+      audioSegments: [
+        { role: "narrator", lang: "en-US", text: "Number four. Listen to a conversation between a student and a teacher.", pauseAfter: 450 },
+        { role: "student_m", lang: "en-US", name: "Fajar", text: "Ma'am, is it acceptable to use artificial intelligence to write my internship application letter?", pauseAfter: 350 },
+        { role: "teacher_f", lang: "en-US", name: "Mrs. Retno", text: "AI can help you format your letter and check grammar, Fajar. However, you must include your own real experiences, school projects, and honest voice. Employers look for personal sincerity and genuine passion.", pauseAfter: 450 },
+        { role: "narrator", lang: "en-US", text: "Question: What advice does the teacher give regarding application letters?", pauseAfter: 300 }
+      ],
+      stimulusTitle: "Dialogue: Writing an Internship Application Letter",
+      stimulusBody: "<p><strong>Speaker 1 (Male):</strong> Ma'am, is it acceptable to use artificial intelligence to write my internship application letter?</p><p><strong>Speaker 2 (Female):</strong> AI can help you format your letter and check grammar, Fajar. However, you must include your own real experiences, school projects, and honest voice. Employers look for personal sincerity and genuine passion.</p>",
+      prompt: "What advice does the teacher give regarding internship application letters?",
+      options: [
+        { key: "A", text: "Personalize the letter with genuine experiences, projects, and an honest voice." },
+        { key: "B", text: "Copy an entire online template without making any changes." },
+        { key: "C", text: "Avoid applying for internships until graduating from university." },
+        { key: "D", text: "Pay a professional writer to compose the letter." }
+      ],
+      correctAnswer: "A",
+      explanation: "Guru menyarankan agar siswa menyertakan pengalaman nyata, proyek sekolah, dan kejujuran diri sendiri dalam surat lamaran ('include your own real experiences, school projects, and honest voice').",
+      grammarNote: "Modal verb of obligation: 'you must include your own real experiences'."
+    },
+    {
+      id: 5,
+      source: "Modul Pembelajaran Bahasa Inggris Kelas XII — Kemendikbudristek",
+      type: "listening_dialog",
+      title: "Listening Section: Part II - Short Dialogues",
+      audioSegments: [
+        { role: "narrator", lang: "en-US", text: "Number five. Listen to two students discussing renewable energy.", pauseAfter: 450 },
+        { role: "student_m", lang: "en-US", name: "Ilham", text: "Why do many countries invest heavily in solar and wind energy instead of coal?", pauseAfter: 350 },
+        { role: "student_f", lang: "en-US", name: "Nadia", text: "Because solar and wind power do not create air pollution or harmful greenhouse gases. They help protect our planet from climate change.", pauseAfter: 400 },
+        { role: "narrator", lang: "en-US", text: "Question: Why is renewable energy preferred according to the female speaker?", pauseAfter: 300 }
+      ],
+      stimulusTitle: "Dialogue: Benefits of Renewable Energy",
+      stimulusBody: "<p><strong>Speaker 1 (Male):</strong> Why do many countries invest heavily in solar and wind energy instead of coal?</p><p><strong>Speaker 2 (Female):</strong> Because solar and wind power do not create air pollution or harmful greenhouse gases. They help protect our planet from climate change.</p>",
+      prompt: "Why is renewable energy preferred according to the female speaker?",
+      options: [
+        { key: "A", text: "It does not produce air pollution or harmful greenhouse gases." },
+        { key: "B", text: "It costs more money to build and maintain than coal plants." },
+        { key: "C", text: "It causes factories to close permanently." },
+        { key: "D", text: "It only generates electricity during heavy storms." }
+      ],
+      correctAnswer: "A",
+      explanation: "Siswi tersebut menjelaskan bahwa energi terbarukan lebih disukai karena tidak menimbulkan polusi udara maupun gas rumah kaca berbahaya ('do not create air pollution or harmful greenhouse gases').",
+      grammarNote: "Conjunction of reason: 'Because solar and wind power do not create air pollution'."
+    },
+    {
+      id: 6,
+      source: "Modul Pembelajaran Bahasa Inggris Kelas XII — Kemendikbudristek",
+      type: "listening_dialog",
+      title: "Listening Section: Part II - Short Dialogues",
+      audioSegments: [
+        { role: "narrator", lang: "en-US", text: "Number six. Listen to two seniors preparing for a job interview.", pauseAfter: 450 },
+        { role: "student_m", lang: "en-US", name: "Rian", text: "I feel quite nervous about my first job interview tomorrow morning.", pauseAfter: 350 },
+        { role: "student_f", lang: "en-US", name: "Siti", text: "Do not worry, Rian! Research the company beforehand, dress neatly, and answer questions calmly and politely. Good preparation builds confidence.", pauseAfter: 400 },
+        { role: "narrator", lang: "en-US", text: "Question: What practical tips does the female student suggest for the interview?", pauseAfter: 300 }
+      ],
+      stimulusTitle: "Dialogue: Preparing for a Job Interview",
+      stimulusBody: "<p><strong>Speaker 1 (Male):</strong> I feel quite nervous about my first job interview tomorrow morning.</p><p><strong>Speaker 2 (Female):</strong> Do not worry, Rian! Research the company beforehand, dress neatly, and answer questions calmly and politely. Good preparation builds confidence.</p>",
+      prompt: "What practical tips does the female student suggest for the interview?",
+      options: [
+        { key: "A", text: "Research the company, dress neatly, and answer questions calmly." },
+        { key: "B", text: "Arrive two hours late to test the interviewer's patience." },
+        { key: "C", text: "Memorize long speeches in foreign languages." },
+        { key: "D", text: "Refuse to answer questions about school activities." }
+      ],
+      correctAnswer: "A",
+      explanation: "Saran praktis menghadapi wawancara kerja adalah mempelajari profil perusahaan terlebih dahulu, berpakaian rapi, serta menjawab pertanyaan dengan tenang dan santun ('Research the company beforehand, dress neatly, and answer questions calmly and politely').",
+      grammarNote: "Imperative advice: 'Research the company, dress neatly'."
+    },
+    {
+      id: 7,
+      source: "Kemendikbudristek — Listening Monologue: Career Guidance",
+      type: "listening_talk",
+      title: "Listening Section: Part III - Monologues",
+      audioSegments: [
+        { role: "narrator", lang: "en-US", text: "Questions seven and eight are based on the following talk by a school career counselor.", pauseAfter: 400 },
+        { role: "counselor_m", lang: "en-US", name: "Mr. Pratama", text: "Good morning, twelfth-grade students. As graduation approaches, many of you will write your first job application letters. A well-written application letter must be clear, concise, and professional. In the opening paragraph, state the position you are applying for. In the body, highlight your relevant school achievements, practical skills, and leadership experiences. Finally, in the closing paragraph, express your enthusiasm and politely request an interview.", pauseAfter: 500 },
+        { role: "narrator", lang: "en-US", text: "Number seven. What is the primary topic of the counselor's talk?", pauseAfter: 350 }
+      ],
+      prompt: "What is the primary topic of the counselor's talk?",
+      options: [
+        { key: "A", text: "How to compose a clear and professional job application letter." },
+        { key: "B", text: "How to program mobile computer games." },
+        { key: "C", text: "Why students should avoid entering the job market." },
+        { key: "D", text: "The history of printing presses in Europe." }
+      ],
+      correctAnswer: "A",
+      explanation: "Topik utama arahan konselor karir adalah cara menyusun surat lamaran kerja yang jelas dan profesional menjelang kelulusan sekolah ('how to write a clear and professional job application letter').",
+      grammarNote: "Infinitive of purpose: 'to compose a clear and professional letter'."
+    },
+    {
+      id: 8,
+      source: "Kemendikbudristek — Listening Monologue: Career Guidance",
+      type: "listening_talk",
+      title: "Listening Section: Part III - Monologues",
+      audioSegments: [
+        { role: "counselor_m", lang: "en-US", name: "Mr. Pratama", text: "Finally, in the closing paragraph, express your enthusiasm and politely request an interview.", pauseAfter: 350 },
+        { role: "narrator", lang: "en-US", text: "Number eight. According to the counselor, what should applicants do in the closing paragraph?", pauseAfter: 300 }
+      ],
+      prompt: "According to the counselor, what should applicants do in the closing paragraph?",
+      options: [
+        { key: "A", text: "Express enthusiasm and politely request an interview opportunity." },
+        { key: "B", text: "Demand an immediate starting salary decision." },
+        { key: "C", text: "List every negative experience from junior high school." },
+        { key: "D", text: "Write a poem about their favorite movies." }
+      ],
+      correctAnswer: "A",
+      explanation: "Pada paragraf penutup surat lamaran kerja, pelamar hendaknya menyampaikan antusiasme dan dengan santun meminta kesempatan untuk diwawancarai ('express your enthusiasm and politely request an interview').",
+      grammarNote: "Polite closing register in business correspondence."
+    },
+    {
+      id: 9,
+      source: "Kemendikbudristek — Listening Monologue: Climate Change & Clean Energy",
+      type: "listening_talk",
+      title: "Listening Section: Part III - Monologues",
+      audioSegments: [
+        { role: "narrator", lang: "en-US", text: "Questions nine and ten are based on the following short lecture on energy transition.", pauseAfter: 400 },
+        { role: "teacher_f", lang: "en-US", name: "Dr. Laras", text: "Climate change is one of the most critical challenges facing our world. Burning fossil fuels like coal and petroleum produces huge amounts of carbon emissions, which trap heat in the atmosphere and cause extreme weather. Transitioning to renewable energy like solar, wind, and geothermal power helps reduce pollution and creates new green jobs for young graduates.", pauseAfter: 500 },
+        { role: "narrator", lang: "en-US", text: "Number nine. According to the speaker, what is a primary cause of global climate change?", pauseAfter: 350 }
+      ],
+      prompt: "According to the speaker, what is a primary cause of global climate change?",
+      options: [
+        { key: "A", text: "Burning fossil fuels such as coal and petroleum." },
+        { key: "B", text: "Installing solar panels on school rooftops." },
+        { key: "C", text: "Planting organic vegetable gardens in greenhouses." },
+        { key: "D", text: "Using bicycles for short neighborhood trips." }
+      ],
+      correctAnswer: "A",
+      explanation: "Pembicara menjelaskan bahwa penyebab utama perubahan iklim adalah pembakaran bahan bakar fosil seperti batu bara dan minyak bumi yang menghasilkan emisi karbon ('burning fossil fuels like coal and petroleum').",
+      grammarNote: "Gerund phrase as subject: 'Burning fossil fuels produces carbon emissions'."
+    },
+    {
+      id: 10,
+      source: "Kemendikbudristek — Listening Monologue: Climate Change & Clean Energy",
+      type: "listening_talk",
+      title: "Listening Section: Part III - Monologues",
+      audioSegments: [
+        { role: "teacher_f", lang: "en-US", name: "Dr. Laras", text: "Transitioning to renewable energy like solar, wind, and geothermal power helps reduce pollution and creates new green jobs for young graduates.", pauseAfter: 350 },
+        { role: "narrator", lang: "en-US", text: "Number ten. What positive benefits of renewable energy are mentioned in the talk?", pauseAfter: 300 }
+      ],
+      prompt: "What positive benefits of renewable energy are mentioned in the talk?",
+      options: [
+        { key: "A", text: "Reducing pollution and creating new green jobs for young graduates." },
+        { key: "B", text: "Generating electricity only during winter months." },
+        { key: "C", text: "Stopping public transportation in urban areas." },
+        { key: "D", text: "Decreasing the quality of agricultural products." }
+      ],
+      correctAnswer: "A",
+      explanation: "Manfaat positif energi terbarukan yang disebutkan adalah mengurangi polusi dan menciptakan lapangan kerja hijau baru bagi para lulusan muda ('helps reduce pollution and creates new green jobs').",
+      grammarNote: "Compound predicate: 'helps reduce pollution and creates new green jobs'."
+    },
+    {
+      id: 11,
+      source: "Kemendikbudristek — Discussion Text: Renewable Energy vs Fossil Fuels (Fase F)",
+      type: "single_choice",
+      title: "Reading Section: Discussion Text",
+      stimulusTitle: "Text 1: The Energy Transition: Opportunities and Challenges",
+      stimulusBody: "Energy is essential for modern human life. We need electricity to light our homes, power school computers, and run industrial factories. For more than a century, fossil fuels such as coal, oil, and natural gas have been the primary energy sources worldwide. However, the environmental impact of burning fossil fuels has sparked an intense global discussion about shifting toward renewable energy.<br><br>Supporters of renewable energy emphasize its environmental and health benefits. Unlike coal and oil, renewable energy sources such as solar, wind, and hydropower do not produce harmful carbon emissions or toxic air pollutants. By investing in clean energy, nations can reduce global warming, improve public air quality, and create thousands of green jobs in engineering and construction. Furthermore, sunlight and wind are inexhaustible resources that will never run out.<br><br>On the other hand, critics point out several practical challenges of renewable energy. First, solar and wind power are dependent on weather conditions; solar panels cannot generate electricity at night, and wind turbines stop turning on calm days. Therefore, countries need expensive battery storage systems to guarantee an uninterrupted power supply. Second, building new renewable facilities requires high initial costs and large areas of land, which can be difficult for developing nations with limited budgets.<br><br>In conclusion, while fossil fuels still provide reliable energy today, renewable energy is clearly the sustainable path for our future. Governments and communities should adopt a balanced transition by improving energy efficiency, supporting clean energy research, and gradually replacing fossil fuels with modern renewable solutions.",
+      prompt: "What is the primary communicative purpose of the discussion text?",
+      options: [
+        { key: "A", text: "To present two different perspectives on renewable energy and fossil fuels." },
+        { key: "B", text: "To provide step-by-step instructions on installing solar panels." },
+        { key: "C", text: "To tell an imaginary story about a world without electricity." },
+        { key: "D", text: "To promote a specific brand of household electrical batteries." }
+      ],
+      correctAnswer: "A",
+      explanation: "Tujuan komunikatif teks diskusi adalah menyajikan dua sudut pandang berbeda (pro dan kontra) mengenai pemanfaatan energi terbarukan dibandingkan bahan bakar fosil ('to present two different perspectives on renewable energy and fossil fuels').",
+      grammarNote: "Communicative purpose of discussion text: presenting two or more viewpoints on an issue."
+    },
+    {
+      id: 12,
+      source: "Kemendikbudristek — Discussion Text: Renewable Energy vs Fossil Fuels (Fase F)",
+      type: "single_choice",
+      title: "Reading Section: Discussion Text",
+      stimulusTitle: "Text 1: The Energy Transition: Opportunities and Challenges",
+      stimulusBody: "Energy is essential for modern human life. We need electricity to light our homes, power school computers, and run industrial factories. For more than a century, fossil fuels such as coal, oil, and natural gas have been the primary energy sources worldwide. However, the environmental impact of burning fossil fuels has sparked an intense global discussion about shifting toward renewable energy.<br><br>Supporters of renewable energy emphasize its environmental and health benefits. Unlike coal and oil, renewable energy sources such as solar, wind, and hydropower do not produce harmful carbon emissions or toxic air pollutants. By investing in clean energy, nations can reduce global warming, improve public air quality, and create thousands of green jobs in engineering and construction. Furthermore, sunlight and wind are inexhaustible resources that will never run out.<br><br>On the other hand, critics point out several practical challenges of renewable energy. First, solar and wind power are dependent on weather conditions; solar panels cannot generate electricity at night, and wind turbines stop turning on calm days. Therefore, countries need expensive battery storage systems to guarantee an uninterrupted power supply. Second, building new renewable facilities requires high initial costs and large areas of land, which can be difficult for developing nations with limited budgets.<br><br>In conclusion, while fossil fuels still provide reliable energy today, renewable energy is clearly the sustainable path for our future. Governments and communities should adopt a balanced transition by improving energy efficiency, supporting clean energy research, and gradually replacing fossil fuels with modern renewable solutions.",
+      prompt: "According to paragraph 2, what is a major advantage of renewable energy sources?",
+      options: [
+        { key: "A", text: "They do not produce harmful carbon emissions and their sources never run out." },
+        { key: "B", text: "They require massive burning of coal to generate electricity." },
+        { key: "C", text: "They only function in cold mountainous regions." },
+        { key: "D", text: "They completely eliminate the need for electrical wires." }
+      ],
+      correctAnswer: "A",
+      explanation: "Paragraf 2 menyatakan bahwa energi terbarukan tidak menghasilkan emisi karbon berbahaya dan sumbernya tidak akan pernah habis ('do not produce harmful carbon emissions... and will never run out').",
+      grammarNote: "Compound sentence showing advantages: 'reduce global warming and create green jobs'."
+    },
+    {
+      id: 13,
+      source: "Kemendikbudristek — Discussion Text: Renewable Energy vs Fossil Fuels (Fase F)",
+      type: "single_choice",
+      title: "Reading Section: Discussion Text",
+      stimulusTitle: "Text 1: The Energy Transition: Opportunities and Challenges",
+      stimulusBody: "Energy is essential for modern human life. We need electricity to light our homes, power school computers, and run industrial factories. For more than a century, fossil fuels such as coal, oil, and natural gas have been the primary energy sources worldwide. However, the environmental impact of burning fossil fuels has sparked an intense global discussion about shifting toward renewable energy.<br><br>Supporters of renewable energy emphasize its environmental and health benefits. Unlike coal and oil, renewable energy sources such as solar, wind, and hydropower do not produce harmful carbon emissions or toxic air pollutants. By investing in clean energy, nations can reduce global warming, improve public air quality, and create thousands of green jobs in engineering and construction. Furthermore, sunlight and wind are inexhaustible resources that will never run out.<br><br>On the other hand, critics point out several practical challenges of renewable energy. First, solar and wind power are dependent on weather conditions; solar panels cannot generate electricity at night, and wind turbines stop turning on calm days. Therefore, countries need expensive battery storage systems to guarantee an uninterrupted power supply. Second, building new renewable facilities requires high initial costs and large areas of land, which can be difficult for developing nations with limited budgets.<br><br>In conclusion, while fossil fuels still provide reliable energy today, renewable energy is clearly the sustainable path for our future. Governments and communities should adopt a balanced transition by improving energy efficiency, supporting clean energy research, and gradually replacing fossil fuels with modern renewable solutions.",
+      prompt: "What main practical challenge of renewable energy is discussed in paragraph 3?",
+      options: [
+        { key: "A", text: "It depends on weather conditions and requires costly battery storage systems." },
+        { key: "B", text: "It produces more poisonous smoke than coal power plants." },
+        { key: "C", text: "It cannot be connected to school computers." },
+        { key: "D", text: "It is illegal in all developing countries." }
+      ],
+      correctAnswer: "A",
+      explanation: "Paragraf 3 menguraikan tantangan praktis: pembangkit tenaga surya dan angin sangat bergantung pada cuaca (intermittent) dan membutuhkan sistem baterai penyimpan daya yang mahal ('dependent on weather conditions... expensive battery storage systems').",
+      grammarNote: "Conjunction of contrast introducing counter-arguments: 'On the other hand'."
+    },
+    {
+      id: 14,
+      source: "Kemendikbudristek — Discussion Text: Renewable Energy vs Fossil Fuels (Fase F)",
+      type: "single_choice",
+      title: "Reading Section: Discussion Text",
+      stimulusTitle: "Text 1: The Energy Transition: Opportunities and Challenges",
+      stimulusBody: "Energy is essential for modern human life. We need electricity to light our homes, power school computers, and run industrial factories. For more than a century, fossil fuels such as coal, oil, and natural gas have been the primary energy sources worldwide. However, the environmental impact of burning fossil fuels has sparked an intense global discussion about shifting toward renewable energy.<br><br>Supporters of renewable energy emphasize its environmental and health benefits. Unlike coal and oil, renewable energy sources such as solar, wind, and hydropower do not produce harmful carbon emissions or toxic air pollutants. By investing in clean energy, nations can reduce global warming, improve public air quality, and create thousands of green jobs in engineering and construction. Furthermore, sunlight and wind are inexhaustible resources that will never run out.<br><br>On the other hand, critics point out several practical challenges of renewable energy. First, solar and wind power are dependent on weather conditions; solar panels cannot generate electricity at night, and wind turbines stop turning on calm days. Therefore, countries need expensive battery storage systems to guarantee an uninterrupted power supply. Second, building new renewable facilities requires high initial costs and large areas of land, which can be difficult for developing nations with limited budgets.<br><br>In conclusion, while fossil fuels still provide reliable energy today, renewable energy is clearly the sustainable path for our future. Governments and communities should adopt a balanced transition by improving energy efficiency, supporting clean energy research, and gradually replacing fossil fuels with modern renewable solutions.",
+      prompt: "The word 'inexhaustible' in paragraph 2 ('inexhaustible resources that will never run out') is closest in meaning to...",
+      options: [
+        { key: "A", text: "limitless and endless" },
+        { key: "B", text: "extremely expensive" },
+        { key: "C", text: "easily damaged" },
+        { key: "D", text: "harmful to health" }
+      ],
+      correctAnswer: "A",
+      explanation: "Kata 'inexhaustible' bermakna tidak ada habisnya, tak terbatas, dan selalu tersedia ('limitless and endless').",
+      grammarNote: "Adjective prefix: in- (not) + exhaustible (can be used up)."
+    },
+    {
+      id: 15,
+      source: "Kemendikbudristek — Discussion Text: Renewable Energy vs Fossil Fuels (Fase F)",
+      type: "single_choice",
+      title: "Reading Section: Discussion Text",
+      stimulusTitle: "Text 1: The Energy Transition: Opportunities and Challenges",
+      stimulusBody: "Energy is essential for modern human life. We need electricity to light our homes, power school computers, and run industrial factories. For more than a century, fossil fuels such as coal, oil, and natural gas have been the primary energy sources worldwide. However, the environmental impact of burning fossil fuels has sparked an intense global discussion about shifting toward renewable energy.<br><br>Supporters of renewable energy emphasize its environmental and health benefits. Unlike coal and oil, renewable energy sources such as solar, wind, and hydropower do not produce harmful carbon emissions or toxic air pollutants. By investing in clean energy, nations can reduce global warming, improve public air quality, and create thousands of green jobs in engineering and construction. Furthermore, sunlight and wind are inexhaustible resources that will never run out.<br><br>On the other hand, critics point out several practical challenges of renewable energy. First, solar and wind power are dependent on weather conditions; solar panels cannot generate electricity at night, and wind turbines stop turning on calm days. Therefore, countries need expensive battery storage systems to guarantee an uninterrupted power supply. Second, building new renewable facilities requires high initial costs and large areas of land, which can be difficult for developing nations with limited budgets.<br><br>In conclusion, while fossil fuels still provide reliable energy today, renewable energy is clearly the sustainable path for our future. Governments and communities should adopt a balanced transition by improving energy efficiency, supporting clean energy research, and gradually replacing fossil fuels with modern renewable solutions.",
+      prompt: "What balanced recommendation does the author provide in the final paragraph?",
+      options: [
+        { key: "A", text: "Adopt a balanced transition by improving efficiency and gradually replacing fossil fuels." },
+        { key: "B", text: "Close all electrical power stations immediately without replacement." },
+        { key: "C", text: "Stop using household lighting and computers." },
+        { key: "D", text: "Prohibit the installation of solar panels in all public schools." }
+      ],
+      correctAnswer: "A",
+      explanation: "Penulis merekomendasikan transisi energi yang seimbang dengan meningkatkan efisiensi energi dan mengganti bahan bakar fosil secara bertahap dengan energi terbarukan ('adopt a balanced transition by improving energy efficiency... and gradually replacing fossil fuels').",
+      grammarNote: "Concluding recommendation in discussion text."
+    },
+    {
+      id: 16,
+      source: "AKM Literasi Membaca — Pilihan Ganda Kompleks (True/False Matrix)",
+      type: "complex_matrix",
+      title: "Complex Multiple Choice: Renewable Energy Facts",
+      stimulusTitle: "Text 1: The Energy Transition: Opportunities and Challenges",
+      stimulusBody: "Review Text 1 (The Energy Transition: Opportunities and Challenges).",
+      prompt: "Based on Text 1, determine whether each statement regarding energy transition is **TRUE** or **FALSE**:",
+      matrixStatements: [
+        {
+          statement: "Solar and wind energy sources do not emit toxic air pollutants during power generation.",
+          isCorrect: true
+        },
+        {
+          statement: "Solar panels can generate full electrical output at midnight without sunlight.",
+          isCorrect: false
+        },
+        {
+          statement: "Investing in renewable energy can create green employment opportunities for engineers.",
+          isCorrect: true
+        },
+        {
+          statement: "Fossil fuels will remain completely inexhaustible for thousands of years.",
+          isCorrect: false
+        }
+      ],
+      explanation: "• Pernyataan 1: BENAR — Energi surya dan angin tidak mengeluarkan polutan udara saat beroperasi.<br>• Pernyataan 2: SALAH — Panel surya tidak dapat menghasilkan listrik di malam hari tanpa sinar matahari.<br>• Pernyataan 3: BENAR — Investasi energi bersih menciptakan lapangan kerja hijau bagi teknisi.<br>• Pernyataan 4: SALAH — Bahan bakar fosil adalah sumber daya yang terbatas dan akan habis.",
+      grammarNote: "Evaluating factual statements in discussion text."
+    },
+    {
+      id: 17,
+      source: "AKM Literasi Membaca — Pilihan Ganda Kompleks (True/False Matrix)",
+      type: "complex_matrix",
+      title: "Complex Multiple Choice: Job Application Writing Principles",
+      stimulusTitle: "Context: Professional Application Letters",
+      stimulusBody: "A job application letter introduces your skills and experiences to prospective employers.",
+      prompt: "Determine whether each statement regarding professional application letters is **TRUE** or **FALSE**:",
+      matrixStatements: [
+        {
+          statement: "The opening paragraph should clearly state the specific position you are applying for.",
+          isCorrect: true
+        },
+        {
+          statement: "Applicants should invent fake diplomas and unearned awards to impress employers.",
+          isCorrect: false
+        },
+        {
+          statement: "Highlighting relevant school projects and organizational leadership demonstrates competence.",
+          isCorrect: true
+        },
+        {
+          statement: "Proofreading the letter helps eliminate spelling mistakes and grammatical errors.",
+          isCorrect: true
+        }
+      ],
+      explanation: "• Pernyataan 1: BENAR — Paragraf pembuka harus menyebutkan posisi yang dilamar secara jelas.<br>• Pernyataan 2: SALAH — Berbohong atau memalsukan ijazah adalah pelanggaran hukum dan etika.<br>• Pernyataan 3: BENAR — Menjelaskan proyek sekolah dan pengalaman organisasi membuktikan kompetensi diri.<br>• Pernyataan 4: BENAR — Memeriksa ulang tulisan (proofreading) mencegah kesalahan ejaan dan tata bahasa.",
+      grammarNote: "Principles of formal application letters."
+    },
+    {
+      id: 18,
+      source: "AKM Literasi Membaca — Pilihan Ganda Kompleks (True/False Matrix)",
+      type: "complex_matrix",
+      title: "Complex Multiple Choice: Cause and Effect Relations",
+      stimulusTitle: "Text 1: The Energy Transition: Opportunities and Challenges",
+      stimulusBody: "Review Text 1 (The Energy Transition: Opportunities and Challenges).",
+      prompt: "Based on cause-and-effect relationships in Text 1, determine whether each statement is **TRUE** or **FALSE**:",
+      matrixStatements: [
+        {
+          statement: "Carbon emissions from burning coal trap atmospheric heat, contributing to global warming.",
+          isCorrect: true
+        },
+        {
+          statement: "Because solar and wind power depend on weather conditions, backup storage systems are required.",
+          isCorrect: true
+        },
+        {
+          statement: "Renewable energy facilities are cheap and require no initial capital investment.",
+          isCorrect: false
+        },
+        {
+          statement: "Shifting to clean energy helps improve air quality and public respiratory health.",
+          isCorrect: true
+        }
+      ],
+      explanation: "• Pernyataan 1: BENAR — Emisi karbon memerangkap panas di atmosfer sehingga memicu pemanasan global.<br>• Pernyataan 2: BENAR — Karena bergantung pada cuaca, sistem penyimpanan baterai sangat diperlukan.<br>• Pernyataan 3: SALAH — Fasilitas energi terbarukan memerlukan biaya investasi awal yang cukup tinggi.<br>• Pernyataan 4: BENAR — Beralih ke energi bersih memperbaiki kualitas udara dan kesehatan pernapasan masyarakat.",
+      grammarNote: "Cause and effect logic in expository text."
+    },
+    {
+      id: 19,
+      source: "AKM Literasi Membaca — Pilihan Ganda Kompleks (True/False Matrix)",
+      type: "complex_matrix",
+      title: "Complex Multiple Choice: Interview Preparation Standards",
+      stimulusTitle: "Context: Job Interview Etiquette",
+      stimulusBody: "Proper interview preparation boosts self-confidence and leaves a positive impression.",
+      prompt: "Determine whether each statement below regarding job interview preparation is **TRUE** or **FALSE**:",
+      matrixStatements: [
+        {
+          statement: "Researching the company's background helps applicants answer questions knowledgeably.",
+          isCorrect: true
+        },
+        {
+          statement: "Arriving fifteen minutes early demonstrates punctuality and professional commitment.",
+          isCorrect: true
+        },
+        {
+          statement: "Wearing casual beach clothes to a formal interview makes a professional impression.",
+          isCorrect: false
+        },
+        {
+          statement: "Speaking calmly and maintaining eye contact conveys confidence and sincerity.",
+          isCorrect: true
+        }
+      ],
+      explanation: "• Pernyataan 1: BENAR — Mempelajari profil perusahaan membantu pelamar menjawab pertanyaan dengan berbobot.<br>• Pernyataan 2: BENAR — Hadir 15 menit lebih awal menunjukkan kedisiplinan dan komitmen profesional.<br>• Pernyataan 3: SALAH — Pakaian santai pantai tidak pantas untuk wawancara kerja formal.<br>• Pernyataan 4: BENAR — Berbicara tenang dan menjaga kontak mata menunjukkan rasa percaya diri dan ketulusan.",
+      grammarNote: "Professional workplace communication standards."
+    },
+    {
+      id: 20,
+      source: "AKM Literasi Membaca — Pilihan Ganda Kompleks (True/False Matrix)",
+      type: "complex_matrix",
+      title: "Complex Multiple Choice: Discussion Text Perspectives",
+      stimulusTitle: "Text 1: The Energy Transition: Opportunities and Challenges",
+      stimulusBody: "Review Text 1 (The Energy Transition: Opportunities and Challenges).",
+      prompt: "Determine whether each viewpoint accurately reflects arguments presented in Text 1 (**TRUE**) or misrepresents them (**FALSE**):",
+      matrixStatements: [
+        {
+          statement: "Proponents argue that renewable energy provides endless power without air pollution.",
+          isCorrect: true
+        },
+        {
+          statement: "Critics emphasize that initial installation costs and land requirements pose financial challenges.",
+          isCorrect: true
+        },
+        {
+          statement: "The author demands that developing nations stop all electrical power immediately.",
+          isCorrect: false
+        },
+        {
+          statement: "The author advocates for a balanced transition supported by energy efficiency improvements.",
+          isCorrect: true
+        }
+      ],
+      explanation: "• Pernyataan 1: BENAR — Pendukung menyatakan energi bersih tidak terbatas dan bebas polusi.<br>• Pernyataan 2: BENAR — Pengkritik menyoroti biaya instalasi dan kebutuhan lahan yang besar.<br>• Pernyataan 3: SALAH — Penulis tidak pernah menuntut penghentian listrik secara mendadak.<br>• Pernyataan 4: BENAR — Penulis menganjurkan transisi bertahap yang seimbang dengan efisiensi energi.",
+      grammarNote: "Identifying supporting and opposing arguments in discussion texts."
+    },
+    {
+      id: 21,
+      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      type: "mcma",
+      title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+      stimulusTitle: "Text 1: The Energy Transition: Opportunities and Challenges",
+      stimulusBody: "Review Text 1 (The Energy Transition: Opportunities and Challenges).",
+      prompt: "Which **TWO (2)** core benefits of renewable energy are emphasized by proponents in Text 1?",
+      options: [
+        { key: "A", text: "It produces clean power without harmful carbon emissions or toxic air pollutants." },
+        { key: "B", text: "It eliminates the need for electricity bills in all homes immediately." },
+        { key: "C", text: "It relies on natural resources like sunlight and wind that will never run out." },
+        { key: "D", text: "It operates without needing any land or electrical maintenance." }
+      ],
+      correctAnswer: ["A", "C"],
+      explanation: "Dua keunggulan utama energi terbarukan menurut teks adalah tidak menghasilkan emisi karbon atau polusi beracun, serta bersumber dari alam (matahari dan angin) yang tidak akan pernah habis.",
+      grammarNote: "Two supporting points in discussion text."
+    },
+    {
+      id: 22,
+      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      type: "mcma",
+      title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+      stimulusTitle: "Context: Application Letter Structure",
+      stimulusBody: "A standard job application letter contains essential structural elements.",
+      prompt: "Which **TWO (2)** structural components must be clearly stated in a professional application letter?",
+      options: [
+        { key: "A", text: "The specific job title being applied for and where the vacancy was advertised." },
+        { key: "B", text: "A detailed list of the applicant's childhood arguments with siblings." },
+        { key: "C", text: "Relevant academic background, practical skills, and organizational achievements." },
+        { key: "D", text: "A demand for guaranteed promotions before the interview takes place." }
+      ],
+      correctAnswer: ["A", "C"],
+      explanation: "Dua komponen wajib dalam surat lamaran kerja adalah posisi spesifik yang dilamar beserta sumber info lowongan, serta kualifikasi relevan seperti latar belakang pendidikan, keahlian, dan prestasi organisasi.",
+      grammarNote: "Key elements of formal business letters."
+    },
+    {
+      id: 23,
+      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      type: "mcma",
+      title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+      stimulusTitle: "Grammar: Real Conditionals with Unless & If",
+      stimulusBody: "Conditionals express conditions and their expected results.",
+      prompt: "Which **TWO (2)** sentences correctly use conditional conjunctions (**If** or **Unless**)?",
+      options: [
+        { key: "A", text: "If applicants prepare thoroughly, they will feel more confident during the interview." },
+        { key: "B", text: "Unless you do not practice, you will fail the speaking test." },
+        { key: "C", text: "You will not make a good impression unless you arrive on time for the meeting." },
+        { key: "D", text: "If the company will hire him, he started working yesterday." }
+      ],
+      correctAnswer: ["A", "C"],
+      explanation: "Dua kalimat yang menggunakan kondisional secara baku adalah kalimat 'If applicants prepare thoroughly, they will feel...' dan 'You will not make a good impression unless you arrive on time...'. Pilihan B salah karena terjadi 'double negative' (Unless + do not), dan pilihan D salah tenses pada if-clause.",
+      grammarNote: "First conditional and unless clause rules."
+    },
+    {
+      id: 24,
+      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      type: "mcma",
+      title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+      stimulusTitle: "Context: Career Readiness",
+      stimulusBody: "Preparation helps high school graduates transition into work and higher study.",
+      prompt: "Which **TWO (2)** actions demonstrate proactive career preparation for graduating seniors?",
+      options: [
+        { key: "A", text: "Building a portfolio of school design projects and certificates of achievement." },
+        { key: "B", text: "Submitting incomplete application forms five minutes after the deadline." },
+        { key: "C", text: "Practicing common interview questions with classmates or teachers." },
+        { key: "D", text: "Refusing to learn how to compose formal email messages." }
+      ],
+      correctAnswer: ["A", "C"],
+      explanation: "Dua tindakan proaktif mempersiapkan karir adalah menyusun portofolio karya dan sertifikat prestasi, serta berlatih menjawab pertanyaan wawancara kerja bersama teman atau guru.",
+      grammarNote: "Parallel gerund phrases: building, practicing."
+    },
+    {
+      id: 25,
+      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      type: "mcma",
+      title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+      stimulusTitle: "Grammar: Cause and Effect Connectors",
+      stimulusBody: "Connectors like 'because of' and 'therefore' show cause and effect.",
+      prompt: "Which **TWO (2)** sentences correctly employ cause-and-effect connectors?",
+      options: [
+        { key: "A", text: "The flight was delayed because of the severe rainstorm over the airport." },
+        { key: "B", text: "Because of he studied hard, he achieved the highest mark in English." },
+        { key: "C", text: "Siti organized her study time effectively; therefore, she completed the project early." },
+        { key: "D", text: "Therefore the weather was hot, the workers continued their shift." }
+      ],
+      correctAnswer: ["A", "C"],
+      explanation: "Dua kalimat yang menggunakan konjungsi sebab-akibat secara tepat adalah kalimat dengan 'because of + noun phrase' ('because of the severe rainstorm') dan konjungsi internal 'therefore' ('therefore, she completed the project early'). Pilihan B salah karena 'because of' diikuti klausa berpredikat, dan pilihan D salah karena 'therefore' bukan kata hubung pertentangan.",
+      grammarNote: "Cause and effect rules: because of + NP; therefore + independent clause."
+    },
+    {
+      id: 26,
+      source: "Kemendikbudristek — Application Letter Analysis (Fase F Kelas XII)",
+      type: "single_choice",
+      title: "Reading Section: Job Application Letter",
+      stimulusTitle: "Text 2: Graphic Design Internship Application",
+      stimulusBody: "Dear Mr. Pratama,<br><br>I am writing to express my strong interest in the Graphic Design Internship position advertised on your company website on October 12, 2026. As a dedicated twelfth-grade student majoring in Visual Communication at SMA 1 Bae Kudus, I have developed solid skills in digital illustration, photo editing, and creative layout design.<br><br>During my high school studies, I served as the head of the publication team for our school magazine. In this role, I designed event posters, created social media graphics, and collaborated with teammates under strict deadlines. My teachers commend me for my creativity, attention to detail, and positive work ethic. I am proficient in using design software such as Adobe Photoshop and Canva.<br><br>I believe that my creative background and eagerness to learn make me a valuable addition to your creative department. Enclosed are my curriculum vitae, academic certificates, and design portfolio for your review.<br><br>Thank you for considering my application. I would welcome the opportunity to discuss my qualifications in an interview. I can be contacted at 0812-3456-7890 or via email at siti.rahma@email.com.<br><br>Sincerely,<br>Siti Rahma",
+      prompt: "What is the primary objective of Siti Rahma's letter?",
+      options: [
+        { key: "A", text: "To apply for the Graphic Design Internship position at the company." },
+        { key: "B", text: "To complain about a malfunctioning design computer." },
+        { key: "C", text: "To invite Mr. Pratama to a school sports tournament." },
+        { key: "D", text: "To resign from her position as head of publication." }
+      ],
+      correctAnswer: "A",
+      explanation: "Tujuan utama surat Siti Rahma adalah melamar posisi magang Desain Grafis (Graphic Design Internship) yang diiklankan di situs web perusahaan ('apply for the Graphic Design Internship position').",
+      grammarNote: "Communicative purpose of an application letter: to apply for a job/internship."
+    },
+    {
+      id: 27,
+      source: "Kemendikbudristek — Application Letter Analysis (Fase F Kelas XII)",
+      type: "single_choice",
+      title: "Reading Section: Job Application Letter",
+      stimulusTitle: "Text 2: Graphic Design Internship Application",
+      stimulusBody: "Dear Mr. Pratama,<br><br>I am writing to express my strong interest in the Graphic Design Internship position advertised on your company website on October 12, 2026. As a dedicated twelfth-grade student majoring in Visual Communication at SMA 1 Bae Kudus, I have developed solid skills in digital illustration, photo editing, and creative layout design.<br><br>During my high school studies, I served as the head of the publication team for our school magazine. In this role, I designed event posters, created social media graphics, and collaborated with teammates under strict deadlines. My teachers commend me for my creativity, attention to detail, and positive work ethic. I am proficient in using design software such as Adobe Photoshop and Canva.<br><br>I believe that my creative background and eagerness to learn make me a valuable addition to your creative department. Enclosed are my curriculum vitae, academic certificates, and design portfolio for your review.<br><br>Thank you for considering my application. I would welcome the opportunity to discuss my qualifications in an interview. I can be contacted at 0812-3456-7890 or via email at siti.rahma@email.com.<br><br>Sincerely,<br>Siti Rahma",
+      prompt: "What practical leadership experience did Siti gain during her time at SMA 1 Bae?",
+      options: [
+        { key: "A", text: "Leading the school magazine publication team and designing event posters." },
+        { key: "B", text: "Managing financial audit reports for an international bank." },
+        { key: "C", text: "Driving the school tour bus across Central Java." },
+        { key: "D", text: "Working as a full-time university lecturer." }
+      ],
+      correctAnswer: "A",
+      explanation: "Paragraf 2 menyatakan bahwa Siti memimpin tim publikasi majalah sekolah dan merancang poster kegiatan serta grafis media sosial ('head of the publication team for our school magazine... designed event posters').",
+      grammarNote: "Past simple recount in body paragraph: 'I served as the head of the publication team'."
+    },
+    {
+      id: 28,
+      source: "Kemendikbudristek — Application Letter Analysis (Fase F Kelas XII)",
+      type: "single_choice",
+      title: "Reading Section: Job Application Letter",
+      stimulusTitle: "Text 2: Graphic Design Internship Application",
+      stimulusBody: "Dear Mr. Pratama,<br><br>I am writing to express my strong interest in the Graphic Design Internship position advertised on your company website on October 12, 2026. As a dedicated twelfth-grade student majoring in Visual Communication at SMA 1 Bae Kudus, I have developed solid skills in digital illustration, photo editing, and creative layout design.<br><br>During my high school studies, I served as the head of the publication team for our school magazine. In this role, I designed event posters, created social media graphics, and collaborated with teammates under strict deadlines. My teachers commend me for my creativity, attention to detail, and positive work ethic. I am proficient in using design software such as Adobe Photoshop and Canva.<br><br>I believe that my creative background and eagerness to learn make me a valuable addition to your creative department. Enclosed are my curriculum vitae, academic certificates, and design portfolio for your review.<br><br>Thank you for considering my application. I would welcome the opportunity to discuss my qualifications in an interview. I can be contacted at 0812-3456-7890 or via email at siti.rahma@email.com.<br><br>Sincerely,<br>Siti Rahma",
+      prompt: "Which software applications is the applicant proficient in using?",
+      options: [
+        { key: "A", text: "Adobe Photoshop and Canva." },
+        { key: "B", text: "Heavy industrial welding tools." },
+        { key: "C", text: "Electronic surgical machinery." },
+        { key: "D", text: "Automated greenhouse water pipes." }
+      ],
+      correctAnswer: "A",
+      explanation: "Paragraf 2 menyebutkan secara eksplisit bahwa Siti mahir menggunakan perangkat lunak Adobe Photoshop dan Canva ('proficient in using design software such as Adobe Photoshop and Canva').",
+      grammarNote: "Prepositional phrase: 'proficient in using design software'."
+    },
+    {
+      id: 29,
+      source: "Kemendikbudristek — Application Letter Analysis (Fase F Kelas XII)",
+      type: "single_choice",
+      title: "Reading Section: Job Application Letter",
+      stimulusTitle: "Text 2: Graphic Design Internship Application",
+      stimulusBody: "Dear Mr. Pratama,<br><br>I am writing to express my strong interest in the Graphic Design Internship position advertised on your company website on October 12, 2026. As a dedicated twelfth-grade student majoring in Visual Communication at SMA 1 Bae Kudus, I have developed solid skills in digital illustration, photo editing, and creative layout design.<br><br>During my high school studies, I served as the head of the publication team for our school magazine. In this role, I designed event posters, created social media graphics, and collaborated with teammates under strict deadlines. My teachers commend me for my creativity, attention to detail, and positive work ethic. I am proficient in using design software such as Adobe Photoshop and Canva.<br><br>I believe that my creative background and eagerness to learn make me a valuable addition to your creative department. Enclosed are my curriculum vitae, academic certificates, and design portfolio for your review.<br><br>Thank you for considering my application. I would welcome the opportunity to discuss my qualifications in an interview. I can be contacted at 0812-3456-7890 or via email at siti.rahma@email.com.<br><br>Sincerely,<br>Siti Rahma",
+      prompt: "The word 'proficient' in paragraph 2 ('I am proficient in using design software') is closest in meaning to...",
+      options: [
+        { key: "A", text: "skilled and competent" },
+        { key: "B", text: "completely untrained" },
+        { key: "C", text: "hesitant and fearful" },
+        { key: "D", text: "careless and slow" }
+      ],
+      correctAnswer: "A",
+      explanation: "Kata 'proficient' bermakna mahir, terampil, dan menguasai bidang tertentu ('skilled and competent').",
+      grammarNote: "Adjective synonym: proficient = skilled/competent."
+    },
+    {
+      id: 30,
+      source: "Kemendikbudristek — Application Letter Analysis (Fase F Kelas XII)",
+      type: "single_choice",
+      title: "Reading Section: Job Application Letter",
+      stimulusTitle: "Text 2: Graphic Design Internship Application",
+      stimulusBody: "Dear Mr. Pratama,<br><br>I am writing to express my strong interest in the Graphic Design Internship position advertised on your company website on October 12, 2026. As a dedicated twelfth-grade student majoring in Visual Communication at SMA 1 Bae Kudus, I have developed solid skills in digital illustration, photo editing, and creative layout design.<br><br>During my high school studies, I served as the head of the publication team for our school magazine. In this role, I designed event posters, created social media graphics, and collaborated with teammates under strict deadlines. My teachers commend me for my creativity, attention to detail, and positive work ethic. I am proficient in using design software such as Adobe Photoshop and Canva.<br><br>I believe that my creative background and eagerness to learn make me a valuable addition to your creative department. Enclosed are my curriculum vitae, academic certificates, and design portfolio for your review.<br><br>Thank you for considering my application. I would welcome the opportunity to discuss my qualifications in an interview. I can be contacted at 0812-3456-7890 or via email at siti.rahma@email.com.<br><br>Sincerely,<br>Siti Rahma",
+      prompt: "What action does Siti politely request in the closing paragraph of her letter?",
+      options: [
+        { key: "A", text: "An opportunity to discuss her qualifications in an interview." },
+        { key: "B", text: "An immediate advance payment for three months." },
+        { key: "C", text: "Free airplane tickets to Magelang." },
+        { key: "D", text: "A letter canceling all school exams." }
+      ],
+      correctAnswer: "A",
+      explanation: "Di bagian penutup, Siti dengan santun meminta kesempatan untuk mendiskusikan kualifikasinya dalam sesi wawancara ('welcome the opportunity to discuss my qualifications in an interview').",
+      grammarNote: "Formal closing request: 'I would welcome the opportunity to discuss my qualifications'."
+    },
+    {
+      id: 31,
+      source: "Kaidah Tata Bahasa Kelas XII — Concession Connectors",
+      type: "single_choice",
+      title: "Grammar & Structure: Connectors of Concession",
+      prompt: "Choose the correct conjunction to complete the sentence showing contrast:<br><br><em>'_______ the installation cost of solar panels is high, it saves significant money on electricity bills over time.'</em>",
+      options: [
+        { key: "A", text: "Although" },
+        { key: "B", text: "Because" },
+        { key: "C", text: "Unless" },
+        { key: "D", text: "Since" }
+      ],
+      correctAnswer: "A",
+      explanation: "Kata hubung yang menyatakan hubungan konsesif (pertentangan) yang diikuti oleh klausa lengkap adalah 'Although' (meskipun/walaupun).",
+      grammarNote: "Concession: Although + clause, main clause."
+    },
+    {
+      id: 32,
+      source: "Kaidah Tata Bahasa Kelas XII — Cause Prepositions",
+      type: "single_choice",
+      title: "Grammar & Structure: Cause Connectors",
+      prompt: "Select the correct connector before the noun phrase 'global climate change':<br><br><em>'Many coastal regions face higher flood risks _______ global climate change.'</em>",
+      options: [
+        { key: "A", text: "because of" },
+        { key: "B", text: "so that" },
+        { key: "C", text: "although" },
+        { key: "D", text: "in order to" }
+      ],
+      correctAnswer: "A",
+      explanation: "Frasa 'global climate change' adalah Noun Phrase. Kata hubung penyebab yang diikuti oleh noun phrase adalah 'because of'.",
+      grammarNote: "Because of + Noun Phrase (menyatakan sebab)."
+    },
+    {
+      id: 33,
+      source: "Kaidah Tata Bahasa Kelas XII — Conditionals (Unless)",
+      type: "single_choice",
+      title: "Grammar & Structure: Conditional Clauses",
+      prompt: "Complete the sentence with the conditional conjunction meaning **'if not'**:<br><br><em>'You will not succeed in a job interview _______ you prepare thoroughly and research the company.'</em>",
+      options: [
+        { key: "A", text: "unless" },
+        { key: "B", text: "although" },
+        { key: "C", text: "because" },
+        { key: "D", text: "so that" }
+      ],
+      correctAnswer: "A",
+      explanation: "Konjungsi 'unless' bermakna 'if not' (kecuali jika / jika tidak). Pelamar tidak akan sukses dalam wawancara kecuali jika mereka mempersiapkan diri dengan matang.",
+      grammarNote: "Unless = if... not."
+    },
+    {
+      id: 34,
+      source: "Kaidah Tata Bahasa Kelas XII — Real Conditionals",
+      type: "single_choice",
+      title: "Grammar & Structure: First Conditional",
+      prompt: "Select the correct verb form to complete the first conditional sentence:<br><br><em>'If the company offers Siti the internship, she _______ accept it enthusiastically.'</em>",
+      options: [
+        { key: "A", text: "will" },
+        { key: "B", text: "would have" },
+        { key: "C", text: "had" },
+        { key: "D", text: "was" }
+      ],
+      correctAnswer: "A",
+      explanation: "Pola baku kalimat pengandaian tipe 1 (First Conditional) adalah: If + Subject + V1 (Simple Present), Subject + will + V1. Maka kata kerja bantu yang tepat adalah 'will'.",
+      grammarNote: "First conditional: If + V1, will + V1."
+    },
+    {
+      id: 35,
+      source: "Kaidah Tata Bahasa Kelas XII — Modals for Professional Advice",
+      type: "single_choice",
+      title: "Grammar & Structure: Modal Auxiliaries",
+      prompt: "Which modal verb appropriately expresses strong professional advice?<br><br><em>'Job applicants _______ arrive at the interview location fifteen minutes early.'</em>",
+      options: [
+        { key: "A", text: "should" },
+        { key: "B", text: "might have" },
+        { key: "C", text: "would have" },
+        { key: "D", text: "were" }
+      ],
+      correctAnswer: "A",
+      explanation: "Modal 'should' digunakan untuk menyatakan saran atau anjuran profesional yang sangat dianjurkan ('should arrive').",
+      grammarNote: "Modal for recommendation: Subject + should + V1."
+    },
+    {
+      id: 36,
+      source: "Kaidah Tata Bahasa Kelas XII — Present Passive Voice",
+      type: "single_choice",
+      title: "Grammar & Structure: Passive Voice",
+      prompt: "Complete the passive sentence with the correct auxiliary verb:<br><br><em>'Clean electricity _______ generated by solar panels without producing carbon emissions.'</em>",
+      options: [
+        { key: "A", text: "is" },
+        { key: "B", text: "are" },
+        { key: "C", text: "were" },
+        { key: "D", text: "has" }
+      ],
+      correctAnswer: "A",
+      explanation: "Subjek tak dapat dihitung (uncountable noun) 'Clean electricity' bernilai tunggal. Rumus pasif Simple Present tunggal adalah: is + V3 ('is generated').",
+      grammarNote: "Passive voice (singular/uncountable): is + V3."
+    },
+    {
+      id: 37,
+      source: "Kaidah Tata Bahasa Kelas XII — Conjunctive Adverbs (Therefore)",
+      type: "single_choice",
+      title: "Grammar & Structure: Cause-and-Effect Connectors",
+      prompt: "Choose the correct conjunctive adverb expressing result:<br><br><em>'Siti practiced digital design software diligently; _______, she created an outstanding portfolio.'</em>",
+      options: [
+        { key: "A", text: "therefore" },
+        { key: "B", text: "although" },
+        { key: "C", text: "because" },
+        { key: "D", text: "unless" }
+      ],
+      correctAnswer: "A",
+      explanation: "Kata keterangan penghubung yang menyatakan hasil/akibat setelah tanda titik koma adalah 'therefore' (oleh karena itu).",
+      grammarNote: "Conjunctive adverb of result: therefore."
+    },
+    {
+      id: 38,
+      source: "Kaidah Tata Bahasa Kelas XII — Preposition with Gerund",
+      type: "single_choice",
+      title: "Grammar & Structure: Preposition + Gerund",
+      prompt: "Choose the correct form to complete the sentence after the preposition 'before':<br><br><em>'Before _______ her application letter, Siti proofread every paragraph carefully.'</em>",
+      options: [
+        { key: "A", text: "submitting" },
+        { key: "B", text: "submit" },
+        { key: "C", text: "submitted" },
+        { key: "D", text: "submits" }
+      ],
+      correctAnswer: "A",
+      explanation: "Setelah preposisi seperti 'before', 'after', atau 'without', kata kerja harus diubah ke bentuk gerund (V-ing): 'Before submitting...'.",
+      grammarNote: "Preposition + Gerund (V-ing)."
+    },
+    {
+      id: 39,
+      source: "Kaidah Tata Bahasa Kelas XII — Collocations",
+      type: "single_choice",
+      title: "Grammar & Structure: Word Collocation",
+      prompt: "Which adjective pairs naturally with the noun 'role' in an environmental context?<br><br><em>'Renewable energy plays an _______ role in reducing harmful air pollution.'</em>",
+      options: [
+        { key: "A", text: "essential" },
+        { key: "B", text: "expensive" },
+        { key: "C", text: "angry" },
+        { key: "D", text: "impolite" }
+      ],
+      correctAnswer: "A",
+      explanation: "Kolokasi kata sifat yang tepat dan alami dengan kata 'role' adalah 'an essential role' (peran yang sangat penting/esensial) atau 'a vital role'.",
+      grammarNote: "Collocation: play an essential role."
+    },
+    {
+      id: 40,
+      source: "Kaidah Tata Bahasa Kelas XII — Correlative Conjunctions",
+      type: "single_choice",
+      title: "Grammar & Structure: Subject-Verb Agreement",
+      prompt: "Choose the correct verb form agreeing with the plural subject in this sentence:<br><br><em>'Neither the manager nor the applicants _______ informed about the room change.'</em>",
+      options: [
+        { key: "A", text: "were" },
+        { key: "B", text: "was" },
+        { key: "C", text: "is" },
+        { key: "D", text: "has" }
+      ],
+      correctAnswer: "A",
+      explanation: "Dalam konstruksi 'Neither... nor...', kata kerja menyesuaikan dengan subjek yang paling dekat (proximity rule). Subjek terdekat adalah 'the applicants' (jamak), sehingga to-be lampau yang tepat adalah 'were'.",
+      grammarNote: "Proximity rule in correlative conjunctions: Neither A nor B + verb agrees with B."
+    }
+  ];
 }
 
 
-
-
-let studentIdentity = {
-  tingkat: "XII-F",
-  rombel: "1",
-  presensi: "1",
-  nama: "Siswa Kelas XII (Fase F+)"
-};
-
-let currentMode = "practice";
 let currentQuestionIndex = 0;
 let userAnswers = {};
 let flaggedQuestions = new Set();
 let timerInterval = null;
 let remainingSeconds = 90 * 60;
+let studentIdentity = { tingkat: "XII", rombel: "1", presensi: "1", nama: "Siswa SMA 1 Bae" };
+let currentMode = "practice";
 let isExamSubmitted = false;
 let audioSpeechRate = 1.0;
 let questions = [];
@@ -1435,7 +838,7 @@ function randomizeQuestionOptions(rawQuestions) {
       return q;
     }
     const cloned = JSON.parse(JSON.stringify(q));
-    // NOTE: DO NOT shuffle complex_matrix statements so that Pernyataan 1, 2, 3, 4 strictly match table rows
+    // Complex matrix statements maintain their logical order
     if (cloned.type !== "complex_matrix" && Array.isArray(cloned.options) && cloned.options.length > 0) {
       const opts = [...cloned.options];
       const isMCMA = cloned.type === "mcma" && Array.isArray(cloned.correctAnswer);
@@ -1466,51 +869,89 @@ function randomizeQuestionOptions(rawQuestions) {
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  
-  loadStudentProfile();
-  initTestState();
+window.addEventListener("DOMContentLoaded", () => {
+  initStudentData();
 });
 
-function loadStudentProfile() {
+function initStudentData() {
   try {
-    const raw = sessionStorage.getItem("sabaku_student");
-    if (raw) {
-      const data = JSON.parse(raw);
-      if (data.tingkat) studentIdentity.tingkat = data.tingkat;
-      if (data.rombel) studentIdentity.rombel = data.rombel;
-      if (data.presensi) studentIdentity.presensi = data.presensi;
-      if (data.nama) studentIdentity.nama = data.nama;
+    const rawPortal = localStorage.getItem("sabaku_current_student");
+    if (rawPortal) {
+      const portalData = JSON.parse(rawPortal);
+      studentIdentity = {
+        tingkat: portalData.tingkat || "XII",
+        rombel: portalData.rombel || "1",
+        presensi: portalData.presensi || "1",
+        nama: portalData.nama || "Siswa Kelas XII"
+      };
+      currentMode = portalData.mode || "practice";
+      startFreshTest();
+      return;
     }
   } catch (e) {
-    console.warn("Could not read student profile:", e);
+    console.warn("Portal data error:", e);
   }
+  const modal = document.getElementById("identity-prompt-modal");
+  if (modal) modal.style.display = "flex";
+  else startFreshTest();
 }
 
-function initTestState() {
+function handleDirectIdentitySubmit(e) {
+  if (e) e.preventDefault();
+  const namaEl = document.getElementById("direct-nama");
+  const rombelEl = document.getElementById("direct-rombel");
+  const presensiEl = document.getElementById("direct-presensi");
+  const modeEl = document.getElementById("direct-mode");
+  
+  studentIdentity = {
+    tingkat: "XII",
+    rombel: rombelEl ? rombelEl.value : "1",
+    presensi: presensiEl ? presensiEl.value.trim() : "1",
+    nama: (namaEl && namaEl.value.trim()) ? namaEl.value.trim() : "Siswa Kelas XII"
+  };
+  if (modeEl) currentMode = modeEl.value;
+  const modal = document.getElementById("identity-prompt-modal");
+  if (modal) modal.style.display = "none";
+  startFreshTest();
+}
+
+function validateDirectPresensi(input) {
+  let val = input.value.replace(/\D/g, "");
+  if (val.startsWith("0")) val = val.replace(/^0+/, "");
+  let num = parseInt(val, 10);
+  if (num > 36) val = "36";
+  input.value = val;
+}
+
+function toggleDirectToken(mode) {}
+
+function startFreshTest() {
   userAnswers = {};
   flaggedQuestions.clear();
   isExamSubmitted = false;
   remainingSeconds = 90 * 60;
   currentQuestionIndex = 0;
 
-  const rawBank = (typeof getGrade12AsasQuestions === "function") ? getGrade12AsasQuestions() :
-                  (typeof getGrade12AstsQuestions === "function") ? getGrade12AstsQuestions() : [];
+  const rawBank = (typeof getGrade12AsasQuestions === "function") ? getGrade12AsasQuestions() : [];
 
-  questions = randomizeQuestionOptions(rawBank);
-
+  let restoredQuestions = null;
   try {
     const saved = localStorage.getItem("sabaku_asas_progress_XII");
     if (saved) {
       const parsed = JSON.parse(saved);
+      if (Array.isArray(parsed.questions) && parsed.questions.length > 0) {
+        restoredQuestions = parsed.questions;
+      }
       if (parsed.userAnswers) userAnswers = parsed.userAnswers;
       if (parsed.flaggedQuestions) flaggedQuestions = new Set(parsed.flaggedQuestions);
-      if (parsed.remainingSeconds) remainingSeconds = parsed.remainingSeconds;
+      if (parsed.remainingSeconds !== undefined) remainingSeconds = parsed.remainingSeconds;
       if (parsed.currentIndex !== undefined) currentQuestionIndex = parsed.currentIndex;
     }
   } catch (err) {
     console.warn("Progress restore warning:", err);
   }
+
+  questions = restoredQuestions || randomizeQuestionOptions(rawBank);
 
   applyStudentMetadata();
   buildNavigatorGrid();
@@ -1521,41 +962,40 @@ function initTestState() {
 
 function applyStudentMetadata() {
   const modeBadge = document.getElementById("nav-mode-badge");
-  modeBadge.textContent = (currentMode === "practice") ? "🎯 Mode Latihan ASAS Gasal" : "🔒 Asesmen Resmi ASAS Gasal";
-  modeBadge.className = "badge-mode " + (currentMode === "practice" ? "practice" : "exam");
-  document.getElementById("side-student-name").textContent = studentIdentity.nama;
-  document.getElementById("side-student-meta").textContent = `Kelas XII (Fase F+) | Rombel ${studentIdentity.rombel} | Presensi ${studentIdentity.presensi}`;
+  if (modeBadge) {
+    modeBadge.textContent = (currentMode === "practice") ? "🎯 Mode Latihan ASAS Gasal Kelas XII" : "📝 Asesmen Resmi ASAS Gasal Kelas XII";
+    modeBadge.className = "badge-mode " + (currentMode === "practice" ? "practice" : "exam");
+  }
+  const nameEl = document.getElementById("side-student-name");
+  if (nameEl) nameEl.textContent = studentIdentity.nama;
+  const rombelEl = document.getElementById("side-student-rombel");
+  if (rombelEl) rombelEl.textContent = studentIdentity.rombel;
+  const presensiEl = document.getElementById("side-student-presensi");
+  if (presensiEl) presensiEl.textContent = studentIdentity.presensi;
 }
 
 function toggleKisiKisiContent() {
-  const body = document.getElementById("kisi-kisi-body");
-  if (!body) return;
-  const icon = document.getElementById("kisi-toggle-icon");
-  if (body.style.display === "none") {
-    body.style.display = "block";
-    if (icon) icon.textContent = "▲ Sembunyikan Kisi-Kisi";
-  } else {
-    body.style.display = "none";
-    if (icon) icon.textContent = "▼ Buka Kisi-Kisi Lengkap";
-  }
+  const content = document.getElementById("kisi-kisi-content-area");
+  const icon = document.getElementById("kisi-kisi-expand-icon");
+  if (!content) return;
+  const isHidden = content.style.display === "none";
+  content.style.display = isHidden ? "block" : "none";
+  if (icon) icon.textContent = isHidden ? "▲" : "▼";
 }
 
 function toggleKisiKisiModal() {
-  const body = document.getElementById("kisi-kisi-body");
-  if (!body) return;
-  body.style.display = "block";
-  const icon = document.getElementById("kisi-toggle-icon");
-  if (icon) icon.textContent = "▲ Sembunyikan Kisi-Kisi";
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  const modal = document.getElementById("kisi-kisi-modal");
+  if (!modal) return;
+  modal.style.display = (modal.style.display === "flex") ? "none" : "flex";
 }
 
 function buildNavigatorGrid() {
-  const grid = document.getElementById("question-navigator-grid");
+  const grid = document.getElementById("navigator-grid");
+  if (!grid) return;
   grid.innerHTML = "";
   questions.forEach((q, idx) => {
     const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "q-num-btn";
+    btn.className = "nav-btn";
     btn.id = `nav-btn-${idx}`;
     btn.textContent = idx + 1;
     btn.onclick = () => renderQuestion(idx);
@@ -1589,81 +1029,103 @@ function renderQuestion(index) {
   const q = questions[index];
   stopAudio();
 
-  document.getElementById("q-number-badge").textContent = `Soal No. ${q.id} dari ${questions.length}`;
-  document.getElementById("q-type-badge").textContent = q.title || "Pilihan Ganda";
+  const numBadge = document.getElementById("q-number-badge");
+  if (numBadge) numBadge.textContent = `Soal No. ${q.id} dari ${questions.length}`;
+  const typeBadge = document.getElementById("q-type-badge");
+  if (typeBadge) typeBadge.textContent = q.title || "Pilihan Ganda";
 
   const listeningBox = document.getElementById("listening-container");
-  if (q.audioText || (q.audioSegments && q.audioSegments.length > 0)) {
-    listeningBox.style.display = "block";
-    document.getElementById("audio-status-text").textContent = "Klik 'Putar Audio' untuk menyimak wacana otentik.";
-  } else {
-    listeningBox.style.display = "none";
+  if (listeningBox) {
+    if (q.audioText || (q.audioSegments && q.audioSegments.length > 0)) {
+      listeningBox.style.display = "block";
+      const statusText = document.getElementById("audio-status-text");
+      if (statusText) statusText.textContent = "Klik 'Putar Audio' untuk mendengarkan audio rekaman penutur asli.";
+    } else {
+      listeningBox.style.display = "none";
+    }
   }
 
   const stimBox = document.getElementById("stimulus-container");
-  if (q.stimulusBody && q.type !== "listening_pictures") {
-    stimBox.style.display = "block";
-    document.getElementById("stimulus-title").textContent = q.stimulusTitle || "Teks Stimulus";
-    document.getElementById("stimulus-body").innerHTML = q.stimulusBody;
-    const srcEl = document.getElementById("stimulus-source");
-    if (srcEl) {
-      if (q.source) {
-        srcEl.style.display = "block";
-        srcEl.innerHTML = `<span style="font-size:0.75rem; color:#64748b; font-style:italic;">Source: ${q.source}</span>`;
-      } else {
-        srcEl.style.display = "none";
+  if (stimBox) {
+    if (q.stimulusBody && q.type !== "listening_pictures") {
+      stimBox.style.display = "block";
+      const stimTitle = document.getElementById("stimulus-title");
+      if (stimTitle) stimTitle.textContent = q.stimulusTitle || "Teks Stimulus";
+      const stimBody = document.getElementById("stimulus-body");
+      if (stimBody) stimBody.innerHTML = q.stimulusBody;
+      const srcEl = document.getElementById("stimulus-source");
+      if (srcEl) {
+        if (q.source) {
+          srcEl.style.display = "block";
+          srcEl.innerHTML = `<span style="font-size:0.75rem; color:#64748b; font-style:italic;">Source: ${q.source}</span>`;
+        } else {
+          srcEl.style.display = "none";
+        }
       }
+    } else {
+      stimBox.style.display = "none";
     }
-  } else {
-    stimBox.style.display = "none";
   }
 
   const promptBox = document.getElementById("question-prompt-text");
-  promptBox.innerHTML = q.prompt;
+  if (promptBox) promptBox.innerHTML = q.prompt;
 
   const optContainer = document.getElementById("options-container");
-  optContainer.innerHTML = "";
-
-  if (q.type === "listening_pictures") {
-    renderPictureChoices(q, optContainer);
-  } else if (q.type === "complex_matrix") {
-    renderMatrixTable(q, optContainer);
-  } else if (q.type === "mcma") {
-    renderMCMACheckboxes(q, optContainer);
-  } else {
-    renderSingleChoices(q, optContainer);
+  if (optContainer) {
+    optContainer.innerHTML = "";
+    if (q.type === "listening_pictures") {
+      renderPictureChoices(q, optContainer);
+    } else if (q.type === "complex_matrix") {
+      renderMatrixTable(q, optContainer);
+    } else if (q.type === "mcma") {
+      renderMCMACheckboxes(q, optContainer);
+    } else {
+      renderSingleChoices(q, optContainer);
+    }
   }
 
   const expBox = document.getElementById("question-explanation-box");
-  if (isExamSubmitted) {
-    expBox.style.display = "block";
-    let keyBadge = "";
-    if (q.type === "complex_matrix") {
-      keyBadge = q.matrixStatements.map((s, i) => `Pernyataan ${i+1}: <strong>${s.isCorrect ? 'BENAR (TRUE)' : 'SALAH (FALSE)'}</strong>`).join(" | ");
-    } else if (Array.isArray(q.correctAnswer)) {
-      keyBadge = q.correctAnswer.join(", ");
-    } else {
-      keyBadge = q.correctAnswer;
-    }
+  if (expBox) {
+    if (isExamSubmitted) {
+      expBox.style.display = "block";
+      let keyBadge = "";
+      if (q.type === "complex_matrix") {
+        keyBadge = q.matrixStatements.map((s, i) => `Pernyataan ${i+1}: <strong>${s.isCorrect ? 'BENAR (TRUE)' : 'SALAH (FALSE)'}</strong>`).join(" | ");
+      } else if (Array.isArray(q.correctAnswer)) {
+        keyBadge = q.correctAnswer.join(", ");
+      } else {
+        keyBadge = q.correctAnswer;
+      }
 
-    document.getElementById("explanation-text").innerHTML = `
-      <div style="margin-bottom: 10px; padding: 6px 12px; background: #ecfdf5; border: 1.5px solid #a7f3d0; border-radius: 8px; color: #065f46; font-size: 0.95rem; display: inline-block;">
-        🔑 <strong>Kunci Jawaban:</strong> <span style="font-weight: 800; color: #047857; margin-left: 4px;">${keyBadge}</span>
-      </div>
-      <div>${q.explanation}</div>
-    `;
-    document.getElementById("explanation-meta-text").innerHTML = `<strong>Kaidah &amp; Kosakata:</strong> ${q.grammarNote || "-"}`;
-  } else {
-    expBox.style.display = "none";
+      const expText = document.getElementById("explanation-text");
+      if (expText) {
+        expText.innerHTML = `
+          <div style="margin-bottom: 10px; padding: 6px 12px; background: #ecfdf5; border: 1.5px solid #a7f3d0; border-radius: 8px; color: #065f46; font-size: 0.95rem; display: inline-block;">
+            🔑 <strong>Kunci Jawaban:</strong> <span style="font-weight: 800; color: #047857; margin-left: 4px;">${keyBadge}</span>
+          </div>
+          <div>${q.explanation}</div>
+        `;
+      }
+      const expMeta = document.getElementById("explanation-meta-text");
+      if (expMeta) {
+        expMeta.innerHTML = `<strong>Kaidah &amp; Kosakata:</strong> ${q.grammarNote || "-"}`;
+      }
+    } else {
+      expBox.style.display = "none";
+    }
   }
 
   const flagBtn = document.getElementById("btn-flag-q");
-  if (flaggedQuestions.has(index)) flagBtn.textContent = "🚩 Hapus Ragu";
-  else flagBtn.textContent = "🏳️ Ragu-ragu";
+  if (flagBtn) {
+    flagBtn.textContent = flaggedQuestions.has(index) ? "🔄 Hapus Ragu" : "🟡 Ragu-ragu";
+  }
 
-  document.getElementById("btn-prev-q").disabled = (index === 0);
-  document.getElementById("btn-next-q").disabled = (index === questions.length - 1);
-  document.getElementById("btn-submit-test").style.display = (index === questions.length - 1) ? "inline-flex" : "none";
+  const btnPrev = document.getElementById("btn-prev-q");
+  if (btnPrev) btnPrev.disabled = (index === 0);
+  const btnNext = document.getElementById("btn-next-q");
+  if (btnNext) btnNext.disabled = (index === questions.length - 1);
+  const btnSubmit = document.getElementById("btn-submit-test");
+  if (btnSubmit) btnSubmit.style.display = (index === questions.length - 1) ? "inline-flex" : "none";
 
   updateNavigatorStatus();
   saveProgressToLocalStorage();
@@ -1684,8 +1146,10 @@ function renderPictureChoices(q, container) {
     const labelContent = opt.label || opt.text || `Pilihan ${opt.key}`;
     card.innerHTML = `
       <div class="picture-svg-wrapper">${svgContent}</div>
-      <div class="picture-letter-badge">${opt.key}</div>
-      <div class="picture-label-text">${labelContent}</div>
+      <div class="picture-card-footer">
+        <span class="picture-key-badge">${opt.key}</span>
+        <span class="picture-label-text">${labelContent}</span>
+      </div>
     `;
     grid.appendChild(card);
   });
@@ -1704,8 +1168,8 @@ function renderSingleChoices(q, container) {
       renderQuestion(currentQuestionIndex);
     };
     item.innerHTML = `
-      <div class="option-key-badge">${opt.key}</div>
-      <div class="option-text-content">${opt.text}</div>
+      <div class="option-circle">${opt.key}</div>
+      <div class="option-text">${opt.text}</div>
     `;
     list.appendChild(item);
   });
@@ -1713,519 +1177,436 @@ function renderSingleChoices(q, container) {
 }
 
 function renderMatrixTable(q, container) {
-  const tableWrap = document.createElement("div");
-  tableWrap.className = "complex-matrix-wrap";
-  tableWrap.style.overflowX = "auto";
-  tableWrap.style.margin = "12px 0";
-
-  let currentMap = userAnswers[q.id] || {};
-
-  let html = `
-    <table class="table-complex-matrix" style="width: 100%; border-collapse: collapse; border: 1.5px solid #cbd5e1; border-radius: 8px; overflow: hidden; background: #fff;">
-      <thead>
-        <tr style="background: #f1f5f9; color: #1e293b; border-bottom: 2px solid #cbd5e1; text-align: left;">
-          <th style="padding: 12px 14px; font-weight: 700; width: 62%;">Pernyataan / Analisis Situasi</th>
-          <th style="padding: 12px 8px; text-align: center; width: 19%; background: #e0f2fe; color: #0369a1; font-weight: 700;">BENAR (TRUE)</th>
-          <th style="padding: 12px 8px; text-align: center; width: 19%; background: #fee2e2; color: #b91c1c; font-weight: 700;">SALAH (FALSE)</th>
-        </tr>
-      </thead>
-      <tbody>
-  `;
-
-  q.matrixStatements.forEach((st, idx) => {
-    const val = currentMap[idx];
-    const isTrueChecked = (val === true) ? "checked" : "";
-    const isFalseChecked = (val === false) ? "checked" : "";
-    const bgRow = (idx % 2 === 0) ? "#ffffff" : "#f8fafc";
-
-    html += `
-      <tr style="border-bottom: 1px solid #e2e8f0; background: ${bgRow};">
-        <td style="padding: 12px 14px; font-size: 0.95rem; line-height: 1.5; color: #334155;">${st.statement}</td>
-        <td style="padding: 12px 8px; text-align: center; vertical-align: middle;">
-          <label style="cursor: pointer; display: inline-flex; align-items: center; justify-content: center; width: 100%; height: 100%;">
-            <input type="radio" name="matrix_${q.id}_${idx}" value="true" ${isTrueChecked} onchange="handleMatrixSelect(${q.id}, ${idx}, true)" style="transform: scale(1.3); cursor: pointer;" />
-          </label>
-        </td>
-        <td style="padding: 12px 8px; text-align: center; vertical-align: middle;">
-          <label style="cursor: pointer; display: inline-flex; align-items: center; justify-content: center; width: 100%; height: 100%;">
-            <input type="radio" name="matrix_${q.id}_${idx}" value="false" ${isFalseChecked} onchange="handleMatrixSelect(${q.id}, ${idx}, false)" style="transform: scale(1.3); cursor: pointer;" />
-          </label>
-        </td>
+  const table = document.createElement("table");
+  table.className = "matrix-table";
+  table.innerHTML = `
+    <thead>
+      <tr>
+        <th style="width: 70%;">Pernyataan / Analisis Teks</th>
+        <th style="width: 15%; text-align: center;">BENAR (TRUE)</th>
+        <th style="width: 15%; text-align: center;">SALAH (FALSE)</th>
       </tr>
-    `;
-  });
-
-  html += "</tbody></table>";
-  tableWrap.innerHTML = html;
-  container.appendChild(tableWrap);
+    </thead>
+    <tbody>
+      ${q.matrixStatements.map((stmt, sIdx) => {
+        const curVal = (userAnswers[q.id] && userAnswers[q.id][sIdx] !== undefined) ? userAnswers[q.id][sIdx] : null;
+        return `
+          <tr>
+            <td>${stmt.statement}</td>
+            <td onclick="setMatrixAnswer(${q.id}, ${sIdx}, true)" style="cursor: pointer; text-align: center;">
+              <input type="radio" class="matrix-radio" name="matrix_${q.id}_${sIdx}" ${curVal === true ? "checked" : ""} onclick="event.stopPropagation(); setMatrixAnswer(${q.id}, ${sIdx}, true)">
+            </td>
+            <td onclick="setMatrixAnswer(${q.id}, ${sIdx}, false)" style="cursor: pointer; text-align: center;">
+              <input type="radio" class="matrix-radio" name="matrix_${q.id}_${sIdx}" ${curVal === false ? "checked" : ""} onclick="event.stopPropagation(); setMatrixAnswer(${q.id}, ${sIdx}, false)">
+            </td>
+          </tr>
+        `;
+      }).join("")}
+    </tbody>
+  `;
+  container.appendChild(table);
 }
 
-function handleMatrixSelect(qId, stIdx, value) {
+function setMatrixAnswer(qId, statementIdx, value) {
   if (isExamSubmitted) return;
   if (!userAnswers[qId] || typeof userAnswers[qId] !== "object" || Array.isArray(userAnswers[qId])) {
     userAnswers[qId] = {};
   }
-  userAnswers[qId][stIdx] = value;
-  updateNavigatorStatus();
-  saveProgressToLocalStorage();
+  userAnswers[qId][statementIdx] = value;
+  renderQuestion(currentQuestionIndex);
 }
 
 function renderMCMACheckboxes(q, container) {
-  const wrap = document.createElement("div");
-  wrap.className = "mcma-options-wrap";
-  wrap.style.display = "flex";
-  wrap.style.flexDirection = "column";
-  wrap.style.gap = "10px";
-  wrap.style.margin = "12px 0";
-
-  let currentArr = Array.isArray(userAnswers[q.id]) ? userAnswers[q.id] : [];
-
+  const list = document.createElement("div");
+  list.className = "options-list";
+  const curAns = Array.isArray(userAnswers[q.id]) ? userAnswers[q.id] : [];
   q.options.forEach(opt => {
-    const isChecked = currentArr.includes(opt.key);
+    const isChecked = curAns.includes(opt.key);
     const item = document.createElement("div");
-    item.className = "mcma-option-item" + (isChecked ? " selected" : "");
-    item.style.display = "flex";
-    item.style.alignItems = "flex-start";
-    item.style.padding = "12px 14px";
-    item.style.border = isChecked ? "2px solid var(--accent-teal)" : "1.5px solid #cbd5e1";
-    item.style.borderRadius = "8px";
-    item.style.background = isChecked ? "#f0fdfa" : "#ffffff";
-    item.style.cursor = "pointer";
-    item.style.transition = "all 0.2s ease";
-
-    item.onclick = (e) => {
-      if (e.target.tagName !== "INPUT") {
-        const chk = item.querySelector("input[type=checkbox]");
-        if (chk) chk.click();
-      }
+    item.className = "option-item" + (isChecked ? " selected" : "");
+    item.onclick = () => {
+      if (isExamSubmitted) return;
+      toggleMCMAAnswer(q.id, opt.key);
+      renderQuestion(currentQuestionIndex);
     };
-
     item.innerHTML = `
-      <div style="margin-right: 12px; display: flex; align-items: center; height: 24px;">
-        <input type="checkbox" id="chk_${q.id}_${opt.key}" value="${opt.key}" ${isChecked ? "checked" : ""} onchange="handleMCMAToggle(${q.id}, '${opt.key}', this.checked)" style="transform: scale(1.3); cursor: pointer;" />
-      </div>
-      <div style="flex: 1; font-size: 0.95rem; line-height: 1.5; color: #1e293b;">
-        <strong style="color: var(--primary-navy); margin-right: 6px;">[${opt.key}]</strong> ${opt.text}
-      </div>
+      <div class="option-checkbox">${isChecked ? "✓" : ""}</div>
+      <div class="option-text"><strong>[${opt.key}]</strong> ${opt.text}</div>
     `;
-    wrap.appendChild(item);
+    list.appendChild(item);
   });
-
-  const tip = document.createElement("div");
-  tip.style.fontSize = "0.85rem";
-  tip.style.color = "#0284c7";
-  tip.style.background = "#f0f9ff";
-  tip.style.padding = "8px 12px";
-  tip.style.borderRadius = "6px";
-  tip.style.borderLeft = "3.5px solid #0284c7";
-  tip.innerHTML = "💡 <em>Petunjuk: Pilihlah tepat <strong>2 opsi jawaban</strong> yang benar pada tipe soal MCMA ini.</em>";
-  wrap.appendChild(tip);
-
-  container.appendChild(wrap);
+  container.appendChild(list);
 }
 
-function handleMCMAToggle(qId, key, isChecked) {
+function toggleMCMAAnswer(qId, key) {
   if (isExamSubmitted) return;
-  let arr = Array.isArray(userAnswers[qId]) ? [...userAnswers[qId]] : [];
-  if (isChecked) {
-    if (!arr.includes(key)) arr.push(key);
-  } else {
-    arr = arr.filter(k => k !== key);
-  }
-  arr.sort();
-  userAnswers[qId] = arr;
-  updateNavigatorStatus();
-  saveProgressToLocalStorage();
-  renderQuestion(currentQuestionIndex);
+  if (!Array.isArray(userAnswers[qId])) userAnswers[qId] = [];
+  const idx = userAnswers[qId].indexOf(key);
+  if (idx > -1) userAnswers[qId].splice(idx, 1);
+  else userAnswers[qId].push(key);
 }
 
-function navigateQuestion(step) {
-  renderQuestion(currentQuestionIndex + step);
+function navigateQuestion(delta) {
+  renderQuestion(currentQuestionIndex + delta);
 }
 
 function toggleFlagQuestion() {
-  if (flaggedQuestions.has(currentQuestionIndex)) {
-    flaggedQuestions.delete(currentQuestionIndex);
-  } else {
-    flaggedQuestions.add(currentQuestionIndex);
-  }
+  if (flaggedQuestions.has(currentQuestionIndex)) flaggedQuestions.delete(currentQuestionIndex);
+  else flaggedQuestions.add(currentQuestionIndex);
   renderQuestion(currentQuestionIndex);
 }
 
-// Audio Engine: Web Speech API Multi-Speaker
+// Multi-speaker audio player with Indonesian name pronunciation
 let isAudioPlaying = false;
-let audioQueue = [];
-let audioQueueIdx = 0;
-let cachedVoices = [];
-
-if (typeof window !== "undefined" && window.speechSynthesis) {
-  cachedVoices = window.speechSynthesis.getVoices();
-  window.speechSynthesis.onvoiceschanged = () => {
-    cachedVoices = window.speechSynthesis.getVoices();
-  };
-}
+let currentSegmentIndex = 0;
+let activeAudioSegments = [];
+let audioPlayTimeout = null;
 
 function getAvailableVoices() {
-  if (!window.speechSynthesis) return [];
-  const live = window.speechSynthesis.getVoices();
-  if (live && live.length > 0) {
-    cachedVoices = live;
-    return live;
-  }
-  return cachedVoices || [];
+  if (!("speechSynthesis" in window)) return [];
+  return window.speechSynthesis.getVoices();
 }
 
-if (typeof window !== "undefined" && window.speechSynthesis) {
+if ("speechSynthesis" in window) {
   window.speechSynthesis.onvoiceschanged = () => {
-    cachedVoices = window.speechSynthesis.getVoices();
+    getAvailableVoices();
   };
 }
 
 function selectAudioVoice(role, gender, lang) {
   const voices = getAvailableVoices();
-  if (!voices || voices.length === 0) return null;
+  if (!voices.length) return null;
+  const isTargetLang = (v, l) => {
+    if (!v.lang) return false;
+    const clean = v.lang.replace("_", "-").toLowerCase();
+    const prefix = l.toLowerCase().split("-")[0];
+    return clean.startsWith(prefix);
+  };
+  const voiceLang = lang || "en-US";
+  let pool = voices.filter(v => isTargetLang(v, voiceLang));
+  if (!pool.length) pool = voices.filter(v => v.lang.startsWith("en"));
+  if (!pool.length) pool = voices;
 
-  if (lang && lang.startsWith("id")) {
-    const idVoice = voices.find(v => (v.lang && (v.lang.startsWith("id") || v.lang.startsWith("ID"))) || v.name.toLowerCase().includes("indonesia") || v.name.includes("Gadis") || v.name.includes("Ardi"));
-    if (idVoice) return idVoice;
+  const isFemaleRole = role && (role.includes("_f") || role.includes("female") || role.includes("student_f") || role.includes("teacher_f"));
+  const femaleKeywords = ["female", "zira", "samantha", "victoria", "karen", "susan", "helena", "catherine", "jenny", "aria"];
+  const maleKeywords = ["male", "david", "george", "mark", "james", "richard", "guy", "christopher"];
+
+  if (isFemaleRole) {
+    const fMatch = pool.find(v => femaleKeywords.some(kw => v.name.toLowerCase().includes(kw)));
+    if (fMatch) return fMatch;
+  } else if (role && (role.includes("_m") || role.includes("male"))) {
+    const mMatch = pool.find(v => maleKeywords.some(kw => v.name.toLowerCase().includes(kw)));
+    if (mMatch) return mMatch;
   }
+  return pool[0] || voices[0];
+}
 
-  const enVoices = voices.filter(v => v.lang && (v.lang.startsWith("en") || v.lang.startsWith("EN")));
-  if (enVoices.length === 0) return voices[0];
-
-  const femaleKeywords = ["female", "woman", "girl", "zira", "jenny", "aria", "samantha", "victoria", "karen", "fiona", "moira", "tessa", "clara", "libby", "ana", "sonia", "natasha", "google us english", "google uk english female"];
-  const maleKeywords = ["male", "man", "boy", "david", "guy", "mark", "ryan", "george", "daniel", "alex", "fred", "oliver", "steffan", "google uk english male", "james", "tom", "richard"];
-
-  const matchedFemale = enVoices.find(v => femaleKeywords.some(k => v.name.toLowerCase().includes(k)));
-  let matchedMale = enVoices.find(v => maleKeywords.some(k => v.name.toLowerCase().includes(k)));
-
-  // Ensure male and female are paired with different voices if at least 2 english voices exist
-  if (matchedFemale && matchedMale && matchedFemale.name === matchedMale.name && enVoices.length >= 2) {
-    matchedMale = enVoices.find(v => v.name !== matchedFemale.name) || matchedMale;
-  }
-  if (!matchedMale && matchedFemale && enVoices.length >= 2) {
-    matchedMale = enVoices.find(v => v.name !== matchedFemale.name);
-  }
-  if (!matchedFemale && matchedMale && enVoices.length >= 2) {
-    const altFemale = enVoices.find(v => v.name !== matchedMale.name);
-    if (altFemale && gender === "female") return altFemale;
-  }
-
-  if (gender === "female") {
-    return matchedFemale || enVoices[0];
-  } else if (gender === "male") {
-    return matchedMale || (enVoices.length > 1 ? enVoices[1] : enVoices[0]);
-  }
-
-  // Default narrator voice
-  const narratorVoice = enVoices.find(v => v.name.includes("Natural") || v.name.includes("David") || v.name.includes("Google") || v.name.includes("Aria")) || enVoices[0];
-  return narratorVoice;
+function preprocessIndonesianNames(text) {
+  return text
+    .replace(/\bEndang Sawitri\b/gi, "Ehn-dahng Sah-weet-tree")
+    .replace(/\bBaru Klinthing\b/gi, "Bah-roo Kleen-teeng")
+    .replace(/\bKi Hajar Salokantara\b/gi, "Kee Hah-jahr Sah-loh-kahn-tah-rah")
+    .replace(/\bMount Telomoyo\b/gi, "Mount Teh-loh-moh-yoh")
+    .replace(/\bMbok Rondo\b/gi, "Em-bock Ron-doh")
+    .replace(/\bRawa Pening\b/gi, "Rah-wah Peh-neeng")
+    .replace(/\bPathok\b/gi, "Pah-tock")
+    .replace(/\bNgasem\b/gi, "Nga-sem");
 }
 
 function stopAudio() {
-  if (window.speechSynthesis) window.speechSynthesis.cancel();
+  if ("speechSynthesis" in window) {
+    window.speechSynthesis.cancel();
+  }
+  if (audioPlayTimeout) {
+    clearTimeout(audioPlayTimeout);
+    audioPlayTimeout = null;
+  }
   isAudioPlaying = false;
-  audioQueue = [];
-  audioQueueIdx = 0;
+  activeAudioSegments = [];
+  currentSegmentIndex = 0;
+  const btn = document.getElementById("btn-play-audio");
+  if (btn) btn.classList.remove("playing");
   const playText = document.getElementById("play-text");
-  const playBtn = document.getElementById("btn-play-audio");
-  const statusText = document.getElementById("audio-status-text");
   if (playText) playText.textContent = "Putar Audio";
-  if (playBtn) playBtn.style.backgroundColor = "var(--royal-blue)";
-  if (statusText) statusText.textContent = "Klik 'Putar Audio' untuk mendengarkan kembali.";
 }
 
 function playQuestionAudio() {
-  const q = questions[currentQuestionIndex];
-  if (!q) return;
-  if (!window.speechSynthesis) {
-    alert("Peramban Anda belum mendukung Web Speech API.");
-    return;
-  }
   if (isAudioPlaying) {
     stopAudio();
     return;
   }
-  window.speechSynthesis.cancel();
-  let segments = [];
-  if (q.audioSegments && q.audioSegments.length > 0) segments = q.audioSegments;
-  else if (q.audioText) segments = [{ text: q.audioText, lang: "en-US", role: "narrator" }];
-  else return;
+  const q = questions[currentQuestionIndex];
+  if (!q) return;
 
-  audioQueue = segments;
-  audioQueueIdx = 0;
+  if (q.audioSegments && q.audioSegments.length > 0) {
+    activeAudioSegments = q.audioSegments;
+  } else if (q.audioText) {
+    activeAudioSegments = [{ role: "narrator", lang: "en-US", text: q.audioText }];
+  } else {
+    return;
+  }
+
   isAudioPlaying = true;
-
-  const playBtn = document.getElementById("btn-play-audio");
+  currentSegmentIndex = 0;
+  const btn = document.getElementById("btn-play-audio");
+  if (btn) btn.classList.add("playing");
   const playText = document.getElementById("play-text");
-  const statusText = document.getElementById("audio-status-text");
   if (playText) playText.textContent = "Hentikan";
-  if (playBtn) playBtn.style.backgroundColor = "#dc2626";
-  if (statusText) statusText.textContent = "🔊 Audio sedang diputar. Simak dengan seksama...";
+
   playNextAudioSegment();
 }
 
 function playNextAudioSegment() {
   if (!isAudioPlaying) return;
-  if (audioQueueIdx >= audioQueue.length) {
-    isAudioPlaying = false;
-    audioQueue = [];
-    audioQueueIdx = 0;
-    const playBtn = document.getElementById("btn-play-audio");
-    const playText = document.getElementById("play-text");
-    const statusText = document.getElementById("audio-status-text");
-    if (playText) playText.textContent = "Putar Ulang";
-    if (playBtn) playBtn.style.backgroundColor = "var(--accent-teal)";
-    if (statusText) statusText.textContent = "✅ Pemutaran audio selesai. Silakan pilih jawaban Anda.";
+  if (currentSegmentIndex >= activeAudioSegments.length) {
+    stopAudio();
     return;
   }
-  const seg = audioQueue[audioQueueIdx++];
-  const utt = new SpeechSynthesisUtterance(seg.text);
-  utt.lang = seg.lang || "en-US";
 
-  const matchedVoice = selectAudioVoice(seg.role, seg.gender, seg.lang);
-  if (matchedVoice) utt.voice = matchedVoice;
+  const seg = activeAudioSegments[currentSegmentIndex];
+  const cleanedText = preprocessIndonesianNames(seg.text);
+  const utterance = new SpeechSynthesisUtterance(cleanedText);
+  utterance.rate = audioSpeechRate;
+  utterance.lang = seg.lang || "en-US";
 
-  if (seg.pitch !== undefined) {
-    utt.pitch = seg.pitch;
-  } else if (seg.gender === "female") {
-    utt.pitch = 1.30;
-  } else if (seg.gender === "male") {
-    utt.pitch = 0.75;
-  } else {
-    utt.pitch = 1.0;
+  const voice = selectAudioVoice(seg.role, null, seg.lang);
+  if (voice) utterance.voice = voice;
+
+  const statusText = document.getElementById("audio-status-text");
+  if (statusText) {
+    const speakerLabel = seg.name ? `${seg.name} (${seg.role.includes('_f') ? 'Female' : 'Male'})` : (seg.role === "narrator" ? "Narrator" : "Audio");
+    statusText.textContent = `Sedang memutar: [${speakerLabel}] - Bagian ${currentSegmentIndex + 1} dari ${activeAudioSegments.length}`;
   }
 
-  let rateMult = seg.rateMultiplier || 1.0;
-  if (seg.gender === "female" && !seg.rateMultiplier) rateMult = 1.04;
-  else if (seg.gender === "male" && !seg.rateMultiplier) rateMult = 0.94;
-  else if (seg.role === "narrator" && !seg.rateMultiplier) rateMult = 0.96;
-  utt.rate = audioSpeechRate * rateMult;
+  utterance.onend = () => {
+    currentSegmentIndex++;
+    const pauseTime = seg.pauseAfter || 300;
+    audioPlayTimeout = setTimeout(() => {
+      playNextAudioSegment();
+    }, pauseTime);
+  };
 
-  utt.onend = () => {
-    if (isAudioPlaying) setTimeout(playNextAudioSegment, seg.pauseAfter || 360);
+  utterance.onerror = (e) => {
+    console.warn("Speech error:", e);
+    currentSegmentIndex++;
+    playNextAudioSegment();
   };
-  utt.onerror = () => {
-    if (isAudioPlaying) playNextAudioSegment();
-  };
-  window.speechSynthesis.speak(utt);
+
+  window.speechSynthesis.speak(utterance);
 }
 
 function toggleAudioSpeed() {
-  audioSpeechRate = (audioSpeechRate === 1.0) ? 0.85 : 1.0;
-  document.getElementById("speed-text").textContent = audioSpeechRate + "x";
+  if (audioSpeechRate === 1.0) audioSpeechRate = 0.85;
+  else if (audioSpeechRate === 0.85) audioSpeechRate = 1.15;
+  else audioSpeechRate = 1.0;
+  const speedText = document.getElementById("speed-text");
+  if (speedText) speedText.textContent = `${audioSpeechRate}x`;
 }
 
 function startTimer() {
   if (timerInterval) clearInterval(timerInterval);
   timerInterval = setInterval(() => {
-    remainingSeconds--;
     if (remainingSeconds <= 0) {
       clearInterval(timerInterval);
-      alert("Waktu pengerjaan tes telah berakhir! Jawaban Anda akan otomatis dikumpulkan.");
+      alert("Waktu pengerjaan telah habis! Sistem akan mengumpulkan jawaban Anda secara otomatis.");
       submitTest();
       return;
     }
+    remainingSeconds--;
     const mins = Math.floor(remainingSeconds / 60);
     const secs = remainingSeconds % 60;
-    document.getElementById("timer-display").textContent = `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
-    if (remainingSeconds < 300) document.getElementById("timer-box").style.backgroundColor = "#dc2626";
-    if (remainingSeconds % 15 === 0) saveProgressToLocalStorage();
+    const timerDisplay = document.getElementById("timer-display");
+    if (timerDisplay) {
+      timerDisplay.textContent = `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
+    }
   }, 1000);
 }
 
-function checkUnansweredQuestions() {
-  const unanswered = [];
-  questions.forEach((q, idx) => {
-    if (!isQuestionAnswered(q.id)) unanswered.push(idx + 1);
-  });
-  return unanswered;
+function confirmSubmitTest() {
+  const answeredCount = questions.filter(q => isQuestionAnswered(q.id)).length;
+  const unansweredCount = questions.length - answeredCount;
+  let msg = `Anda telah menjawab ${answeredCount} dari ${questions.length} butir soal.`;
+  if (unansweredCount > 0) msg += ` Masih ada ${unansweredCount} butir soal yang belum dijawab.`;
+  msg += "\n\nApakah Anda yakin ingin menyelesaikan dan mengumpulkan tes sekarang?";
+  if (confirm(msg)) submitTest();
 }
 
 function submitTest() {
-  const unanswered = checkUnansweredQuestions();
-  if (unanswered.length > 0) {
-    const proceed = confirm(`Masih terdapat ${unanswered.length} soal yang belum dijawab (Nomor: ${unanswered.slice(0, 10).join(", ")}${unanswered.length > 10 ? "..." : ""}).\nApakah Anda yakin ingin menyelesaikan tes sekarang?`);
-    if (!proceed) return;
-  } else {
-    if (!confirm("Apakah Anda yakin ingin menyelesaikan tes dan melihat hasil perolehan nilai?")) return;
-  }
-
-  isExamSubmitted = true;
   clearInterval(timerInterval);
+  isExamSubmitted = true;
   stopAudio();
+  localStorage.removeItem("sabaku_asas_progress_XII");
 
-  let correctCount = 0;
-  let breakdownRows = "";
-
-  questions.forEach((q, idx) => {
-    const userAns = userAnswers[q.id];
-    let isQCorrect = false;
-    let userAnsLabel = "-";
-    let keyLabel = "";
-
+  let totalScoreEarned = 0;
+  questions.forEach(q => {
+    const ans = userAnswers[q.id];
     if (q.type === "complex_matrix") {
-      let stCorrect = 0;
-      const totalSt = q.matrixStatements.length;
-      q.matrixStatements.forEach((st, sIdx) => {
-        const val = userAns ? userAns[sIdx] : undefined;
-        if (val === st.isCorrect) stCorrect++;
-      });
-      isQCorrect = (stCorrect === totalSt);
-      userAnsLabel = `Benar ${stCorrect}/${totalSt}`;
-      keyLabel = q.matrixStatements.map((s, i) => `S${i+1}:${s.isCorrect ? 'T' : 'F'}`).join(" ");
+      if (ans && typeof ans === "object") {
+        let correctStatements = 0;
+        q.matrixStatements.forEach((stmt, sIdx) => {
+          if (ans[sIdx] === stmt.isCorrect) correctStatements++;
+        });
+        totalScoreEarned += (correctStatements / q.matrixStatements.length);
+      }
     } else if (q.type === "mcma") {
-      const uArr = Array.isArray(userAns) ? [...userAns].sort() : [];
-      const cArr = Array.isArray(q.correctAnswer) ? [...q.correctAnswer].sort() : [];
-      isQCorrect = (uArr.length === cArr.length && uArr.every((v, i) => v === cArr[i]));
-      userAnsLabel = uArr.length > 0 ? uArr.join(",") : "-";
-      keyLabel = cArr.join(",");
+      if (Array.isArray(ans) && ans.length > 0) {
+        const target = Array.isArray(q.correctAnswer) ? q.correctAnswer : [];
+        let correctPicks = 0;
+        let wrongPicks = 0;
+        ans.forEach(key => {
+          if (target.includes(key)) correctPicks++;
+          else wrongPicks++;
+        });
+        const netPicks = Math.max(0, correctPicks - (wrongPicks * 0.5));
+        totalScoreEarned += (target.length > 0 ? (netPicks / target.length) : 0);
+      }
     } else {
-      isQCorrect = (userAns === q.correctAnswer);
-      userAnsLabel = userAns || "-";
-      keyLabel = q.correctAnswer;
+      if (ans === q.correctAnswer) totalScoreEarned += 1.0;
     }
-
-    if (isQCorrect) correctCount++;
-
-    breakdownRows += `
-      <tr>
-        <td style="text-align: center;">${idx + 1}</td>
-        <td>${q.title || "Pilihan Ganda"}</td>
-        <td style="text-align: center; font-weight: 700;">${userAnsLabel}</td>
-        <td style="text-align: center; font-weight: 700; color: #047857;">${keyLabel}</td>
-        <td style="text-align: center;">${isQCorrect ? '<span style="color:#16a34a; font-weight:bold;">✔ Benar</span>' : '<span style="color:#dc2626; font-weight:bold;">✘ Salah</span>'}</td>
-      </tr>
-    `;
   });
 
-  const finalScore = Math.round((correctCount / questions.length) * 100);
+  const totalQuestions = questions.length;
+  const finalScore = Math.min(100, Math.round((totalScoreEarned / totalQuestions) * 100));
   const isTuntas = finalScore >= 75;
+  const correctCount = Math.round(totalScoreEarned);
 
-  document.getElementById("modal-student-name").textContent = studentIdentity.nama;
-  document.getElementById("modal-student-meta").textContent = `Kelas: ${studentIdentity.tingkat} | Rombel: ${studentIdentity.rombel} | Presensi: ${studentIdentity.presensi}`;
-  document.getElementById("modal-score-grade").textContent = finalScore;
-  document.getElementById("modal-score-badge").textContent = isTuntas ? "TUNTAS KKTP (≥ 75)" : "BELUM TUNTAS (< 75)";
-  document.getElementById("modal-score-badge").className = "kktp-status " + (isTuntas ? "passed" : "failed");
-  document.getElementById("modal-correct-count").textContent = correctCount;
-  document.getElementById("modal-total-count").textContent = questions.length;
-  document.getElementById("breakdown-tbody").innerHTML = breakdownRows;
-  document.getElementById("result-modal").style.display = "flex";
+  const resModal = document.getElementById("result-modal");
+  if (resModal) resModal.style.display = "flex";
+  const scoreVal = document.getElementById("result-score-val");
+  if (scoreVal) scoreVal.textContent = finalScore;
+  const scoreCircle = document.getElementById("result-score-circle");
+  if (scoreCircle) scoreCircle.className = "score-circle " + (isTuntas ? "tuntas" : "belum");
 
-  saveRecordToHistoryAndSheet(finalScore, correctCount, questions.length);
-  renderQuestion(currentQuestionIndex);
-}
+  const statusText = document.getElementById("result-status-text");
+  if (statusText) {
+    statusText.textContent = isTuntas ? "STATUS: TUNTAS KKTP (≥ 75) 🎉" : "STATUS: BELUM TUNTAS KKTP (< 75) ⚠️";
+    statusText.style.color = isTuntas ? "var(--accent-green)" : "var(--accent-red)";
+  }
 
-function saveRecordToHistoryAndSheet(finalScore, correctCount, totalQuestions) {
+  const statCorr = document.getElementById("stat-correct");
+  if (statCorr) statCorr.textContent = correctCount;
+  const statWrong = document.getElementById("stat-wrong");
+  if (statWrong) statWrong.textContent = totalQuestions - correctCount;
+  const statAcc = document.getElementById("stat-accuracy");
+  if (statAcc) statAcc.textContent = `${finalScore}%`;
+
   const record = {
-    timestamp: new Date().toLocaleString("id-ID"),
     tingkat: studentIdentity.tingkat,
     rombel: studentIdentity.rombel,
     presensi: studentIdentity.presensi,
     nama: studentIdentity.nama,
-    mode: (currentMode === "practice") ? "🎯 Mode Latihan ASAS Gasal" : "🔒 Asesmen Resmi ASAS Gasal",
+    mode: (currentMode === "practice") ? "Latihan ASAS Gasal Kelas XII" : "Asesmen Resmi ASAS Gasal Kelas XII",
     score: correctCount,
     total: totalQuestions,
     grade: finalScore,
-    duration: `${Math.floor((90 * 60 - remainingSeconds) / 60)} menit`
+    duration: `${Math.floor((5400 - remainingSeconds) / 60)} menit`,
+    timestamp: new Date().toLocaleString("id-ID"),
+    answers: userAnswers
   };
 
   try {
     const history = JSON.parse(localStorage.getItem("sabaku_ats_history") || "[]");
-    history.unshift(record);
+    history.push(record);
     localStorage.setItem("sabaku_ats_history", JSON.stringify(history));
-  } catch (err) {}
+  } catch (e) {
+    console.warn("History save error:", e);
+  }
 
-  sendScoreToGoogleSheet(record);
+  syncScoreToGoogleSheets(record);
+  renderQuestion(currentQuestionIndex);
 }
 
-function sendScoreToGoogleSheet(record) {
+let isSyncingScore = false;
+function syncScoreToGoogleSheets(payload) {
+  if (isSyncingScore) return;
+  isSyncingScore = true;
+  const statusEl = document.getElementById("cloud-status-text");
+  if (statusEl) statusEl.textContent = "Menyinkronkan nilai ke server sekolah...";
   const webAppUrl = localStorage.getItem("sabaku_gs_url") || DEFAULT_GS_URL;
-  if (!webAppUrl || webAppUrl.includes("REPLACE_WITH_YOUR")) return;
-
-  const statusEl = document.getElementById("db-sync-status");
-  if (statusEl) statusEl.innerHTML = "⏳ Menghubungkan dan menyimpan nilai ke pangkalan data sekolah...";
-
-  const payload = {
+  fetch(webAppUrl, {
     method: "POST",
     mode: "no-cors",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(record)
-  };
-
-  fetch(webAppUrl, payload).then(() => {
-    if (statusEl) statusEl.innerHTML = "✅ Nilai Anda telah berhasil tersimpan di sistem basis data sekolah!";
-  }).catch(() => {
+    body: JSON.stringify(payload)
+  }).then(() => {
+    if (statusEl) statusEl.innerHTML = "✅ Nilai Anda telah berhasil tercatat di server rekapitulasi sekolah.";
+  }).catch(err => {
     try {
-      const beacon = new Image();
-      const query = new URLSearchParams({
-        action: "saveScore",
-        tingkat: record.tingkat,
-        rombel: record.rombel,
-        presensi: record.presensi,
-        nama: record.nama,
-        score: record.score,
-        total: record.total,
-        grade: record.grade,
-        mode: record.mode
-      }).toString();
-      beacon.src = `${webAppUrl}?${query}`;
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon(webAppUrl, new Blob([JSON.stringify(payload)], { type: "text/plain;charset=utf-8" }));
+      }
     } catch (bErr) {}
-    if (statusEl) statusEl.innerHTML = "✅ Nilai Anda telah tersimpan dengan aman di sistem sekolah.";
+    if (statusEl) statusEl.innerHTML = "⚠️ Nilai tercatat di penyimpanan lokal peramban (offline mode).";
   });
 }
 
 function downloadResultCSV() {
-  try {
-    const history = JSON.parse(localStorage.getItem("sabaku_ats_history") || "[]");
-    if (history.length === 0) {
-      alert("Belum ada data nilai yang tersimpan untuk diunduh.");
-      return;
+  const answeredCount = questions.filter(q => isQuestionAnswered(q.id)).length;
+  let csv = "NO,ID_SOAL,TIPE_SOAL,JAWABAN_SISWA,KUNCI_JAWABAN,STATUS\n";
+  questions.forEach((q, idx) => {
+    const ans = userAnswers[q.id];
+    let userStr = "";
+    let keyStr = "";
+    let isCorrect = false;
+
+    if (q.type === "complex_matrix") {
+      userStr = ans ? Object.keys(ans).map(k => `P${parseInt(k)+1}:${ans[k] ? 'T' : 'F'}`).join(";") : "KOSONG";
+      keyStr = q.matrixStatements.map((s, i) => `P${i+1}:${s.isCorrect ? 'T' : 'F'}`).join(";");
+      isCorrect = (userStr === keyStr);
+    } else if (Array.isArray(q.correctAnswer)) {
+      userStr = Array.isArray(ans) ? ans.sort().join(";") : (ans || "KOSONG");
+      keyStr = q.correctAnswer.sort().join(";");
+      isCorrect = (userStr === keyStr);
+    } else {
+      userStr = ans || "KOSONG";
+      keyStr = q.correctAnswer;
+      isCorrect = (userStr === keyStr);
     }
-    let csvContent = "data:text/csv;charset=utf-8,";
-    csvContent += "Timestamp,Tingkat,Rombel,Presensi,Nama Siswa,Mode,Skor Benar,Total Soal,Nilai (0-100),Status KKTP,Durasi\n";
-    history.forEach(r => {
-      const kktp = r.grade >= 75 ? "TUNTAS" : "BELUM TUNTAS";
-      const line = `"${r.timestamp}","${r.tingkat}","${r.rombel}","${r.presensi}","${r.nama}","${r.mode}",${r.score},${r.total},${r.grade},"${kktp}","${r.duration}"`;
-      csvContent += line + "\n";
-    });
-    const encodedUri = encodeURI(csvContent);
-    const link = document.createElement("a");
-    link.setAttribute("href", encodedUri);
-    link.setAttribute("download", `Rekap_Nilai_ASAS Gasal_XII-F_${studentIdentity.nama.replace(/\s+/g, "_")}.csv`);
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  } catch (e) {
-    alert("Gagal mengunduh file CSV: " + e.message);
-  }
+    csv += `${idx + 1},${q.id},"${q.type}","${userStr}","${keyStr}",${isCorrect ? "BENAR" : "SALAH"}\n`;
+  });
+
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `Hasil_${studentIdentity.tingkat}_${studentIdentity.nama.replace(/\s+/g, "_")}_${studentIdentity.presensi}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
 }
 
 function reviewAllAnswers() {
-  document.getElementById("result-modal").style.display = "none";
+  const resModal = document.getElementById("result-modal");
+  if (resModal) resModal.style.display = "none";
   renderQuestion(0);
 }
 
 function restartTest() {
   if (confirm("Apakah Anda ingin mengulangi pengerjaan dari awal?\nSemua jawaban saat ini akan direset.")) {
     localStorage.removeItem("sabaku_asas_progress_XII");
-    document.getElementById("result-modal").style.display = "none";
+    const resModal = document.getElementById("result-modal");
+    if (resModal) resModal.style.display = "none";
     startFreshTest();
   }
 }
 
 function openSettingsModal() {
   const url = localStorage.getItem("sabaku_gs_url") || DEFAULT_GS_URL;
-  document.getElementById("input-gs-url").value = url;
-  document.getElementById("settings-modal").style.display = "flex";
+  const inputEl = document.getElementById("input-gs-url");
+  if (inputEl) inputEl.value = url;
+  const modal = document.getElementById("settings-modal");
+  if (modal) modal.style.display = "flex";
 }
 
 function closeSettingsModal() {
-  document.getElementById("settings-modal").style.display = "none";
+  const modal = document.getElementById("settings-modal");
+  if (modal) modal.style.display = "none";
 }
 
 function saveSettings() {
-  const val = document.getElementById("input-gs-url").value.trim();
+  const inputEl = document.getElementById("input-gs-url");
+  const val = inputEl ? inputEl.value.trim() : "";
   if (val) {
     localStorage.setItem("sabaku_gs_url", val);
     alert("Pengaturan tautan basis data berhasil disimpan!");
@@ -2236,6 +1617,7 @@ function saveSettings() {
 function saveProgressToLocalStorage() {
   try {
     const data = {
+      questions,
       userAnswers,
       flaggedQuestions: Array.from(flaggedQuestions),
       remainingSeconds,
@@ -2244,4 +1626,3 @@ function saveProgressToLocalStorage() {
     localStorage.setItem("sabaku_asas_progress_XII", JSON.stringify(data));
   } catch (e) {}
 }
-

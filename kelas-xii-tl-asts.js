@@ -1,1370 +1,833 @@
 /**
  * ASESMEN SUMATIF TENGAH SEMESTER (ASTS) GASAL 2026
  * SMA NEGERI 1 BAE KUDUS (SABAKU)
- * BAHASA INGGRIS TINGKAT XII (TINGKAT LANJUT)
- * Standar: TKA & AKM Literasi (Pilihan Ganda Biasa, Kompleks Matrix, & MCMA)
- * Dilengkapi Verifikasi Password ASTS Terpadu
+ * BAHASA INGGRIS TINGKAT XII (FASE F - TL)
+ * Standar: TKA & AKM Literasi (Pilihan Ganda, Matrix Kompleks, & MCMA - CEFR Level B1)
  */
 
 const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbz1dnapNS6sFak-BlG-xxaFhGR9f0BhGYKyyddEvmIEOTxPrlARC2tHkeLLP1owzBToIw/exec";
 
 const SVG_PICTURES = {
-  biotech_lab: `<svg viewBox="0 0 100 100" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="15" y="20" width="70" height="55" rx="5" fill="#eff6ff" stroke="#2563eb"/>
-    <path d="M30 45c5-10 15-10 20 0s15 10 20 0" stroke="#3b82f6" stroke-width="2.5"/>
-    <path d="M30 55c5 10 15 10 20 0s15-10 20 0" stroke="#1d4ed8" stroke-width="2.5"/>
-    <line x1="35" y1="42" x2="35" y2="58" stroke="#93c5fd" stroke-width="2"/>
-    <line x1="50" y1="45" x2="50" y2="55" stroke="#93c5fd" stroke-width="2"/>
-    <line x1="65" y1="42" x2="65" y2="58" stroke="#93c5fd" stroke-width="2"/>
-    <circle cx="50" cy="82" r="3" fill="#2563eb"/>
-  </svg>`,
-  un_assembly: `<svg viewBox="0 0 100 100" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="50" cy="40" rx="35" ry="18" fill="#f0fdf4" stroke="#059669"/>
-    <ellipse cx="50" cy="52" rx="42" ry="20" stroke="#10b981" stroke-dasharray="3 3"/>
-    <path d="M25 75h50M35 85h30" stroke="#047857" stroke-width="2.5"/>
-    <rect x="42" y="28" width="16" height="12" rx="2" fill="#bae6fd" stroke="#0284c7"/>
-    <circle cx="50" cy="22" r="4" fill="#0284c7"/>
-  </svg>`,
-  tokamak_fusion: `<svg viewBox="0 0 100 100" fill="none" stroke="#d97706" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="50" cy="50" r="35" stroke="#d97706" stroke-width="3"/>
-    <circle cx="50" cy="50" r="18" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
-    <circle cx="50" cy="50" r="8" fill="#ea580c"/>
-    <path d="M50 15v17M50 68v17M15 50h17M68 50h17" stroke="#f59e0b" stroke-width="2.5"/>
-    <path d="M25 25l12 12M63 63l12 12M75 25l-12 12M37 63l-12 12" stroke="#d97706" stroke-dasharray="2 2"/>
-  </svg>`,
-  printing_press: `<svg viewBox="0 0 100 100" fill="none" stroke="#475569" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="20" y="35" width="60" height="45" rx="3" fill="#f8fafc" stroke="#475569"/>
-    <circle cx="50" cy="50" r="12" stroke="#334155" stroke-width="2"/>
-    <path d="M30 20h40v15H30z" fill="#e2e8f0" stroke="#475569"/>
-    <path d="M15 80h70" stroke="#0f172a" stroke-width="3"/>
-    <line x1="50" y1="20" x2="50" y2="10" stroke="#334155" stroke-width="3"/>
-    <circle cx="50" cy="8" r="3" fill="#0f172a"/>
-  </svg>`
+  debateContest: `<svg viewBox="0 0 100 100" fill="none" stroke="#2563eb" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="18" y="22" width="64" height="46" rx="4" fill="#eff6ff" stroke="#2563eb"/><circle cx="50" cy="45" r="14" stroke="#3b82f6" stroke-width="2" stroke-dasharray="3 3"/><line x1="50" y1="36" x2="50" y2="54" stroke="#1d4ed8"/><line x1="41" y1="45" x2="59" y2="45" stroke="#1d4ed8"/><path d="M26 32h14M26 38h10M60 52h14M60 58h10" stroke="#93c5fd"/><path d="M30 76l20-8 20 8" stroke="#475569" stroke-width="2"/><line x1="50" y1="68" x2="50" y2="84" stroke="#475569" stroke-width="3"/></svg>`,
+  cleanWindSolar: `<svg viewBox="0 0 100 100" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 85c15-8 30-14 70-4" stroke="#16a34a" stroke-width="3"/><path d="M35 80V50c0-12 12-22 25-22s25 10 25 22v30H35z" fill="#ecfdf5" stroke="#059669"/><path d="M50 28v-12M42 16h16" stroke="#047857" stroke-width="2"/><circle cx="60" cy="46" r="6" fill="#fef08a" stroke="#ca8a04"/><line x1="60" y1="40" x2="75" y2="28" stroke="#0284c7" stroke-width="2.5"/><circle cx="75" cy="28" r="3" fill="#0284c7"/></svg>`,
+  smartGreenhouse: `<svg viewBox="0 0 100 100" fill="none" stroke="#b45309" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 75c8-18 36-24 76 0" stroke="#78350f" stroke-width="3"/><path d="M22 62c6-14 28-18 56 0" stroke="#b45309" stroke-dasharray="2 2"/><polygon points="50,15 35,45 65,45" fill="#fef3c7" stroke="#d97706"/><circle cx="50" cy="30" r="5" fill="#d97706"/><path d="M38 48h24v20H38z" fill="#fef9c3" stroke="#ca8a04"/><path d="M42 48v20M58 48v20" stroke="#b45309"/><line x1="15" y1="84" x2="85" y2="84" stroke="#64748b"/></svg>`,
+  manufacturingPlant: `<svg viewBox="0 0 100 100" fill="none" stroke="#475569" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="50" width="30" height="35" fill="#f1f5f9"/><rect x="55" y="40" width="25" height="45" fill="#e2e8f0"/><line x1="35" y1="50" x2="35" y2="25" stroke="#64748b" stroke-width="2.5"/><line x1="68" y1="40" x2="68" y2="20" stroke="#64748b" stroke-width="2.5"/><path d="M30 20c3-5 7-5 10 0M63 15c3-5 7-5 10 0" stroke="#94a3b8"/></svg>`
 };
 
 function getGrade12TLAstsQuestions() {
   return [
-  {
-    "id": 1,
-    "source": "Sumber: Advanced English Assessment Series — BSKAP Kemendikbudristek",
-    "type": "listening_pictures",
-    "title": "Listening Section: Part I — Pictures",
-    "audioText": "Number one. Look at the pictures. In a modern science laboratory, a researcher is analyzing digital DNA strands on a computer screen to study genetic traits. Which picture best illustrates the spoken statement?",
-    "prompt": "Look at the four pictures below. Which picture matches the modern science laboratory described in the audio?",
-    "options": [
-      {
-        "key": "A",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <rect x=\"15\" y=\"20\" width=\"70\" height=\"55\" rx=\"5\" fill=\"#eff6ff\" stroke=\"#2563eb\"/>\n    <path d=\"M30 45c5-10 15-10 20 0s15 10 20 0\" stroke=\"#3b82f6\" stroke-width=\"2.5\"/>\n    <path d=\"M30 55c5 10 15 10 20 0s15-10 20 0\" stroke=\"#1d4ed8\" stroke-width=\"2.5\"/>\n    <line x1=\"35\" y1=\"42\" x2=\"35\" y2=\"58\" stroke=\"#93c5fd\" stroke-width=\"2\"/>\n    <line x1=\"50\" y1=\"45\" x2=\"50\" y2=\"55\" stroke=\"#93c5fd\" stroke-width=\"2\"/>\n    <line x1=\"65\" y1=\"42\" x2=\"65\" y2=\"58\" stroke=\"#93c5fd\" stroke-width=\"2\"/>\n    <circle cx=\"50\" cy=\"82\" r=\"3\" fill=\"#2563eb\"/>\n  </svg>",
-        "label": "Modern science laboratory with digital DNA sequencing display"
-      },
-      {
-        "key": "B",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <ellipse cx=\"50\" cy=\"40\" rx=\"35\" ry=\"18\" fill=\"#f0fdf4\" stroke=\"#059669\"/>\n    <ellipse cx=\"50\" cy=\"52\" rx=\"42\" ry=\"20\" stroke=\"#10b981\" stroke-dasharray=\"3 3\"/>\n    <path d=\"M25 75h50M35 85h30\" stroke=\"#047857\" stroke-width=\"2.5\"/>\n    <rect x=\"42\" y=\"28\" width=\"16\" height=\"12\" rx=\"2\" fill=\"#bae6fd\" stroke=\"#0284c7\"/>\n    <circle cx=\"50\" cy=\"22\" r=\"4\" fill=\"#0284c7\"/>\n  </svg>",
-        "label": "International assembly hall for youth diplomacy and conferences"
-      },
-      {
-        "key": "C",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#d97706\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <circle cx=\"50\" cy=\"50\" r=\"35\" stroke=\"#d97706\" stroke-width=\"3\"/>\n    <circle cx=\"50\" cy=\"50\" r=\"18\" fill=\"#fef3c7\" stroke=\"#b45309\" stroke-width=\"2\"/>\n    <circle cx=\"50\" cy=\"50\" r=\"8\" fill=\"#ea580c\"/>\n    <path d=\"M50 15v17M50 68v17M15 50h17M68 50h17\" stroke=\"#f59e0b\" stroke-width=\"2.5\"/>\n    <path d=\"M25 25l12 12M63 63l12 12M75 25l-12 12M37 63l-12 12\" stroke=\"#d97706\" stroke-dasharray=\"2 2\"/>\n  </svg>",
-        "label": "Advanced clean energy research reactor for renewable power"
-      },
-      {
-        "key": "D",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <rect x=\"20\" y=\"35\" width=\"60\" height=\"45\" rx=\"3\" fill=\"#f8fafc\" stroke=\"#475569\"/>\n    <circle cx=\"50\" cy=\"50\" r=\"12\" stroke=\"#334155\" stroke-width=\"2\"/>\n    <path d=\"M30 20h40v15H30z\" fill=\"#e2e8f0\" stroke=\"#475569\"/>\n    <path d=\"M15 80h70\" stroke=\"#0f172a\" stroke-width=\"3\"/>\n    <line x1=\"50\" y1=\"20\" x2=\"50\" y2=\"10\" stroke=\"#334155\" stroke-width=\"3\"/>\n    <circle cx=\"50\" cy=\"8\" r=\"3\" fill=\"#0f172a\"/>\n  </svg>",
-        "label": "Historical mechanical printing press workshop for early newspapers"
-      }
-    ],
-    "correctAnswer": "A",
-    "explanation": "Audio mendeskripsikan peneliti sains di laboratorium modern yang menganalisis untaian DNA digital pada layar komputer.",
-    "grammarNote": "Present Continuous for Workplace Research Actions."
-  },
-  {
-    "id": 2,
-    "source": "Sumber: Advanced English Assessment Series — BSKAP Kemendikbudristek",
-    "type": "listening_pictures",
-    "title": "Listening Section: Part I — Pictures",
-    "audioText": "Number two. Look at the pictures. In a large international assembly hall, youth delegates are seated around a semicircle discussing sustainable development goals. Which picture best corresponds to the spoken description?",
-    "prompt": "Look at the four pictures below. Which picture matches the international assembly hall described in the audio?",
-    "options": [
-      {
-        "key": "A",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <rect x=\"15\" y=\"20\" width=\"70\" height=\"55\" rx=\"5\" fill=\"#eff6ff\" stroke=\"#2563eb\"/>\n    <path d=\"M30 45c5-10 15-10 20 0s15 10 20 0\" stroke=\"#3b82f6\" stroke-width=\"2.5\"/>\n    <path d=\"M30 55c5 10 15 10 20 0s15-10 20 0\" stroke=\"#1d4ed8\" stroke-width=\"2.5\"/>\n    <line x1=\"35\" y1=\"42\" x2=\"35\" y2=\"58\" stroke=\"#93c5fd\" stroke-width=\"2\"/>\n    <line x1=\"50\" y1=\"45\" x2=\"50\" y2=\"55\" stroke=\"#93c5fd\" stroke-width=\"2\"/>\n    <line x1=\"65\" y1=\"42\" x2=\"65\" y2=\"58\" stroke=\"#93c5fd\" stroke-width=\"2\"/>\n    <circle cx=\"50\" cy=\"82\" r=\"3\" fill=\"#2563eb\"/>\n  </svg>",
-        "label": "Modern science laboratory with digital DNA sequencing display"
-      },
-      {
-        "key": "B",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <ellipse cx=\"50\" cy=\"40\" rx=\"35\" ry=\"18\" fill=\"#f0fdf4\" stroke=\"#059669\"/>\n    <ellipse cx=\"50\" cy=\"52\" rx=\"42\" ry=\"20\" stroke=\"#10b981\" stroke-dasharray=\"3 3\"/>\n    <path d=\"M25 75h50M35 85h30\" stroke=\"#047857\" stroke-width=\"2.5\"/>\n    <rect x=\"42\" y=\"28\" width=\"16\" height=\"12\" rx=\"2\" fill=\"#bae6fd\" stroke=\"#0284c7\"/>\n    <circle cx=\"50\" cy=\"22\" r=\"4\" fill=\"#0284c7\"/>\n  </svg>",
-        "label": "International assembly hall for youth diplomacy and conferences"
-      },
-      {
-        "key": "C",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#d97706\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <circle cx=\"50\" cy=\"50\" r=\"35\" stroke=\"#d97706\" stroke-width=\"3\"/>\n    <circle cx=\"50\" cy=\"50\" r=\"18\" fill=\"#fef3c7\" stroke=\"#b45309\" stroke-width=\"2\"/>\n    <circle cx=\"50\" cy=\"50\" r=\"8\" fill=\"#ea580c\"/>\n    <path d=\"M50 15v17M50 68v17M15 50h17M68 50h17\" stroke=\"#f59e0b\" stroke-width=\"2.5\"/>\n    <path d=\"M25 25l12 12M63 63l12 12M75 25l-12 12M37 63l-12 12\" stroke=\"#d97706\" stroke-dasharray=\"2 2\"/>\n  </svg>",
-        "label": "Advanced clean energy research reactor for renewable power"
-      },
-      {
-        "key": "D",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <rect x=\"20\" y=\"35\" width=\"60\" height=\"45\" rx=\"3\" fill=\"#f8fafc\" stroke=\"#475569\"/>\n    <circle cx=\"50\" cy=\"50\" r=\"12\" stroke=\"#334155\" stroke-width=\"2\"/>\n    <path d=\"M30 20h40v15H30z\" fill=\"#e2e8f0\" stroke=\"#475569\"/>\n    <path d=\"M15 80h70\" stroke=\"#0f172a\" stroke-width=\"3\"/>\n    <line x1=\"50\" y1=\"20\" x2=\"50\" y2=\"10\" stroke=\"#334155\" stroke-width=\"3\"/>\n    <circle cx=\"50\" cy=\"8\" r=\"3\" fill=\"#0f172a\"/>\n  </svg>",
-        "label": "Historical mechanical printing press workshop for early newspapers"
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "Audio mendeskripsikan ruang sidang majelis internasional di mana delegasi muda duduk melingkar mendiskusikan tujuan pembangunan berkelanjutan.",
-    "grammarNote": "Spatial and Descriptive Prepositional Phrases."
-  },
-  {
-    "id": 3,
-    "source": "Sumber: Advanced English Assessment Series — BSKAP Kemendikbudristek",
-    "type": "listening_pictures",
-    "title": "Listening Section: Part I — Pictures",
-    "audioText": "Number three. Look at the pictures. Inside an advanced clean energy facility, engineers monitor a central solar-fusion reactor designed for renewable power. Which picture best illustrates the spoken statement?",
-    "prompt": "Look at the four pictures below. Which picture matches the clean energy research reactor described in the audio?",
-    "options": [
-      {
-        "key": "A",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <rect x=\"15\" y=\"20\" width=\"70\" height=\"55\" rx=\"5\" fill=\"#eff6ff\" stroke=\"#2563eb\"/>\n    <path d=\"M30 45c5-10 15-10 20 0s15 10 20 0\" stroke=\"#3b82f6\" stroke-width=\"2.5\"/>\n    <path d=\"M30 55c5 10 15 10 20 0s15-10 20 0\" stroke=\"#1d4ed8\" stroke-width=\"2.5\"/>\n    <line x1=\"35\" y1=\"42\" x2=\"35\" y2=\"58\" stroke=\"#93c5fd\" stroke-width=\"2\"/>\n    <line x1=\"50\" y1=\"45\" x2=\"50\" y2=\"55\" stroke=\"#93c5fd\" stroke-width=\"2\"/>\n    <line x1=\"65\" y1=\"42\" x2=\"65\" y2=\"58\" stroke=\"#93c5fd\" stroke-width=\"2\"/>\n    <circle cx=\"50\" cy=\"82\" r=\"3\" fill=\"#2563eb\"/>\n  </svg>",
-        "label": "Modern science laboratory with digital DNA sequencing display"
-      },
-      {
-        "key": "B",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#475569\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <rect x=\"20\" y=\"35\" width=\"60\" height=\"45\" rx=\"3\" fill=\"#f8fafc\" stroke=\"#475569\"/>\n    <circle cx=\"50\" cy=\"50\" r=\"12\" stroke=\"#334155\" stroke-width=\"2\"/>\n    <path d=\"M30 20h40v15H30z\" fill=\"#e2e8f0\" stroke=\"#475569\"/>\n    <path d=\"M15 80h70\" stroke=\"#0f172a\" stroke-width=\"3\"/>\n    <line x1=\"50\" y1=\"20\" x2=\"50\" y2=\"10\" stroke=\"#334155\" stroke-width=\"3\"/>\n    <circle cx=\"50\" cy=\"8\" r=\"3\" fill=\"#0f172a\"/>\n  </svg>",
-        "label": "Historical mechanical printing press workshop for early newspapers"
-      },
-      {
-        "key": "C",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#d97706\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <circle cx=\"50\" cy=\"50\" r=\"35\" stroke=\"#d97706\" stroke-width=\"3\"/>\n    <circle cx=\"50\" cy=\"50\" r=\"18\" fill=\"#fef3c7\" stroke=\"#b45309\" stroke-width=\"2\"/>\n    <circle cx=\"50\" cy=\"50\" r=\"8\" fill=\"#ea580c\"/>\n    <path d=\"M50 15v17M50 68v17M15 50h17M68 50h17\" stroke=\"#f59e0b\" stroke-width=\"2.5\"/>\n    <path d=\"M25 25l12 12M63 63l12 12M75 25l-12 12M37 63l-12 12\" stroke=\"#d97706\" stroke-dasharray=\"2 2\"/>\n  </svg>",
-        "label": "Advanced clean energy research reactor for renewable power"
-      },
-      {
-        "key": "D",
-        "svg": "<svg viewBox=\"0 0 100 100\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <ellipse cx=\"50\" cy=\"40\" rx=\"35\" ry=\"18\" fill=\"#f0fdf4\" stroke=\"#059669\"/>\n    <ellipse cx=\"50\" cy=\"52\" rx=\"42\" ry=\"20\" stroke=\"#10b981\" stroke-dasharray=\"3 3\"/>\n    <path d=\"M25 75h50M35 85h30\" stroke=\"#047857\" stroke-width=\"2.5\"/>\n    <rect x=\"42\" y=\"28\" width=\"16\" height=\"12\" rx=\"2\" fill=\"#bae6fd\" stroke=\"#0284c7\"/>\n    <circle cx=\"50\" cy=\"22\" r=\"4\" fill=\"#0284c7\"/>\n  </svg>",
-        "label": "International assembly hall for youth diplomacy and conferences"
-      }
-    ],
-    "correctAnswer": "C",
-    "explanation": "Audio mendeskripsikan instalasi fasilitas riset fusi energi bersih terbarukan dengan ruang reaktor sentral sirkular.",
-    "grammarNote": "Scientific Facilities Identification."
-  },
-  {
-    "id": 4,
-    "source": "Sumber: Advanced English Assessment Series — SMAN 1 Bae Kudus",
-    "type": "listening_dialog",
-    "title": "Listening Section: Part II — Dialogue on Digital Currency",
-    "audioSegments": [
-      {
-        "role": "narrator",
-        "lang": "en-US",
-        "text": "Number four. Listen to a conversation between two students discussing digital payments.",
-        "pauseAfter": 400
-      },
-      {
-        "role": "speaker1",
-        "gender": "male",
-        "pitch": 0.85,
-        "text": "I rarely carry paper cash nowadays because digital payment apps and QR codes are so convenient for buying lunch and school books.",
-        "pauseAfter": 450
-      },
-      {
-        "role": "speaker2",
-        "gender": "female",
-        "pitch": 1.25,
-        "text": "That is true for students in big cities. However, in many rural markets, small traders still depend entirely on physical banknotes. Besides, server downtime and digital fraud can leave people without access to their money.",
-        "pauseAfter": 450
-      },
-      {
-        "role": "speaker1",
-        "gender": "male",
-        "pitch": 0.85,
-        "text": "You make a great point. That is why digital financial literacy and secure banking infrastructure are essential before going completely cashless.",
-        "pauseAfter": 500
-      },
-      {
-        "role": "narrator",
-        "lang": "en-US",
-        "text": "Question: What is the female speaker's primary concern regarding a cashless society?"
-      }
-    ],
-    "prompt": "What is the female speaker's primary concern regarding a cashless society?",
-    "options": [
-      {
-        "key": "A",
-        "text": "The difficulty of printing paper banknotes for commercial state banks."
-      },
-      {
-        "key": "B",
-        "text": "The complete absence of mobile banking and QR payment apps across Indonesia."
-      },
-      {
-        "key": "C",
-        "text": "The high financial cost of purchasing new smartphones for all school teachers."
-      },
-      {
-        "key": "D",
-        "text": "Financial exclusion for rural traders and potential server downtime or digital fraud."
-      }
-    ],
-    "correctAnswer": "D",
-    "explanation": "Pembicara wanita menekankan bahwa pedagang kecil pedesaan masih bergantung pada uang tunai fisik, serta terdapat risiko gangguan server dan ancaman penipuan digital.",
-    "grammarNote": "Stating Reservations and Expressing Contrasting Opinions."
-  },
-  {
-    "id": 5,
-    "source": "Sumber: Advanced English Assessment Series — SMAN 1 Bae Kudus",
-    "type": "listening_dialog",
-    "title": "Listening Section: Part II — Literary Dialogue on 'This Earth of Mankind'",
-    "audioSegments": [
-      {
-        "role": "narrator",
-        "lang": "en-US",
-        "text": "Number five. Listen to a literary discussion between two students about Pramoedya Ananta Toer's novel, This Earth of Mankind.",
-        "pauseAfter": 400
-      },
-      {
-        "role": "speaker1",
-        "gender": "male",
-        "pitch": 0.85,
-        "text": "I really admire how Nyai Ontosoroh is depicted in This Earth of Mankind. Even without formal schooling, she manages a large agricultural business through hard work and self-education.",
-        "pauseAfter": 450
-      },
-      {
-        "role": "speaker2",
-        "gender": "female",
-        "pitch": 1.25,
-        "text": "Absolutely. In colonial times, native women were given very few legal rights. Yet Nyai Ontosoroh stood proud and defended her family dignity against unfair colonial laws.",
-        "pauseAfter": 450
-      },
-      {
-        "role": "speaker1",
-        "gender": "male",
-        "pitch": 0.85,
-        "text": "And Minke learns from her that true dignity comes from moral courage and standing up for justice, not from European titles.",
-        "pauseAfter": 500
-      },
-      {
-        "role": "narrator",
-        "lang": "en-US",
-        "text": "Question: What central quality in Nyai Ontosoroh do both students strongly admire?"
-      }
-    ],
-    "prompt": "What central quality in Nyai Ontosoroh do both students strongly admire?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Her remarkable business acumen and moral courage in defending family dignity against injustice."
-      },
-      {
-        "key": "B",
-        "text": "Her desire to move permanently to Europe and abandon her native agricultural business."
-      },
-      {
-        "key": "C",
-        "text": "Her willingness to accept unfair colonial court judgments without any spoken protest."
-      },
-      {
-        "key": "D",
-        "text": "Her decision to prohibit Minke from writing articles in the Malay press."
-      }
-    ],
-    "correctAnswer": "A",
-    "explanation": "Kedua pembicara mengagumi ketangguhan Nyai Ontosoroh yang mengelola perkebunan melalui kerja keras dan membela martabat keluarga di tengah diskriminasi kolonial.",
-    "grammarNote": "Literary Character Analysis & Evaluative Adjectives."
-  },
-  {
-    "id": 6,
-    "source": "Sumber: Advanced English Assessment Series — SMAN 1 Bae Kudus",
-    "type": "listening_dialog",
-    "title": "Listening Section: Part II — Dialogue on Environmental Action",
-    "audioSegments": [
-      {
-        "role": "narrator",
-        "lang": "en-US",
-        "text": "Number six. Listen to a conversation between two youth leaders about community environmental projects.",
-        "pauseAfter": 400
-      },
-      {
-        "role": "speaker1",
-        "gender": "female",
-        "pitch": 1.25,
-        "text": "Our school eco-club collected over five hundred kilograms of plastic waste during the coastal clean-up last Saturday. The students were truly enthusiastic.",
-        "pauseAfter": 450
-      },
-      {
-        "role": "speaker2",
-        "gender": "male",
-        "pitch": 0.85,
-        "text": "That is a fantastic accomplishment! Still, coastal clean-ups only address the symptoms. To truly protect our marine life, local governments must enforce strict bans on single-use plastics and provide accessible recycling facilities.",
-        "pauseAfter": 450
-      },
-      {
-        "role": "speaker1",
-        "gender": "female",
-        "pitch": 1.25,
-        "text": "I completely agree. Youth initiatives must be supported by systemic policies and stronger waste management regulations.",
-        "pauseAfter": 500
-      },
-      {
-        "role": "narrator",
-        "lang": "en-US",
-        "text": "Question: What do both youth leaders conclude about protecting the environment?"
-      }
-    ],
-    "prompt": "What do both youth leaders conclude about protecting the environment?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Voluntary student clean-ups alone are completely sufficient to end marine plastic pollution."
-      },
-      {
-        "key": "B",
-        "text": "Grassroots youth clean-ups must be reinforced by systemic regulations and waste management facilities."
-      },
-      {
-        "key": "C",
-        "text": "Schools should stop organizing recycling projects because waste pollution cannot be solved."
-      },
-      {
-        "key": "D",
-        "text": "Plastic pollution only occurs in landlocked cities and does not affect coastal shorelines."
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "Kedua tokoh pemuda bersepakat bahwa aksi nyata bersih pantai oleh pelajar harus diperkuat dengan regulasi pembatasan plastik dan fasilitas daur ulang dari pemerintah.",
-    "grammarNote": "Agreement and Synthesizing Solutions in Environmental Discussions."
-  },
-  {
-    "id": 7,
-    "source": "Sumber: Advanced English Assessment Series — Kemendikbudristek",
-    "type": "listening_talk",
-    "title": "Listening Section: Part III — Monologue on Indonesian Literature",
-    "audioText": "Questions 7 and 8 are based on the following lecture extract. Good afternoon, class. Today we explore how modern Indonesian literature helped foster national consciousness during the twentieth century. Early colonial literature was often written in Dutch and accessible only to a small aristocratic elite. However, pioneers like Pramoedya Ananta Toer chose to write compelling narratives in Indonesian and Malay, using literature to illuminate social injustice and give a voice to marginalized communities. Through realistic character development and vivid historical settings, these writers demonstrated that literature is not merely personal entertainment, but a powerful instrument for social reflection, collective empathy, and civic responsibility. Number seven. What is the primary topic of the lecturer's address?",
-    "prompt": "What is the primary topic of the lecturer's address?",
-    "options": [
-      {
-        "key": "A",
-        "text": "The industrial printing techniques used for school textbooks in the twentieth century."
-      },
-      {
-        "key": "B",
-        "text": "The commercial sales figures of foreign translated novels across Southeast Asia."
-      },
-      {
-        "key": "C",
-        "text": "The role of modern Indonesian literature in fostering national consciousness and social justice."
-      },
-      {
-        "key": "D",
-        "text": "A technical comparison between ancient Javanese poetry and modern Dutch grammar."
-      }
-    ],
-    "correctAnswer": "C",
-    "explanation": "Topik utama kuliah adalah bagaimana sastra modern Indonesia membangun kesadaran kebangsaan dan memperjuangkan keadilan sosial.",
-    "grammarNote": "Identifying Main Idea in Academic Lectures."
-  },
-  {
-    "id": 8,
-    "source": "Sumber: Advanced English Assessment Series — Kemendikbudristek",
-    "type": "listening_talk",
-    "title": "Listening Section: Part III — Monologue on Indonesian Literature",
-    "audioText": "Number eight. According to the lecturer, how did pioneer writers view the true role of literature?",
-    "prompt": "According to the lecturer, how did pioneer writers view the true role of literature?",
-    "options": [
-      {
-        "key": "A",
-        "text": "As a private business venture meant solely to generate wealth for aristocratic authors."
-      },
-      {
-        "key": "B",
-        "text": "As exclusive pastime entertainment reserved strictly for colonial administrators."
-      },
-      {
-        "key": "C",
-        "text": "As an obsolete artistic medium that should be replaced entirely by commercial radio."
-      },
-      {
-        "key": "D",
-        "text": "As a powerful instrument for social reflection, collective empathy, and civic responsibility."
-      }
-    ],
-    "correctAnswer": "D",
-    "explanation": "Dosen menyatakan bahwa para penulis perintis memandang sastra sebagai instrumen berdaya kuat untuk refleksi sosial, empati kolektif, dan tanggung jawab sipil.",
-    "grammarNote": "Detail Comprehension in Academic Monologues."
-  },
-  {
-    "id": 9,
-    "source": "Sumber: Advanced English Assessment Series — Kemendikbudristek",
-    "type": "listening_talk",
-    "title": "Listening Section: Part III — Symposium on Digital Literacy",
-    "audioText": "Questions 9 and 10 are based on the following symposium address. Distinguished teachers and students. In an era dominated by automated news feeds and social media algorithms, digital literacy must evolve beyond basic keyboard skills. Algorithms are specifically engineered to capture our attention by promoting sensational and emotionally charged content. When high school graduates accept viral posts without scrutiny, misinformation spreads rapidly, creating polarization and anxiety. Therefore, schools must empower students to become discerning digital citizens. This means learning how to investigate sources, cross-check evidence, and understand how algorithms shape the information we consume every day. Number nine. Why do social media algorithms promote sensational content according to the speaker?",
-    "prompt": "Why do social media algorithms promote sensational content according to the speaker?",
-    "options": [
-      {
-        "key": "A",
-        "text": "To maximize user engagement and capture online attention through emotional triggers."
-      },
-      {
-        "key": "B",
-        "text": "To help high school students memorize grammatical rules for national examinations."
-      },
-      {
-        "key": "C",
-        "text": "To eliminate the need for physical public libraries and professional journalists."
-      },
-      {
-        "key": "D",
-        "text": "To verify whether viral digital posts are completely factual and objective."
-      }
-    ],
-    "correctAnswer": "A",
-    "explanation": "Pembicara menjelaskan bahwa algoritma media sosial dirancang untuk memaksimalkan atensi dan keterlibatan pengguna dengan memicu respons emosional.",
-    "grammarNote": "Cause and Effect Reasoning in Spoken Texts."
-  },
-  {
-    "id": 10,
-    "source": "Sumber: Advanced English Assessment Series — Kemendikbudristek",
-    "type": "listening_talk",
-    "title": "Listening Section: Part III — Symposium on Digital Literacy",
-    "audioText": "Number ten. What should schools empower students to do in response to algorithmic media?",
-    "prompt": "What should schools empower students to do in response to algorithmic media?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Stop using the internet entirely and return to manual paper typewriters."
-      },
-      {
-        "key": "B",
-        "text": "Investigate sources, cross-check evidence, and develop into discerning digital citizens."
-      },
-      {
-        "key": "C",
-        "text": "Share breaking news immediately across social media feeds before fact-checking."
-      },
-      {
-        "key": "D",
-        "text": "Rely solely on automated chatbot summaries without consulting authentic books."
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "Sekolah harus membekali siswa dengan kemampuan meneliti sumber, memverifikasi bukti, dan menjadi warga digital yang kritis.",
-    "grammarNote": "Action Recommendations & Modals of Suggestion."
-  },
-  {
-    "id": 11,
-    "source": "Sumber: Kajian Literasi Keuangan Digital — BSKAP Kemendikbudristek",
-    "type": "reading_discussion",
-    "title": "Reading Section: Discussion Text Analysis",
-    "stimulusTitle": "Text 1: Navigating the Transition Towards a Cashless Society",
-    "stimulusBody": "<p>In recent years, the rapid advancement of financial technology has propelled the global shift toward a cashless society. Across Indonesia, electronic wallets, mobile banking applications, and standardized QR codes (QRIS) have become omnipresent in modern commerce. Proponents argue that digital payment systems offer unmatched speed and financial efficiency. For consumers, carrying a smartphone eliminates the physical burden of paper currency and reduces the risk of street robbery. For small businesses, digital transactions streamline accounting records, accelerate payments, and expand access to formal microfinance loans. Moreover, governments benefit from enhanced fiscal transparency, as electronic records make tax evasion and illegal transactions significantly harder to conceal.</p>\n      <p>Conversely, critical economists and consumer advocates urge caution regarding a completely cashless economy. Their primary concern revolves around financial exclusion. Millions of rural citizens, small traditional market vendors, and elderly individuals still lack reliable smartphone connectivity, digital literacy, or access to formal bank accounts. Forcing an abrupt transition to cashless systems threatens to marginalize these vulnerable groups from everyday economic life. Furthermore, overreliance on digital networks introduces grave cybersecurity vulnerabilities. Server outages, cyberattacks, and sophisticated phishing scams can suddenly freeze access to funds. In addition, storing every financial transaction on private servers creates serious privacy concerns, enabling corporate tracking of personal consumer habits.</p>\n      <p>In conclusion, while the transition toward digital payments brings undeniable economic benefits, policymakers must balance technological innovation with social inclusion. Rather than completely outlawing physical banknotes, nations should adopt a hybrid financial ecosystem. By simultaneously strengthening cybersecurity regulations, expanding affordable internet access, and safeguarding the legal status of cash, society can harness the efficiency of digital finance without leaving marginalized citizens behind.</p>",
-    "prompt": "What is the primary communicative purpose of the text above?",
-    "options": [
-      {
-        "key": "A",
-        "text": "To persuade readers to completely boycott all electronic banking and online payments."
-      },
-      {
-        "key": "B",
-        "text": "To provide step-by-step technical instructions for installing a mobile banking application."
-      },
-      {
-        "key": "C",
-        "text": "To present balanced perspectives regarding the advantages and challenges of a cashless society."
-      },
-      {
-        "key": "D",
-        "text": "To narrate the historical biography of an Indonesian central banking executive."
-      }
-    ],
-    "correctAnswer": "C",
-    "explanation": "Tujuan komunikatif teks diskusi adalah menyajikan dua sudut pandang yang berimbang (keuntungan efisiensi vs tantangan inklusi dan privasi) mengenai masyarakat nontunai.",
-    "grammarNote": "Discussion Text Communicative Purpose."
-  },
-  {
-    "id": 12,
-    "source": "Sumber: Kajian Literasi Keuangan Digital — BSKAP Kemendikbudristek",
-    "type": "reading_discussion",
-    "title": "Reading Section: Discussion Text Analysis",
-    "stimulusTitle": "Text 1: Navigating the Transition Towards a Cashless Society",
-    "stimulusBody": "<p>In recent years, the rapid advancement of financial technology has propelled the global shift toward a cashless society. Across Indonesia, electronic wallets, mobile banking applications, and standardized QR codes (QRIS) have become omnipresent in modern commerce. Proponents argue that digital payment systems offer unmatched speed and financial efficiency. For consumers, carrying a smartphone eliminates the physical burden of paper currency and reduces the risk of street robbery. For small businesses, digital transactions streamline accounting records, accelerate payments, and expand access to formal microfinance loans. Moreover, governments benefit from enhanced fiscal transparency, as electronic records make tax evasion and illegal transactions significantly harder to conceal.</p>\n      <p>Conversely, critical economists and consumer advocates urge caution regarding a completely cashless economy. Their primary concern revolves around financial exclusion. Millions of rural citizens, small traditional market vendors, and elderly individuals still lack reliable smartphone connectivity, digital literacy, or access to formal bank accounts. Forcing an abrupt transition to cashless systems threatens to marginalize these vulnerable groups from everyday economic life. Furthermore, overreliance on digital networks introduces grave cybersecurity vulnerabilities. Server outages, cyberattacks, and sophisticated phishing scams can suddenly freeze access to funds. In addition, storing every financial transaction on private servers creates serious privacy concerns, enabling corporate tracking of personal consumer habits.</p>\n      <p>In conclusion, while the transition toward digital payments brings undeniable economic benefits, policymakers must balance technological innovation with social inclusion. Rather than completely outlawing physical banknotes, nations should adopt a hybrid financial ecosystem. By simultaneously strengthening cybersecurity regulations, expanding affordable internet access, and safeguarding the legal status of cash, society can harness the efficiency of digital finance without leaving marginalized citizens behind.</p>",
-    "prompt": "According to proponents in paragraph 1, how do digital payment systems benefit small enterprises?",
-    "options": [
-      {
-        "key": "A",
-        "text": "By exempting small business owners from paying any regional taxes to local governments."
-      },
-      {
-        "key": "B",
-        "text": "By guaranteeing that small businesses will never experience commercial competition."
-      },
-      {
-        "key": "C",
-        "text": "By providing free smartphones and high-speed computers to all store employees."
-      },
-      {
-        "key": "D",
-        "text": "By streamlining bookkeeping records, accelerating payments, and facilitating microfinance access."
-      }
-    ],
-    "correctAnswer": "D",
-    "explanation": "Paragraf 1 menyatakan manfaat transaksi digital bagi UMKM, yaitu merampingkan pencatatan pembukuan, mempercepat proses pembayaran, dan memperluas akses ke pinjaman mikro resmi.",
-    "grammarNote": "Scanning for Specific Factual Evidence in Expository Texts."
-  },
-  {
-    "id": 13,
-    "source": "Sumber: Kajian Literasi Keuangan Digital — BSKAP Kemendikbudristek",
-    "type": "reading_discussion",
-    "title": "Reading Section: Discussion Text Analysis",
-    "stimulusTitle": "Text 1: Navigating the Transition Towards a Cashless Society",
-    "stimulusBody": "<p>In recent years, the rapid advancement of financial technology has propelled the global shift toward a cashless society. Across Indonesia, electronic wallets, mobile banking applications, and standardized QR codes (QRIS) have become omnipresent in modern commerce. Proponents argue that digital payment systems offer unmatched speed and financial efficiency. For consumers, carrying a smartphone eliminates the physical burden of paper currency and reduces the risk of street robbery. For small businesses, digital transactions streamline accounting records, accelerate payments, and expand access to formal microfinance loans. Moreover, governments benefit from enhanced fiscal transparency, as electronic records make tax evasion and illegal transactions significantly harder to conceal.</p>\n      <p>Conversely, critical economists and consumer advocates urge caution regarding a completely cashless economy. Their primary concern revolves around financial exclusion. Millions of rural citizens, small traditional market vendors, and elderly individuals still lack reliable smartphone connectivity, digital literacy, or access to formal bank accounts. Forcing an abrupt transition to cashless systems threatens to marginalize these vulnerable groups from everyday economic life. Furthermore, overreliance on digital networks introduces grave cybersecurity vulnerabilities. Server outages, cyberattacks, and sophisticated phishing scams can suddenly freeze access to funds. In addition, storing every financial transaction on private servers creates serious privacy concerns, enabling corporate tracking of personal consumer habits.</p>\n      <p>In conclusion, while the transition toward digital payments brings undeniable economic benefits, policymakers must balance technological innovation with social inclusion. Rather than completely outlawing physical banknotes, nations should adopt a hybrid financial ecosystem. By simultaneously strengthening cybersecurity regulations, expanding affordable internet access, and safeguarding the legal status of cash, society can harness the efficiency of digital finance without leaving marginalized citizens behind.</p>",
-    "prompt": "What major socioeconomic risk of an abrupt cashless transition is highlighted in paragraph 2?",
-    "options": [
-      {
-        "key": "A",
-        "text": "The financial exclusion of rural citizens, small market vendors, and the elderly who lack digital access."
-      },
-      {
-        "key": "B",
-        "text": "A sudden worldwide shortage of paper and metal materials for manufacturing goods."
-      },
-      {
-        "key": "C",
-        "text": "An immediate requirement for high school students to manage corporate banking servers."
-      },
-      {
-        "key": "D",
-        "text": "The complete collapse of all international tourism and commercial aviation systems."
-      }
-    ],
-    "correctAnswer": "A",
-    "explanation": "Paragraf 2 menyoroti risiko eksklusi keuangan bagi warga pedesaan, pedagang pasar tradisional, dan lansia yang belum memiliki akses internet atau rekening bank formal.",
-    "grammarNote": "Identifying Arguments Against (Negative Stance)."
-  },
-  {
-    "id": 14,
-    "source": "Sumber: Kajian Literasi Keuangan Digital — BSKAP Kemendikbudristek",
-    "type": "reading_discussion",
-    "title": "Reading Section: Discussion Text Analysis",
-    "stimulusTitle": "Text 1: Navigating the Transition Towards a Cashless Society",
-    "stimulusBody": "<p>In recent years, the rapid advancement of financial technology has propelled the global shift toward a cashless society. Across Indonesia, electronic wallets, mobile banking applications, and standardized QR codes (QRIS) have become omnipresent in modern commerce. Proponents argue that digital payment systems offer unmatched speed and financial efficiency. For consumers, carrying a smartphone eliminates the physical burden of paper currency and reduces the risk of street robbery. For small businesses, digital transactions streamline accounting records, accelerate payments, and expand access to formal microfinance loans. Moreover, governments benefit from enhanced fiscal transparency, as electronic records make tax evasion and illegal transactions significantly harder to conceal.</p>\n      <p>Conversely, critical economists and consumer advocates urge caution regarding a completely cashless economy. Their primary concern revolves around financial exclusion. Millions of rural citizens, small traditional market vendors, and elderly individuals still lack reliable smartphone connectivity, digital literacy, or access to formal bank accounts. Forcing an abrupt transition to cashless systems threatens to marginalize these vulnerable groups from everyday economic life. Furthermore, overreliance on digital networks introduces grave cybersecurity vulnerabilities. Server outages, cyberattacks, and sophisticated phishing scams can suddenly freeze access to funds. In addition, storing every financial transaction on private servers creates serious privacy concerns, enabling corporate tracking of personal consumer habits.</p>\n      <p>In conclusion, while the transition toward digital payments brings undeniable economic benefits, policymakers must balance technological innovation with social inclusion. Rather than completely outlawing physical banknotes, nations should adopt a hybrid financial ecosystem. By simultaneously strengthening cybersecurity regulations, expanding affordable internet access, and safeguarding the legal status of cash, society can harness the efficiency of digital finance without leaving marginalized citizens behind.</p>",
-    "prompt": "The word 'streamline' in the first paragraph is closest in meaning to...",
-    "options": [
-      {
-        "key": "A",
-        "text": "complicate and delay through bureaucratic red tape."
-      },
-      {
-        "key": "B",
-        "text": "make an organization or process more efficient and simpler."
-      },
-      {
-        "key": "C",
-        "text": "abandon an ongoing commercial project due to bankruptcy."
-      },
-      {
-        "key": "D",
-        "text": "decorate an office building with modern artistic furnishings."
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "Kata 'streamline' berarti mengefisienkan atau menyederhanakan suatu alur proses agar berjalan lebih lancar, teratur, dan hemat waktu.",
-    "grammarNote": "Contextual Vocabulary Mastery (CEFR B2 Academic Words)."
-  },
-  {
-    "id": 15,
-    "source": "Sumber: Kajian Literasi Keuangan Digital — BSKAP Kemendikbudristek",
-    "type": "reading_discussion",
-    "title": "Reading Section: Discussion Text Analysis",
-    "stimulusTitle": "Text 1: Navigating the Transition Towards a Cashless Society",
-    "stimulusBody": "<p>In recent years, the rapid advancement of financial technology has propelled the global shift toward a cashless society. Across Indonesia, electronic wallets, mobile banking applications, and standardized QR codes (QRIS) have become omnipresent in modern commerce. Proponents argue that digital payment systems offer unmatched speed and financial efficiency. For consumers, carrying a smartphone eliminates the physical burden of paper currency and reduces the risk of street robbery. For small businesses, digital transactions streamline accounting records, accelerate payments, and expand access to formal microfinance loans. Moreover, governments benefit from enhanced fiscal transparency, as electronic records make tax evasion and illegal transactions significantly harder to conceal.</p>\n      <p>Conversely, critical economists and consumer advocates urge caution regarding a completely cashless economy. Their primary concern revolves around financial exclusion. Millions of rural citizens, small traditional market vendors, and elderly individuals still lack reliable smartphone connectivity, digital literacy, or access to formal bank accounts. Forcing an abrupt transition to cashless systems threatens to marginalize these vulnerable groups from everyday economic life. Furthermore, overreliance on digital networks introduces grave cybersecurity vulnerabilities. Server outages, cyberattacks, and sophisticated phishing scams can suddenly freeze access to funds. In addition, storing every financial transaction on private servers creates serious privacy concerns, enabling corporate tracking of personal consumer habits.</p>\n      <p>In conclusion, while the transition toward digital payments brings undeniable economic benefits, policymakers must balance technological innovation with social inclusion. Rather than completely outlawing physical banknotes, nations should adopt a hybrid financial ecosystem. By simultaneously strengthening cybersecurity regulations, expanding affordable internet access, and safeguarding the legal status of cash, society can harness the efficiency of digital finance without leaving marginalized citizens behind.</p>",
-    "prompt": "What constructive policy does the author recommend in the final paragraph?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Mandate that high schools replace all textbooks with cryptocurrency tokens."
-      },
-      {
-        "key": "B",
-        "text": "Outlaw physical banknotes immediately and penalize merchants who accept cash."
-      },
-      {
-        "key": "C",
-        "text": "Adopt a hybrid financial ecosystem that promotes digital innovation while safeguarding cash access."
-      },
-      {
-        "key": "D",
-        "text": "Shut down all online banking servers during evening hours to prevent cyberattacks."
-      }
-    ],
-    "correctAnswer": "C",
-    "explanation": "Penulis merekomendasikan ekosistem keuangan hibrida, yaitu merangkul efisiensi teknologi digital sambil tetap menjamin akses uang tunai fisik bagi masyarakat rentan.",
-    "grammarNote": "Authorial Recommendation & Synthesis in Discussion Texts."
-  },
-  {
-    "id": 16,
-    "source": "Sumber: Kajian Kebijakan Ekonomi Digital — Kemendikbudristek & Bank Indonesia",
-    "type": "complex_matrix",
-    "title": "Complex Multiple Choice: Fact & Opinion Analysis (Cashless Society & Digital Finance)",
-    "stimulusTitle": "Text 1: Navigating the Transition Towards a Cashless Society",
-    "stimulusBody": "<p>In recent years, the rapid advancement of financial technology has propelled the global shift toward a cashless society. Across Indonesia, electronic wallets, mobile banking applications, and standardized QR codes (QRIS) have become omnipresent in modern commerce. Proponents argue that digital payment systems offer unmatched speed and financial efficiency. For consumers, carrying a smartphone eliminates the physical burden of paper currency and reduces the risk of street robbery. For small businesses, digital transactions streamline accounting records, accelerate payments, and expand access to formal microfinance loans. Moreover, governments benefit from enhanced fiscal transparency, as electronic records make tax evasion and illegal transactions significantly harder to conceal.</p>\n      <p>Conversely, critical economists and consumer advocates urge caution regarding a completely cashless economy. Their primary concern revolves around financial exclusion. Millions of rural citizens, small traditional market vendors, and elderly individuals still lack reliable smartphone connectivity, digital literacy, or access to formal bank accounts. Forcing an abrupt transition to cashless systems threatens to marginalize these vulnerable groups from everyday economic life. Furthermore, overreliance on digital networks introduces grave cybersecurity vulnerabilities. Server outages, cyberattacks, and sophisticated phishing scams can suddenly freeze access to funds. In addition, storing every financial transaction on private servers creates serious privacy concerns, enabling corporate tracking of personal consumer habits.</p>\n      <p>In conclusion, while the transition toward digital payments brings undeniable economic benefits, policymakers must balance technological innovation with social inclusion. Rather than completely outlawing physical banknotes, nations should adopt a hybrid financial ecosystem. By simultaneously strengthening cybersecurity regulations, expanding affordable internet access, and safeguarding the legal status of cash, society can harness the efficiency of digital finance without leaving marginalized citizens behind.</p>",
-    "prompt": "Based on Text 1, determine whether each statement regarding digital payment ecosystems is **TRUE** or **FALSE**:",
-    "matrixStatements": [
-      {
-        "statement": "Digital payment architectures like QRIS and mobile e-wallets streamline bookkeeping for small vendors and reduce risks of physical cash theft.",
-        "isCorrect": true
-      },
-      {
-        "statement": "The author advocates that the government immediately enact an outright ban on physical banknotes and penalize cash users.",
-        "isCorrect": false
-      },
-      {
-        "statement": "Elderly populations and rural citizens facing unstable connectivity are vulnerable to acute financial exclusion.",
-        "isCorrect": true
-      },
-      {
-        "statement": "Cashless payment systems are entirely immune to electrical blackouts, server failures, and sophisticated cyber phishing scams.",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "• Pernyataan 1: BENAR — Keuntungan QRIS bagi pembukuan dan efisiensi serta keamanan transaksi dinyatakan jelas pada paragraf 1.<br>• Pernyataan 2: SALAH — Penulis tidak menyarankan pelarangan uang tunai, melainkan merekomendasikan ekosistem keuangan hibrida.<br>• Pernyataan 3: BENAR — Lansia dan masyarakat di daerah terpencil memang rentan mengalami eksklusi keuangan digital.<br>• Pernyataan 4: SALAH — Sistem pembayaran digital tetap memiliki risiko gangguan server, pemadaman listrik, dan penipuan siber.",
-    "grammarNote": "Complex Factual Synthesis in Advanced Discussion Texts."
-  },
-  {
-    "id": 17,
-    "source": "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
-    "type": "complex_matrix",
-    "title": "Complex Multiple Choice: Conditional Sentences (If, Unless, Provided That)",
-    "stimulusTitle": "Grammar Focus: Real and Hypothetical Conditionals (If / Unless / Provided That)",
-    "stimulusBody": "<p style=\"margin-bottom:0;\">Evaluate conditional sentence structures with conditional conjunctions (<em>If, Unless, Provided that</em>).</p>",
-    "prompt": "Determine whether each conditional sentence below is grammatically **TRUE** (correct) or **FALSE** (incorrect):",
-    "matrixStatements": [
-      {
-        "statement": "If the school had provided comprehensive cybersecurity training, students would have recognized the phishing link immediately.",
-        "isCorrect": true
-      },
-      {
-        "statement": "Unless students exercise caution when opening email attachments, their personal accounts are at risk of cyber fraud.",
-        "isCorrect": true
-      },
-      {
-        "statement": "Provided that the regional government invests in rural broadband, digital financial inclusion will expand significantly.",
-        "isCorrect": true
-      },
-      {
-        "statement": "If they studied the vocabulary list last night, they will achieve a perfect score on the grammar test today.",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "• Pernyataan 1: BENAR — Kalimat pengandaian tipe 3 (Third Conditional) menggunakan pola baku 'If + had + V3, would have + V3'.<br>• Pernyataan 2: BENAR — Konjungsi 'Unless' (jika tidak) digunakan secara tepat bersama Simple Present Tense untuk menyatakan kondisi realistis.<br>• Pernyataan 3: BENAR — Frasa 'Provided that' (dengan syarat) berfungsi setara dengan 'If' dalam kalimat pengandaian tipe 1.<br>• Pernyataan 4: SALAH — Terjadi kerancuan tenses; pengandaian tentang peristiwa tadi malam ('last night') yang tidak terwujud seharusnya menggunakan past perfect ('had studied') berpasangan dengan modal past ('would have achieved').",
-    "grammarNote": "Mastery of Conditional Clauses (If, Unless, Provided That) in Advanced English."
-  },
-  {
-    "id": 18,
-    "source": "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
-    "type": "complex_matrix",
-    "title": "Complex Multiple Choice: Cleft Sentences for Focus and Emphasis",
-    "stimulusTitle": "Grammar Focus: It-Cleft and Wh-Cleft Structures",
-    "stimulusBody": "<p style=\"margin-bottom:0;\">Cleft sentences split a clause into two parts to highlight focal information: <code>It + be + focus + that/who...</code> or <code>What + clause + be + complement</code>.</p>",
-    "prompt": "Determine whether each cleft sentence below is grammatically **TRUE** (correct) or **FALSE** (incorrect):",
-    "matrixStatements": [
-      {
-        "statement": "It was Nyai Ontosoroh's perseverance and moral dignity that inspired Minke to challenge colonial prejudice.",
-        "isCorrect": true
-      },
-      {
-        "statement": "What students need most in the modern digital era is critical discernment rather than passive memorization.",
-        "isCorrect": true
-      },
-      {
-        "statement": "It is through social media which all students learn their scientific concepts.",
-        "isCorrect": false
-      },
-      {
-        "statement": "What surprised the literary critics were the novel's profound psychological depth.",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "• Pernyataan 1: BENAR — Pola it-cleft 'It was ... that ...' tersusun secara tepat untuk memberikan penekanan pada subjek.<br>• Pernyataan 2: BENAR — Pola wh-cleft 'What students need most ... is ...' menggunakan to be tunggal 'is' yang selaras dengan klausa 'what'.<br>• Pernyataan 3: SALAH — Struktur cleft penekanan menggunakan kata hubung 'that' ('It is through social media that...'), bukan 'which'.<br>• Pernyataan 4: SALAH — Klausa subjek 'What surprised the literary critics' memerlukan to be tunggal 'was', bukan 'were'.",
-    "grammarNote": "Cleft Sentences for Thematic Prominence and Information Packaging."
-  },
-  {
-    "id": 19,
-    "source": "Sumber: Kajian Resensi Sastra Klasik Indonesia — Balai Bahasa & Kemendikbudristek",
-    "type": "complex_matrix",
-    "title": "Complex Multiple Choice: Literary Review Analysis (This Earth of Mankind)",
-    "stimulusTitle": "Text 2: Literary Review — Pramoedya Ananta Toer's This Earth of Mankind",
-    "stimulusBody": "<p>First published in 1980, Pramoedya Ananta Toer’s historical novel <em>This Earth of Mankind</em> (Bumi Manusia) stands as one of the most powerful milestones in Indonesian and world literature. Set in the late nineteenth-century Dutch East Indies (colonial Indonesia), the narrative chronicles the coming of age of Minke, an exceptionally gifted Javanese youth permitted to study at the elite Dutch High School (H.B.S.) in Surabaya. Through Minke's journey, Pramoedya crafts a profound reflection on human dignity, social inequality, and the awakening of national consciousness.</p>\n      <p>The beating heart of the novel is Nyai Ontosoroh, a native concubine sold by her own father to a Dutch merchant in her youth. Rather than succumbing to despair or accepting a submissive status, she educates herself in Dutch commerce, law, and culture. Through sheer intellect and relentless perseverance, she becomes the master administrator of a sprawling agricultural enterprise. When Minke falls in love with her gentle daughter, Annelies, Nyai Ontosoroh becomes his greatest mentor, demonstrating that true aristocracy is defined not by royal blood or colonial privilege, but by moral courage and self-respect.</p>\n      <p>From a literary standpoint, Pramoedya’s prose is both evocative and accessible. He skillfully blends historical realism with dramatic intimacy, transforming personal romance into a broader struggle against prejudice. While some modern readers may find the opening chapters somewhat deliberate in pacing, the dramatic momentum intensifies grippingly as colonial legal authorities attempt to strip Nyai Ontosoroh and Minke of their rights. The novel concludes with one of the most memorable declarations in world literature: \"We have fought back, child, with all our might.\"</p>\n      <p>Ultimately, <em>This Earth of Mankind</em> transcends its historical setting. It is an indispensable classic for high school students and general readers alike, offering timeless insights into the transformative power of education, literacy, and ethical resistance against injustice.</p>",
-    "prompt": "Based on the literary review in Text 2, evaluate whether each statement is **TRUE** or **FALSE**:",
-    "matrixStatements": [
-      {
-        "statement": "The narrative of This Earth of Mankind is set in late 19th-century Java during the Dutch colonial administration.",
-        "isCorrect": true
-      },
-      {
-        "statement": "The protagonist Minke is portrayed as an illiterate youth who refuses to acquire modern Western education.",
-        "isCorrect": false
-      },
-      {
-        "statement": "Nyai Ontosoroh manages a large-scale agricultural enterprise independently through intellect, resilience, and personal dignity.",
-        "isCorrect": true
-      },
-      {
-        "statement": "The reviewer concludes that the novel lacks enduring relevance and should be avoided by high school literature students.",
-        "isCorrect": false
-      }
-    ],
-    "explanation": "• Pernyataan 1: BENAR — Latar novel berlangsung pada akhir abad ke-19 di Hindia Belanda (Surabaya).<br>• Pernyataan 2: SALAH — Minke adalah siswa pribumi cerdas di H.B.S. yang fasih berbahasa Belanda dan berpikir maju.<br>• Pernyataan 3: BENAR — Nyai Ontosoroh digambarkan sebagai figur teladan berkarakter tangguh yang mandiri dan menguasai hukum perniagaan.<br>• Pernyataan 4: SALAH — Resensi menyimpulkan bahwa novel Bumi Manusia adalah karya sastra klasik penting yang abadi dan sangat bernilai bagi siswa.",
-    "grammarNote": "Literary Review Factual Verification."
-  },
-  {
-    "id": 20,
-    "source": "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
-    "type": "complex_matrix",
-    "title": "Complex Multiple Choice: Advanced Concession & Contrast Connectors",
-    "stimulusTitle": "Grammar Focus: Advanced Concession and Contrast Connectors",
-    "stimulusBody": "<p style=\"margin-bottom:0;\">Evaluate advanced discourse markers of concession (<em>Much as, Whereas, While, In contrast to</em>).</p>",
-    "prompt": "Determine whether each transitional sentence below is grammatically **TRUE** (correct) or **FALSE** (incorrect):",
-    "matrixStatements": [
-      {
-        "statement": "Much as she appreciated the convenience of digital payments, Maya remained cautious about personal data privacy.",
-        "isCorrect": true
-      },
-      {
-        "statement": "Whereas physical banknotes guarantee complete anonymity, digital payments leave an electronic audit trail.",
-        "isCorrect": true
-      },
-      {
-        "statement": "Even though the colonial court ruled unjustly, but Nyai Ontosoroh refused to compromise her dignity.",
-        "isCorrect": false
-      },
-      {
-        "statement": "In contrast to urban centers with fast 5G coverage, remote rural villages often experience unreliable connectivity.",
-        "isCorrect": true
-      }
-    ],
-    "explanation": "• Pernyataan 1: BENAR — Klausa konsesif 'Much as' bermakna 'Meskipun sangat...' dan tersusun dengan tata bahasa yang tepat.<br>• Pernyataan 2: BENAR — Konjungsi 'Whereas' digunakan secara tepat untuk membandingkan dua fakta yang berkebalikan secara langsung.<br>• Pernyataan 3: SALAH — Tidak boleh menggunakan konjungsi koordinatif 'but' setelah anak kalimat yang diawali 'Even though'.<br>• Pernyataan 4: BENAR — Frasa preposisi 'In contrast to' diikuti oleh frasa nomina ('urban centers with fast 5G coverage') untuk menunjukkan perbedaan kontras.",
-    "grammarNote": "Advanced Concessive and Contrastive Clauses."
-  },
-  {
-    "id": 21,
-    "source": "Sumber: Kajian Literasi Keuangan Digital — BSKAP Kemendikbudristek",
-    "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
-    "stimulusTitle": "Text 1: Navigating the Transition Towards a Cashless Society",
-    "stimulusBody": "<p>In recent years, the rapid advancement of financial technology has propelled the global shift toward a cashless society. Across Indonesia, electronic wallets, mobile banking applications, and standardized QR codes (QRIS) have become omnipresent in modern commerce. Proponents argue that digital payment systems offer unmatched speed and financial efficiency. For consumers, carrying a smartphone eliminates the physical burden of paper currency and reduces the risk of street robbery. For small businesses, digital transactions streamline accounting records, accelerate payments, and expand access to formal microfinance loans. Moreover, governments benefit from enhanced fiscal transparency, as electronic records make tax evasion and illegal transactions significantly harder to conceal.</p>\n      <p>Conversely, critical economists and consumer advocates urge caution regarding a completely cashless economy. Their primary concern revolves around financial exclusion. Millions of rural citizens, small traditional market vendors, and elderly individuals still lack reliable smartphone connectivity, digital literacy, or access to formal bank accounts. Forcing an abrupt transition to cashless systems threatens to marginalize these vulnerable groups from everyday economic life. Furthermore, overreliance on digital networks introduces grave cybersecurity vulnerabilities. Server outages, cyberattacks, and sophisticated phishing scams can suddenly freeze access to funds. In addition, storing every financial transaction on private servers creates serious privacy concerns, enabling corporate tracking of personal consumer habits.</p>\n      <p>In conclusion, while the transition toward digital payments brings undeniable economic benefits, policymakers must balance technological innovation with social inclusion. Rather than completely outlawing physical banknotes, nations should adopt a hybrid financial ecosystem. By simultaneously strengthening cybersecurity regulations, expanding affordable internet access, and safeguarding the legal status of cash, society can harness the efficiency of digital finance without leaving marginalized citizens behind.</p>",
-    "prompt": "Which **TWO (2)** primary benefits of digital payment systems are emphasized in Text 1?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Instant transaction speed that eliminates the burden of carrying physical banknotes and loose coins."
-      },
-      {
-        "key": "B",
-        "text": "An absolute guarantee that banking servers will never suffer power outages or cyber incursions."
-      },
-      {
-        "key": "C",
-        "text": "Neat, transparent electronic transaction records that facilitate small business credit eligibility."
-      },
-      {
-        "key": "D",
-        "text": "The automatic elimination of all personal household debt whenever digital wallet applications update."
-      }
-    ],
-    "correctAnswer": [
-      "A",
-      "C"
-    ],
-    "explanation": "Dua keunggulan utama sistem pembayaran digital menurut teks adalah kecepatan transaksi tanpa repot membawa uang tunai fisik, serta pencatatan pembukuan transparan yang mempermudah akses kredit bagi usaha kecil.",
-    "grammarNote": "Synthesizing Core Arguments in Expository Texts."
-  },
-  {
-    "id": 22,
-    "source": "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
-    "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
-    "stimulusTitle": "Grammar Focus: Standard Conditional Sentences (Types 2 & 3)",
-    "stimulusBody": "<p style=\"margin-bottom:0;\">Select sentences that correctly adhere to standard conditional frameworks.</p>",
-    "prompt": "Which **TWO (2)** sentences correctly demonstrate standard conditional sentence structures?",
-    "options": [
-      {
-        "key": "A",
-        "text": "If the agricultural cooperative had adopted smart irrigation earlier, crop yields would have doubled during the drought."
-      },
-      {
-        "key": "B",
-        "text": "If the school organized an international literature workshop, many aspiring writers would participate enthusiastically."
-      },
-      {
-        "key": "C",
-        "text": "If I have seen the competition announcement yesterday morning, I would submit the application promptly."
-      },
-      {
-        "key": "D",
-        "text": "If she arrived earlier yesterday, she will meet the visiting novelist in the auditorium."
-      }
-    ],
-    "correctAnswer": [
-      "A",
-      "B"
-    ],
-    "explanation": "Kalimat pengandaian tipe 3 baku dibentuk dengan 'If + had + V3, would have + V3' ('If the agricultural cooperative had adopted smart irrigation earlier...'). Kalimat pengandaian tipe 2 baku dibentuk dengan 'If + past simple, would + bare infinitive' ('If the school organized an international literature workshop...'). Dua kalimat lainnya tidak tepat karena memadukan present perfect 'have seen' dengan keterangan waktu lampau 'yesterday' serta mencampur past simple 'arrived' dengan future 'will meet'.",
-    "grammarNote": "Conditional Sentence Syntax across Hypothetical Structures."
-  },
-  {
-    "id": 23,
-    "source": "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
-    "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
-    "stimulusTitle": "Grammar Focus: Grammatically Accurate Cleft Sentences",
-    "stimulusBody": "<p style=\"margin-bottom:0;\">Select cleft sentences that correctly satisfy subject-verb concord and relative pronoun conventions.</p>",
-    "prompt": "Which **TWO (2)** cleft sentences below are grammatically accurate and standard?",
-    "options": [
-      {
-        "key": "A",
-        "text": "It was Minke's eloquent journalistic writing that exposed colonial injustice to the wider public."
-      },
-      {
-        "key": "B",
-        "text": "What impressed the literary critics were the novel's fast pacing and humorous ending."
-      },
-      {
-        "key": "C",
-        "text": "What the author wants to emphasize are that wealth is the only measure of human achievement."
-      },
-      {
-        "key": "D",
-        "text": "It is through empathy and mutual respect that diverse communities can live together harmoniously."
-      }
-    ],
-    "correctAnswer": [
-      "A",
-      "D"
-    ],
-    "explanation": "Kalimat yang menggunakan pola cleft secara baku adalah 'It was Minke's eloquent journalistic writing that exposed colonial injustice...' dan 'It is through empathy and mutual respect that diverse communities can live together...'. Sementara itu, kalimat dengan klausa 'what' sebagai subjek memerlukan kata kerja tunggal ('was' / 'is'), bukan jamak ('were' / 'are').",
-    "grammarNote": "It-Cleft and Wh-Cleft Agreement Rules."
-  },
-  {
-    "id": 24,
-    "source": "Sumber: Kajian Resensi Sastra Klasik Indonesia — Balai Bahasa & Kemendikbudristek",
-    "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
-    "stimulusTitle": "Text 2: Literary Review — Pramoedya Ananta Toer's This Earth of Mankind",
-    "stimulusBody": "<p>First published in 1980, Pramoedya Ananta Toer’s historical novel <em>This Earth of Mankind</em> (Bumi Manusia) stands as one of the most powerful milestones in Indonesian and world literature. Set in the late nineteenth-century Dutch East Indies (colonial Indonesia), the narrative chronicles the coming of age of Minke, an exceptionally gifted Javanese youth permitted to study at the elite Dutch High School (H.B.S.) in Surabaya. Through Minke's journey, Pramoedya crafts a profound reflection on human dignity, social inequality, and the awakening of national consciousness.</p>\n      <p>The beating heart of the novel is Nyai Ontosoroh, a native concubine sold by her own father to a Dutch merchant in her youth. Rather than succumbing to despair or accepting a submissive status, she educates herself in Dutch commerce, law, and culture. Through sheer intellect and relentless perseverance, she becomes the master administrator of a sprawling agricultural enterprise. When Minke falls in love with her gentle daughter, Annelies, Nyai Ontosoroh becomes his greatest mentor, demonstrating that true aristocracy is defined not by royal blood or colonial privilege, but by moral courage and self-respect.</p>\n      <p>From a literary standpoint, Pramoedya’s prose is both evocative and accessible. He skillfully blends historical realism with dramatic intimacy, transforming personal romance into a broader struggle against prejudice. While some modern readers may find the opening chapters somewhat deliberate in pacing, the dramatic momentum intensifies grippingly as colonial legal authorities attempt to strip Nyai Ontosoroh and Minke of their rights. The novel concludes with one of the most memorable declarations in world literature: \"We have fought back, child, with all our might.\"</p>\n      <p>Ultimately, <em>This Earth of Mankind</em> transcends its historical setting. It is an indispensable classic for high school students and general readers alike, offering timeless insights into the transformative power of education, literacy, and ethical resistance against injustice.</p>",
-    "prompt": "Which **TWO (2)** character virtues and social critiques are commended by the reviewer of *This Earth of Mankind*?",
-    "options": [
-      {
-        "key": "A",
-        "text": "The extraordinary intellect, entrepreneurial resilience, and unyielding self-worth demonstrated by Nyai Ontosoroh."
-      },
-      {
-        "key": "B",
-        "text": "Minke's dedication to literacy, social awareness, and moral courage in giving voice to the marginalized."
-      },
-      {
-        "key": "C",
-        "text": "The absolute impartiality and judicial fairness exhibited by the Dutch colonial legal system."
-      },
-      {
-        "key": "D",
-        "text": "Annelies's ambition to abandon her Javanese heritage in order to become a commercial trader in Europe."
-      }
-    ],
-    "correctAnswer": [
-      "A",
-      "B"
-    ],
-    "explanation": "Dua nilai luhur yang ditonjolkan adalah kecerdasan luar biasa, ketangguhan berwirausaha, dan keteguhan harga diri Nyai Ontosoroh, serta komitmen Minke pada literasi, kesadaran sosial, dan keberanian moral menyuarakan hak kaum tertindas.",
-    "grammarNote": "Literary Character Virtues Synthesis."
-  },
-  {
-    "id": 25,
-    "source": "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
-    "type": "mcma",
-    "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
-    "stimulusTitle": "Grammar Focus: Contrast Transitions in Academic English",
-    "stimulusBody": "<p style=\"margin-bottom:0;\">Select sentences that correctly employ contrast discourse markers.</p>",
-    "prompt": "Which **TWO (2)** sentences below correctly employ contrast transitions to connect conflicting ideas?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Although the historical novel contains profound philosophical insights, because many secondary students find it challenging."
-      },
-      {
-        "key": "B",
-        "text": "The digital economy creates boundless opportunities for young entrepreneurs; on the other hand, it widens the gap for those without digital access."
-      },
-      {
-        "key": "C",
-        "text": "In spite of the student studied diligently, but he was unable to answer the complex essay question."
-      },
-      {
-        "key": "D",
-        "text": "While physical cash offers complete privacy, digital transactions provide unmatched convenience and speed."
-      }
-    ],
-    "correctAnswer": [
-      "B",
-      "D"
-    ],
-    "explanation": "Kalimat yang menggunakan penanda transisi kontras secara tepat adalah kalimat dengan konjungsi antarkalimat 'on the other hand' dan konjungsi subordinatif 'While'. Kalimat lainnya salah karena menggabungkan 'Although' dengan 'because', atau salah memadukan preposisi 'In spite of' dengan klausa berpredikat dan 'but'.",
-    "grammarNote": "Cohesive Contrast Markers in Advanced Essays."
-  },
-  {
-    "id": 26,
-    "source": "Sumber: Telaah Kritis Sastra Indonesia Klasik — Balai Bahasa Jawa Tengah & Kemendikbudristek",
-    "type": "reading_review",
-    "title": "Reading Section: Literary Review Text",
-    "stimulusTitle": "Text 2: Literary Review — Pramoedya Ananta Toer's This Earth of Mankind",
-    "stimulusBody": "<p>First published in 1980, Pramoedya Ananta Toer’s historical novel <em>This Earth of Mankind</em> (Bumi Manusia) stands as one of the most powerful milestones in Indonesian and world literature. Set in the late nineteenth-century Dutch East Indies (colonial Indonesia), the narrative chronicles the coming of age of Minke, an exceptionally gifted Javanese youth permitted to study at the elite Dutch High School (H.B.S.) in Surabaya. Through Minke's journey, Pramoedya crafts a profound reflection on human dignity, social inequality, and the awakening of national consciousness.</p>\n      <p>The beating heart of the novel is Nyai Ontosoroh, a native concubine sold by her own father to a Dutch merchant in her youth. Rather than succumbing to despair or accepting a submissive status, she educates herself in Dutch commerce, law, and culture. Through sheer intellect and relentless perseverance, she becomes the master administrator of a sprawling agricultural enterprise. When Minke falls in love with her gentle daughter, Annelies, Nyai Ontosoroh becomes his greatest mentor, demonstrating that true aristocracy is defined not by royal blood or colonial privilege, but by moral courage and self-respect.</p>\n      <p>From a literary standpoint, Pramoedya’s prose is both evocative and accessible. He skillfully blends historical realism with dramatic intimacy, transforming personal romance into a broader struggle against prejudice. While some modern readers may find the opening chapters somewhat deliberate in pacing, the dramatic momentum intensifies grippingly as colonial legal authorities attempt to strip Nyai Ontosoroh and Minke of their rights. The novel concludes with one of the most memorable declarations in world literature: \"We have fought back, child, with all our might.\"</p>\n      <p>Ultimately, <em>This Earth of Mankind</em> transcends its historical setting. It is an indispensable classic for high school students and general readers alike, offering timeless insights into the transformative power of education, literacy, and ethical resistance against injustice.</p>",
-    "prompt": "What is the primary communicative purpose of the text above?",
-    "options": [
-      {
-        "key": "A",
-        "text": "To advertise guided heritage tours across historical landmarks in Surabaya."
-      },
-      {
-        "key": "B",
-        "text": "To present financial profit statistics of agricultural companies in the nineteenth century."
-      },
-      {
-        "key": "C",
-        "text": "To give technical instructions for writing historical fiction manuscripts."
-      },
-      {
-        "key": "D",
-        "text": "To provide a critical literary evaluation of Pramoedya's classic novel and recommend it to readers."
-      }
-    ],
-    "correctAnswer": "D",
-    "explanation": "Tujuan utama teks resensi sastra adalah mengevaluasi karya sastra (novel Bumi Manusia) secara mendalam serta merekomendasikannya kepada para pembaca dan pelajar.",
-    "grammarNote": "Communicative Purpose of Literary Reviews."
-  },
-  {
-    "id": 27,
-    "source": "Sumber: Telaah Kritis Sastra Indonesia Klasik — Balai Bahasa Jawa Tengah & Kemendikbudristek",
-    "type": "reading_review",
-    "title": "Reading Section: Literary Review Text",
-    "stimulusTitle": "Text 2: Literary Review — Pramoedya Ananta Toer's This Earth of Mankind",
-    "stimulusBody": "<p>First published in 1980, Pramoedya Ananta Toer’s historical novel <em>This Earth of Mankind</em> (Bumi Manusia) stands as one of the most powerful milestones in Indonesian and world literature. Set in the late nineteenth-century Dutch East Indies (colonial Indonesia), the narrative chronicles the coming of age of Minke, an exceptionally gifted Javanese youth permitted to study at the elite Dutch High School (H.B.S.) in Surabaya. Through Minke's journey, Pramoedya crafts a profound reflection on human dignity, social inequality, and the awakening of national consciousness.</p>\n      <p>The beating heart of the novel is Nyai Ontosoroh, a native concubine sold by her own father to a Dutch merchant in her youth. Rather than succumbing to despair or accepting a submissive status, she educates herself in Dutch commerce, law, and culture. Through sheer intellect and relentless perseverance, she becomes the master administrator of a sprawling agricultural enterprise. When Minke falls in love with her gentle daughter, Annelies, Nyai Ontosoroh becomes his greatest mentor, demonstrating that true aristocracy is defined not by royal blood or colonial privilege, but by moral courage and self-respect.</p>\n      <p>From a literary standpoint, Pramoedya’s prose is both evocative and accessible. He skillfully blends historical realism with dramatic intimacy, transforming personal romance into a broader struggle against prejudice. While some modern readers may find the opening chapters somewhat deliberate in pacing, the dramatic momentum intensifies grippingly as colonial legal authorities attempt to strip Nyai Ontosoroh and Minke of their rights. The novel concludes with one of the most memorable declarations in world literature: \"We have fought back, child, with all our might.\"</p>\n      <p>Ultimately, <em>This Earth of Mankind</em> transcends its historical setting. It is an indispensable classic for high school students and general readers alike, offering timeless insights into the transformative power of education, literacy, and ethical resistance against injustice.</p>",
-    "prompt": "According to the review, what historical setting forms the backdrop of Minke's narrative?",
-    "options": [
-      {
-        "key": "A",
-        "text": "The late nineteenth-century Dutch colonial period in Java."
-      },
-      {
-        "key": "B",
-        "text": "The ancient kingdom of Majapahit during the fourteenth century."
-      },
-      {
-        "key": "C",
-        "text": "The immediate post-independence era of Jakarta in the 1960s."
-      },
-      {
-        "key": "D",
-        "text": "A futuristic science-fiction setting on a distant space station."
-      }
-    ],
-    "correctAnswer": "A",
-    "explanation": "Paragraf 1 menyatakan secara spesifik bahwa novel berlatar di Surabaya, Hindia Belanda (kolonial Indonesia) pada akhir abad ke-19.",
-    "grammarNote": "Historical Narrative Setting."
-  },
-  {
-    "id": 28,
-    "source": "Sumber: Telaah Kritis Sastra Indonesia Klasik — Balai Bahasa Jawa Tengah & Kemendikbudristek",
-    "type": "reading_review",
-    "title": "Reading Section: Literary Review Text",
-    "stimulusTitle": "Text 2: Literary Review — Pramoedya Ananta Toer's This Earth of Mankind",
-    "stimulusBody": "<p>First published in 1980, Pramoedya Ananta Toer’s historical novel <em>This Earth of Mankind</em> (Bumi Manusia) stands as one of the most powerful milestones in Indonesian and world literature. Set in the late nineteenth-century Dutch East Indies (colonial Indonesia), the narrative chronicles the coming of age of Minke, an exceptionally gifted Javanese youth permitted to study at the elite Dutch High School (H.B.S.) in Surabaya. Through Minke's journey, Pramoedya crafts a profound reflection on human dignity, social inequality, and the awakening of national consciousness.</p>\n      <p>The beating heart of the novel is Nyai Ontosoroh, a native concubine sold by her own father to a Dutch merchant in her youth. Rather than succumbing to despair or accepting a submissive status, she educates herself in Dutch commerce, law, and culture. Through sheer intellect and relentless perseverance, she becomes the master administrator of a sprawling agricultural enterprise. When Minke falls in love with her gentle daughter, Annelies, Nyai Ontosoroh becomes his greatest mentor, demonstrating that true aristocracy is defined not by royal blood or colonial privilege, but by moral courage and self-respect.</p>\n      <p>From a literary standpoint, Pramoedya’s prose is both evocative and accessible. He skillfully blends historical realism with dramatic intimacy, transforming personal romance into a broader struggle against prejudice. While some modern readers may find the opening chapters somewhat deliberate in pacing, the dramatic momentum intensifies grippingly as colonial legal authorities attempt to strip Nyai Ontosoroh and Minke of their rights. The novel concludes with one of the most memorable declarations in world literature: \"We have fought back, child, with all our might.\"</p>\n      <p>Ultimately, <em>This Earth of Mankind</em> transcends its historical setting. It is an indispensable classic for high school students and general readers alike, offering timeless insights into the transformative power of education, literacy, and ethical resistance against injustice.</p>",
-    "prompt": "How does Nyai Ontosoroh overcome her tragic past according to paragraph 2?",
-    "options": [
-      {
-        "key": "A",
-        "text": "By moving permanently to Europe and relinquishing all commercial interests."
-      },
-      {
-        "key": "B",
-        "text": "By educating herself in Dutch law and business to masterfully manage an agricultural enterprise."
-      },
-      {
-        "key": "C",
-        "text": "By relying entirely on aristocratic royal relatives to protect her family wealth."
-      },
-      {
-        "key": "D",
-        "text": "By convincing colonial judges to grant her honorary Dutch citizenship."
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "Nyai Ontosoroh mendidik dirinya sendiri dalam bidang hukum dan perdagangan Belanda hingga berhasil menjadi pengelola sukses perusahaan perkebunan besar.",
-    "grammarNote": "Character Agency and Motivation Comprehension."
-  },
-  {
-    "id": 29,
-    "source": "Sumber: Telaah Kritis Sastra Indonesia Klasik — Balai Bahasa Jawa Tengah & Kemendikbudristek",
-    "type": "reading_review",
-    "title": "Reading Section: Literary Review Text",
-    "stimulusTitle": "Text 2: Literary Review — Pramoedya Ananta Toer's This Earth of Mankind",
-    "stimulusBody": "<p>First published in 1980, Pramoedya Ananta Toer’s historical novel <em>This Earth of Mankind</em> (Bumi Manusia) stands as one of the most powerful milestones in Indonesian and world literature. Set in the late nineteenth-century Dutch East Indies (colonial Indonesia), the narrative chronicles the coming of age of Minke, an exceptionally gifted Javanese youth permitted to study at the elite Dutch High School (H.B.S.) in Surabaya. Through Minke's journey, Pramoedya crafts a profound reflection on human dignity, social inequality, and the awakening of national consciousness.</p>\n      <p>The beating heart of the novel is Nyai Ontosoroh, a native concubine sold by her own father to a Dutch merchant in her youth. Rather than succumbing to despair or accepting a submissive status, she educates herself in Dutch commerce, law, and culture. Through sheer intellect and relentless perseverance, she becomes the master administrator of a sprawling agricultural enterprise. When Minke falls in love with her gentle daughter, Annelies, Nyai Ontosoroh becomes his greatest mentor, demonstrating that true aristocracy is defined not by royal blood or colonial privilege, but by moral courage and self-respect.</p>\n      <p>From a literary standpoint, Pramoedya’s prose is both evocative and accessible. He skillfully blends historical realism with dramatic intimacy, transforming personal romance into a broader struggle against prejudice. While some modern readers may find the opening chapters somewhat deliberate in pacing, the dramatic momentum intensifies grippingly as colonial legal authorities attempt to strip Nyai Ontosoroh and Minke of their rights. The novel concludes with one of the most memorable declarations in world literature: \"We have fought back, child, with all our might.\"</p>\n      <p>Ultimately, <em>This Earth of Mankind</em> transcends its historical setting. It is an indispensable classic for high school students and general readers alike, offering timeless insights into the transformative power of education, literacy, and ethical resistance against injustice.</p>",
-    "prompt": "What minor critique of the novel does the reviewer mention in paragraph 3?",
-    "options": [
-      {
-        "key": "A",
-        "text": "The author completely avoids discussing any historical or social themes."
-      },
-      {
-        "key": "B",
-        "text": "The entire novel is written in outdated Middle English poetry."
-      },
-      {
-        "key": "C",
-        "text": "The opening chapters may feel somewhat deliberate in pacing for some modern readers."
-      },
-      {
-        "key": "D",
-        "text": "The main characters lack any distinct emotional personalities or motivations."
-      }
-    ],
-    "correctAnswer": "C",
-    "explanation": "Paragraf 3 mencatat kritik minor bahwa sebagian pembaca modern mungkin merasa tempo pembuka novel agak lambat/terencana ('somewhat deliberate in pacing') sebelum ketegangan dramatisnya memuncak.",
-    "grammarNote": "Identifying Evaluative Critique in Reviews."
-  },
-  {
-    "id": 30,
-    "source": "Sumber: Telaah Kritis Sastra Indonesia Klasik — Balai Bahasa Jawa Tengah & Kemendikbudristek",
-    "type": "reading_review",
-    "title": "Reading Section: Literary Review Text",
-    "stimulusTitle": "Text 2: Literary Review — Pramoedya Ananta Toer's This Earth of Mankind",
-    "stimulusBody": "<p>First published in 1980, Pramoedya Ananta Toer’s historical novel <em>This Earth of Mankind</em> (Bumi Manusia) stands as one of the most powerful milestones in Indonesian and world literature. Set in the late nineteenth-century Dutch East Indies (colonial Indonesia), the narrative chronicles the coming of age of Minke, an exceptionally gifted Javanese youth permitted to study at the elite Dutch High School (H.B.S.) in Surabaya. Through Minke's journey, Pramoedya crafts a profound reflection on human dignity, social inequality, and the awakening of national consciousness.</p>\n      <p>The beating heart of the novel is Nyai Ontosoroh, a native concubine sold by her own father to a Dutch merchant in her youth. Rather than succumbing to despair or accepting a submissive status, she educates herself in Dutch commerce, law, and culture. Through sheer intellect and relentless perseverance, she becomes the master administrator of a sprawling agricultural enterprise. When Minke falls in love with her gentle daughter, Annelies, Nyai Ontosoroh becomes his greatest mentor, demonstrating that true aristocracy is defined not by royal blood or colonial privilege, but by moral courage and self-respect.</p>\n      <p>From a literary standpoint, Pramoedya’s prose is both evocative and accessible. He skillfully blends historical realism with dramatic intimacy, transforming personal romance into a broader struggle against prejudice. While some modern readers may find the opening chapters somewhat deliberate in pacing, the dramatic momentum intensifies grippingly as colonial legal authorities attempt to strip Nyai Ontosoroh and Minke of their rights. The novel concludes with one of the most memorable declarations in world literature: \"We have fought back, child, with all our might.\"</p>\n      <p>Ultimately, <em>This Earth of Mankind</em> transcends its historical setting. It is an indispensable classic for high school students and general readers alike, offering timeless insights into the transformative power of education, literacy, and ethical resistance against injustice.</p>",
-    "prompt": "The word 'transcends' in the concluding paragraph is closest in meaning to...",
-    "options": [
-      {
-        "key": "A",
-        "text": "copies word for word from an earlier text."
-      },
-      {
-        "key": "B",
-        "text": "fails completely to achieve an intended objective."
-      },
-      {
-        "key": "C",
-        "text": "limits its relevance strictly to a single historical date."
-      },
-      {
-        "key": "D",
-        "text": "goes beyond the normal boundaries or limits of time and place."
-      }
-    ],
-    "correctAnswer": "D",
-    "explanation": "Kata 'transcends' bermakna melampaui batasan ruang dan waktu, menunjukkan relevansi novel yang abadi melintasi generasi zaman.",
-    "grammarNote": "Academic Vocabulary in Review Conclusion."
-  },
-  {
-    "id": 31,
-    "source": "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
-    "type": "grammar_structure",
-    "title": "Grammar & Structure: Third Conditional with If",
-    "prompt": "If the technical team ________ the electrical system earlier, the laboratory blackout would have been averted.",
-    "options": [
-      {
-        "key": "A",
-        "text": "had investigated"
-      },
-      {
-        "key": "B",
-        "text": "investigates"
-      },
-      {
-        "key": "C",
-        "text": "has investigated"
-      },
-      {
-        "key": "D",
-        "text": "would investigate"
-      }
-    ],
-    "correctAnswer": "A",
-    "explanation": "Klausul syarat 'if' pada kalimat pengandaian tipe 3 (Third Conditional) membutuhkan bentuk Past Perfect Tense ('had investigated') untuk berpasangan dengan klausa utama hipotesis masa lampau 'would have been averted'.",
-    "grammarNote": "Third Conditional Structure in Technical Contexts."
-  },
-  {
-    "id": 32,
-    "source": "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
-    "type": "grammar_structure",
-    "title": "Grammar & Structure: Conditional Conjunction (Provided that)",
-    "prompt": "Candidates will be granted special accommodations during the examination ________ they submit an official medical certificate in advance.",
-    "options": [
-      {
-        "key": "A",
-        "text": "provided that"
-      },
-      {
-        "key": "B",
-        "text": "in spite of"
-      },
-      {
-        "key": "C",
-        "text": "although"
-      },
-      {
-        "key": "D",
-        "text": "unless"
-      }
-    ],
-    "correctAnswer": "A",
-    "explanation": "Frasa konjungsi 'provided that' bermakna 'dengan syarat' atau 'asalkan', berfungsi menghubungkan klausa utama dengan klausa kondisi atau prasyarat yang harus dipenuhi.",
-    "grammarNote": "Conditional Conjunctions ('Provided that' / 'As long as') in Formal Contexts."
-  },
-  {
-    "id": 33,
-    "source": "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
-    "type": "grammar_structure",
-    "title": "Grammar & Structure: It-Cleft Sentence for Focus",
-    "prompt": "It was Nyai Ontosoroh's immense moral courage ________ inspired Minke to write bravely against social injustice.",
-    "options": [
-      {
-        "key": "A",
-        "text": "which"
-      },
-      {
-        "key": "B",
-        "text": "whom"
-      },
-      {
-        "key": "C",
-        "text": "that"
-      },
-      {
-        "key": "D",
-        "text": "whose"
-      }
-    ],
-    "correctAnswer": "C",
-    "explanation": "Rumus kalimat It-cleft baku menggunakan kata penghubung 'that' ('It was his perseverance that...') untuk memfokuskan elemen subjek yang ditegaskan.",
-    "grammarNote": "It-Cleft Sentences for Emphasis."
-  },
-  {
-    "id": 34,
-    "source": "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
-    "type": "grammar_structure",
-    "title": "Grammar & Structure: Wh-Cleft (Pseudo-Cleft)",
-    "prompt": "________ secondary students need most when evaluating digital information is sharp critical thinking.",
-    "options": [
-      {
-        "key": "A",
-        "text": "Which"
-      },
-      {
-        "key": "B",
-        "text": "Where"
-      },
-      {
-        "key": "C",
-        "text": "Why"
-      },
-      {
-        "key": "D",
-        "text": "What"
-      }
-    ],
-    "correctAnswer": "D",
-    "explanation": "Rumus Wh-cleft baku menempatkan klausa 'what' di awal kalimat dengan kata kerja to be berbentuk tunggal ('was') yang selaras dengan pelengkap kalimat.",
-    "grammarNote": "Wh-Cleft Clauses."
-  },
-  {
-    "id": 35,
-    "source": "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
-    "type": "grammar_structure",
-    "title": "Grammar & Structure: Concessive Clauses with 'Much as'",
-    "prompt": "________ he appreciated the efficiency of digital wallets, Rizky always carried some emergency physical cash.",
-    "options": [
-      {
-        "key": "A",
-        "text": "Much as"
-      },
-      {
-        "key": "B",
-        "text": "Because of"
-      },
-      {
-        "key": "C",
-        "text": "In spite"
-      },
-      {
-        "key": "D",
-        "text": "Due to"
-      }
-    ],
-    "correctAnswer": "A",
-    "explanation": "Kaidah subjunctive mood formal setelah kata kerja seperti 'recommend', 'demand', atau 'insist' mewajibkan kata kerja dasar (bare infinitive / base form): 'recommend that the system be updated'.",
-    "grammarNote": "Concessive Connectors: Much as + Clause."
-  },
-  {
-    "id": 36,
-    "source": "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
-    "type": "grammar_structure",
-    "title": "Grammar & Structure: Contrast Transition Adverb",
-    "prompt": "Physical banknotes provide total personal anonymity. ________, digital payments offer unmatched convenience and speed.",
-    "options": [
-      {
-        "key": "A",
-        "text": "Furthermore"
-      },
-      {
-        "key": "B",
-        "text": "On the other hand"
-      },
-      {
-        "key": "C",
-        "text": "Consequently"
-      },
-      {
-        "key": "D",
-        "text": "In addition"
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "Konjungsi subordinatif 'Whereas' digunakan secara tepat untuk menghubungkan dua klausa yang membandingkan fakta berkebalikan secara langsung.",
-    "grammarNote": "Transitions of Contrast: On the other hand."
-  },
-  {
-    "id": 37,
-    "source": "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
-    "type": "grammar_structure",
-    "title": "Grammar & Structure: Subjunctive Mood after Verbs of Recommendation",
-    "prompt": "The education board recommended that the school committee ________ comprehensive digital ethics guidelines.",
-    "options": [
-      {
-        "key": "A",
-        "text": "adopts"
-      },
-      {
-        "key": "B",
-        "text": "adopted"
-      },
-      {
-        "key": "C",
-        "text": "adopt"
-      },
-      {
-        "key": "D",
-        "text": "was adopting"
-      }
-    ],
-    "correctAnswer": "C",
-    "explanation": "Kata 'meticulously' bersinonim dengan 'carefully and thoroughly' (secara teliti, cermat, dan mendalam).",
-    "grammarNote": "Subjunctive Mood in Formal Academic Prose."
-  },
-  {
-    "id": 38,
-    "source": "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
-    "type": "grammar_structure",
-    "title": "Grammar & Structure: Prepositional Concession",
-    "prompt": "________ facing severe financial limitations, the rural school produced outstanding graduates.",
-    "options": [
-      {
-        "key": "A",
-        "text": "Although"
-      },
-      {
-        "key": "B",
-        "text": "Even though"
-      },
-      {
-        "key": "C",
-        "text": "Whereas"
-      },
-      {
-        "key": "D",
-        "text": "In spite of"
-      }
-    ],
-    "correctAnswer": "D",
-    "explanation": "Frasa preposisi 'In spite of' diikuti oleh gerund atau frasa nomina ('facing severe financial limitations'). Konjungsi seperti Although, Even though, dan Whereas harus diikuti oleh klausa lengkap berpredikat.",
-    "grammarNote": "Prepositional Concessive Phrases: In spite of + Gerund."
-  },
-  {
-    "id": 39,
-    "source": "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
-    "type": "grammar_structure",
-    "title": "Grammar & Structure: Impersonal Academic Passive",
-    "prompt": "It is widely ________ by literary scholars that Pramoedya's tetralogy revolutionized modern Southeast Asian literature.",
-    "options": [
-      {
-        "key": "A",
-        "text": "acknowledged"
-      },
-      {
-        "key": "B",
-        "text": "acknowledging"
-      },
-      {
-        "key": "C",
-        "text": "acknowledge"
-      },
-      {
-        "key": "D",
-        "text": "has acknowledge"
-      }
-    ],
-    "correctAnswer": "A",
-    "explanation": "Konteks kalimat menunjukkan target cita-cita yang tinggi namun dibatasi oleh sumber daya, sehingga kata sifat yang paling berterima adalah 'ambitious'.",
-    "grammarNote": "Impersonal Passive Stance in Academic Writing."
-  },
-  {
-    "id": 40,
-    "source": "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
-    "type": "grammar_structure",
-    "title": "Grammar & Structure: Concluding Transitional Adverb",
-    "prompt": "Both digital convenience and security risks must be considered. ________, a balanced hybrid approach serves citizens best.",
-    "options": [
-      {
-        "key": "A",
-        "text": "On the contrary"
-      },
-      {
-        "key": "B",
-        "text": "In conclusion"
-      },
-      {
-        "key": "C",
-        "text": "Otherwise"
-      },
-      {
-        "key": "D",
-        "text": "In spite of"
-      }
-    ],
-    "correctAnswer": "B",
-    "explanation": "Konektor diskursus penutup 'In conclusion' digunakan secara tepat untuk merangkum dan menutup argumen esai secara komprehensif.",
-    "grammarNote": "Discourse Synthesis & Concluding Connectors."
-  }
-];
+    {
+      id: 1,
+      source: "Kemendikbudristek — Listening Practice Fase F Kelas XII",
+      type: "listening_pictures",
+      title: "Listening Section: Part I - Pictures",
+      audioText: "Number one. Look at the pictures. In the school auditorium, two teams of senior high school students are holding an English debate competition about renewable energy. Which picture matches the description?",
+      audioSegments: [
+        {
+          text: "Number one. Look at the pictures in your test booklet. In the school auditorium, two teams of senior high school students are holding an English debate competition about renewable energy. Which picture matches the description?",
+          lang: "en-US",
+          role: "narrator"
+        }
+      ],
+      prompt: "Which picture matches the high school students holding an English debate in an auditorium?",
+      options: [
+        { key: "A", svg: SVG_PICTURES.debateContest, label: "Students holding an English debate in an auditorium" },
+        { key: "B", svg: SVG_PICTURES.cleanWindSolar, label: "Clean wind turbines and solar panels on a coastal hill" },
+        { key: "C", svg: SVG_PICTURES.smartGreenhouse, label: "A modern agricultural greenhouse with vegetables" },
+        { key: "D", svg: SVG_PICTURES.manufacturingPlant, label: "A traditional industrial manufacturing plant" }
+      ],
+      correctAnswer: "A",
+      explanation: "Audio mendeskripsikan dua tim siswa SMA yang sedang berkompetisi dalam lomba debat bahasa Inggris di auditorium ('holding an English debate competition about renewable energy').",
+      grammarNote: "Present continuous tense: 'students are holding an English debate competition'."
+    },
+    {
+      id: 2,
+      source: "Kemendikbudristek — Listening Practice Fase F Kelas XII",
+      type: "listening_pictures",
+      title: "Listening Section: Part I - Pictures",
+      audioText: "Number two. Look at the pictures. Built on an open green field, tall white wind turbines and clean solar panels produce renewable electricity for local houses. Which picture shows this clean energy site?",
+      audioSegments: [
+        {
+          text: "Number two. Look at the pictures. Built on an open green field, tall white wind turbines and clean solar panels produce renewable electricity for local houses. Which picture shows this clean energy site?",
+          lang: "en-US",
+          role: "narrator"
+        }
+      ],
+      prompt: "Which picture accurately depicts the renewable wind turbines and solar panels?",
+      options: [
+        { key: "A", svg: SVG_PICTURES.debateContest, label: "Students holding an English debate in an auditorium" },
+        { key: "B", svg: SVG_PICTURES.cleanWindSolar, label: "Clean wind turbines and solar panels on a coastal hill" },
+        { key: "C", svg: SVG_PICTURES.smartGreenhouse, label: "A modern agricultural greenhouse with vegetables" },
+        { key: "D", svg: SVG_PICTURES.manufacturingPlant, label: "A traditional industrial manufacturing plant" }
+      ],
+      correctAnswer: "B",
+      explanation: "Audio mendeskripsikan instalasi turbin angin dan panel surya di padang rumput hijau yang menghasilkan listrik bersih ('tall white wind turbines and clean solar panels produce renewable electricity').",
+      grammarNote: "Compound subject: 'tall white wind turbines and clean solar panels'."
+    },
+    {
+      id: 3,
+      source: "Kemendikbudristek — Listening Practice Fase F Kelas XII",
+      type: "listening_pictures",
+      title: "Listening Section: Part I - Pictures",
+      audioText: "Number three. Look at the pictures. Inside a modern agricultural greenhouse, rows of fresh organic vegetables are grown using hydroponic water systems. Which picture matches this scene?",
+      audioSegments: [
+        {
+          text: "Number three. Look at the pictures. Inside a modern agricultural greenhouse, rows of fresh organic vegetables are grown using hydroponic water systems. Which picture matches this scene?",
+          lang: "en-US",
+          role: "narrator"
+        }
+      ],
+      prompt: "Which picture matches the agricultural greenhouse with hydroponic vegetables?",
+      options: [
+        { key: "A", svg: SVG_PICTURES.debateContest, label: "Students holding an English debate in an auditorium" },
+        { key: "B", svg: SVG_PICTURES.cleanWindSolar, label: "Clean wind turbines and solar panels on a coastal hill" },
+        { key: "C", svg: SVG_PICTURES.smartGreenhouse, label: "A modern agricultural greenhouse with vegetables" },
+        { key: "D", svg: SVG_PICTURES.manufacturingPlant, label: "A traditional industrial manufacturing plant" }
+      ],
+      correctAnswer: "C",
+      explanation: "Audio mendeskripsikan fasilitas rumah kaca modern dengan tanaman sayuran organik hidroponik ('modern agricultural greenhouse, rows of fresh organic vegetables are grown').",
+      grammarNote: "Passive voice: 'vegetables are grown using hydroponic water systems'."
+    },
+    {
+      id: 4,
+      source: "Modul Pembelajaran Bahasa Inggris Kelas XII — Kemendikbudristek",
+      type: "listening_dialog",
+      title: "Listening Section: Part II - Short Dialogues",
+      audioSegments: [
+        { role: "narrator", lang: "en-US", text: "Number four. Listen to a conversation between a student and a teacher.", pauseAfter: 450 },
+        { role: "student_m", lang: "en-US", name: "Fajar", text: "Ma'am, is it acceptable to use artificial intelligence to write my internship application letter?", pauseAfter: 350 },
+        { role: "teacher_f", lang: "en-US", name: "Mrs. Retno", text: "AI can help you format your letter and check grammar, Fajar. However, you must include your own real experiences, school projects, and honest voice. Employers look for personal sincerity and genuine passion.", pauseAfter: 450 },
+        { role: "narrator", lang: "en-US", text: "Question: What advice does the teacher give regarding application letters?", pauseAfter: 300 }
+      ],
+      stimulusTitle: "Dialogue: Writing an Internship Application Letter",
+      stimulusBody: "<p><strong>Speaker 1 (Male):</strong> Ma'am, is it acceptable to use artificial intelligence to write my internship application letter?</p><p><strong>Speaker 2 (Female):</strong> AI can help you format your letter and check grammar, Fajar. However, you must include your own real experiences, school projects, and honest voice. Employers look for personal sincerity and genuine passion.</p>",
+      prompt: "What advice does the teacher give regarding internship application letters?",
+      options: [
+        { key: "A", text: "Personalize the letter with genuine experiences, projects, and an honest voice." },
+        { key: "B", text: "Copy an entire online template without making any changes." },
+        { key: "C", text: "Avoid applying for internships until graduating from university." },
+        { key: "D", text: "Pay a professional writer to compose the letter." }
+      ],
+      correctAnswer: "A",
+      explanation: "Guru menyarankan agar siswa menyertakan pengalaman nyata, proyek sekolah, dan kejujuran diri sendiri dalam surat lamaran ('include your own real experiences, school projects, and honest voice').",
+      grammarNote: "Modal verb of obligation: 'you must include your own real experiences'."
+    },
+    {
+      id: 5,
+      source: "Modul Pembelajaran Bahasa Inggris Kelas XII — Kemendikbudristek",
+      type: "listening_dialog",
+      title: "Listening Section: Part II - Short Dialogues",
+      audioSegments: [
+        { role: "narrator", lang: "en-US", text: "Number five. Listen to two students discussing renewable energy.", pauseAfter: 450 },
+        { role: "student_m", lang: "en-US", name: "Ilham", text: "Why do many countries invest heavily in solar and wind energy instead of coal?", pauseAfter: 350 },
+        { role: "student_f", lang: "en-US", name: "Nadia", text: "Because solar and wind power do not create air pollution or harmful greenhouse gases. They help protect our planet from climate change.", pauseAfter: 400 },
+        { role: "narrator", lang: "en-US", text: "Question: Why is renewable energy preferred according to the female speaker?", pauseAfter: 300 }
+      ],
+      stimulusTitle: "Dialogue: Benefits of Renewable Energy",
+      stimulusBody: "<p><strong>Speaker 1 (Male):</strong> Why do many countries invest heavily in solar and wind energy instead of coal?</p><p><strong>Speaker 2 (Female):</strong> Because solar and wind power do not create air pollution or harmful greenhouse gases. They help protect our planet from climate change.</p>",
+      prompt: "Why is renewable energy preferred according to the female speaker?",
+      options: [
+        { key: "A", text: "It does not produce air pollution or harmful greenhouse gases." },
+        { key: "B", text: "It costs more money to build and maintain than coal plants." },
+        { key: "C", text: "It causes factories to close permanently." },
+        { key: "D", text: "It only generates electricity during heavy storms." }
+      ],
+      correctAnswer: "A",
+      explanation: "Siswi tersebut menjelaskan bahwa energi terbarukan lebih disukai karena tidak menimbulkan polusi udara maupun gas rumah kaca berbahaya ('do not create air pollution or harmful greenhouse gases').",
+      grammarNote: "Conjunction of reason: 'Because solar and wind power do not create air pollution'."
+    },
+    {
+      id: 6,
+      source: "Modul Pembelajaran Bahasa Inggris Kelas XII — Kemendikbudristek",
+      type: "listening_dialog",
+      title: "Listening Section: Part II - Short Dialogues",
+      audioSegments: [
+        { role: "narrator", lang: "en-US", text: "Number six. Listen to two seniors preparing for a job interview.", pauseAfter: 450 },
+        { role: "student_m", lang: "en-US", name: "Rian", text: "I feel quite nervous about my first job interview tomorrow morning.", pauseAfter: 350 },
+        { role: "student_f", lang: "en-US", name: "Siti", text: "Do not worry, Rian! Research the company beforehand, dress neatly, and answer questions calmly and politely. Good preparation builds confidence.", pauseAfter: 400 },
+        { role: "narrator", lang: "en-US", text: "Question: What practical tips does the female student suggest for the interview?", pauseAfter: 300 }
+      ],
+      stimulusTitle: "Dialogue: Preparing for a Job Interview",
+      stimulusBody: "<p><strong>Speaker 1 (Male):</strong> I feel quite nervous about my first job interview tomorrow morning.</p><p><strong>Speaker 2 (Female):</strong> Do not worry, Rian! Research the company beforehand, dress neatly, and answer questions calmly and politely. Good preparation builds confidence.</p>",
+      prompt: "What practical tips does the female student suggest for the interview?",
+      options: [
+        { key: "A", text: "Research the company, dress neatly, and answer questions calmly." },
+        { key: "B", text: "Arrive two hours late to test the interviewer's patience." },
+        { key: "C", text: "Memorize long speeches in foreign languages." },
+        { key: "D", text: "Refuse to answer questions about school activities." }
+      ],
+      correctAnswer: "A",
+      explanation: "Saran praktis menghadapi wawancara kerja adalah mempelajari profil perusahaan terlebih dahulu, berpakaian rapi, serta menjawab pertanyaan dengan tenang dan santun ('Research the company beforehand, dress neatly, and answer questions calmly and politely').",
+      grammarNote: "Imperative advice: 'Research the company, dress neatly'."
+    },
+    {
+      id: 7,
+      source: "Kemendikbudristek — Listening Monologue: Career Guidance",
+      type: "listening_talk",
+      title: "Listening Section: Part III - Monologues",
+      audioSegments: [
+        { role: "narrator", lang: "en-US", text: "Questions seven and eight are based on the following talk by a school career counselor.", pauseAfter: 400 },
+        { role: "counselor_m", lang: "en-US", name: "Mr. Pratama", text: "Good morning, twelfth-grade students. As graduation approaches, many of you will write your first job application letters. A well-written application letter must be clear, concise, and professional. In the opening paragraph, state the position you are applying for. In the body, highlight your relevant school achievements, practical skills, and leadership experiences. Finally, in the closing paragraph, express your enthusiasm and politely request an interview.", pauseAfter: 500 },
+        { role: "narrator", lang: "en-US", text: "Number seven. What is the primary topic of the counselor's talk?", pauseAfter: 350 }
+      ],
+      prompt: "What is the primary topic of the counselor's talk?",
+      options: [
+        { key: "A", text: "How to compose a clear and professional job application letter." },
+        { key: "B", text: "How to program mobile computer games." },
+        { key: "C", text: "Why students should avoid entering the job market." },
+        { key: "D", text: "The history of printing presses in Europe." }
+      ],
+      correctAnswer: "A",
+      explanation: "Topik utama arahan konselor karir adalah cara menyusun surat lamaran kerja yang jelas dan profesional menjelang kelulusan sekolah ('how to write a clear and professional job application letter').",
+      grammarNote: "Infinitive of purpose: 'to compose a clear and professional letter'."
+    },
+    {
+      id: 8,
+      source: "Kemendikbudristek — Listening Monologue: Career Guidance",
+      type: "listening_talk",
+      title: "Listening Section: Part III - Monologues",
+      audioSegments: [
+        { role: "counselor_m", lang: "en-US", name: "Mr. Pratama", text: "Finally, in the closing paragraph, express your enthusiasm and politely request an interview.", pauseAfter: 350 },
+        { role: "narrator", lang: "en-US", text: "Number eight. According to the counselor, what should applicants do in the closing paragraph?", pauseAfter: 300 }
+      ],
+      prompt: "According to the counselor, what should applicants do in the closing paragraph?",
+      options: [
+        { key: "A", text: "Express enthusiasm and politely request an interview opportunity." },
+        { key: "B", text: "Demand an immediate starting salary decision." },
+        { key: "C", text: "List every negative experience from junior high school." },
+        { key: "D", text: "Write a poem about their favorite movies." }
+      ],
+      correctAnswer: "A",
+      explanation: "Pada paragraf penutup surat lamaran kerja, pelamar hendaknya menyampaikan antusiasme dan dengan santun meminta kesempatan untuk diwawancarai ('express your enthusiasm and politely request an interview').",
+      grammarNote: "Polite closing register in business correspondence."
+    },
+    {
+      id: 9,
+      source: "Kemendikbudristek — Listening Monologue: Climate Change & Clean Energy",
+      type: "listening_talk",
+      title: "Listening Section: Part III - Monologues",
+      audioSegments: [
+        { role: "narrator", lang: "en-US", text: "Questions nine and ten are based on the following short lecture on energy transition.", pauseAfter: 400 },
+        { role: "teacher_f", lang: "en-US", name: "Dr. Laras", text: "Climate change is one of the most critical challenges facing our world. Burning fossil fuels like coal and petroleum produces huge amounts of carbon emissions, which trap heat in the atmosphere and cause extreme weather. Transitioning to renewable energy like solar, wind, and geothermal power helps reduce pollution and creates new green jobs for young graduates.", pauseAfter: 500 },
+        { role: "narrator", lang: "en-US", text: "Number nine. According to the speaker, what is a primary cause of global climate change?", pauseAfter: 350 }
+      ],
+      prompt: "According to the speaker, what is a primary cause of global climate change?",
+      options: [
+        { key: "A", text: "Burning fossil fuels such as coal and petroleum." },
+        { key: "B", text: "Installing solar panels on school rooftops." },
+        { key: "C", text: "Planting organic vegetable gardens in greenhouses." },
+        { key: "D", text: "Using bicycles for short neighborhood trips." }
+      ],
+      correctAnswer: "A",
+      explanation: "Pembicara menjelaskan bahwa penyebab utama perubahan iklim adalah pembakaran bahan bakar fosil seperti batu bara dan minyak bumi yang menghasilkan emisi karbon ('burning fossil fuels like coal and petroleum').",
+      grammarNote: "Gerund phrase as subject: 'Burning fossil fuels produces carbon emissions'."
+    },
+    {
+      id: 10,
+      source: "Kemendikbudristek — Listening Monologue: Climate Change & Clean Energy",
+      type: "listening_talk",
+      title: "Listening Section: Part III - Monologues",
+      audioSegments: [
+        { role: "teacher_f", lang: "en-US", name: "Dr. Laras", text: "Transitioning to renewable energy like solar, wind, and geothermal power helps reduce pollution and creates new green jobs for young graduates.", pauseAfter: 350 },
+        { role: "narrator", lang: "en-US", text: "Number ten. What positive benefits of renewable energy are mentioned in the talk?", pauseAfter: 300 }
+      ],
+      prompt: "What positive benefits of renewable energy are mentioned in the talk?",
+      options: [
+        { key: "A", text: "Reducing pollution and creating new green jobs for young graduates." },
+        { key: "B", text: "Generating electricity only during winter months." },
+        { key: "C", text: "Stopping public transportation in urban areas." },
+        { key: "D", text: "Decreasing the quality of agricultural products." }
+      ],
+      correctAnswer: "A",
+      explanation: "Manfaat positif energi terbarukan yang disebutkan adalah mengurangi polusi dan menciptakan lapangan kerja hijau baru bagi para lulusan muda ('helps reduce pollution and creates new green jobs').",
+      grammarNote: "Compound predicate: 'helps reduce pollution and creates new green jobs'."
+    },
+    {
+      id: 11,
+      source: "Kemendikbudristek — Discussion Text: Renewable Energy vs Fossil Fuels (Fase F)",
+      type: "single_choice",
+      title: "Reading Section: Discussion Text",
+      stimulusTitle: "Text 1: The Energy Transition: Opportunities and Challenges",
+      stimulusBody: "Energy is essential for modern human life. We need electricity to light our homes, power school computers, and run industrial factories. For more than a century, fossil fuels such as coal, oil, and natural gas have been the primary energy sources worldwide. However, the environmental impact of burning fossil fuels has sparked an intense global discussion about shifting toward renewable energy.<br><br>Supporters of renewable energy emphasize its environmental and health benefits. Unlike coal and oil, renewable energy sources such as solar, wind, and hydropower do not produce harmful carbon emissions or toxic air pollutants. By investing in clean energy, nations can reduce global warming, improve public air quality, and create thousands of green jobs in engineering and construction. Furthermore, sunlight and wind are inexhaustible resources that will never run out.<br><br>On the other hand, critics point out several practical challenges of renewable energy. First, solar and wind power are dependent on weather conditions; solar panels cannot generate electricity at night, and wind turbines stop turning on calm days. Therefore, countries need expensive battery storage systems to guarantee an uninterrupted power supply. Second, building new renewable facilities requires high initial costs and large areas of land, which can be difficult for developing nations with limited budgets.<br><br>In conclusion, while fossil fuels still provide reliable energy today, renewable energy is clearly the sustainable path for our future. Governments and communities should adopt a balanced transition by improving energy efficiency, supporting clean energy research, and gradually replacing fossil fuels with modern renewable solutions.",
+      prompt: "What is the primary communicative purpose of the discussion text?",
+      options: [
+        { key: "A", text: "To present two different perspectives on renewable energy and fossil fuels." },
+        { key: "B", text: "To provide step-by-step instructions on installing solar panels." },
+        { key: "C", text: "To tell an imaginary story about a world without electricity." },
+        { key: "D", text: "To promote a specific brand of household electrical batteries." }
+      ],
+      correctAnswer: "A",
+      explanation: "Tujuan komunikatif teks diskusi adalah menyajikan dua sudut pandang berbeda (pro dan kontra) mengenai pemanfaatan energi terbarukan dibandingkan bahan bakar fosil ('to present two different perspectives on renewable energy and fossil fuels').",
+      grammarNote: "Communicative purpose of discussion text: presenting two or more viewpoints on an issue."
+    },
+    {
+      id: 12,
+      source: "Kemendikbudristek — Discussion Text: Renewable Energy vs Fossil Fuels (Fase F)",
+      type: "single_choice",
+      title: "Reading Section: Discussion Text",
+      stimulusTitle: "Text 1: The Energy Transition: Opportunities and Challenges",
+      stimulusBody: "Energy is essential for modern human life. We need electricity to light our homes, power school computers, and run industrial factories. For more than a century, fossil fuels such as coal, oil, and natural gas have been the primary energy sources worldwide. However, the environmental impact of burning fossil fuels has sparked an intense global discussion about shifting toward renewable energy.<br><br>Supporters of renewable energy emphasize its environmental and health benefits. Unlike coal and oil, renewable energy sources such as solar, wind, and hydropower do not produce harmful carbon emissions or toxic air pollutants. By investing in clean energy, nations can reduce global warming, improve public air quality, and create thousands of green jobs in engineering and construction. Furthermore, sunlight and wind are inexhaustible resources that will never run out.<br><br>On the other hand, critics point out several practical challenges of renewable energy. First, solar and wind power are dependent on weather conditions; solar panels cannot generate electricity at night, and wind turbines stop turning on calm days. Therefore, countries need expensive battery storage systems to guarantee an uninterrupted power supply. Second, building new renewable facilities requires high initial costs and large areas of land, which can be difficult for developing nations with limited budgets.<br><br>In conclusion, while fossil fuels still provide reliable energy today, renewable energy is clearly the sustainable path for our future. Governments and communities should adopt a balanced transition by improving energy efficiency, supporting clean energy research, and gradually replacing fossil fuels with modern renewable solutions.",
+      prompt: "According to paragraph 2, what is a major advantage of renewable energy sources?",
+      options: [
+        { key: "A", text: "They do not produce harmful carbon emissions and their sources never run out." },
+        { key: "B", text: "They require massive burning of coal to generate electricity." },
+        { key: "C", text: "They only function in cold mountainous regions." },
+        { key: "D", text: "They completely eliminate the need for electrical wires." }
+      ],
+      correctAnswer: "A",
+      explanation: "Paragraf 2 menyatakan bahwa energi terbarukan tidak menghasilkan emisi karbon berbahaya dan sumbernya tidak akan pernah habis ('do not produce harmful carbon emissions... and will never run out').",
+      grammarNote: "Compound sentence showing advantages: 'reduce global warming and create green jobs'."
+    },
+    {
+      id: 13,
+      source: "Kemendikbudristek — Discussion Text: Renewable Energy vs Fossil Fuels (Fase F)",
+      type: "single_choice",
+      title: "Reading Section: Discussion Text",
+      stimulusTitle: "Text 1: The Energy Transition: Opportunities and Challenges",
+      stimulusBody: "Energy is essential for modern human life. We need electricity to light our homes, power school computers, and run industrial factories. For more than a century, fossil fuels such as coal, oil, and natural gas have been the primary energy sources worldwide. However, the environmental impact of burning fossil fuels has sparked an intense global discussion about shifting toward renewable energy.<br><br>Supporters of renewable energy emphasize its environmental and health benefits. Unlike coal and oil, renewable energy sources such as solar, wind, and hydropower do not produce harmful carbon emissions or toxic air pollutants. By investing in clean energy, nations can reduce global warming, improve public air quality, and create thousands of green jobs in engineering and construction. Furthermore, sunlight and wind are inexhaustible resources that will never run out.<br><br>On the other hand, critics point out several practical challenges of renewable energy. First, solar and wind power are dependent on weather conditions; solar panels cannot generate electricity at night, and wind turbines stop turning on calm days. Therefore, countries need expensive battery storage systems to guarantee an uninterrupted power supply. Second, building new renewable facilities requires high initial costs and large areas of land, which can be difficult for developing nations with limited budgets.<br><br>In conclusion, while fossil fuels still provide reliable energy today, renewable energy is clearly the sustainable path for our future. Governments and communities should adopt a balanced transition by improving energy efficiency, supporting clean energy research, and gradually replacing fossil fuels with modern renewable solutions.",
+      prompt: "What main practical challenge of renewable energy is discussed in paragraph 3?",
+      options: [
+        { key: "A", text: "It depends on weather conditions and requires costly battery storage systems." },
+        { key: "B", text: "It produces more poisonous smoke than coal power plants." },
+        { key: "C", text: "It cannot be connected to school computers." },
+        { key: "D", text: "It is illegal in all developing countries." }
+      ],
+      correctAnswer: "A",
+      explanation: "Paragraf 3 menguraikan tantangan praktis: pembangkit tenaga surya dan angin sangat bergantung pada cuaca (intermittent) dan membutuhkan sistem baterai penyimpan daya yang mahal ('dependent on weather conditions... expensive battery storage systems').",
+      grammarNote: "Conjunction of contrast introducing counter-arguments: 'On the other hand'."
+    },
+    {
+      id: 14,
+      source: "Kemendikbudristek — Discussion Text: Renewable Energy vs Fossil Fuels (Fase F)",
+      type: "single_choice",
+      title: "Reading Section: Discussion Text",
+      stimulusTitle: "Text 1: The Energy Transition: Opportunities and Challenges",
+      stimulusBody: "Energy is essential for modern human life. We need electricity to light our homes, power school computers, and run industrial factories. For more than a century, fossil fuels such as coal, oil, and natural gas have been the primary energy sources worldwide. However, the environmental impact of burning fossil fuels has sparked an intense global discussion about shifting toward renewable energy.<br><br>Supporters of renewable energy emphasize its environmental and health benefits. Unlike coal and oil, renewable energy sources such as solar, wind, and hydropower do not produce harmful carbon emissions or toxic air pollutants. By investing in clean energy, nations can reduce global warming, improve public air quality, and create thousands of green jobs in engineering and construction. Furthermore, sunlight and wind are inexhaustible resources that will never run out.<br><br>On the other hand, critics point out several practical challenges of renewable energy. First, solar and wind power are dependent on weather conditions; solar panels cannot generate electricity at night, and wind turbines stop turning on calm days. Therefore, countries need expensive battery storage systems to guarantee an uninterrupted power supply. Second, building new renewable facilities requires high initial costs and large areas of land, which can be difficult for developing nations with limited budgets.<br><br>In conclusion, while fossil fuels still provide reliable energy today, renewable energy is clearly the sustainable path for our future. Governments and communities should adopt a balanced transition by improving energy efficiency, supporting clean energy research, and gradually replacing fossil fuels with modern renewable solutions.",
+      prompt: "The word 'inexhaustible' in paragraph 2 ('inexhaustible resources that will never run out') is closest in meaning to...",
+      options: [
+        { key: "A", text: "limitless and endless" },
+        { key: "B", text: "extremely expensive" },
+        { key: "C", text: "easily damaged" },
+        { key: "D", text: "harmful to health" }
+      ],
+      correctAnswer: "A",
+      explanation: "Kata 'inexhaustible' bermakna tidak ada habisnya, tak terbatas, dan selalu tersedia ('limitless and endless').",
+      grammarNote: "Adjective prefix: in- (not) + exhaustible (can be used up)."
+    },
+    {
+      id: 15,
+      source: "Kemendikbudristek — Discussion Text: Renewable Energy vs Fossil Fuels (Fase F)",
+      type: "single_choice",
+      title: "Reading Section: Discussion Text",
+      stimulusTitle: "Text 1: The Energy Transition: Opportunities and Challenges",
+      stimulusBody: "Energy is essential for modern human life. We need electricity to light our homes, power school computers, and run industrial factories. For more than a century, fossil fuels such as coal, oil, and natural gas have been the primary energy sources worldwide. However, the environmental impact of burning fossil fuels has sparked an intense global discussion about shifting toward renewable energy.<br><br>Supporters of renewable energy emphasize its environmental and health benefits. Unlike coal and oil, renewable energy sources such as solar, wind, and hydropower do not produce harmful carbon emissions or toxic air pollutants. By investing in clean energy, nations can reduce global warming, improve public air quality, and create thousands of green jobs in engineering and construction. Furthermore, sunlight and wind are inexhaustible resources that will never run out.<br><br>On the other hand, critics point out several practical challenges of renewable energy. First, solar and wind power are dependent on weather conditions; solar panels cannot generate electricity at night, and wind turbines stop turning on calm days. Therefore, countries need expensive battery storage systems to guarantee an uninterrupted power supply. Second, building new renewable facilities requires high initial costs and large areas of land, which can be difficult for developing nations with limited budgets.<br><br>In conclusion, while fossil fuels still provide reliable energy today, renewable energy is clearly the sustainable path for our future. Governments and communities should adopt a balanced transition by improving energy efficiency, supporting clean energy research, and gradually replacing fossil fuels with modern renewable solutions.",
+      prompt: "What balanced recommendation does the author provide in the final paragraph?",
+      options: [
+        { key: "A", text: "Adopt a balanced transition by improving efficiency and gradually replacing fossil fuels." },
+        { key: "B", text: "Close all electrical power stations immediately without replacement." },
+        { key: "C", text: "Stop using household lighting and computers." },
+        { key: "D", text: "Prohibit the installation of solar panels in all public schools." }
+      ],
+      correctAnswer: "A",
+      explanation: "Penulis merekomendasikan transisi energi yang seimbang dengan meningkatkan efisiensi energi dan mengganti bahan bakar fosil secara bertahap dengan energi terbarukan ('adopt a balanced transition by improving energy efficiency... and gradually replacing fossil fuels').",
+      grammarNote: "Concluding recommendation in discussion text."
+    },
+    {
+      id: 16,
+      source: "AKM Literasi Membaca — Pilihan Ganda Kompleks (True/False Matrix)",
+      type: "complex_matrix",
+      title: "Complex Multiple Choice: Renewable Energy Facts",
+      stimulusTitle: "Text 1: The Energy Transition: Opportunities and Challenges",
+      stimulusBody: "Review Text 1 (The Energy Transition: Opportunities and Challenges).",
+      prompt: "Based on Text 1, determine whether each statement regarding energy transition is **TRUE** or **FALSE**:",
+      matrixStatements: [
+        {
+          statement: "Solar and wind energy sources do not emit toxic air pollutants during power generation.",
+          isCorrect: true
+        },
+        {
+          statement: "Solar panels can generate full electrical output at midnight without sunlight.",
+          isCorrect: false
+        },
+        {
+          statement: "Investing in renewable energy can create green employment opportunities for engineers.",
+          isCorrect: true
+        },
+        {
+          statement: "Fossil fuels will remain completely inexhaustible for thousands of years.",
+          isCorrect: false
+        }
+      ],
+      explanation: "• Pernyataan 1: BENAR — Energi surya dan angin tidak mengeluarkan polutan udara saat beroperasi.<br>• Pernyataan 2: SALAH — Panel surya tidak dapat menghasilkan listrik di malam hari tanpa sinar matahari.<br>• Pernyataan 3: BENAR — Investasi energi bersih menciptakan lapangan kerja hijau bagi teknisi.<br>• Pernyataan 4: SALAH — Bahan bakar fosil adalah sumber daya yang terbatas dan akan habis.",
+      grammarNote: "Evaluating factual statements in discussion text."
+    },
+    {
+      id: 17,
+      source: "AKM Literasi Membaca — Pilihan Ganda Kompleks (True/False Matrix)",
+      type: "complex_matrix",
+      title: "Complex Multiple Choice: Job Application Writing Principles",
+      stimulusTitle: "Context: Professional Application Letters",
+      stimulusBody: "A job application letter introduces your skills and experiences to prospective employers.",
+      prompt: "Determine whether each statement regarding professional application letters is **TRUE** or **FALSE**:",
+      matrixStatements: [
+        {
+          statement: "The opening paragraph should clearly state the specific position you are applying for.",
+          isCorrect: true
+        },
+        {
+          statement: "Applicants should invent fake diplomas and unearned awards to impress employers.",
+          isCorrect: false
+        },
+        {
+          statement: "Highlighting relevant school projects and organizational leadership demonstrates competence.",
+          isCorrect: true
+        },
+        {
+          statement: "Proofreading the letter helps eliminate spelling mistakes and grammatical errors.",
+          isCorrect: true
+        }
+      ],
+      explanation: "• Pernyataan 1: BENAR — Paragraf pembuka harus menyebutkan posisi yang dilamar secara jelas.<br>• Pernyataan 2: SALAH — Berbohong atau memalsukan ijazah adalah pelanggaran hukum dan etika.<br>• Pernyataan 3: BENAR — Menjelaskan proyek sekolah dan pengalaman organisasi membuktikan kompetensi diri.<br>• Pernyataan 4: BENAR — Memeriksa ulang tulisan (proofreading) mencegah kesalahan ejaan dan tata bahasa.",
+      grammarNote: "Principles of formal application letters."
+    },
+    {
+      id: 18,
+      source: "AKM Literasi Membaca — Pilihan Ganda Kompleks (True/False Matrix)",
+      type: "complex_matrix",
+      title: "Complex Multiple Choice: Cause and Effect Relations",
+      stimulusTitle: "Text 1: The Energy Transition: Opportunities and Challenges",
+      stimulusBody: "Review Text 1 (The Energy Transition: Opportunities and Challenges).",
+      prompt: "Based on cause-and-effect relationships in Text 1, determine whether each statement is **TRUE** or **FALSE**:",
+      matrixStatements: [
+        {
+          statement: "Carbon emissions from burning coal trap atmospheric heat, contributing to global warming.",
+          isCorrect: true
+        },
+        {
+          statement: "Because solar and wind power depend on weather conditions, backup storage systems are required.",
+          isCorrect: true
+        },
+        {
+          statement: "Renewable energy facilities are cheap and require no initial capital investment.",
+          isCorrect: false
+        },
+        {
+          statement: "Shifting to clean energy helps improve air quality and public respiratory health.",
+          isCorrect: true
+        }
+      ],
+      explanation: "• Pernyataan 1: BENAR — Emisi karbon memerangkap panas di atmosfer sehingga memicu pemanasan global.<br>• Pernyataan 2: BENAR — Karena bergantung pada cuaca, sistem penyimpanan baterai sangat diperlukan.<br>• Pernyataan 3: SALAH — Fasilitas energi terbarukan memerlukan biaya investasi awal yang cukup tinggi.<br>• Pernyataan 4: BENAR — Beralih ke energi bersih memperbaiki kualitas udara dan kesehatan pernapasan masyarakat.",
+      grammarNote: "Cause and effect logic in expository text."
+    },
+    {
+      id: 19,
+      source: "AKM Literasi Membaca — Pilihan Ganda Kompleks (True/False Matrix)",
+      type: "complex_matrix",
+      title: "Complex Multiple Choice: Interview Preparation Standards",
+      stimulusTitle: "Context: Job Interview Etiquette",
+      stimulusBody: "Proper interview preparation boosts self-confidence and leaves a positive impression.",
+      prompt: "Determine whether each statement below regarding job interview preparation is **TRUE** or **FALSE**:",
+      matrixStatements: [
+        {
+          statement: "Researching the company's background helps applicants answer questions knowledgeably.",
+          isCorrect: true
+        },
+        {
+          statement: "Arriving fifteen minutes early demonstrates punctuality and professional commitment.",
+          isCorrect: true
+        },
+        {
+          statement: "Wearing casual beach clothes to a formal interview makes a professional impression.",
+          isCorrect: false
+        },
+        {
+          statement: "Speaking calmly and maintaining eye contact conveys confidence and sincerity.",
+          isCorrect: true
+        }
+      ],
+      explanation: "• Pernyataan 1: BENAR — Mempelajari profil perusahaan membantu pelamar menjawab pertanyaan dengan berbobot.<br>• Pernyataan 2: BENAR — Hadir 15 menit lebih awal menunjukkan kedisiplinan dan komitmen profesional.<br>• Pernyataan 3: SALAH — Pakaian santai pantai tidak pantas untuk wawancara kerja formal.<br>• Pernyataan 4: BENAR — Berbicara tenang dan menjaga kontak mata menunjukkan rasa percaya diri dan ketulusan.",
+      grammarNote: "Professional workplace communication standards."
+    },
+    {
+      id: 20,
+      source: "AKM Literasi Membaca — Pilihan Ganda Kompleks (True/False Matrix)",
+      type: "complex_matrix",
+      title: "Complex Multiple Choice: Discussion Text Perspectives",
+      stimulusTitle: "Text 1: The Energy Transition: Opportunities and Challenges",
+      stimulusBody: "Review Text 1 (The Energy Transition: Opportunities and Challenges).",
+      prompt: "Determine whether each viewpoint accurately reflects arguments presented in Text 1 (**TRUE**) or misrepresents them (**FALSE**):",
+      matrixStatements: [
+        {
+          statement: "Proponents argue that renewable energy provides endless power without air pollution.",
+          isCorrect: true
+        },
+        {
+          statement: "Critics emphasize that initial installation costs and land requirements pose financial challenges.",
+          isCorrect: true
+        },
+        {
+          statement: "The author demands that developing nations stop all electrical power immediately.",
+          isCorrect: false
+        },
+        {
+          statement: "The author advocates for a balanced transition supported by energy efficiency improvements.",
+          isCorrect: true
+        }
+      ],
+      explanation: "• Pernyataan 1: BENAR — Pendukung menyatakan energi bersih tidak terbatas dan bebas polusi.<br>• Pernyataan 2: BENAR — Pengkritik menyoroti biaya instalasi dan kebutuhan lahan yang besar.<br>• Pernyataan 3: SALAH — Penulis tidak pernah menuntut penghentian listrik secara mendadak.<br>• Pernyataan 4: BENAR — Penulis menganjurkan transisi bertahap yang seimbang dengan efisiensi energi.",
+      grammarNote: "Identifying supporting and opposing arguments in discussion texts."
+    },
+    {
+      id: 21,
+      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      type: "mcma",
+      title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+      stimulusTitle: "Text 1: The Energy Transition: Opportunities and Challenges",
+      stimulusBody: "Review Text 1 (The Energy Transition: Opportunities and Challenges).",
+      prompt: "Which **TWO (2)** core benefits of renewable energy are emphasized by proponents in Text 1?",
+      options: [
+        { key: "A", text: "It produces clean power without harmful carbon emissions or toxic air pollutants." },
+        { key: "B", text: "It eliminates the need for electricity bills in all homes immediately." },
+        { key: "C", text: "It relies on natural resources like sunlight and wind that will never run out." },
+        { key: "D", text: "It operates without needing any land or electrical maintenance." }
+      ],
+      correctAnswer: ["A", "C"],
+      explanation: "Dua keunggulan utama energi terbarukan menurut teks adalah tidak menghasilkan emisi karbon atau polusi beracun, serta bersumber dari alam (matahari dan angin) yang tidak akan pernah habis.",
+      grammarNote: "Two supporting points in discussion text."
+    },
+    {
+      id: 22,
+      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      type: "mcma",
+      title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+      stimulusTitle: "Context: Application Letter Structure",
+      stimulusBody: "A standard job application letter contains essential structural elements.",
+      prompt: "Which **TWO (2)** structural components must be clearly stated in a professional application letter?",
+      options: [
+        { key: "A", text: "The specific job title being applied for and where the vacancy was advertised." },
+        { key: "B", text: "A detailed list of the applicant's childhood arguments with siblings." },
+        { key: "C", text: "Relevant academic background, practical skills, and organizational achievements." },
+        { key: "D", text: "A demand for guaranteed promotions before the interview takes place." }
+      ],
+      correctAnswer: ["A", "C"],
+      explanation: "Dua komponen wajib dalam surat lamaran kerja adalah posisi spesifik yang dilamar beserta sumber info lowongan, serta kualifikasi relevan seperti latar belakang pendidikan, keahlian, dan prestasi organisasi.",
+      grammarNote: "Key elements of formal business letters."
+    },
+    {
+      id: 23,
+      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      type: "mcma",
+      title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+      stimulusTitle: "Grammar: Real Conditionals with Unless & If",
+      stimulusBody: "Conditionals express conditions and their expected results.",
+      prompt: "Which **TWO (2)** sentences correctly use conditional conjunctions (**If** or **Unless**)?",
+      options: [
+        { key: "A", text: "If applicants prepare thoroughly, they will feel more confident during the interview." },
+        { key: "B", text: "Unless you do not practice, you will fail the speaking test." },
+        { key: "C", text: "You will not make a good impression unless you arrive on time for the meeting." },
+        { key: "D", text: "If the company will hire him, he started working yesterday." }
+      ],
+      correctAnswer: ["A", "C"],
+      explanation: "Dua kalimat yang menggunakan kondisional secara baku adalah kalimat 'If applicants prepare thoroughly, they will feel...' dan 'You will not make a good impression unless you arrive on time...'. Pilihan B salah karena terjadi 'double negative' (Unless + do not), dan pilihan D salah tenses pada if-clause.",
+      grammarNote: "First conditional and unless clause rules."
+    },
+    {
+      id: 24,
+      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      type: "mcma",
+      title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+      stimulusTitle: "Context: Career Readiness",
+      stimulusBody: "Preparation helps high school graduates transition into work and higher study.",
+      prompt: "Which **TWO (2)** actions demonstrate proactive career preparation for graduating seniors?",
+      options: [
+        { key: "A", text: "Building a portfolio of school design projects and certificates of achievement." },
+        { key: "B", text: "Submitting incomplete application forms five minutes after the deadline." },
+        { key: "C", text: "Practicing common interview questions with classmates or teachers." },
+        { key: "D", text: "Refusing to learn how to compose formal email messages." }
+      ],
+      correctAnswer: ["A", "C"],
+      explanation: "Dua tindakan proaktif mempersiapkan karir adalah menyusun portofolio karya dan sertifikat prestasi, serta berlatih menjawab pertanyaan wawancara kerja bersama teman atau guru.",
+      grammarNote: "Parallel gerund phrases: building, practicing."
+    },
+    {
+      id: 25,
+      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      type: "mcma",
+      title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
+      stimulusTitle: "Grammar: Cause and Effect Connectors",
+      stimulusBody: "Connectors like 'because of' and 'therefore' show cause and effect.",
+      prompt: "Which **TWO (2)** sentences correctly employ cause-and-effect connectors?",
+      options: [
+        { key: "A", text: "The flight was delayed because of the severe rainstorm over the airport." },
+        { key: "B", text: "Because of he studied hard, he achieved the highest mark in English." },
+        { key: "C", text: "Siti organized her study time effectively; therefore, she completed the project early." },
+        { key: "D", text: "Therefore the weather was hot, the workers continued their shift." }
+      ],
+      correctAnswer: ["A", "C"],
+      explanation: "Dua kalimat yang menggunakan konjungsi sebab-akibat secara tepat adalah kalimat dengan 'because of + noun phrase' ('because of the severe rainstorm') dan konjungsi internal 'therefore' ('therefore, she completed the project early'). Pilihan B salah karena 'because of' diikuti klausa berpredikat, dan pilihan D salah karena 'therefore' bukan kata hubung pertentangan.",
+      grammarNote: "Cause and effect rules: because of + NP; therefore + independent clause."
+    },
+    {
+      id: 26,
+      source: "Kemendikbudristek — Application Letter Analysis (Fase F Kelas XII)",
+      type: "single_choice",
+      title: "Reading Section: Job Application Letter",
+      stimulusTitle: "Text 2: Graphic Design Internship Application",
+      stimulusBody: "Dear Mr. Pratama,<br><br>I am writing to express my strong interest in the Graphic Design Internship position advertised on your company website on October 12, 2026. As a dedicated twelfth-grade student majoring in Visual Communication at SMA 1 Bae Kudus, I have developed solid skills in digital illustration, photo editing, and creative layout design.<br><br>During my high school studies, I served as the head of the publication team for our school magazine. In this role, I designed event posters, created social media graphics, and collaborated with teammates under strict deadlines. My teachers commend me for my creativity, attention to detail, and positive work ethic. I am proficient in using design software such as Adobe Photoshop and Canva.<br><br>I believe that my creative background and eagerness to learn make me a valuable addition to your creative department. Enclosed are my curriculum vitae, academic certificates, and design portfolio for your review.<br><br>Thank you for considering my application. I would welcome the opportunity to discuss my qualifications in an interview. I can be contacted at 0812-3456-7890 or via email at siti.rahma@email.com.<br><br>Sincerely,<br>Siti Rahma",
+      prompt: "What is the primary objective of Siti Rahma's letter?",
+      options: [
+        { key: "A", text: "To apply for the Graphic Design Internship position at the company." },
+        { key: "B", text: "To complain about a malfunctioning design computer." },
+        { key: "C", text: "To invite Mr. Pratama to a school sports tournament." },
+        { key: "D", text: "To resign from her position as head of publication." }
+      ],
+      correctAnswer: "A",
+      explanation: "Tujuan utama surat Siti Rahma adalah melamar posisi magang Desain Grafis (Graphic Design Internship) yang diiklankan di situs web perusahaan ('apply for the Graphic Design Internship position').",
+      grammarNote: "Communicative purpose of an application letter: to apply for a job/internship."
+    },
+    {
+      id: 27,
+      source: "Kemendikbudristek — Application Letter Analysis (Fase F Kelas XII)",
+      type: "single_choice",
+      title: "Reading Section: Job Application Letter",
+      stimulusTitle: "Text 2: Graphic Design Internship Application",
+      stimulusBody: "Dear Mr. Pratama,<br><br>I am writing to express my strong interest in the Graphic Design Internship position advertised on your company website on October 12, 2026. As a dedicated twelfth-grade student majoring in Visual Communication at SMA 1 Bae Kudus, I have developed solid skills in digital illustration, photo editing, and creative layout design.<br><br>During my high school studies, I served as the head of the publication team for our school magazine. In this role, I designed event posters, created social media graphics, and collaborated with teammates under strict deadlines. My teachers commend me for my creativity, attention to detail, and positive work ethic. I am proficient in using design software such as Adobe Photoshop and Canva.<br><br>I believe that my creative background and eagerness to learn make me a valuable addition to your creative department. Enclosed are my curriculum vitae, academic certificates, and design portfolio for your review.<br><br>Thank you for considering my application. I would welcome the opportunity to discuss my qualifications in an interview. I can be contacted at 0812-3456-7890 or via email at siti.rahma@email.com.<br><br>Sincerely,<br>Siti Rahma",
+      prompt: "What practical leadership experience did Siti gain during her time at SMA 1 Bae?",
+      options: [
+        { key: "A", text: "Leading the school magazine publication team and designing event posters." },
+        { key: "B", text: "Managing financial audit reports for an international bank." },
+        { key: "C", text: "Driving the school tour bus across Central Java." },
+        { key: "D", text: "Working as a full-time university lecturer." }
+      ],
+      correctAnswer: "A",
+      explanation: "Paragraf 2 menyatakan bahwa Siti memimpin tim publikasi majalah sekolah dan merancang poster kegiatan serta grafis media sosial ('head of the publication team for our school magazine... designed event posters').",
+      grammarNote: "Past simple recount in body paragraph: 'I served as the head of the publication team'."
+    },
+    {
+      id: 28,
+      source: "Kemendikbudristek — Application Letter Analysis (Fase F Kelas XII)",
+      type: "single_choice",
+      title: "Reading Section: Job Application Letter",
+      stimulusTitle: "Text 2: Graphic Design Internship Application",
+      stimulusBody: "Dear Mr. Pratama,<br><br>I am writing to express my strong interest in the Graphic Design Internship position advertised on your company website on October 12, 2026. As a dedicated twelfth-grade student majoring in Visual Communication at SMA 1 Bae Kudus, I have developed solid skills in digital illustration, photo editing, and creative layout design.<br><br>During my high school studies, I served as the head of the publication team for our school magazine. In this role, I designed event posters, created social media graphics, and collaborated with teammates under strict deadlines. My teachers commend me for my creativity, attention to detail, and positive work ethic. I am proficient in using design software such as Adobe Photoshop and Canva.<br><br>I believe that my creative background and eagerness to learn make me a valuable addition to your creative department. Enclosed are my curriculum vitae, academic certificates, and design portfolio for your review.<br><br>Thank you for considering my application. I would welcome the opportunity to discuss my qualifications in an interview. I can be contacted at 0812-3456-7890 or via email at siti.rahma@email.com.<br><br>Sincerely,<br>Siti Rahma",
+      prompt: "Which software applications is the applicant proficient in using?",
+      options: [
+        { key: "A", text: "Adobe Photoshop and Canva." },
+        { key: "B", text: "Heavy industrial welding tools." },
+        { key: "C", text: "Electronic surgical machinery." },
+        { key: "D", text: "Automated greenhouse water pipes." }
+      ],
+      correctAnswer: "A",
+      explanation: "Paragraf 2 menyebutkan secara eksplisit bahwa Siti mahir menggunakan perangkat lunak Adobe Photoshop dan Canva ('proficient in using design software such as Adobe Photoshop and Canva').",
+      grammarNote: "Prepositional phrase: 'proficient in using design software'."
+    },
+    {
+      id: 29,
+      source: "Kemendikbudristek — Application Letter Analysis (Fase F Kelas XII)",
+      type: "single_choice",
+      title: "Reading Section: Job Application Letter",
+      stimulusTitle: "Text 2: Graphic Design Internship Application",
+      stimulusBody: "Dear Mr. Pratama,<br><br>I am writing to express my strong interest in the Graphic Design Internship position advertised on your company website on October 12, 2026. As a dedicated twelfth-grade student majoring in Visual Communication at SMA 1 Bae Kudus, I have developed solid skills in digital illustration, photo editing, and creative layout design.<br><br>During my high school studies, I served as the head of the publication team for our school magazine. In this role, I designed event posters, created social media graphics, and collaborated with teammates under strict deadlines. My teachers commend me for my creativity, attention to detail, and positive work ethic. I am proficient in using design software such as Adobe Photoshop and Canva.<br><br>I believe that my creative background and eagerness to learn make me a valuable addition to your creative department. Enclosed are my curriculum vitae, academic certificates, and design portfolio for your review.<br><br>Thank you for considering my application. I would welcome the opportunity to discuss my qualifications in an interview. I can be contacted at 0812-3456-7890 or via email at siti.rahma@email.com.<br><br>Sincerely,<br>Siti Rahma",
+      prompt: "The word 'proficient' in paragraph 2 ('I am proficient in using design software') is closest in meaning to...",
+      options: [
+        { key: "A", text: "skilled and competent" },
+        { key: "B", text: "completely untrained" },
+        { key: "C", text: "hesitant and fearful" },
+        { key: "D", text: "careless and slow" }
+      ],
+      correctAnswer: "A",
+      explanation: "Kata 'proficient' bermakna mahir, terampil, dan menguasai bidang tertentu ('skilled and competent').",
+      grammarNote: "Adjective synonym: proficient = skilled/competent."
+    },
+    {
+      id: 30,
+      source: "Kemendikbudristek — Application Letter Analysis (Fase F Kelas XII)",
+      type: "single_choice",
+      title: "Reading Section: Job Application Letter",
+      stimulusTitle: "Text 2: Graphic Design Internship Application",
+      stimulusBody: "Dear Mr. Pratama,<br><br>I am writing to express my strong interest in the Graphic Design Internship position advertised on your company website on October 12, 2026. As a dedicated twelfth-grade student majoring in Visual Communication at SMA 1 Bae Kudus, I have developed solid skills in digital illustration, photo editing, and creative layout design.<br><br>During my high school studies, I served as the head of the publication team for our school magazine. In this role, I designed event posters, created social media graphics, and collaborated with teammates under strict deadlines. My teachers commend me for my creativity, attention to detail, and positive work ethic. I am proficient in using design software such as Adobe Photoshop and Canva.<br><br>I believe that my creative background and eagerness to learn make me a valuable addition to your creative department. Enclosed are my curriculum vitae, academic certificates, and design portfolio for your review.<br><br>Thank you for considering my application. I would welcome the opportunity to discuss my qualifications in an interview. I can be contacted at 0812-3456-7890 or via email at siti.rahma@email.com.<br><br>Sincerely,<br>Siti Rahma",
+      prompt: "What action does Siti politely request in the closing paragraph of her letter?",
+      options: [
+        { key: "A", text: "An opportunity to discuss her qualifications in an interview." },
+        { key: "B", text: "An immediate advance payment for three months." },
+        { key: "C", text: "Free airplane tickets to Magelang." },
+        { key: "D", text: "A letter canceling all school exams." }
+      ],
+      correctAnswer: "A",
+      explanation: "Di bagian penutup, Siti dengan santun meminta kesempatan untuk mendiskusikan kualifikasinya dalam sesi wawancara ('welcome the opportunity to discuss my qualifications in an interview').",
+      grammarNote: "Formal closing request: 'I would welcome the opportunity to discuss my qualifications'."
+    },
+    {
+      id: 31,
+      source: "Kaidah Tata Bahasa Kelas XII — Concession Connectors",
+      type: "single_choice",
+      title: "Grammar & Structure: Connectors of Concession",
+      prompt: "Choose the correct conjunction to complete the sentence showing contrast:<br><br><em>'_______ the installation cost of solar panels is high, it saves significant money on electricity bills over time.'</em>",
+      options: [
+        { key: "A", text: "Although" },
+        { key: "B", text: "Because" },
+        { key: "C", text: "Unless" },
+        { key: "D", text: "Since" }
+      ],
+      correctAnswer: "A",
+      explanation: "Kata hubung yang menyatakan hubungan konsesif (pertentangan) yang diikuti oleh klausa lengkap adalah 'Although' (meskipun/walaupun).",
+      grammarNote: "Concession: Although + clause, main clause."
+    },
+    {
+      id: 32,
+      source: "Kaidah Tata Bahasa Kelas XII — Cause Prepositions",
+      type: "single_choice",
+      title: "Grammar & Structure: Cause Connectors",
+      prompt: "Select the correct connector before the noun phrase 'global climate change':<br><br><em>'Many coastal regions face higher flood risks _______ global climate change.'</em>",
+      options: [
+        { key: "A", text: "because of" },
+        { key: "B", text: "so that" },
+        { key: "C", text: "although" },
+        { key: "D", text: "in order to" }
+      ],
+      correctAnswer: "A",
+      explanation: "Frasa 'global climate change' adalah Noun Phrase. Kata hubung penyebab yang diikuti oleh noun phrase adalah 'because of'.",
+      grammarNote: "Because of + Noun Phrase (menyatakan sebab)."
+    },
+    {
+      id: 33,
+      source: "Kaidah Tata Bahasa Kelas XII — Conditionals (Unless)",
+      type: "single_choice",
+      title: "Grammar & Structure: Conditional Clauses",
+      prompt: "Complete the sentence with the conditional conjunction meaning **'if not'**:<br><br><em>'You will not succeed in a job interview _______ you prepare thoroughly and research the company.'</em>",
+      options: [
+        { key: "A", text: "unless" },
+        { key: "B", text: "although" },
+        { key: "C", text: "because" },
+        { key: "D", text: "so that" }
+      ],
+      correctAnswer: "A",
+      explanation: "Konjungsi 'unless' bermakna 'if not' (kecuali jika / jika tidak). Pelamar tidak akan sukses dalam wawancara kecuali jika mereka mempersiapkan diri dengan matang.",
+      grammarNote: "Unless = if... not."
+    },
+    {
+      id: 34,
+      source: "Kaidah Tata Bahasa Kelas XII — Real Conditionals",
+      type: "single_choice",
+      title: "Grammar & Structure: First Conditional",
+      prompt: "Select the correct verb form to complete the first conditional sentence:<br><br><em>'If the company offers Siti the internship, she _______ accept it enthusiastically.'</em>",
+      options: [
+        { key: "A", text: "will" },
+        { key: "B", text: "would have" },
+        { key: "C", text: "had" },
+        { key: "D", text: "was" }
+      ],
+      correctAnswer: "A",
+      explanation: "Pola baku kalimat pengandaian tipe 1 (First Conditional) adalah: If + Subject + V1 (Simple Present), Subject + will + V1. Maka kata kerja bantu yang tepat adalah 'will'.",
+      grammarNote: "First conditional: If + V1, will + V1."
+    },
+    {
+      id: 35,
+      source: "Kaidah Tata Bahasa Kelas XII — Modals for Professional Advice",
+      type: "single_choice",
+      title: "Grammar & Structure: Modal Auxiliaries",
+      prompt: "Which modal verb appropriately expresses strong professional advice?<br><br><em>'Job applicants _______ arrive at the interview location fifteen minutes early.'</em>",
+      options: [
+        { key: "A", text: "should" },
+        { key: "B", text: "might have" },
+        { key: "C", text: "would have" },
+        { key: "D", text: "were" }
+      ],
+      correctAnswer: "A",
+      explanation: "Modal 'should' digunakan untuk menyatakan saran atau anjuran profesional yang sangat dianjurkan ('should arrive').",
+      grammarNote: "Modal for recommendation: Subject + should + V1."
+    },
+    {
+      id: 36,
+      source: "Kaidah Tata Bahasa Kelas XII — Present Passive Voice",
+      type: "single_choice",
+      title: "Grammar & Structure: Passive Voice",
+      prompt: "Complete the passive sentence with the correct auxiliary verb:<br><br><em>'Clean electricity _______ generated by solar panels without producing carbon emissions.'</em>",
+      options: [
+        { key: "A", text: "is" },
+        { key: "B", text: "are" },
+        { key: "C", text: "were" },
+        { key: "D", text: "has" }
+      ],
+      correctAnswer: "A",
+      explanation: "Subjek tak dapat dihitung (uncountable noun) 'Clean electricity' bernilai tunggal. Rumus pasif Simple Present tunggal adalah: is + V3 ('is generated').",
+      grammarNote: "Passive voice (singular/uncountable): is + V3."
+    },
+    {
+      id: 37,
+      source: "Kaidah Tata Bahasa Kelas XII — Conjunctive Adverbs (Therefore)",
+      type: "single_choice",
+      title: "Grammar & Structure: Cause-and-Effect Connectors",
+      prompt: "Choose the correct conjunctive adverb expressing result:<br><br><em>'Siti practiced digital design software diligently; _______, she created an outstanding portfolio.'</em>",
+      options: [
+        { key: "A", text: "therefore" },
+        { key: "B", text: "although" },
+        { key: "C", text: "because" },
+        { key: "D", text: "unless" }
+      ],
+      correctAnswer: "A",
+      explanation: "Kata keterangan penghubung yang menyatakan hasil/akibat setelah tanda titik koma adalah 'therefore' (oleh karena itu).",
+      grammarNote: "Conjunctive adverb of result: therefore."
+    },
+    {
+      id: 38,
+      source: "Kaidah Tata Bahasa Kelas XII — Preposition with Gerund",
+      type: "single_choice",
+      title: "Grammar & Structure: Preposition + Gerund",
+      prompt: "Choose the correct form to complete the sentence after the preposition 'before':<br><br><em>'Before _______ her application letter, Siti proofread every paragraph carefully.'</em>",
+      options: [
+        { key: "A", text: "submitting" },
+        { key: "B", text: "submit" },
+        { key: "C", text: "submitted" },
+        { key: "D", text: "submits" }
+      ],
+      correctAnswer: "A",
+      explanation: "Setelah preposisi seperti 'before', 'after', atau 'without', kata kerja harus diubah ke bentuk gerund (V-ing): 'Before submitting...'.",
+      grammarNote: "Preposition + Gerund (V-ing)."
+    },
+    {
+      id: 39,
+      source: "Kaidah Tata Bahasa Kelas XII — Collocations",
+      type: "single_choice",
+      title: "Grammar & Structure: Word Collocation",
+      prompt: "Which adjective pairs naturally with the noun 'role' in an environmental context?<br><br><em>'Renewable energy plays an _______ role in reducing harmful air pollution.'</em>",
+      options: [
+        { key: "A", text: "essential" },
+        { key: "B", text: "expensive" },
+        { key: "C", text: "angry" },
+        { key: "D", text: "impolite" }
+      ],
+      correctAnswer: "A",
+      explanation: "Kolokasi kata sifat yang tepat dan alami dengan kata 'role' adalah 'an essential role' (peran yang sangat penting/esensial) atau 'a vital role'.",
+      grammarNote: "Collocation: play an essential role."
+    },
+    {
+      id: 40,
+      source: "Kaidah Tata Bahasa Kelas XII — Correlative Conjunctions",
+      type: "single_choice",
+      title: "Grammar & Structure: Subject-Verb Agreement",
+      prompt: "Choose the correct verb form agreeing with the plural subject in this sentence:<br><br><em>'Neither the manager nor the applicants _______ informed about the room change.'</em>",
+      options: [
+        { key: "A", text: "were" },
+        { key: "B", text: "was" },
+        { key: "C", text: "is" },
+        { key: "D", text: "has" }
+      ],
+      correctAnswer: "A",
+      explanation: "Dalam konstruksi 'Neither... nor...', kata kerja menyesuaikan dengan subjek yang paling dekat (proximity rule). Subjek terdekat adalah 'the applicants' (jamak), sehingga to-be lampau yang tepat adalah 'were'.",
+      grammarNote: "Proximity rule in correlative conjunctions: Neither A nor B + verb agrees with B."
+    }
+  ];
 }
 
 
-
-// ASTS Authentication Guard
-function checkAstsAuth() {
-  const auth = sessionStorage.getItem("sabaku_asts_auth");
-  if (!auth) {
-    alert("Halaman ini memerlukan verifikasi password ASTS. Anda akan dialihkan ke halaman verifikasi.");
-    window.location.href = "masuk-asts.html";
-    return false;
-  }
-  return true;
-}
-
-
-let studentIdentity = {
-  tingkat: "XII-TL",
-  rombel: "1",
-  presensi: "1",
-  nama: "Siswa Kelas XII Tingkat Lanjut"
-};
-
-let currentMode = "exam";
 let currentQuestionIndex = 0;
 let userAnswers = {};
 let flaggedQuestions = new Set();
 let timerInterval = null;
 let remainingSeconds = 90 * 60;
+let studentIdentity = { tingkat: "XII-TL", rombel: "1", presensi: "1", nama: "Siswa SMA 1 Bae" };
+let currentMode = "practice";
 let isExamSubmitted = false;
 let audioSpeechRate = 1.0;
 let questions = [];
@@ -1375,8 +838,7 @@ function randomizeQuestionOptions(rawQuestions) {
       return q;
     }
     const cloned = JSON.parse(JSON.stringify(q));
-    // NOTE: DO NOT shuffle complex_matrix statements so that Pernyataan 1, 2, 3, 4
-    // always correspond strictly with the explanation and table rows.
+    // Complex matrix statements maintain their logical order
     if (cloned.type !== "complex_matrix" && Array.isArray(cloned.options) && cloned.options.length > 0) {
       const opts = [...cloned.options];
       const isMCMA = cloned.type === "mcma" && Array.isArray(cloned.correctAnswer);
@@ -1407,51 +869,89 @@ function randomizeQuestionOptions(rawQuestions) {
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  if (!checkAstsAuth()) return;
-  loadStudentProfile();
-  initTestState();
+window.addEventListener("DOMContentLoaded", () => {
+  initStudentData();
 });
 
-function loadStudentProfile() {
+function initStudentData() {
   try {
-    const raw = sessionStorage.getItem("sabaku_student");
-    if (raw) {
-      const data = JSON.parse(raw);
-      if (data.tingkat) studentIdentity.tingkat = data.tingkat;
-      if (data.rombel) studentIdentity.rombel = data.rombel;
-      if (data.presensi) studentIdentity.presensi = data.presensi;
-      if (data.nama) studentIdentity.nama = data.nama;
+    const rawPortal = localStorage.getItem("sabaku_current_student");
+    if (rawPortal) {
+      const portalData = JSON.parse(rawPortal);
+      studentIdentity = {
+        tingkat: portalData.tingkat || "XII-TL",
+        rombel: portalData.rombel || "1",
+        presensi: portalData.presensi || "1",
+        nama: portalData.nama || "Siswa Kelas XII Tingkat Lanjut"
+      };
+      currentMode = portalData.mode || "practice";
+      startFreshTest();
+      return;
     }
   } catch (e) {
-    console.warn("Could not read student profile:", e);
+    console.warn("Portal data error:", e);
   }
+  const modal = document.getElementById("identity-prompt-modal");
+  if (modal) modal.style.display = "flex";
+  else startFreshTest();
 }
 
-function initTestState() {
+function handleDirectIdentitySubmit(e) {
+  if (e) e.preventDefault();
+  const namaEl = document.getElementById("direct-nama");
+  const rombelEl = document.getElementById("direct-rombel");
+  const presensiEl = document.getElementById("direct-presensi");
+  const modeEl = document.getElementById("direct-mode");
+  
+  studentIdentity = {
+    tingkat: "XII-TL",
+    rombel: rombelEl ? rombelEl.value : "1",
+    presensi: presensiEl ? presensiEl.value.trim() : "1",
+    nama: (namaEl && namaEl.value.trim()) ? namaEl.value.trim() : "Siswa Kelas XII Tingkat Lanjut"
+  };
+  if (modeEl) currentMode = modeEl.value;
+  const modal = document.getElementById("identity-prompt-modal");
+  if (modal) modal.style.display = "none";
+  startFreshTest();
+}
+
+function validateDirectPresensi(input) {
+  let val = input.value.replace(/\D/g, "");
+  if (val.startsWith("0")) val = val.replace(/^0+/, "");
+  let num = parseInt(val, 10);
+  if (num > 36) val = "36";
+  input.value = val;
+}
+
+function toggleDirectToken(mode) {}
+
+function startFreshTest() {
   userAnswers = {};
   flaggedQuestions.clear();
   isExamSubmitted = false;
   remainingSeconds = 90 * 60;
   currentQuestionIndex = 0;
 
-  const rawBank = (typeof getGrade12TLAsasQuestions === "function") ? getGrade12TLAsasQuestions() :
-                  (typeof getGrade12TLAstsQuestions === "function") ? getGrade12TLAstsQuestions() : [];
+  const rawBank = (typeof getGrade12TLAstsQuestions === "function") ? getGrade12TLAstsQuestions() : [];
 
-  questions = randomizeQuestionOptions(rawBank);
-
+  let restoredQuestions = null;
   try {
     const saved = localStorage.getItem("sabaku_asts_progress_XII_TL");
     if (saved) {
       const parsed = JSON.parse(saved);
+      if (Array.isArray(parsed.questions) && parsed.questions.length > 0) {
+        restoredQuestions = parsed.questions;
+      }
       if (parsed.userAnswers) userAnswers = parsed.userAnswers;
       if (parsed.flaggedQuestions) flaggedQuestions = new Set(parsed.flaggedQuestions);
-      if (parsed.remainingSeconds) remainingSeconds = parsed.remainingSeconds;
+      if (parsed.remainingSeconds !== undefined) remainingSeconds = parsed.remainingSeconds;
       if (parsed.currentIndex !== undefined) currentQuestionIndex = parsed.currentIndex;
     }
   } catch (err) {
     console.warn("Progress restore warning:", err);
   }
+
+  questions = restoredQuestions || randomizeQuestionOptions(rawBank);
 
   applyStudentMetadata();
   buildNavigatorGrid();
@@ -1462,41 +962,40 @@ function initTestState() {
 
 function applyStudentMetadata() {
   const modeBadge = document.getElementById("nav-mode-badge");
-  modeBadge.textContent = (currentMode === "practice") ? "🎯 Mode Latihan ASTS Gasal" : "🔒 Asesmen Resmi ASTS Gasal";
-  modeBadge.className = "badge-mode " + (currentMode === "practice" ? "practice" : "exam");
-  document.getElementById("side-student-name").textContent = studentIdentity.nama;
-  document.getElementById("side-student-meta").textContent = `Kelas XII Tingkat Lanjut | Rombel ${studentIdentity.rombel} | Presensi ${studentIdentity.presensi}`;
+  if (modeBadge) {
+    modeBadge.textContent = (currentMode === "practice") ? "🎯 Mode Latihan ASTS Gasal Kelas XII Tingkat Lanjut" : "📝 Asesmen Resmi ASTS Gasal Kelas XII Tingkat Lanjut";
+    modeBadge.className = "badge-mode " + (currentMode === "practice" ? "practice" : "exam");
+  }
+  const nameEl = document.getElementById("side-student-name");
+  if (nameEl) nameEl.textContent = studentIdentity.nama;
+  const rombelEl = document.getElementById("side-student-rombel");
+  if (rombelEl) rombelEl.textContent = studentIdentity.rombel;
+  const presensiEl = document.getElementById("side-student-presensi");
+  if (presensiEl) presensiEl.textContent = studentIdentity.presensi;
 }
 
 function toggleKisiKisiContent() {
-  const body = document.getElementById("kisi-kisi-body");
-  if (!body) return;
-  const icon = document.getElementById("kisi-toggle-icon");
-  if (body.style.display === "none") {
-    body.style.display = "block";
-    if (icon) icon.textContent = "▲ Sembunyikan Kisi-Kisi";
-  } else {
-    body.style.display = "none";
-    if (icon) icon.textContent = "▼ Buka Kisi-Kisi Lengkap";
-  }
+  const content = document.getElementById("kisi-kisi-content-area");
+  const icon = document.getElementById("kisi-kisi-expand-icon");
+  if (!content) return;
+  const isHidden = content.style.display === "none";
+  content.style.display = isHidden ? "block" : "none";
+  if (icon) icon.textContent = isHidden ? "▲" : "▼";
 }
 
 function toggleKisiKisiModal() {
-  const body = document.getElementById("kisi-kisi-body");
-  if (!body) return;
-  body.style.display = "block";
-  const icon = document.getElementById("kisi-toggle-icon");
-  if (icon) icon.textContent = "▲ Sembunyikan Kisi-Kisi";
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  const modal = document.getElementById("kisi-kisi-modal");
+  if (!modal) return;
+  modal.style.display = (modal.style.display === "flex") ? "none" : "flex";
 }
 
 function buildNavigatorGrid() {
-  const grid = document.getElementById("question-navigator-grid");
+  const grid = document.getElementById("navigator-grid");
+  if (!grid) return;
   grid.innerHTML = "";
   questions.forEach((q, idx) => {
     const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "q-num-btn";
+    btn.className = "nav-btn";
     btn.id = `nav-btn-${idx}`;
     btn.textContent = idx + 1;
     btn.onclick = () => renderQuestion(idx);
@@ -1530,81 +1029,103 @@ function renderQuestion(index) {
   const q = questions[index];
   stopAudio();
 
-  document.getElementById("q-number-badge").textContent = `Soal No. ${q.id} dari ${questions.length}`;
-  document.getElementById("q-type-badge").textContent = q.title || "Pilihan Ganda";
+  const numBadge = document.getElementById("q-number-badge");
+  if (numBadge) numBadge.textContent = `Soal No. ${q.id} dari ${questions.length}`;
+  const typeBadge = document.getElementById("q-type-badge");
+  if (typeBadge) typeBadge.textContent = q.title || "Pilihan Ganda";
 
   const listeningBox = document.getElementById("listening-container");
-  if (q.audioText || (q.audioSegments && q.audioSegments.length > 0)) {
-    listeningBox.style.display = "block";
-    document.getElementById("audio-status-text").textContent = "Klik 'Putar Audio' untuk menyimak wacana otentik.";
-  } else {
-    listeningBox.style.display = "none";
+  if (listeningBox) {
+    if (q.audioText || (q.audioSegments && q.audioSegments.length > 0)) {
+      listeningBox.style.display = "block";
+      const statusText = document.getElementById("audio-status-text");
+      if (statusText) statusText.textContent = "Klik 'Putar Audio' untuk mendengarkan audio rekaman penutur asli.";
+    } else {
+      listeningBox.style.display = "none";
+    }
   }
 
   const stimBox = document.getElementById("stimulus-container");
-  if (q.stimulusBody && q.type !== "listening_pictures") {
-    stimBox.style.display = "block";
-    document.getElementById("stimulus-title").textContent = q.stimulusTitle || "Teks Stimulus";
-    document.getElementById("stimulus-body").innerHTML = q.stimulusBody;
-    const srcEl = document.getElementById("stimulus-source");
-    if (srcEl) {
-      if (q.source) {
-        srcEl.style.display = "block";
-        srcEl.innerHTML = `<span style="font-size:0.75rem; color:#64748b; font-style:italic;">Source: ${q.source}</span>`;
-      } else {
-        srcEl.style.display = "none";
+  if (stimBox) {
+    if (q.stimulusBody && q.type !== "listening_pictures") {
+      stimBox.style.display = "block";
+      const stimTitle = document.getElementById("stimulus-title");
+      if (stimTitle) stimTitle.textContent = q.stimulusTitle || "Teks Stimulus";
+      const stimBody = document.getElementById("stimulus-body");
+      if (stimBody) stimBody.innerHTML = q.stimulusBody;
+      const srcEl = document.getElementById("stimulus-source");
+      if (srcEl) {
+        if (q.source) {
+          srcEl.style.display = "block";
+          srcEl.innerHTML = `<span style="font-size:0.75rem; color:#64748b; font-style:italic;">Source: ${q.source}</span>`;
+        } else {
+          srcEl.style.display = "none";
+        }
       }
+    } else {
+      stimBox.style.display = "none";
     }
-  } else {
-    stimBox.style.display = "none";
   }
 
   const promptBox = document.getElementById("question-prompt-text");
-  promptBox.innerHTML = q.prompt;
+  if (promptBox) promptBox.innerHTML = q.prompt;
 
   const optContainer = document.getElementById("options-container");
-  optContainer.innerHTML = "";
-
-  if (q.type === "listening_pictures") {
-    renderPictureChoices(q, optContainer);
-  } else if (q.type === "complex_matrix") {
-    renderMatrixTable(q, optContainer);
-  } else if (q.type === "mcma") {
-    renderMCMACheckboxes(q, optContainer);
-  } else {
-    renderSingleChoices(q, optContainer);
+  if (optContainer) {
+    optContainer.innerHTML = "";
+    if (q.type === "listening_pictures") {
+      renderPictureChoices(q, optContainer);
+    } else if (q.type === "complex_matrix") {
+      renderMatrixTable(q, optContainer);
+    } else if (q.type === "mcma") {
+      renderMCMACheckboxes(q, optContainer);
+    } else {
+      renderSingleChoices(q, optContainer);
+    }
   }
 
   const expBox = document.getElementById("question-explanation-box");
-  if (isExamSubmitted) {
-    expBox.style.display = "block";
-    let keyBadge = "";
-    if (q.type === "complex_matrix") {
-      keyBadge = q.matrixStatements.map((s, i) => `Pernyataan ${i+1}: <strong>${s.isCorrect ? 'BENAR (TRUE)' : 'SALAH (FALSE)'}</strong>`).join(" | ");
-    } else if (Array.isArray(q.correctAnswer)) {
-      keyBadge = q.correctAnswer.join(", ");
-    } else {
-      keyBadge = q.correctAnswer;
-    }
+  if (expBox) {
+    if (isExamSubmitted) {
+      expBox.style.display = "block";
+      let keyBadge = "";
+      if (q.type === "complex_matrix") {
+        keyBadge = q.matrixStatements.map((s, i) => `Pernyataan ${i+1}: <strong>${s.isCorrect ? 'BENAR (TRUE)' : 'SALAH (FALSE)'}</strong>`).join(" | ");
+      } else if (Array.isArray(q.correctAnswer)) {
+        keyBadge = q.correctAnswer.join(", ");
+      } else {
+        keyBadge = q.correctAnswer;
+      }
 
-    document.getElementById("explanation-text").innerHTML = `
-      <div style="margin-bottom: 10px; padding: 6px 12px; background: #ecfdf5; border: 1.5px solid #a7f3d0; border-radius: 8px; color: #065f46; font-size: 0.95rem; display: inline-block;">
-        🔑 <strong>Kunci Jawaban:</strong> <span style="font-weight: 800; color: #047857; margin-left: 4px;">${keyBadge}</span>
-      </div>
-      <div>${q.explanation}</div>
-    `;
-    document.getElementById("explanation-meta-text").innerHTML = `<strong>Kaidah &amp; Kosakata:</strong> ${q.grammarNote || "-"}`;
-  } else {
-    expBox.style.display = "none";
+      const expText = document.getElementById("explanation-text");
+      if (expText) {
+        expText.innerHTML = `
+          <div style="margin-bottom: 10px; padding: 6px 12px; background: #ecfdf5; border: 1.5px solid #a7f3d0; border-radius: 8px; color: #065f46; font-size: 0.95rem; display: inline-block;">
+            🔑 <strong>Kunci Jawaban:</strong> <span style="font-weight: 800; color: #047857; margin-left: 4px;">${keyBadge}</span>
+          </div>
+          <div>${q.explanation}</div>
+        `;
+      }
+      const expMeta = document.getElementById("explanation-meta-text");
+      if (expMeta) {
+        expMeta.innerHTML = `<strong>Kaidah &amp; Kosakata:</strong> ${q.grammarNote || "-"}`;
+      }
+    } else {
+      expBox.style.display = "none";
+    }
   }
 
   const flagBtn = document.getElementById("btn-flag-q");
-  if (flaggedQuestions.has(index)) flagBtn.textContent = "🚩 Hapus Ragu";
-  else flagBtn.textContent = "🏳️ Ragu-ragu";
+  if (flagBtn) {
+    flagBtn.textContent = flaggedQuestions.has(index) ? "🔄 Hapus Ragu" : "🟡 Ragu-ragu";
+  }
 
-  document.getElementById("btn-prev-q").disabled = (index === 0);
-  document.getElementById("btn-next-q").disabled = (index === questions.length - 1);
-  document.getElementById("btn-submit-test").style.display = (index === questions.length - 1) ? "inline-flex" : "none";
+  const btnPrev = document.getElementById("btn-prev-q");
+  if (btnPrev) btnPrev.disabled = (index === 0);
+  const btnNext = document.getElementById("btn-next-q");
+  if (btnNext) btnNext.disabled = (index === questions.length - 1);
+  const btnSubmit = document.getElementById("btn-submit-test");
+  if (btnSubmit) btnSubmit.style.display = (index === questions.length - 1) ? "inline-flex" : "none";
 
   updateNavigatorStatus();
   saveProgressToLocalStorage();
@@ -1625,8 +1146,10 @@ function renderPictureChoices(q, container) {
     const labelContent = opt.label || opt.text || `Pilihan ${opt.key}`;
     card.innerHTML = `
       <div class="picture-svg-wrapper">${svgContent}</div>
-      <div class="picture-letter-badge">${opt.key}</div>
-      <div class="picture-label-text">${labelContent}</div>
+      <div class="picture-card-footer">
+        <span class="picture-key-badge">${opt.key}</span>
+        <span class="picture-label-text">${labelContent}</span>
+      </div>
     `;
     grid.appendChild(card);
   });
@@ -1645,8 +1168,8 @@ function renderSingleChoices(q, container) {
       renderQuestion(currentQuestionIndex);
     };
     item.innerHTML = `
-      <div class="option-key-badge">${opt.key}</div>
-      <div class="option-text-content">${opt.text}</div>
+      <div class="option-circle">${opt.key}</div>
+      <div class="option-text">${opt.text}</div>
     `;
     list.appendChild(item);
   });
@@ -1654,519 +1177,436 @@ function renderSingleChoices(q, container) {
 }
 
 function renderMatrixTable(q, container) {
-  const tableWrap = document.createElement("div");
-  tableWrap.className = "complex-matrix-wrap";
-  tableWrap.style.overflowX = "auto";
-  tableWrap.style.margin = "12px 0";
-
-  let currentMap = userAnswers[q.id] || {};
-
-  let html = `
-    <table class="table-complex-matrix" style="width: 100%; border-collapse: collapse; border: 1.5px solid #cbd5e1; border-radius: 8px; overflow: hidden; background: #fff;">
-      <thead>
-        <tr style="background: #f1f5f9; color: #1e293b; border-bottom: 2px solid #cbd5e1; text-align: left;">
-          <th style="padding: 12px 14px; font-weight: 700; width: 62%;">Pernyataan / Analisis Situasi</th>
-          <th style="padding: 12px 8px; text-align: center; width: 19%; background: #e0f2fe; color: #0369a1; font-weight: 700;">BENAR (TRUE)</th>
-          <th style="padding: 12px 8px; text-align: center; width: 19%; background: #fee2e2; color: #b91c1c; font-weight: 700;">SALAH (FALSE)</th>
-        </tr>
-      </thead>
-      <tbody>
-  `;
-
-  q.matrixStatements.forEach((st, idx) => {
-    const val = currentMap[idx];
-    const isTrueChecked = (val === true) ? "checked" : "";
-    const isFalseChecked = (val === false) ? "checked" : "";
-    const bgRow = (idx % 2 === 0) ? "#ffffff" : "#f8fafc";
-
-    html += `
-      <tr style="border-bottom: 1px solid #e2e8f0; background: ${bgRow};">
-        <td style="padding: 12px 14px; font-size: 0.95rem; line-height: 1.5; color: #334155;">${st.statement}</td>
-        <td style="padding: 12px 8px; text-align: center; vertical-align: middle;">
-          <label style="cursor: pointer; display: inline-flex; align-items: center; justify-content: center; width: 100%; height: 100%;">
-            <input type="radio" name="matrix_${q.id}_${idx}" value="true" ${isTrueChecked} onchange="handleMatrixSelect(${q.id}, ${idx}, true)" style="transform: scale(1.3); cursor: pointer;" />
-          </label>
-        </td>
-        <td style="padding: 12px 8px; text-align: center; vertical-align: middle;">
-          <label style="cursor: pointer; display: inline-flex; align-items: center; justify-content: center; width: 100%; height: 100%;">
-            <input type="radio" name="matrix_${q.id}_${idx}" value="false" ${isFalseChecked} onchange="handleMatrixSelect(${q.id}, ${idx}, false)" style="transform: scale(1.3); cursor: pointer;" />
-          </label>
-        </td>
+  const table = document.createElement("table");
+  table.className = "matrix-table";
+  table.innerHTML = `
+    <thead>
+      <tr>
+        <th style="width: 70%;">Pernyataan / Analisis Teks</th>
+        <th style="width: 15%; text-align: center;">BENAR (TRUE)</th>
+        <th style="width: 15%; text-align: center;">SALAH (FALSE)</th>
       </tr>
-    `;
-  });
-
-  html += "</tbody></table>";
-  tableWrap.innerHTML = html;
-  container.appendChild(tableWrap);
+    </thead>
+    <tbody>
+      ${q.matrixStatements.map((stmt, sIdx) => {
+        const curVal = (userAnswers[q.id] && userAnswers[q.id][sIdx] !== undefined) ? userAnswers[q.id][sIdx] : null;
+        return `
+          <tr>
+            <td>${stmt.statement}</td>
+            <td onclick="setMatrixAnswer(${q.id}, ${sIdx}, true)" style="cursor: pointer; text-align: center;">
+              <input type="radio" class="matrix-radio" name="matrix_${q.id}_${sIdx}" ${curVal === true ? "checked" : ""} onclick="event.stopPropagation(); setMatrixAnswer(${q.id}, ${sIdx}, true)">
+            </td>
+            <td onclick="setMatrixAnswer(${q.id}, ${sIdx}, false)" style="cursor: pointer; text-align: center;">
+              <input type="radio" class="matrix-radio" name="matrix_${q.id}_${sIdx}" ${curVal === false ? "checked" : ""} onclick="event.stopPropagation(); setMatrixAnswer(${q.id}, ${sIdx}, false)">
+            </td>
+          </tr>
+        `;
+      }).join("")}
+    </tbody>
+  `;
+  container.appendChild(table);
 }
 
-function handleMatrixSelect(qId, stIdx, value) {
+function setMatrixAnswer(qId, statementIdx, value) {
   if (isExamSubmitted) return;
   if (!userAnswers[qId] || typeof userAnswers[qId] !== "object" || Array.isArray(userAnswers[qId])) {
     userAnswers[qId] = {};
   }
-  userAnswers[qId][stIdx] = value;
-  updateNavigatorStatus();
-  saveProgressToLocalStorage();
+  userAnswers[qId][statementIdx] = value;
+  renderQuestion(currentQuestionIndex);
 }
 
 function renderMCMACheckboxes(q, container) {
-  const wrap = document.createElement("div");
-  wrap.className = "mcma-options-wrap";
-  wrap.style.display = "flex";
-  wrap.style.flexDirection = "column";
-  wrap.style.gap = "10px";
-  wrap.style.margin = "12px 0";
-
-  let currentArr = Array.isArray(userAnswers[q.id]) ? userAnswers[q.id] : [];
-
+  const list = document.createElement("div");
+  list.className = "options-list";
+  const curAns = Array.isArray(userAnswers[q.id]) ? userAnswers[q.id] : [];
   q.options.forEach(opt => {
-    const isChecked = currentArr.includes(opt.key);
+    const isChecked = curAns.includes(opt.key);
     const item = document.createElement("div");
-    item.className = "mcma-option-item" + (isChecked ? " selected" : "");
-    item.style.display = "flex";
-    item.style.alignItems = "flex-start";
-    item.style.padding = "12px 14px";
-    item.style.border = isChecked ? "2px solid var(--accent-teal)" : "1.5px solid #cbd5e1";
-    item.style.borderRadius = "8px";
-    item.style.background = isChecked ? "#f0fdfa" : "#ffffff";
-    item.style.cursor = "pointer";
-    item.style.transition = "all 0.2s ease";
-
-    item.onclick = (e) => {
-      if (e.target.tagName !== "INPUT") {
-        const chk = item.querySelector("input[type=checkbox]");
-        if (chk) chk.click();
-      }
+    item.className = "option-item" + (isChecked ? " selected" : "");
+    item.onclick = () => {
+      if (isExamSubmitted) return;
+      toggleMCMAAnswer(q.id, opt.key);
+      renderQuestion(currentQuestionIndex);
     };
-
     item.innerHTML = `
-      <div style="margin-right: 12px; display: flex; align-items: center; height: 24px;">
-        <input type="checkbox" id="chk_${q.id}_${opt.key}" value="${opt.key}" ${isChecked ? "checked" : ""} onchange="handleMCMAToggle(${q.id}, '${opt.key}', this.checked)" style="transform: scale(1.3); cursor: pointer;" />
-      </div>
-      <div style="flex: 1; font-size: 0.95rem; line-height: 1.5; color: #1e293b;">
-        <strong style="color: var(--primary-navy); margin-right: 6px;">[${opt.key}]</strong> ${opt.text}
-      </div>
+      <div class="option-checkbox">${isChecked ? "✓" : ""}</div>
+      <div class="option-text"><strong>[${opt.key}]</strong> ${opt.text}</div>
     `;
-    wrap.appendChild(item);
+    list.appendChild(item);
   });
-
-  const tip = document.createElement("div");
-  tip.style.fontSize = "0.85rem";
-  tip.style.color = "#0284c7";
-  tip.style.background = "#f0f9ff";
-  tip.style.padding = "8px 12px";
-  tip.style.borderRadius = "6px";
-  tip.style.borderLeft = "3.5px solid #0284c7";
-  tip.innerHTML = "💡 <em>Petunjuk: Pilihlah tepat <strong>2 opsi jawaban</strong> yang benar pada tipe soal MCMA ini.</em>";
-  wrap.appendChild(tip);
-
-  container.appendChild(wrap);
+  container.appendChild(list);
 }
 
-function handleMCMAToggle(qId, key, isChecked) {
+function toggleMCMAAnswer(qId, key) {
   if (isExamSubmitted) return;
-  let arr = Array.isArray(userAnswers[qId]) ? [...userAnswers[qId]] : [];
-  if (isChecked) {
-    if (!arr.includes(key)) arr.push(key);
-  } else {
-    arr = arr.filter(k => k !== key);
-  }
-  arr.sort();
-  userAnswers[qId] = arr;
-  updateNavigatorStatus();
-  saveProgressToLocalStorage();
-  renderQuestion(currentQuestionIndex);
+  if (!Array.isArray(userAnswers[qId])) userAnswers[qId] = [];
+  const idx = userAnswers[qId].indexOf(key);
+  if (idx > -1) userAnswers[qId].splice(idx, 1);
+  else userAnswers[qId].push(key);
 }
 
-function navigateQuestion(step) {
-  renderQuestion(currentQuestionIndex + step);
+function navigateQuestion(delta) {
+  renderQuestion(currentQuestionIndex + delta);
 }
 
 function toggleFlagQuestion() {
-  if (flaggedQuestions.has(currentQuestionIndex)) {
-    flaggedQuestions.delete(currentQuestionIndex);
-  } else {
-    flaggedQuestions.add(currentQuestionIndex);
-  }
+  if (flaggedQuestions.has(currentQuestionIndex)) flaggedQuestions.delete(currentQuestionIndex);
+  else flaggedQuestions.add(currentQuestionIndex);
   renderQuestion(currentQuestionIndex);
 }
 
-// Audio Engine: Web Speech API Multi-Speaker
+// Multi-speaker audio player with Indonesian name pronunciation
 let isAudioPlaying = false;
-let audioQueue = [];
-let audioQueueIdx = 0;
-let cachedVoices = [];
-
-if (typeof window !== "undefined" && window.speechSynthesis) {
-  cachedVoices = window.speechSynthesis.getVoices();
-  window.speechSynthesis.onvoiceschanged = () => {
-    cachedVoices = window.speechSynthesis.getVoices();
-  };
-}
+let currentSegmentIndex = 0;
+let activeAudioSegments = [];
+let audioPlayTimeout = null;
 
 function getAvailableVoices() {
-  if (!window.speechSynthesis) return [];
-  const live = window.speechSynthesis.getVoices();
-  if (live && live.length > 0) {
-    cachedVoices = live;
-    return live;
-  }
-  return cachedVoices || [];
+  if (!("speechSynthesis" in window)) return [];
+  return window.speechSynthesis.getVoices();
 }
 
-if (typeof window !== "undefined" && window.speechSynthesis) {
+if ("speechSynthesis" in window) {
   window.speechSynthesis.onvoiceschanged = () => {
-    cachedVoices = window.speechSynthesis.getVoices();
+    getAvailableVoices();
   };
 }
 
 function selectAudioVoice(role, gender, lang) {
   const voices = getAvailableVoices();
-  if (!voices || voices.length === 0) return null;
+  if (!voices.length) return null;
+  const isTargetLang = (v, l) => {
+    if (!v.lang) return false;
+    const clean = v.lang.replace("_", "-").toLowerCase();
+    const prefix = l.toLowerCase().split("-")[0];
+    return clean.startsWith(prefix);
+  };
+  const voiceLang = lang || "en-US";
+  let pool = voices.filter(v => isTargetLang(v, voiceLang));
+  if (!pool.length) pool = voices.filter(v => v.lang.startsWith("en"));
+  if (!pool.length) pool = voices;
 
-  if (lang && lang.startsWith("id")) {
-    const idVoice = voices.find(v => (v.lang && (v.lang.startsWith("id") || v.lang.startsWith("ID"))) || v.name.toLowerCase().includes("indonesia") || v.name.includes("Gadis") || v.name.includes("Ardi"));
-    if (idVoice) return idVoice;
+  const isFemaleRole = role && (role.includes("_f") || role.includes("female") || role.includes("student_f") || role.includes("teacher_f"));
+  const femaleKeywords = ["female", "zira", "samantha", "victoria", "karen", "susan", "helena", "catherine", "jenny", "aria"];
+  const maleKeywords = ["male", "david", "george", "mark", "james", "richard", "guy", "christopher"];
+
+  if (isFemaleRole) {
+    const fMatch = pool.find(v => femaleKeywords.some(kw => v.name.toLowerCase().includes(kw)));
+    if (fMatch) return fMatch;
+  } else if (role && (role.includes("_m") || role.includes("male"))) {
+    const mMatch = pool.find(v => maleKeywords.some(kw => v.name.toLowerCase().includes(kw)));
+    if (mMatch) return mMatch;
   }
+  return pool[0] || voices[0];
+}
 
-  const enVoices = voices.filter(v => v.lang && (v.lang.startsWith("en") || v.lang.startsWith("EN")));
-  if (enVoices.length === 0) return voices[0];
-
-  const femaleKeywords = ["female", "woman", "girl", "zira", "jenny", "aria", "samantha", "victoria", "karen", "fiona", "moira", "tessa", "clara", "libby", "ana", "sonia", "natasha", "google us english", "google uk english female"];
-  const maleKeywords = ["male", "man", "boy", "david", "guy", "mark", "ryan", "george", "daniel", "alex", "fred", "oliver", "steffan", "google uk english male", "james", "tom", "richard"];
-
-  const matchedFemale = enVoices.find(v => femaleKeywords.some(k => v.name.toLowerCase().includes(k)));
-  let matchedMale = enVoices.find(v => maleKeywords.some(k => v.name.toLowerCase().includes(k)));
-
-  // Ensure male and female are paired with different voices if at least 2 english voices exist
-  if (matchedFemale && matchedMale && matchedFemale.name === matchedMale.name && enVoices.length >= 2) {
-    matchedMale = enVoices.find(v => v.name !== matchedFemale.name) || matchedMale;
-  }
-  if (!matchedMale && matchedFemale && enVoices.length >= 2) {
-    matchedMale = enVoices.find(v => v.name !== matchedFemale.name);
-  }
-  if (!matchedFemale && matchedMale && enVoices.length >= 2) {
-    const altFemale = enVoices.find(v => v.name !== matchedMale.name);
-    if (altFemale && gender === "female") return altFemale;
-  }
-
-  if (gender === "female") {
-    return matchedFemale || enVoices[0];
-  } else if (gender === "male") {
-    return matchedMale || (enVoices.length > 1 ? enVoices[1] : enVoices[0]);
-  }
-
-  // Default narrator voice
-  const narratorVoice = enVoices.find(v => v.name.includes("Natural") || v.name.includes("David") || v.name.includes("Google") || v.name.includes("Aria")) || enVoices[0];
-  return narratorVoice;
+function preprocessIndonesianNames(text) {
+  return text
+    .replace(/\bEndang Sawitri\b/gi, "Ehn-dahng Sah-weet-tree")
+    .replace(/\bBaru Klinthing\b/gi, "Bah-roo Kleen-teeng")
+    .replace(/\bKi Hajar Salokantara\b/gi, "Kee Hah-jahr Sah-loh-kahn-tah-rah")
+    .replace(/\bMount Telomoyo\b/gi, "Mount Teh-loh-moh-yoh")
+    .replace(/\bMbok Rondo\b/gi, "Em-bock Ron-doh")
+    .replace(/\bRawa Pening\b/gi, "Rah-wah Peh-neeng")
+    .replace(/\bPathok\b/gi, "Pah-tock")
+    .replace(/\bNgasem\b/gi, "Nga-sem");
 }
 
 function stopAudio() {
-  if (window.speechSynthesis) window.speechSynthesis.cancel();
+  if ("speechSynthesis" in window) {
+    window.speechSynthesis.cancel();
+  }
+  if (audioPlayTimeout) {
+    clearTimeout(audioPlayTimeout);
+    audioPlayTimeout = null;
+  }
   isAudioPlaying = false;
-  audioQueue = [];
-  audioQueueIdx = 0;
+  activeAudioSegments = [];
+  currentSegmentIndex = 0;
+  const btn = document.getElementById("btn-play-audio");
+  if (btn) btn.classList.remove("playing");
   const playText = document.getElementById("play-text");
-  const playBtn = document.getElementById("btn-play-audio");
-  const statusText = document.getElementById("audio-status-text");
   if (playText) playText.textContent = "Putar Audio";
-  if (playBtn) playBtn.style.backgroundColor = "var(--royal-blue)";
-  if (statusText) statusText.textContent = "Klik 'Putar Audio' untuk mendengarkan kembali.";
 }
 
 function playQuestionAudio() {
-  const q = questions[currentQuestionIndex];
-  if (!q) return;
-  if (!window.speechSynthesis) {
-    alert("Peramban Anda belum mendukung Web Speech API.");
-    return;
-  }
   if (isAudioPlaying) {
     stopAudio();
     return;
   }
-  window.speechSynthesis.cancel();
-  let segments = [];
-  if (q.audioSegments && q.audioSegments.length > 0) segments = q.audioSegments;
-  else if (q.audioText) segments = [{ text: q.audioText, lang: "en-US", role: "narrator" }];
-  else return;
+  const q = questions[currentQuestionIndex];
+  if (!q) return;
 
-  audioQueue = segments;
-  audioQueueIdx = 0;
+  if (q.audioSegments && q.audioSegments.length > 0) {
+    activeAudioSegments = q.audioSegments;
+  } else if (q.audioText) {
+    activeAudioSegments = [{ role: "narrator", lang: "en-US", text: q.audioText }];
+  } else {
+    return;
+  }
+
   isAudioPlaying = true;
-
-  const playBtn = document.getElementById("btn-play-audio");
+  currentSegmentIndex = 0;
+  const btn = document.getElementById("btn-play-audio");
+  if (btn) btn.classList.add("playing");
   const playText = document.getElementById("play-text");
-  const statusText = document.getElementById("audio-status-text");
   if (playText) playText.textContent = "Hentikan";
-  if (playBtn) playBtn.style.backgroundColor = "#dc2626";
-  if (statusText) statusText.textContent = "🔊 Audio sedang diputar. Simak dengan seksama...";
+
   playNextAudioSegment();
 }
 
 function playNextAudioSegment() {
   if (!isAudioPlaying) return;
-  if (audioQueueIdx >= audioQueue.length) {
-    isAudioPlaying = false;
-    audioQueue = [];
-    audioQueueIdx = 0;
-    const playBtn = document.getElementById("btn-play-audio");
-    const playText = document.getElementById("play-text");
-    const statusText = document.getElementById("audio-status-text");
-    if (playText) playText.textContent = "Putar Ulang";
-    if (playBtn) playBtn.style.backgroundColor = "var(--accent-teal)";
-    if (statusText) statusText.textContent = "✅ Pemutaran audio selesai. Silakan pilih jawaban Anda.";
+  if (currentSegmentIndex >= activeAudioSegments.length) {
+    stopAudio();
     return;
   }
-  const seg = audioQueue[audioQueueIdx++];
-  const utt = new SpeechSynthesisUtterance(seg.text);
-  utt.lang = seg.lang || "en-US";
 
-  const matchedVoice = selectAudioVoice(seg.role, seg.gender, seg.lang);
-  if (matchedVoice) utt.voice = matchedVoice;
+  const seg = activeAudioSegments[currentSegmentIndex];
+  const cleanedText = preprocessIndonesianNames(seg.text);
+  const utterance = new SpeechSynthesisUtterance(cleanedText);
+  utterance.rate = audioSpeechRate;
+  utterance.lang = seg.lang || "en-US";
 
-  if (seg.pitch !== undefined) {
-    utt.pitch = seg.pitch;
-  } else if (seg.gender === "female") {
-    utt.pitch = 1.30;
-  } else if (seg.gender === "male") {
-    utt.pitch = 0.75;
-  } else {
-    utt.pitch = 1.0;
+  const voice = selectAudioVoice(seg.role, null, seg.lang);
+  if (voice) utterance.voice = voice;
+
+  const statusText = document.getElementById("audio-status-text");
+  if (statusText) {
+    const speakerLabel = seg.name ? `${seg.name} (${seg.role.includes('_f') ? 'Female' : 'Male'})` : (seg.role === "narrator" ? "Narrator" : "Audio");
+    statusText.textContent = `Sedang memutar: [${speakerLabel}] - Bagian ${currentSegmentIndex + 1} dari ${activeAudioSegments.length}`;
   }
 
-  let rateMult = seg.rateMultiplier || 1.0;
-  if (seg.gender === "female" && !seg.rateMultiplier) rateMult = 1.04;
-  else if (seg.gender === "male" && !seg.rateMultiplier) rateMult = 0.94;
-  else if (seg.role === "narrator" && !seg.rateMultiplier) rateMult = 0.96;
-  utt.rate = audioSpeechRate * rateMult;
+  utterance.onend = () => {
+    currentSegmentIndex++;
+    const pauseTime = seg.pauseAfter || 300;
+    audioPlayTimeout = setTimeout(() => {
+      playNextAudioSegment();
+    }, pauseTime);
+  };
 
-  utt.onend = () => {
-    if (isAudioPlaying) setTimeout(playNextAudioSegment, seg.pauseAfter || 360);
+  utterance.onerror = (e) => {
+    console.warn("Speech error:", e);
+    currentSegmentIndex++;
+    playNextAudioSegment();
   };
-  utt.onerror = () => {
-    if (isAudioPlaying) playNextAudioSegment();
-  };
-  window.speechSynthesis.speak(utt);
+
+  window.speechSynthesis.speak(utterance);
 }
 
 function toggleAudioSpeed() {
-  audioSpeechRate = (audioSpeechRate === 1.0) ? 0.85 : 1.0;
-  document.getElementById("speed-text").textContent = audioSpeechRate + "x";
+  if (audioSpeechRate === 1.0) audioSpeechRate = 0.85;
+  else if (audioSpeechRate === 0.85) audioSpeechRate = 1.15;
+  else audioSpeechRate = 1.0;
+  const speedText = document.getElementById("speed-text");
+  if (speedText) speedText.textContent = `${audioSpeechRate}x`;
 }
 
 function startTimer() {
   if (timerInterval) clearInterval(timerInterval);
   timerInterval = setInterval(() => {
-    remainingSeconds--;
     if (remainingSeconds <= 0) {
       clearInterval(timerInterval);
-      alert("Waktu pengerjaan tes telah berakhir! Jawaban Anda akan otomatis dikumpulkan.");
+      alert("Waktu pengerjaan telah habis! Sistem akan mengumpulkan jawaban Anda secara otomatis.");
       submitTest();
       return;
     }
+    remainingSeconds--;
     const mins = Math.floor(remainingSeconds / 60);
     const secs = remainingSeconds % 60;
-    document.getElementById("timer-display").textContent = `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
-    if (remainingSeconds < 300) document.getElementById("timer-box").style.backgroundColor = "#dc2626";
-    if (remainingSeconds % 15 === 0) saveProgressToLocalStorage();
+    const timerDisplay = document.getElementById("timer-display");
+    if (timerDisplay) {
+      timerDisplay.textContent = `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
+    }
   }, 1000);
 }
 
-function checkUnansweredQuestions() {
-  const unanswered = [];
-  questions.forEach((q, idx) => {
-    if (!isQuestionAnswered(q.id)) unanswered.push(idx + 1);
-  });
-  return unanswered;
+function confirmSubmitTest() {
+  const answeredCount = questions.filter(q => isQuestionAnswered(q.id)).length;
+  const unansweredCount = questions.length - answeredCount;
+  let msg = `Anda telah menjawab ${answeredCount} dari ${questions.length} butir soal.`;
+  if (unansweredCount > 0) msg += ` Masih ada ${unansweredCount} butir soal yang belum dijawab.`;
+  msg += "\n\nApakah Anda yakin ingin menyelesaikan dan mengumpulkan tes sekarang?";
+  if (confirm(msg)) submitTest();
 }
 
 function submitTest() {
-  const unanswered = checkUnansweredQuestions();
-  if (unanswered.length > 0) {
-    const proceed = confirm(`Masih terdapat ${unanswered.length} soal yang belum dijawab (Nomor: ${unanswered.slice(0, 10).join(", ")}${unanswered.length > 10 ? "..." : ""}).\nApakah Anda yakin ingin menyelesaikan tes sekarang?`);
-    if (!proceed) return;
-  } else {
-    if (!confirm("Apakah Anda yakin ingin menyelesaikan tes dan melihat hasil perolehan nilai?")) return;
-  }
-
-  isExamSubmitted = true;
   clearInterval(timerInterval);
+  isExamSubmitted = true;
   stopAudio();
+  localStorage.removeItem("sabaku_asts_progress_XII_TL");
 
-  let correctCount = 0;
-  let breakdownRows = "";
-
-  questions.forEach((q, idx) => {
-    const userAns = userAnswers[q.id];
-    let isQCorrect = false;
-    let userAnsLabel = "-";
-    let keyLabel = "";
-
+  let totalScoreEarned = 0;
+  questions.forEach(q => {
+    const ans = userAnswers[q.id];
     if (q.type === "complex_matrix") {
-      let stCorrect = 0;
-      const totalSt = q.matrixStatements.length;
-      q.matrixStatements.forEach((st, sIdx) => {
-        const val = userAns ? userAns[sIdx] : undefined;
-        if (val === st.isCorrect) stCorrect++;
-      });
-      isQCorrect = (stCorrect === totalSt);
-      userAnsLabel = `Benar ${stCorrect}/${totalSt}`;
-      keyLabel = q.matrixStatements.map((s, i) => `S${i+1}:${s.isCorrect ? 'T' : 'F'}`).join(" ");
+      if (ans && typeof ans === "object") {
+        let correctStatements = 0;
+        q.matrixStatements.forEach((stmt, sIdx) => {
+          if (ans[sIdx] === stmt.isCorrect) correctStatements++;
+        });
+        totalScoreEarned += (correctStatements / q.matrixStatements.length);
+      }
     } else if (q.type === "mcma") {
-      const uArr = Array.isArray(userAns) ? [...userAns].sort() : [];
-      const cArr = Array.isArray(q.correctAnswer) ? [...q.correctAnswer].sort() : [];
-      isQCorrect = (uArr.length === cArr.length && uArr.every((v, i) => v === cArr[i]));
-      userAnsLabel = uArr.length > 0 ? uArr.join(",") : "-";
-      keyLabel = cArr.join(",");
+      if (Array.isArray(ans) && ans.length > 0) {
+        const target = Array.isArray(q.correctAnswer) ? q.correctAnswer : [];
+        let correctPicks = 0;
+        let wrongPicks = 0;
+        ans.forEach(key => {
+          if (target.includes(key)) correctPicks++;
+          else wrongPicks++;
+        });
+        const netPicks = Math.max(0, correctPicks - (wrongPicks * 0.5));
+        totalScoreEarned += (target.length > 0 ? (netPicks / target.length) : 0);
+      }
     } else {
-      isQCorrect = (userAns === q.correctAnswer);
-      userAnsLabel = userAns || "-";
-      keyLabel = q.correctAnswer;
+      if (ans === q.correctAnswer) totalScoreEarned += 1.0;
     }
-
-    if (isQCorrect) correctCount++;
-
-    breakdownRows += `
-      <tr>
-        <td style="text-align: center;">${idx + 1}</td>
-        <td>${q.title || "Pilihan Ganda"}</td>
-        <td style="text-align: center; font-weight: 700;">${userAnsLabel}</td>
-        <td style="text-align: center; font-weight: 700; color: #047857;">${keyLabel}</td>
-        <td style="text-align: center;">${isQCorrect ? '<span style="color:#16a34a; font-weight:bold;">✔ Benar</span>' : '<span style="color:#dc2626; font-weight:bold;">✘ Salah</span>'}</td>
-      </tr>
-    `;
   });
 
-  const finalScore = Math.round((correctCount / questions.length) * 100);
+  const totalQuestions = questions.length;
+  const finalScore = Math.min(100, Math.round((totalScoreEarned / totalQuestions) * 100));
   const isTuntas = finalScore >= 75;
+  const correctCount = Math.round(totalScoreEarned);
 
-  document.getElementById("modal-student-name").textContent = studentIdentity.nama;
-  document.getElementById("modal-student-meta").textContent = `Kelas: ${studentIdentity.tingkat} | Rombel: ${studentIdentity.rombel} | Presensi: ${studentIdentity.presensi}`;
-  document.getElementById("modal-score-grade").textContent = finalScore;
-  document.getElementById("modal-score-badge").textContent = isTuntas ? "TUNTAS KKTP (≥ 75)" : "BELUM TUNTAS (< 75)";
-  document.getElementById("modal-score-badge").className = "kktp-status " + (isTuntas ? "passed" : "failed");
-  document.getElementById("modal-correct-count").textContent = correctCount;
-  document.getElementById("modal-total-count").textContent = questions.length;
-  document.getElementById("breakdown-tbody").innerHTML = breakdownRows;
-  document.getElementById("result-modal").style.display = "flex";
+  const resModal = document.getElementById("result-modal");
+  if (resModal) resModal.style.display = "flex";
+  const scoreVal = document.getElementById("result-score-val");
+  if (scoreVal) scoreVal.textContent = finalScore;
+  const scoreCircle = document.getElementById("result-score-circle");
+  if (scoreCircle) scoreCircle.className = "score-circle " + (isTuntas ? "tuntas" : "belum");
 
-  saveRecordToHistoryAndSheet(finalScore, correctCount, questions.length);
-  renderQuestion(currentQuestionIndex);
-}
+  const statusText = document.getElementById("result-status-text");
+  if (statusText) {
+    statusText.textContent = isTuntas ? "STATUS: TUNTAS KKTP (≥ 75) 🎉" : "STATUS: BELUM TUNTAS KKTP (< 75) ⚠️";
+    statusText.style.color = isTuntas ? "var(--accent-green)" : "var(--accent-red)";
+  }
 
-function saveRecordToHistoryAndSheet(finalScore, correctCount, totalQuestions) {
+  const statCorr = document.getElementById("stat-correct");
+  if (statCorr) statCorr.textContent = correctCount;
+  const statWrong = document.getElementById("stat-wrong");
+  if (statWrong) statWrong.textContent = totalQuestions - correctCount;
+  const statAcc = document.getElementById("stat-accuracy");
+  if (statAcc) statAcc.textContent = `${finalScore}%`;
+
   const record = {
-    timestamp: new Date().toLocaleString("id-ID"),
     tingkat: studentIdentity.tingkat,
     rombel: studentIdentity.rombel,
     presensi: studentIdentity.presensi,
     nama: studentIdentity.nama,
-    mode: (currentMode === "practice") ? "🎯 Mode Latihan ASTS Gasal" : "🔒 Asesmen Resmi ASTS Gasal",
+    mode: (currentMode === "practice") ? "Latihan ASTS Gasal Kelas XII Tingkat Lanjut" : "Asesmen Resmi ASTS Gasal Kelas XII Tingkat Lanjut",
     score: correctCount,
     total: totalQuestions,
     grade: finalScore,
-    duration: `${Math.floor((90 * 60 - remainingSeconds) / 60)} menit`
+    duration: `${Math.floor((5400 - remainingSeconds) / 60)} menit`,
+    timestamp: new Date().toLocaleString("id-ID"),
+    answers: userAnswers
   };
 
   try {
     const history = JSON.parse(localStorage.getItem("sabaku_ats_history") || "[]");
-    history.unshift(record);
+    history.push(record);
     localStorage.setItem("sabaku_ats_history", JSON.stringify(history));
-  } catch (err) {}
+  } catch (e) {
+    console.warn("History save error:", e);
+  }
 
-  sendScoreToGoogleSheet(record);
+  syncScoreToGoogleSheets(record);
+  renderQuestion(currentQuestionIndex);
 }
 
-function sendScoreToGoogleSheet(record) {
+let isSyncingScore = false;
+function syncScoreToGoogleSheets(payload) {
+  if (isSyncingScore) return;
+  isSyncingScore = true;
+  const statusEl = document.getElementById("cloud-status-text");
+  if (statusEl) statusEl.textContent = "Menyinkronkan nilai ke server sekolah...";
   const webAppUrl = localStorage.getItem("sabaku_gs_url") || DEFAULT_GS_URL;
-  if (!webAppUrl || webAppUrl.includes("REPLACE_WITH_YOUR")) return;
-
-  const statusEl = document.getElementById("db-sync-status");
-  if (statusEl) statusEl.innerHTML = "⏳ Menghubungkan dan menyimpan nilai ke pangkalan data sekolah...";
-
-  const payload = {
+  fetch(webAppUrl, {
     method: "POST",
     mode: "no-cors",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(record)
-  };
-
-  fetch(webAppUrl, payload).then(() => {
-    if (statusEl) statusEl.innerHTML = "✅ Nilai Anda telah berhasil tersimpan di sistem basis data sekolah!";
-  }).catch(() => {
+    body: JSON.stringify(payload)
+  }).then(() => {
+    if (statusEl) statusEl.innerHTML = "✅ Nilai Anda telah berhasil tercatat di server rekapitulasi sekolah.";
+  }).catch(err => {
     try {
-      const beacon = new Image();
-      const query = new URLSearchParams({
-        action: "saveScore",
-        tingkat: record.tingkat,
-        rombel: record.rombel,
-        presensi: record.presensi,
-        nama: record.nama,
-        score: record.score,
-        total: record.total,
-        grade: record.grade,
-        mode: record.mode
-      }).toString();
-      beacon.src = `${webAppUrl}?${query}`;
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon(webAppUrl, new Blob([JSON.stringify(payload)], { type: "text/plain;charset=utf-8" }));
+      }
     } catch (bErr) {}
-    if (statusEl) statusEl.innerHTML = "✅ Nilai Anda telah tersimpan dengan aman di sistem sekolah.";
+    if (statusEl) statusEl.innerHTML = "⚠️ Nilai tercatat di penyimpanan lokal peramban (offline mode).";
   });
 }
 
 function downloadResultCSV() {
-  try {
-    const history = JSON.parse(localStorage.getItem("sabaku_ats_history") || "[]");
-    if (history.length === 0) {
-      alert("Belum ada data nilai yang tersimpan untuk diunduh.");
-      return;
+  const answeredCount = questions.filter(q => isQuestionAnswered(q.id)).length;
+  let csv = "NO,ID_SOAL,TIPE_SOAL,JAWABAN_SISWA,KUNCI_JAWABAN,STATUS\n";
+  questions.forEach((q, idx) => {
+    const ans = userAnswers[q.id];
+    let userStr = "";
+    let keyStr = "";
+    let isCorrect = false;
+
+    if (q.type === "complex_matrix") {
+      userStr = ans ? Object.keys(ans).map(k => `P${parseInt(k)+1}:${ans[k] ? 'T' : 'F'}`).join(";") : "KOSONG";
+      keyStr = q.matrixStatements.map((s, i) => `P${i+1}:${s.isCorrect ? 'T' : 'F'}`).join(";");
+      isCorrect = (userStr === keyStr);
+    } else if (Array.isArray(q.correctAnswer)) {
+      userStr = Array.isArray(ans) ? ans.sort().join(";") : (ans || "KOSONG");
+      keyStr = q.correctAnswer.sort().join(";");
+      isCorrect = (userStr === keyStr);
+    } else {
+      userStr = ans || "KOSONG";
+      keyStr = q.correctAnswer;
+      isCorrect = (userStr === keyStr);
     }
-    let csvContent = "data:text/csv;charset=utf-8,";
-    csvContent += "Timestamp,Tingkat,Rombel,Presensi,Nama Siswa,Mode,Skor Benar,Total Soal,Nilai (0-100),Status KKTP,Durasi\n";
-    history.forEach(r => {
-      const kktp = r.grade >= 75 ? "TUNTAS" : "BELUM TUNTAS";
-      const line = `"${r.timestamp}","${r.tingkat}","${r.rombel}","${r.presensi}","${r.nama}","${r.mode}",${r.score},${r.total},${r.grade},"${kktp}","${r.duration}"`;
-      csvContent += line + "\n";
-    });
-    const encodedUri = encodeURI(csvContent);
-    const link = document.createElement("a");
-    link.setAttribute("href", encodedUri);
-    link.setAttribute("download", `Rekap_Nilai_ASTS Gasal_XII-TL_${studentIdentity.nama.replace(/\s+/g, "_")}.csv`);
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  } catch (e) {
-    alert("Gagal mengunduh file CSV: " + e.message);
-  }
+    csv += `${idx + 1},${q.id},"${q.type}","${userStr}","${keyStr}",${isCorrect ? "BENAR" : "SALAH"}\n`;
+  });
+
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `Hasil_${studentIdentity.tingkat}_${studentIdentity.nama.replace(/\s+/g, "_")}_${studentIdentity.presensi}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
 }
 
 function reviewAllAnswers() {
-  document.getElementById("result-modal").style.display = "none";
+  const resModal = document.getElementById("result-modal");
+  if (resModal) resModal.style.display = "none";
   renderQuestion(0);
 }
 
 function restartTest() {
   if (confirm("Apakah Anda ingin mengulangi pengerjaan dari awal?\nSemua jawaban saat ini akan direset.")) {
     localStorage.removeItem("sabaku_asts_progress_XII_TL");
-    document.getElementById("result-modal").style.display = "none";
+    const resModal = document.getElementById("result-modal");
+    if (resModal) resModal.style.display = "none";
     startFreshTest();
   }
 }
 
 function openSettingsModal() {
   const url = localStorage.getItem("sabaku_gs_url") || DEFAULT_GS_URL;
-  document.getElementById("input-gs-url").value = url;
-  document.getElementById("settings-modal").style.display = "flex";
+  const inputEl = document.getElementById("input-gs-url");
+  if (inputEl) inputEl.value = url;
+  const modal = document.getElementById("settings-modal");
+  if (modal) modal.style.display = "flex";
 }
 
 function closeSettingsModal() {
-  document.getElementById("settings-modal").style.display = "none";
+  const modal = document.getElementById("settings-modal");
+  if (modal) modal.style.display = "none";
 }
 
 function saveSettings() {
-  const val = document.getElementById("input-gs-url").value.trim();
+  const inputEl = document.getElementById("input-gs-url");
+  const val = inputEl ? inputEl.value.trim() : "";
   if (val) {
     localStorage.setItem("sabaku_gs_url", val);
     alert("Pengaturan tautan basis data berhasil disimpan!");
@@ -2177,6 +1617,7 @@ function saveSettings() {
 function saveProgressToLocalStorage() {
   try {
     const data = {
+      questions,
       userAnswers,
       flaggedQuestions: Array.from(flaggedQuestions),
       remainingSeconds,
@@ -2185,4 +1626,3 @@ function saveProgressToLocalStorage() {
     localStorage.setItem("sabaku_asts_progress_XII_TL", JSON.stringify(data));
   } catch (e) {}
 }
-
