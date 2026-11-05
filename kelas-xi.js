@@ -949,13 +949,7 @@ function handleDirectIdentitySubmit(e) {
   const presensi = document.getElementById("direct-presensi").value.trim();
   const mode = document.getElementById("direct-mode").value;
 
-  if (mode === "exam") {
-    const token = document.getElementById("direct-token").value.trim();
-    if (token !== "JujurItuMujur") {
-      alert("⚠️ Token Asesmen Resmi (ASTS) tidak valid! Masukkan: JujurItuMujur");
-      return;
-    }
-  }
+  // Tidak perlu token atau password untuk latihan / ujian
 
   studentIdentity = {
     tingkat: "XI-F",
@@ -977,9 +971,7 @@ function validateDirectPresensi(input) {
   input.value = val;
 }
 
-function toggleDirectToken(mode) {
-  document.getElementById("direct-token-group").style.display = (mode === "exam" ? "block" : "none");
-}
+function toggleDirectToken(mode) {}
 
 function startFreshTest() {
   userAnswers = {};

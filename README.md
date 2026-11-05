@@ -13,7 +13,6 @@ Aplikasi web interaktif terpadu berbasis HTML5, CSS3, dan Vanilla JavaScript mod
 1. **Halaman Utama / Portal Identitas:** [`index.html`](file:///c:/Users/LILI/OneDrive%20-%20PDK%20Jateng/Dokumen/English-Midterm-Test-Sabaku-Odd-2026/index.html)
    * Mengumpulkan identitas siswa: *Nama Lengkap, Tingkat Kelas, Rombel (1–12), dan Nomor Presensi (1–36)*.
    * Pemilihan mode pengerjaan (*Mode Latihan Mandiri* atau *Mode Asesmen Resmi*).
-   * Verifikasi token pengawas ujian (**`JujurItuMujur`**).
    * Mengarahkan siswa secara otomatis ke ruang ujian tingkat yang dipilih.
    * Menampilkan ringkasan kisi-kisi dan materi semester gasal tiap jenjang.
 

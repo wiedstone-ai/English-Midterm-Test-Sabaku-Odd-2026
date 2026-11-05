@@ -869,15 +869,7 @@ function selectMode(mode) {
   document.getElementById("mode-card-practice").classList.toggle("selected", mode === "practice");
   document.getElementById("mode-card-exam").classList.toggle("selected", mode === "exam");
   
-  // Toggle token input visibility for Official ASTS Mode
-  const tokenGroup = document.getElementById("token-group");
-  if (tokenGroup) {
-    tokenGroup.style.display = (mode === "exam") ? "block" : "none";
-    if (mode === "exam") {
-      const tokenInput = document.getElementById("input-token");
-      if (tokenInput) tokenInput.focus();
-    }
-  }
+  // Tidak perlu token untuk latihan / ujian
 }
 
 function handleTingkatChange() {
@@ -919,16 +911,7 @@ function startTest(e) {
     return;
   }
 
-  // Token Verification for Official Exam (ASTS)
-  if (currentMode === "exam") {
-    const tokenInput = document.getElementById("input-token");
-    const tokenVal = tokenInput ? tokenInput.value.trim() : "";
-    if (tokenVal !== "JujurItuMujur") {
-      alert("⚠️ Token Asesmen Resmi (ASTS) tidak valid!\nHarap masukkan token resmi dari pengawas: JujurItuMujur");
-      if (tokenInput) tokenInput.focus();
-      return;
-    }
-  }
+  // Tidak perlu token atau password untuk latihan / ujian
 
   studentIdentity = { tingkat, rombel, presensi, nama };
   currentTingkat = tingkat;

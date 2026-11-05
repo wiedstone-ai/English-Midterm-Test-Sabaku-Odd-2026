@@ -923,13 +923,7 @@ function handleDirectIdentitySubmit(e) {
     return;
   }
 
-  if (mode === "exam") {
-    const token = document.getElementById("direct-token").value.trim();
-    if (token !== "JujurItuMujur") {
-      alert("Token Asesmen Resmi tidak valid! Masukkan token: JujurItuMujur");
-      return;
-    }
-  }
+  // Tidak perlu token atau password untuk latihan / asesmen
 
   studentIdentity = { tingkat: "XII-F", rombel, presensi, nama };
   currentMode = mode;
@@ -951,10 +945,7 @@ function validateDirectPresensi(input) {
   input.value = val;
 }
 
-function toggleDirectToken(mode) {
-  const grp = document.getElementById("direct-token-group");
-  if (grp) grp.style.display = (mode === "exam") ? "block" : "none";
-}
+function toggleDirectToken(mode) {}
 
 function startFreshTest() {
   userAnswers = {};
