@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Pengaturan Password ASTS — Guru / Pengawas Sabaku</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --admin-navy: #1e1b4b;
+      --admin-purple: #4338ca;
+      --admin-bg: #f8fafc;
+    }
+    body {
+      background-color: var(--admin-bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    .admin-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+      padding: 24px;
+      margin-bottom: 24px;
+      border: 1px solid #e2e8f0;
+    }
+    .badge-status {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .badge-active { background: #dcfce7; color: #166534; }
+    .badge-sync { background: #e0e7ff; color: #3730a3; }
+    .pass-input {
+      font-family: "Courier New", Courier, monospace;
+      font-weight: 700;
+      letter-spacing: 1px;
+      font-size: 1.05rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header style="background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);">
+    <div class="header-container">
+      <div class="school-brand">
+        <div class="school-logo-badge" style="background: #4f46e5; border-color: #818cf8;">GURU</div>
+        <div class="brand-text">
+          <h1>PANEL PENGATURAN PASSWORD ASTS REAL</h1>
+          <p>SMA Negeri 1 Bae Kudus (Sabaku) — Akses Khusus Guru &amp; Pengawas Ruang</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="index.html" class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.4); text-decoration: none;">
+          🏠 Ke Portal Siswa
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main style="max-width: 900px; margin: 30px auto; padding: 0 20px;">
+    
+    <!-- Lock Screen for Admin PIN -->
+    <div id="pin-screen" class="admin-card" style="text-align: center; max-width: 480px; margin: 40px auto; padding: 36px 28px;">
+      <div style="font-size: 3rem; margin-bottom: 12px;">🔒</div>
+      <h2 style="color: var(--admin-navy); margin-bottom: 8px;">Autentikasi Akses Guru</h2>
+      <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 20px;">
+        Halaman ini digunakan untuk mengubah password ASTS yang tersimpan di Google Sheet. Masukkan PIN Guru Anda:
+      </p>
+      <form onsubmit="unlockPanel(event)">
+        <div class="form-group" style="margin-bottom: 16px;">
+          <input type="password" id="input-admin-pin" class="form-control" placeholder="Default: guru2026" required style="text-align: center; font-size: 1.2rem; letter-spacing: 2px;">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" style="padding: 12px; font-weight: 700; background: #4f46e5; border: none;">
+          Buka Panel Pengaturan ➔
+        </button>
+      </form>
+      <div style="margin-top: 14px; font-size: 0.8rem; color: #94a3b8;">
+        PIN Standar: <code>guru2026</code> (bisa Anda ubah di script).
+      </div>
+    </div>
+
+    <!-- Admin Panel (Revealed after PIN) -->
+    <div id="admin-content" style="display: none;">
+      
+      <!-- Status Bar -->
+      <div class="admin-card" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; background: #eff6ff; border-color: #bfdbfe;">
+        <div>
+          <div style="font-weight: 700; color: #1e3a8a; display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 1.2rem;">📊</span> Spreadsheet Terhubung: Tab <code>'pass'</code>
+          </div>
+          <div style="font-size: 0.85rem; color: #3b82f6; margin-top: 4px;">
+            ID: <code>1-PVYGcdgjIfEe4zc2P1kYF5PIXXoZAGNRHd3e02Why4</code>
+          </div>
+        </div>
+        <div style="display: flex; gap: 10px;">
+          <button class="btn btn-outline" onclick="loadPasswordsFromSheet()" id="btn-refresh" style="font-size: 0.85rem; padding: 8px 14px; background: white;">
+            🔄 Muat Ulang dari Sheet
+          </button>
+          <a href="https://docs.google.com/spreadsheets/d/1-PVYGcdgjIfEe4zc2P1kYF5PIXXoZAGNRHd3e02Why4/edit" target="_blank" class="btn btn-primary" style="font-size: 0.85rem; padding: 8px 14px; background: #2563eb; text-decoration: none;">
+            📑 Buka Google Sheets ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Alert Notification Area -->
+      <div id="alert-box" style="display: none; padding: 12px 18px; border-radius: 8px; margin-bottom: 20px; font-weight: 600;"></div>
+
+      <!-- Card 1: Password Umum (Master Password untuk Semua Tingkat) -->
+      <div class="admin-card" style="border-left: 5px solid #4f46e5;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+          <div>
+            <h3 style="color: var(--admin-navy); margin: 0; font-size: 1.25rem;">🔑 Password Umum ASTS (Semua Tingkat)</h3>
+            <p style="color: #64748b; font-size: 0.85rem; margin-top: 4px;">
+              Jika diisi dan diaktifkan, murid dari <strong>tingkat mana pun</strong> dapat masuk menggunakan password ini.
+            </p>
+          </div>
+          <span class="badge-status badge-active" id="status-all">AKTIF</span>
+        </div>
+
+        <div style="display: flex; gap: 12px; margin-top: 14px; flex-wrap: wrap;">
+          <input type="text" id="pass-all" class="form-control pass-input" placeholder="Contoh: SABAKU2026" style="flex: 2; min-width: 220px;">
+          <button type="button" class="btn btn-outline" onclick="generateRandomPass('pass-all')" style="flex: 1; min-width: 130px;">
+            🎲 Acak
+          </button>
+          <button type="button" class="btn btn-primary" onclick="saveSinglePassword('ALL', 'pass-all')" style="flex: 1.5; min-width: 170px; background: #4f46e5; border: none;">
+            💾 Simpan Password Umum
+          </button>
+        </div>
+        <div style="font-size: 0.8rem; color: #64748b; margin-top: 8px;" id="meta-all">
+          Terakhir diperbarui: Memuat...
+        </div>
+      </div>
+
+      <!-- Card 2: Password Khusus Per Tingkat Kelas -->
+      <div class="admin-card" style="border-left: 5px solid #059669;">
+        <h3 style="color: #064e3b; margin: 0 0 6px 0; font-size: 1.25rem;">🎯 Password Khusus Per Jenjang Kelas</h3>
+        <p style="color: #64748b; font-size: 0.85rem; margin-bottom: 20px;">
+          Gunakan password khusus jika Anda ingin membedakan token antara Fase E (Kelas X), Fase F Wajib, dan Fase F Tingkat Lanjut.
+        </p>
+
+        <!-- Form Tingkat X -->
+        <div style="padding: 14px 0; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+          <div style="flex: 1.5; min-width: 200px;">
+            <strong style="color: #0f172a;">Kelas X (Fase E)</strong>
+            <div style="font-size: 0.75rem; color: #64748b;" id="meta-xe">Update: -</div>
+          </div>
+          <input type="text" id="pass-xe" class="form-control pass-input" placeholder="SABAKU-X" style="flex: 2; min-width: 160px;">
+          <button type="button" class="btn btn-outline" onclick="generateRandomPass('pass-xe')">🎲 Acak</button>
+          <button type="button" class="btn btn-success" onclick="saveSinglePassword('X-E', 'pass-xe')" style="background: #059669; border: none;">💾 Simpan</button>
+        </div>
+
+        <!-- Form Tingkat XI Wajib -->
+        <div style="padding: 14px 0; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+          <div style="flex: 1.5; min-width: 200px;">
+            <strong style="color: #0f172a;">Kelas XI (Fase F — Wajib)</strong>
+            <div style="font-size: 0.75rem; color: #64748b;" id="meta-xif">Update: -</div>
+          </div>
+          <input type="text" id="pass-xif" class="form-control pass-input" placeholder="SABAKU-XI" style="flex: 2; min-width: 160px;">
+          <button type="button" class="btn btn-outline" onclick="generateRandomPass('pass-xif')">🎲 Acak</button>
+          <button type="button" class="btn btn-success" onclick="saveSinglePassword('XI-F', 'pass-xif')" style="background: #059669; border: none;">💾 Simpan</button>
+        </div>
+
+        <!-- Form Tingkat XI Tingkat Lanjut -->
+        <div style="padding: 14px 0; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+          <div style="flex: 1.5; min-width: 200px;">
+            <strong style="color: #0f172a;">Kelas XI (Fase F — TL)</strong>
+            <div style="font-size: 0.75rem; color: #64748b;" id="meta-xitl">Update: -</div>
+          </div>
+          <input type="text" id="pass-xitl" class="form-control pass-input" placeholder="SABAKU-XI-TL" style="flex: 2; min-width: 160px;">
+          <button type="button" class="btn btn-outline" onclick="generateRandomPass('pass-xitl')">🎲 Acak</button>
+          <button type="button" class="btn btn-success" onclick="saveSinglePassword('XI-TL', 'pass-xitl')" style="background: #059669; border: none;">💾 Simpan</button>
+        </div>
+
+        <!-- Form Tingkat XII Wajib -->
+        <div style="padding: 14px 0; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+          <div style="flex: 1.5; min-width: 200px;">
+            <strong style="color: #0f172a;">Kelas XII (Fase F — Wajib)</strong>
+            <div style="font-size: 0.75rem; color: #64748b;" id="meta-xiif">Update: -</div>
+          </div>
+          <input type="text" id="pass-xiif" class="form-control pass-input" placeholder="SABAKU-XII" style="flex: 2; min-width: 160px;">
+          <button type="button" class="btn btn-outline" onclick="generateRandomPass('pass-xiif')">🎲 Acak</button>
+          <button type="button" class="btn btn-success" onclick="saveSinglePassword('XII-F', 'pass-xiif')" style="background: #059669; border: none;">💾 Simpan</button>
+        </div>
+
+        <!-- Form Tingkat XII Tingkat Lanjut -->
+        <div style="padding: 14px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+          <div style="flex: 1.5; min-width: 200px;">
+            <strong style="color: #0f172a;">Kelas XII (Fase F — TL)</strong>
+            <div style="font-size: 0.75rem; color: #64748b;" id="meta-xiitl">Update: -</div>
+          </div>
+          <input type="text" id="pass-xiitl" class="form-control pass-input" placeholder="SABAKU-XII-TL" style="flex: 2; min-width: 160px;">
+          <button type="button" class="btn btn-outline" onclick="generateRandomPass('pass-xiitl')">🎲 Acak</button>
+          <button type="button" class="btn btn-success" onclick="saveSinglePassword('XII-TL', 'pass-xiitl')" style="background: #059669; border: none;">💾 Simpan</button>
+        </div>
+      </div>
+
+      <!-- Card 3: Panduan & Pengujian -->
+      <div class="admin-card" style="background: #fdf4ff; border-color: #f5d0fe;">
+        <h4 style="color: #86198f; margin-top: 0;">💡 Panduan Penggunaan untuk Pengawas / Guru:</h4>
+        <ul style="font-size: 0.85rem; color: #701a75; line-height: 1.7; margin-bottom: 0; padding-left: 20px;">
+          <li>Ketika murid mengklik <strong>"Masuk ASTS Gasal"</strong> di halaman awal, murid akan diarahkan ke halaman <code>masuk-asts.html</code> yang mewajibkan input password.</li>
+          <li>Latihan mandiri (ASAS) <strong>TIDAK memerlukan password</strong> dan dapat diakses bebas kapan saja.</li>
+          <li>Guru dapat mengubah password kapan saja sebelum sesi ujian dimulai dengan menekan tombol <strong>Simpan</strong>. Data akan langsung terbarui di Google Spreadsheet sheet <code>'pass'</code> secara instan.</li>
+          <li>Uji coba verifikasi dapat langsung dilakukan di: <a href="masuk-asts.html" target="_blank" style="color: #a21caf; font-weight: 700; text-decoration: underline;">Buka Halaman Uji Verifikasi Siswa (masuk-asts.html)</a>.</li>
+        </ul>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    const GS_URL = "https://script.google.com/macros/s/AKfycbz1dnapNS6sFak-BlG-xxaFhGR9f0BhGYKyyddEvmIEOTxPrlARC2tHkeLLP1owzBToIw/exec";
+    const DEFAULT_PIN = "guru2026";
+
+    function unlockPanel(e) {
+      e.preventDefault();
+      const pin = document.getElementById('input-admin-pin').value.trim();
+      if (pin === DEFAULT_PIN) {
+        document.getElementById('pin-screen').style.display = 'none';
+        document.getElementById('admin-content').style.display = 'block';
+        loadPasswordsFromSheet();
+      } else {
+        alert('PIN Guru salah! Silakan gunakan PIN default: guru2026');
+      }
+    }
+
+    function showAlert(msg, isSuccess = true) {
+      const box = document.getElementById('alert-box');
+      box.style.display = 'block';
+      box.style.background = isSuccess ? '#dcfce7' : '#fee2e2';
+      box.style.color = isSuccess ? '#166534' : '#991b1b';
+      box.style.border = '1px solid ' + (isSuccess ? '#bbf7d0' : '#fecaca');
+      box.innerHTML = msg;
+      setTimeout(() => { box.style.display = 'none'; }, 6000);
+    }
+
+    function generateRandomPass(inputId) {
+      const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+      let code = "SBK-";
+      for (let i = 0; i < 4; i++) {
+        code += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      document.getElementById(inputId).value = code;
+    }
+
+    async function loadPasswordsFromSheet() {
+      const btn = document.getElementById('btn-refresh');
+      btn.innerText = "⏳ Memuat...";
+      btn.disabled = true;
+
+      try {
+        const resp = await fetch(GS_URL + "?action=get_passwords&t=" + Date.now());
+        const data = await resp.json();
+
+        if (data.status === "success" && data.passwords) {
+          const p = data.passwords;
+          if (p['ALL']) {
+            document.getElementById('pass-all').value = p['ALL'].password || '';
+            document.getElementById('meta-all').innerText = "Terakhir diperbarui: " + (p['ALL'].updatedAt || '-');
+          }
+          if (p['X-E']) {
+            document.getElementById('pass-xe').value = p['X-E'].password || '';
+            document.getElementById('meta-xe').innerText = "Update: " + (p['X-E'].updatedAt || '-');
+          }
+          if (p['XI-F']) {
+            document.getElementById('pass-xif').value = p['XI-F'].password || '';
+            document.getElementById('meta-xif').innerText = "Update: " + (p['XI-F'].updatedAt || '-');
+          }
+          if (p['XI-TL']) {
+            document.getElementById('pass-xitl').value = p['XI-TL'].password || '';
+            document.getElementById('meta-xitl').innerText = "Update: " + (p['XI-TL'].updatedAt || '-');
+          }
+          if (p['XII-F']) {
+            document.getElementById('pass-xiif').value = p['XII-F'].password || '';
+            document.getElementById('meta-xiif').innerText = "Update: " + (p['XII-F'].updatedAt || '-');
+          }
+          if (p['XII-TL']) {
+            document.getElementById('pass-xiitl').value = p['XII-TL'].password || '';
+            document.getElementById('meta-xiitl').innerText = "Update: " + (p['XII-TL'].updatedAt || '-');
+          }
+          showAlert('✅ Data password berhasil dimuat langsung dari Google Sheets sheet "pass".', true);
+        } else {
+          showAlert('⚠️ Belum ada sheet "pass" atau data kosong di spreadsheet. Anda bisa langsung menyimpan password baru di bawah.', false);
+        }
+      } catch (err) {
+        console.warn('Load password error:', err);
+        showAlert('⚠️ Gagal memuat otomatis dari server. Anda tetap dapat menyimpan password baru secara langsung.', false);
+      } finally {
+        btn.innerText = "🔄 Muat Ulang dari Sheet";
+        btn.disabled = false;
+      }
+    }
+
+    async function saveSinglePassword(tingkat, inputId) {
+      const pass = document.getElementById(inputId).value.trim();
+      if (!pass) {
+        alert('Password untuk tingkat ' + tingkat + ' tidak boleh kosong!');
+        return;
+      }
+
+      showAlert('⏳ Menyimpan password ' + tingkat + ' ke Google Sheets...', true);
+
+      try {
+        // Kirim via GET parameter untuk kemudahan bypass CORS
+        const url = GS_URL + "?action=set_password&tingkat=" + encodeURIComponent(tingkat) + "&password=" + encodeURIComponent(pass) + "&keterangan=" + encodeURIComponent("Password " + tingkat) + "&t=" + Date.now();
+        const resp = await fetch(url);
+        const res = await resp.json();
+
+        if (res.status === "success") {
+          showAlert('🎉 <strong>Berhasil!</strong> Password untuk <strong>' + tingkat + '</strong> telah disimpan ke Google Sheet (sheet "pass"): <code>' + pass + '</code>', true);
+          // Update meta
+          const nowStr = new Date().toLocaleTimeString('id-ID');
+          const metaMap = { 'ALL': 'meta-all', 'X-E': 'meta-xe', 'XI-F': 'meta-xif', 'XI-TL': 'meta-xitl', 'XII-F': 'meta-xiif', 'XII-TL': 'meta-xiitl' };
+          if (metaMap[tingkat]) {
+            document.getElementById(metaMap[tingkat]).innerText = "Terakhir diperbarui: Hari ini, " + nowStr;
+          }
+        } else {
+          showAlert('❌ Gagal menyimpan: ' + (res.message || 'Terjadi kesalahan server'), false);
+        }
+      } catch (err) {
+        console.error('Save password error:', err);
+        showAlert('❌ Gagal tersambung ke Google Apps Script: ' + err.message, false);
+      }
+    }
+  </script>
+</body>
+</html>

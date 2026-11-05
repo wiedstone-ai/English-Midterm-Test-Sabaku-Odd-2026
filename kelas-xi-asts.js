@@ -870,7 +870,38 @@ let studentIdentity = {
 };
 
 // Initialize Exam Engine
+// Verifikasi Otorisasi Password ASTS Real
+(function checkAstsAuth() {
+  try {
+    const auth = sessionStorage.getItem("sabaku_asts_auth");
+    const student = localStorage.getItem("sabaku_current_student");
+    if (!auth || !student) {
+      alert("⚠️ Akses ASTS Resmi Memerlukan Password!\n\nSilakan masukkan password ASTS yang valid dari pengawas ruang.");
+      window.location.href = "masuk-asts.html";
+    }
+  } catch (e) {
+    console.warn("Auth check error:", e);
+  }
+})();
+
+
+function checkAstsAuth() {
+  try {
+    const auth = sessionStorage.getItem("sabaku_asts_auth");
+    const student = localStorage.getItem("sabaku_current_student");
+    if (!auth || !student) {
+      alert("⚠️ Akses Ruang ASTS Resmi Memerlukan Password!\n\nSilakan masukkan password ASTS yang valid dari pengawas ruang.");
+      window.location.href = "masuk-asts.html";
+      return false;
+    }
+    return true;
+  } catch (e) {
+    return true;
+  }
+}
+
 window.addEventListener("DOMContentLoaded", () => {
+  if (!checkAstsAuth()) return;
   initStudentData();
   const rawQ = getGrade11AstsQuestions();
   questions = (currentMode === "practice") ? randomizeQuestionOptions(rawQ) : rawQ;

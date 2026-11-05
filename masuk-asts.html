@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verifikasi Password ASTS Gasal — SMAN 1 Bae Kudus</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .auth-card {
+      max-width: 580px;
+      margin: 36px auto;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+      border: 1.5px solid #e2e8f0;
+      padding: 32px 28px;
+    }
+    .student-badge-box {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .password-field {
+      font-family: "Courier New", Courier, monospace;
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-align: center;
+      padding: 12px;
+      text-transform: uppercase;
+      border: 2px solid #3b82f6;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+    .password-field:focus {
+      border-color: #1d4ed8;
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+      outline: none;
+    }
+    .status-msg {
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-top: 14px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header>
+    <div class="header-container">
+      <div class="school-brand">
+        <div class="school-logo-badge">S1B</div>
+        <div class="brand-text">
+          <h1>SMA NEGERI 1 BAE KUDUS (SABAKU)</h1>
+          <p>Portal Asesmen Bahasa Inggris — Semester Gasal TP 2026/2027</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <span class="badge-mode exam" style="background: #059669; color: white;">Ruang ASTS Resmi</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main>
+    <div class="auth-card">
+      <div style="text-align: center; margin-bottom: 20px;">
+        <div style="font-size: 2.8rem; margin-bottom: 6px;">🔐</div>
+        <h2 style="color: var(--primary-navy); font-size: 1.45rem; margin-bottom: 6px;">
+          Verifikasi Password ASTS Real
+        </h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">
+          Silakan masukkan password / token resmi dari pengawas untuk membuka ruang ujian:
+        </p>
+      </div>
+
+      <!-- Kartu Identitas Siswa -->
+      <div class="student-badge-box">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 8px;">
+          <span style="font-size: 0.8rem; font-weight: 700; color: #64748b; text-transform: uppercase;">Peserta Asesmen</span>
+          <span style="font-size: 0.8rem; background: #dbeafe; color: #1e40af; padding: 2px 8px; border-radius: 4px; font-weight: 700;" id="view-tingkat">Memuat...</span>
+        </div>
+        <div style="font-size: 1.15rem; font-weight: 700; color: var(--primary-navy); margin-top: 4px;" id="view-nama">-</div>
+        <div style="font-size: 0.85rem; color: #475569;" id="view-meta">Rombel: - | Presensi: -</div>
+      </div>
+
+      <!-- Form Input Password -->
+      <form id="form-verify-pass" onsubmit="handleVerifySubmit(event)">
+        <div class="form-group" style="margin-bottom: 18px;">
+          <label for="input-password" style="font-weight: 700; color: var(--primary-navy); display: block; margin-bottom: 8px; text-align: center;">
+            Password / Token ASTS Resmi <span style="color:red;">*</span>
+          </label>
+          <input type="text" id="input-password" class="form-control password-field" placeholder="Contoh: SABAKU2026" required autocomplete="off" autofocus>
+          <div style="font-size: 0.8rem; color: var(--text-muted); text-align: center; margin-top: 8px;">
+            ⚠️ Password diberikan oleh pengawas ruang sesaat sebelum ujian dimulai.
+          </div>
+        </div>
+
+        <!-- Alert Notification -->
+        <div id="status-box" class="status-msg"></div>
+
+        <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 10px;">
+          <button type="submit" id="btn-submit-pass" class="btn btn-primary btn-block" style="padding: 14px; font-size: 1.05rem; font-weight: 700; border-radius: 8px; background: linear-gradient(135deg, #059669 0%, #047857 100%); border: none; cursor: pointer;">
+            Verifikasi &amp; Masuk Ujian ➔
+          </button>
+          <a href="index.html" class="btn btn-outline btn-block" style="padding: 10px; font-size: 0.9rem; text-align: center; text-decoration: none; color: #64748b; border-color: #cbd5e1;">
+            ⬅️ Kembali / Ubah Data Identitas
+          </a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div style="max-width: 900px; margin: 0 auto; line-height: 1.6; text-align: center;">
+      <p><strong>SMA Negeri 1 Bae Kudus (Sabaku)</strong> — Unggul, Berkarakter, Berwawasan Global</p>
+      <p style="font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-top: 4px;">
+        Sistem Asesmen Bahasa Inggris Terpadu Kurikulum Merdeka Tahun Pelajaran 2026/2027.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const GS_URL = "https://script.google.com/macros/s/AKfycbz1dnapNS6sFak-BlG-xxaFhGR9f0BhGYKyyddEvmIEOTxPrlARC2tHkeLLP1owzBToIw/exec";
+    let currentStudent = null;
+
+    // Load identitas dari LocalStorage
+    window.addEventListener('DOMContentLoaded', () => {
+      try {
+        const raw = localStorage.getItem('sabaku_current_student');
+        if (!raw) {
+          alert('Data identitas belum diisi! Silakan isi identitas terlebih dahulu.');
+          window.location.href = 'index.html';
+          return;
+        }
+        currentStudent = JSON.parse(raw);
+        if (!currentStudent.nama || !currentStudent.tingkat) {
+          alert('Data identitas tidak lengkap! Silakan lengkapi formulir.');
+          window.location.href = 'index.html';
+          return;
+        }
+
+        // Tampilkan info siswa
+        document.getElementById('view-nama').innerText = currentStudent.nama;
+        document.getElementById('view-meta').innerText = 'Rombel: ' + (currentStudent.rombel || '-') + ' | Nomor Presensi: ' + (currentStudent.presensi || '-');
+        
+        const tingkatMap = {
+          'X-E': 'Kelas X (Fase E)',
+          'XI-F': 'Kelas XI (Fase F - Wajib)',
+          'XI-TL': 'Kelas XI (Fase F - Tingkat Lanjut)',
+          'XII-F': 'Kelas XII (Fase F - Wajib)',
+          'XII-TL': 'Kelas XII (Fase F - Tingkat Lanjut)'
+        };
+        document.getElementById('view-tingkat').innerText = tingkatMap[currentStudent.tingkat] || currentStudent.tingkat;
+
+      } catch (err) {
+        console.error('Session load error:', err);
+        window.location.href = 'index.html';
+      }
+    });
+
+    function showStatus(msg, isSuccess = false) {
+      const box = document.getElementById('status-box');
+      box.style.display = 'block';
+      box.style.background = isSuccess ? '#dcfce7' : '#fee2e2';
+      box.style.color = isSuccess ? '#166534' : '#991b1b';
+      box.style.border = '1px solid ' + (isSuccess ? '#bbf7d0' : '#fecaca');
+      box.innerHTML = msg;
+    }
+
+    async function handleVerifySubmit(e) {
+      e.preventDefault();
+      const enteredPass = document.getElementById('input-password').value.trim();
+      if (!enteredPass) {
+        showStatus('Password tidak boleh kosong!', false);
+        return;
+      }
+
+      const btn = document.getElementById('btn-submit-pass');
+      btn.innerText = "⏳ Sedang Memverifikasi ke Server...";
+      btn.disabled = true;
+      showStatus('⏳ Memeriksa keabsahan password pada server Google Sheets...', true);
+
+      try {
+        const url = GS_URL + "?action=check_password&tingkat=" + encodeURIComponent(currentStudent.tingkat) + "&password=" + encodeURIComponent(enteredPass) + "&t=" + Date.now();
+        const resp = await fetch(url);
+        const data = await resp.json();
+
+        if (data.valid === true) {
+          showStatus('🎉 <strong>Password Benar!</strong> Membuka ruang ujian ASTS...', true);
+          
+          // Simpan token otorisasi sesi
+          sessionStorage.setItem('sabaku_asts_auth', JSON.stringify({
+            tingkat: currentStudent.tingkat,
+            authenticated: true,
+            loginTime: Date.now()
+          }));
+
+          // Redirect ke halaman ASTS yang sesuai
+          setTimeout(() => {
+            const t = currentStudent.tingkat;
+            if (t === 'XI-TL') {
+              window.location.href = 'kelas-xi-tl-asts.html';
+            } else if (t === 'XI-F') {
+              window.location.href = 'kelas-xi-asts.html';
+            } else if (t === 'XII-TL') {
+              window.location.href = 'kelas-xii-tl-asts.html';
+            } else if (t === 'XII-F') {
+              window.location.href = 'kelas-xii-asts.html';
+            } else {
+              window.location.href = 'kelas-x-asts.html';
+            }
+          }, 800);
+
+        } else {
+          showStatus('❌ <strong>Password Salah!</strong> ' + (data.message || 'Password tidak valid atau belum diaktifkan oleh pengawas.'), false);
+          btn.innerText = "Verifikasi & Masuk Ujian ➔";
+          btn.disabled = false;
+          document.getElementById('input-password').select();
+        }
+
+      } catch (networkErr) {
+        console.warn('Network error during check:', networkErr);
+        // Fallback jika Google Script lambat/timeout namun password standar cocok
+        const defaultPasswords = {
+          'ALL': 'SABAKU2026',
+          'X-E': 'SABAKU-X',
+          'XI-F': 'SABAKU-XI',
+          'XI-TL': 'SABAKU-XI-TL',
+          'XII-F': 'SABAKU-XII',
+          'XII-TL': 'SABAKU-XII-TL'
+        };
+
+        if (enteredPass.toUpperCase() === 'SABAKU2026' || enteredPass.toUpperCase() === defaultPasswords[currentStudent.tingkat]) {
+          showStatus('🎉 <strong>Password Valid (Offline Fallback)!</strong> Membuka ruang ujian...', true);
+          sessionStorage.setItem('sabaku_asts_auth', JSON.stringify({
+            tingkat: currentStudent.tingkat,
+            authenticated: true,
+            loginTime: Date.now()
+          }));
+          setTimeout(() => {
+            const t = currentStudent.tingkat;
+            if (t === 'XI-TL') window.location.href = 'kelas-xi-tl-asts.html';
+            else if (t === 'XI-F') window.location.href = 'kelas-xi-asts.html';
+            else if (t === 'XII-TL') window.location.href = 'kelas-xii-tl-asts.html';
+            else if (t === 'XII-F') window.location.href = 'kelas-xii-asts.html';
+            else window.location.href = 'kelas-x-asts.html';
+          }, 800);
+        } else {
+          showStatus('❌ Gagal menghubungi server Google Sheets dan password tidak cocok. Silakan tanyakan kepada pengawas ruang.', false);
+          btn.innerText = "Verifikasi & Masuk Ujian ➔";
+          btn.disabled = false;
+        }
+      }
+    }
+  </script>
+</body>
+</html>

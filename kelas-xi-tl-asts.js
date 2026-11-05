@@ -829,10 +829,655 @@ function getGrade11TLAstsQuestions() {
   ];
 }
 
-// Alias compatibility
-function getGrade11TLAsasQuestions() {
-  return getGrade11TLAstsQuestions();
+// Global State Management
+let studentIdentity = {
+  tingkat: "XI-TL",
+  rombel: "1",
+  presensi: "1",
+  nama: "Siswa Kelas XI Tingkat Lanjut"
+};
+
+let currentMode = "practice"; // 'practice' or 'exam'
+let currentQuestionIndex = 0;
+let userAnswers = {}; // { questionId: answerKey }
+let flaggedQuestions = new Set();
+let timerInterval = null;
+let remainingSeconds = 90 * 60; // 90 minutes
+let isExamSubmitted = false;
+let audioSpeechRate = 1.0;
+let currentUtterance = null;
+let questions = [];
+
+// Fisher-Yates Shuffle for Options (Single choice questions only, without SVGs)
+function randomizeQuestionOptions(rawQuestions) {
+  return rawQuestions.map(q => {
+    const cloned = JSON.parse(JSON.stringify(q));
+    if (cloned.type === "single_choice" && Array.isArray(cloned.options) && cloned.options.length > 0 && !cloned.options[0].svg) {
+      const correctText = cloned.options.find(o => o.key === cloned.correctAnswer)?.text;
+      const opts = [...cloned.options];
+      for (let i = opts.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [opts[i], opts[j]] = [opts[j], opts[i]];
+      }
+      const alphabet = ["A", "B", "C", "D", "E"];
+      cloned.options = opts.map((opt, idx) => ({
+        key: alphabet[idx],
+        text: opt.text
+      }));
+      if (correctText) {
+        const newCorrectOpt = cloned.options.find(o => o.text === correctText);
+        if (newCorrectOpt) cloned.correctAnswer = newCorrectOpt.key;
+      }
+    }
+    return cloned;
+  });
 }
 
+// Lifecycle Initialization
 
+function checkAstsAuth() {
+  try {
+    const auth = sessionStorage.getItem("sabaku_asts_auth");
+    const student = localStorage.getItem("sabaku_current_student");
+    if (!auth || !student) {
+      alert("⚠️ Akses Ruang ASTS Resmi Memerlukan Password!\n\nSilakan masukkan password ASTS yang valid dari pengawas ruang.");
+      window.location.href = "masuk-asts.html";
+      return false;
+    }
+    return true;
+  } catch (e) {
+    return true;
+  }
+}
 
+window.addEventListener("DOMContentLoaded", () => {
+  if (!checkAstsAuth()) return;
+  initStudentData();
+});
+
+function initStudentData() {
+  try {
+    const rawPortal = localStorage.getItem("sabaku_current_student");
+    if (rawPortal) {
+      const portalData = JSON.parse(rawPortal);
+      studentIdentity = {
+        tingkat: portalData.tingkat || "XI-TL",
+        rombel: portalData.rombel || "1",
+        presensi: portalData.presensi || "1",
+        nama: portalData.nama || "Siswa Kelas XI Tingkat Lanjut"
+      };
+      currentMode = portalData.mode || "practice";
+      startFreshTest();
+      return;
+    }
+  } catch (e) {
+    console.warn("Portal data error:", e);
+  }
+
+  // If no identity found, open quick prompt modal
+  document.getElementById("identity-prompt-modal").style.display = "flex";
+}
+
+function handleDirectIdentitySubmit(e) {
+  e.preventDefault();
+  const nama = document.getElementById("direct-nama").value.trim();
+  const rombel = document.getElementById("direct-rombel").value;
+  const presensi = document.getElementById("direct-presensi").value.trim();
+  const mode = document.getElementById("direct-mode").value;
+
+  // Tidak perlu token atau password untuk latihan / ujian
+
+  studentIdentity = {
+    tingkat: "XI-TL",
+    rombel,
+    presensi,
+    nama
+  };
+  currentMode = mode;
+
+  document.getElementById("identity-prompt-modal").style.display = "none";
+  startFreshTest();
+}
+
+function validateDirectPresensi(input) {
+  let val = input.value.replace(/\D/g, "");
+  if (val.startsWith("0")) val = val.replace(/^0+/, "");
+  let num = parseInt(val, 10);
+  if (num > 36) val = "36";
+  input.value = val;
+}
+
+function toggleDirectToken(mode) {}
+
+function startFreshTest() {
+  userAnswers = {};
+  flaggedQuestions.clear();
+  isExamSubmitted = false;
+  remainingSeconds = 90 * 60;
+  currentQuestionIndex = 0;
+
+  // Initialize and randomize Grade 11 TL question bank
+  const rawBank = getGrade11TLAstsQuestions();
+  questions = randomizeQuestionOptions(rawBank);
+
+  // Restore session from LocalStorage if available
+  try {
+    const saved = localStorage.getItem("sabaku_asts_progress_XI_TL");
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (parsed.userAnswers) userAnswers = parsed.userAnswers;
+      if (parsed.flaggedQuestions) flaggedQuestions = new Set(parsed.flaggedQuestions);
+      if (parsed.remainingSeconds) remainingSeconds = parsed.remainingSeconds;
+      if (parsed.currentIndex !== undefined) currentQuestionIndex = parsed.currentIndex;
+    }
+  } catch (err) {
+    console.warn("Progress restore warning:", err);
+  }
+
+  applyStudentMetadata();
+  buildNavigatorGrid();
+  startTimer();
+  renderQuestion(currentQuestionIndex);
+  saveProgressToLocalStorage();
+}
+
+function applyStudentMetadata() {
+  const modeBadge = document.getElementById("nav-mode-badge");
+  modeBadge.textContent = (currentMode === "practice") ? "🎯 Mode Latihan" : "📝 Asesmen Resmi (ASAS)";
+  modeBadge.className = "badge-mode " + (currentMode === "practice" ? "practice" : "exam");
+
+  document.getElementById("side-student-name").textContent = studentIdentity.nama;
+  document.getElementById("side-student-meta").textContent = `Kelas XI Tingkat Lanjut | Rombel ${studentIdentity.rombel} | Presensi ${studentIdentity.presensi}`;
+}
+
+function toggleKisiKisiContent() {
+  const body = document.getElementById("kisi-kisi-body");
+  const icon = document.getElementById("kisi-toggle-icon");
+  if (body.style.display === "none") {
+    body.style.display = "block";
+    icon.textContent = "▲ Sembunyikan Kisi-Kisi";
+  } else {
+    body.style.display = "none";
+    icon.textContent = "▼ Buka Kisi-Kisi Lengkap";
+  }
+}
+
+function toggleKisiKisiModal() {
+  const body = document.getElementById("kisi-kisi-body");
+  body.style.display = "block";
+  document.getElementById("kisi-toggle-icon").textContent = "▲ Sembunyikan Kisi-Kisi";
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function buildNavigatorGrid() {
+  const grid = document.getElementById("question-navigator-grid");
+  grid.innerHTML = "";
+  
+  questions.forEach((q, idx) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "q-num-btn";
+    btn.id = `nav-btn-${idx}`;
+    btn.textContent = idx + 1;
+    btn.onclick = () => renderQuestion(idx);
+    grid.appendChild(btn);
+  });
+  updateNavigatorStatus();
+}
+
+function updateNavigatorStatus() {
+  questions.forEach((q, idx) => {
+    const btn = document.getElementById(`nav-btn-${idx}`);
+    if (!btn) return;
+    
+    btn.classList.remove("active", "answered", "doubtful");
+    
+    if (idx === currentQuestionIndex) {
+      btn.classList.add("active");
+    }
+    
+    if (flaggedQuestions.has(idx)) {
+      btn.classList.add("doubtful");
+    } else if (isQuestionAnswered(q.id)) {
+      btn.classList.add("answered");
+    }
+  });
+}
+
+function isQuestionAnswered(qId) {
+  const ans = userAnswers[qId];
+  if (ans === undefined || ans === null) return false;
+  return ans !== "";
+}
+
+function renderQuestion(index) {
+  if (index < 0 || index >= questions.length) return;
+  currentQuestionIndex = index;
+  const q = questions[index];
+
+  stopAudio();
+
+  // Header badges
+  document.getElementById("q-number-badge").textContent = `Soal No. ${q.id} dari ${questions.length}`;
+  document.getElementById("q-type-badge").textContent = q.title || "Pilihan Ganda";
+
+  // Listening Audio Box
+  const listeningBox = document.getElementById("listening-container");
+  if (q.audioText) {
+    listeningBox.style.display = "block";
+    document.getElementById("audio-status-text").textContent = "Klik 'Putar Audio' untuk menyimak wacana otentik.";
+  } else {
+    listeningBox.style.display = "none";
+  }
+
+  // Stimulus Text Box
+  const stimBox = document.getElementById("stimulus-container");
+  if (q.stimulusBody && q.type !== "listening_pictures") {
+    stimBox.style.display = "block";
+    document.getElementById("stimulus-title").textContent = q.stimulusTitle || "Teks Stimulus";
+    document.getElementById("stimulus-body").innerHTML = q.stimulusBody;
+    const srcEl = document.getElementById("stimulus-source");
+    if (srcEl) {
+      if (q.source) {
+        srcEl.style.display = "block";
+        srcEl.innerHTML = `📌 <strong>${q.source}</strong>`;
+      } else {
+        srcEl.style.display = "none";
+      }
+    }
+  } else {
+    stimBox.style.display = "none";
+  }
+
+  // Question Prompt
+  const promptBox = document.getElementById("question-prompt-text");
+  let srcBadge = "";
+  if (q.source) {
+    srcBadge = `<div class="source-citation" style="margin-top: 10px; font-size: 0.8rem; color: #475569; background: #f8fafc; border-left: 3.5px solid var(--accent-teal); padding: 6px 12px; border-radius: 4px; font-style: italic;">
+      📌 <strong>${q.source}</strong>
+    </div>`;
+  }
+  promptBox.innerHTML = q.prompt + srcBadge;
+
+  // Options Rendering
+  const optContainer = document.getElementById("options-container");
+  optContainer.innerHTML = "";
+
+  if (q.type === "listening_pictures") {
+    renderPictureChoices(q, optContainer);
+  } else {
+    renderSingleChoices(q, optContainer);
+  }
+
+  // Explanation Box
+  const expBox = document.getElementById("question-explanation-box");
+  if (isExamSubmitted || (currentMode === "practice" && isQuestionAnswered(q.id))) {
+    expBox.style.display = "block";
+    let keyBadge = q.correctAnswer;
+
+    document.getElementById("explanation-text").innerHTML = `
+      <div style="margin-bottom: 10px; padding: 6px 12px; background: #ecfdf5; border: 1.5px solid #a7f3d0; border-radius: 8px; color: #065f46; font-size: 0.95rem; display: inline-block;">
+        🔑 <strong>Kunci Jawaban:</strong> <span style="font-weight: 800; color: #047857; margin-left: 4px;">${keyBadge}</span>
+      </div>
+      <div>${q.explanation}</div>
+    `;
+    document.getElementById("explanation-meta-text").innerHTML = `<strong>Kaidah &amp; Kosakata:</strong> ${q.grammarNote || "-"}`;
+  } else {
+    expBox.style.display = "none";
+  }
+
+  // Flag Button status
+  const flagBtn = document.getElementById("btn-flag-q");
+  if (flaggedQuestions.has(index)) {
+    flagBtn.textContent = "🔄 Hapus Ragu";
+  } else {
+    flagBtn.textContent = "🟡 Ragu-ragu";
+  }
+
+  // Nav buttons
+  document.getElementById("btn-prev-q").disabled = (index === 0);
+  document.getElementById("btn-next-q").disabled = (index === questions.length - 1);
+  document.getElementById("btn-submit-test").style.display = (index === questions.length - 1) ? "inline-flex" : "none";
+
+  updateNavigatorStatus();
+  saveProgressToLocalStorage();
+}
+
+function renderPictureChoices(q, container) {
+  const grid = document.createElement("div");
+  grid.className = "picture-choices-grid";
+
+  q.options.forEach(opt => {
+    const card = document.createElement("div");
+    card.className = "picture-option-card" + (userAnswers[q.id] === opt.key ? " selected" : "");
+    card.onclick = () => {
+      userAnswers[q.id] = opt.key;
+      renderQuestion(currentQuestionIndex);
+    };
+
+    card.innerHTML = `
+      <div class="picture-svg-wrapper">${opt.svg}</div>
+      <div class="picture-letter-badge">${opt.key}</div>
+      <div class="picture-label-text">${opt.label}</div>
+    `;
+    grid.appendChild(card);
+  });
+  container.appendChild(grid);
+}
+
+function renderSingleChoices(q, container) {
+  const list = document.createElement("div");
+  list.className = "options-list";
+
+  q.options.forEach(opt => {
+    const item = document.createElement("div");
+    item.className = "option-item" + (userAnswers[q.id] === opt.key ? " selected" : "");
+    item.onclick = () => {
+      userAnswers[q.id] = opt.key;
+      renderQuestion(currentQuestionIndex);
+    };
+
+    item.innerHTML = `
+      <div class="option-circle">${opt.key}</div>
+      <div class="option-text">${opt.text}</div>
+    `;
+    list.appendChild(item);
+  });
+  container.appendChild(list);
+}
+
+function navigateQuestion(delta) {
+  renderQuestion(currentQuestionIndex + delta);
+}
+
+function toggleFlagQuestion() {
+  if (flaggedQuestions.has(currentQuestionIndex)) {
+    flaggedQuestions.delete(currentQuestionIndex);
+  } else {
+    flaggedQuestions.add(currentQuestionIndex);
+  }
+  renderQuestion(currentQuestionIndex);
+}
+
+// Audio Engine via Web Speech API
+function playQuestionAudio() {
+  const q = questions[currentQuestionIndex];
+  if (!q || !q.audioText) return;
+
+  if (window.speechSynthesis) {
+    window.speechSynthesis.cancel();
+    
+    const playBtn = document.getElementById("btn-play-audio");
+    const playText = document.getElementById("play-text");
+    const statusText = document.getElementById("audio-status-text");
+
+    currentUtterance = new SpeechSynthesisUtterance(q.audioText);
+    currentUtterance.lang = "en-US";
+    currentUtterance.rate = audioSpeechRate;
+
+    const voices = window.speechSynthesis.getVoices();
+    const enVoice = voices.find(v => v.lang.startsWith("en") && (v.name.includes("Natural") || v.name.includes("Google") || v.name.includes("David") || v.name.includes("Zira")));
+    if (enVoice) {
+      currentUtterance.voice = enVoice;
+    }
+
+    currentUtterance.onstart = () => {
+      playText.textContent = "Sedang Memutar...";
+      statusText.textContent = "🔊 Audio sedang diputar. Simak dengan seksama.";
+      playBtn.style.backgroundColor = "#047857";
+    };
+
+    currentUtterance.onend = () => {
+      playText.textContent = "Putar Ulang";
+      statusText.textContent = "✅ Pemutaran audio selesai. Silakan pilih jawaban Anda.";
+      playBtn.style.backgroundColor = "var(--accent-teal)";
+    };
+
+    currentUtterance.onerror = () => {
+      playText.textContent = "Putar Audio";
+      statusText.textContent = "⚠️ Pemutaran audio selesai atau dihentikan.";
+      playBtn.style.backgroundColor = "var(--accent-teal)";
+    };
+
+    window.speechSynthesis.speak(currentUtterance);
+  } else {
+    alert("Peramban Anda belum mendukung Web Speech API.");
+  }
+}
+
+function stopAudio() {
+  if (window.speechSynthesis) {
+    window.speechSynthesis.cancel();
+  }
+  const playText = document.getElementById("play-text");
+  if (playText) playText.textContent = "Putar Audio";
+}
+
+function toggleAudioSpeed() {
+  if (audioSpeechRate === 1.0) {
+    audioSpeechRate = 0.85;
+  } else {
+    audioSpeechRate = 1.0;
+  }
+  document.getElementById("speed-text").textContent = audioSpeechRate + "x";
+}
+
+// Timer Engine
+function startTimer() {
+  if (timerInterval) clearInterval(timerInterval);
+  
+  timerInterval = setInterval(() => {
+    remainingSeconds--;
+    if (remainingSeconds <= 0) {
+      clearInterval(timerInterval);
+      alert("Waktu pengerjaan tes telah berakhir! Jawaban Anda akan otomatis dikumpulkan.");
+      submitTest();
+      return;
+    }
+
+    const mins = Math.floor(remainingSeconds / 60);
+    const secs = remainingSeconds % 60;
+    const disp = `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
+    document.getElementById("timer-display").textContent = disp;
+
+    if (remainingSeconds < 300) {
+      document.getElementById("timer-box").style.backgroundColor = "#dc2626";
+    }
+
+    if (remainingSeconds % 15 === 0) {
+      saveProgressToLocalStorage();
+    }
+  }, 1000);
+}
+
+function confirmSubmitTest() {
+  const answeredCount = questions.filter(q => isQuestionAnswered(q.id)).length;
+  const unansweredCount = questions.length - answeredCount;
+
+  let msg = `Anda telah menjawab ${answeredCount} dari ${questions.length} butir soal.`;
+  if (unansweredCount > 0) {
+    msg += ` Masih ada ${unansweredCount} butir soal yang belum dijawab.`;
+  }
+  msg += "\n\nApakah Anda yakin ingin menyelesaikan dan mengumpulkan tes sekarang?";
+
+  if (confirm(msg)) {
+    submitTest();
+  }
+}
+
+function submitTest() {
+  clearInterval(timerInterval);
+  isExamSubmitted = true;
+  stopAudio();
+
+  localStorage.removeItem("sabaku_asts_progress_XI_TL");
+
+  let correctCount = 0;
+  questions.forEach(q => {
+    if (userAnswers[q.id] === q.correctAnswer) {
+      correctCount++;
+    }
+  });
+
+  const totalQuestions = questions.length;
+  const finalScore = Math.round((correctCount / totalQuestions) * 100);
+  const isTuntas = finalScore >= 75;
+
+  document.getElementById("result-modal").style.display = "flex";
+  document.getElementById("result-score-val").textContent = finalScore;
+  
+  const scoreCircle = document.getElementById("result-score-circle");
+  scoreCircle.className = "score-circle " + (isTuntas ? "tuntas" : "belum");
+
+  const statusText = document.getElementById("result-status-text");
+  statusText.textContent = isTuntas ? "STATUS: TUNTAS KKTP (≥ 75) 🎉" : "STATUS: BELUM TUNTAS KKTP (< 75) ⚠️";
+  statusText.style.color = isTuntas ? "var(--accent-green)" : "var(--accent-red)";
+
+  document.getElementById("stat-correct").textContent = correctCount;
+  document.getElementById("stat-wrong").textContent = totalQuestions - correctCount;
+  document.getElementById("stat-accuracy").textContent = `${Math.round((correctCount / totalQuestions) * 100)}%`;
+
+  const record = {
+    tingkat: studentIdentity.tingkat,
+    rombel: studentIdentity.rombel,
+    presensi: studentIdentity.presensi,
+    nama: studentIdentity.nama,
+    mode: (currentMode === "practice") ? "Latihan ASAS Gasal Tingkat Lanjut" : "Asesmen Resmi ASAS Gasal Tingkat Lanjut",
+    score: correctCount,
+    total: totalQuestions,
+    grade: finalScore,
+    duration: `${Math.floor((5400 - remainingSeconds) / 60)} menit`,
+    timestamp: new Date().toLocaleString("id-ID"),
+    answers: userAnswers
+  };
+
+  try {
+    const history = JSON.parse(localStorage.getItem("sabaku_ats_history") || "[]");
+    history.push(record);
+    localStorage.setItem("sabaku_ats_history", JSON.stringify(history));
+  } catch (e) {
+    console.warn("History save error:", e);
+  }
+
+  syncScoreToGoogleSheets(record);
+  renderQuestion(currentQuestionIndex);
+}
+
+function syncScoreToGoogleSheets(payload) {
+  const statusEl = document.getElementById("cloud-status-text");
+  if (statusEl) statusEl.textContent = "Menyinkronkan nilai ke server sekolah...";
+
+  const webAppUrl = localStorage.getItem("sabaku_gs_url") || DEFAULT_GS_URL;
+
+  try {
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon(webAppUrl, new Blob([JSON.stringify(payload)], { type: "text/plain;charset=utf-8" }));
+    }
+  } catch (e) {
+    console.warn("sendBeacon error:", e);
+  }
+
+  fetch(webAppUrl, {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  }).then(() => {
+    if (statusEl) statusEl.innerHTML = "✅ Nilai Anda telah berhasil tercatat di server rekapitulasi sekolah.";
+  }).catch(err => {
+    console.warn("Direct POST fallback to Image beacon:", err);
+    try {
+      const beacon = new Image();
+      const query = new URLSearchParams({
+        action: "submit",
+        tingkat: payload.tingkat || "",
+        rombel: payload.rombel || "",
+        presensi: payload.presensi || "",
+        nama: payload.nama || "",
+        grade: payload.grade || 0,
+        score: payload.score || 0,
+        duration: payload.duration || "",
+        mode: payload.mode || ""
+      }).toString();
+      beacon.src = `${webAppUrl}?${query}`;
+    } catch (bErr) {
+      console.warn("Beacon error:", bErr);
+    }
+    if (statusEl) statusEl.innerHTML = "💾 Nilai Anda telah tersimpan dengan aman di sistem sekolah.";
+  });
+}
+
+function downloadResultCSV() {
+  try {
+    const history = JSON.parse(localStorage.getItem("sabaku_ats_history") || "[]");
+    if (history.length === 0) {
+      alert("Belum ada data nilai yang tersimpan untuk diunduh.");
+      return;
+    }
+
+    let csvContent = "data:text/csv;charset=utf-8,";
+    csvContent += "Timestamp,Tingkat,Rombel,Presensi,Nama Siswa,Mode,Skor Benar,Total Soal,Nilai (0-100),Status KKTP,Durasi\n";
+
+    history.forEach(r => {
+      const kktp = r.grade >= 75 ? "TUNTAS" : "BELUM TUNTAS";
+      const line = `"${r.timestamp}","${r.tingkat}","${r.rombel}","${r.presensi}","${r.nama}","${r.mode}",${r.score},${r.total},${r.grade},"${kktp}","${r.duration}"`;
+      csvContent += line + "\n";
+    });
+
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", `Rekap_Nilai_ASAS_XI_TL_${studentIdentity.nama.replace(/\s+/g, "_")}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  } catch (e) {
+    alert("Gagal mengunduh file CSV: " + e.message);
+  }
+}
+
+function reviewAllAnswers() {
+  document.getElementById("result-modal").style.display = "none";
+  renderQuestion(0);
+}
+
+function restartTest() {
+  if (confirm("Apakah Anda ingin mengulangi pengerjaan dari awal?\nSemua jawaban saat ini akan direset.")) {
+    localStorage.removeItem("sabaku_asts_progress_XI_TL");
+    document.getElementById("result-modal").style.display = "none";
+    startFreshTest();
+  }
+}
+
+function openSettingsModal() {
+  const url = localStorage.getItem("sabaku_gs_url") || DEFAULT_GS_URL;
+  document.getElementById("input-gs-url").value = url;
+  document.getElementById("settings-modal").style.display = "flex";
+}
+
+function closeSettingsModal() {
+  document.getElementById("settings-modal").style.display = "none";
+}
+
+function saveSettings() {
+  const val = document.getElementById("input-gs-url").value.trim();
+  if (val) {
+    localStorage.setItem("sabaku_gs_url", val);
+    alert("Pengaturan tautan basis data berhasil disimpan!");
+    closeSettingsModal();
+  }
+}
+
+function saveProgressToLocalStorage() {
+  try {
+    const data = {
+      userAnswers,
+      flaggedQuestions: Array.from(flaggedQuestions),
+      remainingSeconds,
+      currentIndex: currentQuestionIndex
+    };
+    localStorage.setItem("sabaku_asts_progress_XI_TL", JSON.stringify(data));
+  } catch (e) {
+    console.warn("Autosave error:", e);
+  }
+}

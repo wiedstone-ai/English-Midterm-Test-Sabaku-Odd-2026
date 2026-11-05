@@ -840,14 +840,700 @@ function getGrade12AstsQuestions() {
   ];
 }
 
-// Compatibility aliases
-function getGrade12Questions() {
-  return getGrade12AstsQuestions();
+// Fisher-Yates Dynamic Option Shuffling (Practice Mode)
+function randomizeQuestionOptions(qList) {
+  return qList.map(q => {
+    if (q.type === "listening_pictures") {
+      return { ...q };
+    }
+    const cloned = { ...q, options: [...q.options] };
+    const originalCorrectKey = q.correctAnswer;
+    const correctOpt = q.options.find(o => o.key === originalCorrectKey);
+    if (!correctOpt) return q;
+
+    for (let i = cloned.options.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [cloned.options[i], cloned.options[j]] = [cloned.options[j], cloned.options[i]];
+    }
+
+    const keyLetters = ["A", "B", "C", "D"];
+    let newCorrectKey = originalCorrectKey;
+    cloned.options = cloned.options.map((opt, idx) => {
+      const newKey = keyLetters[idx];
+      if (opt.text === correctOpt.text) {
+        newCorrectKey = newKey;
+      }
+      return { ...opt, key: newKey };
+    });
+
+    cloned.correctAnswer = newCorrectKey;
+    return cloned;
+  });
 }
 
-function getGrade12AsasQuestions() {
-  return getGrade12AstsQuestions();
+// Student & State Management
+let currentTingkat = "XII-F";
+let currentMode = "practice";
+let currentQuestionIndex = 0;
+let userAnswers = {};
+let flaggedQuestions = new Set();
+let timerInterval = null;
+let remainingSeconds = 90 * 60;
+let isExamSubmitted = false;
+let audioSpeechRate = 1.0;
+let currentUtterance = null;
+let questions = [];
+
+let studentIdentity = {
+  tingkat: "XII-F",
+  rombel: "1",
+  presensi: "1",
+  nama: "Siswa Kelas XII"
+};
+
+// Initialize Exam Engine
+
+function checkAstsAuth() {
+  try {
+    const auth = sessionStorage.getItem("sabaku_asts_auth");
+    const student = localStorage.getItem("sabaku_current_student");
+    if (!auth || !student) {
+      alert("⚠️ Akses Ruang ASTS Resmi Memerlukan Password!\n\nSilakan masukkan password ASTS yang valid dari pengawas ruang.");
+      window.location.href = "masuk-asts.html";
+      return false;
+    }
+    return true;
+  } catch (e) {
+    return true;
+  }
 }
 
+window.addEventListener("DOMContentLoaded", () => {
+  if (!checkAstsAuth()) return;
+  initStudentData();
+  const rawQ = getGrade12AstsQuestions();
+  questions = (currentMode === "practice") ? randomizeQuestionOptions(rawQ) : rawQ;
 
+  buildNavigatorGrid();
+  renderQuestion(0);
+  startTimer();
+  applyStudentMetadata();
+});
 
+function initStudentData() {
+  try {
+    const saved = localStorage.getItem("sabaku_current_student");
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      studentIdentity.nama = parsed.nama || "Siswa Kelas XII";
+      studentIdentity.tingkat = parsed.tingkat || "XII-F";
+      studentIdentity.rombel = parsed.rombel || "1";
+      studentIdentity.presensi = parsed.presensi || "1";
+      currentMode = parsed.mode || "practice";
+    }
+  } catch (e) {
+    console.warn("Local student parse error:", e);
+  }
+
+  // Restore saved progress if any
+  try {
+    const savedProgress = localStorage.getItem("sabaku_asas_progress_XII");
+    if (savedProgress) {
+      const prog = JSON.parse(savedProgress);
+      if (prog.userAnswers) userAnswers = prog.userAnswers;
+      if (prog.flaggedQuestions) flaggedQuestions = new Set(prog.flaggedQuestions);
+      if (prog.remainingSeconds && prog.remainingSeconds > 0) remainingSeconds = prog.remainingSeconds;
+      if (typeof prog.currentIndex === "number") currentQuestionIndex = prog.currentIndex;
+    }
+  } catch (e) {
+    console.warn("Autosave load error:", e);
+  }
+}
+
+function handleDirectIdentitySubmit(e) {
+  e.preventDefault();
+  const nama = document.getElementById("direct-nama").value.trim();
+  const rombel = document.getElementById("direct-rombel").value;
+  const presensi = document.getElementById("direct-presensi").value.trim();
+  const mode = document.getElementById("direct-mode").value;
+
+  if (!nama || !rombel || !presensi) {
+    alert("Harap lengkapi semua kolom!");
+    return;
+  }
+
+  // Tidak perlu token atau password untuk latihan / asesmen
+
+  studentIdentity = { tingkat: "XII-F", rombel, presensi, nama };
+  currentMode = mode;
+  localStorage.setItem("sabaku_current_student", JSON.stringify({
+    ...studentIdentity,
+    mode,
+    tokenVerified: (mode === "exam")
+  }));
+
+  document.getElementById("identity-prompt-modal").style.display = "none";
+  startFreshTest();
+}
+
+function validateDirectPresensi(input) {
+  let val = input.value.replace(/\D/g, "");
+  if (val.startsWith("0")) val = val.replace(/^0+/, "");
+  let num = parseInt(val, 10);
+  if (num > 36) val = "36";
+  input.value = val;
+}
+
+function toggleDirectToken(mode) {}
+
+function startFreshTest() {
+  userAnswers = {};
+  flaggedQuestions.clear();
+  remainingSeconds = 90 * 60;
+  currentQuestionIndex = 0;
+  isExamSubmitted = false;
+
+  const rawQ = getGrade12AstsQuestions();
+  questions = (currentMode === "practice") ? randomizeQuestionOptions(rawQ) : rawQ;
+
+  applyStudentMetadata();
+  buildNavigatorGrid();
+  renderQuestion(0);
+  startTimer();
+}
+
+function applyStudentMetadata() {
+  const nameEl = document.getElementById("side-student-name");
+  const metaEl = document.getElementById("side-student-meta");
+  const modeBadge = document.getElementById("nav-mode-badge");
+
+  if (nameEl) nameEl.textContent = studentIdentity.nama;
+  if (metaEl) metaEl.textContent = `Kelas XII | Rombel ${studentIdentity.rombel} | Presensi ${studentIdentity.presensi}`;
+  if (modeBadge) {
+    if (currentMode === "exam") {
+      modeBadge.textContent = "Mode Ujian Resmi (ASAS)";
+      modeBadge.style.background = "#fee2e2";
+      modeBadge.style.color = "#b91c1c";
+    } else {
+      modeBadge.textContent = "Mode Latihan Mandiri";
+      modeBadge.style.background = "#e0f2fe";
+      modeBadge.style.color = "#0369a1";
+    }
+  }
+}
+
+function toggleKisiKisiContent() {
+  const body = document.getElementById("kisi-kisi-body");
+  const icon = document.getElementById("kisi-toggle-icon");
+  if (body.style.display === "none") {
+    body.style.display = "block";
+    icon.textContent = "▲ Sembunyikan Kisi-Kisi";
+  } else {
+    body.style.display = "none";
+    icon.textContent = "▼ Lihat Rincian Kisi-Kisi";
+  }
+}
+
+function toggleKisiKisiModal() {
+  toggleKisiKisiContent();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function buildNavigatorGrid() {
+  const grid = document.getElementById("question-navigator-grid");
+  if (!grid) return;
+  grid.innerHTML = "";
+
+  for (let i = 1; i <= 40; i++) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "q-num-btn";
+    btn.id = `nav-btn-${i}`;
+    btn.textContent = i;
+    btn.onclick = () => renderQuestion(i - 1);
+    grid.appendChild(btn);
+  }
+  updateNavigatorStatus();
+}
+
+function updateNavigatorStatus() {
+  for (let i = 1; i <= 40; i++) {
+    const btn = document.getElementById(`nav-btn-${i}`);
+    if (!btn) continue;
+
+    btn.className = "q-num-btn";
+    const isAnswered = isQuestionAnswered(i);
+    const isFlagged = flaggedQuestions.has(i);
+
+    if (i - 1 === currentQuestionIndex) {
+      btn.classList.add("current");
+    }
+
+    if (isFlagged) {
+      btn.classList.add("flagged");
+    } else if (isAnswered) {
+      btn.classList.add("answered");
+    }
+  }
+}
+
+function isQuestionAnswered(qId) {
+  return userAnswers[qId] !== undefined && userAnswers[qId] !== "";
+}
+
+function renderQuestion(idx) {
+  if (idx < 0 || idx >= questions.length) return;
+  currentQuestionIndex = idx;
+  const q = questions[idx];
+
+  // Number & Type badge
+  const numBadge = document.getElementById("q-number-badge");
+  const typeBadge = document.getElementById("q-type-badge");
+  if (numBadge) numBadge.textContent = `Soal No. ${q.id} dari ${questions.length}`;
+  if (typeBadge) typeBadge.textContent = q.title || "Asesmen Akhir Semester";
+
+  // Flag Button
+  const btnFlag = document.getElementById("btn-flag-q");
+  if (btnFlag) {
+    if (flaggedQuestions.has(q.id)) {
+      btnFlag.classList.add("btn-warning");
+      btnFlag.innerHTML = "🚩 Ragu-ragu (Ditandai)";
+    } else {
+      btnFlag.classList.remove("btn-warning");
+      btnFlag.innerHTML = "🏳️ Ragu-ragu";
+    }
+  }
+
+  // Listening Audio Box
+  const audioBox = document.getElementById("listening-container");
+  if (q.audioText) {
+    audioBox.style.display = "block";
+    stopAudio();
+  } else {
+    audioBox.style.display = "none";
+    stopAudio();
+  }
+
+  // Stimulus Reading Box
+  const stimContainer = document.getElementById("stimulus-container");
+  const stimTitle = document.getElementById("stimulus-title");
+  const stimBody = document.getElementById("stimulus-body");
+  const stimSource = document.getElementById("stimulus-source");
+
+  if (q.stimulusBody) {
+    stimContainer.style.display = "block";
+    stimTitle.textContent = q.stimulusTitle || "Teks Stimulus";
+    stimBody.innerHTML = q.stimulusBody;
+    stimSource.textContent = q.source || "";
+  } else {
+    stimContainer.style.display = "none";
+  }
+
+  // Question Prompt
+  const promptEl = document.getElementById("question-prompt-text");
+  promptEl.innerHTML = q.prompt.replace(/\n/g, "<br>");
+
+  // Options Container
+  const optContainer = document.getElementById("options-container");
+  optContainer.innerHTML = "";
+
+  if (q.type === "listening_pictures") {
+    renderPictureChoices(q, optContainer);
+  } else {
+    renderSingleChoices(q, optContainer);
+  }
+
+  // Explanation in Practice Mode or after Submission
+  const expBox = document.getElementById("question-explanation-box");
+  const expText = document.getElementById("explanation-text");
+  const expMeta = document.getElementById("explanation-meta-text");
+
+  if (isExamSubmitted || (currentMode === "practice" && isQuestionAnswered(q.id))) {
+    expBox.style.display = "block";
+    expText.innerHTML = `<strong>Kunci Jawaban: ${q.correctAnswer}</strong><br>${q.explanation || ""}`;
+    expMeta.innerHTML = `<em>Kaidah Bahasa &amp; Materi:</em> ${q.grammarNote || ""}<br><span style="font-size:0.8rem; color:#64748b;">${q.source || ""}</span>`;
+  } else {
+    expBox.style.display = "none";
+  }
+
+  // Bottom Navigation buttons
+  document.getElementById("btn-prev-q").disabled = (idx === 0);
+  const nextBtn = document.getElementById("btn-next-q");
+  const submitBtn = document.getElementById("btn-submit-test");
+
+  if (idx === questions.length - 1) {
+    nextBtn.style.display = "none";
+    submitBtn.style.display = "inline-flex";
+  } else {
+    nextBtn.style.display = "inline-flex";
+    submitBtn.style.display = "none";
+  }
+
+  updateNavigatorStatus();
+  saveProgressToLocalStorage();
+}
+
+function renderPictureChoices(q, container) {
+  const grid = document.createElement("div");
+  grid.className = "picture-options-grid";
+
+  q.options.forEach(opt => {
+    const card = document.createElement("div");
+    card.className = "picture-option-card";
+    if (userAnswers[q.id] === opt.key) {
+      card.classList.add("selected");
+    }
+
+    if (isExamSubmitted || (currentMode === "practice" && isQuestionAnswered(q.id))) {
+      if (opt.key === q.correctAnswer) card.classList.add("correct-highlight");
+      if (userAnswers[q.id] === opt.key && opt.key !== q.correctAnswer) card.classList.add("wrong-highlight");
+    }
+
+    card.onclick = () => {
+      if (isExamSubmitted) return;
+      userAnswers[q.id] = opt.key;
+      renderQuestion(currentQuestionIndex);
+    };
+
+    card.innerHTML = `
+      <div class="pic-svg-box">${opt.svg}</div>
+      <div class="pic-opt-label"><strong>Pilihan (${opt.key})</strong><br><span style="font-size:0.8rem; color:#475569;">${opt.label}</span></div>
+    `;
+    grid.appendChild(card);
+  });
+
+  container.appendChild(grid);
+}
+
+function renderSingleChoices(q, container) {
+  const list = document.createElement("div");
+  list.className = "options-list";
+
+  q.options.forEach(opt => {
+    const item = document.createElement("div");
+    item.className = "option-item";
+    if (userAnswers[q.id] === opt.key) {
+      item.classList.add("selected");
+    }
+
+    if (isExamSubmitted || (currentMode === "practice" && isQuestionAnswered(q.id))) {
+      if (opt.key === q.correctAnswer) item.classList.add("correct-highlight");
+      if (userAnswers[q.id] === opt.key && opt.key !== q.correctAnswer) item.classList.add("wrong-highlight");
+    }
+
+    item.onclick = () => {
+      if (isExamSubmitted) return;
+      userAnswers[q.id] = opt.key;
+      renderQuestion(currentQuestionIndex);
+    };
+
+    item.innerHTML = `
+      <div class="opt-badge">${opt.key}</div>
+      <div class="opt-text">${opt.text}</div>
+    `;
+    list.appendChild(item);
+  });
+
+  container.appendChild(list);
+}
+
+function navigateQuestion(delta) {
+  renderQuestion(currentQuestionIndex + delta);
+}
+
+function toggleFlagQuestion() {
+  const qId = questions[currentQuestionIndex].id;
+  if (flaggedQuestions.has(qId)) {
+    flaggedQuestions.delete(qId);
+  } else {
+    flaggedQuestions.add(qId);
+  }
+  renderQuestion(currentQuestionIndex);
+}
+
+// Audio Synthesis Engine
+function playQuestionAudio() {
+  const q = questions[currentQuestionIndex];
+  if (!q.audioText) return;
+
+  if (!("speechSynthesis" in window)) {
+    alert("Fitur audio Web Speech API tidak didukung di peramban ini.");
+    return;
+  }
+
+  stopAudio();
+
+  const cleanText = q.audioText.replace(/\\n/g, " ").replace(/\n/g, " ");
+  currentUtterance = new SpeechSynthesisUtterance(cleanText);
+  currentUtterance.lang = "en-US";
+  currentUtterance.rate = audioSpeechRate;
+
+  const btnText = document.getElementById("play-text");
+  const statusEl = document.getElementById("audio-status-text");
+
+  currentUtterance.onstart = () => {
+    if (btnText) btnText.textContent = "Memutar Audio...";
+    if (statusEl) statusEl.textContent = "Sedang mendengarkan percakapan / monolog Bahasa Inggris...";
+  };
+
+  currentUtterance.onend = () => {
+    if (btnText) btnText.textContent = "Putar Ulang";
+    if (statusEl) statusEl.textContent = "Audio selesai diputar.";
+  };
+
+  currentUtterance.onerror = () => {
+    if (btnText) btnText.textContent = "Putar Audio";
+    if (statusEl) statusEl.textContent = "Terjadi kendala pemutaran audio.";
+  };
+
+  window.speechSynthesis.speak(currentUtterance);
+}
+
+function stopAudio() {
+  if ("speechSynthesis" in window) {
+    window.speechSynthesis.cancel();
+  }
+  const btnText = document.getElementById("play-text");
+  const statusEl = document.getElementById("audio-status-text");
+  if (btnText) btnText.textContent = "Putar Audio";
+  if (statusEl) statusEl.textContent = "Klik 'Putar Audio' untuk mendengarkan percakapan/monolog.";
+}
+
+function toggleAudioSpeed() {
+  if (audioSpeechRate === 1.0) audioSpeechRate = 0.85;
+  else if (audioSpeechRate === 0.85) audioSpeechRate = 1.15;
+  else audioSpeechRate = 1.0;
+
+  document.getElementById("speed-text").textContent = `${audioSpeechRate}x`;
+  if (window.speechSynthesis && window.speechSynthesis.speaking) {
+    playQuestionAudio();
+  }
+}
+
+// Timer Engine
+function startTimer() {
+  clearInterval(timerInterval);
+  timerInterval = setInterval(() => {
+    if (remainingSeconds <= 0) {
+      clearInterval(timerInterval);
+      alert("Waktu pengerjaan asesmen 90 menit telah berakhir. Jawaban Anda akan otomatis dikumpulkan.");
+      submitTest();
+      return;
+    }
+    remainingSeconds--;
+    updateTimerDisplay();
+  }, 1000);
+  updateTimerDisplay();
+}
+
+function updateTimerDisplay() {
+  const m = Math.floor(remainingSeconds / 60);
+  const s = remainingSeconds % 60;
+  const disp = `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
+  const el = document.getElementById("timer-display");
+  if (el) el.textContent = disp;
+}
+
+// Submission & Google Sheets Sync
+function confirmSubmitTest() {
+  const answeredCount = Object.keys(userAnswers).length;
+  const unanswered = 40 - answeredCount;
+  const flagged = flaggedQuestions.size;
+
+  let msg = `Apakah Anda yakin ingin menyelesaikan dan mengumpulkan Asesmen?\n\n`;
+  msg += `• Terjawab: ${answeredCount} soal\n`;
+  msg += `• Belum dijawab: ${unanswered} soal\n`;
+  msg += `• Ditandai ragu: ${flagged} soal\n\n`;
+  msg += `Klik OK untuk mengumpulkan sekarang.`;
+
+  if (confirm(msg)) {
+    submitTest();
+  }
+}
+
+function submitTest() {
+  clearInterval(timerInterval);
+  isExamSubmitted = true;
+
+  let correctCount = 0;
+  questions.forEach(q => {
+    if (userAnswers[q.id] === q.correctAnswer) {
+      correctCount++;
+    }
+  });
+
+  const finalGrade = Math.round((correctCount / 40) * 100);
+  const accuracy = Math.round((correctCount / 40) * 100);
+  const isTuntas = (finalGrade >= 75);
+
+  // Update Result Modal UI
+  document.getElementById("result-score-val").textContent = finalGrade;
+  const statusEl = document.getElementById("result-status-text");
+  const circleEl = document.getElementById("result-score-circle");
+
+  if (isTuntas) {
+    statusEl.textContent = "STATUS: TUNTAS KKTP (≥ 75)";
+    statusEl.style.color = "#047857";
+    circleEl.className = "score-circle tuntas";
+  } else {
+    statusEl.textContent = "STATUS: BELUM TUNTAS KKTP (< 75)";
+    statusEl.style.color = "#b91c1c";
+    circleEl.className = "score-circle belum-tuntas";
+  }
+
+  document.getElementById("stat-correct").textContent = correctCount;
+  document.getElementById("stat-wrong").textContent = 40 - correctCount;
+  document.getElementById("stat-accuracy").textContent = `${accuracy}%`;
+
+  document.getElementById("result-modal").style.display = "flex";
+
+  // Record to History LocalStorage
+  const historyItem = {
+    timestamp: new Date().toLocaleString("id-ID"),
+    tingkat: studentIdentity.tingkat,
+    rombel: studentIdentity.rombel,
+    presensi: studentIdentity.presensi,
+    nama: studentIdentity.nama,
+    mode: currentMode,
+    score: correctCount,
+    total: 40,
+    grade: finalGrade,
+    duration: `${90 - Math.floor(remainingSeconds / 60)} menit`
+  };
+
+  try {
+    const hist = JSON.parse(localStorage.getItem("sabaku_ats_history") || "[]");
+    hist.push(historyItem);
+    localStorage.setItem("sabaku_ats_history", JSON.stringify(hist));
+  } catch (e) {
+    console.warn("History save error:", e);
+  }
+
+  // Sync to Google Sheets
+  syncScoreToGoogleSheets({
+    tingkat: studentIdentity.tingkat,
+    rombel: studentIdentity.rombel,
+    presensi: studentIdentity.presensi,
+    nama: studentIdentity.nama,
+    mode: currentMode === "exam" ? "Asesmen Resmi (ASAS)" : "Latihan Mandiri",
+    score: correctCount,
+    total: 40,
+    grade: finalGrade,
+    duration: `${90 - Math.floor(remainingSeconds / 60)} menit`,
+    answers: userAnswers
+  });
+
+  renderQuestion(currentQuestionIndex);
+}
+
+function syncScoreToGoogleSheets(payload) {
+  const webAppUrl = localStorage.getItem("sabaku_gs_url") || DEFAULT_GS_URL;
+  const statusEl = document.getElementById("cloud-status-text");
+  if (statusEl) statusEl.innerHTML = "⏳ Menghubungkan ke basis data rekapitulasi sekolah...";
+
+  fetch(webAppUrl, {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  })
+  .then(() => {
+    if (statusEl) statusEl.innerHTML = "✅ <strong>Nilai tersimpan otomatis</strong> di basis data rekapitulasi sekolah.";
+  })
+  .catch(err => {
+    console.warn("Sync error, falling back to beacon:", err);
+    try {
+      const beacon = new Image();
+      const query = new URLSearchParams({
+        tingkat: payload.tingkat || "XII-F",
+        rombel: payload.rombel || "",
+        presensi: payload.presensi || "",
+        nama: payload.nama || "",
+        score: payload.score || 0,
+        total: payload.total || 40,
+        grade: payload.grade || 0,
+        duration: payload.duration || "",
+        mode: payload.mode || ""
+      }).toString();
+      beacon.src = `${webAppUrl}?${query}`;
+    } catch (bErr) {
+      console.warn("Beacon error:", bErr);
+    }
+    if (statusEl) statusEl.innerHTML = "💾 Nilai Anda telah tersimpan dengan aman di sistem sekolah.";
+  });
+}
+
+function downloadResultCSV() {
+  try {
+    const history = JSON.parse(localStorage.getItem("sabaku_ats_history") || "[]");
+    if (history.length === 0) {
+      alert("Belum ada data nilai yang tersimpan untuk diunduh.");
+      return;
+    }
+
+    let csvContent = "data:text/csv;charset=utf-8,";
+    csvContent += "Timestamp,Tingkat,Rombel,Presensi,Nama Siswa,Mode,Skor Benar,Total Soal,Nilai (0-100),Status KKTP,Durasi\n";
+
+    history.forEach(r => {
+      const kktp = r.grade >= 75 ? "TUNTAS" : "BELUM TUNTAS";
+      const line = `"${r.timestamp}","${r.tingkat}","${r.rombel}","${r.presensi}","${r.nama}","${r.mode}",${r.score},${r.total},${r.grade},"${kktp}","${r.duration}"`;
+      csvContent += line + "\n";
+    });
+
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", `Rekap_Nilai_ASAS_XII_${studentIdentity.nama.replace(/\s+/g, "_")}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  } catch (e) {
+    alert("Gagal mengunduh file CSV: " + e.message);
+  }
+}
+
+function reviewAllAnswers() {
+  document.getElementById("result-modal").style.display = "none";
+  renderQuestion(0);
+}
+
+function restartTest() {
+  if (confirm("Apakah Anda ingin mengulangi pengerjaan dari awal?\nSemua jawaban saat ini akan direset.")) {
+    localStorage.removeItem("sabaku_asas_progress_XII");
+    document.getElementById("result-modal").style.display = "none";
+    startFreshTest();
+  }
+}
+
+function openSettingsModal() {
+  const url = localStorage.getItem("sabaku_gs_url") || DEFAULT_GS_URL;
+  document.getElementById("input-gs-url").value = url;
+  document.getElementById("settings-modal").style.display = "flex";
+}
+
+function closeSettingsModal() {
+  document.getElementById("settings-modal").style.display = "none";
+}
+
+function saveSettings() {
+  const val = document.getElementById("input-gs-url").value.trim();
+  if (val) {
+    localStorage.setItem("sabaku_gs_url", val);
+    alert("Pengaturan tautan basis data berhasil disimpan!");
+    closeSettingsModal();
+  }
+}
+
+function saveProgressToLocalStorage() {
+  try {
+    const data = {
+      userAnswers,
+      flaggedQuestions: Array.from(flaggedQuestions),
+      remainingSeconds,
+      currentIndex: currentQuestionIndex
+    };
+    localStorage.setItem("sabaku_asas_progress_XII", JSON.stringify(data));
+  } catch (e) {
+    console.warn("Autosave error:", e);
+  }
+}
