@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kisi-Kisi Asesmen Sumatif Bahasa Inggris — SMAN 1 Bae Kudus</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .kisi-page-container {
+      max-width: 1080px;
+      margin: 24px auto 48px;
+      padding: 0 16px;
+    }
+    .filter-pills-bar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+      background: #ffffff;
+      padding: 14px 18px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      border: 1.5px solid var(--border-light);
+    }
+    .filter-pill {
+      border: 1.5px solid #cbd5e1;
+      background: #f8fafc;
+      color: #334155;
+      padding: 8px 16px;
+      border-radius: 9999px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .filter-pill:hover {
+      background: #e2e8f0;
+      border-color: #94a3b8;
+    }
+    .filter-pill.active {
+      background: var(--primary-navy);
+      color: #ffffff;
+      border-color: var(--primary-navy);
+      box-shadow: 0 2px 4px rgba(30, 58, 138, 0.2);
+    }
+    .kisi-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      border: 1.5px solid var(--border-light);
+      box-shadow: var(--shadow-md);
+      margin-bottom: 32px;
+      overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+    .kisi-card-header {
+      padding: 20px 24px;
+      background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+      border-bottom: 2px solid var(--border-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .kisi-card-body {
+      padding: 24px;
+    }
+    .tka-structure-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+    .tka-box {
+      background: #f8fafc;
+      border-radius: 8px;
+      padding: 12px 14px;
+      border-left: 4px solid var(--accent-teal);
+    }
+    .tka-box strong {
+      display: block;
+      color: var(--primary-navy);
+      font-size: 0.88rem;
+      margin-bottom: 4px;
+    }
+    .tka-box span {
+      font-size: 0.8rem;
+      color: #475569;
+      line-height: 1.4;
+      display: block;
+    }
+    .table-kisi {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      font-size: 0.9rem;
+    }
+    .table-kisi th, .table-kisi td {
+      border: 1px solid #e2e8f0;
+      padding: 12px 14px;
+      text-align: left;
+      vertical-align: top;
+    }
+    .table-kisi th {
+      background: #f1f5f9;
+      color: #1e293b;
+      font-weight: 700;
+    }
+    .table-kisi tr:nth-child(even) {
+      background: #fafafa;
+    }
+    @media print {
+      header, .filter-pills-bar, .no-print {
+        display: none !important;
+      }
+      .kisi-page-container {
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .kisi-card {
+        box-shadow: none !important;
+        border: 1px solid #000 !important;
+        page-break-inside: avoid;
+        margin-bottom: 24px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header>
+    <div class="header-container">
+      <div class="school-brand">
+        <div class="school-logo-badge">S1B</div>
+        <div class="brand-text">
+          <h1>SMA NEGERI 1 BAE KUDUS (SABAKU)</h1>
+          <p>Dokumen Resmi Kisi-Kisi Asesmen Sumatif Bahasa Inggris — Semester Gasal TP 2026/2027</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.4);" onclick="window.print()">
+          🖨️ Cetak / Simpan PDF
+        </button>
+        <a href="index.html" class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.4); text-decoration: none;">
+          🏠 Kembali ke Portal
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main>
+    <div class="kisi-page-container">
+
+      <!-- Breadcrumbs & Title Box -->
+      <div style="background: #ffffff; border-radius: var(--radius-md); padding: 22px 24px; margin-bottom: 20px; border: 1.5px solid var(--border-light); box-shadow: var(--shadow-sm); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
+        <div>
+          <span style="font-size: 0.8rem; font-weight: 700; background: #e0f2fe; color: #0369a1; padding: 3px 10px; border-radius: 9999px; text-transform: uppercase;">
+            Dokumen Kurikulum Merdeka
+          </span>
+          <h2 style="font-size: 1.6rem; color: var(--primary-navy); margin: 8px 0 4px;">
+            Kisi-Kisi Asesmen Sumatif (ASAS &amp; ASTS) Gasal
+          </h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; margin: 0;">
+            Standar Tes Kemampuan Akademik (TKA) &amp; AKM Literasi Bahasa Inggris — Jenjang X, XI, &amp; XII SMAN 1 Bae Kudus.
+          </p>
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <a href="index.html" class="btn btn-primary" style="padding: 10px 18px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+            Masuk ke Ruang Tes ➔
+          </a>
+        </div>
+      </div>
+
+      <!-- Filter Tabs / Pills -->
+      <div class="filter-pills-bar no-print">
+        <span style="font-size: 0.88rem; font-weight: 700; color: #475569; display: flex; align-items: center; margin-right: 6px;">
+          Filter Tingkat:
+        </span>
+        <button class="filter-pill active" onclick="filterKisi('all', this)">
+          🌟 Semua Jenjang (5 Kategori)
+        </button>
+        <button class="filter-pill" onclick="filterKisi('x', this)">
+          📘 Kelas X (Fase E)
+        </button>
+        <button class="filter-pill" onclick="filterKisi('xi-wajib', this)">
+          📗 Kelas XI — Wajib (Fase F)
+        </button>
+        <button class="filter-pill" onclick="filterKisi('xi-tl', this)">
+          🔮 Kelas XI — Tingkat Lanjut (Fase F)
+        </button>
+        <button class="filter-pill" onclick="filterKisi('xii-wajib', this)">
+          📙 Kelas XII — Wajib (Fase F+)
+        </button>
+        <button class="filter-pill" onclick="filterKisi('xii-tl', this)">
+          👑 Kelas XII — Tingkat Lanjut (Fase F+)
+        </button>
+      </div>
+
+      <!-- KELAS X -->
+      <div class="kisi-card" id="card-x" data-level="x">
+        <div class="kisi-card-header" style="border-left: 6px solid #2563eb;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+              <span class="portal-badge badge-x">KELAS X</span>
+              <span style="font-size: 0.8rem; font-weight: 700; background: #eff6ff; color: #1d4ed8; padding: 2px 8px; border-radius: 4px;">FASE E (UMUM)</span>
+            </div>
+            <h3 style="margin: 0; color: var(--primary-navy); font-size: 1.25rem;">
+              Bahasa Inggris Kelas X (Fase E)
+            </h3>
+          </div>
+          <div style="font-size: 0.85rem; color: #64748b; text-align: right;">
+            <strong>Alokasi Waktu:</strong> 90 Menit | <strong>Jumlah:</strong> 40 Soal | <strong>KKTP:</strong> &ge; 75
+          </div>
+        </div>
+        <div class="kisi-card-body">
+          <div class="tka-structure-grid">
+            <div class="tka-box" style="border-color: #2563eb;">
+              <strong>1. Listening Section (10 Soal)</strong>
+              <span>Part I (1-3) Multimodal Pictures (Karimunjawa &amp; Javan Rhino), Part II (4-6) Dialogues (Ecotourism &amp; Habitat), Part III (7-10) Talks.</span>
+            </div>
+            <div class="tka-box" style="border-color: #0284c7;">
+              <strong>2. Reading Text 1 (5 Soal)</strong>
+              <span>Soal 11-15: Descriptive Text (Karimunjawa Marine National Park) — Analisis fungsi sosial, struktur, dan kosakata B2.</span>
+            </div>
+            <div class="tka-box" style="border-color: #059669;">
+              <strong>3. Matrix True/False (5 Soal)</strong>
+              <span>Soal 16-20: Pilihan Ganda Kompleks evaluasi kebenaran pernyataan wacana wisata dan konservasi alam.</span>
+            </div>
+            <div class="tka-box" style="border-color: #d97706;">
+              <strong>4. MCMA Pilih 2 (5 Soal)</strong>
+              <span>Soal 21-25: Memilih 2 opsi benar mengenai ciri kebahasaan, gagasan pokok, dan pesan pelestarian lingkungan.</span>
+            </div>
+            <div class="tka-box" style="border-color: #7c3aed;">
+              <strong>5. Reading 2 &amp; Grammar (15 Soal)</strong>
+              <span>Soal 26-30: Descriptive Text Ujung Kulon Javan Rhino; Soal 31-40: Simple Present, Descriptive Adjectives, Prepositional Phrases.</span>
+            </div>
+          </div>
+
+          <table class="table-kisi">
+            <thead>
+              <tr>
+                <th style="width: 25%;">Kompetensi &amp; Capaian (CP)</th>
+                <th style="width: 30%;">Materi Pokok &amp; Teks Otentik</th>
+                <th style="width: 30%;">Indikator Soal &amp; Kaidah Bahasa</th>
+                <th style="width: 15%;">Nomor Soal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Menyimak &amp; Berbicara</strong><br><small>Memahami wacana lisan deskriptif tempat wisata dan fauna.</small></td>
+                <td>Audio Monolog &amp; Dialog otentik seputar Taman Nasional Karimunjawa dan Suaka Margasatwa Ujung Kulon.</td>
+                <td>Menentukan gambar yang sesuai deskripsi lisan, merinci informasi faktual dialog, dan menyimpulkan tujuan pembicara.</td>
+                <td>1 s.d. 10 (Pilihan Ganda)</td>
+              </tr>
+              <tr>
+                <td><strong>Membaca &amp; Memirsa</strong><br><small>Menganalisis teks deskriptif otentik bertema alam Indonesia.</small></td>
+                <td>Teks 1: <em>Karimunjawa Marine National Park: An Archipelagic Biodiversity Haven</em></td>
+                <td>Mengidentifikasi tujuan teks, makna kata kontekstual (B2 lexis), ide pokok paragraf, dan detail spesifik.</td>
+                <td>11 s.d. 15 (Pilihan Ganda)</td>
+              </tr>
+              <tr>
+                <td><strong>Analisis Kritis TKA</strong><br><small>Pilihan Ganda Kompleks Matrix True/False</small></td>
+                <td>Wacana Kritis Ekosistem &amp; Konservasi Karimunjawa</td>
+                <td>Menilai nilai kebenaran 4 pernyataan fakta vs opini secara presisi (Tabel Matrix Benar/Salah).</td>
+                <td>16 s.d. 20 (Kompleks Matrix)</td>
+              </tr>
+              <tr>
+                <td><strong>Sintesis Informasi TKA</strong><br><small>Multiple Choice Multiple Answer (MCMA)</small></td>
+                <td>Penerapan Pelestarian Lingkungan Hidup</td>
+                <td>Memilih <strong>tepat 2 jawaban benar</strong> terkait upaya konservasi terumbu karang dan habitat badak jawa.</td>
+                <td>21 s.d. 25 (MCMA Kotak Centang)</td>
+              </tr>
+              <tr>
+                <td><strong>Membaca &amp; Menulis</strong><br><small>Deskripsi Fauna Langka &amp; Struktur Gramatikal</small></td>
+                <td>Teks 2: <em>The Javan Rhinoceros (Rhinoceros sondaicus)</em> &amp; Modul Tata Bahasa Baku</td>
+                <td>Menemukan informasi rinci wacana badak jawa; Menguasai Simple Present, Adjective Order, dan Relative Pronouns.</td>
+                <td>26 s.d. 40 (Pilihan Ganda)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- KELAS XI WAJIB -->
+      <div class="kisi-card" id="card-xi-wajib" data-level="xi-wajib">
+        <div class="kisi-card-header" style="border-left: 6px solid #16a34a;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+              <span class="portal-badge badge-xi">KELAS XI</span>
+              <span style="font-size: 0.8rem; font-weight: 700; background: #f0fdf4; color: #15803d; padding: 2px 8px; border-radius: 4px;">BAHASA INGGRIS WAJIB / REGULER</span>
+            </div>
+            <h3 style="margin: 0; color: var(--primary-navy); font-size: 1.25rem;">
+              Bahasa Inggris Wajib Kelas XI (Fase F)
+            </h3>
+          </div>
+          <div style="font-size: 0.85rem; color: #64748b; text-align: right;">
+            <strong>Alokasi Waktu:</strong> 90 Menit | <strong>Jumlah:</strong> 40 Soal | <strong>KKTP:</strong> &ge; 75
+          </div>
+        </div>
+        <div class="kisi-card-body">
+          <div class="tka-structure-grid">
+            <div class="tka-box" style="border-color: #16a34a;">
+              <strong>1. Listening Section (10 Soal)</strong>
+              <span>Part I (1-3) Multimodal Media Lab, Part II (4-6) Multi-speaker Dialogues (Digital Literacy &amp; Health), Part III (7-10) Academic Talks.</span>
+            </div>
+            <div class="tka-box" style="border-color: #0284c7;">
+              <strong>2. Reading Text 1 (5 Soal)</strong>
+              <span>Soal 11-15: Analytical Exposition (The Imperative of Critical Digital Literacy for Teenagers).</span>
+            </div>
+            <div class="tka-box" style="border-color: #059669;">
+              <strong>3. Matrix True/False (5 Soal)</strong>
+              <span>Soal 16-20: Evaluasi kebenaran argumen literasi digital, Cause &amp; Effect, Passive Voice, dan Conditional Type 2.</span>
+            </div>
+            <div class="tka-box" style="border-color: #d97706;">
+              <strong>4. MCMA Pilih 2 (5 Soal)</strong>
+              <span>Soal 21-25: Memilih 2 argumen kunci teks eksposisi, konjungsi kausalitas baku, dan kalimat pasif akademis.</span>
+            </div>
+            <div class="tka-box" style="border-color: #7c3aed;">
+              <strong>5. Reading 2 &amp; Grammar (15 Soal)</strong>
+              <span>Soal 26-30: Exposition Text on Youth Health &amp; Sleep; Soal 31-40: Cause-Effect Connectors, Passive Voice, Conditional Type 2.</span>
+            </div>
+          </div>
+
+          <table class="table-kisi">
+            <thead>
+              <tr>
+                <th style="width: 25%;">Kompetensi &amp; Capaian (CP)</th>
+                <th style="width: 30%;">Materi Pokok &amp; Teks Otentik</th>
+                <th style="width: 30%;">Indikator Soal &amp; Kaidah Bahasa</th>
+                <th style="width: 15%;">Nomor Soal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Menyimak Percakapan Wajar</strong><br><small>Audio Multi-Speaker tanpa sebutan nama, modulasi suara pria-wanita.</small></td>
+                <td>Dialog siswa-guru tentang bahaya hoaks, debat gaya hidup sehat remaja, dan ceramah ilmiah literasi digital.</td>
+                <td>Menyimpulkan pesan moral percakapan, mengidentifikasi perbedaan pendapat pembicara, merinci solusi yang ditawarkan.</td>
+                <td>1 s.d. 10 (Pilihan Ganda)</td>
+              </tr>
+              <tr>
+                <td><strong>Teks Eksposisi Analitis 1</strong><br><small>Analytical Exposition Text</small></td>
+                <td>Teks 1: <em>The Imperative of Critical Digital Literacy in the Era of Algorithmic Information</em></td>
+                <td>Menganalisis tesis penulis, argumen pendukung utama, pengulangan pernyataan (reiteration), sinonim kata B2.</td>
+                <td>11 s.d. 15 (Pilihan Ganda)</td>
+              </tr>
+              <tr>
+                <td><strong>Pilihan Ganda Kompleks Matrix</strong><br><small>Evaluasi Kaidah &amp; Logika Wacana</small></td>
+                <td>Kaidah Hubungan Sebab-Akibat (Cause &amp; Effect) dan Kalimat Pasif Ilmiah</td>
+                <td>Menentukan Benar/Salah 4 pernyataan gramatikal: <em>because of vs because</em>, bentuk V3 passive voice, dan fakta wacana.</td>
+                <td>16 s.d. 20 (Kompleks Matrix)</td>
+              </tr>
+              <tr>
+                <td><strong>Pilihan Ganda Kompleks MCMA</strong><br><small>Pilih 2 Opsi Benar</small></td>
+                <td>Argumen Kritis &amp; Struktur Tata Bahasa Baku</td>
+                <td>Memilih <strong>2 opsi yang benar</strong> dari 4 pilihan mengenai konjungsi pertentangan, argumen eksposisi, dan passive voice.</td>
+                <td>21 s.d. 25 (MCMA Kotak Centang)</td>
+              </tr>
+              <tr>
+                <td><strong>Teks Eksposisi 2 &amp; Tata Bahasa</strong><br><small>Reading &amp; Applied Grammar</small></td>
+                <td>Teks 2: <em>Nurturing Adolescent Physical and Mental Well-Being</em> &amp; Tata Bahasa Terapan</td>
+                <td>Menemukan detail gagasan teks kesehatan; Menerapkan Conditional Type 2 (unreal present), konektor kausalitas, dan adverbia transisi.</td>
+                <td>26 s.d. 40 (Pilihan Ganda)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- KELAS XI TINGKAT LANJUT -->
+      <div class="kisi-card" id="card-xi-tl" data-level="xi-tl">
+        <div class="kisi-card-header" style="border-left: 6px solid #7c3aed;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+              <span class="portal-badge badge-xi">KELAS XI</span>
+              <span style="font-size: 0.8rem; font-weight: 700; background: #f3e8ff; color: #6b21a8; padding: 2px 8px; border-radius: 4px;">BAHASA INGGRIS TINGKAT LANJUT</span>
+            </div>
+            <h3 style="margin: 0; color: var(--primary-navy); font-size: 1.25rem;">
+              Bahasa Inggris Tingkat Lanjut Kelas XI (Fase F)
+            </h3>
+          </div>
+          <div style="font-size: 0.85rem; color: #64748b; text-align: right;">
+            <strong>Alokasi Waktu:</strong> 90 Menit | <strong>Jumlah:</strong> 40 Soal | <strong>KKTP:</strong> &ge; 75
+          </div>
+        </div>
+        <div class="kisi-card-body">
+          <div class="tka-structure-grid">
+            <div class="tka-box" style="border-color: #7c3aed;">
+              <strong>1. Listening Section (10 Soal)</strong>
+              <span>Part I (1-3) Multimodal Manuscripts &amp; Arts, Part II (4-6) Dialogues (Folklore &amp; AI Ethics), Part III (7-10) Literary Talks.</span>
+            </div>
+            <div class="tka-box" style="border-color: #0284c7;">
+              <strong>2. Reading Text 1 (5 Soal)</strong>
+              <span>Soal 11-15: Authentic Central Java Narrative Folklore (The Legend of Rawa Pening / Baru Klinthing).</span>
+            </div>
+            <div class="tka-box" style="border-color: #059669;">
+              <strong>3. Matrix True/False (5 Soal)</strong>
+              <span>Soal 16-20: Evaluasi alur cerita Rawa Pening, Inversi Negatif, Wacana Hortatori AI, dan Mandative Subjunctive.</span>
+            </div>
+            <div class="tka-box" style="border-color: #d97706;">
+              <strong>4. MCMA Pilih 2 (5 Soal)</strong>
+              <span>Soal 21-25: Memilih 2 opsi benar mengenai nilai moral cerita, mitigasi risiko AI, dan susunan kalimat inversi gramatikal.</span>
+            </div>
+            <div class="tka-box" style="border-color: #16a34a;">
+              <strong>5. Reading 2 &amp; Grammar (15 Soal)</strong>
+              <span>Soal 26-30: Hortatory Exposition Text on AI; Soal 31-40: Negative Inversion, Subjunctive Mood, Concessive Clauses.</span>
+            </div>
+          </div>
+
+          <table class="table-kisi">
+            <thead>
+              <tr>
+                <th style="width: 25%;">Kompetensi &amp; Capaian (CP)</th>
+                <th style="width: 30%;">Materi Pokok &amp; Teks Otentik</th>
+                <th style="width: 30%;">Indikator Soal &amp; Kaidah Bahasa</th>
+                <th style="width: 15%;">Nomor Soal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Menyimak Narasi &amp; Debat Sastra</strong><br><small>Audio Multi-Speaker dengan pelafalan natural nama lokal (id-ID).</small></td>
+                <td>Dialog apresiasi cerita rakyat Jawa Tengah, percakapan integritas akademik siswa, dan ceramah nilai tradisi lisan.</td>
+                <td>Menangkap nuansa sikap pembicara, menganalisis konflik karakter, dan menyimpulkan implikasi wacana lisan.</td>
+                <td>1 s.d. 10 (Pilihan Ganda)</td>
+              </tr>
+              <tr>
+                <td><strong>Teks Naratif Cerita Rakyat</strong><br><small>Narrative Folklore Text</small></td>
+                <td>Teks 1: <em>The Legend of Rawa Pening (Baru Klinthing's Loyalty and Humility)</em></td>
+                <td>Menganalisis resolusi cerita rakyat Jawa Tengah, karakterisasi Baru Klinthing vs Mbok Rondo, dan makna kata figuratif.</td>
+                <td>11 s.d. 15 (Pilihan Ganda)</td>
+              </tr>
+              <tr>
+                <td><strong>Pilihan Ganda Kompleks Matrix</strong><br><small>Analisis Sintaksis &amp; Logika Teks</small></td>
+                <td>Inversi Negatif (<em>Never before, Seldom</em>) &amp; Mandative Subjunctive</td>
+                <td>Mengevaluasi kebenaran 4 butir pernyataan mengenai pola inversi pembantu (auxiliary inversion) dan subjunctive mood.</td>
+                <td>16 s.d. 20 (Kompleks Matrix)</td>
+              </tr>
+              <tr>
+                <td><strong>Pilihan Ganda Kompleks MCMA</strong><br><small>Pilih 2 Opsi Benar</small></td>
+                <td>Nilai Karakter Budaya &amp; Etika Digital</td>
+                <td>Memilih <strong>2 nilai moral yang tepat</strong> dari cerita Rawa Pening dan 2 praktik pemanfaatan kecerdasan buatan secara etis.</td>
+                <td>21 s.d. 25 (MCMA Kotak Centang)</td>
+              </tr>
+              <tr>
+                <td><strong>Teks Hortatori 2 &amp; Tata Bahasa Maju</strong><br><small>Hortatory Exposition &amp; Advanced Grammar</small></td>
+                <td>Teks 2: <em>Harnessing Generative AI Responsibly for High School Learning</em></td>
+                <td>Menganalisis rekomendasi aksi teks hortatori; Menerapkan negative inversion, subjunctive (recommend that... be), dan konjungsi konsesif.</td>
+                <td>26 s.d. 40 (Pilihan Ganda)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- KELAS XII WAJIB -->
+      <div class="kisi-card" id="card-xii-wajib" data-level="xii-wajib">
+        <div class="kisi-card-header" style="border-left: 6px solid #d97706;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+              <span class="portal-badge badge-xii">KELAS XII</span>
+              <span style="font-size: 0.8rem; font-weight: 700; background: #fffbeb; color: #b45309; padding: 2px 8px; border-radius: 4px;">BAHASA INGGRIS WAJIB / REGULER</span>
+            </div>
+            <h3 style="margin: 0; color: var(--primary-navy); font-size: 1.25rem;">
+              Bahasa Inggris Wajib Kelas XII (Fase F+)
+            </h3>
+          </div>
+          <div style="font-size: 0.85rem; color: #64748b; text-align: right;">
+            <strong>Alokasi Waktu:</strong> 90 Menit | <strong>Jumlah:</strong> 40 Soal | <strong>KKTP:</strong> &ge; 75
+          </div>
+        </div>
+        <div class="kisi-card-body">
+          <div class="tka-structure-grid">
+            <div class="tka-box" style="border-color: #d97706;">
+              <strong>1. Listening Section (10 Soal)</strong>
+              <span>Part I (1-3) Multimodal Pictures, Part II (4-6) Dialogues (AI Debate, Clean Energy, "The Rainbow Troops"), Part III (7-10) Talks.</span>
+            </div>
+            <div class="tka-box" style="border-color: #0284c7;">
+              <strong>2. Reading Text 1 (5 Soal)</strong>
+              <span>Soal 11-15: Discussion Text (Generative AI in High School Education: Opportunity or Cognitive Threat?).</span>
+            </div>
+            <div class="tka-box" style="border-color: #059669;">
+              <strong>3. Matrix True/False (5 Soal)</strong>
+              <span>Soal 16-20: Evaluasi argumen teks diskusi AI, Conditional Type 3, Transisi pertentangan (However, Despite), Resensi Laskar Pelangi.</span>
+            </div>
+            <div class="tka-box" style="border-color: #16a34a;">
+              <strong>4. MCMA Pilih 2 (5 Soal)</strong>
+              <span>Soal 21-25: Memilih 2 argumen AI yang etis, susunan kalimat Conditional Type 3 baku, nilai keteladanan novel, dan Reported Speech.</span>
+            </div>
+            <div class="tka-box" style="border-color: #7c3aed;">
+              <strong>5. Reading 2 &amp; Grammar (15 Soal)</strong>
+              <span>Soal 26-30: Critical Review on Andrea Hirata's novel "The Rainbow Troops"; Soal 31-40: Conditionals, Modals of Deduction, Reported Speech.</span>
+            </div>
+          </div>
+
+          <table class="table-kisi">
+            <thead>
+              <tr>
+                <th style="width: 25%;">Kompetensi &amp; Capaian (CP)</th>
+                <th style="width: 30%;">Materi Pokok &amp; Teks Otentik</th>
+                <th style="width: 30%;">Indikator Soal &amp; Kaidah Bahasa</th>
+                <th style="width: 15%;">Nomor Soal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Menyimak Percakapan Wajar</strong><br><small>Audio Multi-Speaker modulasi gender tanpa membaca nama secara lisan.</small></td>
+                <td>Diskusi siswa-guru mengenai AI dalam esai ilmiah, pertimbangan energi panas bumi di Jawa Tengah, dan bedah novel Laskar Pelangi.</td>
+                <td>Mengidentifikasi argumen kontra pembicara, menganalisis solusi kompromi, dan menangkap pesan moral wacana lisan.</td>
+                <td>1 s.d. 10 (Pilihan Ganda)</td>
+              </tr>
+              <tr>
+                <td><strong>Teks Diskusi Wacana 1</strong><br><small>Discussion Text (Pro &amp; Contra Analysis)</small></td>
+                <td>Teks 1: <em>Generative Artificial Intelligence in Secondary Classrooms: Revolutionary Opportunity or Cognitive Threat?</em></td>
+                <td>Menganalisis tujuan komunikatif teks diskusi, menguraikan argumen pendukung vs penentang, dan menyimpulkan rekomendasi berimbang.</td>
+                <td>11 s.d. 15 (Pilihan Ganda)</td>
+              </tr>
+              <tr>
+                <td><strong>Pilihan Ganda Kompleks Matrix</strong><br><small>Pengandaian Masa Lalu &amp; Logika Argumen</small></td>
+                <td>Conditional Type 3 (Unreal Past) &amp; Modals of Deduction</td>
+                <td>Menentukan Benar/Salah susunan: <em>If + had + V3, would have + V3</em>, modal deduksi (<em>must have, might have</em>), dan konjungsi pertentangan.</td>
+                <td>16 s.d. 20 (Kompleks Matrix)</td>
+              </tr>
+              <tr>
+                <td><strong>Pilihan Ganda Kompleks MCMA</strong><br><small>Pilih 2 Opsi Benar</small></td>
+                <td>Sintesis Nilai Sastra &amp; Kalimat Tak Langsung</td>
+                <td>Memilih <strong>2 opsi yang tepat</strong> mengenai penerapan etis AI di sekolah, kalimat pengandaian Type 3, dan reported speech baku.</td>
+                <td>21 s.d. 25 (MCMA Kotak Centang)</td>
+              </tr>
+              <tr>
+                <td><strong>Teks Ulasan Sastra 2 &amp; Tata Bahasa</strong><br><small>Review Text &amp; Applied Grammar</small></td>
+                <td>Teks 2: <em>Critical Literary Review: Andrea Hirata’s 'The Rainbow Troops' (Laskar Pelangi)</em></td>
+                <td>Menganalisis evaluasi pengulas terhadap perjuangan murid Belitung; Menerapkan connectors of contrast (However, Nevertheless), dan impersonal passive.</td>
+                <td>26 s.d. 40 (Pilihan Ganda)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- KELAS XII TINGKAT LANJUT -->
+      <div class="kisi-card" id="card-xii-tl" data-level="xii-tl">
+        <div class="kisi-card-header" style="border-left: 6px solid #b91c1c;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+              <span class="portal-badge badge-xii">KELAS XII</span>
+              <span style="font-size: 0.8rem; font-weight: 700; background: #fef2f2; color: #991b1b; padding: 2px 8px; border-radius: 4px;">BAHASA INGGRIS TINGKAT LANJUT</span>
+            </div>
+            <h3 style="margin: 0; color: var(--primary-navy); font-size: 1.25rem;">
+              Bahasa Inggris Tingkat Lanjut Kelas XII (Fase F+)
+            </h3>
+          </div>
+          <div style="font-size: 0.85rem; color: #64748b; text-align: right;">
+            <strong>Alokasi Waktu:</strong> 90 Menit | <strong>Jumlah:</strong> 40 Soal | <strong>KKTP:</strong> &ge; 75
+          </div>
+        </div>
+        <div class="kisi-card-body">
+          <div class="tka-structure-grid">
+            <div class="tka-box" style="border-color: #b91c1c;">
+              <strong>1. Listening Section (10 Soal)</strong>
+              <span>Part I (1-3) Multimodal Science &amp; Diplomacy, Part II (4-6) Dialogues (Cashless Society &amp; Pramoedya's Masterpiece), Part III (7-10) Talks.</span>
+            </div>
+            <div class="tka-box" style="border-color: #0284c7;">
+              <strong>2. Reading Text 1 (5 Soal)</strong>
+              <span>Soal 11-15: Advanced Discussion (The Transition to a Cashless Society: Financial Inclusion &amp; Privacy).</span>
+            </div>
+            <div class="tka-box" style="border-color: #059669;">
+              <strong>3. Matrix True/False (5 Soal)</strong>
+              <span>Soal 16-20: Evaluasi fakta masyarakat nontunai, Inverted Conditionals (Had, Were, Should), Cleft Sentences, dan Resensi Bumi Manusia.</span>
+            </div>
+            <div class="tka-box" style="border-color: #d97706;">
+              <strong>4. MCMA Pilih 2 (5 Soal)</strong>
+              <span>Soal 21-25: Memilih 2 keunggulan transaksi digital, inversi pengandaian baku, kalimat cleft penekanan, dan keteladanan Nyai Ontosoroh.</span>
+            </div>
+            <div class="tka-box" style="border-color: #16a34a;">
+              <strong>5. Reading 2 &amp; Grammar (15 Soal)</strong>
+              <span>Soal 26-30: Literary Review: Pramoedya Ananta Toer's "This Earth of Mankind" (Bumi Manusia); Soal 31-40: Inversion, Cleft, Subjunctive.</span>
+            </div>
+          </div>
+
+          <table class="table-kisi">
+            <thead>
+              <tr>
+                <th style="width: 25%;">Kompetensi &amp; Capaian (CP)</th>
+                <th style="width: 30%;">Materi Pokok &amp; Teks Otentik</th>
+                <th style="width: 30%;">Indikator Soal &amp; Kaidah Bahasa</th>
+                <th style="width: 15%;">Nomor Soal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Menyimak Wacana Tingkat Lanjut</strong><br><small>Audio Multi-Speaker modulasi gender dan pelafalan Indonesia natural.</small></td>
+                <td>Dialog ekonomi digital anak muda, bedah karya klasik Pramoedya, proyek ekologi pemuda, dan kuliah kesadaran sastra Indonesia.</td>
+                <td>Menyimpulkan perspektif inklusi keuangan, mengapresiasi keteladanan moral karakter novel, merinci literasi algoritma media.</td>
+                <td>1 s.d. 10 (Pilihan Ganda)</td>
+              </tr>
+              <tr>
+                <td><strong>Teks Diskusi Ekonomi Digital</strong><br><small>Advanced Discussion Text</small></td>
+                <td>Teks 1: <em>The Transition to a Cashless Society: Modern Convenience vs. Financial Inclusion and Security</em></td>
+                <td>Menganalisis dampak QRIS bagi UMKM, risiko peminggiran finansial warga pelosok, isu privasi data perbankan, rekomendasi ekosistem hibrida.</td>
+                <td>11 s.d. 15 (Pilihan Ganda)</td>
+              </tr>
+              <tr>
+                <td><strong>Pilihan Ganda Kompleks Matrix</strong><br><small>Inversi, Cleft Sentences, &amp; Konsesi Maju</small></td>
+                <td>Struktur Tata Bahasa Tingkat Lanjut (CEFR B2 Level)</td>
+                <td>Menentukan Benar/Salah pola inversi (<em>Had the school provided..., Were they to...</em>), kalimat cleft (<em>It was... that...</em>), dan <em>Much as</em>.</td>
+                <td>16 s.d. 20 (Kompleks Matrix)</td>
+              </tr>
+              <tr>
+                <td><strong>Pilihan Ganda Kompleks MCMA</strong><br><small>Pilih 2 Opsi Benar</small></td>
+                <td>Karakter Martabat Manusia &amp; Sintaksis Maju</td>
+                <td>Memilih <strong>2 opsi yang benar</strong> mengenai keunggulan QRIS, pola inversi pengandaian, dan karakter pantang menyerah Nyai Ontosoroh &amp; Minke.</td>
+                <td>21 s.d. 25 (MCMA Kotak Centang)</td>
+              </tr>
+              <tr>
+                <td><strong>Teks Ulasan Sastra Klasik &amp; Tata Bahasa</strong><br><small>Critical Literary Review &amp; Rhetorical Conventions</small></td>
+                <td>Teks 2: <em>Literary Review — Pramoedya Ananta Toer’s 'This Earth of Mankind' (Bumi Manusia)</em></td>
+                <td>Menganalisis perlawanan bermartabat Nyai Ontosoroh; Menguasai Wh-cleft (What we need is...), Mandative Subjunctive (recommend that... adopt), dan Concession.</td>
+                <td>26 s.d. 40 (Pilihan Ganda)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div style="max-width: 900px; margin: 0 auto; line-height: 1.6; text-align: center;">
+      <p><strong>SMA Negeri 1 Bae Kudus (Sabaku)</strong> — Unggul, Berkarakter, Berwawasan Global</p>
+      <p style="font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-top: 4px;">
+        Dokumen Kisi-Kisi Resmi Asesmen Sumatif Bahasa Inggris Kurikulum Merdeka Tahun Pelajaran 2026/2027.
+      </p>
+      <p style="font-size: 0.8rem; margin-top: 8px;">
+        <a href="index.html" style="color: #93c5fd; text-decoration: none; font-weight: 700;">🏠 Kembali ke Portal Masuk Siswa</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    function filterKisi(level, btn) {
+      document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cards = document.querySelectorAll('.kisi-card');
+      cards.forEach(card => {
+        if (level === 'all') {
+          card.style.display = 'block';
+        } else {
+          if (card.dataset.level === level) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

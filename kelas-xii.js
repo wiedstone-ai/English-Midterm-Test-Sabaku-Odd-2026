@@ -985,19 +985,24 @@ function applyStudentMetadata() {
 
 function toggleKisiKisiContent() {
   const body = document.getElementById("kisi-kisi-body");
+  if (!body) return;
   const icon = document.getElementById("kisi-toggle-icon");
   if (body.style.display === "none") {
     body.style.display = "block";
-    icon.textContent = "▲ Sembunyikan Kisi-Kisi";
+    if (icon) icon.textContent = "▲ Sembunyikan Kisi-Kisi";
   } else {
     body.style.display = "none";
-    icon.textContent = "▼ Lihat Rincian Kisi-Kisi";
+    if (icon) icon.textContent = "▼ Buka Kisi-Kisi Lengkap";
   }
 }
 
 function toggleKisiKisiModal() {
-  toggleKisiKisiContent();
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  const body = document.getElementById("kisi-kisi-body");
+  if (!body) return;
+  body.style.display = "block";
+  const icon = document.getElementById("kisi-toggle-icon");
+  if (icon) icon.textContent = "▲ Sembunyikan Kisi-Kisi";
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function buildNavigatorGrid() {

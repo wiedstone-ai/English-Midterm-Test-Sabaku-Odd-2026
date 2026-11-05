@@ -1174,3 +1174,4 @@ function saveProgressToLocalStorage() {
 }
 
 run();
+

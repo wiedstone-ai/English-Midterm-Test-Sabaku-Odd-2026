@@ -79,3 +79,4 @@ updateFile('kelas-xii-asas.html', kisiWajib);
 updateFile('kelas-xii-asts.html', kisiWajib);
 updateFile('kelas-xii-tl-asas.html', kisiTL);
 updateFile('kelas-xii-tl-asts.html', kisiTL);
+

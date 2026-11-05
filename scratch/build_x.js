@@ -923,3 +923,4 @@ function saveProgressToLocalStorage() {
 }
 
 run();
+

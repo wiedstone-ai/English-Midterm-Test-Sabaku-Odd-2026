@@ -5,6 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portal Masuk Asesmen Bahasa Inggris — SMAN 1 Bae Kudus</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .kategori-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      font-weight: 600;
+      color: #1e293b;
+      background: #ffffff;
+      padding: 12px 16px;
+      border: 2px solid #cbd5e1;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      flex: 1;
+      min-width: 220px;
+    }
+    .kategori-card:hover {
+      border-color: #94a3b8;
+      background: #f8fafc;
+    }
+    .kategori-card.selected {
+      border-color: #2563eb;
+      background: #eff6ff;
+    }
+    .kategori-card.selected-tl {
+      border-color: #7c3aed;
+      background: #f5f3ff;
+    }
+  </style>
 </head>
 <body>
 
@@ -19,7 +48,12 @@
         </div>
       </div>
       <div class="header-actions">
-        <span class="badge-mode practice" style="color: white; border: 1px solid rgba(255,255,255,0.4); padding: 6px 14px; font-size: 0.85rem;">Portal Siswa Sabaku</span>
+        <a href="kisi-kisi.html" class="btn btn-outline" style="color: white; border: 1px solid rgba(255,255,255,0.4); text-decoration: none; padding: 6px 14px; font-size: 0.85rem; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+          📋 Kisi-Kisi Materi
+        </a>
+        <span class="badge-mode practice" style="color: white; border: 1px solid rgba(255,255,255,0.4); padding: 6px 14px; font-size: 0.85rem;">
+          Portal Siswa Sabaku
+        </span>
       </div>
     </div>
   </header>
@@ -35,19 +69,17 @@
           </p>
         </div>
 
-        <form id="student-portal-form" onsubmit="handlePortalSubmit(event)">
+        <form id="student-portal-form" onsubmit="event.preventDefault()">
           <div class="form-row">
             <div class="form-group">
               <label for="input-tingkat" style="font-weight: 700; color: var(--primary-navy);">
                 Pilih Tingkat Kelas <span style="color:red;">*</span>
               </label>
-              <select id="input-tingkat" class="form-control" required style="padding: 10px 12px; font-size: 0.95rem;">
+              <select id="input-tingkat" class="form-control" required onchange="handleTingkatChange()" style="padding: 10px 12px; font-size: 0.95rem;">
                 <option value="">-- Pilih Tingkat Kelas --</option>
-                <option value="X-E">Kelas X (Fase E)</option>
-                <option value="XI-F">Kelas XI (Fase F — Bahasa Inggris Wajib)</option>
-                <option value="XI-TL">Kelas XI (Fase F — Bahasa Inggris Tingkat Lanjut)</option>
-                <option value="XII-F">Kelas XII (Fase F — Bahasa Inggris Wajib)</option>
-                <option value="XII-TL">Kelas XII (Fase F — Bahasa Inggris Tingkat Lanjut)</option>
+                <option value="X">Kelas X (Fase E)</option>
+                <option value="XI">Kelas XI (Fase F)</option>
+                <option value="XII">Kelas XII (Fase F)</option>
               </select>
             </div>
 
@@ -70,6 +102,33 @@
                 <option value="11">Rombel 11</option>
                 <option value="12">Rombel 12</option>
               </select>
+            </div>
+          </div>
+
+          <!-- Kategori Pemilihan Wajib vs Tingkat Lanjut (Untuk Kelas XI & XII) -->
+          <div id="kategori-container" style="display: none; margin-bottom: 20px; background: #f0fdf4; border: 1.5px solid #86efac; border-radius: 8px; padding: 14px 18px;">
+            <label style="font-weight: 700; color: #166534; display: block; margin-bottom: 8px; font-size: 0.95rem;">
+              Pilih Kategori Mata Pelajaran Bahasa Inggris <span style="color:red;">*</span>
+            </label>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+              <label id="lbl-kat-wajib" class="kategori-card" onclick="selectKategori('wajib')">
+                <input type="radio" name="kategori_mapel" id="kat-wajib" value="wajib" style="transform: scale(1.3); cursor: pointer;" />
+                <div>
+                  <div style="font-weight: 700; color: #1e40af; font-size: 0.95rem;">📘 Bahasa Inggris Wajib</div>
+                  <div style="font-size: 0.8rem; color: #64748b;">Mata pelajaran umum / reguler</div>
+                </div>
+              </label>
+
+              <label id="lbl-kat-tl" class="kategori-card" onclick="selectKategori('tl')">
+                <input type="radio" name="kategori_mapel" id="kat-tl" value="tl" style="transform: scale(1.3); cursor: pointer;" />
+                <div>
+                  <div style="font-weight: 700; color: #6b21a8; font-size: 0.95rem;">✨ Bahasa Inggris Tingkat Lanjut</div>
+                  <div style="font-size: 0.8rem; color: #64748b;">Mata pelajaran peminatan / pilihan</div>
+                </div>
+              </label>
+            </div>
+            <div style="font-size: 0.82rem; color: #15803d; margin-top: 8px;">
+              ℹ️ <em>Pilih kategori yang sesuai dengan mata pelajaran yang Anda tempuh semester ini.</em>
             </div>
           </div>
 
@@ -98,6 +157,13 @@
               <span>📘</span> Masuk ASTS Gasal (Asesmen Sumatif Tengah Semester Gasal) ➔
             </button>
           </div>
+
+          <!-- Link Kisi-Kisi Materi Lengkap -->
+          <div style="text-align: center; margin-top: 16px;">
+            <a href="kisi-kisi.html" style="font-size: 0.92rem; font-weight: 700; color: #2563eb; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px;">
+              📋 Buka Halaman Kisi-Kisi Materi Asesmen Lengkap (X, XI, XII) ➔
+            </a>
+          </div>
         </form>
       </div>
     </section>
@@ -107,7 +173,7 @@
   <footer>
     <div style="max-width: 900px; margin: 0 auto; line-height: 1.6; text-align: center;">
       <p><strong>SMA Negeri 1 Bae Kudus (Sabaku)</strong> — Unggul, Berkarakter, Berwawasan Global</p>
-            <p style="font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-top: 4px;">
+      <p style="font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-top: 4px;">
         Sistem Asesmen Bahasa Inggris Terpadu Kurikulum Merdeka Tahun Pelajaran 2026/2027.
       </p>
       <p style="font-size: 0.75rem; margin-top: 8px;">
@@ -127,15 +193,72 @@
       input.value = val;
     }
 
-    function submitPortalForm(jenisAsesmen) {
+    function handleTingkatChange() {
       const tingkat = document.getElementById('input-tingkat').value;
+      const katBox = document.getElementById('kategori-container');
+      if (tingkat === 'XI' || tingkat === 'XII') {
+        katBox.style.display = 'block';
+      } else {
+        katBox.style.display = 'none';
+        document.getElementById('kat-wajib').checked = false;
+        document.getElementById('kat-tl').checked = false;
+        updateKategoriCardsUI();
+      }
+    }
+
+    function selectKategori(val) {
+      if (val === 'wajib') {
+        document.getElementById('kat-wajib').checked = true;
+      } else {
+        document.getElementById('kat-tl').checked = true;
+      }
+      updateKategoriCardsUI();
+    }
+
+    function updateKategoriCardsUI() {
+      const isWajib = document.getElementById('kat-wajib').checked;
+      const isTL = document.getElementById('kat-tl').checked;
+
+      const cardWajib = document.getElementById('lbl-kat-wajib');
+      const cardTL = document.getElementById('lbl-kat-tl');
+
+      cardWajib.className = 'kategori-card' + (isWajib ? ' selected' : '');
+      cardTL.className = 'kategori-card' + (isTL ? ' selected-tl' : '');
+    }
+
+    function submitPortalForm(jenisAsesmen) {
+      const tingkatRaw = document.getElementById('input-tingkat').value;
       const rombel = document.getElementById('input-rombel').value;
       const presensi = document.getElementById('input-presensi').value.trim();
       const nama = document.getElementById('input-nama').value.trim();
 
-      if (!tingkat || !rombel || !presensi || !nama) {
+      if (!tingkatRaw || !rombel || !presensi || !nama) {
         alert('Harap lengkapi seluruh kolom identitas peserta (Tingkat Kelas, Rombel, Nomor Presensi, dan Nama Lengkap)!');
         return;
+      }
+
+      let finalTingkatCode = '';
+
+      if (tingkatRaw === 'X') {
+        finalTingkatCode = 'X-E';
+      } else if (tingkatRaw === 'XI') {
+        const isWajib = document.getElementById('kat-wajib').checked;
+        const isTL = document.getElementById('kat-tl').checked;
+        if (!isWajib && !isTL) {
+          alert('Untuk Kelas XI, Anda harus memilih kategori mata pelajaran:\n• Bahasa Inggris Wajib atau\n• Bahasa Inggris Tingkat Lanjut!');
+          document.getElementById('kategori-container').scrollIntoView({ behavior: 'smooth' });
+          return;
+        }
+        finalTingkatCode = isTL ? 'XI-TL' : 'XI-F';
+      } else if (tingkatRaw === 'XII') {
+        const isWajib = document.getElementById('kat-wajib').checked;
+        const isTL = document.getElementById('kat-tl').checked;
+        if (!isWajib && !isTL) {
+          alert('Untuk Kelas XII, Anda harus memilih kategori mata pelajaran:\n• Bahasa Inggris Wajib atau\n• Bahasa Inggris Tingkat Lanjut!');
+          document.getElementById('kategori-container').scrollIntoView({ behavior: 'smooth' });
+          return;
+        }
+        finalTingkatCode = isTL ? 'XII-TL' : 'XII-F';
       }
 
       const pNum = parseInt(presensi, 10);
@@ -146,33 +269,32 @@
 
       // Simpan Identitas Siswa ke LocalStorage
       const studentData = {
-        tingkat,
+        tingkat: finalTingkatCode,
         rombel,
         presensi,
         nama,
         jenisAsesmen: jenisAsesmen,
-        mode: 'practice',
+        mode: (jenisAsesmen === 'ASAS') ? 'practice' : 'exam',
         loginTime: Date.now()
       };
       localStorage.setItem('sabaku_current_student', JSON.stringify(studentData));
 
       // Arahkan ke instrumen latihan/asesmen sesuai jenis asesmen dan tingkat kelas
       if (jenisAsesmen === 'ASAS') {
-        // Latihan ASAS: Akses Bebas Tanpa Password
-        if (tingkat === 'XI-TL') {
+        // Latihan ASAS: Akses Bebas Langsung Masuk ke Ujian yang Sesuai
+        if (finalTingkatCode === 'XI-TL') {
           window.location.href = 'kelas-xi-tl-asas.html';
-        } else if (tingkat === 'XI-F') {
+        } else if (finalTingkatCode === 'XI-F') {
           window.location.href = 'kelas-xi-asas.html';
-        } else if (tingkat === 'XII-TL') {
+        } else if (finalTingkatCode === 'XII-TL') {
           window.location.href = 'kelas-xii-tl-asas.html';
-        } else if (tingkat === 'XII-F') {
+        } else if (finalTingkatCode === 'XII-F') {
           window.location.href = 'kelas-xii-asas.html';
         } else {
-          // Kelas X (Fase E)
           window.location.href = 'kelas-x-asas.html';
         }
       } else {
-        // Mode ASTS Real: Memerlukan Verifikasi Password dari Pengawas (via masuk-asts.html)
+        // Mode ASTS Real: Menuju Verifikasi Password Pengawas (masuk-asts.html)
         window.location.href = 'masuk-asts.html';
       }
     }
@@ -182,9 +304,30 @@
       try {
         const prev = JSON.parse(localStorage.getItem('sabaku_current_student') || '{}');
         if (prev.nama) document.getElementById('input-nama').value = prev.nama;
-        if (prev.tingkat) document.getElementById('input-tingkat').value = prev.tingkat;
         if (prev.rombel) document.getElementById('input-rombel').value = prev.rombel;
         if (prev.presensi) document.getElementById('input-presensi').value = prev.presensi;
+
+        if (prev.tingkat) {
+          if (prev.tingkat === 'X-E') {
+            document.getElementById('input-tingkat').value = 'X';
+          } else if (prev.tingkat === 'XI-F') {
+            document.getElementById('input-tingkat').value = 'XI';
+            handleTingkatChange();
+            selectKategori('wajib');
+          } else if (prev.tingkat === 'XI-TL') {
+            document.getElementById('input-tingkat').value = 'XI';
+            handleTingkatChange();
+            selectKategori('tl');
+          } else if (prev.tingkat === 'XII-F') {
+            document.getElementById('input-tingkat').value = 'XII';
+            handleTingkatChange();
+            selectKategori('wajib');
+          } else if (prev.tingkat === 'XII-TL') {
+            document.getElementById('input-tingkat').value = 'XII';
+            handleTingkatChange();
+            selectKategori('tl');
+          }
+        }
       } catch (err) {
         console.warn('Session autofill error:', err);
       }

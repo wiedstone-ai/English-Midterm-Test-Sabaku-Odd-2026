@@ -70,3 +70,4 @@ SVG_LIBRARY_JS = """const SVG_PICTURES = {
     <circle cx="80" cy="50" r="3" fill="#059669"/>
   </svg>`
 };"""
+
