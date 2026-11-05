@@ -206,7 +206,7 @@ function getGrade11TLAstsQuestions() {
     ],
     "correctAnswer": "A",
     "explanation": "Guru menjelaskan bahwa kesombongan akan membawa kegagalan, dan kebesaran sejati datang dari kerendahan hati: 'Arrogance and selfish ambition will always lead to failure... true greatness comes from humility'.",
-    "grammarNote": "Noun Clauses & Inversion nuance: 'physical strength and pride cannot force someone to respect us'."
+    "grammarNote": "Noun Clauses & Direct Object: 'physical strength and pride cannot force someone to respect us'."
   },
   {
     "id": 5,
@@ -699,15 +699,15 @@ function getGrade11TLAstsQuestions() {
         "isCorrect": true
       }
     ],
-    "explanation": "• Pernyataan 1: BENAR — Frasa 'heartbroken' adalah metafora kesedihan batin mendalam, bukan luka fisik pada jantung.<br>• Pernyataan 2: BENAR — Simile 'gushed forth like a powerful fountain' menggambarkan semburan air yang sangat deras dan cepat.<br>• Pernyataan 3: SALAH — Tokoh Mbok Rondo adalah figur penolong yang tulus, bukan antagonis utama.<br>• Pernyataan 4: BENAR — Lesung kayu penumbuk padi berfungsi sebagai simbol penyelamat bagi kebajikan dan ketulusan Mbok Rondo.",
+    "explanation": "• Pernyataan 1: BENAR — Frasa 'like a powerful fountain' menggunakan majas perumpamaan (Simile) yang ditandai dengan kata pembanding 'like'.<br>• Pernyataan 2: BENAR — Tokoh Mbok Rondo mencerminkan arketipe sastra sebagai figur penolong berbelas kasih (compassionate helper) yang memperoleh keselamatan berkat kebajikannya.<br>• Pernyataan 3: SALAH — Kalimat 'The villagers were enjoying a grand feast' menggunakan Past Continuous Tense ('were enjoying'), bukan Simple Future Tense.<br>• Pernyataan 4: BENAR — Pesan moral cerita menunjukkan bahwa keangkuhan dan keserakahan pada akhirnya akan membawa kehancuran dan bencana.",
     "grammarNote": "Literary Devices (Simile, Character Foil) and Narrative Generic Structure."
   },
   {
     "id": 18,
     "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat Lanjut — SMAN 1 Bae Kudus",
     "type": "complex_matrix",
-    "title": "Complex Multiple Choice: Subjunctive Mood & Inverted Conditionals",
-    "stimulusTitle": "Grammar Focus: Subjunctive Mood and Conditional Inversion in Advanced English",
+    "title": "Complex Multiple Choice: Subjunctive Mood & Conditional Sentences",
+    "stimulusTitle": "Grammar Focus: Subjunctive Mood and Conditional Sentences in Advanced English",
     "stimulusBody": "Evaluate the grammatical accuracy of each sentence structure below:",
     "prompt": "Determine whether each grammatical formulation below is **TRUE** (grammatically correct) or **FALSE** (incorrect):",
     "matrixStatements": [
@@ -720,7 +720,7 @@ function getGrade11TLAstsQuestions() {
         "isCorrect": false
       },
       {
-        "statement": "'Had Baru Klinthing revealed his divine dragon form earlier, the villagers might have reacted with terror' demonstrates standard inverted past conditional.",
+        "statement": "'If Baru Klinthing had revealed his divine dragon form earlier, the villagers would have reacted with terror' correctly demonstrates the third conditional structure.",
         "isCorrect": true
       },
       {
@@ -728,8 +728,8 @@ function getGrade11TLAstsQuestions() {
         "isCorrect": true
       }
     ],
-    "explanation": "• Pernyataan 1: BENAR — Teks eksposisi hortatori memuat rekomendasi aksi nyata bagi pelajar dalam memanfaatkan teknologi AI secara bertanggung jawab.<br>• Pernyataan 2: BENAR — Paragraf 2 menguraikan bahaya penurunan kapasitas nalar independen bila siswa sekadar menyalin jawaban AI.<br>• Pernyataan 3: SALAH — AI generatif tidak menjamin kebenaran mutlak dan dapat menghasilkan informasi yang keliru (halusinasi data).<br>• Pernyataan 4: BENAR — Paragraf penutup merekomendasikan pendekatan berimbang: memanfaatkan AI sebagai asisten belajar tanpa mengorbankan kerja keras orisinal.",
-    "grammarNote": "Mastery of Inversion after Restrictive Adverbials (CEFR B2)."
+    "explanation": "• Pernyataan 1: BENAR — Setelah kata kerja rekomendasi ('recommended that...'), bentuk subjunctive yang digunakan adalah kata kerja dasar (base form) yaitu 'proceed', bukan 'proceeds' atau 'proceeded'.<br>• Pernyataan 2: SALAH — Pola subjungtif formal setelah 'It is essential that...' mewajibkan kata kerja dasar tanpa akhiran '-s' (seharusnya 'understand', bukan 'understands').<br>• Pernyataan 3: BENAR — Kalimat pengandaian tipe 3 (Third Conditional) untuk situasi lampau yang tidak nyata menggunakan rumus baku: If + Past Perfect ('had revealed'), Main Clause + would have + V3 ('would have reacted').<br>• Pernyataan 4: BENAR — Kalimat tersebut rancu secara gramatikal (flawed) karena memadukan Past Simple ('did not provide') dengan 'would have drowned'. Bentuk yang baku adalah: 'If Mbok Rondo had not provided the mortar boat, she would have drowned...'.",
+    "grammarNote": "Subjunctive Mood (Base Verb) & Third Conditional Sentences (If + had + V3, would have + V3)."
   },
   {
     "id": 19,
@@ -860,33 +860,33 @@ function getGrade11TLAstsQuestions() {
     "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat Lanjut — SMAN 1 Bae Kudus",
     "type": "mcma",
     "title": "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
-    "stimulusTitle": "Grammar Focus: Negative Inversion for Dramatic Emphasis",
-    "stimulusBody": "Negative adverbials placed at the beginning of a clause require inverted auxiliary-subject word order:",
-    "prompt": "Which **TWO (2)** sentences correctly demonstrate negative inversion to emphasize dramatic narrative moments?",
+    "stimulusTitle": "Grammar Focus: Defining and Non-Defining Relative Clauses",
+    "stimulusBody": "Relative clauses provide essential or additional descriptive information using relative pronouns (who, which, whose, whom):",
+    "prompt": "Which **TWO (2)** sentences correctly employ relative clauses in narrative and academic contexts?",
     "options": [
       {
         "key": "A",
-        "text": "Scarcely had the boy pulled out the wooden stick when torrents of water gushed across the village square."
+        "text": "Mbok Rondo, who lived alone in a humble wooden cottage, generously welcomed the exhausted boy into her home."
       },
       {
         "key": "B",
-        "text": "Never the villagers realized that pride would cause their own destruction."
+        "text": "The students whose analytical essays demonstrated critical insight received commendation from the academic board."
       },
       {
         "key": "C",
-        "text": "Under no circumstances should students submit automated AI-generated drafts as their own original work."
+        "text": "The magical wooden stick who Baru Klinthing planted firmly in the ground could not be pulled out by the villagers."
       },
       {
         "key": "D",
-        "text": "Seldom secondary schools provides instruction on mythological folklore analysis."
+        "text": "Generative AI algorithms, that synthesize text from internet data, must always be verified with reliable sources."
       }
     ],
     "correctAnswer": [
       "A",
-      "C"
+      "B"
     ],
-    "explanation": "Kalimat yang menerapkan pola inversi negatif secara tepat adalah 'Seldom have researchers witnessed...' dan 'Under no circumstances should learners submit...'. Kedua kalimat tersebut menempatkan kata kerja bantu (auxiliary verb) mendahului subjek setelah adverbial negatif pembatas.",
-    "grammarNote": "Identification of Formal Negative Inversion Structures."
+    "explanation": "Dua kalimat yang menggunakan klausa relatif (relative clause) secara tepat adalah:<br>• Pilihan A benar: menggunakan non-defining relative clause dengan tanda koma dan kata ganti subjek orang 'who' ('Mbok Rondo, who lived alone...').<br>• Pilihan B benar: menggunakan kata ganti kepemilikan 'whose' untuk menerangkan esai milik para siswa ('whose analytical essays...').<br>Pilihan C salah karena menggunakan 'who' untuk benda tak bernyawa ('wooden stick' seharusnya 'which' atau 'that'). Pilihan D salah karena klausa non-defining (diapit tanda koma) tidak boleh menggunakan 'that', melainkan harus menggunakan 'which'.",
+    "grammarNote": "Relative Pronouns (who, whose, which) in Defining and Non-Defining Clauses."
   },
   {
     "id": 24,
@@ -1108,31 +1108,31 @@ function getGrade11TLAstsQuestions() {
     "id": 31,
     "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat Lanjut — SMAN 1 Bae Kudus",
     "type": "single_choice",
-    "title": "Grammar: Negative Inversion (CEFR B2)",
-    "stimulusTitle": "Kaidah Inversi dengan Adverbial Negatif (Negative Inversion)",
-    "stimulusBody": "Rarely _______ students achieve lasting academic success without consistent self-discipline and daily practice.",
-    "prompt": "Choose the correct auxiliary verb to complete the inverted sentence:",
+    "title": "Grammar: Conditional Conjunction 'Unless' (CEFR B2)",
+    "stimulusTitle": "Kaidah Kalimat Pengandaian dengan 'Unless' (Negative Condition)",
+    "stimulusBody": "Secondary school students will not build genuine critical thinking habits _______ they actively practice analyzing information on their own.",
+    "prompt": "Choose the correct conditional conjunction meaning 'if not' to complete the sentence:",
     "options": [
       {
         "key": "A",
-        "text": "do"
+        "text": "unless"
       },
       {
         "key": "B",
-        "text": "does"
+        "text": "although"
       },
       {
         "key": "C",
-        "text": "have"
+        "text": "because"
       },
       {
         "key": "D",
-        "text": "are"
+        "text": "so that"
       }
     ],
     "correctAnswer": "A",
-    "explanation": "Ketika kalimat diawali adverbial pembatas 'Rarely' dan subjeknya jamak ('students') dalam Present Simple, pola inversinya adalah: Rarely + do + Subject + V1 ('Rarely do students achieve...').",
-    "grammarNote": "Negative Inversion Formula: Rarely + do/does + Subject + Base Verb."
+    "explanation": "Konjungsi 'unless' bermakna 'if not' (kecuali jika / jika tidak). Kalimat ini menyatakan bahwa siswa tidak akan membangun kebiasaan berpikir kritis sejati 'kecuali jika' mereka aktif berlatih menganalisis informasi secara mandiri.",
+    "grammarNote": "Conditional Conjunction: Unless + Clause (equivalent to 'if... do not')."
   },
   {
     "id": 32,
@@ -1198,31 +1198,31 @@ function getGrade11TLAstsQuestions() {
     "id": 34,
     "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat Lanjut — SMAN 1 Bae Kudus",
     "type": "single_choice",
-    "title": "Grammar: Inverted Conditional Type 3 (CEFR B2)",
-    "stimulusTitle": "Kaidah Pengandaian Lampau Inversi (Inverted Conditional Type 3)",
-    "stimulusBody": "_______ the students cross-checked the online information with their textbook, they would not have submitted the incorrect historical date.",
-    "prompt": "Choose the correct inverted conditional structure to replace 'If the students had cross-checked':",
+    "title": "Grammar: Third Conditional Sentence (CEFR B2)",
+    "stimulusTitle": "Kaidah Kalimat Pengandaian Tipe 3 (Third Conditional)",
+    "stimulusBody": "If the students _______ the online information with credible reference books, they would not have submitted inaccurate historical data.",
+    "prompt": "Select the correct past perfect verb phrase to complete the third conditional if-clause:",
     "options": [
       {
         "key": "A",
-        "text": "Should the students cross-check"
+        "text": "cross-check"
       },
       {
         "key": "B",
-        "text": "Were the students to cross-check"
+        "text": "had cross-checked"
       },
       {
         "key": "C",
-        "text": "Did the students cross-check"
+        "text": "were cross-checking"
       },
       {
         "key": "D",
-        "text": "Had the students cross-checked"
+        "text": "would cross-check"
       }
     ],
-    "correctAnswer": "D",
-    "explanation": "Bentuk inversi untuk Conditional Type 3 menghilangkan kata 'If' dan memindahkan auxiliary 'Had' ke depan subjek: 'Had the students cross-checked...' = 'If the students had cross-checked...'.",
-    "grammarNote": "Inverted Conditional Type 3: Had + Subject + V3, Subject + would have + V3."
+    "correctAnswer": "B",
+    "explanation": "Kalimat pengandaian tipe 3 (Third Conditional) menyatakan pengandaian tentang peristiwa masa lampau yang berlawanan dengan kenyataan. Pola bakunya adalah: If + Subject + had + V3 (Past Perfect), Subject + would have + V3. Maka bentuk yang tepat untuk klausa pengandaian adalah 'had cross-checked'.",
+    "grammarNote": "Third Conditional Formula: If + Subject + had + V3, Subject + would have + V3."
   },
   {
     "id": 35,
@@ -1378,18 +1378,18 @@ function getGrade11TLAstsQuestions() {
     "id": 40,
     "source": "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat Lanjut — SMAN 1 Bae Kudus",
     "type": "single_choice",
-    "title": "Grammar: Correlative Conjunction with Inversion (CEFR B2)",
-    "stimulusTitle": "Kaidah Inversi 'Not only... but also' (Correlative Inversion)",
-    "stimulusBody": "Not only _______ artificial intelligence assist students with brainstorming ideas, but it also provides quick grammatical feedback.",
-    "prompt": "Choose the correct auxiliary verb to complete the inverted clause:",
+    "title": "Grammar: Correlative Conjunction Agreement (CEFR B2)",
+    "stimulusTitle": "Kaidah Keselarasan Konjungsi Korelatif (Correlative Subject-Verb Agreement)",
+    "stimulusBody": "Not only the class president but also all the student council members _______ agreed to follow the ethical guidelines for digital assignments.",
+    "prompt": "Choose the correct auxiliary verb that agrees with the nearest subject in this correlative construction:",
     "options": [
       {
         "key": "A",
-        "text": "do"
+        "text": "has"
       },
       {
         "key": "B",
-        "text": "does"
+        "text": "have"
       },
       {
         "key": "C",
@@ -1397,12 +1397,12 @@ function getGrade11TLAstsQuestions() {
       },
       {
         "key": "D",
-        "text": "has"
+        "text": "was"
       }
     ],
     "correctAnswer": "B",
-    "explanation": "Ketika diawali 'Not only' dalam Present Simple dengan subjek tunggal 'artificial intelligence', klausanya mengalami inversi: Not only + does + Subject + V1 ('Not only does artificial intelligence assist...').",
-    "grammarNote": "Correlative Inversion: Not only + does + Subject + Base Verb..., but it also + Verb."
+    "explanation": "Dalam konstruksi konjungsi korelatif 'Not only... but also...', keselarasan kata kerja (subject-verb agreement) mengikuti subjek yang paling dekat dengan kata kerja tersebut (proximity rule). Subjek terdekat adalah 'all the student council members' (jamak), sehingga kata kerja bantu yang tepat untuk present perfect adalah 'have'.",
+    "grammarNote": "Correlative Agreement: Not only A but also B + Verb (Verb agrees in number with subject B)."
   }
 ];
 }
