@@ -131,7 +131,7 @@
   </footer>
 
   <script>
-    const GS_URL = "https://script.google.com/macros/s/AKfycbz1dnapNS6sFak-BlG-xxaFhGR9f0BhGYKyyddEvmIEOTxPrlARC2tHkeLLP1owzBToIw/exec";
+    const GS_URL = "https://script.google.com/macros/s/AKfycbz3M4guY77PrNH89TFG-NR_1S7gMaJjQ2TFh8xgOvNeDMyuwZWfwZVvv1YyXgOa3Xu9-Q/exec";
     let currentStudent = null;
 
     // Load identitas dari LocalStorage
@@ -178,6 +178,56 @@
       box.innerHTML = msg;
     }
 
+    function grantAccess() {
+      // Simpan token otorisasi sesi
+      sessionStorage.setItem('sabaku_asts_auth', JSON.stringify({
+        tingkat: currentStudent.tingkat,
+        authenticated: true,
+        loginTime: Date.now()
+      }));
+
+      // Redirect ke halaman ASTS yang sesuai
+      setTimeout(() => {
+        const t = currentStudent.tingkat;
+        if (t === 'XI-TL') {
+          window.location.href = 'kelas-xi-tl-asts.html';
+        } else if (t === 'XI-F') {
+          window.location.href = 'kelas-xi-asts.html';
+        } else if (t === 'XII-TL') {
+          window.location.href = 'kelas-xii-tl-asts.html';
+        } else if (t === 'XII-F') {
+          window.location.href = 'kelas-xii-asts.html';
+        } else {
+          window.location.href = 'kelas-x-asts.html';
+        }
+      }, 700);
+    }
+
+    function isFallbackPasswordMatch(enteredPass) {
+      const up = String(enteredPass || "").trim().toUpperCase();
+      const defaultPasswords = {
+        'ALL': 'SABAKU2026',
+        'X-E': 'SABAKU-X',
+        'XI-F': 'SABAKU-XI',
+        'XI-TL': 'SABAKU-XI-TL',
+        'XII-F': 'SABAKU-XII',
+        'XII-TL': 'SABAKU-XII-TL'
+      };
+
+      if (up === 'SABAKU2026' || up === (defaultPasswords[currentStudent.tingkat] || '').toUpperCase()) {
+        return true;
+      }
+
+      // Cek jika ada custom password yang pernah disetel di browser ini
+      try {
+        const custom = JSON.parse(localStorage.getItem('sabaku_custom_passwords') || '{}');
+        if (custom['ALL'] && String(custom['ALL']).trim().toUpperCase() === up) return true;
+        if (custom[currentStudent.tingkat] && String(custom[currentStudent.tingkat]).trim().toUpperCase() === up) return true;
+      } catch (err) {}
+
+      return false;
+    }
+
     async function handleVerifySubmit(e) {
       e.preventDefault();
       const enteredPass = document.getElementById('input-password').value.trim();
@@ -196,66 +246,41 @@
         const resp = await fetch(url);
         const data = await resp.json();
 
+        // Kasus 1: Server merespons dengan hasil verifikasi valid
         if (data.valid === true) {
           showStatus('🎉 <strong>Password Benar!</strong> Membuka ruang ujian ASTS...', true);
-          
-          // Simpan token otorisasi sesi
-          sessionStorage.setItem('sabaku_asts_auth', JSON.stringify({
-            tingkat: currentStudent.tingkat,
-            authenticated: true,
-            loginTime: Date.now()
-          }));
+          grantAccess();
+          return;
+        }
 
-          // Redirect ke halaman ASTS yang sesuai
-          setTimeout(() => {
-            const t = currentStudent.tingkat;
-            if (t === 'XI-TL') {
-              window.location.href = 'kelas-xi-tl-asts.html';
-            } else if (t === 'XI-F') {
-              window.location.href = 'kelas-xi-asts.html';
-            } else if (t === 'XII-TL') {
-              window.location.href = 'kelas-xii-tl-asts.html';
-            } else if (t === 'XII-F') {
-              window.location.href = 'kelas-xii-asts.html';
-            } else {
-              window.location.href = 'kelas-x-asts.html';
-            }
-          }, 800);
-
-        } else {
+        // Kasus 2: Server merespons dengan penolakan resmi (password salah)
+        if (data.valid === false) {
           showStatus('❌ <strong>Password Salah!</strong> ' + (data.message || 'Password tidak valid atau belum diaktifkan oleh pengawas.'), false);
           btn.innerText = "Verifikasi & Masuk Ujian ➔";
           btn.disabled = false;
           document.getElementById('input-password').select();
+          return;
+        }
+
+        // Kasus 3: Server merespons dengan format lama (Apps Script belum di-deploy versi baru)
+        if (isFallbackPasswordMatch(enteredPass)) {
+          showStatus('🎉 <strong>Password Cocok (Fallback Mode Aktif)!</strong> Membuka ruang ujian ASTS...', true);
+          grantAccess();
+          return;
+        } else {
+          showStatus('❌ <strong>Password Salah!</strong> Password yang dimasukkan tidak cocok. Pastikan pengawas ruang sudah memberikan password yang benar atau mengupdate Google Apps Script.', false);
+          btn.innerText = "Verifikasi & Masuk Ujian ➔";
+          btn.disabled = false;
+          document.getElementById('input-password').select();
+          return;
         }
 
       } catch (networkErr) {
         console.warn('Network error during check:', networkErr);
-        // Fallback jika Google Script lambat/timeout namun password standar cocok
-        const defaultPasswords = {
-          'ALL': 'SABAKU2026',
-          'X-E': 'SABAKU-X',
-          'XI-F': 'SABAKU-XI',
-          'XI-TL': 'SABAKU-XI-TL',
-          'XII-F': 'SABAKU-XII',
-          'XII-TL': 'SABAKU-XII-TL'
-        };
-
-        if (enteredPass.toUpperCase() === 'SABAKU2026' || enteredPass.toUpperCase() === defaultPasswords[currentStudent.tingkat]) {
-          showStatus('🎉 <strong>Password Valid (Offline Fallback)!</strong> Membuka ruang ujian...', true);
-          sessionStorage.setItem('sabaku_asts_auth', JSON.stringify({
-            tingkat: currentStudent.tingkat,
-            authenticated: true,
-            loginTime: Date.now()
-          }));
-          setTimeout(() => {
-            const t = currentStudent.tingkat;
-            if (t === 'XI-TL') window.location.href = 'kelas-xi-tl-asts.html';
-            else if (t === 'XI-F') window.location.href = 'kelas-xi-asts.html';
-            else if (t === 'XII-TL') window.location.href = 'kelas-xii-tl-asts.html';
-            else if (t === 'XII-F') window.location.href = 'kelas-xii-asts.html';
-            else window.location.href = 'kelas-x-asts.html';
-          }, 800);
+        // Fallback jika Google Script lambat/timeout namun password cocok
+        if (isFallbackPasswordMatch(enteredPass)) {
+          showStatus('🎉 <strong>Password Cocok (Offline Fallback)!</strong> Membuka ruang ujian ASTS...', true);
+          grantAccess();
         } else {
           showStatus('❌ Gagal menghubungi server Google Sheets dan password tidak cocok. Silakan tanyakan kepada pengawas ruang.', false);
           btn.innerText = "Verifikasi & Masuk Ujian ➔";

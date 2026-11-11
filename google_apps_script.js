@@ -44,6 +44,11 @@ function getPassSheet(ss) {
   let sheet = ss.getSheetByName(PASS_SHEET_NAME);
   if (!sheet) {
     sheet = ss.insertSheet(PASS_SHEET_NAME);
+  }
+  
+  // Jika sheet belum ada isinya atau barisnya kurang dari 2 (belum ada data)
+  if (sheet.getLastRow() < 2) {
+    sheet.clear();
     const headers = ["Tingkat", "Password", "Keterangan", "Terakhir Diperbarui", "Status"];
     sheet.appendRow(headers);
     sheet.getRange(1, 1, 1, headers.length)
@@ -128,7 +133,8 @@ function setPassword(tingkat, newPassword, keterangan) {
     status: "success",
     message: "Password untuk " + targetTingkat + " berhasil disimpan ke Google Sheets",
     tingkat: targetTingkat,
-    password: passVal
+    password: passVal,
+    updatedAt: now.toLocaleString("id-ID")
   };
 }
 
@@ -138,23 +144,25 @@ function setPassword(tingkat, newPassword, keterangan) {
 function verifyPassword(tingkat, inputPassword) {
   const passwords = getAllPasswords();
   const targetTingkat = String(tingkat || "").trim().toUpperCase();
-  const inputPass = String(inputPassword || "").trim();
+  const inputPass = String(inputPassword || "").trim().toUpperCase();
   
   if (!inputPass) {
     return { valid: false, message: "Password tidak boleh kosong!" };
   }
   
-  // Cek kecocokan password spesifik tingkat
+  // Cek kecocokan password spesifik tingkat (case-insensitive)
   if (passwords[targetTingkat] && passwords[targetTingkat].status === "AKTIF") {
-    if (passwords[targetTingkat].password === inputPass) {
-      return { valid: true, message: "Password valid untuk " + targetTingkat };
+    const storedPass = String(passwords[targetTingkat].password || "").trim().toUpperCase();
+    if (storedPass === inputPass) {
+      return { valid: true, message: "Password valid untuk " + targetTingkat, tingkat: targetTingkat };
     }
   }
   
-  // Cek kecocokan password umum (ALL)
+  // Cek kecocokan password umum (ALL) (case-insensitive)
   if (passwords["ALL"] && passwords["ALL"].status === "AKTIF") {
-    if (passwords["ALL"].password === inputPass) {
-      return { valid: true, message: "Password umum (Master) valid!" };
+    const masterPass = String(passwords["ALL"].password || "").trim().toUpperCase();
+    if (masterPass === inputPass) {
+      return { valid: true, message: "Password umum (Master) valid!", tingkat: "ALL" };
     }
   }
   

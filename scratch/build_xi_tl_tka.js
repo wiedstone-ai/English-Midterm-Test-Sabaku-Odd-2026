@@ -313,7 +313,7 @@ function run() {
  * Standar: TKA & AKM Literasi (Pilihan Ganda Biasa, Kompleks Matrix, & MCMA - Max CEFR B2)
  */
 
-const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbz1dnapNS6sFak-BlG-xxaFhGR9f0BhGYKyyddEvmIEOTxPrlARC2tHkeLLP1owzBToIw/exec";
+const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbz3M4guY77PrNH89TFG-NR_1S7gMaJjQ2TFh8xgOvNeDMyuwZWfwZVvv1YyXgOa3Xu9-Q/exec";
 
 ${svgCode}
 
@@ -332,7 +332,7 @@ ${engineAsas}
  * Dilengkapi Verifikasi Password ASTS Terpadu
  */
 
-const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbz1dnapNS6sFak-BlG-xxaFhGR9f0BhGYKyyddEvmIEOTxPrlARC2tHkeLLP1owzBToIw/exec";
+const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbz3M4guY77PrNH89TFG-NR_1S7gMaJjQ2TFh8xgOvNeDMyuwZWfwZVvv1YyXgOa3Xu9-Q/exec";
 
 ${svgCode}
 

@@ -5,7 +5,7 @@
  * Standar: TKA & AKM Literasi (Pilihan Ganda, Matrix Kompleks, & MCMA - CEFR Level A2)
  */
 
-const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbz1dnapNS6sFak-BlG-xxaFhGR9f0BhGYKyyddEvmIEOTxPrlARC2tHkeLLP1owzBToIw/exec";
+const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbz3M4guY77PrNH89TFG-NR_1S7gMaJjQ2TFh8xgOvNeDMyuwZWfwZVvv1YyXgOa3Xu9-Q/exec";
 
 const SVG_PICTURES = {
   athlete: `<svg viewBox="0 0 100 100" fill="none" stroke="#dc2626" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="22" r="10" fill="#fee2e2" stroke="#dc2626"/><path d="M50 32v24M50 42l18-12M50 42l-18 8M50 56l-14 24M50 56l16 22" stroke="#dc2626" stroke-width="3"/><circle cx="74" cy="26" r="4" fill="#fca5a5" stroke="#b91c1c"/></svg>`,
