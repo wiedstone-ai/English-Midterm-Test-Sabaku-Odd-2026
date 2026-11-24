@@ -1,4 +1,4 @@
-const fs = require('fs');
+﻿const fs = require('fs');
 const path = require('path');
 
 function generateGrade11TLBank(isAsts = false) {
@@ -9,11 +9,11 @@ function generateGrade11TLBank(isAsts = false) {
   return `/**
  * ASESMEN SUMATIF ${isAsts ? "TENGAH" : "AKHIR"} SEMESTER (${isAsts ? "ASTS" : "ASAS"}) GASAL 2026
  * SMA NEGERI 1 BAE KUDUS (SABAKU)
- * BAHASA INGGRIS TINGKAT LANJUT — TINGKAT XI (FASE F - TL)
+ * BAHASA INGGRIS TINGKAT LANJUT â€” TINGKAT XI (FASE F - TL)
  * Standar: TKA & AKM Literasi (Pilihan Ganda, Matrix Kompleks, & MCMA - CEFR A2 Menuju B1)
  */
 
-const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbz3M4guY77PrNH89TFG-NR_1S7gMaJjQ2TFh8xgOvNeDMyuwZWfwZVvv1YyXgOa3Xu9-Q/exec";
+const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbzEAZ06v-tooNexfkonEizne2ou015Ik0f2GND8m0x97psfWmMqDNl4I2fDkNmDcTwx/exec";
 
 const SVG_PICTURES = {
   digitalManuscript: \`<svg viewBox="0 0 100 100" fill="none" stroke="#2563eb" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="18" y="22" width="64" height="46" rx="4" fill="#eff6ff" stroke="#2563eb"/><circle cx="50" cy="45" r="14" stroke="#3b82f6" stroke-width="2" stroke-dasharray="3 3"/><line x1="50" y1="36" x2="50" y2="54" stroke="#1d4ed8"/><line x1="41" y1="45" x2="59" y2="45" stroke="#1d4ed8"/><path d="M26 32h14M26 38h10M60 52h14M60 58h10" stroke="#93c5fd"/><path d="M30 76l20-8 20 8" stroke="#475569" stroke-width="2"/><line x1="50" y1="68" x2="50" y2="84" stroke="#475569" stroke-width="3"/></svg>\`,
@@ -26,7 +26,7 @@ function ${bankFnName}() {
   return [
     {
       id: 1,
-      source: "Kemendikbudristek — Listening Practice Fase F Tingkat Lanjut",
+      source: "Kemendikbudristek â€” Listening Practice Fase F Tingkat Lanjut",
       type: "listening_pictures",
       title: "Listening Section: Part I - Pictures",
       audioText: "Number one. Look at the pictures. A high school student is reading an ancient handwritten book in the library, carefully taking notes on her laptop screen. Which picture matches the description?",
@@ -66,7 +66,7 @@ function ${bankFnName}() {
     },
     {
       id: 2,
-      source: "Kemendikbudristek — Listening Practice Fase F Tingkat Lanjut",
+      source: "Kemendikbudristek â€” Listening Practice Fase F Tingkat Lanjut",
       type: "listening_pictures",
       title: "Listening Section: Part I - Pictures",
       audioText: "Number two. Look at the pictures. On an outdoor stone stage, high school students are performing a traditional drama in colorful costumes. Which picture depicts this scene?",
@@ -106,7 +106,7 @@ function ${bankFnName}() {
     },
     {
       id: 3,
-      source: "Kemendikbudristek — Listening Practice Fase F Tingkat Lanjut",
+      source: "Kemendikbudristek â€” Listening Practice Fase F Tingkat Lanjut",
       type: "listening_pictures",
       title: "Listening Section: Part I - Pictures",
       audioText: "Number three. Look at the pictures. Built on a green hill overlooking the sea, this round weather station dome measures wind and sunlight to support clean energy. Which picture matches the description?",
@@ -146,7 +146,7 @@ function ${bankFnName}() {
     },
     {
       id: 4,
-      source: "Modul Pembelajaran Bahasa Inggris Tingkat Lanjut Kelas XI — Kemendikbudristek",
+      source: "Modul Pembelajaran Bahasa Inggris Tingkat Lanjut Kelas XI â€” Kemendikbudristek",
       type: "listening_dialog",
       title: "Listening Section: Part II - Short Dialogues",
       audioSegments: [
@@ -192,7 +192,7 @@ function ${bankFnName}() {
     },
     {
       id: 5,
-      source: "Modul Pembelajaran Bahasa Inggris Tingkat Lanjut Kelas XI — Kemendikbudristek",
+      source: "Modul Pembelajaran Bahasa Inggris Tingkat Lanjut Kelas XI â€” Kemendikbudristek",
       type: "listening_dialog",
       title: "Listening Section: Part II - Short Dialogues",
       audioSegments: [
@@ -245,7 +245,7 @@ function ${bankFnName}() {
     },
     {
       id: 6,
-      source: "Modul Pembelajaran Bahasa Inggris Tingkat Lanjut Kelas XI — Kemendikbudristek",
+      source: "Modul Pembelajaran Bahasa Inggris Tingkat Lanjut Kelas XI â€” Kemendikbudristek",
       type: "listening_dialog",
       title: "Listening Section: Part II - Short Dialogues",
       audioSegments: [
@@ -298,7 +298,7 @@ function ${bankFnName}() {
     },
     {
       id: 7,
-      source: "Kemendikbudristek — Listening Monologue: Indonesian Folktales",
+      source: "Kemendikbudristek â€” Listening Monologue: Indonesian Folktales",
       type: "listening_talk",
       title: "Listening Section: Part III - Monologues",
       audioSegments: [
@@ -335,7 +335,7 @@ function ${bankFnName}() {
     },
     {
       id: 8,
-      source: "Kemendikbudristek — Listening Monologue: Indonesian Folktales",
+      source: "Kemendikbudristek â€” Listening Monologue: Indonesian Folktales",
       type: "listening_talk",
       title: "Listening Section: Part III - Monologues",
       audioSegments: [
@@ -366,7 +366,7 @@ function ${bankFnName}() {
     },
     {
       id: 9,
-      source: "Kemendikbudristek — Listening Monologue: Healthy Digital Habits",
+      source: "Kemendikbudristek â€” Listening Monologue: Healthy Digital Habits",
       type: "listening_talk",
       title: "Listening Section: Part III - Monologues",
       audioSegments: [
@@ -403,7 +403,7 @@ function ${bankFnName}() {
     },
     {
       id: 10,
-      source: "Kemendikbudristek — Listening Monologue: Healthy Digital Habits",
+      source: "Kemendikbudristek â€” Listening Monologue: Healthy Digital Habits",
       type: "listening_talk",
       title: "Listening Section: Part III - Monologues",
       audioSegments: [
@@ -434,7 +434,7 @@ function ${bankFnName}() {
     },
     {
       id: 11,
-      source: "Cerita Rakyat Jawa Tengah — The Legend of Rawa Pening (Fase F)",
+      source: "Cerita Rakyat Jawa Tengah â€” The Legend of Rawa Pening (Fase F)",
       type: "single_choice",
       title: "Reading Section: Narrative Comprehension",
       stimulusTitle: "Text 1: The Legend of Rawa Pening",
@@ -452,7 +452,7 @@ function ${bankFnName}() {
     },
     {
       id: 12,
-      source: "Cerita Rakyat Jawa Tengah — The Legend of Rawa Pening (Fase F)",
+      source: "Cerita Rakyat Jawa Tengah â€” The Legend of Rawa Pening (Fase F)",
       type: "single_choice",
       title: "Reading Section: Narrative Comprehension",
       stimulusTitle: "Text 1: The Legend of Rawa Pening",
@@ -470,7 +470,7 @@ function ${bankFnName}() {
     },
     {
       id: 13,
-      source: "Cerita Rakyat Jawa Tengah — The Legend of Rawa Pening (Fase F)",
+      source: "Cerita Rakyat Jawa Tengah â€” The Legend of Rawa Pening (Fase F)",
       type: "single_choice",
       title: "Reading Section: Narrative Comprehension",
       stimulusTitle: "Text 1: The Legend of Rawa Pening",
@@ -488,7 +488,7 @@ function ${bankFnName}() {
     },
     {
       id: 14,
-      source: "Cerita Rakyat Jawa Tengah — The Legend of Rawa Pening (Fase F)",
+      source: "Cerita Rakyat Jawa Tengah â€” The Legend of Rawa Pening (Fase F)",
       type: "single_choice",
       title: "Reading Section: Narrative Comprehension",
       stimulusTitle: "Text 1: The Legend of Rawa Pening",
@@ -506,7 +506,7 @@ function ${bankFnName}() {
     },
     {
       id: 15,
-      source: "Cerita Rakyat Jawa Tengah — The Legend of Rawa Pening (Fase F)",
+      source: "Cerita Rakyat Jawa Tengah â€” The Legend of Rawa Pening (Fase F)",
       type: "single_choice",
       title: "Reading Section: Narrative Comprehension",
       stimulusTitle: "Text 1: The Legend of Rawa Pening",
@@ -524,7 +524,7 @@ function ${bankFnName}() {
     },
     {
       id: 16,
-      source: "AKM Literasi Membaca — Soal Pilihan Ganda Kompleks (True/False Matrix)",
+      source: "AKM Literasi Membaca â€” Soal Pilihan Ganda Kompleks (True/False Matrix)",
       type: "complex_matrix",
       title: "Complex Multiple Choice: Narrative Plot & Character Actions",
       stimulusTitle: "Text 1: The Legend of Rawa Pening",
@@ -548,12 +548,12 @@ function ${bankFnName}() {
           isCorrect: true
         }
       ],
-      explanation: "• Pernyataan 1: BENAR — Baru Klinthing diusir oleh warga Pathok karena penampilannya yang lusuh.<br>• Pernyataan 2: SALAH — Mbok Rondo menyambut hangat dan memberi makan Baru Klinthing.<br>• Pernyataan 3: BENAR — Tak satu pun warga sombong yang mampu mencabut lidi dari tanah.<br>• Pernyataan 4: BENAR — Seluruh desa tenggelam oleh air bah dan berubah menjadi danau Rawa Pening.",
+      explanation: "â€¢ Pernyataan 1: BENAR â€” Baru Klinthing diusir oleh warga Pathok karena penampilannya yang lusuh.<br>â€¢ Pernyataan 2: SALAH â€” Mbok Rondo menyambut hangat dan memberi makan Baru Klinthing.<br>â€¢ Pernyataan 3: BENAR â€” Tak satu pun warga sombong yang mampu mencabut lidi dari tanah.<br>â€¢ Pernyataan 4: BENAR â€” Seluruh desa tenggelam oleh air bah dan berubah menjadi danau Rawa Pening.",
       grammarNote: "Reading comprehension of explicit narrative facts."
     },
     {
       id: 17,
-      source: "AKM Literasi Membaca — Soal Pilihan Ganda Kompleks (True/False Matrix)",
+      source: "AKM Literasi Membaca â€” Soal Pilihan Ganda Kompleks (True/False Matrix)",
       type: "complex_matrix",
       title: "Complex Multiple Choice: Character Traits Analysis",
       stimulusTitle: "Text 1: The Legend of Rawa Pening",
@@ -577,12 +577,12 @@ function ${bankFnName}() {
           isCorrect: false
         }
       ],
-      explanation: "• Pernyataan 1: SALAH — Warga Pathok bersikap angkuh dan kejam kepada orang miskin.<br>• Pernyataan 2: BENAR — Mbok Rondo memiliki watak dermawan dan tulus hati.<br>• Pernyataan 3: BENAR — Baru Klinthing membalas kebaikan Mbok Rondo dengan memberi peringatan penting.<br>• Pernyataan 4: SALAH — Warga desa tidak pernah meminta maaf, mereka hanya panik saat air bah datang.",
+      explanation: "â€¢ Pernyataan 1: SALAH â€” Warga Pathok bersikap angkuh dan kejam kepada orang miskin.<br>â€¢ Pernyataan 2: BENAR â€” Mbok Rondo memiliki watak dermawan dan tulus hati.<br>â€¢ Pernyataan 3: BENAR â€” Baru Klinthing membalas kebaikan Mbok Rondo dengan memberi peringatan penting.<br>â€¢ Pernyataan 4: SALAH â€” Warga desa tidak pernah meminta maaf, mereka hanya panik saat air bah datang.",
       grammarNote: "Inference of character attitudes and behaviors."
     },
     {
       id: 18,
-      source: "AKM Literasi Membaca — Soal Pilihan Ganda Kompleks (True/False Matrix)",
+      source: "AKM Literasi Membaca â€” Soal Pilihan Ganda Kompleks (True/False Matrix)",
       type: "complex_matrix",
       title: "Complex Multiple Choice: Cause and Effect Relations",
       stimulusTitle: "Text 1: The Legend of Rawa Pening",
@@ -606,12 +606,12 @@ function ${bankFnName}() {
           isCorrect: true
         }
       ],
-      explanation: "• Pernyataan 1: BENAR — Warga mengusir Baru Klinthing karena menilai orang hanya dari penampilan fisik.<br>• Pernyataan 2: BENAR — Mbok Rondo selamat karena menaiki lesung penumbuk padi sesuai pesan Baru Klinthing.<br>• Pernyataan 3: SALAH — Air tidak berhenti mengalir; justru air membanjiri seluruh desa hingga jadi danau.<br>• Pernyataan 4: BENAR — Kesombongan dan kekejaman warga membawa malapetaka bagi desa mereka.",
+      explanation: "â€¢ Pernyataan 1: BENAR â€” Warga mengusir Baru Klinthing karena menilai orang hanya dari penampilan fisik.<br>â€¢ Pernyataan 2: BENAR â€” Mbok Rondo selamat karena menaiki lesung penumbuk padi sesuai pesan Baru Klinthing.<br>â€¢ Pernyataan 3: SALAH â€” Air tidak berhenti mengalir; justru air membanjiri seluruh desa hingga jadi danau.<br>â€¢ Pernyataan 4: BENAR â€” Kesombongan dan kekejaman warga membawa malapetaka bagi desa mereka.",
       grammarNote: "Cause and effect indicators: 'because', 'so that', 'as a result'."
     },
     {
       id: 19,
-      source: "AKM Literasi Membaca — Soal Pilihan Ganda Kompleks (True/False Matrix)",
+      source: "AKM Literasi Membaca â€” Soal Pilihan Ganda Kompleks (True/False Matrix)",
       type: "complex_matrix",
       title: "Complex Multiple Choice: Sequence of Narrative Events",
       stimulusTitle: "Text 1: The Legend of Rawa Pening",
@@ -635,12 +635,12 @@ function ${bankFnName}() {
           isCorrect: false
         }
       ],
-      explanation: "• Pernyataan 1: SALAH — Baru Klinthing menancapkan lidi setelah ia mengunjungi Mbok Rondo.<br>• Pernyataan 2: BENAR — Mbok Rondo memberi makan sebelum Baru Klinthing kembali ke alun-alun festival.<br>• Pernyataan 3: BENAR — Baru Klinthing mencabut lidi tersebut dengan mudah hanya menggunakan satu tangan.<br>• Pernyataan 4: SALAH — Mbok Rondo selamat mengapung di atas lesung penumbuk padinya.",
+      explanation: "â€¢ Pernyataan 1: SALAH â€” Baru Klinthing menancapkan lidi setelah ia mengunjungi Mbok Rondo.<br>â€¢ Pernyataan 2: BENAR â€” Mbok Rondo memberi makan sebelum Baru Klinthing kembali ke alun-alun festival.<br>â€¢ Pernyataan 3: BENAR â€” Baru Klinthing mencabut lidi tersebut dengan mudah hanya menggunakan satu tangan.<br>â€¢ Pernyataan 4: SALAH â€” Mbok Rondo selamat mengapung di atas lesung penumbuk padinya.",
       grammarNote: "Chronological time order: 'before', 'then', 'finally'."
     },
     {
       id: 20,
-      source: "AKM Literasi Membaca — Soal Pilihan Ganda Kompleks (True/False Matrix)",
+      source: "AKM Literasi Membaca â€” Soal Pilihan Ganda Kompleks (True/False Matrix)",
       type: "complex_matrix",
       title: "Complex Multiple Choice: Moral Lessons and Values",
       stimulusTitle: "Text 1: The Legend of Rawa Pening",
@@ -664,12 +664,12 @@ function ${bankFnName}() {
           isCorrect: true
         }
       ],
-      explanation: "• Pernyataan 1: BENAR — Kebaikan dan ketulusan hati lebih bernilai daripada kekayaan lahiriah.<br>• Pernyataan 2: BENAR — Kesombongan dan kekejaman terhadap orang miskin berujung pada kehancuran.<br>• Pernyataan 3: SALAH — Membantu sesama harus didasarkan pada ketulusan, bukan pamrih uang atau hadiah.<br>• Pernyataan 4: BENAR — Menilai seseorang hanya dari penampilan fisiknya adalah kesalahan fatal.",
+      explanation: "â€¢ Pernyataan 1: BENAR â€” Kebaikan dan ketulusan hati lebih bernilai daripada kekayaan lahiriah.<br>â€¢ Pernyataan 2: BENAR â€” Kesombongan dan kekejaman terhadap orang miskin berujung pada kehancuran.<br>â€¢ Pernyataan 3: SALAH â€” Membantu sesama harus didasarkan pada ketulusan, bukan pamrih uang atau hadiah.<br>â€¢ Pernyataan 4: BENAR â€” Menilai seseorang hanya dari penampilan fisiknya adalah kesalahan fatal.",
       grammarNote: "Evaluative moral statements."
     },
     {
       id: 21,
-      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      source: "AKM Literasi â€” Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
       stimulusTitle: "Text 1: The Legend of Rawa Pening",
@@ -687,7 +687,7 @@ function ${bankFnName}() {
     },
     {
       id: 22,
-      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      source: "AKM Literasi â€” Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
       stimulusTitle: "Context: AI in Education",
@@ -705,7 +705,7 @@ function ${bankFnName}() {
     },
     {
       id: 23,
-      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      source: "AKM Literasi â€” Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
       stimulusTitle: "Grammar in Context: Relative Clauses",
@@ -723,7 +723,7 @@ function ${bankFnName}() {
     },
     {
       id: 24,
-      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      source: "AKM Literasi â€” Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
       stimulusTitle: "Context: Responsible Technology Use",
@@ -741,7 +741,7 @@ function ${bankFnName}() {
     },
     {
       id: 25,
-      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      source: "AKM Literasi â€” Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
       stimulusTitle: "Grammar in Context: Concession and Contrast",
@@ -759,7 +759,7 @@ function ${bankFnName}() {
     },
     {
       id: 26,
-      source: "Kemendikbudristek — Hortatory Exposition: Digital Learning in Senior High",
+      source: "Kemendikbudristek â€” Hortatory Exposition: Digital Learning in Senior High",
       type: "single_choice",
       title: "Reading Section: Hortatory Exposition",
       stimulusTitle: "Text 2: Using Artificial Intelligence Responsibly in High School",
@@ -777,7 +777,7 @@ function ${bankFnName}() {
     },
     {
       id: 27,
-      source: "Kemendikbudristek — Hortatory Exposition: Digital Learning in Senior High",
+      source: "Kemendikbudristek â€” Hortatory Exposition: Digital Learning in Senior High",
       type: "single_choice",
       title: "Reading Section: Hortatory Exposition",
       stimulusTitle: "Text 2: Using Artificial Intelligence Responsibly in High School",
@@ -795,7 +795,7 @@ function ${bankFnName}() {
     },
     {
       id: 28,
-      source: "Kemendikbudristek — Hortatory Exposition: Digital Learning in Senior High",
+      source: "Kemendikbudristek â€” Hortatory Exposition: Digital Learning in Senior High",
       type: "single_choice",
       title: "Reading Section: Hortatory Exposition",
       stimulusTitle: "Text 2: Using Artificial Intelligence Responsibly in High School",
@@ -813,7 +813,7 @@ function ${bankFnName}() {
     },
     {
       id: 29,
-      source: "Kemendikbudristek — Hortatory Exposition: Digital Learning in Senior High",
+      source: "Kemendikbudristek â€” Hortatory Exposition: Digital Learning in Senior High",
       type: "single_choice",
       title: "Reading Section: Hortatory Exposition",
       stimulusTitle: "Text 2: Using Artificial Intelligence Responsibly in High School",
@@ -831,7 +831,7 @@ function ${bankFnName}() {
     },
     {
       id: 30,
-      source: "Kemendikbudristek — Hortatory Exposition: Digital Learning in Senior High",
+      source: "Kemendikbudristek â€” Hortatory Exposition: Digital Learning in Senior High",
       type: "single_choice",
       title: "Reading Section: Hortatory Exposition",
       stimulusTitle: "Text 2: Using Artificial Intelligence Responsibly in High School",
@@ -849,7 +849,7 @@ function ${bankFnName}() {
     },
     {
       id: 31,
-      source: "Kaidah Tata Bahasa Kelas XI — Conditionals & Conjunctions",
+      source: "Kaidah Tata Bahasa Kelas XI â€” Conditionals & Conjunctions",
       type: "single_choice",
       title: "Grammar & Structure: Conditional Conjunctions",
       prompt: "Complete the sentence with the correct conditional conjunction meaning **'if not'**:<br><br><em>'High school students will not build strong reading habits _______ they practice reading English books every week.'</em>",
@@ -865,7 +865,7 @@ function ${bankFnName}() {
     },
     {
       id: 32,
-      source: "Kaidah Tata Bahasa Kelas XI — Modal Auxiliaries for Advice",
+      source: "Kaidah Tata Bahasa Kelas XI â€” Modal Auxiliaries for Advice",
       type: "single_choice",
       title: "Grammar & Structure: Modals for Advice",
       prompt: "Choose the correct modal verb to express polite advice:<br><br><em>'Every student _______ check their homework carefully before giving it to the teacher.'</em>",
@@ -881,7 +881,7 @@ function ${bankFnName}() {
     },
     {
       id: 33,
-      source: "Kaidah Tata Bahasa Kelas XI — Conjunctions of Contrast",
+      source: "Kaidah Tata Bahasa Kelas XI â€” Conjunctions of Contrast",
       type: "single_choice",
       title: "Grammar & Structure: Connectors of Contrast",
       prompt: "Which conjunction of contrast correctly completes the sentence?<br><br><em>'_______ the English assignment seemed difficult at first, the students completed it successfully together.'</em>",
@@ -897,7 +897,7 @@ function ${bankFnName}() {
     },
     {
       id: 34,
-      source: "Kaidah Tata Bahasa Kelas XI — First Conditional",
+      source: "Kaidah Tata Bahasa Kelas XI â€” First Conditional",
       type: "single_choice",
       title: "Grammar & Structure: Real Conditionals",
       prompt: "Select the correct verb form to complete the first conditional sentence:<br><br><em>'If you ask the teacher politely, she _______ explain the difficult lesson again.'</em>",
@@ -913,7 +913,7 @@ function ${bankFnName}() {
     },
     {
       id: 35,
-      source: "Kaidah Tata Bahasa Kelas XI — Passive Voice with Modals",
+      source: "Kaidah Tata Bahasa Kelas XI â€” Passive Voice with Modals",
       type: "single_choice",
       title: "Grammar & Structure: Passive Voice",
       prompt: "Complete the sentence with the correct passive modal auxiliary:<br><br><em>'Plastic bottles and cans ought to _______ recycled to keep our school clean.'</em>",
@@ -929,7 +929,7 @@ function ${bankFnName}() {
     },
     {
       id: 36,
-      source: "Kaidah Tata Bahasa Kelas XI — Simple Passive Voice",
+      source: "Kaidah Tata Bahasa Kelas XI â€” Simple Passive Voice",
       type: "single_choice",
       title: "Grammar & Structure: Simple Present Passive",
       prompt: "Choose the correct passive verb phrase to complete the statement:<br><br><em>'Digital literacy _______ by teachers as a vital skill for modern high school students.'</em>",
@@ -945,7 +945,7 @@ function ${bankFnName}() {
     },
     {
       id: 37,
-      source: "Kaidah Tata Bahasa Kelas XI — Preposition with Gerund",
+      source: "Kaidah Tata Bahasa Kelas XI â€” Preposition with Gerund",
       type: "single_choice",
       title: "Grammar & Structure: Preposition + Gerund",
       prompt: "Select the correct form to complete the sentence after the preposition 'after':<br><br><em>'After _______ the small stick out of the ground, Baru Klinthing watched the clear water rise and flood the village.'</em>",
@@ -961,7 +961,7 @@ function ${bankFnName}() {
     },
     {
       id: 38,
-      source: "Kaidah Tata Bahasa Kelas XI — Cause and Effect Connectors",
+      source: "Kaidah Tata Bahasa Kelas XI â€” Cause and Effect Connectors",
       type: "single_choice",
       title: "Grammar & Structure: Cause Connectors",
       prompt: "Which connector correctly completes the blank before the noun phrase 'their selfish pride'?<br><br><em>'The arrogant villagers faced unexpected disaster _______ their selfish pride and cruelty toward the poor boy.'</em>",
@@ -977,7 +977,7 @@ function ${bankFnName}() {
     },
     {
       id: 39,
-      source: "Kaidah Tata Bahasa Kelas XI — Natural Adjective Collocation",
+      source: "Kaidah Tata Bahasa Kelas XI â€” Natural Adjective Collocation",
       type: "single_choice",
       title: "Grammar & Structure: Word Collocation",
       prompt: "Which adjective naturally pairs with the word 'role' in this sentence?<br><br><em>'Reading books regularly plays an _______ role in expanding a student\\'s English vocabulary.'</em>",
@@ -993,7 +993,7 @@ function ${bankFnName}() {
     },
     {
       id: 40,
-      source: "Kaidah Tata Bahasa Kelas XI — Subject-Verb Agreement",
+      source: "Kaidah Tata Bahasa Kelas XI â€” Subject-Verb Agreement",
       type: "single_choice",
       title: "Grammar & Structure: Subject-Verb Agreement",
       prompt: "Choose the correct verb form that agrees with the nearest plural subject in this sentence:<br><br><em>'Not only the teacher but also the students _______ excited about the cultural festival.'</em>",

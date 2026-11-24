@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Verifikasi Password ASTS Gasal — SMAN 1 Bae Kudus</title>
+  <title>Verifikasi Password ASTS Gasal â€” SMAN 1 Bae Kudus</title>
   <link rel="stylesheet" href="style.css">
   <style>
     .auth-card {
@@ -61,7 +61,7 @@
         <div class="school-logo-badge">S1B</div>
         <div class="brand-text">
           <h1>SMA NEGERI 1 BAE KUDUS (SABAKU)</h1>
-          <p>Portal Asesmen Bahasa Inggris — Semester Gasal TP 2026/2027</p>
+          <p>Portal Asesmen Bahasa Inggris â€” Semester Gasal TP 2026/2027</p>
         </div>
       </div>
       <div class="header-actions">
@@ -74,7 +74,7 @@
   <main>
     <div class="auth-card">
       <div style="text-align: center; margin-bottom: 20px;">
-        <div style="font-size: 2.8rem; margin-bottom: 6px;">🔐</div>
+        <div style="font-size: 2.8rem; margin-bottom: 6px;">ðŸ”</div>
         <h2 style="color: var(--primary-navy); font-size: 1.45rem; margin-bottom: 6px;">
           Verifikasi Password ASTS Real
         </h2>
@@ -93,6 +93,28 @@
         <div style="font-size: 0.85rem; color: #475569;" id="view-meta">Rombel: - | Presensi: -</div>
       </div>
 
+      <!-- Protokol Pengawasan & Uji Kamera -->
+      <div style="background: #f0fdf4; border: 1.5px solid #86efac; border-radius: 8px; padding: 14px 16px; margin-bottom: 20px;">
+        <div style="font-weight: 700; color: #166534; font-size: 0.92rem; display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+          <span>ðŸ“¹</span>
+          <span>Integritas Asesmen Jarak Jauh &amp; Kamera Pengawas</span>
+        </div>
+        <p style="font-size: 0.82rem; color: #334155; line-height: 1.45; margin-bottom: 10px;">
+          Selama ujian, <strong>kamera peramban wajib aktif</strong> dan sistem secara otomatis <strong>mencatat jika Anda berpindah tab / membuka aplikasi lain</strong> (maksimal 3x peringatan sebelum ujian otomatis dihentikan).
+        </p>
+        <div id="cam-test-area" style="display: flex; align-items: center; justify-content: space-between; background: #ffffff; border: 1px solid #bbf7d0; border-radius: 6px; padding: 8px 12px; gap: 10px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <video id="preview-test-video" autoplay playsinline muted style="display: none; width: 60px; height: 45px; object-fit: cover; border-radius: 4px; border: 2px solid #22c55e; transform: scaleX(-1);"></video>
+            <div id="cam-status-label" style="font-size: 0.82rem; font-weight: 600; color: #64748b;">
+              Status Kamera: <span style="color: #ea580c;">Belum Diuji</span>
+            </div>
+          </div>
+          <button type="button" id="btn-test-cam" onclick="testStudentWebcam()" class="btn btn-outline" style="padding: 5px 12px; font-size: 0.8rem; border-color: #16a34a; color: #166534; font-weight: 700;">
+            Uji Kamera ðŸŽ¥
+          </button>
+        </div>
+      </div>
+
       <!-- Form Input Password -->
       <form id="form-verify-pass" onsubmit="handleVerifySubmit(event)">
         <div class="form-group" style="margin-bottom: 18px;">
@@ -101,7 +123,7 @@
           </label>
           <input type="text" id="input-password" class="form-control password-field" placeholder="Contoh: SABAKU2026" required autocomplete="off" autofocus>
           <div style="font-size: 0.8rem; color: var(--text-muted); text-align: center; margin-top: 8px;">
-            ⚠️ Password diberikan oleh pengawas ruang sesaat sebelum ujian dimulai.
+            âš ï¸ Password diberikan oleh pengawas ruang sesaat sebelum ujian dimulai.
           </div>
         </div>
 
@@ -110,10 +132,10 @@
 
         <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 10px;">
           <button type="submit" id="btn-submit-pass" class="btn btn-primary btn-block" style="padding: 14px; font-size: 1.05rem; font-weight: 700; border-radius: 8px; background: linear-gradient(135deg, #059669 0%, #047857 100%); border: none; cursor: pointer;">
-            Verifikasi &amp; Masuk Ujian ➔
+            Verifikasi &amp; Masuk Ujian âž”
           </button>
           <a href="index.html" class="btn btn-outline btn-block" style="padding: 10px; font-size: 0.9rem; text-align: center; text-decoration: none; color: #64748b; border-color: #cbd5e1;">
-            ⬅️ Kembali / Ubah Data Identitas
+            â¬…ï¸ Kembali / Ubah Data Identitas
           </a>
         </div>
       </form>
@@ -123,7 +145,7 @@
   <!-- Footer -->
   <footer>
     <div style="max-width: 900px; margin: 0 auto; line-height: 1.6; text-align: center;">
-      <p><strong>SMA Negeri 1 Bae Kudus (Sabaku)</strong> — Unggul, Berkarakter, Berwawasan Global</p>
+      <p><strong>SMA Negeri 1 Bae Kudus (Sabaku)</strong> â€” Unggul, Berkarakter, Berwawasan Global</p>
       <p style="font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-top: 4px;">
         Sistem Asesmen Bahasa Inggris Terpadu Kurikulum Merdeka Tahun Pelajaran 2026/2027.
       </p>
@@ -131,7 +153,7 @@
   </footer>
 
   <script>
-    const GS_URL = "https://script.google.com/macros/s/AKfycbz3M4guY77PrNH89TFG-NR_1S7gMaJjQ2TFh8xgOvNeDMyuwZWfwZVvv1YyXgOa3Xu9-Q/exec";
+    const GS_URL = "https://script.google.com/macros/s/AKfycbzEAZ06v-tooNexfkonEizne2ou015Ik0f2GND8m0x97psfWmMqDNl4I2fDkNmDcTwx/exec";
     let currentStudent = null;
 
     // Load identitas dari LocalStorage
@@ -178,7 +200,43 @@
       box.innerHTML = msg;
     }
 
+    let previewStream = null;
+    let isWebcamReady = false;
+
+    async function testStudentWebcam() {
+      const lbl = document.getElementById('cam-status-label');
+      const btn = document.getElementById('btn-test-cam');
+      const vid = document.getElementById('preview-test-video');
+
+      lbl.innerHTML = 'Status Kamera: <span style="color: #2563eb;">Menghubungkan...</span>';
+      try {
+        previewStream = await navigator.mediaDevices.getUserMedia({
+          video: { facingMode: 'user', width: { ideal: 320 }, height: { ideal: 240 } },
+          audio: false
+        });
+        vid.srcObject = previewStream;
+        vid.style.display = 'block';
+        lbl.innerHTML = 'Status Kamera: <span style="color: #16a34a; font-weight: 700;">âœ… Aktif &amp; Siap</span>';
+        btn.innerText = 'Kamera OK âœ”';
+        btn.disabled = true;
+        btn.style.borderColor = '#16a34a';
+        btn.style.color = '#16a34a';
+        isWebcamReady = true;
+      } catch (err) {
+        console.warn('Webcam test failed:', err);
+        lbl.innerHTML = 'Status Kamera: <span style="color: #dc2626; font-weight: 700;">âŒ Ditolak/Tidak Ditemukan</span>';
+        alert('âš ï¸ Izin kamera belum diberikan!\nSilakan klik ikon gembok / kamera di bilah alamat browser untuk mengizinkan akses kamera.');
+      }
+    }
+
     function grantAccess() {
+      // Hentikan stream uji agar tidak mengunci device sebelum masuk halaman ujian
+      if (previewStream) {
+        try {
+          previewStream.getTracks().forEach(t => t.stop());
+        } catch (e) {}
+      }
+
       // Simpan token otorisasi sesi
       sessionStorage.setItem('sabaku_asts_auth', JSON.stringify({
         tingkat: currentStudent.tingkat,
@@ -237,9 +295,9 @@
       }
 
       const btn = document.getElementById('btn-submit-pass');
-      btn.innerText = "⏳ Sedang Memverifikasi ke Server...";
+      btn.innerText = "â³ Sedang Memverifikasi ke Server...";
       btn.disabled = true;
-      showStatus('⏳ Memeriksa keabsahan password pada server Google Sheets...', true);
+      showStatus('â³ Memeriksa keabsahan password pada server Google Sheets...', true);
 
       try {
         const url = GS_URL + "?action=check_password&tingkat=" + encodeURIComponent(currentStudent.tingkat) + "&password=" + encodeURIComponent(enteredPass) + "&t=" + Date.now();
@@ -248,15 +306,15 @@
 
         // Kasus 1: Server merespons dengan hasil verifikasi valid
         if (data.valid === true) {
-          showStatus('🎉 <strong>Password Benar!</strong> Membuka ruang ujian ASTS...', true);
+          showStatus('ðŸŽ‰ <strong>Password Benar!</strong> Membuka ruang ujian ASTS...', true);
           grantAccess();
           return;
         }
 
         // Kasus 2: Server merespons dengan penolakan resmi (password salah)
         if (data.valid === false) {
-          showStatus('❌ <strong>Password Salah!</strong> ' + (data.message || 'Password tidak valid atau belum diaktifkan oleh pengawas.'), false);
-          btn.innerText = "Verifikasi & Masuk Ujian ➔";
+          showStatus('âŒ <strong>Password Salah!</strong> ' + (data.message || 'Password tidak valid atau belum diaktifkan oleh pengawas.'), false);
+          btn.innerText = "Verifikasi & Masuk Ujian âž”";
           btn.disabled = false;
           document.getElementById('input-password').select();
           return;
@@ -264,12 +322,12 @@
 
         // Kasus 3: Server merespons dengan format lama (Apps Script belum di-deploy versi baru)
         if (isFallbackPasswordMatch(enteredPass)) {
-          showStatus('🎉 <strong>Password Cocok (Fallback Mode Aktif)!</strong> Membuka ruang ujian ASTS...', true);
+          showStatus('ðŸŽ‰ <strong>Password Cocok (Fallback Mode Aktif)!</strong> Membuka ruang ujian ASTS...', true);
           grantAccess();
           return;
         } else {
-          showStatus('❌ <strong>Password Salah!</strong> Password yang dimasukkan tidak cocok. Pastikan pengawas ruang sudah memberikan password yang benar atau mengupdate Google Apps Script.', false);
-          btn.innerText = "Verifikasi & Masuk Ujian ➔";
+          showStatus('âŒ <strong>Password Salah!</strong> Password yang dimasukkan tidak cocok. Pastikan pengawas ruang sudah memberikan password yang benar atau mengupdate Google Apps Script.', false);
+          btn.innerText = "Verifikasi & Masuk Ujian âž”";
           btn.disabled = false;
           document.getElementById('input-password').select();
           return;
@@ -279,11 +337,11 @@
         console.warn('Network error during check:', networkErr);
         // Fallback jika Google Script lambat/timeout namun password cocok
         if (isFallbackPasswordMatch(enteredPass)) {
-          showStatus('🎉 <strong>Password Cocok (Offline Fallback)!</strong> Membuka ruang ujian ASTS...', true);
+          showStatus('ðŸŽ‰ <strong>Password Cocok (Offline Fallback)!</strong> Membuka ruang ujian ASTS...', true);
           grantAccess();
         } else {
-          showStatus('❌ Gagal menghubungi server Google Sheets dan password tidak cocok. Silakan tanyakan kepada pengawas ruang.', false);
-          btn.innerText = "Verifikasi & Masuk Ujian ➔";
+          showStatus('âŒ Gagal menghubungi server Google Sheets dan password tidak cocok. Silakan tanyakan kepada pengawas ruang.', false);
+          btn.innerText = "Verifikasi & Masuk Ujian âž”";
           btn.disabled = false;
         }
       }

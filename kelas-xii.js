@@ -1,11 +1,11 @@
-/**
+﻿/**
  * ASESMEN SUMATIF AKHIR SEMESTER (ASAS) GASAL 2026
  * SMA NEGERI 1 BAE KUDUS (SABAKU)
- * BAHASA INGGRIS TINGKAT XII — FASE F (REGULER / WAJIB)
+ * BAHASA INGGRIS TINGKAT XII â€” FASE F (REGULER / WAJIB)
  * Standar: TKA & AKM Literasi (Pilihan Ganda, Matrix Kompleks, & MCMA - CEFR Level B1)
  */
 
-const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbz3M4guY77PrNH89TFG-NR_1S7gMaJjQ2TFh8xgOvNeDMyuwZWfwZVvv1YyXgOa3Xu9-Q/exec";
+const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbzEAZ06v-tooNexfkonEizne2ou015Ik0f2GND8m0x97psfWmMqDNl4I2fDkNmDcTwx/exec";
 
 const SVG_PICTURES = {
   debateContest: `<svg viewBox="0 0 100 100" fill="none" stroke="#2563eb" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="18" y="22" width="64" height="46" rx="4" fill="#eff6ff" stroke="#2563eb"/><circle cx="50" cy="45" r="14" stroke="#3b82f6" stroke-width="2" stroke-dasharray="3 3"/><line x1="50" y1="36" x2="50" y2="54" stroke="#1d4ed8"/><line x1="41" y1="45" x2="59" y2="45" stroke="#1d4ed8"/><path d="M26 32h14M26 38h10M60 52h14M60 58h10" stroke="#93c5fd"/><path d="M30 76l20-8 20 8" stroke="#475569" stroke-width="2"/><line x1="50" y1="68" x2="50" y2="84" stroke="#475569" stroke-width="3"/></svg>`,
@@ -18,7 +18,7 @@ function getGrade12AsasQuestions() {
   return [
     {
       id: 1,
-      source: "Kemendikbudristek — Listening Practice Fase F Kelas XII",
+      source: "Kemendikbudristek â€” Listening Practice Fase F Kelas XII",
       type: "listening_pictures",
       title: "Listening Section: Part I - Pictures",
       audioText: "Number one. Look at the pictures. In the school auditorium, two teams of senior high school students are holding an English debate competition about renewable energy. Which picture matches the description?",
@@ -42,7 +42,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 2,
-      source: "Kemendikbudristek — Listening Practice Fase F Kelas XII",
+      source: "Kemendikbudristek â€” Listening Practice Fase F Kelas XII",
       type: "listening_pictures",
       title: "Listening Section: Part I - Pictures",
       audioText: "Number two. Look at the pictures. Built on an open green field, tall white wind turbines and clean solar panels produce renewable electricity for local houses. Which picture shows this clean energy site?",
@@ -66,7 +66,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 3,
-      source: "Kemendikbudristek — Listening Practice Fase F Kelas XII",
+      source: "Kemendikbudristek â€” Listening Practice Fase F Kelas XII",
       type: "listening_pictures",
       title: "Listening Section: Part I - Pictures",
       audioText: "Number three. Look at the pictures. Inside a modern agricultural greenhouse, rows of fresh organic vegetables are grown using hydroponic water systems. Which picture matches this scene?",
@@ -90,7 +90,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 4,
-      source: "Modul Pembelajaran Bahasa Inggris Kelas XII — Kemendikbudristek",
+      source: "Modul Pembelajaran Bahasa Inggris Kelas XII â€” Kemendikbudristek",
       type: "listening_dialog",
       title: "Listening Section: Part II - Short Dialogues",
       audioSegments: [
@@ -114,7 +114,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 5,
-      source: "Modul Pembelajaran Bahasa Inggris Kelas XII — Kemendikbudristek",
+      source: "Modul Pembelajaran Bahasa Inggris Kelas XII â€” Kemendikbudristek",
       type: "listening_dialog",
       title: "Listening Section: Part II - Short Dialogues",
       audioSegments: [
@@ -138,7 +138,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 6,
-      source: "Modul Pembelajaran Bahasa Inggris Kelas XII — Kemendikbudristek",
+      source: "Modul Pembelajaran Bahasa Inggris Kelas XII â€” Kemendikbudristek",
       type: "listening_dialog",
       title: "Listening Section: Part II - Short Dialogues",
       audioSegments: [
@@ -162,7 +162,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 7,
-      source: "Kemendikbudristek — Listening Monologue: Career Guidance",
+      source: "Kemendikbudristek â€” Listening Monologue: Career Guidance",
       type: "listening_talk",
       title: "Listening Section: Part III - Monologues",
       audioSegments: [
@@ -183,7 +183,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 8,
-      source: "Kemendikbudristek — Listening Monologue: Career Guidance",
+      source: "Kemendikbudristek â€” Listening Monologue: Career Guidance",
       type: "listening_talk",
       title: "Listening Section: Part III - Monologues",
       audioSegments: [
@@ -203,7 +203,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 9,
-      source: "Kemendikbudristek — Listening Monologue: Climate Change & Clean Energy",
+      source: "Kemendikbudristek â€” Listening Monologue: Climate Change & Clean Energy",
       type: "listening_talk",
       title: "Listening Section: Part III - Monologues",
       audioSegments: [
@@ -224,7 +224,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 10,
-      source: "Kemendikbudristek — Listening Monologue: Climate Change & Clean Energy",
+      source: "Kemendikbudristek â€” Listening Monologue: Climate Change & Clean Energy",
       type: "listening_talk",
       title: "Listening Section: Part III - Monologues",
       audioSegments: [
@@ -244,7 +244,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 11,
-      source: "Kemendikbudristek — Discussion Text: Renewable Energy vs Fossil Fuels (Fase F)",
+      source: "Kemendikbudristek â€” Discussion Text: Renewable Energy vs Fossil Fuels (Fase F)",
       type: "single_choice",
       title: "Reading Section: Discussion Text",
       stimulusTitle: "Text 1: The Energy Transition: Opportunities and Challenges",
@@ -262,7 +262,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 12,
-      source: "Kemendikbudristek — Discussion Text: Renewable Energy vs Fossil Fuels (Fase F)",
+      source: "Kemendikbudristek â€” Discussion Text: Renewable Energy vs Fossil Fuels (Fase F)",
       type: "single_choice",
       title: "Reading Section: Discussion Text",
       stimulusTitle: "Text 1: The Energy Transition: Opportunities and Challenges",
@@ -280,7 +280,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 13,
-      source: "Kemendikbudristek — Discussion Text: Renewable Energy vs Fossil Fuels (Fase F)",
+      source: "Kemendikbudristek â€” Discussion Text: Renewable Energy vs Fossil Fuels (Fase F)",
       type: "single_choice",
       title: "Reading Section: Discussion Text",
       stimulusTitle: "Text 1: The Energy Transition: Opportunities and Challenges",
@@ -298,7 +298,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 14,
-      source: "Kemendikbudristek — Discussion Text: Renewable Energy vs Fossil Fuels (Fase F)",
+      source: "Kemendikbudristek â€” Discussion Text: Renewable Energy vs Fossil Fuels (Fase F)",
       type: "single_choice",
       title: "Reading Section: Discussion Text",
       stimulusTitle: "Text 1: The Energy Transition: Opportunities and Challenges",
@@ -316,7 +316,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 15,
-      source: "Kemendikbudristek — Discussion Text: Renewable Energy vs Fossil Fuels (Fase F)",
+      source: "Kemendikbudristek â€” Discussion Text: Renewable Energy vs Fossil Fuels (Fase F)",
       type: "single_choice",
       title: "Reading Section: Discussion Text",
       stimulusTitle: "Text 1: The Energy Transition: Opportunities and Challenges",
@@ -334,7 +334,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 16,
-      source: "AKM Literasi Membaca — Pilihan Ganda Kompleks (True/False Matrix)",
+      source: "AKM Literasi Membaca â€” Pilihan Ganda Kompleks (True/False Matrix)",
       type: "complex_matrix",
       title: "Complex Multiple Choice: Renewable Energy Facts",
       stimulusTitle: "Text 1: The Energy Transition: Opportunities and Challenges",
@@ -358,12 +358,12 @@ function getGrade12AsasQuestions() {
           isCorrect: false
         }
       ],
-      explanation: "• Pernyataan 1: BENAR — Energi surya dan angin tidak mengeluarkan polutan udara saat beroperasi.<br>• Pernyataan 2: SALAH — Panel surya tidak dapat menghasilkan listrik di malam hari tanpa sinar matahari.<br>• Pernyataan 3: BENAR — Investasi energi bersih menciptakan lapangan kerja hijau bagi teknisi.<br>• Pernyataan 4: SALAH — Bahan bakar fosil adalah sumber daya yang terbatas dan akan habis.",
+      explanation: "â€¢ Pernyataan 1: BENAR â€” Energi surya dan angin tidak mengeluarkan polutan udara saat beroperasi.<br>â€¢ Pernyataan 2: SALAH â€” Panel surya tidak dapat menghasilkan listrik di malam hari tanpa sinar matahari.<br>â€¢ Pernyataan 3: BENAR â€” Investasi energi bersih menciptakan lapangan kerja hijau bagi teknisi.<br>â€¢ Pernyataan 4: SALAH â€” Bahan bakar fosil adalah sumber daya yang terbatas dan akan habis.",
       grammarNote: "Evaluating factual statements in discussion text."
     },
     {
       id: 17,
-      source: "AKM Literasi Membaca — Pilihan Ganda Kompleks (True/False Matrix)",
+      source: "AKM Literasi Membaca â€” Pilihan Ganda Kompleks (True/False Matrix)",
       type: "complex_matrix",
       title: "Complex Multiple Choice: Job Application Writing Principles",
       stimulusTitle: "Context: Professional Application Letters",
@@ -387,12 +387,12 @@ function getGrade12AsasQuestions() {
           isCorrect: true
         }
       ],
-      explanation: "• Pernyataan 1: BENAR — Paragraf pembuka harus menyebutkan posisi yang dilamar secara jelas.<br>• Pernyataan 2: SALAH — Berbohong atau memalsukan ijazah adalah pelanggaran hukum dan etika.<br>• Pernyataan 3: BENAR — Menjelaskan proyek sekolah dan pengalaman organisasi membuktikan kompetensi diri.<br>• Pernyataan 4: BENAR — Memeriksa ulang tulisan (proofreading) mencegah kesalahan ejaan dan tata bahasa.",
+      explanation: "â€¢ Pernyataan 1: BENAR â€” Paragraf pembuka harus menyebutkan posisi yang dilamar secara jelas.<br>â€¢ Pernyataan 2: SALAH â€” Berbohong atau memalsukan ijazah adalah pelanggaran hukum dan etika.<br>â€¢ Pernyataan 3: BENAR â€” Menjelaskan proyek sekolah dan pengalaman organisasi membuktikan kompetensi diri.<br>â€¢ Pernyataan 4: BENAR â€” Memeriksa ulang tulisan (proofreading) mencegah kesalahan ejaan dan tata bahasa.",
       grammarNote: "Principles of formal application letters."
     },
     {
       id: 18,
-      source: "AKM Literasi Membaca — Pilihan Ganda Kompleks (True/False Matrix)",
+      source: "AKM Literasi Membaca â€” Pilihan Ganda Kompleks (True/False Matrix)",
       type: "complex_matrix",
       title: "Complex Multiple Choice: Cause and Effect Relations",
       stimulusTitle: "Text 1: The Energy Transition: Opportunities and Challenges",
@@ -416,12 +416,12 @@ function getGrade12AsasQuestions() {
           isCorrect: true
         }
       ],
-      explanation: "• Pernyataan 1: BENAR — Emisi karbon memerangkap panas di atmosfer sehingga memicu pemanasan global.<br>• Pernyataan 2: BENAR — Karena bergantung pada cuaca, sistem penyimpanan baterai sangat diperlukan.<br>• Pernyataan 3: SALAH — Fasilitas energi terbarukan memerlukan biaya investasi awal yang cukup tinggi.<br>• Pernyataan 4: BENAR — Beralih ke energi bersih memperbaiki kualitas udara dan kesehatan pernapasan masyarakat.",
+      explanation: "â€¢ Pernyataan 1: BENAR â€” Emisi karbon memerangkap panas di atmosfer sehingga memicu pemanasan global.<br>â€¢ Pernyataan 2: BENAR â€” Karena bergantung pada cuaca, sistem penyimpanan baterai sangat diperlukan.<br>â€¢ Pernyataan 3: SALAH â€” Fasilitas energi terbarukan memerlukan biaya investasi awal yang cukup tinggi.<br>â€¢ Pernyataan 4: BENAR â€” Beralih ke energi bersih memperbaiki kualitas udara dan kesehatan pernapasan masyarakat.",
       grammarNote: "Cause and effect logic in expository text."
     },
     {
       id: 19,
-      source: "AKM Literasi Membaca — Pilihan Ganda Kompleks (True/False Matrix)",
+      source: "AKM Literasi Membaca â€” Pilihan Ganda Kompleks (True/False Matrix)",
       type: "complex_matrix",
       title: "Complex Multiple Choice: Interview Preparation Standards",
       stimulusTitle: "Context: Job Interview Etiquette",
@@ -445,12 +445,12 @@ function getGrade12AsasQuestions() {
           isCorrect: true
         }
       ],
-      explanation: "• Pernyataan 1: BENAR — Mempelajari profil perusahaan membantu pelamar menjawab pertanyaan dengan berbobot.<br>• Pernyataan 2: BENAR — Hadir 15 menit lebih awal menunjukkan kedisiplinan dan komitmen profesional.<br>• Pernyataan 3: SALAH — Pakaian santai pantai tidak pantas untuk wawancara kerja formal.<br>• Pernyataan 4: BENAR — Berbicara tenang dan menjaga kontak mata menunjukkan rasa percaya diri dan ketulusan.",
+      explanation: "â€¢ Pernyataan 1: BENAR â€” Mempelajari profil perusahaan membantu pelamar menjawab pertanyaan dengan berbobot.<br>â€¢ Pernyataan 2: BENAR â€” Hadir 15 menit lebih awal menunjukkan kedisiplinan dan komitmen profesional.<br>â€¢ Pernyataan 3: SALAH â€” Pakaian santai pantai tidak pantas untuk wawancara kerja formal.<br>â€¢ Pernyataan 4: BENAR â€” Berbicara tenang dan menjaga kontak mata menunjukkan rasa percaya diri dan ketulusan.",
       grammarNote: "Professional workplace communication standards."
     },
     {
       id: 20,
-      source: "AKM Literasi Membaca — Pilihan Ganda Kompleks (True/False Matrix)",
+      source: "AKM Literasi Membaca â€” Pilihan Ganda Kompleks (True/False Matrix)",
       type: "complex_matrix",
       title: "Complex Multiple Choice: Discussion Text Perspectives",
       stimulusTitle: "Text 1: The Energy Transition: Opportunities and Challenges",
@@ -474,12 +474,12 @@ function getGrade12AsasQuestions() {
           isCorrect: true
         }
       ],
-      explanation: "• Pernyataan 1: BENAR — Pendukung menyatakan energi bersih tidak terbatas dan bebas polusi.<br>• Pernyataan 2: BENAR — Pengkritik menyoroti biaya instalasi dan kebutuhan lahan yang besar.<br>• Pernyataan 3: SALAH — Penulis tidak pernah menuntut penghentian listrik secara mendadak.<br>• Pernyataan 4: BENAR — Penulis menganjurkan transisi bertahap yang seimbang dengan efisiensi energi.",
+      explanation: "â€¢ Pernyataan 1: BENAR â€” Pendukung menyatakan energi bersih tidak terbatas dan bebas polusi.<br>â€¢ Pernyataan 2: BENAR â€” Pengkritik menyoroti biaya instalasi dan kebutuhan lahan yang besar.<br>â€¢ Pernyataan 3: SALAH â€” Penulis tidak pernah menuntut penghentian listrik secara mendadak.<br>â€¢ Pernyataan 4: BENAR â€” Penulis menganjurkan transisi bertahap yang seimbang dengan efisiensi energi.",
       grammarNote: "Identifying supporting and opposing arguments in discussion texts."
     },
     {
       id: 21,
-      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      source: "AKM Literasi â€” Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
       stimulusTitle: "Text 1: The Energy Transition: Opportunities and Challenges",
@@ -497,7 +497,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 22,
-      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      source: "AKM Literasi â€” Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
       stimulusTitle: "Context: Application Letter Structure",
@@ -515,7 +515,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 23,
-      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      source: "AKM Literasi â€” Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
       stimulusTitle: "Grammar: Real Conditionals with Unless & If",
@@ -533,7 +533,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 24,
-      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      source: "AKM Literasi â€” Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
       stimulusTitle: "Context: Career Readiness",
@@ -551,7 +551,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 25,
-      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      source: "AKM Literasi â€” Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
       stimulusTitle: "Grammar: Cause and Effect Connectors",
@@ -569,7 +569,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 26,
-      source: "Kemendikbudristek — Application Letter Analysis (Fase F Kelas XII)",
+      source: "Kemendikbudristek â€” Application Letter Analysis (Fase F Kelas XII)",
       type: "single_choice",
       title: "Reading Section: Job Application Letter",
       stimulusTitle: "Text 2: Graphic Design Internship Application",
@@ -587,7 +587,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 27,
-      source: "Kemendikbudristek — Application Letter Analysis (Fase F Kelas XII)",
+      source: "Kemendikbudristek â€” Application Letter Analysis (Fase F Kelas XII)",
       type: "single_choice",
       title: "Reading Section: Job Application Letter",
       stimulusTitle: "Text 2: Graphic Design Internship Application",
@@ -605,7 +605,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 28,
-      source: "Kemendikbudristek — Application Letter Analysis (Fase F Kelas XII)",
+      source: "Kemendikbudristek â€” Application Letter Analysis (Fase F Kelas XII)",
       type: "single_choice",
       title: "Reading Section: Job Application Letter",
       stimulusTitle: "Text 2: Graphic Design Internship Application",
@@ -623,7 +623,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 29,
-      source: "Kemendikbudristek — Application Letter Analysis (Fase F Kelas XII)",
+      source: "Kemendikbudristek â€” Application Letter Analysis (Fase F Kelas XII)",
       type: "single_choice",
       title: "Reading Section: Job Application Letter",
       stimulusTitle: "Text 2: Graphic Design Internship Application",
@@ -641,7 +641,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 30,
-      source: "Kemendikbudristek — Application Letter Analysis (Fase F Kelas XII)",
+      source: "Kemendikbudristek â€” Application Letter Analysis (Fase F Kelas XII)",
       type: "single_choice",
       title: "Reading Section: Job Application Letter",
       stimulusTitle: "Text 2: Graphic Design Internship Application",
@@ -659,7 +659,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 31,
-      source: "Kaidah Tata Bahasa Kelas XII — Concession Connectors",
+      source: "Kaidah Tata Bahasa Kelas XII â€” Concession Connectors",
       type: "single_choice",
       title: "Grammar & Structure: Connectors of Concession",
       prompt: "Choose the correct conjunction to complete the sentence showing contrast:<br><br><em>'_______ the installation cost of solar panels is high, it saves significant money on electricity bills over time.'</em>",
@@ -675,7 +675,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 32,
-      source: "Kaidah Tata Bahasa Kelas XII — Cause Prepositions",
+      source: "Kaidah Tata Bahasa Kelas XII â€” Cause Prepositions",
       type: "single_choice",
       title: "Grammar & Structure: Cause Connectors",
       prompt: "Select the correct connector before the noun phrase 'global climate change':<br><br><em>'Many coastal regions face higher flood risks _______ global climate change.'</em>",
@@ -691,7 +691,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 33,
-      source: "Kaidah Tata Bahasa Kelas XII — Conditionals (Unless)",
+      source: "Kaidah Tata Bahasa Kelas XII â€” Conditionals (Unless)",
       type: "single_choice",
       title: "Grammar & Structure: Conditional Clauses",
       prompt: "Complete the sentence with the conditional conjunction meaning **'if not'**:<br><br><em>'You will not succeed in a job interview _______ you prepare thoroughly and research the company.'</em>",
@@ -707,7 +707,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 34,
-      source: "Kaidah Tata Bahasa Kelas XII — Real Conditionals",
+      source: "Kaidah Tata Bahasa Kelas XII â€” Real Conditionals",
       type: "single_choice",
       title: "Grammar & Structure: First Conditional",
       prompt: "Select the correct verb form to complete the first conditional sentence:<br><br><em>'If the company offers Siti the internship, she _______ accept it enthusiastically.'</em>",
@@ -723,7 +723,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 35,
-      source: "Kaidah Tata Bahasa Kelas XII — Modals for Professional Advice",
+      source: "Kaidah Tata Bahasa Kelas XII â€” Modals for Professional Advice",
       type: "single_choice",
       title: "Grammar & Structure: Modal Auxiliaries",
       prompt: "Which modal verb appropriately expresses strong professional advice?<br><br><em>'Job applicants _______ arrive at the interview location fifteen minutes early.'</em>",
@@ -739,7 +739,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 36,
-      source: "Kaidah Tata Bahasa Kelas XII — Present Passive Voice",
+      source: "Kaidah Tata Bahasa Kelas XII â€” Present Passive Voice",
       type: "single_choice",
       title: "Grammar & Structure: Passive Voice",
       prompt: "Complete the passive sentence with the correct auxiliary verb:<br><br><em>'Clean electricity _______ generated by solar panels without producing carbon emissions.'</em>",
@@ -755,7 +755,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 37,
-      source: "Kaidah Tata Bahasa Kelas XII — Conjunctive Adverbs (Therefore)",
+      source: "Kaidah Tata Bahasa Kelas XII â€” Conjunctive Adverbs (Therefore)",
       type: "single_choice",
       title: "Grammar & Structure: Cause-and-Effect Connectors",
       prompt: "Choose the correct conjunctive adverb expressing result:<br><br><em>'Siti practiced digital design software diligently; _______, she created an outstanding portfolio.'</em>",
@@ -771,7 +771,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 38,
-      source: "Kaidah Tata Bahasa Kelas XII — Preposition with Gerund",
+      source: "Kaidah Tata Bahasa Kelas XII â€” Preposition with Gerund",
       type: "single_choice",
       title: "Grammar & Structure: Preposition + Gerund",
       prompt: "Choose the correct form to complete the sentence after the preposition 'before':<br><br><em>'Before _______ her application letter, Siti proofread every paragraph carefully.'</em>",
@@ -787,7 +787,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 39,
-      source: "Kaidah Tata Bahasa Kelas XII — Collocations",
+      source: "Kaidah Tata Bahasa Kelas XII â€” Collocations",
       type: "single_choice",
       title: "Grammar & Structure: Word Collocation",
       prompt: "Which adjective pairs naturally with the noun 'role' in an environmental context?<br><br><em>'Renewable energy plays an _______ role in reducing harmful air pollution.'</em>",
@@ -803,7 +803,7 @@ function getGrade12AsasQuestions() {
     },
     {
       id: 40,
-      source: "Kaidah Tata Bahasa Kelas XII — Correlative Conjunctions",
+      source: "Kaidah Tata Bahasa Kelas XII â€” Correlative Conjunctions",
       type: "single_choice",
       title: "Grammar & Structure: Subject-Verb Agreement",
       prompt: "Choose the correct verb form agreeing with the plural subject in this sentence:<br><br><em>'Neither the manager nor the applicants _______ informed about the room change.'</em>",
@@ -963,7 +963,7 @@ function startFreshTest() {
 function applyStudentMetadata() {
   const modeBadge = document.getElementById("nav-mode-badge");
   if (modeBadge) {
-    modeBadge.textContent = (currentMode === "practice") ? "🎯 Mode Latihan ASAS Gasal Kelas XII" : "📝 Asesmen Resmi ASAS Gasal Kelas XII";
+    modeBadge.textContent = (currentMode === "practice") ? "ðŸŽ¯ Mode Latihan ASAS Gasal Kelas XII" : "ðŸ“ Asesmen Resmi ASAS Gasal Kelas XII";
     modeBadge.className = "badge-mode " + (currentMode === "practice" ? "practice" : "exam");
   }
   const nameEl = document.getElementById("side-student-name");
@@ -984,7 +984,7 @@ function toggleKisiKisiContent() {
   if (!content) return;
   const isHidden = content.style.display === "none";
   content.style.display = isHidden ? "block" : "none";
-  if (icon) icon.textContent = isHidden ? "▲" : "▼";
+  if (icon) icon.textContent = isHidden ? "â–²" : "â–¼";
 }
 
 function toggleKisiKisiModal() {
@@ -1106,7 +1106,7 @@ function renderQuestion(index) {
       if (expText) {
         expText.innerHTML = `
           <div style="margin-bottom: 10px; padding: 6px 12px; background: #ecfdf5; border: 1.5px solid #a7f3d0; border-radius: 8px; color: #065f46; font-size: 0.95rem; display: inline-block;">
-            🔑 <strong>Kunci Jawaban:</strong> <span style="font-weight: 800; color: #047857; margin-left: 4px;">${keyBadge}</span>
+            ðŸ”‘ <strong>Kunci Jawaban:</strong> <span style="font-weight: 800; color: #047857; margin-left: 4px;">${keyBadge}</span>
           </div>
           <div>${q.explanation}</div>
         `;
@@ -1122,7 +1122,7 @@ function renderQuestion(index) {
 
   const flagBtn = document.getElementById("btn-flag-q");
   if (flagBtn) {
-    flagBtn.textContent = flaggedQuestions.has(index) ? "🔄 Hapus Ragu" : "🟡 Ragu-ragu";
+    flagBtn.textContent = flaggedQuestions.has(index) ? "ðŸ”„ Hapus Ragu" : "ðŸŸ¡ Ragu-ragu";
   }
 
   const btnPrev = document.getElementById("btn-prev-q");
@@ -1235,7 +1235,7 @@ function renderMCMACheckboxes(q, container) {
       renderQuestion(currentQuestionIndex);
     };
     item.innerHTML = `
-      <div class="option-checkbox">${isChecked ? "✓" : ""}</div>
+      <div class="option-checkbox">${isChecked ? "âœ“" : ""}</div>
       <div class="option-text"><strong>[${opt.key}]</strong> ${opt.text}</div>
     `;
     list.appendChild(item);
@@ -1484,7 +1484,7 @@ function submitTest() {
 
   const statusText = document.getElementById("result-status-text");
   if (statusText) {
-    statusText.textContent = isTuntas ? "STATUS: TUNTAS KKTP (≥ 75) 🎉" : "STATUS: BELUM TUNTAS KKTP (< 75) ⚠️";
+    statusText.textContent = isTuntas ? "STATUS: TUNTAS KKTP (â‰¥ 75) ðŸŽ‰" : "STATUS: BELUM TUNTAS KKTP (< 75) âš ï¸";
     statusText.style.color = isTuntas ? "var(--accent-green)" : "var(--accent-red)";
   }
 
@@ -1534,14 +1534,14 @@ function syncScoreToGoogleSheets(payload) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload)
   }).then(() => {
-    if (statusEl) statusEl.innerHTML = "✅ Nilai Anda telah berhasil tercatat di server rekapitulasi sekolah.";
+    if (statusEl) statusEl.innerHTML = "âœ… Nilai Anda telah berhasil tercatat di server rekapitulasi sekolah.";
   }).catch(err => {
     try {
       if (navigator.sendBeacon) {
         navigator.sendBeacon(webAppUrl, new Blob([JSON.stringify(payload)], { type: "text/plain;charset=utf-8" }));
       }
     } catch (bErr) {}
-    if (statusEl) statusEl.innerHTML = "⚠️ Nilai tercatat di penyimpanan lokal peramban (offline mode).";
+    if (statusEl) statusEl.innerHTML = "âš ï¸ Nilai tercatat di penyimpanan lokal peramban (offline mode).";
   });
 }
 

@@ -197,3 +197,4 @@ const TEXT2_DIGITAL_LITERACY = `In the contemporary era of hyper-connected socia
   fs.writeFileSync(file, content, 'utf8');
   console.log(`Updated ${file} successfully with full texts and English tables.`);
 });
+

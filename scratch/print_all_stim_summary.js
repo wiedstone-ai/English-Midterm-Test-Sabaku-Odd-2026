@@ -26,3 +26,4 @@ files.forEach(f => {
     console.log(`Q${q.id} (${q.type}): hasAudio=${hasAudio}, hasStim=${hasStim}, stimTitle="${q.stimulusTitle || ''}", stimBodyLen=${q.stimulusBody ? q.stimulusBody.length : 0}`);
   });
 });
+

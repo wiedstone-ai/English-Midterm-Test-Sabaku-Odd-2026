@@ -194,3 +194,4 @@ const TEXT2_GEOTHERMAL = `Geothermal energy is a clean, renewable energy resourc
   fs.writeFileSync(file, content, 'utf8');
   console.log(`Updated ${file} successfully.`);
 });
+

@@ -1,14 +1,14 @@
-function generateGrade11WajibBank(isAsts = false) {
+﻿function generateGrade11WajibBank(isAsts = false) {
   const bankFnName = isAsts ? "getGrade11AstsQuestions" : "getGrade11AsasQuestions";
 
   return `/**
  * ASESMEN SUMATIF ${isAsts ? "TENGAH" : "AKHIR"} SEMESTER (${isAsts ? "ASTS" : "ASAS"}) GASAL 2026
  * SMA NEGERI 1 BAE KUDUS (SABAKU)
- * BAHASA INGGRIS TINGKAT XI — FASE F (REGULER / WAJIB)
+ * BAHASA INGGRIS TINGKAT XI â€” FASE F (REGULER / WAJIB)
  * Standar: TKA & AKM Literasi (Pilihan Ganda, Matrix Kompleks, & MCMA - CEFR A2 Menuju B1)
  */
 
-const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbz3M4guY77PrNH89TFG-NR_1S7gMaJjQ2TFh8xgOvNeDMyuwZWfwZVvv1YyXgOa3Xu9-Q/exec";
+const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbzEAZ06v-tooNexfkonEizne2ou015Ik0f2GND8m0x97psfWmMqDNl4I2fDkNmDcTwx/exec";
 
 const SVG_PICTURES = {
   digitalClass: \`<svg viewBox="0 0 100 100" fill="none" stroke="#2563eb" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="18" y="22" width="64" height="46" rx="4" fill="#eff6ff" stroke="#2563eb"/><circle cx="50" cy="45" r="14" stroke="#3b82f6" stroke-width="2" stroke-dasharray="3 3"/><line x1="50" y1="36" x2="50" y2="54" stroke="#1d4ed8"/><line x1="41" y1="45" x2="59" y2="45" stroke="#1d4ed8"/><path d="M26 32h14M26 38h10M60 52h14M60 58h10" stroke="#93c5fd"/><path d="M30 76l20-8 20 8" stroke="#475569" stroke-width="2"/><line x1="50" y1="68" x2="50" y2="84" stroke="#475569" stroke-width="3"/></svg>\`,
@@ -21,7 +21,7 @@ function ${bankFnName}() {
   return [
     {
       id: 1,
-      source: "Kemendikbudristek — Listening Practice Fase F",
+      source: "Kemendikbudristek â€” Listening Practice Fase F",
       type: "listening_pictures",
       title: "Listening Section: Part I - Pictures",
       audioText: "Number one. Look at the pictures. A high school student is typing on her laptop in the library, carefully studying digital articles for her English project. Which picture matches the statement?",
@@ -45,7 +45,7 @@ function ${bankFnName}() {
     },
     {
       id: 2,
-      source: "Kemendikbudristek — Listening Practice Fase F",
+      source: "Kemendikbudristek â€” Listening Practice Fase F",
       type: "listening_pictures",
       title: "Listening Section: Part I - Pictures",
       audioText: "Number two. Look at the pictures. Located in Central Java, this ancient stone temple has tall spires that attract thousands of cultural tourists every year. Which picture shows this historical monument?",
@@ -69,7 +69,7 @@ function ${bankFnName}() {
     },
     {
       id: 3,
-      source: "Kemendikbudristek — Listening Practice Fase F",
+      source: "Kemendikbudristek â€” Listening Practice Fase F",
       type: "listening_pictures",
       title: "Listening Section: Part I - Pictures",
       audioText: "Number three. Look at the pictures. Modern blue solar panels are installed on the roof of a green school building to generate clean and renewable electricity. Which picture matches this description?",
@@ -93,7 +93,7 @@ function ${bankFnName}() {
     },
     {
       id: 4,
-      source: "Modul Pembelajaran Bahasa Inggris Kelas XI — Kemendikbudristek",
+      source: "Modul Pembelajaran Bahasa Inggris Kelas XI â€” Kemendikbudristek",
       type: "listening_dialog",
       title: "Listening Section: Part II - Short Dialogues",
       audioSegments: [
@@ -117,7 +117,7 @@ function ${bankFnName}() {
     },
     {
       id: 5,
-      source: "Modul Pembelajaran Bahasa Inggris Kelas XI — Kemendikbudristek",
+      source: "Modul Pembelajaran Bahasa Inggris Kelas XI â€” Kemendikbudristek",
       type: "listening_dialog",
       title: "Listening Section: Part II - Short Dialogues",
       audioSegments: [
@@ -141,7 +141,7 @@ function ${bankFnName}() {
     },
     {
       id: 6,
-      source: "Modul Pembelajaran Bahasa Inggris Kelas XI — Kemendikbudristek",
+      source: "Modul Pembelajaran Bahasa Inggris Kelas XI â€” Kemendikbudristek",
       type: "listening_dialog",
       title: "Listening Section: Part II - Short Dialogues",
       audioSegments: [
@@ -166,7 +166,7 @@ function ${bankFnName}() {
     },
     {
       id: 7,
-      source: "Kemendikbudristek — Listening Monologue: The Legend of Prambanan",
+      source: "Kemendikbudristek â€” Listening Monologue: The Legend of Prambanan",
       type: "listening_talk",
       title: "Listening Section: Part III - Monologues",
       audioSegments: [
@@ -187,7 +187,7 @@ function ${bankFnName}() {
     },
     {
       id: 8,
-      source: "Kemendikbudristek — Listening Monologue: The Legend of Prambanan",
+      source: "Kemendikbudristek â€” Listening Monologue: The Legend of Prambanan",
       type: "listening_talk",
       title: "Listening Section: Part III - Monologues",
       audioSegments: [
@@ -207,7 +207,7 @@ function ${bankFnName}() {
     },
     {
       id: 9,
-      source: "Kemendikbudristek — Listening Monologue: Healthy Sleep Habits for Students",
+      source: "Kemendikbudristek â€” Listening Monologue: Healthy Sleep Habits for Students",
       type: "listening_talk",
       title: "Listening Section: Part III - Monologues",
       audioSegments: [
@@ -228,7 +228,7 @@ function ${bankFnName}() {
     },
     {
       id: 10,
-      source: "Kemendikbudristek — Listening Monologue: Healthy Sleep Habits for Students",
+      source: "Kemendikbudristek â€” Listening Monologue: Healthy Sleep Habits for Students",
       type: "listening_talk",
       title: "Listening Section: Part III - Monologues",
       audioSegments: [
@@ -248,7 +248,7 @@ function ${bankFnName}() {
     },
     {
       id: 11,
-      source: "Cerita Rakyat Jawa Tengah — The Legend of Prambanan Temple (Fase F)",
+      source: "Cerita Rakyat Jawa Tengah â€” The Legend of Prambanan Temple (Fase F)",
       type: "single_choice",
       title: "Reading Section: Narrative Comprehension",
       stimulusTitle: "Text 1: The Legend of Prambanan Temple",
@@ -266,7 +266,7 @@ function ${bankFnName}() {
     },
     {
       id: 12,
-      source: "Cerita Rakyat Jawa Tengah — The Legend of Prambanan Temple (Fase F)",
+      source: "Cerita Rakyat Jawa Tengah â€” The Legend of Prambanan Temple (Fase F)",
       type: "single_choice",
       title: "Reading Section: Narrative Comprehension",
       stimulusTitle: "Text 1: The Legend of Prambanan Temple",
@@ -284,7 +284,7 @@ function ${bankFnName}() {
     },
     {
       id: 13,
-      source: "Cerita Rakyat Jawa Tengah — The Legend of Prambanan Temple (Fase F)",
+      source: "Cerita Rakyat Jawa Tengah â€” The Legend of Prambanan Temple (Fase F)",
       type: "single_choice",
       title: "Reading Section: Narrative Comprehension",
       stimulusTitle: "Text 1: The Legend of Prambanan Temple",
@@ -302,7 +302,7 @@ function ${bankFnName}() {
     },
     {
       id: 14,
-      source: "Cerita Rakyat Jawa Tengah — The Legend of Prambanan Temple (Fase F)",
+      source: "Cerita Rakyat Jawa Tengah â€” The Legend of Prambanan Temple (Fase F)",
       type: "single_choice",
       title: "Reading Section: Narrative Comprehension",
       stimulusTitle: "Text 1: The Legend of Prambanan Temple",
@@ -320,7 +320,7 @@ function ${bankFnName}() {
     },
     {
       id: 15,
-      source: "Cerita Rakyat Jawa Tengah — The Legend of Prambanan Temple (Fase F)",
+      source: "Cerita Rakyat Jawa Tengah â€” The Legend of Prambanan Temple (Fase F)",
       type: "single_choice",
       title: "Reading Section: Narrative Comprehension",
       stimulusTitle: "Text 1: The Legend of Prambanan Temple",
@@ -338,7 +338,7 @@ function ${bankFnName}() {
     },
     {
       id: 16,
-      source: "AKM Literasi Membaca — Pilihan Ganda Kompleks (True/False Matrix)",
+      source: "AKM Literasi Membaca â€” Pilihan Ganda Kompleks (True/False Matrix)",
       type: "complex_matrix",
       title: "Complex Multiple Choice: Narrative Plot Analysis",
       stimulusTitle: "Text 1: The Legend of Prambanan Temple",
@@ -362,12 +362,12 @@ function ${bankFnName}() {
           isCorrect: false
         }
       ],
-      explanation: "• Pernyataan 1: BENAR — Bandung Bondowoso meminta bantuan bangsa jin untuk mendirikan candi.<br>• Pernyataan 2: SALAH — Roro Jonggrang menolak dan memberikan syarat yang sangat berat.<br>• Pernyataan 3: BENAR — Bangsa jin lari ketakutan karena mengira fajar pagi telah tiba.<br>• Pernyataan 4: SALAH — Hanya 999 candi yang tuntas diselesaikan oleh bangsa jin.",
+      explanation: "â€¢ Pernyataan 1: BENAR â€” Bandung Bondowoso meminta bantuan bangsa jin untuk mendirikan candi.<br>â€¢ Pernyataan 2: SALAH â€” Roro Jonggrang menolak dan memberikan syarat yang sangat berat.<br>â€¢ Pernyataan 3: BENAR â€” Bangsa jin lari ketakutan karena mengira fajar pagi telah tiba.<br>â€¢ Pernyataan 4: SALAH â€” Hanya 999 candi yang tuntas diselesaikan oleh bangsa jin.",
       grammarNote: "Reading comprehension of narrative sequence."
     },
     {
       id: 17,
-      source: "AKM Literasi Membaca — Pilihan Ganda Kompleks (True/False Matrix)",
+      source: "AKM Literasi Membaca â€” Pilihan Ganda Kompleks (True/False Matrix)",
       type: "complex_matrix",
       title: "Complex Multiple Choice: Character Traits Analysis",
       stimulusTitle: "Text 1: The Legend of Prambanan Temple",
@@ -391,12 +391,12 @@ function ${bankFnName}() {
           isCorrect: true
         }
       ],
-      explanation: "• Pernyataan 1: BENAR — Bandung memiliki kesaktian dan kekuatan luar biasa.<br>• Pernyataan 2: BENAR — Roro Jonggrang ingin melindungi rakyatnya dan menolak pembunuh ayahnya.<br>• Pernyataan 3: SALAH — Bandung sangat murka saat mengetahui dirinya diperdaya.<br>• Pernyataan 4: BENAR — Roro Jonggrang membuat fajar palsu untuk menggagalkan penyelesaian candi ke-1000.",
+      explanation: "â€¢ Pernyataan 1: BENAR â€” Bandung memiliki kesaktian dan kekuatan luar biasa.<br>â€¢ Pernyataan 2: BENAR â€” Roro Jonggrang ingin melindungi rakyatnya dan menolak pembunuh ayahnya.<br>â€¢ Pernyataan 3: SALAH â€” Bandung sangat murka saat mengetahui dirinya diperdaya.<br>â€¢ Pernyataan 4: BENAR â€” Roro Jonggrang membuat fajar palsu untuk menggagalkan penyelesaian candi ke-1000.",
       grammarNote: "Character analysis in Indonesian legend."
     },
     {
       id: 18,
-      source: "AKM Literasi Membaca — Pilihan Ganda Kompleks (True/False Matrix)",
+      source: "AKM Literasi Membaca â€” Pilihan Ganda Kompleks (True/False Matrix)",
       type: "complex_matrix",
       title: "Complex Multiple Choice: Cause and Effect Relations",
       stimulusTitle: "Text 1: The Legend of Prambanan Temple",
@@ -420,12 +420,12 @@ function ${bankFnName}() {
           isCorrect: true
         }
       ],
-      explanation: "• Pernyataan 1: BENAR — Bangsa jin bekerja sangat cepat di bawah kendali sihir Bandung.<br>• Pernyataan 2: BENAR — Ayam jantan berkokok karena cahaya merah jerami dan bunyi lesung padi.<br>• Pernyataan 3: SALAH — Bandung mengutuk sang putri karena tipu daya sang putri yang membatalkan syarat.<br>• Pernyataan 4: BENAR — Candi ke-1000 tidak selesai karena jin melarikan diri sebelum fajar asli tiba.",
+      explanation: "â€¢ Pernyataan 1: BENAR â€” Bangsa jin bekerja sangat cepat di bawah kendali sihir Bandung.<br>â€¢ Pernyataan 2: BENAR â€” Ayam jantan berkokok karena cahaya merah jerami dan bunyi lesung padi.<br>â€¢ Pernyataan 3: SALAH â€” Bandung mengutuk sang putri karena tipu daya sang putri yang membatalkan syarat.<br>â€¢ Pernyataan 4: BENAR â€” Candi ke-1000 tidak selesai karena jin melarikan diri sebelum fajar asli tiba.",
       grammarNote: "Cause-effect relations with 'because' and 'so that'."
     },
     {
       id: 19,
-      source: "AKM Literasi Membaca — Pilihan Ganda Kompleks (True/False Matrix)",
+      source: "AKM Literasi Membaca â€” Pilihan Ganda Kompleks (True/False Matrix)",
       type: "complex_matrix",
       title: "Complex Multiple Choice: Healthy Lifestyle Insights",
       stimulusTitle: "Context: Teenager Digital Habits",
@@ -449,12 +449,12 @@ function ${bankFnName}() {
           isCorrect: true
         }
       ],
-      explanation: "• Pernyataan 1: BENAR — Tidur 7-8 jam meningkatkan konsentrasi belajar di kelas pagi.<br>• Pernyataan 2: SALAH — Bermain gim larut malam justru menurunkan daya tahan tubuh dan merusak ingatan.<br>• Pernyataan 3: BENAR — Mematikan layar ponsel sebelum tidur membuat otak lebih rileks.<br>• Pernyataan 4: BENAR — Mengecek laman resmi sekolah membantu siswa terhindar dari kabar bohong (hoaks).",
+      explanation: "â€¢ Pernyataan 1: BENAR â€” Tidur 7-8 jam meningkatkan konsentrasi belajar di kelas pagi.<br>â€¢ Pernyataan 2: SALAH â€” Bermain gim larut malam justru menurunkan daya tahan tubuh dan merusak ingatan.<br>â€¢ Pernyataan 3: BENAR â€” Mematikan layar ponsel sebelum tidur membuat otak lebih rileks.<br>â€¢ Pernyataan 4: BENAR â€” Mengecek laman resmi sekolah membantu siswa terhindar dari kabar bohong (hoaks).",
       grammarNote: "Factual understanding of healthy habits."
     },
     {
       id: 20,
-      source: "AKM Literasi Membaca — Pilihan Ganda Kompleks (True/False Matrix)",
+      source: "AKM Literasi Membaca â€” Pilihan Ganda Kompleks (True/False Matrix)",
       type: "complex_matrix",
       title: "Complex Multiple Choice: Moral Values Evaluation",
       stimulusTitle: "Text 1: The Legend of Prambanan Temple",
@@ -478,12 +478,12 @@ function ${bankFnName}() {
           isCorrect: true
         }
       ],
-      explanation: "• Pernyataan 1: BENAR — Menggunakan tipu daya dan mengingkari kesepakatan berujung pada akhir yang tragis.<br>• Pernyataan 2: SALAH — Memaksa seseorang untuk menikah secara paksa adalah tindakan yang salah.<br>• Pernyataan 3: BENAR — Kesombongan dan amarah menghalangi penyelesaian masalah secara damai.<br>• Pernyataan 4: BENAR — Saling menghargai dan kejujuran adalah dasar dari hubungan yang damai.",
+      explanation: "â€¢ Pernyataan 1: BENAR â€” Menggunakan tipu daya dan mengingkari kesepakatan berujung pada akhir yang tragis.<br>â€¢ Pernyataan 2: SALAH â€” Memaksa seseorang untuk menikah secara paksa adalah tindakan yang salah.<br>â€¢ Pernyataan 3: BENAR â€” Kesombongan dan amarah menghalangi penyelesaian masalah secara damai.<br>â€¢ Pernyataan 4: BENAR â€” Saling menghargai dan kejujuran adalah dasar dari hubungan yang damai.",
       grammarNote: "Evaluation of ethical and moral lessons."
     },
     {
       id: 21,
-      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      source: "AKM Literasi â€” Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
       stimulusTitle: "Context: Digital Literacy",
@@ -501,7 +501,7 @@ function ${bankFnName}() {
     },
     {
       id: 22,
-      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      source: "AKM Literasi â€” Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
       stimulusTitle: "Text 1: The Legend of Prambanan Temple",
@@ -519,7 +519,7 @@ function ${bankFnName}() {
     },
     {
       id: 23,
-      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      source: "AKM Literasi â€” Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
       stimulusTitle: "Grammar in Context: Connectors of Contrast",
@@ -537,7 +537,7 @@ function ${bankFnName}() {
     },
     {
       id: 24,
-      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      source: "AKM Literasi â€” Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
       stimulusTitle: "Context: School Environment Initiatives",
@@ -555,7 +555,7 @@ function ${bankFnName}() {
     },
     {
       id: 25,
-      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      source: "AKM Literasi â€” Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
       stimulusTitle: "Context: Narrative & Descriptive Language",
@@ -573,7 +573,7 @@ function ${bankFnName}() {
     },
     {
       id: 26,
-      source: "Kemendikbudristek — Analytical Exposition: Healthy Sleep Habits",
+      source: "Kemendikbudristek â€” Analytical Exposition: Healthy Sleep Habits",
       type: "single_choice",
       title: "Reading Section: Analytical Exposition",
       stimulusTitle: "Text 2: The Importance of Good Sleep for High School Students",
@@ -591,7 +591,7 @@ function ${bankFnName}() {
     },
     {
       id: 27,
-      source: "Kemendikbudristek — Analytical Exposition: Healthy Sleep Habits",
+      source: "Kemendikbudristek â€” Analytical Exposition: Healthy Sleep Habits",
       type: "single_choice",
       title: "Reading Section: Analytical Exposition",
       stimulusTitle: "Text 2: The Importance of Good Sleep for High School Students",
@@ -609,7 +609,7 @@ function ${bankFnName}() {
     },
     {
       id: 28,
-      source: "Kemendikbudristek — Analytical Exposition: Healthy Sleep Habits",
+      source: "Kemendikbudristek â€” Analytical Exposition: Healthy Sleep Habits",
       type: "single_choice",
       title: "Reading Section: Analytical Exposition",
       stimulusTitle: "Text 2: The Importance of Good Sleep for High School Students",
@@ -627,7 +627,7 @@ function ${bankFnName}() {
     },
     {
       id: 29,
-      source: "Kemendikbudristek — Analytical Exposition: Healthy Sleep Habits",
+      source: "Kemendikbudristek â€” Analytical Exposition: Healthy Sleep Habits",
       type: "single_choice",
       title: "Reading Section: Analytical Exposition",
       stimulusTitle: "Text 2: The Importance of Good Sleep for High School Students",
@@ -645,7 +645,7 @@ function ${bankFnName}() {
     },
     {
       id: 30,
-      source: "Kemendikbudristek — Analytical Exposition: Healthy Sleep Habits",
+      source: "Kemendikbudristek â€” Analytical Exposition: Healthy Sleep Habits",
       type: "single_choice",
       title: "Reading Section: Analytical Exposition",
       stimulusTitle: "Text 2: The Importance of Good Sleep for High School Students",
@@ -663,7 +663,7 @@ function ${bankFnName}() {
     },
     {
       id: 31,
-      source: "Kaidah Tata Bahasa Kelas XI — Past Simple Tense",
+      source: "Kaidah Tata Bahasa Kelas XI â€” Past Simple Tense",
       type: "single_choice",
       title: "Grammar & Structure: Past Narrative Tense",
       prompt: "Choose the correct past verb form to complete the sentence:<br><br><em>'Prince Bandung Bondowoso _______ the kingdom of Prambanan in a fierce battle.'</em>",
@@ -679,7 +679,7 @@ function ${bankFnName}() {
     },
     {
       id: 32,
-      source: "Kaidah Tata Bahasa Kelas XI — Connectors of Contrast",
+      source: "Kaidah Tata Bahasa Kelas XI â€” Connectors of Contrast",
       type: "single_choice",
       title: "Grammar & Structure: Conjunction of Contrast",
       prompt: "Which conjunction of contrast correctly completes the sentence?<br><br><em>'_______ the task was very difficult, Bandung Bondowoso accepted the challenge confidently.'</em>",
@@ -695,7 +695,7 @@ function ${bankFnName}() {
     },
     {
       id: 33,
-      source: "Kaidah Tata Bahasa Kelas XI — Cause and Effect Connectors",
+      source: "Kaidah Tata Bahasa Kelas XI â€” Cause and Effect Connectors",
       type: "single_choice",
       title: "Grammar & Structure: Cause Connectors",
       prompt: "Choose the correct connector to express cause before a noun phrase:<br><br><em>'Roro Jonggrang devised a clever plan _______ her fear of Bandung\\'s magical power.'</em>",
@@ -711,7 +711,7 @@ function ${bankFnName}() {
     },
     {
       id: 34,
-      source: "Kaidah Tata Bahasa Kelas XI — Simple Past Passive Voice",
+      source: "Kaidah Tata Bahasa Kelas XI â€” Simple Past Passive Voice",
       type: "single_choice",
       title: "Grammar & Structure: Passive Voice",
       prompt: "Which passive verb phrase correctly completes the sentence?<br><br><em>'Nearly one thousand stone temples _______ by the spirits in a single night.'</em>",
@@ -727,7 +727,7 @@ function ${bankFnName}() {
     },
     {
       id: 35,
-      source: "Kaidah Tata Bahasa Kelas XI — Relative Pronouns",
+      source: "Kaidah Tata Bahasa Kelas XI â€” Relative Pronouns",
       type: "single_choice",
       title: "Grammar & Structure: Relative Clauses",
       prompt: "Choose the correct relative pronoun to connect the person with her action:<br><br><em>'Princess Roro Jonggrang, _______ was the daughter of King Boko, refused to marry the prince.'</em>",
@@ -743,7 +743,7 @@ function ${bankFnName}() {
     },
     {
       id: 36,
-      source: "Kaidah Tata Bahasa Kelas XI — First Conditional",
+      source: "Kaidah Tata Bahasa Kelas XI â€” First Conditional",
       type: "single_choice",
       title: "Grammar & Structure: Conditionals",
       prompt: "Select the correct verb form for the if-clause in this first conditional sentence:<br><br><em>'If high school students _______ enough sleep every night, they will concentrate better during classes.'</em>",
@@ -759,7 +759,7 @@ function ${bankFnName}() {
     },
     {
       id: 37,
-      source: "Kaidah Tata Bahasa Kelas XI — Modals for Recommendation",
+      source: "Kaidah Tata Bahasa Kelas XI â€” Modals for Recommendation",
       type: "single_choice",
       title: "Grammar & Structure: Modal Auxiliaries",
       prompt: "Which modal verb appropriately expresses strong positive advice?<br><br><em>'Teenagers _______ put away their smartphones thirty minutes before sleeping.'</em>",
@@ -775,7 +775,7 @@ function ${bankFnName}() {
     },
     {
       id: 38,
-      source: "Kaidah Tata Bahasa Kelas XI — Verb-Noun Collocation",
+      source: "Kaidah Tata Bahasa Kelas XI â€” Verb-Noun Collocation",
       type: "single_choice",
       title: "Grammar & Structure: Collocation",
       prompt: "Which verb pairs naturally with the noun phrase 'close attention'?<br><br><em>'Students should _______ close attention to the teacher\\'s explanation in class.'</em>",
@@ -791,7 +791,7 @@ function ${bankFnName}() {
     },
     {
       id: 39,
-      source: "Kaidah Tata Bahasa Kelas XI — Expressing Agreement",
+      source: "Kaidah Tata Bahasa Kelas XI â€” Expressing Agreement",
       type: "single_choice",
       title: "Grammar & Structure: Expressing Agreement",
       prompt: "Which expression best demonstrates complete agreement with a friend's opinion?<br><br><em>Budi: 'I think reducing plastic waste makes our school much cleaner.'<br>Siti: '_______ It is a very positive project for all of us.'</em>",
@@ -807,7 +807,7 @@ function ${bankFnName}() {
     },
     {
       id: 40,
-      source: "Kaidah Tata Bahasa Kelas XI — Subject-Verb Agreement",
+      source: "Kaidah Tata Bahasa Kelas XI â€” Subject-Verb Agreement",
       type: "single_choice",
       title: "Grammar & Structure: Subject-Verb Agreement",
       prompt: "Choose the correct verb form that agrees with the plural subject in this sentence:<br><br><em>'Both the teachers and the students _______ delighted with the green school project.'</em>",

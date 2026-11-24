@@ -1,4 +1,4 @@
-// -*- coding: utf-8 -*-
+﻿// -*- coding: utf-8 -*-
 const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
@@ -85,7 +85,7 @@ function run() {
   const matrixQuestions = [
     {
       id: 16,
-      source: "Sumber: Analisis Teks Diskusi Pembelajaran Digital — BSKAP Kemendikbudristek",
+      source: "Sumber: Analisis Teks Diskusi Pembelajaran Digital â€” BSKAP Kemendikbudristek",
       type: "complex_matrix",
       title: "Pilihan Ganda Kompleks: Evaluasi Argumen Teks Diskusi Kecerdasan Buatan (AI)",
       stimulusTitle: "Evaluasi Argumen Kritis Teks Diskusi (Generative AI in Education)",
@@ -102,7 +102,7 @@ function run() {
     },
     {
       id: 17,
-      source: "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XII — SMAN 1 Bae Kudus",
+      source: "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XII â€” SMAN 1 Bae Kudus",
       type: "complex_matrix",
       title: "Pilihan Ganda Kompleks: Kalimat Pengandaian Tipe 3 (Conditional Type 3)",
       stimulusTitle: "Kaidah Pengandaian Masa Lalu (Unreal Past Conditionals)",
@@ -119,7 +119,7 @@ function run() {
     },
     {
       id: 18,
-      source: "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XII — SMAN 1 Bae Kudus",
+      source: "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XII â€” SMAN 1 Bae Kudus",
       type: "complex_matrix",
       title: "Pilihan Ganda Kompleks: Konjungsi Pertentangan & Konsesi (Contrast & Concession)",
       stimulusTitle: "Kaidah Transisi Pertentangan dan Konsesi",
@@ -136,7 +136,7 @@ function run() {
     },
     {
       id: 19,
-      source: "Sumber: Telaah Kritis Teks Resensi Sastra Indonesia — Kemendikbudristek",
+      source: "Sumber: Telaah Kritis Teks Resensi Sastra Indonesia â€” Kemendikbudristek",
       type: "complex_matrix",
       title: "Pilihan Ganda Kompleks: Evaluasi Fakta Teks Ulasan Novel (Laskar Pelangi)",
       stimulusTitle: "Evaluasi Kritis Resensi Novel Andrea Hirata: Laskar Pelangi",
@@ -153,7 +153,7 @@ function run() {
     },
     {
       id: 20,
-      source: "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XII — SMAN 1 Bae Kudus",
+      source: "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XII â€” SMAN 1 Bae Kudus",
       type: "complex_matrix",
       title: "Pilihan Ganda Kompleks: Modal Deduksi Masa Lalu (Modals of Past Deduction)",
       stimulusTitle: "Kaidah Modalitas Deduksi Logis Masa Lalu",
@@ -176,7 +176,7 @@ function run() {
   const mcmaQuestions = [
     {
       id: 21,
-      source: "Sumber: Modul Pembelajaran Teks Diskusi — BSKAP Kemendikbudristek",
+      source: "Sumber: Modul Pembelajaran Teks Diskusi â€” BSKAP Kemendikbudristek",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
       stimulusTitle: "Prinsip Pemanfaatan Kecerdasan Buatan (AI) yang Bertanggung Jawab",
@@ -194,7 +194,7 @@ function run() {
     },
     {
       id: 22,
-      source: "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XII — SMAN 1 Bae Kudus",
+      source: "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XII â€” SMAN 1 Bae Kudus",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
       stimulusTitle: "Kalimat Pengandaian Tipe 3 (Conditional Type 3) yang Gramatikal",
@@ -212,7 +212,7 @@ function run() {
     },
     {
       id: 23,
-      source: "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XII — SMAN 1 Bae Kudus",
+      source: "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XII â€” SMAN 1 Bae Kudus",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
       stimulusTitle: "Konjungsi Transisi Pertentangan dalam Wacana Akademik",
@@ -230,7 +230,7 @@ function run() {
     },
     {
       id: 24,
-      source: "Sumber: Telaah Kritis Teks Resensi Sastra Indonesia — Kemendikbudristek",
+      source: "Sumber: Telaah Kritis Teks Resensi Sastra Indonesia â€” Kemendikbudristek",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
       stimulusTitle: "Nilai-Nilai Utama Novel Laskar Pelangi",
@@ -248,7 +248,7 @@ function run() {
     },
     {
       id: 25,
-      source: "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XII — SMAN 1 Bae Kudus",
+      source: "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat XII â€” SMAN 1 Bae Kudus",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
       stimulusTitle: "Kalimat Tak Langsung (Reported Speech / Indirect Statements)",
@@ -310,7 +310,7 @@ function run() {
  * Standar: TKA & AKM Literasi (Pilihan Ganda Biasa, Kompleks Matrix, & MCMA)
  */
 
-const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbz3M4guY77PrNH89TFG-NR_1S7gMaJjQ2TFh8xgOvNeDMyuwZWfwZVvv1YyXgOa3Xu9-Q/exec";
+const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbzEAZ06v-tooNexfkonEizne2ou015Ik0f2GND8m0x97psfWmMqDNl4I2fDkNmDcTwx/exec";
 
 ${svgCode}
 
@@ -329,7 +329,7 @@ ${engineAsas}
  * Dilengkapi Verifikasi Password ASTS Terpadu
  */
 
-const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbz3M4guY77PrNH89TFG-NR_1S7gMaJjQ2TFh8xgOvNeDMyuwZWfwZVvv1YyXgOa3Xu9-Q/exec";
+const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbzEAZ06v-tooNexfkonEizne2ou015Ik0f2GND8m0x97psfWmMqDNl4I2fDkNmDcTwx/exec";
 
 ${svgCode}
 
@@ -379,8 +379,8 @@ function checkAstsAuth() {
     initAuth = "if (!checkAstsAuth()) return;";
   }
 
-  const modePractice = "🎯 Mode Latihan " + testType;
-  const modeExam = "🔒 Asesmen Resmi " + testType;
+  const modePractice = "ðŸŽ¯ Mode Latihan " + testType;
+  const modeExam = "ðŸ”’ Asesmen Resmi " + testType;
 
   return `
 ${authGuard}
@@ -505,17 +505,17 @@ function toggleKisiKisiContent() {
   const icon = document.getElementById("kisi-toggle-icon");
   if (body.style.display === "none") {
     body.style.display = "block";
-    icon.textContent = "▲ Sembunyikan Kisi-Kisi";
+    icon.textContent = "â–² Sembunyikan Kisi-Kisi";
   } else {
     body.style.display = "none";
-    icon.textContent = "▼ Buka Kisi-Kisi Lengkap";
+    icon.textContent = "â–¼ Buka Kisi-Kisi Lengkap";
   }
 }
 
 function toggleKisiKisiModal() {
   const body = document.getElementById("kisi-kisi-body");
   body.style.display = "block";
-  document.getElementById("kisi-toggle-icon").textContent = "▲ Sembunyikan Kisi-Kisi";
+  document.getElementById("kisi-toggle-icon").textContent = "â–² Sembunyikan Kisi-Kisi";
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -579,7 +579,7 @@ function renderQuestion(index) {
     if (srcEl) {
       if (q.source) {
         srcEl.style.display = "block";
-        srcEl.innerHTML = \`📌 <strong>\${q.source}</strong>\`;
+        srcEl.innerHTML = \`ðŸ“Œ <strong>\${q.source}</strong>\`;
       } else {
         srcEl.style.display = "none";
       }
@@ -592,7 +592,7 @@ function renderQuestion(index) {
   let srcBadge = "";
   if (q.source) {
     srcBadge = \`<div class="source-citation" style="margin-top: 10px; font-size: 0.8rem; color: #475569; background: #f8fafc; border-left: 3.5px solid var(--accent-teal); padding: 6px 12px; border-radius: 4px; font-style: italic;">
-      📌 <strong>\${q.source}</strong>
+      ðŸ“Œ <strong>\${q.source}</strong>
     </div>\`;
   }
   promptBox.innerHTML = q.prompt + srcBadge;
@@ -624,7 +624,7 @@ function renderQuestion(index) {
 
     document.getElementById("explanation-text").innerHTML = \`
       <div style="margin-bottom: 10px; padding: 6px 12px; background: #ecfdf5; border: 1.5px solid #a7f3d0; border-radius: 8px; color: #065f46; font-size: 0.95rem; display: inline-block;">
-        🔑 <strong>Kunci Jawaban:</strong> <span style="font-weight: 800; color: #047857; margin-left: 4px;">\${keyBadge}</span>
+        ðŸ”‘ <strong>Kunci Jawaban:</strong> <span style="font-weight: 800; color: #047857; margin-left: 4px;">\${keyBadge}</span>
       </div>
       <div>\${q.explanation}</div>
     \`;
@@ -634,8 +634,8 @@ function renderQuestion(index) {
   }
 
   const flagBtn = document.getElementById("btn-flag-q");
-  if (flaggedQuestions.has(index)) flagBtn.textContent = "🚩 Hapus Ragu";
-  else flagBtn.textContent = "🏳️ Ragu-ragu";
+  if (flaggedQuestions.has(index)) flagBtn.textContent = "ðŸš© Hapus Ragu";
+  else flagBtn.textContent = "ðŸ³ï¸ Ragu-ragu";
 
   document.getElementById("btn-prev-q").disabled = (index === 0);
   document.getElementById("btn-next-q").disabled = (index === questions.length - 1);
@@ -789,7 +789,7 @@ function renderMCMACheckboxes(q, container) {
   tip.style.padding = "8px 12px";
   tip.style.borderRadius = "6px";
   tip.style.borderLeft = "3.5px solid #0284c7";
-  tip.innerHTML = "💡 <em>Petunjuk: Pilihlah tepat <strong>2 opsi jawaban</strong> yang benar pada tipe soal MCMA ini.</em>";
+  tip.innerHTML = "ðŸ’¡ <em>Petunjuk: Pilihlah tepat <strong>2 opsi jawaban</strong> yang benar pada tipe soal MCMA ini.</em>";
   wrap.appendChild(tip);
 
   container.appendChild(wrap);
@@ -898,7 +898,7 @@ function playQuestionAudio() {
   const statusText = document.getElementById("audio-status-text");
   if (playText) playText.textContent = "Hentikan";
   if (playBtn) playBtn.style.backgroundColor = "#dc2626";
-  if (statusText) statusText.textContent = "🔊 Audio sedang diputar. Simak dengan seksama...";
+  if (statusText) statusText.textContent = "ðŸ”Š Audio sedang diputar. Simak dengan seksama...";
   playNextAudioSegment();
 }
 
@@ -1020,7 +1020,7 @@ function submitTest() {
         <td>\${q.title || "Pilihan Ganda"}</td>
         <td style="text-align: center; font-weight: 700;">\${userAnsLabel}</td>
         <td style="text-align: center; font-weight: 700; color: #047857;">\${keyLabel}</td>
-        <td style="text-align: center;">\${isQCorrect ? '<span style="color:#16a34a; font-weight:bold;">✔ Benar</span>' : '<span style="color:#dc2626; font-weight:bold;">✘ Salah</span>'}</td>
+        <td style="text-align: center;">\${isQCorrect ? '<span style="color:#16a34a; font-weight:bold;">âœ” Benar</span>' : '<span style="color:#dc2626; font-weight:bold;">âœ˜ Salah</span>'}</td>
       </tr>
     \`;
   });
@@ -1031,7 +1031,7 @@ function submitTest() {
   document.getElementById("modal-student-name").textContent = studentIdentity.nama;
   document.getElementById("modal-student-meta").textContent = \`Kelas: \${studentIdentity.tingkat} | Rombel: \${studentIdentity.rombel} | Presensi: \${studentIdentity.presensi}\`;
   document.getElementById("modal-score-grade").textContent = finalScore;
-  document.getElementById("modal-score-badge").textContent = isTuntas ? "TUNTAS KKTP (≥ 75)" : "BELUM TUNTAS (< 75)";
+  document.getElementById("modal-score-badge").textContent = isTuntas ? "TUNTAS KKTP (â‰¥ 75)" : "BELUM TUNTAS (< 75)";
   document.getElementById("modal-score-badge").className = "kktp-status " + (isTuntas ? "passed" : "failed");
   document.getElementById("modal-correct-count").textContent = correctCount;
   document.getElementById("modal-total-count").textContent = questions.length;
@@ -1070,7 +1070,7 @@ function sendScoreToGoogleSheet(record) {
   if (!webAppUrl || webAppUrl.includes("REPLACE_WITH_YOUR")) return;
 
   const statusEl = document.getElementById("db-sync-status");
-  if (statusEl) statusEl.innerHTML = "⏳ Menghubungkan dan menyimpan nilai ke pangkalan data sekolah...";
+  if (statusEl) statusEl.innerHTML = "â³ Menghubungkan dan menyimpan nilai ke pangkalan data sekolah...";
 
   const payload = {
     method: "POST",
@@ -1080,7 +1080,7 @@ function sendScoreToGoogleSheet(record) {
   };
 
   fetch(webAppUrl, payload).then(() => {
-    if (statusEl) statusEl.innerHTML = "✅ Nilai Anda telah berhasil tersimpan di sistem basis data sekolah!";
+    if (statusEl) statusEl.innerHTML = "âœ… Nilai Anda telah berhasil tersimpan di sistem basis data sekolah!";
   }).catch(() => {
     try {
       const beacon = new Image();
@@ -1097,7 +1097,7 @@ function sendScoreToGoogleSheet(record) {
       }).toString();
       beacon.src = \`\${webAppUrl}?\${query}\`;
     } catch (bErr) {}
-    if (statusEl) statusEl.innerHTML = "✅ Nilai Anda telah tersimpan dengan aman di sistem sekolah.";
+    if (statusEl) statusEl.innerHTML = "âœ… Nilai Anda telah tersimpan dengan aman di sistem sekolah.";
   });
 }
 

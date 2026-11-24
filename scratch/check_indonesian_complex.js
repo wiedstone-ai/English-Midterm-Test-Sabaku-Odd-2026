@@ -16,9 +16,9 @@ let totalFound = 0;
 files.forEach(file => {
   const content = fs.readFileSync(file, 'utf8');
   const sandbox = {
-    window: { addEventListener: () => {} },
-    document: { addEventListener: () => {}, getElementById: () => null, querySelector: () => null, querySelectorAll: () => [] },
-    localStorage: { getItem: () => null, setItem: () => {} },
+    window: { addEventListener: () => { } },
+    document: { addEventListener: () => { }, getElementById: () => null, querySelector: () => null, querySelectorAll: () => [] },
+    localStorage: { getItem: () => null, setItem: () => { } },
     console: console,
     speechSynthesis: { getVoices: () => [] }
   };
@@ -43,7 +43,7 @@ files.forEach(file => {
     if (q.matrixStatements) {
       q.matrixStatements.forEach((s, idx) => {
         if (indoRegex.test(s.statement)) {
-          console.log(`[INDO STMT] ${file} Q${id} #${idx+1}: ${s.statement}`);
+          console.log(`[INDO STMT] ${file} Q${id} #${idx + 1}: ${s.statement}`);
           totalFound++;
         }
       });

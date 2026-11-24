@@ -1,14 +1,14 @@
-function generateGrade10Bank(isAsts = false) {
+﻿function generateGrade10Bank(isAsts = false) {
   const bankFnName = isAsts ? "getGrade10Questions" : "getGrade10Questions";
 
   return `/**
  * ASESMEN SUMATIF ${isAsts ? "TENGAH" : "AKHIR"} SEMESTER (${isAsts ? "ASTS" : "ASAS"}) GASAL 2026
  * SMA NEGERI 1 BAE KUDUS (SABAKU)
- * BAHASA INGGRIS TINGKAT X — FASE E
+ * BAHASA INGGRIS TINGKAT X â€” FASE E
  * Standar: TKA & AKM Literasi (Pilihan Ganda, Matrix Kompleks, & MCMA - CEFR Level A2)
  */
 
-const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbz3M4guY77PrNH89TFG-NR_1S7gMaJjQ2TFh8xgOvNeDMyuwZWfwZVvv1YyXgOa3Xu9-Q/exec";
+const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbzEAZ06v-tooNexfkonEizne2ou015Ik0f2GND8m0x97psfWmMqDNl4I2fDkNmDcTwx/exec";
 
 const SVG_PICTURES = {
   athlete: \`<svg viewBox="0 0 100 100" fill="none" stroke="#dc2626" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="22" r="10" fill="#fee2e2" stroke="#dc2626"/><path d="M50 32v24M50 42l18-12M50 42l-18 8M50 56l-14 24M50 56l16 22" stroke="#dc2626" stroke-width="3"/><circle cx="74" cy="26" r="4" fill="#fca5a5" stroke="#b91c1c"/></svg>\`,
@@ -21,7 +21,7 @@ function ${bankFnName}() {
   return [
     {
       id: 1,
-      source: "Kemendikbudristek — Listening Practice Fase E",
+      source: "Kemendikbudristek â€” Listening Practice Fase E",
       type: "listening_pictures",
       title: "Listening Section: Part I - Pictures",
       audioText: "Number one. Look at the pictures. A young male badminton player in a red jersey is jumping high to smash the shuttlecock on the court. Which picture matches the description?",
@@ -45,7 +45,7 @@ function ${bankFnName}() {
     },
     {
       id: 2,
-      source: "Kemendikbudristek — Listening Practice Fase E",
+      source: "Kemendikbudristek â€” Listening Practice Fase E",
       type: "listening_pictures",
       title: "Listening Section: Part I - Pictures",
       audioText: "Number two. Look at the pictures. Built in the eighth century in Central Java, this famous stone temple has many Buddha statues and bell-shaped stupas. Which picture shows this heritage site?",
@@ -69,7 +69,7 @@ function ${bankFnName}() {
     },
     {
       id: 3,
-      source: "Kemendikbudristek — Listening Practice Fase E",
+      source: "Kemendikbudristek â€” Listening Practice Fase E",
       type: "listening_pictures",
       title: "Listening Section: Part I - Pictures",
       audioText: "Number three. Look at the pictures. Located in the town of Kudus, this historic red-brick tower combines Hindu architecture and Islamic culture. Which picture shows this tower?",
@@ -93,7 +93,7 @@ function ${bankFnName}() {
     },
     {
       id: 4,
-      source: "Modul Pembelajaran Bahasa Inggris Kelas X — Kemendikbudristek",
+      source: "Modul Pembelajaran Bahasa Inggris Kelas X â€” Kemendikbudristek",
       type: "listening_dialog",
       title: "Listening Section: Part II - Short Dialogues",
       audioSegments: [
@@ -117,7 +117,7 @@ function ${bankFnName}() {
     },
     {
       id: 5,
-      source: "Modul Pembelajaran Bahasa Inggris Kelas X — Kemendikbudristek",
+      source: "Modul Pembelajaran Bahasa Inggris Kelas X â€” Kemendikbudristek",
       type: "listening_dialog",
       title: "Listening Section: Part II - Short Dialogues",
       audioSegments: [
@@ -141,7 +141,7 @@ function ${bankFnName}() {
     },
     {
       id: 6,
-      source: "Modul Pembelajaran Bahasa Inggris Kelas X — Kemendikbudristek",
+      source: "Modul Pembelajaran Bahasa Inggris Kelas X â€” Kemendikbudristek",
       type: "listening_dialog",
       title: "Listening Section: Part II - Short Dialogues",
       audioSegments: [
@@ -166,7 +166,7 @@ function ${bankFnName}() {
     },
     {
       id: 7,
-      source: "Kemendikbudristek — Listening Monologue: Anthony Sinisuka Ginting",
+      source: "Kemendikbudristek â€” Listening Monologue: Anthony Sinisuka Ginting",
       type: "listening_talk",
       title: "Listening Section: Part III - Monologues",
       audioSegments: [
@@ -187,7 +187,7 @@ function ${bankFnName}() {
     },
     {
       id: 8,
-      source: "Kemendikbudristek — Listening Monologue: Anthony Sinisuka Ginting",
+      source: "Kemendikbudristek â€” Listening Monologue: Anthony Sinisuka Ginting",
       type: "listening_talk",
       title: "Listening Section: Part III - Monologues",
       audioSegments: [
@@ -207,7 +207,7 @@ function ${bankFnName}() {
     },
     {
       id: 9,
-      source: "Kemendikbudristek — Listening Monologue: School Reading Week",
+      source: "Kemendikbudristek â€” Listening Monologue: School Reading Week",
       type: "listening_talk",
       title: "Listening Section: Part III - Monologues",
       audioSegments: [
@@ -228,7 +228,7 @@ function ${bankFnName}() {
     },
     {
       id: 10,
-      source: "Kemendikbudristek — Listening Monologue: School Reading Week",
+      source: "Kemendikbudristek â€” Listening Monologue: School Reading Week",
       type: "listening_talk",
       title: "Listening Section: Part III - Monologues",
       audioSegments: [
@@ -248,7 +248,7 @@ function ${bankFnName}() {
     },
     {
       id: 11,
-      source: "Teks Deskriptif Pariwisata Jawa Tengah — Karimunjawa (Fase E)",
+      source: "Teks Deskriptif Pariwisata Jawa Tengah â€” Karimunjawa (Fase E)",
       type: "single_choice",
       title: "Reading Section: Descriptive Text",
       stimulusTitle: "Text 1: The Beautiful Karimunjawa Islands",
@@ -266,7 +266,7 @@ function ${bankFnName}() {
     },
     {
       id: 12,
-      source: "Teks Deskriptif Pariwisata Jawa Tengah — Karimunjawa (Fase E)",
+      source: "Teks Deskriptif Pariwisata Jawa Tengah â€” Karimunjawa (Fase E)",
       type: "single_choice",
       title: "Reading Section: Descriptive Text",
       stimulusTitle: "Text 1: The Beautiful Karimunjawa Islands",
@@ -284,7 +284,7 @@ function ${bankFnName}() {
     },
     {
       id: 13,
-      source: "Teks Deskriptif Pariwisata Jawa Tengah — Karimunjawa (Fase E)",
+      source: "Teks Deskriptif Pariwisata Jawa Tengah â€” Karimunjawa (Fase E)",
       type: "single_choice",
       title: "Reading Section: Descriptive Text",
       stimulusTitle: "Text 1: The Beautiful Karimunjawa Islands",
@@ -302,7 +302,7 @@ function ${bankFnName}() {
     },
     {
       id: 14,
-      source: "Teks Deskriptif Pariwisata Jawa Tengah — Karimunjawa (Fase E)",
+      source: "Teks Deskriptif Pariwisata Jawa Tengah â€” Karimunjawa (Fase E)",
       type: "single_choice",
       title: "Reading Section: Descriptive Text",
       stimulusTitle: "Text 1: The Beautiful Karimunjawa Islands",
@@ -320,7 +320,7 @@ function ${bankFnName}() {
     },
     {
       id: 15,
-      source: "Teks Deskriptif Pariwisata Jawa Tengah — Karimunjawa (Fase E)",
+      source: "Teks Deskriptif Pariwisata Jawa Tengah â€” Karimunjawa (Fase E)",
       type: "single_choice",
       title: "Reading Section: Descriptive Text",
       stimulusTitle: "Text 1: The Beautiful Karimunjawa Islands",
@@ -338,7 +338,7 @@ function ${bankFnName}() {
     },
     {
       id: 16,
-      source: "AKM Literasi Membaca — Pilihan Ganda Kompleks (True/False Matrix)",
+      source: "AKM Literasi Membaca â€” Pilihan Ganda Kompleks (True/False Matrix)",
       type: "complex_matrix",
       title: "Complex Multiple Choice: Karimunjawa Facts",
       stimulusTitle: "Text 1: The Beautiful Karimunjawa Islands",
@@ -362,12 +362,12 @@ function ${bankFnName}() {
           isCorrect: true
         }
       ],
-      explanation: "• Pernyataan 1: BENAR — Karimunjawa terdiri dari 27 pulau di utara Jepara.<br>• Pernyataan 2: SALAH — Air laut di Karimunjawa sangat bersih dan jernih.<br>• Pernyataan 3: BENAR — Snorkeling dan diving adalah kegiatan paling populer.<br>• Pernyataan 4: BENAR — Pantai Tanjung Gelam terkenal dengan pemandangan matahari terbenamnya.",
+      explanation: "â€¢ Pernyataan 1: BENAR â€” Karimunjawa terdiri dari 27 pulau di utara Jepara.<br>â€¢ Pernyataan 2: SALAH â€” Air laut di Karimunjawa sangat bersih dan jernih.<br>â€¢ Pernyataan 3: BENAR â€” Snorkeling dan diving adalah kegiatan paling populer.<br>â€¢ Pernyataan 4: BENAR â€” Pantai Tanjung Gelam terkenal dengan pemandangan matahari terbenamnya.",
       grammarNote: "Literal reading comprehension of descriptive facts."
     },
     {
       id: 17,
-      source: "AKM Literasi Membaca — Pilihan Ganda Kompleks (True/False Matrix)",
+      source: "AKM Literasi Membaca â€” Pilihan Ganda Kompleks (True/False Matrix)",
       type: "complex_matrix",
       title: "Complex Multiple Choice: Athlete Character & Habits",
       stimulusTitle: "Context: Anthony Sinisuka Ginting",
@@ -391,12 +391,12 @@ function ${bankFnName}() {
           isCorrect: true
         }
       ],
-      explanation: "• Pernyataan 1: BENAR — Ginting lahir di Cimahi dan berlatih sejak sekolah dasar.<br>• Pernyataan 2: BENAR — Terkenal dengan pergerakan kaki cepat dan smash kuat.<br>• Pernyataan 3: SALAH — Ginting berkepribadian ramah dan rendah hati.<br>• Pernyataan 4: BENAR — Ginting berlatih keras dan menghormati lawan.",
+      explanation: "â€¢ Pernyataan 1: BENAR â€” Ginting lahir di Cimahi dan berlatih sejak sekolah dasar.<br>â€¢ Pernyataan 2: BENAR â€” Terkenal dengan pergerakan kaki cepat dan smash kuat.<br>â€¢ Pernyataan 3: SALAH â€” Ginting berkepribadian ramah dan rendah hati.<br>â€¢ Pernyataan 4: BENAR â€” Ginting berlatih keras dan menghormati lawan.",
       grammarNote: "Character traits and facts in descriptive text."
     },
     {
       id: 18,
-      source: "AKM Literasi Membaca — Pilihan Ganda Kompleks (True/False Matrix)",
+      source: "AKM Literasi Membaca â€” Pilihan Ganda Kompleks (True/False Matrix)",
       type: "complex_matrix",
       title: "Complex Multiple Choice: Menara Kudus Cultural Landmark",
       stimulusTitle: "Context: Historical Landmarks in Kudus",
@@ -420,12 +420,12 @@ function ${bankFnName}() {
           isCorrect: true
         }
       ],
-      explanation: "• Pernyataan 1: BENAR — Menara Kudus adalah menara bersejarah di kota Kudus.<br>• Pernyataan 2: BENAR — Desain menara memadukan arsitektur Hindu dan Islam.<br>• Pernyataan 3: SALAH — Menara dibangun dari bata merah kuno, bukan kaca modern.<br>• Pernyataan 4: BENAR — Dikunjungi banyak peziarah dan wisatawan budaya.",
+      explanation: "â€¢ Pernyataan 1: BENAR â€” Menara Kudus adalah menara bersejarah di kota Kudus.<br>â€¢ Pernyataan 2: BENAR â€” Desain menara memadukan arsitektur Hindu dan Islam.<br>â€¢ Pernyataan 3: SALAH â€” Menara dibangun dari bata merah kuno, bukan kaca modern.<br>â€¢ Pernyataan 4: BENAR â€” Dikunjungi banyak peziarah dan wisatawan budaya.",
       grammarNote: "Historical and cultural descriptive facts."
     },
     {
       id: 19,
-      source: "AKM Literasi Membaca — Pilihan Ganda Kompleks (True/False Matrix)",
+      source: "AKM Literasi Membaca â€” Pilihan Ganda Kompleks (True/False Matrix)",
       type: "complex_matrix",
       title: "Complex Multiple Choice: Green School Practices",
       stimulusTitle: "Context: School Environment Cleanliness",
@@ -449,12 +449,12 @@ function ${bankFnName}() {
           isCorrect: true
         }
       ],
-      explanation: "• Pernyataan 1: BENAR — Membawa botol minum isi ulang mengurangi sampah plastik.<br>• Pernyataan 2: SALAH — Sampah harus dibuang ke tempat sampah, bukan di tanaman.<br>• Pernyataan 3: BENAR — Lingkungan yang bersih menciptakan suasana belajar yang nyaman.<br>• Pernyataan 4: BENAR — Menanam pohon membuat udara sekolah lebih segar dan sejuk.",
+      explanation: "â€¢ Pernyataan 1: BENAR â€” Membawa botol minum isi ulang mengurangi sampah plastik.<br>â€¢ Pernyataan 2: SALAH â€” Sampah harus dibuang ke tempat sampah, bukan di tanaman.<br>â€¢ Pernyataan 3: BENAR â€” Lingkungan yang bersih menciptakan suasana belajar yang nyaman.<br>â€¢ Pernyataan 4: BENAR â€” Menanam pohon membuat udara sekolah lebih segar dan sejuk.",
       grammarNote: "Cause and effect in daily environmental practices."
     },
     {
       id: 20,
-      source: "AKM Literasi Membaca — Pilihan Ganda Kompleks (True/False Matrix)",
+      source: "AKM Literasi Membaca â€” Pilihan Ganda Kompleks (True/False Matrix)",
       type: "complex_matrix",
       title: "Complex Multiple Choice: Library Reading Week",
       stimulusTitle: "Context: School Reading Week",
@@ -478,12 +478,12 @@ function ${bankFnName}() {
           isCorrect: true
         }
       ],
-      explanation: "• Pernyataan 1: BENAR — Kegiatan dimulai hari Senin depan di perpustakaan.<br>• Pernyataan 2: BENAR — Siswa diajak membaca buku cerita bahasa Inggris.<br>• Pernyataan 3: SALAH — Tidak ada syarat membeli laptop baru.<br>• Pernyataan 4: BENAR — Siswa menempelkan ulasan buku di papan pengumuman kelas.",
+      explanation: "â€¢ Pernyataan 1: BENAR â€” Kegiatan dimulai hari Senin depan di perpustakaan.<br>â€¢ Pernyataan 2: BENAR â€” Siswa diajak membaca buku cerita bahasa Inggris.<br>â€¢ Pernyataan 3: SALAH â€” Tidak ada syarat membeli laptop baru.<br>â€¢ Pernyataan 4: BENAR â€” Siswa menempelkan ulasan buku di papan pengumuman kelas.",
       grammarNote: "Factual understanding of school announcements."
     },
     {
       id: 21,
-      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      source: "AKM Literasi â€” Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
       stimulusTitle: "Text 1: The Beautiful Karimunjawa Islands",
@@ -501,7 +501,7 @@ function ${bankFnName}() {
     },
     {
       id: 22,
-      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      source: "AKM Literasi â€” Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
       stimulusTitle: "Context: Anthony Sinisuka Ginting",
@@ -519,7 +519,7 @@ function ${bankFnName}() {
     },
     {
       id: 23,
-      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      source: "AKM Literasi â€” Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
       stimulusTitle: "Grammar: Simple Present Tense for General Truths",
@@ -537,7 +537,7 @@ function ${bankFnName}() {
     },
     {
       id: 24,
-      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      source: "AKM Literasi â€” Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
       stimulusTitle: "Context: Study Habits",
@@ -555,7 +555,7 @@ function ${bankFnName}() {
     },
     {
       id: 25,
-      source: "AKM Literasi — Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
+      source: "AKM Literasi â€” Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi Benar)",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Choose 2 Correct Options)",
       stimulusTitle: "Grammar: Descriptive Adjectives",
@@ -573,7 +573,7 @@ function ${bankFnName}() {
     },
     {
       id: 26,
-      source: "Kemendikbudristek — Recount Text: School Trip to Borobudur (Fase E)",
+      source: "Kemendikbudristek â€” Recount Text: School Trip to Borobudur (Fase E)",
       type: "single_choice",
       title: "Reading Section: Recount Text",
       stimulusTitle: "Text 2: Our Unforgettable Study Tour to Borobudur",
@@ -591,7 +591,7 @@ function ${bankFnName}() {
     },
     {
       id: 27,
-      source: "Kemendikbudristek — Recount Text: School Trip to Borobudur (Fase E)",
+      source: "Kemendikbudristek â€” Recount Text: School Trip to Borobudur (Fase E)",
       type: "single_choice",
       title: "Reading Section: Recount Text",
       stimulusTitle: "Text 2: Our Unforgettable Study Tour to Borobudur",
@@ -609,7 +609,7 @@ function ${bankFnName}() {
     },
     {
       id: 28,
-      source: "Kemendikbudristek — Recount Text: School Trip to Borobudur (Fase E)",
+      source: "Kemendikbudristek â€” Recount Text: School Trip to Borobudur (Fase E)",
       type: "single_choice",
       title: "Reading Section: Recount Text",
       stimulusTitle: "Text 2: Our Unforgettable Study Tour to Borobudur",
@@ -627,7 +627,7 @@ function ${bankFnName}() {
     },
     {
       id: 29,
-      source: "Kemendikbudristek — Recount Text: School Trip to Borobudur (Fase E)",
+      source: "Kemendikbudristek â€” Recount Text: School Trip to Borobudur (Fase E)",
       type: "single_choice",
       title: "Reading Section: Recount Text",
       stimulusTitle: "Text 2: Our Unforgettable Study Tour to Borobudur",
@@ -645,7 +645,7 @@ function ${bankFnName}() {
     },
     {
       id: 30,
-      source: "Kemendikbudristek — Recount Text: School Trip to Borobudur (Fase E)",
+      source: "Kemendikbudristek â€” Recount Text: School Trip to Borobudur (Fase E)",
       type: "single_choice",
       title: "Reading Section: Recount Text",
       stimulusTitle: "Text 2: Our Unforgettable Study Tour to Borobudur",
@@ -663,7 +663,7 @@ function ${bankFnName}() {
     },
     {
       id: 31,
-      source: "Kaidah Tata Bahasa Kelas X — Simple Present Tense (To Be)",
+      source: "Kaidah Tata Bahasa Kelas X â€” Simple Present Tense (To Be)",
       type: "single_choice",
       title: "Grammar & Structure: Simple Present Tense",
       prompt: "Complete the sentence with the correct form of the verb **'be'**:<br><br><em>'Anthony Sinisuka Ginting _______ a famous badminton player from Indonesia.'</em>",
@@ -679,7 +679,7 @@ function ${bankFnName}() {
     },
     {
       id: 32,
-      source: "Kaidah Tata Bahasa Kelas X — Past Simple (Regular & Irregular)",
+      source: "Kaidah Tata Bahasa Kelas X â€” Past Simple (Regular & Irregular)",
       type: "single_choice",
       title: "Grammar & Structure: Past Simple Tense",
       prompt: "Choose the correct past verb form to complete the recount sentence:<br><br><em>'Yesterday, the tenth-grade students _______ to Magelang by bus.'</em>",
@@ -695,7 +695,7 @@ function ${bankFnName}() {
     },
     {
       id: 33,
-      source: "Kaidah Tata Bahasa Kelas X — Connectors of Reason",
+      source: "Kaidah Tata Bahasa Kelas X â€” Connectors of Reason",
       type: "single_choice",
       title: "Grammar & Structure: Conjunctions",
       prompt: "Choose the correct conjunction showing reason:<br><br><em>'Tourists love visiting Karimunjawa _______ the sea is clean and clear.'</em>",
@@ -711,7 +711,7 @@ function ${bankFnName}() {
     },
     {
       id: 34,
-      source: "Kaidah Tata Bahasa Kelas X — Relative Pronouns",
+      source: "Kaidah Tata Bahasa Kelas X â€” Relative Pronouns",
       type: "single_choice",
       title: "Grammar & Structure: Relative Clauses",
       prompt: "Complete the sentence with the correct relative pronoun for a person:<br><br><em>'The friendly tour guide _______ showed us the ancient temple was very polite.'</em>",
@@ -727,7 +727,7 @@ function ${bankFnName}() {
     },
     {
       id: 35,
-      source: "Kaidah Tata Bahasa Kelas X — Degrees of Comparison",
+      source: "Kaidah Tata Bahasa Kelas X â€” Degrees of Comparison",
       type: "single_choice",
       title: "Grammar & Structure: Comparative Adjectives",
       prompt: "Select the correct comparative adjective form:<br><br><em>'Mount Merapi is _______ than the green hills around our town.'</em>",
@@ -743,7 +743,7 @@ function ${bankFnName}() {
     },
     {
       id: 36,
-      source: "Kaidah Tata Bahasa Kelas X — Subject Pronouns",
+      source: "Kaidah Tata Bahasa Kelas X â€” Subject Pronouns",
       type: "single_choice",
       title: "Grammar & Structure: Pronouns",
       prompt: "Choose the correct subject pronoun to complete the sentence:<br><br><em>'My classmates and I love reading. _______ visit the school library every Friday.'</em>",
@@ -759,7 +759,7 @@ function ${bankFnName}() {
     },
     {
       id: 37,
-      source: "Kaidah Tata Bahasa Kelas X — Prepositions of Time",
+      source: "Kaidah Tata Bahasa Kelas X â€” Prepositions of Time",
       type: "single_choice",
       title: "Grammar & Structure: Prepositions",
       prompt: "Choose the correct preposition of time for clock hours:<br><br><em>'Our school bus departed _______ six o\\'clock in the morning.'</em>",
@@ -775,7 +775,7 @@ function ${bankFnName}() {
     },
     {
       id: 38,
-      source: "Kaidah Tata Bahasa Kelas X — Polite Requests",
+      source: "Kaidah Tata Bahasa Kelas X â€” Polite Requests",
       type: "single_choice",
       title: "Grammar & Structure: Polite Expressions",
       prompt: "Which modal verb makes this request polite and courteous?<br><br><em>'_______ you please help me carry these English dictionaries to the shelf?'</em>",
@@ -791,7 +791,7 @@ function ${bankFnName}() {
     },
     {
       id: 39,
-      source: "Kaidah Tata Bahasa Kelas X — Coordinating Conjunctions",
+      source: "Kaidah Tata Bahasa Kelas X â€” Coordinating Conjunctions",
       type: "single_choice",
       title: "Grammar & Structure: Conjunctions",
       prompt: "Choose the correct coordinating conjunction showing contrast:<br><br><em>'The stone stairs were steep, _______ all the students reached the top of the temple safely.'</em>",
@@ -807,7 +807,7 @@ function ${bankFnName}() {
     },
     {
       id: 40,
-      source: "Kaidah Tata Bahasa Kelas X — Negative Sentences in Simple Present",
+      source: "Kaidah Tata Bahasa Kelas X â€” Negative Sentences in Simple Present",
       type: "single_choice",
       title: "Grammar & Structure: Present Negative",
       prompt: "Complete the sentence with the correct negative auxiliary for a plural subject:<br><br><em>'Responsible tourists _______ throw plastic trash into the ocean.'</em>",

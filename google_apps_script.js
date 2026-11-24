@@ -203,6 +203,8 @@ function resolveSheetName(data) {
  */
 function getTargetScoreSheet(ss, sheetName, jenisKategori) {
   var sheet = ss.getSheetByName(sheetName);
+  var headerColor = (jenisKategori && jenisKategori.includes("ASAS")) ? "#065F46" : "#1E3A8A";
+  
   if (!sheet) {
     sheet = ss.insertSheet(sheetName);
     var headers = [
@@ -218,12 +220,11 @@ function getTargetScoreSheet(ss, sheetName, jenisKategori) {
       "Nilai (0-100)",
       "Status KKTP (Min. 75)",
       "Durasi Pengerjaan",
+      "Jml Pelanggaran Tab",
+      "Status Integritas",
       "Detail Jawaban Siswa"
     ];
     sheet.appendRow(headers);
-    
-    // Warna Header: Biru Tua untuk ASTS, Hijau Emerald untuk ASAS
-    var headerColor = (jenisKategori && jenisKategori.includes("ASAS")) ? "#065F46" : "#1E3A8A";
     
     sheet.getRange(1, 1, 1, headers.length)
          .setBackground(headerColor)
@@ -231,6 +232,16 @@ function getTargetScoreSheet(ss, sheetName, jenisKategori) {
          .setFontWeight("bold")
          .setHorizontalAlignment("center");
     sheet.setFrozenRows(1);
+  } else {
+    // Kompatibilitas jika sheet sudah ada dengan format lama (13 kolom): tambahkan header kolom integritas
+    try {
+      if (sheet.getLastColumn() === 13) {
+        sheet.getRange(1, 14).setValue("Jml Pelanggaran Tab").setBackground(headerColor).setFontColor("#FFFFFF").setFontWeight("bold").setHorizontalAlignment("center");
+        sheet.getRange(1, 15).setValue("Status Integritas").setBackground(headerColor).setFontColor("#FFFFFF").setFontWeight("bold").setHorizontalAlignment("center");
+      }
+    } catch (colErr) {
+      Logger.log("Update header error: " + colErr);
+    }
   }
   return sheet;
 }
@@ -251,6 +262,11 @@ function recordStudentScore(data) {
   var total = Number(data.total || 40);
   var grade = Number(data.grade !== undefined ? data.grade : Math.round((score / total) * 100));
   var kktpStatus = grade >= 75 ? "TUNTAS" : "BELUM TUNTAS";
+
+  // Data Integritas & Pelanggaran Proctoring
+  var pelanggaranCount = Number(data.pelanggaran || 0);
+  var pelanggaranStr = pelanggaranCount === 0 ? "0 (Tertib/Bersih)" : (pelanggaranCount + "x Keluar Tab");
+  var integritasStr = data.integritasStatus || (pelanggaranCount === 0 ? "✅ AMAN (Tertib)" : (pelanggaranCount >= 3 ? "🚨 AUTO-SUBMIT (3x PELANGGARAN)" : "⚠️ PERINGATAN (" + pelanggaranCount + "x)"));
   
   // Deduplication check: cegah pencatatan ganda jika request terkirim 2x berturut-turut dalam 30 detik
   var lastRow = targetSheet.getLastRow();
@@ -293,6 +309,8 @@ function recordStudentScore(data) {
     grade,
     kktpStatus,
     data.duration || "-",
+    pelanggaranStr,
+    integritasStr,
     data.answers ? (typeof data.answers === "object" ? JSON.stringify(data.answers) : data.answers) : "-"
   ];
   

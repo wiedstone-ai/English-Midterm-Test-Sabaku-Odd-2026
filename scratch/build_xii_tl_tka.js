@@ -1,4 +1,4 @@
-// -*- coding: utf-8 -*-
+﻿// -*- coding: utf-8 -*-
 const fs = require('fs');
 const path = require('path');
 
@@ -44,9 +44,9 @@ function run() {
     // Q1: Picture (biotech_lab)
     {
       id: 1,
-      source: "Sumber: Advanced English Assessment Series — BSKAP Kemendikbudristek",
+      source: "Sumber: Advanced English Assessment Series â€” BSKAP Kemendikbudristek",
       type: "listening_pictures",
-      title: "Listening Section: Part I — Pictures",
+      title: "Listening Section: Part I â€” Pictures",
       audioText: "Number one. Look at the pictures. In a modern science laboratory, a researcher is analyzing digital DNA strands on a computer screen to study genetic traits. Which picture best illustrates the spoken statement?",
       prompt: "Look at the four pictures below. Which picture matches the modern science laboratory described in the audio?",
       options: [
@@ -62,9 +62,9 @@ function run() {
     // Q2: Picture (un_assembly) -> Target key B
     {
       id: 2,
-      source: "Sumber: Advanced English Assessment Series — BSKAP Kemendikbudristek",
+      source: "Sumber: Advanced English Assessment Series â€” BSKAP Kemendikbudristek",
       type: "listening_pictures",
-      title: "Listening Section: Part I — Pictures",
+      title: "Listening Section: Part I â€” Pictures",
       audioText: "Number two. Look at the pictures. In a large international assembly hall, youth delegates are seated around a semicircle discussing sustainable development goals. Which picture best corresponds to the spoken description?",
       prompt: "Look at the four pictures below. Which picture matches the international assembly hall described in the audio?",
       options: [
@@ -80,9 +80,9 @@ function run() {
     // Q3: Picture (tokamak_fusion) -> Target key C
     {
       id: 3,
-      source: "Sumber: Advanced English Assessment Series — BSKAP Kemendikbudristek",
+      source: "Sumber: Advanced English Assessment Series â€” BSKAP Kemendikbudristek",
       type: "listening_pictures",
-      title: "Listening Section: Part I — Pictures",
+      title: "Listening Section: Part I â€” Pictures",
       audioText: "Number three. Look at the pictures. Inside an advanced clean energy facility, engineers monitor a central solar-fusion reactor designed for renewable power. Which picture best illustrates the spoken statement?",
       prompt: "Look at the four pictures below. Which picture matches the clean energy research reactor described in the audio?",
       options: [
@@ -98,9 +98,9 @@ function run() {
     // Q4: Dialogue on Cashless Society -> Target key D
     {
       id: 4,
-      source: "Sumber: Advanced English Assessment Series — SMAN 1 Bae Kudus",
+      source: "Sumber: Advanced English Assessment Series â€” SMAN 1 Bae Kudus",
       type: "listening_dialog",
-      title: "Listening Section: Part II — Dialogue on Digital Currency",
+      title: "Listening Section: Part II â€” Dialogue on Digital Currency",
       audioSegments: [
         { role: "narrator", lang: "en-US", text: "Number four. Listen to a conversation between two students discussing digital payments.", pauseAfter: 400 },
         { role: "speaker1", gender: "male", pitch: 0.85, text: "I rarely carry paper cash nowadays because digital payment apps and QR codes are so convenient for buying lunch and school books.", pauseAfter: 450 },
@@ -122,9 +122,9 @@ function run() {
     // Q5: Dialogue on Pramoedya's Bumi Manusia -> Target key A
     {
       id: 5,
-      source: "Sumber: Advanced English Assessment Series — SMAN 1 Bae Kudus",
+      source: "Sumber: Advanced English Assessment Series â€” SMAN 1 Bae Kudus",
       type: "listening_dialog",
-      title: "Listening Section: Part II — Literary Dialogue on 'This Earth of Mankind'",
+      title: "Listening Section: Part II â€” Literary Dialogue on 'This Earth of Mankind'",
       audioSegments: [
         { role: "narrator", lang: "en-US", text: "Number five. Listen to a literary discussion between two students about Pramoedya Ananta Toer's novel, This Earth of Mankind.", pauseAfter: 400 },
         { role: "speaker1", gender: "male", pitch: 0.85, text: "I really admire how Nyai Ontosoroh is depicted in This Earth of Mankind. Even without formal schooling, she manages a large agricultural business through hard work and self-education.", pauseAfter: 450 },
@@ -146,9 +146,9 @@ function run() {
     // Q6: Dialogue on Youth Leadership & Ecology -> Target key B
     {
       id: 6,
-      source: "Sumber: Advanced English Assessment Series — SMAN 1 Bae Kudus",
+      source: "Sumber: Advanced English Assessment Series â€” SMAN 1 Bae Kudus",
       type: "listening_dialog",
-      title: "Listening Section: Part II — Dialogue on Environmental Action",
+      title: "Listening Section: Part II â€” Dialogue on Environmental Action",
       audioSegments: [
         { role: "narrator", lang: "en-US", text: "Number six. Listen to a conversation between two youth leaders about community environmental projects.", pauseAfter: 400 },
         { role: "speaker1", gender: "female", pitch: 1.25, text: "Our school eco-club collected over five hundred kilograms of plastic waste during the coastal clean-up last Saturday. The students were truly enthusiastic.", pauseAfter: 450 },
@@ -170,9 +170,9 @@ function run() {
     // Q7: Lecture on Indonesian Literature -> Target key C
     {
       id: 7,
-      source: "Sumber: Advanced English Assessment Series — Kemendikbudristek",
+      source: "Sumber: Advanced English Assessment Series â€” Kemendikbudristek",
       type: "listening_talk",
-      title: "Listening Section: Part III — Monologue on Indonesian Literature",
+      title: "Listening Section: Part III â€” Monologue on Indonesian Literature",
       audioText: "Questions 7 and 8 are based on the following lecture extract. Good afternoon, class. Today we explore how modern Indonesian literature helped foster national consciousness during the twentieth century. Early colonial literature was often written in Dutch and accessible only to a small aristocratic elite. However, pioneers like Pramoedya Ananta Toer chose to write compelling narratives in Indonesian and Malay, using literature to illuminate social injustice and give a voice to marginalized communities. Through realistic character development and vivid historical settings, these writers demonstrated that literature is not merely personal entertainment, but a powerful instrument for social reflection, collective empathy, and civic responsibility. Number seven. What is the primary topic of the lecturer's address?",
       prompt: "What is the primary topic of the lecturer's address?",
       options: [
@@ -188,9 +188,9 @@ function run() {
     // Q8: Lecture on Indonesian Literature -> Target key D
     {
       id: 8,
-      source: "Sumber: Advanced English Assessment Series — Kemendikbudristek",
+      source: "Sumber: Advanced English Assessment Series â€” Kemendikbudristek",
       type: "listening_talk",
-      title: "Listening Section: Part III — Monologue on Indonesian Literature",
+      title: "Listening Section: Part III â€” Monologue on Indonesian Literature",
       audioText: "Number eight. According to the lecturer, how did pioneer writers view the true role of literature?",
       prompt: "According to the lecturer, how did pioneer writers view the true role of literature?",
       options: [
@@ -206,9 +206,9 @@ function run() {
     // Q9: Symposium Address on Digital Citizenship -> Target key A
     {
       id: 9,
-      source: "Sumber: Advanced English Assessment Series — Kemendikbudristek",
+      source: "Sumber: Advanced English Assessment Series â€” Kemendikbudristek",
       type: "listening_talk",
-      title: "Listening Section: Part III — Symposium on Digital Literacy",
+      title: "Listening Section: Part III â€” Symposium on Digital Literacy",
       audioText: "Questions 9 and 10 are based on the following symposium address. Distinguished teachers and students. In an era dominated by automated news feeds and social media algorithms, digital literacy must evolve beyond basic keyboard skills. Algorithms are specifically engineered to capture our attention by promoting sensational and emotionally charged content. When high school graduates accept viral posts without scrutiny, misinformation spreads rapidly, creating polarization and anxiety. Therefore, schools must empower students to become discerning digital citizens. This means learning how to investigate sources, cross-check evidence, and understand how algorithms shape the information we consume every day. Number nine. Why do social media algorithms promote sensational content according to the speaker?",
       prompt: "Why do social media algorithms promote sensational content according to the speaker?",
       options: [
@@ -224,9 +224,9 @@ function run() {
     // Q10: Symposium Address on Digital Citizenship -> Target key B
     {
       id: 10,
-      source: "Sumber: Advanced English Assessment Series — Kemendikbudristek",
+      source: "Sumber: Advanced English Assessment Series â€” Kemendikbudristek",
       type: "listening_talk",
-      title: "Listening Section: Part III — Symposium on Digital Literacy",
+      title: "Listening Section: Part III â€” Symposium on Digital Literacy",
       audioText: "Number ten. What should schools empower students to do in response to algorithmic media?",
       prompt: "What should schools empower students to do in response to algorithmic media?",
       options: [
@@ -244,7 +244,7 @@ function run() {
     // Q11 -> Target key C
     {
       id: 11,
-      source: "Sumber: Kajian Literasi Keuangan Digital — BSKAP Kemendikbudristek",
+      source: "Sumber: Kajian Literasi Keuangan Digital â€” BSKAP Kemendikbudristek",
       type: "reading_discussion",
       title: "Reading Section: Discussion Text Analysis",
       stimulusTitle: "Text 1: The Transition to a Cashless Society: Modern Convenience vs. Financial Inclusion and Security",
@@ -265,7 +265,7 @@ function run() {
     // Q12 -> Target key D
     {
       id: 12,
-      source: "Sumber: Kajian Literasi Keuangan Digital — BSKAP Kemendikbudristek",
+      source: "Sumber: Kajian Literasi Keuangan Digital â€” BSKAP Kemendikbudristek",
       type: "reading_discussion",
       title: "Reading Section: Discussion Text Analysis",
       stimulusTitle: "Text 1: The Transition to a Cashless Society: Modern Convenience vs. Financial Inclusion and Security",
@@ -284,7 +284,7 @@ function run() {
     // Q13 -> Target key A
     {
       id: 13,
-      source: "Sumber: Kajian Literasi Keuangan Digital — BSKAP Kemendikbudristek",
+      source: "Sumber: Kajian Literasi Keuangan Digital â€” BSKAP Kemendikbudristek",
       type: "reading_discussion",
       title: "Reading Section: Discussion Text Analysis",
       stimulusTitle: "Text 1: The Transition to a Cashless Society: Modern Convenience vs. Financial Inclusion and Security",
@@ -303,7 +303,7 @@ function run() {
     // Q14 -> Target key B
     {
       id: 14,
-      source: "Sumber: Kajian Literasi Keuangan Digital — BSKAP Kemendikbudristek",
+      source: "Sumber: Kajian Literasi Keuangan Digital â€” BSKAP Kemendikbudristek",
       type: "reading_discussion",
       title: "Reading Section: Discussion Text Analysis",
       stimulusTitle: "Text 1: The Transition to a Cashless Society: Modern Convenience vs. Financial Inclusion and Security",
@@ -322,7 +322,7 @@ function run() {
     // Q15 -> Target key C
     {
       id: 15,
-      source: "Sumber: Kajian Literasi Keuangan Digital — BSKAP Kemendikbudristek",
+      source: "Sumber: Kajian Literasi Keuangan Digital â€” BSKAP Kemendikbudristek",
       type: "reading_discussion",
       title: "Reading Section: Discussion Text Analysis",
       stimulusTitle: "Text 1: The Transition to a Cashless Society: Modern Convenience vs. Financial Inclusion and Security",
@@ -342,7 +342,7 @@ function run() {
     // Q16-Q20: Pilihan Ganda Kompleks Matrix True/False Table
     {
       id: 16,
-      source: "Sumber: Kajian Kebijakan Ekonomi Digital — Kemendikbudristek & Bank Indonesia",
+      source: "Sumber: Kajian Kebijakan Ekonomi Digital â€” Kemendikbudristek & Bank Indonesia",
       type: "complex_matrix",
       title: "Pilihan Ganda Kompleks: Evaluasi Fakta Wacana Masyarakat Nontunai (Cashless Society)",
       stimulusTitle: "Evaluasi Argumen Kritis Teks Diskusi Ekonomi Digital",
@@ -359,7 +359,7 @@ function run() {
     },
     {
       id: 17,
-      source: "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
+      source: "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut â€” SMAN 1 Bae Kudus",
       type: "complex_matrix",
       title: "Pilihan Ganda Kompleks: Kalimat Pengandaian Inversi (Inverted Conditionals)",
       stimulusTitle: "Kaidah Pengandaian Bentuk Inversi (Had, Were, Should)",
@@ -376,7 +376,7 @@ function run() {
     },
     {
       id: 18,
-      source: "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
+      source: "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut â€” SMAN 1 Bae Kudus",
       type: "complex_matrix",
       title: "Pilihan Ganda Kompleks: Kalimat Cleft untuk Penekanan (Cleft Sentences)",
       stimulusTitle: "Kaidah Kalimat Cleft (It-cleft & Wh-cleft for Emphasis)",
@@ -393,7 +393,7 @@ function run() {
     },
     {
       id: 19,
-      source: "Sumber: Kajian Resensi Sastra Klasik Indonesia — Balai Bahasa & Kemendikbudristek",
+      source: "Sumber: Kajian Resensi Sastra Klasik Indonesia â€” Balai Bahasa & Kemendikbudristek",
       type: "complex_matrix",
       title: "Pilihan Ganda Kompleks: Evaluasi Fakta Resensi 'Bumi Manusia'",
       stimulusTitle: "Evaluasi Resensi Novel Pramoedya Ananta Toer: Bumi Manusia",
@@ -410,7 +410,7 @@ function run() {
     },
     {
       id: 20,
-      source: "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
+      source: "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut â€” SMAN 1 Bae Kudus",
       type: "complex_matrix",
       title: "Pilihan Ganda Kompleks: Konjungsi Konsesi & Pertentangan Maju (Advanced Concession)",
       stimulusTitle: "Kaidah Kata Hubung Konsesi dan Kontras Tingkat Lanjut",
@@ -429,7 +429,7 @@ function run() {
     // Q21-Q25: Pilihan Ganda Kompleks MCMA (Pilih 2 Opsi yang Tepat)
     {
       id: 21,
-      source: "Sumber: Kajian Literasi Keuangan Digital — BSKAP Kemendikbudristek",
+      source: "Sumber: Kajian Literasi Keuangan Digital â€” BSKAP Kemendikbudristek",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
       stimulusTitle: "Keunggulan Utama Sistem Pembayaran Digital",
@@ -447,7 +447,7 @@ function run() {
     },
     {
       id: 22,
-      source: "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
+      source: "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut â€” SMAN 1 Bae Kudus",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
       stimulusTitle: "Pola Kalimat Pengandaian Inversi yang Tepat",
@@ -465,7 +465,7 @@ function run() {
     },
     {
       id: 23,
-      source: "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
+      source: "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut â€” SMAN 1 Bae Kudus",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
       stimulusTitle: "Kalimat Cleft untuk Penekanan Makna",
@@ -483,7 +483,7 @@ function run() {
     },
     {
       id: 24,
-      source: "Sumber: Kajian Resensi Sastra Klasik Indonesia — Balai Bahasa & Kemendikbudristek",
+      source: "Sumber: Kajian Resensi Sastra Klasik Indonesia â€” Balai Bahasa & Kemendikbudristek",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
       stimulusTitle: "Keteladanan Karakter dalam Novel 'Bumi Manusia'",
@@ -501,7 +501,7 @@ function run() {
     },
     {
       id: 25,
-      source: "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
+      source: "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut â€” SMAN 1 Bae Kudus",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
       stimulusTitle: "Konjungsi Transisi Pertentangan dalam Esai Akademik",
@@ -522,13 +522,13 @@ function run() {
     // Q26 -> Target key D
     {
       id: 26,
-      source: "Sumber: Telaah Kritis Sastra Indonesia Klasik — Balai Bahasa Jawa Tengah & Kemendikbudristek",
+      source: "Sumber: Telaah Kritis Sastra Indonesia Klasik â€” Balai Bahasa Jawa Tengah & Kemendikbudristek",
       type: "reading_review",
       title: "Reading Section: Literary Review Text",
-      stimulusTitle: "Text 2: Literary Review — Pramoedya Ananta Toer’s 'This Earth of Mankind' (Bumi Manusia): A Masterpiece of Dignity, Education, and Moral Courage",
-      stimulusBody: `<p>First published in 1980, Pramoedya Ananta Toer’s historical novel <em>This Earth of Mankind</em> (Bumi Manusia) stands as one of the most powerful milestones in Indonesian and world literature. Set in the late nineteenth-century Dutch East Indies (colonial Indonesia), the narrative chronicles the coming of age of Minke, an exceptionally gifted Javanese youth permitted to study at the elite Dutch High School (H.B.S.) in Surabaya. Through Minke's journey, Pramoedya crafts a profound reflection on human dignity, social inequality, and the awakening of national consciousness.</p>
+      stimulusTitle: "Text 2: Literary Review â€” Pramoedya Ananta Toerâ€™s 'This Earth of Mankind' (Bumi Manusia): A Masterpiece of Dignity, Education, and Moral Courage",
+      stimulusBody: `<p>First published in 1980, Pramoedya Ananta Toerâ€™s historical novel <em>This Earth of Mankind</em> (Bumi Manusia) stands as one of the most powerful milestones in Indonesian and world literature. Set in the late nineteenth-century Dutch East Indies (colonial Indonesia), the narrative chronicles the coming of age of Minke, an exceptionally gifted Javanese youth permitted to study at the elite Dutch High School (H.B.S.) in Surabaya. Through Minke's journey, Pramoedya crafts a profound reflection on human dignity, social inequality, and the awakening of national consciousness.</p>
       <p>The beating heart of the novel is Nyai Ontosoroh, a native concubine sold by her own father to a Dutch merchant in her youth. Rather than succumbing to despair or accepting a submissive status, she educates herself in Dutch commerce, law, and culture. Through sheer intellect and relentless perseverance, she becomes the master administrator of a sprawling agricultural enterprise. When Minke falls in love with her gentle daughter, Annelies, Nyai Ontosoroh becomes his greatest mentor, demonstrating that true aristocracy is defined not by royal blood or colonial privilege, but by moral courage and self-respect.</p>
-      <p>From a literary standpoint, Pramoedya’s prose is both evocative and accessible. He skillfully blends historical realism with dramatic intimacy, transforming personal romance into a broader struggle against prejudice. While some modern readers may find the opening chapters somewhat deliberate in pacing, the dramatic momentum intensifies grippingly as colonial legal authorities attempt to strip Nyai Ontosoroh and Minke of their rights. The novel concludes with one of the most memorable declarations in world literature: "We have fought back, child, with all our might."</p>
+      <p>From a literary standpoint, Pramoedyaâ€™s prose is both evocative and accessible. He skillfully blends historical realism with dramatic intimacy, transforming personal romance into a broader struggle against prejudice. While some modern readers may find the opening chapters somewhat deliberate in pacing, the dramatic momentum intensifies grippingly as colonial legal authorities attempt to strip Nyai Ontosoroh and Minke of their rights. The novel concludes with one of the most memorable declarations in world literature: "We have fought back, child, with all our might."</p>
       <p>Ultimately, <em>This Earth of Mankind</em> transcends its historical setting. It is an indispensable classic for high school students and general readers alike, offering timeless insights into the transformative power of education, literacy, and ethical resistance against injustice.</p>`,
       prompt: "What is the primary communicative purpose of the text above?",
       options: [
@@ -544,10 +544,10 @@ function run() {
     // Q27 -> Target key A
     {
       id: 27,
-      source: "Sumber: Telaah Kritis Sastra Indonesia Klasik — Balai Bahasa Jawa Tengah & Kemendikbudristek",
+      source: "Sumber: Telaah Kritis Sastra Indonesia Klasik â€” Balai Bahasa Jawa Tengah & Kemendikbudristek",
       type: "reading_review",
       title: "Reading Section: Literary Review Text",
-      stimulusTitle: "Text 2: Literary Review — Pramoedya Ananta Toer’s 'This Earth of Mankind' (Bumi Manusia)",
+      stimulusTitle: "Text 2: Literary Review â€” Pramoedya Ananta Toerâ€™s 'This Earth of Mankind' (Bumi Manusia)",
       stimulusBody: "Lihat wacana Text 2 pada soal sebelumnya.",
       prompt: "According to the review, what historical setting forms the backdrop of Minke's narrative?",
       options: [
@@ -563,10 +563,10 @@ function run() {
     // Q28 -> Target key B
     {
       id: 28,
-      source: "Sumber: Telaah Kritis Sastra Indonesia Klasik — Balai Bahasa Jawa Tengah & Kemendikbudristek",
+      source: "Sumber: Telaah Kritis Sastra Indonesia Klasik â€” Balai Bahasa Jawa Tengah & Kemendikbudristek",
       type: "reading_review",
       title: "Reading Section: Literary Review Text",
-      stimulusTitle: "Text 2: Literary Review — Pramoedya Ananta Toer’s 'This Earth of Mankind' (Bumi Manusia)",
+      stimulusTitle: "Text 2: Literary Review â€” Pramoedya Ananta Toerâ€™s 'This Earth of Mankind' (Bumi Manusia)",
       stimulusBody: "Lihat wacana Text 2 pada soal sebelumnya.",
       prompt: "How does Nyai Ontosoroh overcome her tragic past according to paragraph 2?",
       options: [
@@ -582,10 +582,10 @@ function run() {
     // Q29 -> Target key C
     {
       id: 29,
-      source: "Sumber: Telaah Kritis Sastra Indonesia Klasik — Balai Bahasa Jawa Tengah & Kemendikbudristek",
+      source: "Sumber: Telaah Kritis Sastra Indonesia Klasik â€” Balai Bahasa Jawa Tengah & Kemendikbudristek",
       type: "reading_review",
       title: "Reading Section: Literary Review Text",
-      stimulusTitle: "Text 2: Literary Review — Pramoedya Ananta Toer’s 'This Earth of Mankind' (Bumi Manusia)",
+      stimulusTitle: "Text 2: Literary Review â€” Pramoedya Ananta Toerâ€™s 'This Earth of Mankind' (Bumi Manusia)",
       stimulusBody: "Lihat wacana Text 2 pada soal sebelumnya.",
       prompt: "What minor critique of the novel does the reviewer mention in paragraph 3?",
       options: [
@@ -601,10 +601,10 @@ function run() {
     // Q30 -> Target key D
     {
       id: 30,
-      source: "Sumber: Telaah Kritis Sastra Indonesia Klasik — Balai Bahasa Jawa Tengah & Kemendikbudristek",
+      source: "Sumber: Telaah Kritis Sastra Indonesia Klasik â€” Balai Bahasa Jawa Tengah & Kemendikbudristek",
       type: "reading_review",
       title: "Reading Section: Literary Review Text",
-      stimulusTitle: "Text 2: Literary Review — Pramoedya Ananta Toer’s 'This Earth of Mankind' (Bumi Manusia)",
+      stimulusTitle: "Text 2: Literary Review â€” Pramoedya Ananta Toerâ€™s 'This Earth of Mankind' (Bumi Manusia)",
       stimulusBody: "Lihat wacana Text 2 pada soal sebelumnya.",
       prompt: "The word 'transcends' in the concluding paragraph is closest in meaning to...",
       options: [
@@ -622,7 +622,7 @@ function run() {
     // Q31 -> Target key A
     {
       id: 31,
-      source: "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
+      source: "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut â€” SMAN 1 Bae Kudus",
       type: "grammar_structure",
       title: "Grammar & Structure: Inverted Conditional Type 3",
       prompt: "________ the technical team investigated the electrical system earlier, the laboratory blackout would have been averted.",
@@ -639,7 +639,7 @@ function run() {
     // Q32 -> Target key B
     {
       id: 32,
-      source: "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
+      source: "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut â€” SMAN 1 Bae Kudus",
       type: "grammar_structure",
       title: "Grammar & Structure: Inverted Conditional Type 1",
       prompt: "________ any candidate require special accommodations during the examination, they should notify the committee promptly.",
@@ -656,7 +656,7 @@ function run() {
     // Q33 -> Target key C
     {
       id: 33,
-      source: "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
+      source: "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut â€” SMAN 1 Bae Kudus",
       type: "grammar_structure",
       title: "Grammar & Structure: It-Cleft Sentence for Focus",
       prompt: "It was Nyai Ontosoroh's immense moral courage ________ inspired Minke to write bravely against social injustice.",
@@ -673,7 +673,7 @@ function run() {
     // Q34 -> Target key D
     {
       id: 34,
-      source: "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
+      source: "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut â€” SMAN 1 Bae Kudus",
       type: "grammar_structure",
       title: "Grammar & Structure: Wh-Cleft (Pseudo-Cleft)",
       prompt: "________ secondary students need most when evaluating digital information is sharp critical thinking.",
@@ -690,7 +690,7 @@ function run() {
     // Q35 -> Target key A
     {
       id: 35,
-      source: "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
+      source: "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut â€” SMAN 1 Bae Kudus",
       type: "grammar_structure",
       title: "Grammar & Structure: Concessive Clauses with 'Much as'",
       prompt: "________ he appreciated the efficiency of digital wallets, Rizky always carried some emergency physical cash.",
@@ -707,7 +707,7 @@ function run() {
     // Q36 -> Target key B
     {
       id: 36,
-      source: "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
+      source: "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut â€” SMAN 1 Bae Kudus",
       type: "grammar_structure",
       title: "Grammar & Structure: Contrast Transition Adverb",
       prompt: "Physical banknotes provide total personal anonymity. ________, digital payments offer unmatched convenience and speed.",
@@ -724,7 +724,7 @@ function run() {
     // Q37 -> Target key C
     {
       id: 37,
-      source: "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
+      source: "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut â€” SMAN 1 Bae Kudus",
       type: "grammar_structure",
       title: "Grammar & Structure: Subjunctive Mood after Verbs of Recommendation",
       prompt: "The education board recommended that the school committee ________ comprehensive digital ethics guidelines.",
@@ -741,7 +741,7 @@ function run() {
     // Q38 -> Target key D
     {
       id: 38,
-      source: "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
+      source: "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut â€” SMAN 1 Bae Kudus",
       type: "grammar_structure",
       title: "Grammar & Structure: Prepositional Concession",
       prompt: "________ facing severe financial limitations, the rural school produced outstanding graduates.",
@@ -758,7 +758,7 @@ function run() {
     // Q39 -> Target key A
     {
       id: 39,
-      source: "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
+      source: "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut â€” SMAN 1 Bae Kudus",
       type: "grammar_structure",
       title: "Grammar & Structure: Impersonal Academic Passive",
       prompt: "It is widely ________ by literary scholars that Pramoedya's tetralogy revolutionized modern Southeast Asian literature.",
@@ -775,7 +775,7 @@ function run() {
     // Q40 -> Target key B
     {
       id: 40,
-      source: "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut — SMAN 1 Bae Kudus",
+      source: "Sumber: Bank Soal Evaluasi Tingkat XII Tingkat Lanjut â€” SMAN 1 Bae Kudus",
       type: "grammar_structure",
       title: "Grammar & Structure: Concluding Transitional Adverb",
       prompt: "Both digital convenience and security risks must be considered. ________, a balanced hybrid approach serves citizens best.",
@@ -812,7 +812,7 @@ function run() {
  * Standar: TKA & AKM Literasi (Pilihan Ganda Biasa, Kompleks Matrix, & MCMA)
  */
 
-const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbz3M4guY77PrNH89TFG-NR_1S7gMaJjQ2TFh8xgOvNeDMyuwZWfwZVvv1YyXgOa3Xu9-Q/exec";
+const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbzEAZ06v-tooNexfkonEizne2ou015Ik0f2GND8m0x97psfWmMqDNl4I2fDkNmDcTwx/exec";
 
 ${svgCode}
 
@@ -831,7 +831,7 @@ ${engineAsas}
  * Dilengkapi Verifikasi Password ASTS Terpadu
  */
 
-const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbz3M4guY77PrNH89TFG-NR_1S7gMaJjQ2TFh8xgOvNeDMyuwZWfwZVvv1YyXgOa3Xu9-Q/exec";
+const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbzEAZ06v-tooNexfkonEizne2ou015Ik0f2GND8m0x97psfWmMqDNl4I2fDkNmDcTwx/exec";
 
 ${svgCode}
 
@@ -866,8 +866,8 @@ function checkAstsAuth() {
     initAuth = "if (!checkAstsAuth()) return;";
   }
 
-  const modePractice = "🎯 Mode Latihan " + testType;
-  const modeExam = "🔒 Asesmen Resmi " + testType;
+  const modePractice = "ðŸŽ¯ Mode Latihan " + testType;
+  const modeExam = "ðŸ”’ Asesmen Resmi " + testType;
 
   return `
 ${authGuard}
@@ -992,17 +992,17 @@ function toggleKisiKisiContent() {
   const icon = document.getElementById("kisi-toggle-icon");
   if (body.style.display === "none") {
     body.style.display = "block";
-    icon.textContent = "▲ Sembunyikan Kisi-Kisi";
+    icon.textContent = "â–² Sembunyikan Kisi-Kisi";
   } else {
     body.style.display = "none";
-    icon.textContent = "▼ Buka Kisi-Kisi Lengkap";
+    icon.textContent = "â–¼ Buka Kisi-Kisi Lengkap";
   }
 }
 
 function toggleKisiKisiModal() {
   const body = document.getElementById("kisi-kisi-body");
   body.style.display = "block";
-  document.getElementById("kisi-toggle-icon").textContent = "▲ Sembunyikan Kisi-Kisi";
+  document.getElementById("kisi-toggle-icon").textContent = "â–² Sembunyikan Kisi-Kisi";
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -1066,7 +1066,7 @@ function renderQuestion(index) {
     if (srcEl) {
       if (q.source) {
         srcEl.style.display = "block";
-        srcEl.innerHTML = \`📌 <strong>\${q.source}</strong>\`;
+        srcEl.innerHTML = \`ðŸ“Œ <strong>\${q.source}</strong>\`;
       } else {
         srcEl.style.display = "none";
       }
@@ -1079,7 +1079,7 @@ function renderQuestion(index) {
   let srcBadge = "";
   if (q.source) {
     srcBadge = \`<div class="source-citation" style="margin-top: 10px; font-size: 0.8rem; color: #475569; background: #f8fafc; border-left: 3.5px solid var(--accent-teal); padding: 6px 12px; border-radius: 4px; font-style: italic;">
-      📌 <strong>\${q.source}</strong>
+      ðŸ“Œ <strong>\${q.source}</strong>
     </div>\`;
   }
   promptBox.innerHTML = q.prompt + srcBadge;
@@ -1111,7 +1111,7 @@ function renderQuestion(index) {
 
     document.getElementById("explanation-text").innerHTML = \`
       <div style="margin-bottom: 10px; padding: 6px 12px; background: #ecfdf5; border: 1.5px solid #a7f3d0; border-radius: 8px; color: #065f46; font-size: 0.95rem; display: inline-block;">
-        🔑 <strong>Kunci Jawaban:</strong> <span style="font-weight: 800; color: #047857; margin-left: 4px;">\${keyBadge}</span>
+        ðŸ”‘ <strong>Kunci Jawaban:</strong> <span style="font-weight: 800; color: #047857; margin-left: 4px;">\${keyBadge}</span>
       </div>
       <div>\${q.explanation}</div>
     \`;
@@ -1121,8 +1121,8 @@ function renderQuestion(index) {
   }
 
   const flagBtn = document.getElementById("btn-flag-q");
-  if (flaggedQuestions.has(index)) flagBtn.textContent = "🚩 Hapus Ragu";
-  else flagBtn.textContent = "🏳️ Ragu-ragu";
+  if (flaggedQuestions.has(index)) flagBtn.textContent = "ðŸš© Hapus Ragu";
+  else flagBtn.textContent = "ðŸ³ï¸ Ragu-ragu";
 
   document.getElementById("btn-prev-q").disabled = (index === 0);
   document.getElementById("btn-next-q").disabled = (index === questions.length - 1);
@@ -1276,7 +1276,7 @@ function renderMCMACheckboxes(q, container) {
   tip.style.padding = "8px 12px";
   tip.style.borderRadius = "6px";
   tip.style.borderLeft = "3.5px solid #0284c7";
-  tip.innerHTML = "💡 <em>Petunjuk: Pilihlah tepat <strong>2 opsi jawaban</strong> yang benar pada tipe soal MCMA ini.</em>";
+  tip.innerHTML = "ðŸ’¡ <em>Petunjuk: Pilihlah tepat <strong>2 opsi jawaban</strong> yang benar pada tipe soal MCMA ini.</em>";
   wrap.appendChild(tip);
 
   container.appendChild(wrap);
@@ -1385,7 +1385,7 @@ function playQuestionAudio() {
   const statusText = document.getElementById("audio-status-text");
   if (playText) playText.textContent = "Hentikan";
   if (playBtn) playBtn.style.backgroundColor = "#dc2626";
-  if (statusText) statusText.textContent = "🔊 Audio sedang diputar. Simak dengan seksama...";
+  if (statusText) statusText.textContent = "ðŸ”Š Audio sedang diputar. Simak dengan seksama...";
   playNextAudioSegment();
 }
 
@@ -1507,7 +1507,7 @@ function submitTest() {
         <td>\${q.title || "Pilihan Ganda"}</td>
         <td style="text-align: center; font-weight: 700;">\${userAnsLabel}</td>
         <td style="text-align: center; font-weight: 700; color: #047857;">\${keyLabel}</td>
-        <td style="text-align: center;">\${isQCorrect ? '<span style="color:#16a34a; font-weight:bold;">✔ Benar</span>' : '<span style="color:#dc2626; font-weight:bold;">✘ Salah</span>'}</td>
+        <td style="text-align: center;">\${isQCorrect ? '<span style="color:#16a34a; font-weight:bold;">âœ” Benar</span>' : '<span style="color:#dc2626; font-weight:bold;">âœ˜ Salah</span>'}</td>
       </tr>
     \`;
   });
@@ -1518,7 +1518,7 @@ function submitTest() {
   document.getElementById("modal-student-name").textContent = studentIdentity.nama;
   document.getElementById("modal-student-meta").textContent = \`Kelas: \${studentIdentity.tingkat} | Rombel: \${studentIdentity.rombel} | Presensi: \${studentIdentity.presensi}\`;
   document.getElementById("modal-score-grade").textContent = finalScore;
-  document.getElementById("modal-score-badge").textContent = isTuntas ? "TUNTAS KKTP (≥ 75)" : "BELUM TUNTAS (< 75)";
+  document.getElementById("modal-score-badge").textContent = isTuntas ? "TUNTAS KKTP (â‰¥ 75)" : "BELUM TUNTAS (< 75)";
   document.getElementById("modal-score-badge").className = "kktp-status " + (isTuntas ? "passed" : "failed");
   document.getElementById("modal-correct-count").textContent = correctCount;
   document.getElementById("modal-total-count").textContent = questions.length;
@@ -1557,7 +1557,7 @@ function sendScoreToGoogleSheet(record) {
   if (!webAppUrl || webAppUrl.includes("REPLACE_WITH_YOUR")) return;
 
   const statusEl = document.getElementById("db-sync-status");
-  if (statusEl) statusEl.innerHTML = "⏳ Menghubungkan dan menyimpan nilai ke pangkalan data sekolah...";
+  if (statusEl) statusEl.innerHTML = "â³ Menghubungkan dan menyimpan nilai ke pangkalan data sekolah...";
 
   const payload = {
     method: "POST",
@@ -1567,7 +1567,7 @@ function sendScoreToGoogleSheet(record) {
   };
 
   fetch(webAppUrl, payload).then(() => {
-    if (statusEl) statusEl.innerHTML = "✅ Nilai Anda telah berhasil tersimpan di sistem basis data sekolah!";
+    if (statusEl) statusEl.innerHTML = "âœ… Nilai Anda telah berhasil tersimpan di sistem basis data sekolah!";
   }).catch(() => {
     try {
       const beacon = new Image();
@@ -1584,7 +1584,7 @@ function sendScoreToGoogleSheet(record) {
       }).toString();
       beacon.src = \`\${webAppUrl}?\${query}\`;
     } catch (bErr) {}
-    if (statusEl) statusEl.innerHTML = "✅ Nilai Anda telah tersimpan dengan aman di sistem sekolah.";
+    if (statusEl) statusEl.innerHTML = "âœ… Nilai Anda telah tersimpan dengan aman di sistem sekolah.";
   });
 }
 

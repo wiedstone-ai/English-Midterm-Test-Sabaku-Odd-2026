@@ -57,3 +57,4 @@ function syncScoreToGoogleSheets(payload) {
   fs.writeFileSync(f, content, 'utf8');
   console.log(`Updated renderQuestion and syncScoreToGoogleSheets in ${f}`);
 });
+

@@ -1,4 +1,4 @@
-// -*- coding: utf-8 -*-
+﻿// -*- coding: utf-8 -*-
 const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
@@ -46,7 +46,7 @@ function run() {
   const matrixQuestions = [
     {
       id: 16,
-      source: "Sumber: Kajian Cerita Rakyat Jawa Tengah — Balai Bahasa Provinsi Jawa Tengah & Kemendikbudristek",
+      source: "Sumber: Kajian Cerita Rakyat Jawa Tengah â€” Balai Bahasa Provinsi Jawa Tengah & Kemendikbudristek",
       type: "complex_matrix",
       title: "Pilihan Ganda Kompleks: Evaluasi Fakta Cerita Rawa Pening",
       stimulusTitle: "Evaluasi Kritis: The Legend of Rawa Pening",
@@ -63,7 +63,7 @@ function run() {
     },
     {
       id: 17,
-      source: "Sumber: Analisis Unsur Sastra Naratif Nusantara — Balai Bahasa Provinsi Jawa Tengah",
+      source: "Sumber: Analisis Unsur Sastra Naratif Nusantara â€” Balai Bahasa Provinsi Jawa Tengah",
       type: "complex_matrix",
       title: "Pilihan Ganda Kompleks: Fitur Kebahasaan & Majas Naratif",
       stimulusTitle: "Analisis Majas & Struktur Naratif",
@@ -80,7 +80,7 @@ function run() {
     },
     {
       id: 18,
-      source: "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat Lanjut — SMAN 1 Bae Kudus",
+      source: "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat Lanjut â€” SMAN 1 Bae Kudus",
       type: "complex_matrix",
       title: "Pilihan Ganda Kompleks: Kaidah Inversi Bahasa Inggris (Negative Inversion)",
       stimulusTitle: "Kaidah Inversi dengan Adverbial Negatif / Pembatas",
@@ -97,7 +97,7 @@ function run() {
     },
     {
       id: 19,
-      source: "Sumber: Panduan Pemanfaatan Etis AI untuk Siswa — BSKAP Kemendikbudristek",
+      source: "Sumber: Panduan Pemanfaatan Etis AI untuk Siswa â€” BSKAP Kemendikbudristek",
       type: "complex_matrix",
       title: "Pilihan Ganda Kompleks: Argumen Teks Hortatori AI",
       stimulusTitle: "Evaluasi Argumen Teks: Using AI Responsibly in Learning",
@@ -114,7 +114,7 @@ function run() {
     },
     {
       id: 20,
-      source: "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat Lanjut — SMAN 1 Bae Kudus",
+      source: "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat Lanjut â€” SMAN 1 Bae Kudus",
       type: "complex_matrix",
       title: "Pilihan Ganda Kompleks: Modus Subjungtif (Mandative Subjunctive)",
       stimulusTitle: "Kaidah Subjungtif Formal (Present Subjunctive)",
@@ -137,7 +137,7 @@ function run() {
   const mcmaQuestions = [
     {
       id: 21,
-      source: "Sumber: Kajian Cerita Rakyat Jawa Tengah — Balai Bahasa Provinsi Jawa Tengah & Kemendikbudristek",
+      source: "Sumber: Kajian Cerita Rakyat Jawa Tengah â€” Balai Bahasa Provinsi Jawa Tengah & Kemendikbudristek",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
       stimulusTitle: "Nilai Moral Cerita Rakyat Rawa Pening",
@@ -155,7 +155,7 @@ function run() {
     },
     {
       id: 22,
-      source: "Sumber: Adaptasi Kebijakan Etika AI dalam Pendidikan — UNESCO & Kemendikbudristek",
+      source: "Sumber: Adaptasi Kebijakan Etika AI dalam Pendidikan â€” UNESCO & Kemendikbudristek",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
       stimulusTitle: "Dampak Negatif Ketergantungan Berlebih pada AI",
@@ -173,7 +173,7 @@ function run() {
     },
     {
       id: 23,
-      source: "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat Lanjut — SMAN 1 Bae Kudus",
+      source: "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat Lanjut â€” SMAN 1 Bae Kudus",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
       stimulusTitle: "Identifikasi Kalimat Inversi Gramatikal",
@@ -191,7 +191,7 @@ function run() {
     },
     {
       id: 24,
-      source: "Sumber: Panduan Literasi Digital Remaja — Balai Pengembangan Talenta Indonesia",
+      source: "Sumber: Panduan Literasi Digital Remaja â€” Balai Pengembangan Talenta Indonesia",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
       stimulusTitle: "Penerapan Praktis Penggunaan AI yang Bertanggung Jawab",
@@ -209,7 +209,7 @@ function run() {
     },
     {
       id: 25,
-      source: "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat Lanjut — SMAN 1 Bae Kudus",
+      source: "Sumber: Bank Soal Evaluasi Bahasa Inggris Tingkat Lanjut â€” SMAN 1 Bae Kudus",
       type: "mcma",
       title: "Multiple Choice Multiple Answer (Pilih 2 Opsi yang Tepat)",
       stimulusTitle: "Kaidah Kata Hubung Konsesif (Concession Connectors)",
@@ -309,11 +309,11 @@ function run() {
   const contentAsas = `/**
  * ASESMEN SUMATIF AKHIR SEMESTER (ASAS) GASAL & LATIHAN KOMPREHENSIF 2026
  * SMA NEGERI 1 BAE KUDUS (SABAKU)
- * BAHASA INGGRIS TINGKAT LANJUT — TINGKAT XI (FASE F - TL)
+ * BAHASA INGGRIS TINGKAT LANJUT â€” TINGKAT XI (FASE F - TL)
  * Standar: TKA & AKM Literasi (Pilihan Ganda Biasa, Kompleks Matrix, & MCMA - Max CEFR B2)
  */
 
-const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbz3M4guY77PrNH89TFG-NR_1S7gMaJjQ2TFh8xgOvNeDMyuwZWfwZVvv1YyXgOa3Xu9-Q/exec";
+const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbzEAZ06v-tooNexfkonEizne2ou015Ik0f2GND8m0x97psfWmMqDNl4I2fDkNmDcTwx/exec";
 
 ${svgCode}
 
@@ -327,12 +327,12 @@ ${engineAsas}
   const contentAsts = `/**
  * ASESMEN SUMATIF TENGAH SEMESTER (ASTS) GASAL 2026
  * SMA NEGERI 1 BAE KUDUS (SABAKU)
- * BAHASA INGGRIS TINGKAT LANJUT — TINGKAT XI (FASE F - TL)
+ * BAHASA INGGRIS TINGKAT LANJUT â€” TINGKAT XI (FASE F - TL)
  * Standar: TKA & AKM Literasi (Pilihan Ganda Biasa, Kompleks Matrix, & MCMA - Max CEFR B2)
  * Dilengkapi Verifikasi Password ASTS Terpadu
  */
 
-const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbz3M4guY77PrNH89TFG-NR_1S7gMaJjQ2TFh8xgOvNeDMyuwZWfwZVvv1YyXgOa3Xu9-Q/exec";
+const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbzEAZ06v-tooNexfkonEizne2ou015Ik0f2GND8m0x97psfWmMqDNl4I2fDkNmDcTwx/exec";
 
 ${svgCode}
 
@@ -383,8 +383,8 @@ function checkAstsAuth() {
     initAuth = "if (!checkAstsAuth()) return;";
   }
 
-  const modePractice = "🎯 Mode Latihan " + testType;
-  const modeExam = "📝 Asesmen Resmi " + testType;
+  const modePractice = "ðŸŽ¯ Mode Latihan " + testType;
+  const modeExam = "ðŸ“ Asesmen Resmi " + testType;
 
   return `
 ${authGuard}
@@ -536,17 +536,17 @@ function toggleKisiKisiContent() {
   const icon = document.getElementById("kisi-toggle-icon");
   if (body.style.display === "none") {
     body.style.display = "block";
-    icon.textContent = "▲ Sembunyikan Kisi-Kisi";
+    icon.textContent = "â–² Sembunyikan Kisi-Kisi";
   } else {
     body.style.display = "none";
-    icon.textContent = "▼ Buka Kisi-Kisi Lengkap";
+    icon.textContent = "â–¼ Buka Kisi-Kisi Lengkap";
   }
 }
 
 function toggleKisiKisiModal() {
   const body = document.getElementById("kisi-kisi-body");
   body.style.display = "block";
-  document.getElementById("kisi-toggle-icon").textContent = "▲ Sembunyikan Kisi-Kisi";
+  document.getElementById("kisi-toggle-icon").textContent = "â–² Sembunyikan Kisi-Kisi";
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -610,7 +610,7 @@ function renderQuestion(index) {
     if (srcEl) {
       if (q.source) {
         srcEl.style.display = "block";
-        srcEl.innerHTML = \`📌 <strong>\${q.source}</strong>\`;
+        srcEl.innerHTML = \`ðŸ“Œ <strong>\${q.source}</strong>\`;
       } else {
         srcEl.style.display = "none";
       }
@@ -623,7 +623,7 @@ function renderQuestion(index) {
   let srcBadge = "";
   if (q.source) {
     srcBadge = \`<div class="source-citation" style="margin-top: 10px; font-size: 0.8rem; color: #475569; background: #f8fafc; border-left: 3.5px solid var(--accent-teal); padding: 6px 12px; border-radius: 4px; font-style: italic;">
-      📌 <strong>\${q.source}</strong>
+      ðŸ“Œ <strong>\${q.source}</strong>
     </div>\`;
   }
   promptBox.innerHTML = q.prompt + srcBadge;
@@ -655,7 +655,7 @@ function renderQuestion(index) {
 
     document.getElementById("explanation-text").innerHTML = \`
       <div style="margin-bottom: 10px; padding: 6px 12px; background: #ecfdf5; border: 1.5px solid #a7f3d0; border-radius: 8px; color: #065f46; font-size: 0.95rem; display: inline-block;">
-        🔑 <strong>Kunci Jawaban:</strong> <span style="font-weight: 800; color: #047857; margin-left: 4px;">\${keyBadge}</span>
+        ðŸ”‘ <strong>Kunci Jawaban:</strong> <span style="font-weight: 800; color: #047857; margin-left: 4px;">\${keyBadge}</span>
       </div>
       <div>\${q.explanation}</div>
     \`;
@@ -665,8 +665,8 @@ function renderQuestion(index) {
   }
 
   const flagBtn = document.getElementById("btn-flag-q");
-  if (flaggedQuestions.has(index)) flagBtn.textContent = "🔄 Hapus Ragu";
-  else flagBtn.textContent = "🟡 Ragu-ragu";
+  if (flaggedQuestions.has(index)) flagBtn.textContent = "ðŸ”„ Hapus Ragu";
+  else flagBtn.textContent = "ðŸŸ¡ Ragu-ragu";
 
   document.getElementById("btn-prev-q").disabled = (index === 0);
   document.getElementById("btn-next-q").disabled = (index === questions.length - 1);
@@ -767,7 +767,7 @@ function renderMCMACheckboxes(q, container) {
       renderQuestion(currentQuestionIndex);
     };
     item.innerHTML = \`
-      <div class="option-checkbox">\${isChecked ? "✓" : ""}</div>
+      <div class="option-checkbox">\${isChecked ? "âœ“" : ""}</div>
       <div class="option-text"><strong>[\${opt.key}]</strong> \${opt.text}</div>
     \`;
     list.appendChild(item);
@@ -868,7 +868,7 @@ function playQuestionAudio() {
   const statusText = document.getElementById("audio-status-text");
   if (playText) playText.textContent = "Hentikan";
   if (playBtn) playBtn.style.backgroundColor = "#dc2626";
-  if (statusText) statusText.textContent = "🔊 Audio sedang diputar. Simak dengan seksama...";
+  if (statusText) statusText.textContent = "ðŸ”Š Audio sedang diputar. Simak dengan seksama...";
   playNextAudioSegment();
 }
 
@@ -883,7 +883,7 @@ function playNextAudioSegment() {
     const statusText = document.getElementById("audio-status-text");
     if (playText) playText.textContent = "Putar Ulang";
     if (playBtn) playBtn.style.backgroundColor = "var(--accent-teal)";
-    if (statusText) statusText.textContent = "✅ Pemutaran audio selesai. Silakan pilih jawaban Anda.";
+    if (statusText) statusText.textContent = "âœ… Pemutaran audio selesai. Silakan pilih jawaban Anda.";
     return;
   }
   const seg = audioQueue[audioQueueIdx++];
@@ -976,7 +976,7 @@ function submitTest() {
   scoreCircle.className = "score-circle " + (isTuntas ? "tuntas" : "belum");
 
   const statusText = document.getElementById("result-status-text");
-  statusText.textContent = isTuntas ? "STATUS: TUNTAS KKTP (≥ 75) 🎉" : "STATUS: BELUM TUNTAS KKTP (< 75) ⚠️";
+  statusText.textContent = isTuntas ? "STATUS: TUNTAS KKTP (â‰¥ 75) ðŸŽ‰" : "STATUS: BELUM TUNTAS KKTP (< 75) âš ï¸";
   statusText.style.color = isTuntas ? "var(--accent-green)" : "var(--accent-red)";
 
   document.getElementById("stat-correct").textContent = correctCount;
@@ -1024,7 +1024,7 @@ function syncScoreToGoogleSheets(payload) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload)
   }).then(() => {
-    if (statusEl) statusEl.innerHTML = "✅ Nilai Anda telah berhasil tercatat di server rekapitulasi sekolah.";
+    if (statusEl) statusEl.innerHTML = "âœ… Nilai Anda telah berhasil tercatat di server rekapitulasi sekolah.";
   }).catch(err => {
     try {
       const beacon = new Image();
@@ -1041,7 +1041,7 @@ function syncScoreToGoogleSheets(payload) {
       }).toString();
       beacon.src = \`\${webAppUrl}?\${query}\`;
     } catch (bErr) {}
-    if (statusEl) statusEl.innerHTML = "💾 Nilai Anda telah tersimpan dengan aman di sistem sekolah.";
+    if (statusEl) statusEl.innerHTML = "ðŸ’¾ Nilai Anda telah tersimpan dengan aman di sistem sekolah.";
   });
 }
 
