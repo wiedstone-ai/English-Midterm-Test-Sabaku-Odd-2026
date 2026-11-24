@@ -2,7 +2,7 @@ import os
 
 BASE_DIR = r"c:\Users\LILI\OneDrive - PDK Jateng\Dokumen\English-Midterm-Test-Sabaku-Odd-2026"
 OLD_URL = "https://script.google.com/macros/s/AKfycbz3M4guY77PrNH89TFG-NR_1S7gMaJjQ2TFh8xgOvNeDMyuwZWfwZVvv1YyXgOa3Xu9-Q/exec"
-NEW_URL = "https://script.google.com/macros/s/AKfycbzEAZ06v-tooNexfkonEizne2ou015Ik0f2GND8m0x97psfWmMqDNl4I2fDkNmDcTwx/exec"
+NEW_URL = "https://script.google.com/macros/s/AKfycbzjB4sg_2-W46K4O_w52XguYLhjPeSrdFVM48D0jN9A6XUz0Lj5dztsZGy8rbHpXtvI/exec"
 
 def update_file_text(filepath, transform_fn):
     with open(filepath, 'r', encoding='utf-8') as f:

@@ -7,7 +7,7 @@
  */
 
 // Default Configuration
-const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbzEAZ06v-tooNexfkonEizne2ou015Ik0f2GND8m0x97psfWmMqDNl4I2fDkNmDcTwx/exec";
+const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbzjB4sg_2-W46K4O_w52XguYLhjPeSrdFVM48D0jN9A6XUz0Lj5dztsZGy8rbHpXtvI/exec";
 
 // State Management
 let currentTingkat = "X-E";
