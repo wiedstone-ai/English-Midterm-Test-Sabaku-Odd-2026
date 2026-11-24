@@ -220,9 +220,9 @@ function getTargetScoreSheet(ss, sheetName, jenisKategori) {
       "Nilai (0-100)",
       "Status KKTP (Min. 75)",
       "Durasi Pengerjaan",
+      "Detail Jawaban Siswa",
       "Jml Pelanggaran Tab",
-      "Status Integritas",
-      "Detail Jawaban Siswa"
+      "Status Integritas / Catatan Ujian"
     ];
     sheet.appendRow(headers);
     
@@ -233,12 +233,20 @@ function getTargetScoreSheet(ss, sheetName, jenisKategori) {
          .setHorizontalAlignment("center");
     sheet.setFrozenRows(1);
   } else {
-    // Kompatibilitas jika sheet sudah ada dengan format lama (13 kolom): tambahkan header kolom integritas
+    // Pastikan header kolom M tetap "Detail Jawaban Siswa", serta N & O untuk catatan kecurangan
     try {
-      if (sheet.getLastColumn() === 13) {
-        sheet.getRange(1, 14).setValue("Jml Pelanggaran Tab").setBackground(headerColor).setFontColor("#FFFFFF").setFontWeight("bold").setHorizontalAlignment("center");
-        sheet.getRange(1, 15).setValue("Status Integritas").setBackground(headerColor).setFontColor("#FFFFFF").setFontWeight("bold").setHorizontalAlignment("center");
+      var lastCol = sheet.getLastColumn();
+      if (lastCol >= 13) {
+        var col13Header = String(sheet.getRange(1, 13).getValue()).trim();
+        if (col13Header !== "Detail Jawaban Siswa") {
+          sheet.getRange(1, 13).setValue("Detail Jawaban Siswa")
+               .setBackground(headerColor).setFontColor("#FFFFFF").setFontWeight("bold").setHorizontalAlignment("center");
+        }
       }
+      sheet.getRange(1, 14).setValue("Jml Pelanggaran Tab")
+           .setBackground(headerColor).setFontColor("#FFFFFF").setFontWeight("bold").setHorizontalAlignment("center");
+      sheet.getRange(1, 15).setValue("Status Integritas / Catatan Ujian")
+           .setBackground(headerColor).setFontColor("#FFFFFF").setFontWeight("bold").setHorizontalAlignment("center");
     } catch (colErr) {
       Logger.log("Update header error: " + colErr);
     }
@@ -266,7 +274,8 @@ function recordStudentScore(data) {
   // Data Integritas & Pelanggaran Proctoring
   var pelanggaranCount = Number(data.pelanggaran || 0);
   var pelanggaranStr = pelanggaranCount === 0 ? "0 (Tertib/Bersih)" : (pelanggaranCount + "x Keluar Tab");
-  var integritasStr = data.integritasStatus || (pelanggaranCount === 0 ? "✅ AMAN (Tertib)" : (pelanggaranCount >= 3 ? "🚨 AUTO-SUBMIT (3x PELANGGARAN)" : "⚠️ PERINGATAN (" + pelanggaranCount + "x)"));
+  var integritasStr = data.integritasStatus || (pelanggaranCount === 0 ? "AMAN (Tertib)" : (pelanggaranCount >= 3 ? "AUTO-SUBMIT (3x PELANGGARAN TAB)" : "PERINGATAN (" + pelanggaranCount + "x)"));
+  var answersStr = data.answers ? (typeof data.answers === "object" ? JSON.stringify(data.answers) : data.answers) : "-";
   
   // Deduplication check: cegah pencatatan ganda jika request terkirim 2x berturut-turut dalam 30 detik
   var lastRow = targetSheet.getLastRow();
@@ -296,6 +305,11 @@ function recordStudentScore(data) {
     }
   }
 
+  // Kolom:
+  // L (12): Durasi Pengerjaan
+  // M (13): Detail Jawaban Siswa (Tetap di Kolom M)
+  // N (14): Jml Pelanggaran Tab
+  // O (15): Status Integritas / Catatan Ujian
   var row = [
     timestamp,
     data.tingkat || "-",
@@ -309,9 +323,9 @@ function recordStudentScore(data) {
     grade,
     kktpStatus,
     data.duration || "-",
+    answersStr,
     pelanggaranStr,
-    integritasStr,
-    data.answers ? (typeof data.answers === "object" ? JSON.stringify(data.answers) : data.answers) : "-"
+    integritasStr
   ];
   
   // Simpan ke sheet terpisah per jenjang

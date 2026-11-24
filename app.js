@@ -1,4 +1,4 @@
-﻿/**
+/**
  * ASESMEN SUMATIF TENGAH SEMESTER GASAL (ASTS) & LATIHAN MANDIRI 2026
  * SMA NEGERI 1 BAE KUDUS (SABAKU)
  * 
@@ -925,7 +925,7 @@ function startTest(e) {
 
   // Update Header Badges
   const modeBadge = document.getElementById("nav-mode-badge");
-  modeBadge.textContent = (currentMode === "practice") ? "ðŸŽ¯ Mode Latihan" : "ðŸ“ Asesmen Resmi (ASTS)";
+  modeBadge.textContent = (currentMode === "practice") ? "🎯 Mode Latihan" : "📝 Asesmen Resmi (ASTS)";
   modeBadge.className = "badge-mode " + (currentMode === "practice" ? "practice" : "exam");
 
   // Update Sidebar Student Meta
@@ -1049,7 +1049,7 @@ function renderQuestion(index) {
 
     document.getElementById("explanation-text").innerHTML = `
       <div style="margin-bottom: 10px; padding: 6px 12px; background: #ecfdf5; border: 1.5px solid #a7f3d0; border-radius: 8px; color: #065f46; font-size: 0.95rem; display: inline-block;">
-        ðŸ”‘ <strong>Kunci Jawaban:</strong> <span style="font-weight: 800; color: #047857; margin-left: 4px;">${keyBadge}</span>
+        🔑 <strong>Kunci Jawaban:</strong> <span style="font-weight: 800; color: #047857; margin-left: 4px;">${keyBadge}</span>
       </div>
       <div>${q.explanation}</div>
     `;
@@ -1061,9 +1061,9 @@ function renderQuestion(index) {
   // Flag Button status
   const flagBtn = document.getElementById("btn-flag-q");
   if (flaggedQuestions.has(index)) {
-    flagBtn.textContent = "ðŸš© Hapus Ragu";
+    flagBtn.textContent = "🚩 Hapus Ragu";
   } else {
-    flagBtn.textContent = "ðŸ³ï¸ Ragu-ragu";
+    flagBtn.textContent = "🏳️ Ragu-ragu";
   }
 
   // Nav buttons
@@ -1180,7 +1180,7 @@ function renderMCMACheckboxes(q, container) {
     };
 
     item.innerHTML = `
-      <div class="option-checkbox">${isChecked ? "âœ“" : ""}</div>
+      <div class="option-checkbox">${isChecked ? "✓" : ""}</div>
       <div class="option-text"><strong>[${opt.key}]</strong> ${opt.text}</div>
     `;
     list.appendChild(item);
@@ -1239,19 +1239,19 @@ function playQuestionAudio() {
 
     currentUtterance.onstart = () => {
       playText.textContent = "Sedang Memutar...";
-      statusText.textContent = "ðŸ”Š Audio sedang berlangsung. Simak dengan seksama.";
+      statusText.textContent = "🔊 Audio sedang berlangsung. Simak dengan seksama.";
       playBtn.style.backgroundColor = "#047857";
     };
 
     currentUtterance.onend = () => {
       playText.textContent = "Putar Ulang";
-      statusText.textContent = "âœ… Pemutaran audio selesai. Silakan pilih jawaban Anda.";
+      statusText.textContent = "✅ Pemutaran audio selesai. Silakan pilih jawaban Anda.";
       playBtn.style.backgroundColor = "var(--accent-teal)";
     };
 
     currentUtterance.onerror = () => {
       playText.textContent = "Putar Audio";
-      statusText.textContent = "âš ï¸ Pemutaran audio selesai atau dihentikan.";
+      statusText.textContent = "⚠️ Pemutaran audio selesai atau dihentikan.";
       playBtn.style.backgroundColor = "var(--accent-teal)";
     };
 
@@ -1363,7 +1363,7 @@ function submitTest() {
   scoreCircle.className = "score-circle " + (isTuntas ? "tuntas" : "belum");
 
   const statusText = document.getElementById("result-status-text");
-  statusText.textContent = isTuntas ? "STATUS: TUNTAS KKTP (â‰¥ 75) ðŸŽ‰" : "STATUS: BELUM TUNTAS KKTP (< 75) âš ï¸";
+  statusText.textContent = isTuntas ? "STATUS: TUNTAS KKTP (≥ 75) 🎉" : "STATUS: BELUM TUNTAS KKTP (< 75) ⚠️";
   statusText.style.color = isTuntas ? "var(--accent-green)" : "var(--accent-red)";
 
   document.getElementById("stat-correct").textContent = correctCount;
@@ -1410,7 +1410,7 @@ function syncScoreToGoogleSheets(payload) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload)
   }).then(() => {
-    if (statusEl) statusEl.innerHTML = "âœ… Nilai Anda telah berhasil tercatat di server rekapitulasi sekolah.";
+    if (statusEl) statusEl.innerHTML = "✅ Nilai Anda telah berhasil tercatat di server rekapitulasi sekolah.";
   }).catch(err => {
     console.warn("Direct POST fallback to Image beacon:", err);
     try {
@@ -1430,7 +1430,7 @@ function syncScoreToGoogleSheets(payload) {
     } catch (bErr) {
       console.warn("Beacon error:", bErr);
     }
-    if (statusEl) statusEl.innerHTML = "ðŸ’¾ Nilai Anda telah tersimpan dengan aman di sistem sekolah.";
+    if (statusEl) statusEl.innerHTML = "💾 Nilai Anda telah tersimpan dengan aman di sistem sekolah.";
   });
 }
 
