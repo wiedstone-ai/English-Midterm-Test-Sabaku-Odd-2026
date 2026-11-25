@@ -154,7 +154,7 @@
   </footer>
 
   <script>
-    const GS_URL = "https://script.google.com/macros/s/AKfycbybh-_2zLk-BshRtlZ953ZpI1U9h-CMgHwL545BbHhp2yevtSIF6s8yZ5rDQn9FBdsD/exec";
+    const GS_URL = "https://script.google.com/macros/s/AKfycbywtSFFn0qXg7w7yt8UHIjWPX89fTOXnE4dPDQ0YQs5-I89LrIJhgot-RwdQZ_ysknuOg/exec";
     let currentStudent = null;
 
     // Load identitas dari LocalStorage
@@ -245,6 +245,15 @@
 
     function grantAccess(enteredPass) {
       const normalizedPass = String(enteredPass || "").trim().toUpperCase();
+
+      // Hapus seluruh cache jawaban ASTS sebelumnya agar peserta mengisi ulang dari awal
+      try {
+        Object.keys(localStorage).forEach((k) => {
+          if (k.startsWith('sabaku_asts_progress_')) {
+            localStorage.removeItem(k);
+          }
+        });
+      } catch (err) {}
 
       // Simpan token otorisasi sesi beserta password yang digunakan
       sessionStorage.setItem('sabaku_asts_auth', JSON.stringify({

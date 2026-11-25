@@ -5,7 +5,7 @@
  * Standar: TKA & AKM Literasi (Pilihan Ganda, Matrix Kompleks, & MCMA - CEFR Level A2)
  */
 
-const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbybh-_2zLk-BshRtlZ953ZpI1U9h-CMgHwL545BbHhp2yevtSIF6s8yZ5rDQn9FBdsD/exec";
+const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbywtSFFn0qXg7w7yt8UHIjWPX89fTOXnE4dPDQ0YQs5-I89LrIJhgot-RwdQZ_ysknuOg/exec";
 
 const SVG_PICTURES = {
   athlete: `<svg viewBox="0 0 100 100" fill="none" stroke="#dc2626" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="22" r="10" fill="#fee2e2" stroke="#dc2626"/><path d="M50 32v24M50 42l18-12M50 42l-18 8M50 56l-14 24M50 56l16 22" stroke="#dc2626" stroke-width="3"/><circle cx="74" cy="26" r="4" fill="#fca5a5" stroke="#b91c1c"/></svg>`,
@@ -930,6 +930,7 @@ function startFreshTest() {
   userAnswers = {};
   flaggedQuestions.clear();
   isExamSubmitted = false;
+  isSyncingScore = false;
   remainingSeconds = 90 * 60;
   currentQuestionIndex = 0;
 
@@ -1543,6 +1544,8 @@ function syncScoreToGoogleSheets(payload) {
       }
     } catch (bErr) {}
     if (statusEl) statusEl.innerHTML = "⚠️ Nilai tercatat di penyimpanan lokal peramban (offline mode).";
+  }).finally(() => {
+    isSyncingScore = false;
   });
 }
 
@@ -1621,6 +1624,7 @@ function saveSettings() {
 }
 
 function saveProgressToLocalStorage() {
+  if (isExamSubmitted) return;
   try {
     const data = {
       questions,

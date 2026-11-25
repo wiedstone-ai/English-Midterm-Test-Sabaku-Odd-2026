@@ -296,23 +296,26 @@ function recordStudentScore(data) {
   var answersStr = data.answers ? (typeof data.answers === "object" ? JSON.stringify(data.answers) : data.answers) : "-";
   var sessionPassword = String(data.password || data.sessionPassword || "-").trim() || "-";
   
-  // Deduplication check: cegah pencatatan ganda jika request terkirim 2x berturut-turut dalam 30 detik
+  // Deduplication check: cegah pencatatan ganda hanya jika request identik (jawaban & skor sama) terkirim 2x dalam 30 detik
   var lastRow = targetSheet.getLastRow();
   if (lastRow > 1) {
     try {
-      var lastData = targetSheet.getRange(lastRow, 1, 1, 7).getValues()[0];
+      var lastData = targetSheet.getRange(lastRow, 1, 1, 13).getValues()[0];
       var lastTimestamp = lastData[0] ? new Date(lastData[0]) : null;
       var lastRombel = String(lastData[2]);
       var lastPresensi = String(lastData[3]);
       var lastNama = String(lastData[4]);
       var lastMode = String(lastData[6]);
+      var lastScore = Number(lastData[7]);
+      var lastAnswers = String(lastData[12] || "-");
       
       var isSameStudent = (lastRombel === String(data.rombel || "-") &&
                            lastPresensi === String(data.presensi || "-") &&
                            lastNama.toLowerCase() === String(data.nama || "-").toLowerCase() &&
                            lastMode === String(data.mode || "Asesmen Resmi"));
+      var isSameSubmission = isSameStudent && (lastScore === score) && (lastAnswers === answersStr);
       
-      if (isSameStudent && lastTimestamp && (timestamp.getTime() - lastTimestamp.getTime() < 30000)) {
+      if (isSameSubmission && lastTimestamp && (timestamp.getTime() - lastTimestamp.getTime() < 30000)) {
         return {
           status: "success",
           message: "Data nilai sudah tercatat sebelumnya (duplikasi dicegah).",

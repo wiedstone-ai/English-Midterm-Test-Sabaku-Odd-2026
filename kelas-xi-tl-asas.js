@@ -5,7 +5,7 @@
  * Standar: TKA & AKM Literasi (Pilihan Ganda, Matrix Kompleks, & MCMA - CEFR A2 Menuju B1)
  */
 
-const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbybh-_2zLk-BshRtlZ953ZpI1U9h-CMgHwL545BbHhp2yevtSIF6s8yZ5rDQn9FBdsD/exec";
+const DEFAULT_GS_URL = "https://script.google.com/macros/s/AKfycbywtSFFn0qXg7w7yt8UHIjWPX89fTOXnE4dPDQ0YQs5-I89LrIJhgot-RwdQZ_ysknuOg/exec";
 
 const SVG_PICTURES = {
   digitalManuscript: `<svg viewBox="0 0 100 100" fill="none" stroke="#2563eb" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="18" y="22" width="64" height="46" rx="4" fill="#eff6ff" stroke="#2563eb"/><circle cx="50" cy="45" r="14" stroke="#3b82f6" stroke-width="2" stroke-dasharray="3 3"/><line x1="50" y1="36" x2="50" y2="54" stroke="#1d4ed8"/><line x1="41" y1="45" x2="59" y2="45" stroke="#1d4ed8"/><path d="M26 32h14M26 38h10M60 52h14M60 58h10" stroke="#93c5fd"/><path d="M30 76l20-8 20 8" stroke="#475569" stroke-width="2"/><line x1="50" y1="68" x2="50" y2="84" stroke="#475569" stroke-width="3"/></svg>`,
@@ -1111,6 +1111,7 @@ function startFreshTest() {
   userAnswers = {};
   flaggedQuestions.clear();
   isExamSubmitted = false;
+  isSyncingScore = false;
   remainingSeconds = 90 * 60;
   currentQuestionIndex = 0;
 
@@ -1724,6 +1725,8 @@ function syncScoreToGoogleSheets(payload) {
       }
     } catch (bErr) {}
     if (statusEl) statusEl.innerHTML = "⚠️ Nilai tercatat di penyimpanan lokal peramban (offline mode).";
+  }).finally(() => {
+    isSyncingScore = false;
   });
 }
 
@@ -1802,6 +1805,7 @@ function saveSettings() {
 }
 
 function saveProgressToLocalStorage() {
+  if (isExamSubmitted) return;
   try {
     const data = {
       questions,
