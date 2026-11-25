@@ -113,6 +113,31 @@
       <!-- Alert Notification Area -->
       <div id="alert-box" style="display: none; padding: 12px 18px; border-radius: 8px; margin-bottom: 20px; font-weight: 600;"></div>
 
+      <!-- Card 0: Pengaturan Mode Masuk Ujian Real (Wajib Password vs Otomatis/Bypass) -->
+      <div class="admin-card" style="border-left: 5px solid #d97706; background: #fffbeb;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 12px;">
+          <div>
+            <h3 style="color: #92400e; margin: 0; font-size: 1.2rem;">⚙️ Mode Masuk Ujian Real (ASTS)</h3>
+            <p style="color: #78350f; font-size: 0.85rem; margin-top: 4px; margin-bottom: 0;">
+              Atur apakah peserta ujian real <strong>wajib memasukkan password</strong> (default) atau <strong>otomatis masuk tanpa password (bypass)</strong>.
+            </p>
+          </div>
+          <span class="badge-status" id="bypass-mode-badge" style="background: #dcfce7; color: #166534;">🔒 WAJIB PASSWORD (DEFAULT)</span>
+        </div>
+
+        <div style="display: flex; gap: 12px; margin-top: 14px; flex-wrap: wrap;">
+          <button type="button" id="btn-mode-required" onclick="setBypassMode('OFF')" class="btn" style="flex: 1; min-width: 210px; padding: 11px 14px; font-weight: 700; border-radius: 8px; cursor: pointer; background: #059669; color: white; border: 2px solid #047857;">
+            🔒 Wajib Masukkan Password (Default)
+          </button>
+          <button type="button" id="btn-mode-bypass" onclick="setBypassMode('ON')" class="btn" style="flex: 1; min-width: 210px; padding: 11px 14px; font-weight: 700; border-radius: 8px; cursor: pointer; background: white; color: #b45309; border: 2px solid #f59e0b;">
+            ⚡ Otomatis / Bypass Password
+          </button>
+        </div>
+        <div style="font-size: 0.8rem; color: #78350f; margin-top: 8px;" id="meta-bypass">
+          Status saat ini: Wajib memasukkan password (Default).
+        </div>
+      </div>
+
       <!-- Card 1: Password Umum (Master Password untuk Semua Tingkat) -->
       <div class="admin-card" style="border-left: 5px solid #4f46e5;">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
@@ -1215,7 +1240,7 @@ function sendJsonResponse(obj, callback) {
   </main>
 
   <script>
-    const GS_URL = "https://script.google.com/macros/s/AKfycbzjB4sg_2-W46K4O_w52XguYLhjPeSrdFVM48D0jN9A6XUz0Lj5dztsZGy8rbHpXtvI/exec";
+    const GS_URL = "https://script.google.com/macros/s/AKfycbybh-_2zLk-BshRtlZ953ZpI1U9h-CMgHwL545BbHhp2yevtSIF6s8yZ5rDQn9FBdsD/exec";
     const DEFAULT_PIN = "guru2026";
 
     const defaultPasswords = {
@@ -1379,6 +1404,11 @@ function sendJsonResponse(obj, callback) {
             customCache['XII-TL'] = p['XII-TL'].password;
           }
 
+          // Sinkronkan status Mode Bypass Password (default: OFF / wajib password)
+          const bypassRow = p['BYPASS_MODE'];
+          const isBypassOn = !!(bypassRow && bypassRow.status === 'AKTIF' && String(bypassRow.password || '').trim().toUpperCase() === 'ON');
+          applyBypassModeUI(isBypassOn ? 'ON' : 'OFF', bypassRow ? bypassRow.updatedAt : null);
+
           localStorage.setItem('sabaku_custom_passwords', JSON.stringify(customCache));
           updateStatusBadge("🟢 Tersinkron (Versi Baru)", "#dcfce7", "#166534");
           showAlert('✅ <strong>Koneksi Berhasil!</strong> Data password berhasil disinkronkan langsung dari sheet "pass" Google Sheets.', true);
@@ -1460,6 +1490,84 @@ function sendJsonResponse(obj, callback) {
         console.error('Save password error:', err);
         showAlert('⚠️ <strong>Tersimpan di Browser Guru Ini:</strong> <code>' + pass + '</code>.<br>' +
           'Gagal tersambung ke server Google Sheets (' + err.message + '). Silakan cek koneksi internet dan pastikan Apps Script sudah di-deploy dengan benar.', false);
+      }
+    }
+
+    function applyBypassModeUI(mode, updatedAt) {
+      const isOn = String(mode || 'OFF').toUpperCase() === 'ON';
+      localStorage.setItem('sabaku_bypass_mode', isOn ? 'ON' : 'OFF');
+
+      const badge = document.getElementById('bypass-mode-badge');
+      const btnReq = document.getElementById('btn-mode-required');
+      const btnByp = document.getElementById('btn-mode-bypass');
+      const meta = document.getElementById('meta-bypass');
+
+      if (isOn) {
+        if (badge) {
+          badge.innerText = "⚡ MODE BYPASS OTOMATIS AKTIF";
+          badge.style.background = "#fef3c7";
+          badge.style.color = "#b45309";
+        }
+        if (btnReq) {
+          btnReq.style.background = "white";
+          btnReq.style.color = "#059669";
+        }
+        if (btnByp) {
+          btnByp.style.background = "#d97706";
+          btnByp.style.color = "white";
+        }
+        if (meta) {
+          meta.innerText = "Status saat ini: Peserta langsung masuk tanpa password (Bypass)." + (updatedAt ? " | Diperbarui: " + updatedAt : "");
+        }
+      } else {
+        if (badge) {
+          badge.innerText = "🔒 WAJIB PASSWORD (DEFAULT)";
+          badge.style.background = "#dcfce7";
+          badge.style.color = "#166534";
+        }
+        if (btnReq) {
+          btnReq.style.background = "#059669";
+          btnReq.style.color = "white";
+        }
+        if (btnByp) {
+          btnByp.style.background = "white";
+          btnByp.style.color = "#b45309";
+        }
+        if (meta) {
+          meta.innerText = "Status saat ini: Wajib memasukkan password (Default)." + (updatedAt ? " | Diperbarui: " + updatedAt : "");
+        }
+      }
+    }
+
+    async function setBypassMode(mode) {
+      const targetMode = (String(mode).toUpperCase() === 'ON') ? 'ON' : 'OFF';
+      applyBypassModeUI(targetMode, 'Menyimpan...');
+      showAlert('⏳ Menyimpan pengaturan mode masuk (' + (targetMode === 'ON' ? 'Bypass Otomatis' : 'Wajib Password') + ') ke Google Sheets...', true);
+
+      try {
+        const ket = targetMode === 'ON' ? 'Mode Bypass Password AKTIF (Otomatis)' : 'Mode Wajib Password (Default)';
+        const url = GS_URL + "?action=set_password&tingkat=BYPASS_MODE&password=" + encodeURIComponent(targetMode) + "&keterangan=" + encodeURIComponent(ket) + "&t=" + Date.now();
+        const resp = await fetch(url);
+        const res = await resp.json();
+
+        if (res.status === "success") {
+          const nowStr = new Date().toLocaleTimeString('id-ID');
+          applyBypassModeUI(targetMode, 'Hari ini, ' + nowStr);
+          updateStatusBadge("🟢 Tersinkron (Versi Baru)", "#dcfce7", "#166534");
+          showAlert('🎉 <strong>Berhasil!</strong> Mode masuk ujian real diatur ke: <strong>' + (targetMode === 'ON' ? 'Otomatis / Bypass Password' : 'Wajib Masukkan Password (Default)') + '</strong>.', true);
+          return;
+        }
+
+        if (res.status === "active") {
+          updateStatusBadge("⚠️ Perlu Deploy Versi Baru", "#fef3c7", "#92400e");
+          showAlert('⚠️ Tersimpan di browser ini, namun Google Apps Script perlu di-deploy versi baru agar pengaturan berlaku untuk seluruh perangkat siswa.', false, true);
+          return;
+        }
+
+        showAlert('❌ Gagal menyimpan mode masuk: ' + (res.message || 'Terjadi kesalahan server'), false);
+      } catch (err) {
+        console.error('Save bypass mode error:', err);
+        showAlert('⚠️ Tersimpan lokal di browser ini. Gagal terhubung ke Google Sheets (' + err.message + ').', false);
       }
     }
   </script>

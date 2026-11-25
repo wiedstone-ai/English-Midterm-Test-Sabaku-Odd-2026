@@ -493,6 +493,26 @@
   // --------------------------------------------------------------------------
   // 4. HOOK & ENRICH DATA SINKRONISASI KE GOOGLE SHEETS
   // --------------------------------------------------------------------------
+  function getActiveSessionPassword() {
+    try {
+      const authRaw = sessionStorage.getItem("sabaku_asts_auth");
+      if (authRaw) {
+        const authObj = JSON.parse(authRaw);
+        if (authObj && authObj.password) return String(authObj.password).trim();
+      }
+    } catch (e) {}
+
+    try {
+      const studentRaw = localStorage.getItem("sabaku_current_student");
+      if (studentRaw) {
+        const studentObj = JSON.parse(studentRaw);
+        if (studentObj && studentObj.password) return String(studentObj.password).trim();
+      }
+    } catch (e) {}
+
+    return "";
+  }
+
   function hookGoogleSheetsSync() {
     if (typeof window.syncScoreToGoogleSheets === "function" && !window.syncScoreToGoogleSheets._isHooked) {
       const origSync = window.syncScoreToGoogleSheets;
@@ -504,6 +524,10 @@
             : (tabSwitchCount >= PROCTOR_CONFIG.maxViolations
               ? "AUTO-SUBMIT (3x PELANGGARAN TAB)"
               : ("PERINGATAN (" + tabSwitchCount + "x KELUAR TAB)"));
+          if (!payload.password) {
+            const sessionPass = getActiveSessionPassword();
+            if (sessionPass) payload.password = sessionPass;
+          }
         }
         return origSync.apply(this, arguments);
       };

@@ -154,7 +154,7 @@
   </footer>
 
   <script>
-    const GS_URL = "https://script.google.com/macros/s/AKfycbzjB4sg_2-W46K4O_w52XguYLhjPeSrdFVM48D0jN9A6XUz0Lj5dztsZGy8rbHpXtvI/exec";
+    const GS_URL = "https://script.google.com/macros/s/AKfycbybh-_2zLk-BshRtlZ953ZpI1U9h-CMgHwL545BbHhp2yevtSIF6s8yZ5rDQn9FBdsD/exec";
     let currentStudent = null;
 
     // Load identitas dari LocalStorage
@@ -186,11 +186,53 @@
         };
         document.getElementById('view-tingkat').innerText = tingkatMap[currentStudent.tingkat] || currentStudent.tingkat;
 
+        // Cek apakah mode bypass password (otomatis tanpa input) diaktifkan oleh guru
+        checkBypassMode();
+
       } catch (err) {
         console.error('Session load error:', err);
         window.location.href = 'index.html';
       }
     });
+
+    async function checkBypassMode() {
+      const inputEl = document.getElementById('input-password');
+      const btnEl = document.getElementById('btn-submit-pass');
+      try {
+        const resp = await fetch(GS_URL + "?action=get_bypass_mode&t=" + Date.now());
+        const data = await resp.json();
+        if (data && data.status === "success" && data.bypass === true) {
+          if (inputEl) {
+            inputEl.value = "BYPASS (OTOMATIS)";
+            inputEl.disabled = true;
+          }
+          if (btnEl) {
+            btnEl.innerText = "⚡ Masuk Otomatis (Tanpa Password)...";
+            btnEl.disabled = true;
+          }
+          showStatus('⚡ <strong>Mode Masuk Otomatis Aktif!</strong> Membuka ruang ujian ASTS tanpa perlu memasukkan password...', true);
+          grantAccess("BYPASS (OTOMATIS)");
+          return;
+        }
+        // Jika server merespons bukan bypass (atau format lama), tetap wajib password (default)
+      } catch (err) {
+        // Offline fallback hanya jika browser ini secara eksplisit disetel bypass
+        try {
+          if (localStorage.getItem('sabaku_bypass_mode') === 'ON') {
+            if (inputEl) {
+              inputEl.value = "BYPASS (OTOMATIS)";
+              inputEl.disabled = true;
+            }
+            if (btnEl) {
+              btnEl.innerText = "⚡ Masuk Otomatis (Tanpa Password)...";
+              btnEl.disabled = true;
+            }
+            showStatus('⚡ <strong>Mode Masuk Otomatis Aktif!</strong> Membuka ruang ujian ASTS...', true);
+            grantAccess("BYPASS (OTOMATIS)");
+          }
+        } catch (e) {}
+      }
+    }
 
     function showStatus(msg, isSuccess = false) {
       const box = document.getElementById('status-box');
@@ -201,13 +243,26 @@
       box.innerHTML = msg;
     }
 
-    function grantAccess() {
-      // Simpan token otorisasi sesi
+    function grantAccess(enteredPass) {
+      const normalizedPass = String(enteredPass || "").trim().toUpperCase();
+
+      // Simpan token otorisasi sesi beserta password yang digunakan
       sessionStorage.setItem('sabaku_asts_auth', JSON.stringify({
         tingkat: currentStudent.tingkat,
         authenticated: true,
+        password: normalizedPass,
         loginTime: Date.now()
       }));
+
+      // Simpan juga ke sabaku_current_student di localStorage agar terbawa saat submit nilai
+      try {
+        const raw = localStorage.getItem('sabaku_current_student');
+        if (raw) {
+          const studentObj = JSON.parse(raw);
+          studentObj.password = normalizedPass;
+          localStorage.setItem('sabaku_current_student', JSON.stringify(studentObj));
+        }
+      } catch (err) {}
 
       // Redirect ke halaman ASTS yang sesuai
       setTimeout(() => {
@@ -272,7 +327,7 @@
         // Kasus 1: Server merespons dengan hasil verifikasi valid
         if (data.valid === true) {
           showStatus('🎉 <strong>Password Benar!</strong> Membuka ruang ujian ASTS...', true);
-          grantAccess();
+          grantAccess(enteredPass);
           return;
         }
 
@@ -288,7 +343,7 @@
         // Kasus 3: Server merespons dengan format lama (Apps Script belum di-deploy versi baru)
         if (isFallbackPasswordMatch(enteredPass)) {
           showStatus('🎉 <strong>Password Cocok (Fallback Mode Aktif)!</strong> Membuka ruang ujian ASTS...', true);
-          grantAccess();
+          grantAccess(enteredPass);
           return;
         } else {
           showStatus('❌ <strong>Password Salah!</strong> Password yang dimasukkan tidak cocok. Pastikan pengawas ruang sudah memberikan password yang benar atau mengupdate Google Apps Script.', false);
@@ -303,7 +358,7 @@
         // Fallback jika Google Script lambat/timeout namun password cocok
         if (isFallbackPasswordMatch(enteredPass)) {
           showStatus('🎉 <strong>Password Cocok (Offline Fallback)!</strong> Membuka ruang ujian ASTS...', true);
-          grantAccess();
+          grantAccess(enteredPass);
         } else {
           showStatus('❌ Gagal menghubungi server Google Sheets dan password tidak cocok. Silakan tanyakan kepada pengawas ruang.', false);
           btn.innerText = "Verifikasi & Masuk Ujian ➔";

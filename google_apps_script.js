@@ -170,6 +170,21 @@ function verifyPassword(tingkat, inputPassword) {
 }
 
 /**
+ * Mengecek apakah mode bypass password (otomatis tanpa input) sedang aktif
+ */
+function getBypassMode() {
+  const passwords = getAllPasswords();
+  const row = passwords["BYPASS_MODE"];
+  const isBypass = !!(row && row.status === "AKTIF" && String(row.password || "").trim().toUpperCase() === "ON");
+  return {
+    status: "success",
+    bypass: isBypass,
+    mode: isBypass ? "ON" : "OFF",
+    updatedAt: row ? row.updatedAt : "-"
+  };
+}
+
+/**
  * Menentukan nama sheet terpisah berdasarkan jenis asesmen dan tingkat kelas
  */
 function resolveSheetName(data) {
@@ -222,7 +237,8 @@ function getTargetScoreSheet(ss, sheetName, jenisKategori) {
       "Durasi Pengerjaan",
       "Detail Jawaban Siswa",
       "Jml Pelanggaran Tab",
-      "Status Integritas / Catatan Ujian"
+      "Status Integritas / Catatan Ujian",
+      "Password / Sesi"
     ];
     sheet.appendRow(headers);
     
@@ -246,6 +262,8 @@ function getTargetScoreSheet(ss, sheetName, jenisKategori) {
       sheet.getRange(1, 14).setValue("Jml Pelanggaran Tab")
            .setBackground(headerColor).setFontColor("#FFFFFF").setFontWeight("bold").setHorizontalAlignment("center");
       sheet.getRange(1, 15).setValue("Status Integritas / Catatan Ujian")
+           .setBackground(headerColor).setFontColor("#FFFFFF").setFontWeight("bold").setHorizontalAlignment("center");
+      sheet.getRange(1, 16).setValue("Password / Sesi")
            .setBackground(headerColor).setFontColor("#FFFFFF").setFontWeight("bold").setHorizontalAlignment("center");
     } catch (colErr) {
       Logger.log("Update header error: " + colErr);
@@ -276,6 +294,7 @@ function recordStudentScore(data) {
   var pelanggaranStr = pelanggaranCount === 0 ? "0 (Tertib/Bersih)" : (pelanggaranCount + "x Keluar Tab");
   var integritasStr = data.integritasStatus || (pelanggaranCount === 0 ? "AMAN (Tertib)" : (pelanggaranCount >= 3 ? "AUTO-SUBMIT (3x PELANGGARAN TAB)" : "PERINGATAN (" + pelanggaranCount + "x)"));
   var answersStr = data.answers ? (typeof data.answers === "object" ? JSON.stringify(data.answers) : data.answers) : "-";
+  var sessionPassword = String(data.password || data.sessionPassword || "-").trim() || "-";
   
   // Deduplication check: cegah pencatatan ganda jika request terkirim 2x berturut-turut dalam 30 detik
   var lastRow = targetSheet.getLastRow();
@@ -310,6 +329,7 @@ function recordStudentScore(data) {
   // M (13): Detail Jawaban Siswa (Tetap di Kolom M)
   // N (14): Jml Pelanggaran Tab
   // O (15): Status Integritas / Catatan Ujian
+  // P (16): Password / Sesi
   var row = [
     timestamp,
     data.tingkat || "-",
@@ -325,7 +345,8 @@ function recordStudentScore(data) {
     data.duration || "-",
     answersStr,
     pelanggaranStr,
-    integritasStr
+    integritasStr,
+    sessionPassword
   ];
   
   // Simpan ke sheet terpisah per jenjang
@@ -413,6 +434,12 @@ function doGet(e) {
     if (action === "get_passwords") {
       const passwords = getAllPasswords();
       return sendJsonResponse({ status: "success", passwords: passwords }, params.callback);
+    }
+
+    // 2b. Cek Mode Bypass Password via GET (untuk masuk-asts.html)
+    if (action === "get_bypass_mode" || action === "check_bypass") {
+      const res = getBypassMode();
+      return sendJsonResponse(res, params.callback);
     }
     
     // 3. Set Password via GET (opsi fleksibel)
