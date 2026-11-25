@@ -30,6 +30,8 @@
   let cameraStream = null;
   let isProctorActive = true;
   let isModalOpen = false;
+  let isSystemDialogOpen = false;
+  let proctorGraceUntil = 0;
 
   // Inisialisasi Web Audio Context untuk Nada Alarm Peringatan
   function playAlarmBeep(isSevere) {
@@ -169,7 +171,8 @@
     // Make Draggable
     makeElementDraggable(container, header);
 
-    // Request Webcam Stream
+    // Request Webcam Stream (hindari false-positive blur saat dialog izin kamera terbuka)
+    isSystemDialogOpen = true;
     try {
       cameraStream = await navigator.mediaDevices.getUserMedia({
         video: {
@@ -192,6 +195,9 @@
       errorMsg.style.cssText = "padding: 12px 8px; color: #fca5a5; font-size: 10px; text-align: center; line-height: 1.4;";
       errorMsg.innerHTML = "<strong>Kamera Belum Aktif</strong><br>Izinkan kamera pada peramban Anda.";
       container.insertBefore(errorMsg, footer);
+    } finally {
+      isSystemDialogOpen = false;
+      proctorGraceUntil = Date.now() + 1500;
     }
   }
 
@@ -265,7 +271,7 @@
 
     // Deteksi saat jendela peramban kehilangan fokus
     window.addEventListener("blur", function () {
-      if (!isModalOpen) {
+      if (!isModalOpen && !isSystemDialogOpen && Date.now() >= proctorGraceUntil) {
         recordTabViolation("Meninggalkan jendela peramban ujian.");
       }
     });
@@ -274,6 +280,8 @@
   function recordTabViolation(reason) {
     if (!isProctorActive) return;
     if (window.isExamSubmitted) return;
+    if (isSystemDialogOpen) return;
+    if (Date.now() < proctorGraceUntil) return;
 
     const now = Date.now();
     // Debounce agar 1 kali tindakan alt-tab tidak terhitung 2x secara bersamaan
@@ -517,6 +525,8 @@
     if (typeof window.syncScoreToGoogleSheets === "function" && !window.syncScoreToGoogleSheets._isHooked) {
       const origSync = window.syncScoreToGoogleSheets;
       window.syncScoreToGoogleSheets = function (payload) {
+        isProctorActive = false;
+        window.isExamSubmitted = true;
         if (payload && typeof payload === "object") {
           payload.pelanggaran = tabSwitchCount;
           payload.integritasStatus = (tabSwitchCount === 0)
@@ -591,12 +601,65 @@
   }
 
   function toggleFullscreen() {
+    proctorGraceUntil = Date.now() + 1000;
     if (!document.fullscreenElement) {
       document.documentElement.requestFullscreen().catch(function () {});
     } else {
       if (document.exitFullscreen) {
         document.exitFullscreen().catch(function () {});
       }
+    }
+  }
+
+  function wrapNativeDialogsAndExamLifecycle() {
+    if (typeof window.confirm === "function" && !window.confirm._isProctorWrapped) {
+      const origConfirm = window.confirm;
+      window.confirm = function () {
+        isSystemDialogOpen = true;
+        try {
+          return origConfirm.apply(this, arguments);
+        } finally {
+          isSystemDialogOpen = false;
+          proctorGraceUntil = Date.now() + 1200;
+        }
+      };
+      window.confirm._isProctorWrapped = true;
+    }
+
+    if (typeof window.alert === "function" && !window.alert._isProctorWrapped) {
+      const origAlert = window.alert;
+      window.alert = function () {
+        isSystemDialogOpen = true;
+        try {
+          return origAlert.apply(this, arguments);
+        } finally {
+          isSystemDialogOpen = false;
+          proctorGraceUntil = Date.now() + 1200;
+        }
+      };
+      window.alert._isProctorWrapped = true;
+    }
+
+    if (typeof window.submitTest === "function" && !window.submitTest._isProctorHooked) {
+      const origSubmitTest = window.submitTest;
+      window.submitTest = function () {
+        isProctorActive = false;
+        window.isExamSubmitted = true;
+        return origSubmitTest.apply(this, arguments);
+      };
+      window.submitTest._isProctorHooked = true;
+    }
+
+    if (typeof window.restartTest === "function" && !window.restartTest._isProctorHooked) {
+      const origRestartTest = window.restartTest;
+      window.restartTest = function () {
+        const res = origRestartTest.apply(this, arguments);
+        window.isExamSubmitted = false;
+        isProctorActive = true;
+        proctorGraceUntil = Date.now() + 1200;
+        return res;
+      };
+      window.restartTest._isProctorHooked = true;
     }
   }
 
@@ -611,6 +674,7 @@
   };
 
   function bootProctor() {
+    wrapNativeDialogsAndExamLifecycle();
     initWebcamProctor();
     initTabSwitchDetector();
     initInteractionRestrictions();
